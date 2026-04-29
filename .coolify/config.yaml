@@ -1,0 +1,17 @@
+version: "1"
+name: pro-exteriors-website
+build:
+  command: npm ci && npm run build
+  output_directory: dist
+environment:
+  variables:
+    - SITE_URL
+    - PUBLIC_GA4_MEASUREMENT_ID
+    - PUBLIC_POSTHOG_KEY
+    - LEAD_WEBHOOK_URL
+    - SLACK_EMERGENCY_WEBHOOK
+    - BOOKING_CALENDAR_EMBED_URL
+    - PORTAL_SSO_URL
+  staging:
+    headers:
+      X-Robots-Tag: "noindex"

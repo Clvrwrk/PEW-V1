@@ -1,0 +1,908 @@
+/**
+ * OfficeLocationsMap.jsx
+ *
+ * Pro Exteriors — Interactive US Office Locations Map
+ * AIA4 / Maren Castellan-Reyes — v2.0 · 2026-04-18
+ *
+ * A drop-in React component that renders an interactive US map with three
+ * state tiers (active office / licensed service / inactive), brick-and-mortar
+ * and satellite office pins at real lat/lng, hover lift + twist-pin animation,
+ * a full contact card modal, a legend, and full keyboard + screen-reader
+ * support.
+ *
+ * Geometry:
+ *   Loads us-atlas TopoJSON (states-10m.json, ~160KB) from the jsdelivr CDN
+ *   on mount and projects via d3-geo geoAlbersUsa. No polygon data is bundled.
+ *
+ * Peer dependencies:
+ *   react           >= 17
+ *   react-dom       >= 17
+ *   d3-geo          ^3
+ *   topojson-client ^3
+ *
+ * Usage:
+ *   import OfficeLocationsMap from "./OfficeLocationsMap.jsx";
+ *   <OfficeLocationsMap />                      // bundled Pro Exteriors data
+ *   <OfficeLocationsMap offices={...} />        // swap in your own data
+ *
+ * Brand tokens (locked per Chris, 2026-04-18):
+ *   darkNavy   #11133F
+ *   flagRed    #C22326
+ *   lightGrey  #AEAEAE
+ *
+ * Accessibility:
+ *   - WCAG 2.2 AA contrast
+ *   - Keyboard navigable (Tab / Enter / Space / Esc)
+ *   - prefers-reduced-motion respected
+ *   - ARIA labels on every interactive region
+ */
+
+import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import { geoAlbersUsa, geoPath } from "d3-geo";
+import { feature } from "topojson-client";
+
+/* ================================================================
+ * Brand tokens
+ * ============================================================== */
+const COLORS = {
+  darkNavy:     "#11133F",
+  flagRed:      "#C22326",
+  lightGrey:    "#AEAEAE",
+  canvas:       "#F5F6F8",   // near-white map canvas
+  inactiveFill: "#E4E6EC",   // slightly lighter than lightGrey for readability
+  paper:        "#FFFFFF",
+  ink:          "#11133F",
+  overlay:      "rgba(17, 19, 63, 0.55)",
+};
+
+/* ================================================================
+ * US Atlas TopoJSON (states only — counties not needed)
+ * ============================================================== */
+const STATES_ATLAS_URL = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
+
+/* ================================================================
+ * FIPS ↔ USPS mapping
+ * ============================================================== */
+const FIPS_TO_ABBR = {
+  "01": "AL", "02": "AK", "04": "AZ", "05": "AR", "06": "CA",
+  "08": "CO", "09": "CT", "10": "DE", "11": "DC", "12": "FL",
+  "13": "GA", "15": "HI", "16": "ID", "17": "IL", "18": "IN",
+  "19": "IA", "20": "KS", "21": "KY", "22": "LA", "23": "ME",
+  "24": "MD", "25": "MA", "26": "MI", "27": "MN", "28": "MS",
+  "29": "MO", "30": "MT", "31": "NE", "32": "NV", "33": "NH",
+  "34": "NJ", "35": "NM", "36": "NY", "37": "NC", "38": "ND",
+  "39": "OH", "40": "OK", "41": "OR", "42": "PA", "44": "RI",
+  "45": "SC", "46": "SD", "47": "TN", "48": "TX", "49": "UT",
+  "50": "VT", "51": "VA", "53": "WA", "54": "WV", "55": "WI",
+  "56": "WY",
+};
+
+const FIPS_TO_NAME = {
+  AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas",
+  CA: "California", CO: "Colorado", CT: "Connecticut", DE: "Delaware",
+  DC: "District of Columbia", FL: "Florida", GA: "Georgia", HI: "Hawaii",
+  ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa", KS: "Kansas",
+  KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland",
+  MA: "Massachusetts", MI: "Michigan", MN: "Minnesota", MS: "Mississippi",
+  MO: "Missouri", MT: "Montana", NE: "Nebraska", NV: "Nevada",
+  NH: "New Hampshire", NJ: "New Jersey", NM: "New Mexico", NY: "New York",
+  NC: "North Carolina", ND: "North Dakota", OH: "Ohio", OK: "Oklahoma",
+  OR: "Oregon", PA: "Pennsylvania", RI: "Rhode Island", SC: "South Carolina",
+  SD: "South Dakota", TN: "Tennessee", TX: "Texas", UT: "Utah",
+  VT: "Vermont", VA: "Virginia", WA: "Washington", WV: "West Virginia",
+  WI: "Wisconsin", WY: "Wyoming",
+};
+
+/* ================================================================
+ * State-tier configuration
+ * ----------------------------------------------------------------
+ * ACTIVE   → states with a physical Pro Exteriors office
+ * LICENSED → states Pro Exteriors services but no physical office
+ *
+ * Note on MO: office list shows a brick & mortar in Kansas City, MO,
+ * but MO was missing from the "located in" list. Active trumps licensed
+ * where there's a real office — flagged in handoff notes.
+ * ============================================================== */
+const ACTIVE_STATES   = new Set(["TX", "KS", "CO", "GA", "NC", "MO"]);
+const LICENSED_STATES = new Set([
+  "LA", "SC", "OK", "NE", "MN", "MS", "AL", "AR", "TN", "KY",
+]);
+
+/* ================================================================
+ * Office data (real lat/lng for accurate pin placement)
+ * ----------------------------------------------------------------
+ * type:     "brick" | "satellite"
+ * Optional fields (manager, services, accreditation) render only when set.
+ * ============================================================== */
+const DEFAULT_OFFICES = [
+  {
+    id: "richardson-tx",
+    type: "brick",
+    name: "Richardson, TX",
+    company: "Pro Exteriors, LLC",
+    state: "TX",
+    address: "1778 N Plano Rd #118, Richardson, TX",
+    phone: "(469) 535-1708",
+    phoneHref: "tel:+14695351708",
+    email: "Office@proexteriorsus.com",
+    hours: "Mon–Sat 7am–5pm · Sun Closed",
+    accreditation: [],
+    lat: 32.9483, lng: -96.7299,
+  },
+  {
+    id: "euless-tx",
+    type: "brick",
+    name: "Euless, TX",
+    company: "Pro Exteriors, LLC",
+    state: "TX",
+    address: "1105 S Airport Cir Ste C, Euless, TX",
+    phone: "(817) 716-2657",
+    phoneHref: "tel:+18177162657",
+    email: "Office@proexteriorsus.com",
+    hours: "Mon–Sat 7am–5pm · Sun Closed",
+    accreditation: [],
+    lat: 32.8371, lng: -97.0819,
+  },
+  {
+    id: "wichita-ks",
+    type: "brick",
+    name: "Wichita, KS",
+    company: "Pro Exteriors, LLC",
+    state: "KS",
+    address: "801 E Douglas Ave #270, Wichita, KS",
+    phone: "(316) 512-1655",
+    phoneHref: "tel:+13165121655",
+    email: "Office@proexteriorsus.com",
+    hours: "Mon–Sat 7am–5pm · Sun Closed",
+    accreditation: [
+      { label: "Kansas Roofing Registration", number: "18-006035" },
+      { label: "Sedgwick Contractor License", number: "BUS2025-12040" },
+      { label: "Salina Contractor License", number: "SPCR-25-0040" },
+      { label: "McPherson Contractor License", number: "831" },
+    ],
+    lat: 37.6872, lng: -97.3301,
+  },
+  {
+    id: "denver-co",
+    type: "brick",
+    name: "Greenwood Village (Denver), CO",
+    company: "Pro Exteriors, LLC",
+    state: "CO",
+    address: "5650 Greenwood Plaza Blvd Ste 145, Greenwood Village, CO 80111",
+    phone: "(720) 227-6333",
+    phoneHref: "tel:+17202276333",
+    email: "Office@proexteriorsus.com",
+    hours: "Mon–Sat 7am–5pm · Sun Closed",
+    accreditation: [],
+    lat: 39.6172, lng: -104.8897,
+  },
+  {
+    id: "kansas-city-mo",
+    type: "brick",
+    name: "Kansas City, MO",
+    company: "Pro Exteriors, LLC",
+    state: "MO",
+    address: "710 Central St Ste 40, Kansas City, MO",
+    phone: "(816) 945-4717",
+    phoneHref: "tel:+18169454717",
+    email: "Office@proexteriorsus.com",
+    hours: "Mon–Sat 7am–5pm · Sun Closed",
+    accreditation: [
+      { label: "Missouri License", number: "0049369728" },
+      { label: "Kansas Roofing Registration (KC, KS side)", number: "18-006035" },
+      { label: "Kansas City, KS License", number: "OCC-012171-L" },
+    ],
+    lat: 39.0997, lng: -94.5786,
+  },
+  {
+    id: "valdosta-ga",
+    type: "brick",
+    name: "Valdosta, GA",
+    company: "Pro Exteriors, LLC",
+    state: "GA",
+    address: "Valdosta, GA — address forthcoming",
+    phone: null,
+    email: "Office@proexteriorsus.com",
+    hours: "Mon–Sat 7am–5pm · Sun Closed",
+    accreditation: [],
+    lat: 30.8327, lng: -83.2785,
+  },
+  {
+    id: "north-carolina",
+    type: "brick",
+    name: "North Carolina",
+    company: "Pro Exteriors, LLC",
+    state: "NC",
+    address: "Statewide — office address forthcoming",
+    phone: null,
+    email: "Office@proexteriorsus.com",
+    hours: "Mon–Sat 7am–5pm · Sun Closed",
+    accreditation: [],
+    lat: 35.7596, lng: -79.0193,
+  },
+  {
+    id: "ga-satellite",
+    type: "satellite",
+    name: "Georgia — Satellite Office",
+    company: "Pro Exteriors, LLC",
+    state: "GA",
+    address: "Georgia — satellite office address forthcoming",
+    phone: null,
+    email: "Office@proexteriorsus.com",
+    hours: "Mon–Sat 7am–5pm · Sun Closed",
+    accreditation: [],
+    lat: 33.7490, lng: -84.3880, // Atlanta placeholder — replace when confirmed
+  },
+];
+
+/* ================================================================
+ * Component
+ * ============================================================== */
+export default function OfficeLocationsMap({
+  offices = DEFAULT_OFFICES,
+  activeStates = ACTIVE_STATES,
+  licensedStates = LICENSED_STATES,
+  atlasUrl = STATES_ATLAS_URL,
+  width = 1100,
+  height = 640,
+  title = "Where We Work",
+  subtitle = "Headquartered in Texas. Offices across the South, Midwest, and Rockies. Licensed to serve 15 states.",
+}) {
+  const [atlas, setAtlas] = useState(null);
+  const [atlasError, setAtlasError] = useState(null);
+  const [selectedOffice, setSelectedOffice] = useState(null);
+  const [hoveredStateAbbr, setHoveredStateAbbr] = useState(null);
+  const [hoveredPinId, setHoveredPinId] = useState(null);
+  const cardRef = useRef(null);
+  const lastFocusedRef = useRef(null);
+
+  const activeSet   = activeStates   instanceof Set ? activeStates   : new Set(activeStates);
+  const licensedSet = licensedStates instanceof Set ? licensedStates : new Set(licensedStates);
+
+  /* ---- Load states TopoJSON on mount ---- */
+  useEffect(() => {
+    let cancelled = false;
+    fetch(atlasUrl)
+      .then((r) => r.json())
+      .then((js) => { if (!cancelled) setAtlas(js); })
+      .catch((e) => { if (!cancelled) setAtlasError(`Failed to load US atlas: ${e.message}`); });
+    return () => { cancelled = true; };
+  }, [atlasUrl]);
+
+  /* ---- Parse states + compute projection ---- */
+  const states = useMemo(() => {
+    if (!atlas) return [];
+    return feature(atlas, atlas.objects.states).features;
+  }, [atlas]);
+
+  const projection = useMemo(() => {
+    if (!states.length) return null;
+    return geoAlbersUsa().fitExtent(
+      [[16, 16], [width - 16, height - 16]],
+      { type: "FeatureCollection", features: states }
+    );
+  }, [states, width, height]);
+
+  const pathGenerator = useMemo(() => {
+    if (!projection) return null;
+    return geoPath(projection);
+  }, [projection]);
+
+  /* ---- Keyboard: Esc closes modal, focus returns to trigger ---- */
+  useEffect(() => {
+    if (!selectedOffice) return;
+    const handler = (e) => { if (e.key === "Escape") closeCard(); };
+    document.addEventListener("keydown", handler);
+    const closeBtn = cardRef.current?.querySelector("[data-close]");
+    closeBtn?.focus();
+    return () => document.removeEventListener("keydown", handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedOffice]);
+
+  const openOffice = useCallback((office, sourceEl) => {
+    lastFocusedRef.current = sourceEl || document.activeElement;
+    setSelectedOffice(office);
+  }, []);
+
+  const openFirstOfficeInState = useCallback(
+    (stateAbbr, sourceEl) => {
+      const office = offices.find((o) => o.state === stateAbbr);
+      if (office) openOffice(office, sourceEl);
+    },
+    [offices, openOffice]
+  );
+
+  const closeCard = useCallback(() => {
+    setSelectedOffice(null);
+    setTimeout(() => lastFocusedRef.current?.focus?.(), 0);
+  }, []);
+
+  /* ---- Tier resolver ---- */
+  const tierFor = useCallback(
+    (abbr) => {
+      if (activeSet.has(abbr))   return "active";
+      if (licensedSet.has(abbr)) return "licensed";
+      return "inactive";
+    },
+    [activeSet, licensedSet]
+  );
+
+  const fillFor = (tier, isHovered) => {
+    if (tier === "active")   return isHovered ? shade(COLORS.flagRed, -8)  : COLORS.flagRed;
+    if (tier === "licensed") return isHovered ? shade(COLORS.darkNavy, 12) : COLORS.darkNavy;
+    return COLORS.inactiveFill;
+  };
+
+  const strokeFor = (tier) => {
+    if (tier === "active")   return COLORS.darkNavy;
+    if (tier === "licensed") return COLORS.flagRed;
+    return COLORS.lightGrey;
+  };
+
+  const loading = !atlas && !atlasError;
+
+  /* ================================================================
+   * Render
+   * ============================================================== */
+  return (
+    <div style={styles.wrapper}>
+      <style>{CSS}</style>
+
+      <header style={styles.header}>
+        <h2 style={styles.title}>{title}</h2>
+        <p style={styles.subtitle}>{subtitle}</p>
+      </header>
+
+      <div style={styles.stage}>
+        <div style={{ ...styles.canvas, width, maxWidth: "100%" }}>
+          <svg
+            viewBox={`0 0 ${width} ${height}`}
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="Map of the United States showing Pro Exteriors office locations and service areas"
+            style={styles.svg}
+          >
+            <title>Pro Exteriors — US Office Locations</title>
+
+            <defs>
+              <filter id="pe-lift" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="3" stdDeviation="3.5" floodColor={COLORS.darkNavy} floodOpacity="0.32" />
+              </filter>
+              <filter id="pe-pin-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor={COLORS.darkNavy} floodOpacity="0.45" />
+              </filter>
+            </defs>
+
+            {/* Canvas background */}
+            <rect width={width} height={height} fill={COLORS.canvas} />
+
+            {/* State paths */}
+            {pathGenerator && (
+              <g>
+                {states.map((s) => {
+                  const abbr = FIPS_TO_ABBR[s.id];
+                  if (!abbr) return null;
+                  const tier = tierFor(abbr);
+                  const isInteractive = tier !== "inactive";
+                  const isHovered = hoveredStateAbbr === abbr;
+
+                  return (
+                    <path
+                      key={s.id}
+                      d={pathGenerator(s)}
+                      className={`pe-state pe-state--${tier} ${isInteractive ? "is-interactive" : ""} ${isHovered ? "is-hovered" : ""}`}
+                      fill={fillFor(tier, isHovered)}
+                      stroke={strokeFor(tier)}
+                      strokeWidth={tier === "inactive" ? 0.75 : 1.35}
+                      strokeLinejoin="round"
+                      tabIndex={tier === "active" ? 0 : -1}
+                      role={tier === "active" ? "button" : undefined}
+                      aria-label={
+                        isInteractive
+                          ? `${FIPS_TO_NAME[abbr]} — ${tier === "active" ? "active office location. Press Enter to view office details." : "service area, licensed to work."}`
+                          : undefined
+                      }
+                      onMouseEnter={() => isInteractive && setHoveredStateAbbr(abbr)}
+                      onMouseLeave={() => setHoveredStateAbbr(null)}
+                      onFocus={() => isInteractive && setHoveredStateAbbr(abbr)}
+                      onBlur={() => setHoveredStateAbbr(null)}
+                      onClick={(e) => {
+                        if (tier === "active") openFirstOfficeInState(abbr, e.currentTarget);
+                      }}
+                      onKeyDown={(e) => {
+                        if ((e.key === "Enter" || e.key === " ") && tier === "active") {
+                          e.preventDefault();
+                          openFirstOfficeInState(abbr, e.currentTarget);
+                        }
+                      }}
+                      filter={isHovered && isInteractive ? "url(#pe-lift)" : undefined}
+                    />
+                  );
+                })}
+              </g>
+            )}
+
+            {/* Office pins */}
+            {projection && (
+              <g>
+                {offices.map((office) => {
+                  const pt = projection([office.lng, office.lat]);
+                  if (!pt) return null;
+                  const isHovered = hoveredPinId === office.id;
+                  return (
+                    <g
+                      key={office.id}
+                      transform={`translate(${pt[0]}, ${pt[1]})`}
+                      className={`pe-pin pe-pin--${office.type} ${isHovered ? "is-hovered" : ""}`}
+                      tabIndex={0}
+                      role="button"
+                      aria-label={
+                        `${office.name} — ${office.type === "brick" ? "brick and mortar office" : "satellite office"}. Press Enter for contact details.`
+                      }
+                      onMouseEnter={() => setHoveredPinId(office.id)}
+                      onMouseLeave={() => setHoveredPinId(null)}
+                      onFocus={() => setHoveredPinId(office.id)}
+                      onBlur={() => setHoveredPinId(null)}
+                      onClick={(e) => openOffice(office, e.currentTarget)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          openOffice(office, e.currentTarget);
+                        }
+                      }}
+                      filter="url(#pe-pin-shadow)"
+                    >
+                      {office.type === "brick" ? <BrickPin /> : <SatellitePin />}
+                    </g>
+                  );
+                })}
+              </g>
+            )}
+
+            {/* Loading text */}
+            {loading && (
+              <text
+                x={width / 2} y={height / 2}
+                textAnchor="middle"
+                fill={COLORS.lightGrey}
+                fontSize="14"
+                fontFamily="Inter, system-ui, sans-serif"
+              >
+                Loading map…
+              </text>
+            )}
+
+            {/* Error */}
+            {atlasError && (
+              <text
+                x={width / 2} y={height / 2}
+                textAnchor="middle"
+                fill={COLORS.flagRed}
+                fontSize="14"
+                fontFamily="Inter, system-ui, sans-serif"
+              >
+                {atlasError}
+              </text>
+            )}
+          </svg>
+        </div>
+
+        <aside style={styles.legend} aria-label="Map legend">
+          <h3 style={styles.legendTitle}>Legend</h3>
+          <LegendSwatch
+            fill={COLORS.flagRed}
+            stroke={COLORS.darkNavy}
+            label="Located in"
+            sublabel="Active office · click for details"
+          />
+          <LegendSwatch
+            fill={COLORS.darkNavy}
+            stroke={COLORS.flagRed}
+            label="Service area"
+            sublabel="Licensed to work"
+          />
+          <LegendSwatch
+            fill={COLORS.inactiveFill}
+            stroke={COLORS.lightGrey}
+            label="Not serviced"
+            sublabel=""
+          />
+          <div style={styles.legendDivider} />
+          <LegendPin type="brick"     label="Brick & Mortar Office" />
+          <LegendPin type="satellite" label="Satellite Office" />
+          <div style={styles.legendHint}>Click any office pin for contact details.</div>
+        </aside>
+      </div>
+
+      {selectedOffice && (
+        <ContactCard
+          ref={cardRef}
+          office={selectedOffice}
+          onClose={closeCard}
+        />
+      )}
+    </div>
+  );
+}
+
+/* ================================================================
+ * Pin glyphs
+ * ============================================================== */
+function BrickPin() {
+  return (
+    <g>
+      {/* Teardrop pin — tip at (0,0), bulb above */}
+      <path
+        d="M0,0 C-9,-8 -14,-14 -14,-20 C-14,-27 -7,-32 0,-32 C7,-32 14,-27 14,-20 C14,-14 9,-8 0,0 Z"
+        fill={COLORS.flagRed}
+        stroke={COLORS.darkNavy}
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      {/* House glyph inside bulb */}
+      <path
+        d="M-5.5,-19 L0,-24 L5.5,-19 L5.5,-13 L-5.5,-13 Z"
+        fill={COLORS.paper}
+      />
+      <rect x="-1.5" y="-17" width="3" height="4" fill={COLORS.flagRed} />
+    </g>
+  );
+}
+
+function SatellitePin() {
+  return (
+    <g>
+      {/* Hex-ish pin in dark navy with flag-red outline — visually distinct */}
+      <path
+        d="M0,0 C-10,-6 -14,-12 -14,-20 C-14,-27 -7,-32 0,-32 C7,-32 14,-27 14,-20 C14,-12 10,-6 0,0 Z"
+        fill={COLORS.darkNavy}
+        stroke={COLORS.flagRed}
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      {/* Satellite dish + signal glyph */}
+      <circle cx="0" cy="-20" r="3.5" fill="none" stroke={COLORS.paper} strokeWidth="1.35" />
+      <line x1="-5" y1="-16" x2="5" y2="-16" stroke={COLORS.paper} strokeWidth="1.35" strokeLinecap="round" />
+      <line x1="0" y1="-16" x2="0" y2="-10" stroke={COLORS.paper} strokeWidth="1.35" strokeLinecap="round" />
+      <path d="M-6,-24 Q0,-28 6,-24" fill="none" stroke={COLORS.paper} strokeWidth="1.15" strokeLinecap="round" />
+    </g>
+  );
+}
+
+/* ================================================================
+ * Legend sub-components
+ * ============================================================== */
+function LegendSwatch({ fill, stroke, label, sublabel }) {
+  return (
+    <div style={styles.legendRow}>
+      <svg width="30" height="22" viewBox="0 0 30 22" aria-hidden="true">
+        <rect x="1" y="1" width="28" height="20" fill={fill} stroke={stroke} strokeWidth="1.5" rx="2" />
+      </svg>
+      <div>
+        <div style={styles.legendLabel}>{label}</div>
+        {sublabel && <div style={styles.legendSub}>{sublabel}</div>}
+      </div>
+    </div>
+  );
+}
+
+function LegendPin({ type, label }) {
+  return (
+    <div style={styles.legendRow}>
+      <svg width="32" height="36" viewBox="-16 -36 32 40" aria-hidden="true">
+        {type === "brick" ? <BrickPin /> : <SatellitePin />}
+      </svg>
+      <div>
+        <div style={styles.legendLabel}>{label}</div>
+      </div>
+    </div>
+  );
+}
+
+/* ================================================================
+ * Contact card modal
+ * ============================================================== */
+const ContactCard = React.forwardRef(function ContactCard({ office, onClose }, ref) {
+  return (
+    <div style={styles.modalOverlay} onClick={onClose} role="presentation">
+      <div
+        ref={ref}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="pe-office-title"
+        style={styles.modalCard}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <header style={styles.modalHeader}>
+          <div>
+            <div style={styles.modalEyebrow}>
+              {office.type === "brick" ? "Brick & Mortar Office" : "Satellite Office"}
+            </div>
+            <h3 id="pe-office-title" style={styles.modalTitle}>{office.name}</h3>
+            {office.company && <div style={styles.modalCompany}>{office.company}</div>}
+          </div>
+          <button
+            data-close
+            onClick={onClose}
+            aria-label="Close office details"
+            style={styles.modalClose}
+          >
+            ×
+          </button>
+        </header>
+
+        <div style={styles.modalBody}>
+          <CardRow label="Address" value={office.address} />
+          {office.phone && (
+            <CardRow
+              label="Phone"
+              value={
+                office.phoneHref
+                  ? <a href={office.phoneHref} style={styles.link}>{office.phone}</a>
+                  : office.phone
+              }
+            />
+          )}
+          {office.email && (
+            <CardRow
+              label="Email"
+              value={<a href={`mailto:${office.email}`} style={styles.link}>{office.email}</a>}
+            />
+          )}
+          {office.hours && <CardRow label="Hours" value={office.hours} />}
+          {office.manager && (
+            <CardRow
+              label="Manager"
+              value={`${office.manager}${office.managerTitle ? ` — ${office.managerTitle}` : ""}`}
+            />
+          )}
+          {office.services && office.services.length > 0 && (
+            <CardRow label="Services" value={office.services.join(" · ")} />
+          )}
+          {office.accreditation && office.accreditation.length > 0 && (
+            <div style={styles.accreditBlock}>
+              <div style={styles.accreditHeading}>Construction Accreditation</div>
+              <ul style={styles.accreditList}>
+                {office.accreditation.map((a, i) => (
+                  <li key={i} style={styles.accreditItem}>
+                    <span style={styles.accreditLabel}>{a.label}:</span>{" "}
+                    <span style={styles.accreditNumber}>{a.number}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+});
+
+function CardRow({ label, value }) {
+  return (
+    <div style={styles.cardRow}>
+      <div style={styles.cardRowLabel}>{label}</div>
+      <div style={styles.cardRowValue}>{value}</div>
+    </div>
+  );
+}
+
+/* ================================================================
+ * Color utility: tiny lighten/darken for hover shading
+ * ============================================================== */
+function shade(hex, amt) {
+  const n = parseInt(hex.slice(1), 16);
+  const clamp = (v) => Math.max(0, Math.min(255, v));
+  const r = clamp(((n >> 16) & 0xff) + amt);
+  const g = clamp(((n >> 8) & 0xff) + amt);
+  const b = clamp((n & 0xff) + amt);
+  return "#" + ((r << 16) | (g << 8) | b).toString(16).padStart(6, "0");
+}
+
+/* ================================================================
+ * Styles
+ * ============================================================== */
+const styles = {
+  wrapper: {
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    color: COLORS.darkNavy,
+    background: COLORS.paper,
+    padding: "2rem 1.5rem",
+    maxWidth: 1400,
+    margin: "0 auto",
+  },
+  header: { textAlign: "center", marginBottom: "1.5rem", maxWidth: 820, marginLeft: "auto", marginRight: "auto" },
+  title: {
+    fontSize: "clamp(1.6rem, 2.6vw, 2.4rem)",
+    fontWeight: 800,
+    margin: 0,
+    letterSpacing: "-0.015em",
+    color: COLORS.darkNavy,
+  },
+  subtitle: {
+    margin: "0.5rem 0 0",
+    fontSize: "clamp(0.95rem, 1.1vw, 1.05rem)",
+    color: "#475569",
+    lineHeight: 1.5,
+  },
+  stage: {
+    display: "grid",
+    gridTemplateColumns: "minmax(0, 1fr) 260px",
+    gap: "1.25rem",
+    alignItems: "start",
+  },
+  canvas: {
+    background: COLORS.canvas,
+    borderRadius: 10,
+    border: `1px solid ${COLORS.inactiveFill}`,
+    overflow: "hidden",
+    minWidth: 0,
+  },
+  svg: { display: "block", width: "100%", height: "auto" },
+
+  legend: {
+    background: "#FAFBFC",
+    border: `1px solid ${COLORS.inactiveFill}`,
+    borderRadius: 10,
+    padding: "1rem 1.1rem",
+  },
+  legendTitle: {
+    margin: "0 0 0.85rem",
+    fontSize: "0.75rem",
+    letterSpacing: "0.1em",
+    textTransform: "uppercase",
+    fontWeight: 700,
+    color: COLORS.darkNavy,
+  },
+  legendRow: { display: "flex", alignItems: "center", gap: 10, marginBottom: "0.65rem" },
+  legendLabel: { fontSize: "0.9rem", fontWeight: 600, color: COLORS.darkNavy, lineHeight: 1.2 },
+  legendSub:   { fontSize: "0.75rem", color: "#64748b", lineHeight: 1.2, marginTop: 1 },
+  legendDivider: { height: 1, background: COLORS.inactiveFill, margin: "0.85rem 0 0.85rem" },
+  legendHint: { fontSize: "0.72rem", color: "#64748b", marginTop: "0.75rem", lineHeight: 1.4 },
+
+  modalOverlay: {
+    position: "fixed",
+    inset: 0,
+    background: COLORS.overlay,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 1000,
+    padding: "1rem",
+    animation: "pe-fade-in 160ms ease-out",
+  },
+  modalCard: {
+    background: COLORS.paper,
+    borderRadius: 12,
+    boxShadow: "0 20px 50px rgba(17, 19, 63, 0.35)",
+    width: "100%",
+    maxWidth: 540,
+    overflow: "hidden",
+    animation: "pe-scale-in 200ms cubic-bezier(0.2, 0.8, 0.2, 1)",
+  },
+  modalHeader: {
+    background: COLORS.darkNavy,
+    color: COLORS.paper,
+    padding: "1.15rem 1.35rem",
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    gap: "1rem",
+    borderBottom: `4px solid ${COLORS.flagRed}`,
+  },
+  modalEyebrow: {
+    fontSize: "0.7rem",
+    letterSpacing: "0.14em",
+    textTransform: "uppercase",
+    color: "rgba(255,255,255,0.78)",
+    fontWeight: 600,
+    marginBottom: 4,
+  },
+  modalTitle: { margin: 0, fontSize: "1.2rem", fontWeight: 700 },
+  modalCompany: { fontSize: "0.85rem", opacity: 0.85, marginTop: 2 },
+  modalClose: {
+    background: "transparent",
+    border: "1px solid rgba(255,255,255,0.35)",
+    color: COLORS.paper,
+    width: 32, height: 32,
+    borderRadius: 16,
+    fontSize: 22,
+    lineHeight: 1,
+    cursor: "pointer",
+    flexShrink: 0,
+    display: "grid",
+    placeItems: "center",
+    paddingBottom: 2,
+  },
+  modalBody: { padding: "1rem 1.35rem 1.35rem" },
+  cardRow: {
+    display: "grid",
+    gridTemplateColumns: "92px 1fr",
+    gap: "0.6rem",
+    padding: "0.55rem 0",
+    borderBottom: `1px solid #EEF0F3`,
+    fontSize: "0.9rem",
+  },
+  cardRowLabel: {
+    fontSize: "0.7rem",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    fontWeight: 700,
+    color: "#64748b",
+    paddingTop: 2,
+  },
+  cardRowValue: { color: COLORS.darkNavy, lineHeight: 1.45 },
+  link: { color: COLORS.flagRed, textDecoration: "none", fontWeight: 600 },
+  accreditBlock: {
+    marginTop: "1rem",
+    padding: "0.85rem 1rem",
+    background: "#F7F8FB",
+    borderRadius: 8,
+    borderLeft: `3px solid ${COLORS.flagRed}`,
+  },
+  accreditHeading: {
+    fontSize: "0.7rem",
+    letterSpacing: "0.1em",
+    textTransform: "uppercase",
+    fontWeight: 700,
+    color: COLORS.darkNavy,
+    marginBottom: "0.5rem",
+  },
+  accreditList: { margin: 0, padding: 0, listStyle: "none" },
+  accreditItem: { fontSize: "0.8rem", color: "#334155", padding: "0.18rem 0", lineHeight: 1.35 },
+  accreditLabel: { color: "#64748b" },
+  accreditNumber: {
+    color: COLORS.darkNavy,
+    fontWeight: 700,
+    fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+  },
+};
+
+/* ================================================================
+ * Inline CSS (hover lift, focus ring, twist animation, reduced motion)
+ * ============================================================== */
+const CSS = `
+  @keyframes pe-fade-in   { from { opacity: 0 } to { opacity: 1 } }
+  @keyframes pe-scale-in  { from { transform: scale(.96); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+  @keyframes pe-twist     { 0% { transform: rotate(-14deg) } 50% { transform: rotate(14deg) } 100% { transform: rotate(-14deg) } }
+
+  .pe-state {
+    transition: transform 180ms ease, fill 180ms ease, filter 180ms ease;
+    transform-box: fill-box;
+    transform-origin: center;
+    cursor: default;
+  }
+  .pe-state.is-interactive { cursor: pointer; }
+  .pe-state.is-interactive:focus { outline: none; }
+  .pe-state.is-interactive:focus-visible {
+    outline: 2px solid ${COLORS.flagRed};
+    outline-offset: 2px;
+  }
+  .pe-state.is-hovered.is-interactive {
+    transform: translateY(-3px);
+  }
+
+  .pe-pin {
+    cursor: pointer;
+    transition: transform 160ms ease;
+    transform-box: fill-box;
+    transform-origin: center bottom;
+  }
+  .pe-pin:focus { outline: none; }
+  .pe-pin:focus-visible > path:first-of-type {
+    stroke-width: 3;
+  }
+  .pe-pin.is-hovered > path:first-of-type {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    animation: pe-twist 700ms ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pe-state, .pe-pin, .pe-pin > path:first-of-type {
+      transition: none !important;
+      transform: none !important;
+      animation: none !important;
+    }
+  }
+`;

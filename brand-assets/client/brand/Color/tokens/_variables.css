@@ -1,0 +1,125 @@
+/**
+ * Pro Exteriors LLC — CSS Custom Properties (Design Tokens)
+ * Master Color System v1.0 — 2026-04-12
+ *
+ * PANTONE REFERENCE (hand to any vendor):
+ *   Prussian Blue  → Pantone 2767 C / 2767 U
+ *   Burnt Sienna   → Pantone 711 C  / 2349 U
+ *   Golden Orange  → Pantone 7409 C / 7551 U
+ *   Hunter Green   → Pantone 7734 C / 7734 U
+ *   Smart Blue     → Pantone 2174 C / 300 U
+ */
+
+:root {
+  /* ═══════════════════════════════════════════════
+     BRAND CORE
+     ═══════════════════════════════════════════════ */
+
+  /* Primary Anchor — Pantone 2767 C | ΔE 1.62 */
+  --pe-navy: #13294B;
+  --pe-navy-rgb: 19, 41, 75;
+  --pe-navy-hsl: 216deg 60% 18%;
+
+  /* Secondary — Pantone 711 C | ΔE 2.62 */
+  --pe-red: #C22328;
+  --pe-red-rgb: 194, 35, 40;
+  --pe-red-hsl: 358deg 69% 45%;
+
+  /* Accent / CTA — Pantone 7409 C | ΔE 1.46 */
+  --pe-gold: #EAA221;
+  --pe-gold-rgb: 234, 162, 33;
+  --pe-gold-hsl: 39deg 84% 52%;
+
+  /* Accent Secondary — Pantone 7734 C | ΔE 4.17 */
+  --pe-green: #3B6B4C;
+  --pe-green-rgb: 59, 107, 76;
+  --pe-green-hsl: 141deg 29% 33%;
+
+  /* Links / Interactive — Pantone 2174 C | ΔE 1.14 */
+  --pe-blue: #0066CC;
+  --pe-blue-rgb: 0, 102, 204;
+  --pe-blue-hsl: 210deg 100% 40%;
+
+  /* ═══════════════════════════════════════════════
+     TINT SCALE (lighter)
+     ═══════════════════════════════════════════════ */
+  --pe-navy-100: #D5E2F5;
+  --pe-navy-200: #ABC4EA;
+  --pe-navy-300: #82A7E0;
+  --pe-navy-400: #588AD5;
+  --pe-navy-500: #326DC7;
+
+  --pe-red-100: #F7E4E4;
+  --pe-red-200: #F0C8C9;
+  --pe-red-300: #E8ACAE;
+  --pe-red-400: #E09194;
+  --pe-red-500: #D97679;
+
+  --pe-gold-100: #FCF4E3;
+  --pe-gold-200: #FAE8C7;
+  --pe-gold-300: #F7DDAB;
+  --pe-gold-400: #F5D18F;
+  --pe-gold-500: #F2C673;
+
+  --pe-green-100: #E3F0E8;
+  --pe-green-200: #C8E1D1;
+  --pe-green-300: #ACD2B9;
+  --pe-green-400: #91C2A2;
+  --pe-green-500: #75B38B;
+
+  --pe-blue-100: #D9ECFF;
+  --pe-blue-200: #B3D9FF;
+  --pe-blue-300: #8CC6FF;
+  --pe-blue-400: #66B2FF;
+  --pe-blue-500: #409FFF;
+
+  /* ═══════════════════════════════════════════════
+     SHADE SCALE (darker)
+     ═══════════════════════════════════════════════ */
+  --pe-navy-700: #1D3F73;
+  --pe-navy-800: #13294B; /* base */
+  --pe-navy-900: #0E1E37;
+  --pe-navy-950: #091425;
+
+  --pe-red-700: #CA3E43;
+  --pe-red-800: #C22328; /* base */
+  --pe-red-900: #921A1E;
+  --pe-red-950: #611214;
+
+  --pe-gold-700: #EDAF3B;
+  --pe-gold-800: #EAA221; /* base */
+  --pe-gold-900: #B67C11;
+  --pe-gold-950: #79530B;
+
+  --pe-green-700: #4B8860;
+  --pe-green-800: #3B6B4C; /* base */
+  --pe-green-900: #2D513A;
+  --pe-green-950: #1E3626;
+
+  --pe-blue-700: #0079F2;
+  --pe-blue-800: #0066CC; /* base */
+  --pe-blue-900: #004C99;
+  --pe-blue-950: #003366;
+
+  /* ═══════════════════════════════════════════════
+     SEMANTIC ALIASES
+     ═══════════════════════════════════════════════ */
+  --color-text-primary: var(--pe-navy);
+  --color-text-secondary: var(--pe-green);
+  --color-text-accent: var(--pe-red);
+  --color-text-link: var(--pe-blue);
+  --color-text-link-hover: var(--pe-blue-700);
+
+  --color-bg-primary: var(--pe-navy);
+  --color-bg-secondary: var(--pe-red);
+  --color-bg-accent: var(--pe-gold);
+  --color-bg-surface: #FFFFFF;
+  --color-bg-muted: var(--pe-navy-100);
+
+  --color-cta-bg: var(--pe-gold);
+  --color-cta-text: var(--pe-navy);
+  --color-cta-hover-bg: var(--pe-gold-700);
+
+  --color-border-default: #D6D2CA;
+  --color-border-emphasis: var(--pe-navy);
+}

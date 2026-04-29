@@ -1,0 +1,90 @@
+// ═══════════════════════════════════════════════════════════
+// Pro Exteriors LLC — SCSS Variables (Design Tokens)
+// Master Color System v1.0 — 2026-04-12
+//
+// PANTONE REFERENCE:
+//   Prussian Blue  → 2767 C / 2767 U
+//   Burnt Sienna   → 711 C  / 2349 U
+//   Golden Orange  → 7409 C / 7551 U
+//   Hunter Green   → 7734 C / 7734 U
+//   Smart Blue     → 2174 C / 300 U
+// ═══════════════════════════════════════════════════════════
+
+// ── Brand Core ──────────────────────────────────────────
+
+$pe-navy:  #13294B;  // Pantone 2767 C | Primary Anchor
+$pe-red:   #C22328;  // Pantone 711 C  | Secondary (Burnt Sienna)
+$pe-gold:  #EAA221;  // Pantone 7409 C | Accent / CTA
+$pe-green: #3B6B4C;  // Pantone 7734 C | Accent Secondary
+$pe-blue:  #0066CC;  // Pantone 2174 C | Links / Interactive
+
+// ── Tint Scale ──────────────────────────────────────────
+
+$pe-navy-100: #D5E2F5;
+$pe-navy-200: #ABC4EA;
+$pe-navy-300: #82A7E0;
+$pe-navy-400: #588AD5;
+$pe-navy-500: #326DC7;
+
+$pe-red-100: #F7E4E4;
+$pe-red-200: #F0C8C9;
+$pe-red-300: #E8ACAE;
+$pe-red-400: #E09194;
+$pe-red-500: #D97679;
+
+$pe-gold-100: #FCF4E3;
+$pe-gold-200: #FAE8C7;
+$pe-gold-300: #F7DDAB;
+$pe-gold-400: #F5D18F;
+$pe-gold-500: #F2C673;
+
+$pe-green-100: #E3F0E8;
+$pe-green-200: #C8E1D1;
+$pe-green-300: #ACD2B9;
+$pe-green-400: #91C2A2;
+$pe-green-500: #75B38B;
+
+$pe-blue-100: #D9ECFF;
+$pe-blue-200: #B3D9FF;
+$pe-blue-300: #8CC6FF;
+$pe-blue-400: #66B2FF;
+$pe-blue-500: #409FFF;
+
+// ── Shade Scale ─────────────────────────────────────────
+
+$pe-navy-700: #1D3F73;
+$pe-navy-900: #0E1E37;
+$pe-navy-950: #091425;
+
+$pe-red-700: #CA3E43;
+$pe-red-900: #921A1E;
+$pe-red-950: #611214;
+
+$pe-gold-700: #EDAF3B;
+$pe-gold-900: #B67C11;
+$pe-gold-950: #79530B;
+
+$pe-green-700: #4B8860;
+$pe-green-900: #2D513A;
+$pe-green-950: #1E3626;
+
+$pe-blue-700: #0079F2;
+$pe-blue-900: #004C99;
+$pe-blue-950: #003366;
+
+// ── Color Maps (for programmatic access) ────────────────
+
+$pe-colors: (
+  'navy':  $pe-navy,
+  'red':   $pe-red,
+  'gold':  $pe-gold,
+  'green': $pe-green,
+  'blue':  $pe-blue,
+);
+
+// ── CMYK Reference (for print stylesheets / docs) ──────
+// Navy:  C74  M45 Y0  K70
+// Red:   C0   M82 Y79 K24
+// Gold:  C0   M30 Y85 K8
+// Green: C44  M0  Y28 K58
+// Blue:  C100 M50 Y0  K19

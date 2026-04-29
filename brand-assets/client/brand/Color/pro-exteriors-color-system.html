@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Exteriors — Master Color System v1.0</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    /* Brand Core */
+    --pe-green: #3B6B4C;
+    --pe-red: #C22328;
+    --pe-navy: #13294B;
+    --pe-gold: #EAA221;
+    --pe-blue: #0066CC;
+
+    /* Functional */
+    --page-bg: #F8F7F5;
+    --card-bg: #FFFFFF;
+    --text-primary: #13294B;
+    --text-secondary: #3B6B4C;
+    --border: #D6D2CA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--page-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+  /* Header */
+  .header {
+    background: var(--pe-navy);
+    color: #fff;
+    padding: 48px 0 40px;
+    border-bottom: 4px solid var(--pe-gold);
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-bottom: 4px;
+  }
+  .header .version {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--pe-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Section */
+  .section {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--pe-navy);
+  }
+  .section-desc {
+    font-size: 14px;
+    color: #5A5A5A;
+    margin-bottom: 32px;
+    max-width: 720px;
+  }
+
+  /* Color Card Grid */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+  }
+
+  .color-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .color-swatch {
+    height: 140px;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px 20px;
+    position: relative;
+  }
+  .color-swatch .swatch-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .color-swatch .swatch-role {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+
+  .color-specs {
+    padding: 20px;
+  }
+  .color-specs h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--pe-navy);
+  }
+
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+  }
+  .spec-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .spec-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 2px;
+  }
+  .spec-value {
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    color: var(--pe-navy);
+  }
+  .spec-value.pantone {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--pe-red);
+  }
+  .spec-note {
+    font-size: 11px;
+    color: #888;
+    font-style: italic;
+  }
+
+  .spec-divider {
+    grid-column: 1 / -1;
+    border-top: 1px solid #EDEBE8;
+    margin: 4px 0;
+  }
+
+  /* Tint/Shade Strip */
+  .tint-strip {
+    display: flex;
+    height: 32px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 16px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .tint-step {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  /* Contrast Matrix */
+  .contrast-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 3px;
+    margin-top: 16px;
+  }
+  .contrast-table th {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #999;
+    padding: 8px 4px;
+    text-align: center;
+  }
+  .contrast-table td {
+    text-align: center;
+    padding: 10px 6px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .contrast-table td.pass-aaa {
+    background: #E8F5E9;
+    color: #2E7D32;
+  }
+  .contrast-table td.pass-aa {
+    background: #FFF3E0;
+    color: #E65100;
+  }
+  .contrast-table td.fail {
+    background: #FFEBEE;
+    color: #C62828;
+  }
+  .contrast-table td.na {
+    background: #F5F5F5;
+    color: #CCC;
+  }
+  .contrast-table .swatch-dot {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    vertical-align: middle;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  /* Usage Rules */
+  .usage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .usage-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .usage-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--pe-navy);
+  }
+  .usage-card p {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+  }
+  .usage-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .badge-do { background: #E8F5E9; color: #2E7D32; }
+  .badge-dont { background: #FFEBEE; color: #C62828; }
+  .badge-caution { background: #FFF3E0; color: #E65100; }
+
+  /* Medium-specific guidance */
+  .medium-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 13px;
+  }
+  .medium-table th {
+    text-align: left;
+    padding: 12px 16px;
+    background: var(--pe-navy);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .medium-table th:first-child { border-radius: 8px 0 0 0; }
+  .medium-table th:last-child { border-radius: 0 8px 0 0; }
+  .medium-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #EDEBE8;
+    vertical-align: top;
+  }
+  .medium-table tr:last-child td { border-bottom: none; }
+  .medium-table tr:nth-child(even) { background: #FAFAF8; }
+  .medium-table .medium-name {
+    font-weight: 600;
+    color: var(--pe-navy);
+    white-space: nowrap;
+  }
+
+  /* Token block */
+  .code-block {
+    background: #1E1E2E;
+    color: #CDD6F4;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin-top: 16px;
+  }
+  .code-block .comment { color: #6C7086; }
+  .code-block .property { color: #89B4FA; }
+  .code-block .value { color: #A6E3A1; }
+  .code-block .string { color: #F9E2AF; }
+  .code-block .label { color: #CBA6F7; }
+
+  /* Print styles */
+  @media print {
+    body { background: #fff; font-size: 10pt; }
+    .container { max-width: 100%; padding: 0; }
+    .header { padding: 24px 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .color-swatch { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section { padding: 24px 0; page-break-inside: avoid; }
+    .color-card { break-inside: avoid; }
+    .contrast-table td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .color-grid { grid-template-columns: 1fr; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 16px; }
+  }
+
+  .delta-e-note {
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  /* Pairing demos */
+  .pairing-demos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .pairing-demo {
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .pairing-demo .ratio {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.8;
+    display: block;
+    margin-top: 4px;
+  }
+
+  .footer {
+    padding: 32px 0;
+    text-align: center;
+    font-size: 11px;
+    color: #999;
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- HEADER -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="header">
+  <div class="container">
+    <div class="version">Master Color System Specification</div>
+    <h1>Pro Exteriors LLC</h1>
+    <div class="subtitle">Cross-Medium Color Reference &mdash; Pantone, Digital, Print, Merchandise</div>
+    <div class="subtitle" style="margin-top:8px; opacity:0.5; font-size:12px;">
+      Prepared by AIA4 Pro Exteriors &bull; v1.0 &mdash; April 12, 2026 &bull; Pantone matching via Delta-E 2000
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 1. BRAND COLORS — FULL SPECIFICATION -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="container">
+<div class="section">
+  <div class="section-title">1. Brand Palette &mdash; Complete Specification</div>
+  <div class="section-desc">
+    Every color below has been mapped to the Pantone Matching System using CIE Delta-E 2000 calculations.
+    Coated (C) values are for glossy/coated stock. Uncoated (U) values are for matte/uncoated stock.
+    Always request a press proof before a production run.
+  </div>
+
+  <div class="color-grid">
+
+    <!-- ── PRUSSIAN BLUE (PRIMARY) ── -->
+    <div class="color-card">
+      <div class="color-swatch" style="background:#13294B; color:#fff;">
+        <span class="swatch-label">Prussian Blue</span>
+        <span class="swatch-role">Primary Anchor</span>
+      </div>
+      <div class="color-specs">
+        <h3>#13294B</h3>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <span class="spec-label">Pantone Coated</span>
+            <span class="spec-value pantone">PANTONE 2767 C</span>
+            <span class="delta-e-note">&Delta;E 1.62 &mdash; Excellent</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Pantone Uncoated</span>
+            <span class="spec-value pantone">PANTONE 2767 U</span>
+            <span class="delta-e-note">&Delta;E 1.77 &mdash; Excellent</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item">
+            <span class="spec-label">HEX</span>
+            <span class="spec-value">#13294B</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">RGB</span>
+            <span class="spec-value">19, 41, 75</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">HSL</span>
+            <span class="spec-value">216&deg;, 60%, 18%</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">HSB</span>
+            <span class="spec-value">216&deg;, 75%, 29%</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">CMYK</span>
+            <span class="spec-value">74, 45, 0, 70</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Tailwind Token</span>
+            <span class="spec-value">prussian_blue.DEFAULT</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item" style="grid-column: 1/-1;">
+            <span class="spec-label">Alt Pantone (Coated)</span>
+            <span class="spec-value" style="font-size:11px;">289 C (&Delta;E 2.46) &bull; 539 C (&Delta;E 2.76) &bull; 282 C (&Delta;E 2.85)</span>
+          </div>
+        </div>
+        <div class="tint-strip">
+          <div class="tint-step" style="background:#D5E2F5; color:#13294B;">87</div>
+          <div class="tint-step" style="background:#ABC4EA; color:#13294B;">75</div>
+          <div class="tint-step" style="background:#82A7E0; color:#13294B;">62</div>
+          <div class="tint-step" style="background:#588AD5; color:#fff;">50</div>
+          <div class="tint-step" style="background:#326DC7; color:#fff;">37</div>
+          <div class="tint-step" style="background:#27569D; color:#fff;">25</div>
+          <div class="tint-step" style="background:#1D3F73; color:#fff;">12</div>
+          <div class="tint-step" style="background:#13294B; color:#EAA221; font-weight:800;">0</div>
+          <div class="tint-step" style="background:#102340; color:#fff;">-12</div>
+          <div class="tint-step" style="background:#0E1E37; color:#fff;">-25</div>
+          <div class="tint-step" style="background:#091425; color:#fff;">-50</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BURNT SIENNA (SECONDARY) ── -->
+    <div class="color-card">
+      <div class="color-swatch" style="background:#C22328; color:#fff;">
+        <span class="swatch-label">Burnt Sienna</span>
+        <span class="swatch-role">Secondary</span>
+      </div>
+      <div class="color-specs">
+        <h3>#C22328</h3>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <span class="spec-label">Pantone Coated</span>
+            <span class="spec-value pantone">PANTONE 711 C</span>
+            <span class="delta-e-note">&Delta;E 2.62 &mdash; Excellent</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Pantone Uncoated</span>
+            <span class="spec-value pantone">PANTONE 2349 U</span>
+            <span class="delta-e-note">&Delta;E 3.07 &mdash; Good</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item">
+            <span class="spec-label">HEX</span>
+            <span class="spec-value">#C22328</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">RGB</span>
+            <span class="spec-value">194, 35, 40</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">HSL</span>
+            <span class="spec-value">358&deg;, 69%, 45%</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">HSB</span>
+            <span class="spec-value">358&deg;, 82%, 76%</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">CMYK</span>
+            <span class="spec-value">0, 82, 79, 24</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Tailwind Token</span>
+            <span class="spec-value">burnt_sienna.DEFAULT</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item" style="grid-column: 1/-1;">
+            <span class="spec-label">Alt Pantone (Coated)</span>
+            <span class="spec-value" style="font-size:11px;">186 C (&Delta;E 2.95) &bull; 180 C (&Delta;E 3.05) &bull; 7620 C (&Delta;E 3.18)</span>
+          </div>
+        </div>
+        <div class="tint-strip">
+          <div class="tint-step" style="background:#F7E4E4; color:#C22328;">87</div>
+          <div class="tint-step" style="background:#F0C8C9; color:#C22328;">75</div>
+          <div class="tint-step" style="background:#E8ACAE; color:#C22328;">62</div>
+          <div class="tint-step" style="background:#E09194; color:#fff;">50</div>
+          <div class="tint-step" style="background:#D97679; color:#fff;">37</div>
+          <div class="tint-step" style="background:#D15A5E; color:#fff;">25</div>
+          <div class="tint-step" style="background:#CA3E43; color:#fff;">12</div>
+          <div class="tint-step" style="background:#C22328; color:#fff; font-weight:800;">0</div>
+          <div class="tint-step" style="background:#921A1E; color:#fff;">-25</div>
+          <div class="tint-step" style="background:#611214; color:#fff;">-50</div>
+          <div class="tint-step" style="background:#300909; color:#fff;">-75</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── GOLDEN ORANGE (ACCENT PRIMARY) ── -->
+    <div class="color-card">
+      <div class="color-swatch" style="background:#EAA221; color:#13294B;">
+        <span class="swatch-label">Golden Orange</span>
+        <span class="swatch-role">Accent Primary / CTA</span>
+      </div>
+      <div class="color-specs">
+        <h3>#EAA221</h3>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <span class="spec-label">Pantone Coated</span>
+            <span class="spec-value pantone">PANTONE 7409 C</span>
+            <span class="delta-e-note">&Delta;E 1.46 &mdash; Excellent</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Pantone Uncoated</span>
+            <span class="spec-value pantone">PANTONE 7551 U</span>
+            <span class="delta-e-note">&Delta;E 2.29 &mdash; Excellent</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item">
+            <span class="spec-label">HEX</span>
+            <span class="spec-value">#EAA221</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">RGB</span>
+            <span class="spec-value">234, 162, 33</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">HSL</span>
+            <span class="spec-value">39&deg;, 84%, 52%</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">HSB</span>
+            <span class="spec-value">39&deg;, 86%, 92%</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">CMYK</span>
+            <span class="spec-value">0, 30, 85, 8</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Tailwind Token</span>
+            <span class="spec-value">golden_orange.DEFAULT</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item" style="grid-column: 1/-1;">
+            <span class="spec-label">Alt Pantone (Coated)</span>
+            <span class="spec-value" style="font-size:11px;">7549 C (&Delta;E 2.64) &bull; 7551 C (&Delta;E 2.69) &bull; 130 C (&Delta;E 2.90)</span>
+          </div>
+        </div>
+        <div class="tint-strip">
+          <div class="tint-step" style="background:#FCF4E3; color:#13294B;">87</div>
+          <div class="tint-step" style="background:#FAE8C7; color:#13294B;">75</div>
+          <div class="tint-step" style="background:#F7DDAB; color:#13294B;">62</div>
+          <div class="tint-step" style="background:#F5D18F; color:#13294B;">50</div>
+          <div class="tint-step" style="background:#F2C673; color:#13294B;">37</div>
+          <div class="tint-step" style="background:#EFBA57; color:#13294B;">25</div>
+          <div class="tint-step" style="background:#EDAF3B; color:#13294B;">12</div>
+          <div class="tint-step" style="background:#EAA221; color:#13294B; font-weight:800;">0</div>
+          <div class="tint-step" style="background:#D49114; color:#fff;">-12</div>
+          <div class="tint-step" style="background:#B67C11; color:#fff;">-25</div>
+          <div class="tint-step" style="background:#79530B; color:#fff;">-50</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HUNTER GREEN (ACCENT SECONDARY) ── -->
+    <div class="color-card">
+      <div class="color-swatch" style="background:#3B6B4C; color:#fff;">
+        <span class="swatch-label">Hunter Green</span>
+        <span class="swatch-role">Accent Secondary</span>
+      </div>
+      <div class="color-specs">
+        <h3>#3B6B4C</h3>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <span class="spec-label">Pantone Coated</span>
+            <span class="spec-value pantone">PANTONE 7734 C</span>
+            <span class="delta-e-note">&Delta;E 4.17 &mdash; Good</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Pantone Uncoated</span>
+            <span class="spec-value pantone">PANTONE 7734 U</span>
+            <span class="delta-e-note">&Delta;E 1.73 &mdash; Excellent</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item">
+            <span class="spec-label">HEX</span>
+            <span class="spec-value">#3B6B4C</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">RGB</span>
+            <span class="spec-value">59, 107, 76</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">HSL</span>
+            <span class="spec-value">141&deg;, 29%, 33%</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">HSB</span>
+            <span class="spec-value">141&deg;, 45%, 42%</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">CMYK</span>
+            <span class="spec-value">44, 0, 28, 58</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Tailwind Token</span>
+            <span class="spec-value">hunter_green.DEFAULT</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item" style="grid-column: 1/-1;">
+            <span class="spec-label">Alt Pantone (Coated)</span>
+            <span class="spec-value" style="font-size:11px;">7741 C (&Delta;E 4.94) &bull; 341 C (&Delta;E 5.95) &bull; 349 C (&Delta;E 6.11)</span>
+          </div>
+          <div class="spec-item" style="grid-column: 1/-1;">
+            <span class="spec-label">Note</span>
+            <span class="spec-note">Coated match is &Delta;E 4.17 &mdash; good but not invisible. Request a drawdown proof on your specific stock before approving large runs. The uncoated match is near-perfect.</span>
+          </div>
+        </div>
+        <div class="tint-strip">
+          <div class="tint-step" style="background:#E3F0E8; color:#3B6B4C;">87</div>
+          <div class="tint-step" style="background:#C8E1D1; color:#3B6B4C;">75</div>
+          <div class="tint-step" style="background:#ACD2B9; color:#3B6B4C;">62</div>
+          <div class="tint-step" style="background:#91C2A2; color:#fff;">50</div>
+          <div class="tint-step" style="background:#75B38B; color:#fff;">37</div>
+          <div class="tint-step" style="background:#5AA474; color:#fff;">25</div>
+          <div class="tint-step" style="background:#4B8860; color:#fff;">12</div>
+          <div class="tint-step" style="background:#3B6B4C; color:#fff; font-weight:800;">0</div>
+          <div class="tint-step" style="background:#345F43; color:#fff;">-12</div>
+          <div class="tint-step" style="background:#2D513A; color:#fff;">-25</div>
+          <div class="tint-step" style="background:#1E3626; color:#fff;">-50</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SMART BLUE (LINKS / INTERACTIVE) ── -->
+    <div class="color-card">
+      <div class="color-swatch" style="background:#0066CC; color:#fff;">
+        <span class="swatch-label">Smart Blue</span>
+        <span class="swatch-role">Links / Interactive</span>
+      </div>
+      <div class="color-specs">
+        <h3>#0066CC</h3>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <span class="spec-label">Pantone Coated</span>
+            <span class="spec-value pantone">PANTONE 2174 C</span>
+            <span class="delta-e-note">&Delta;E 1.14 &mdash; Excellent</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Pantone Uncoated</span>
+            <span class="spec-value pantone">PANTONE 300 U</span>
+            <span class="delta-e-note">&Delta;E 2.18 &mdash; Excellent</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item">
+            <span class="spec-label">HEX</span>
+            <span class="spec-value">#0066CC</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">RGB</span>
+            <span class="spec-value">0, 102, 204</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">HSL</span>
+            <span class="spec-value">210&deg;, 100%, 40%</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">HSB</span>
+            <span class="spec-value">210&deg;, 100%, 80%</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">CMYK</span>
+            <span class="spec-value">100, 50, 0, 19</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Tailwind Token</span>
+            <span class="spec-value">smart_blue.DEFAULT</span>
+          </div>
+          <div class="spec-divider"></div>
+          <div class="spec-item" style="grid-column: 1/-1;">
+            <span class="spec-label">Alt Pantone (Coated)</span>
+            <span class="spec-value" style="font-size:11px;">2186 C (&Delta;E 3.33) &bull; 300 C (&Delta;E 3.50) &bull; 2387 C (&Delta;E 3.55)</span>
+          </div>
+          <div class="spec-item" style="grid-column: 1/-1;">
+            <span class="spec-label">Note</span>
+            <span class="spec-note">Smart Blue is primarily a digital/UI color for links and interactive elements. In print, it appears on materials that reference digital CTAs (e.g., "visit us at"). For most physical collateral, prefer Prussian Blue as the blue.</span>
+          </div>
+        </div>
+        <div class="tint-strip">
+          <div class="tint-step" style="background:#D9ECFF; color:#0066CC;">87</div>
+          <div class="tint-step" style="background:#B3D9FF; color:#0066CC;">75</div>
+          <div class="tint-step" style="background:#8CC6FF; color:#13294B;">62</div>
+          <div class="tint-step" style="background:#66B2FF; color:#fff;">50</div>
+          <div class="tint-step" style="background:#409FFF; color:#fff;">37</div>
+          <div class="tint-step" style="background:#1A8CFF; color:#fff;">25</div>
+          <div class="tint-step" style="background:#0079F2; color:#fff;">12</div>
+          <div class="tint-step" style="background:#0066CC; color:#fff; font-weight:800;">0</div>
+          <div class="tint-step" style="background:#0059B3; color:#fff;">-12</div>
+          <div class="tint-step" style="background:#004C99; color:#fff;">-25</div>
+          <div class="tint-step" style="background:#003366; color:#fff;">-50</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 2. PANTONE QUICK-REFERENCE CARD -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">2. Pantone Quick-Reference Card</div>
+  <div class="section-desc">
+    Hand this table to any printer, embroiderer, sign shop, or merchandise vendor.
+    Always specify Coated or Uncoated based on the substrate.
+  </div>
+
+  <table class="medium-table">
+    <thead>
+      <tr>
+        <th>Color Name</th>
+        <th>Role</th>
+        <th>Pantone Coated</th>
+        <th>Pantone Uncoated</th>
+        <th>HEX</th>
+        <th>CMYK</th>
+        <th>&Delta;E (C / U)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="medium-name"><span class="swatch-dot" style="background:#13294B;"></span>&ensp;Prussian Blue</td>
+        <td>Primary Anchor</td>
+        <td><strong>2767 C</strong></td>
+        <td><strong>2767 U</strong></td>
+        <td style="font-family:monospace;">#13294B</td>
+        <td>74 / 45 / 0 / 70</td>
+        <td>1.62 / 1.77</td>
+      </tr>
+      <tr>
+        <td class="medium-name"><span class="swatch-dot" style="background:#C22328;"></span>&ensp;Burnt Sienna</td>
+        <td>Secondary</td>
+        <td><strong>711 C</strong></td>
+        <td><strong>2349 U</strong></td>
+        <td style="font-family:monospace;">#C22328</td>
+        <td>0 / 82 / 79 / 24</td>
+        <td>2.62 / 3.07</td>
+      </tr>
+      <tr>
+        <td class="medium-name"><span class="swatch-dot" style="background:#EAA221;"></span>&ensp;Golden Orange</td>
+        <td>Accent / CTA</td>
+        <td><strong>7409 C</strong></td>
+        <td><strong>7551 U</strong></td>
+        <td style="font-family:monospace;">#EAA221</td>
+        <td>0 / 30 / 85 / 8</td>
+        <td>1.46 / 2.29</td>
+      </tr>
+      <tr>
+        <td class="medium-name"><span class="swatch-dot" style="background:#3B6B4C;"></span>&ensp;Hunter Green</td>
+        <td>Accent Secondary</td>
+        <td><strong>7734 C</strong></td>
+        <td><strong>7734 U</strong></td>
+        <td style="font-family:monospace;">#3B6B4C</td>
+        <td>44 / 0 / 28 / 58</td>
+        <td>4.17 / 1.73</td>
+      </tr>
+      <tr>
+        <td class="medium-name"><span class="swatch-dot" style="background:#0066CC;"></span>&ensp;Smart Blue</td>
+        <td>Links / Interactive</td>
+        <td><strong>2174 C</strong></td>
+        <td><strong>300 U</strong></td>
+        <td style="font-family:monospace;">#0066CC</td>
+        <td>100 / 50 / 0 / 19</td>
+        <td>1.14 / 2.18</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 3. MEDIUM-SPECIFIC USAGE GUIDE -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">3. Medium-Specific Usage Guide</div>
+  <div class="section-desc">
+    Different reproduction methods require different color values. This table specifies which
+    format to use for each medium and what to watch for.
+  </div>
+
+  <table class="medium-table">
+    <thead>
+      <tr>
+        <th style="width:160px;">Medium</th>
+        <th style="width:160px;">Color System</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="medium-name">Website / Digital</td>
+        <td>HEX, RGB, HSL</td>
+        <td>Use the CSS custom properties or Tailwind tokens. sRGB color space. Always test on both calibrated monitors and typical consumer displays.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Offset Print (Coated)</td>
+        <td>Pantone C + CMYK</td>
+        <td>Specify Pantone for spot color jobs (business cards, letterhead, envelopes). Fall back to CMYK for 4-color process. Request a contract proof on the actual stock.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Offset Print (Uncoated)</td>
+        <td>Pantone U + CMYK</td>
+        <td>Colors will appear warmer and more muted on uncoated stock. The Uncoated Pantone values above account for this. Never use the Coated number on uncoated paper.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Digital Print (Toner/Inkjet)</td>
+        <td>CMYK or RGB</td>
+        <td>Most digital presses accept RGB and convert internally. Provide CMYK for color-critical jobs. Wide-format inkjet (banners, wraps) often uses extended gamut &mdash; provide both Pantone reference and CMYK.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Newspaper / Newsprint</td>
+        <td>CMYK (adjusted)</td>
+        <td>Newsprint absorbs ink heavily. Reduce total ink coverage by 15&ndash;20%. Prussian Blue and Brown Red will darken; Golden Orange will muddy. Simplify to 2&ndash;3 colors max. Test with the publication's prepress department.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Magazine (Coated)</td>
+        <td>Pantone C or CMYK</td>
+        <td>Magazine stock is typically coated. Use Coated Pantone values. For process color ads, supply CMYK with an ICC profile (GRACoL 2013 or publication-specific).</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Direct Mail</td>
+        <td>CMYK or Pantone C/U</td>
+        <td>Stock varies widely. Confirm coating with your mail house. Postcards are typically coated; self-mailers may be uncoated. Match accordingly.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Embroidery</td>
+        <td>Pantone (Textile)</td>
+        <td>Thread color matching uses Pantone TPX/TCX (textile). Provide the Coated Pantone as a reference and let the embroiderer pull the closest thread match. Expect slight variance &mdash; thread is inherently matte.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Screen Printing (Apparel)</td>
+        <td>Pantone C (ink mixing)</td>
+        <td>Screen printers mix PMS inks directly. Provide the Coated Pantone numbers. On dark garments, a white underbase is required for Golden Orange and Smart Blue.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Vinyl / Vehicle Wraps</td>
+        <td>Pantone C + CMYK</td>
+        <td>Wrap printers use wide-format CMYK inkjet. Provide Pantone as the visual target and CMYK for the file. Laminate finish (gloss vs. matte) will shift perceived color.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Promotional Items (Mugs, Pens, etc.)</td>
+        <td>Pantone C</td>
+        <td>Promo vendors universally accept PMS numbers. Specify the Coated Pantone. Ceramic mugs fire at high temperatures &mdash; expect slight warmth shift. Request a pre-production sample.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Signage (Channel Letters, Monument)</td>
+        <td>Pantone C + RGB</td>
+        <td>Painted signs use PMS for paint mixing. Illuminated signs use LED modules &mdash; provide RGB for programmable LED. Backlit translucent faces will appear more saturated.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Hard Hats / Safety Gear</td>
+        <td>Pantone C</td>
+        <td>Pad printing and screen printing on plastics. PMS numbers are standard. Note: OSHA requires specific high-visibility colors for safety &mdash; ensure brand colors are applied only to non-safety-critical elements.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 4. WCAG 2.2 CONTRAST MATRIX -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">4. WCAG 2.2 Contrast Matrix</div>
+  <div class="section-desc">
+    Every cell shows the contrast ratio and WCAG 2.2 compliance level for that foreground/background pair.
+    AAA = 7:1+ (all text). AA = 4.5:1+ (normal text) / 3:1+ (large text). Fail = below 3:1.
+  </div>
+
+  <div style="overflow-x:auto;">
+  <table class="contrast-table">
+    <thead>
+      <tr>
+        <th style="width:110px;">FG &darr; / BG &rarr;</th>
+        <th><span class="swatch-dot" style="background:#13294B;"></span><br>Navy</th>
+        <th><span class="swatch-dot" style="background:#C22328;"></span><br>Red</th>
+        <th><span class="swatch-dot" style="background:#EAA221;"></span><br>Gold</th>
+        <th><span class="swatch-dot" style="background:#3B6B4C;"></span><br>Green</th>
+        <th><span class="swatch-dot" style="background:#0066CC;"></span><br>Blue</th>
+        <th><span class="swatch-dot" style="background:#FFFFFF; border-color:#ccc;"></span><br>White</th>
+        <th><span class="swatch-dot" style="background:#000000;"></span><br>Black</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Navy row -->
+      <tr>
+        <td><span class="swatch-dot" style="background:#13294B;"></span> Navy</td>
+        <td class="na">&mdash;</td>
+        <td class="fail">2.5:1<br>Fail</td>
+        <td class="pass-aa">6.7:1<br>AA / AAA-lg</td>
+        <td class="fail">2.3:1<br>Fail</td>
+        <td class="fail">2.6:1<br>Fail</td>
+        <td class="pass-aaa">14.5:1<br>AAA</td>
+        <td class="fail">1.4:1<br>Fail</td>
+      </tr>
+      <!-- Red row -->
+      <tr>
+        <td><span class="swatch-dot" style="background:#C22328;"></span> Red</td>
+        <td class="fail">2.5:1<br>Fail</td>
+        <td class="na">&mdash;</td>
+        <td class="fail">2.7:1<br>Fail</td>
+        <td class="fail">1.1:1<br>Fail</td>
+        <td class="fail">1.1:1<br>Fail</td>
+        <td class="pass-aa">5.9:1<br>AA / AAA-lg</td>
+        <td class="pass-aa">3.6:1<br>AA-lg only</td>
+      </tr>
+      <!-- Gold row -->
+      <tr>
+        <td><span class="swatch-dot" style="background:#EAA221;"></span> Gold</td>
+        <td class="pass-aa">6.7:1<br>AA / AAA-lg</td>
+        <td class="fail">2.7:1<br>Fail</td>
+        <td class="na">&mdash;</td>
+        <td class="fail">2.9:1<br>Fail</td>
+        <td class="fail">2.6:1<br>Fail</td>
+        <td class="fail">2.2:1<br>Fail</td>
+        <td class="pass-aaa">9.7:1<br>AAA</td>
+      </tr>
+      <!-- Green row -->
+      <tr>
+        <td><span class="swatch-dot" style="background:#3B6B4C;"></span> Green</td>
+        <td class="fail">2.3:1<br>Fail</td>
+        <td class="fail">1.1:1<br>Fail</td>
+        <td class="fail">2.9:1<br>Fail</td>
+        <td class="na">&mdash;</td>
+        <td class="fail">1.1:1<br>Fail</td>
+        <td class="pass-aa">6.2:1<br>AA / AAA-lg</td>
+        <td class="pass-aa">3.4:1<br>AA-lg only</td>
+      </tr>
+      <!-- Blue row -->
+      <tr>
+        <td><span class="swatch-dot" style="background:#0066CC;"></span> Blue</td>
+        <td class="fail">2.6:1<br>Fail</td>
+        <td class="fail">1.1:1<br>Fail</td>
+        <td class="fail">2.6:1<br>Fail</td>
+        <td class="fail">1.1:1<br>Fail</td>
+        <td class="na">&mdash;</td>
+        <td class="pass-aa">5.6:1<br>AA / AAA-lg</td>
+        <td class="pass-aa">3.8:1<br>AA-lg only</td>
+      </tr>
+      <!-- White row -->
+      <tr>
+        <td><span class="swatch-dot" style="background:#FFFFFF; border-color:#ccc;"></span> White</td>
+        <td class="pass-aaa">14.5:1<br>AAA</td>
+        <td class="pass-aa">5.9:1<br>AA / AAA-lg</td>
+        <td class="fail">2.2:1<br>Fail</td>
+        <td class="pass-aa">6.2:1<br>AA / AAA-lg</td>
+        <td class="pass-aa">5.6:1<br>AA / AAA-lg</td>
+        <td class="na">&mdash;</td>
+        <td class="pass-aaa">21.0:1<br>AAA</td>
+      </tr>
+      <!-- Black row -->
+      <tr>
+        <td><span class="swatch-dot" style="background:#000000;"></span> Black</td>
+        <td class="fail">1.4:1<br>Fail</td>
+        <td class="pass-aa">3.6:1<br>AA-lg only</td>
+        <td class="pass-aaa">9.7:1<br>AAA</td>
+        <td class="pass-aa">3.4:1<br>AA-lg only</td>
+        <td class="pass-aa">3.8:1<br>AA-lg only</td>
+        <td class="pass-aaa">21.0:1<br>AAA</td>
+        <td class="na">&mdash;</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 5. APPROVED PAIRINGS -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">5. Approved Color Pairings</div>
+  <div class="section-desc">
+    These are the combinations cleared for use across all media. Anything not listed here requires
+    a contrast check before deployment.
+  </div>
+
+  <div class="pairing-demos">
+    <div class="pairing-demo" style="background:#13294B; color:#FFFFFF;">
+      White on Navy
+      <span class="ratio">14.5:1 &mdash; AAA</span>
+    </div>
+    <div class="pairing-demo" style="background:#FFFFFF; color:#13294B; border: 1px solid #ddd;">
+      Navy on White
+      <span class="ratio">14.5:1 &mdash; AAA</span>
+    </div>
+    <div class="pairing-demo" style="background:#13294B; color:#EAA221;">
+      Gold on Navy
+      <span class="ratio">6.7:1 &mdash; AA / AAA-lg</span>
+    </div>
+    <div class="pairing-demo" style="background:#EAA221; color:#13294B;">
+      Navy on Gold
+      <span class="ratio">6.7:1 &mdash; AA / AAA-lg</span>
+    </div>
+    <div class="pairing-demo" style="background:#C22328; color:#FFFFFF;">
+      White on Red
+      <span class="ratio">5.9:1 &mdash; AA / AAA-lg</span>
+    </div>
+    <div class="pairing-demo" style="background:#FFFFFF; color:#C22328; border: 1px solid #ddd;">
+      Red on White
+      <span class="ratio">5.9:1 &mdash; AA / AAA-lg</span>
+    </div>
+    <div class="pairing-demo" style="background:#3B6B4C; color:#FFFFFF;">
+      White on Green
+      <span class="ratio">6.2:1 &mdash; AA / AAA-lg</span>
+    </div>
+    <div class="pairing-demo" style="background:#FFFFFF; color:#3B6B4C; border: 1px solid #ddd;">
+      Green on White
+      <span class="ratio">6.2:1 &mdash; AA / AAA-lg</span>
+    </div>
+    <div class="pairing-demo" style="background:#0066CC; color:#FFFFFF;">
+      White on Blue
+      <span class="ratio">5.6:1 &mdash; AA / AAA-lg</span>
+    </div>
+    <div class="pairing-demo" style="background:#FFFFFF; color:#0066CC; border: 1px solid #ddd;">
+      Blue on White
+      <span class="ratio">5.6:1 &mdash; AA / AAA-lg</span>
+    </div>
+    <div class="pairing-demo" style="background:#000000; color:#C22328;">
+      Red on Black
+      <span class="ratio">3.6:1 &mdash; Large text only</span>
+    </div>
+    <div class="pairing-demo" style="background:#000000; color:#EAA221;">
+      Gold on Black
+      <span class="ratio">9.7:1 &mdash; AAA</span>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;">
+    <div class="section-title" style="font-size:16px; color:#C62828;">Restricted Pairings</div>
+    <div class="usage-grid" style="margin-top:12px;">
+      <div class="usage-card">
+        <span class="usage-badge badge-dont">Never</span>
+        <h4>Gold text on White background</h4>
+        <p>1.4:1 ratio. Fails all WCAG levels. Gold is invisible on white for visually impaired users.</p>
+      </div>
+      <div class="usage-card">
+        <span class="usage-badge badge-dont">Never</span>
+        <h4>Blue text on Navy background</h4>
+        <p>1.9:1 ratio. Fails all WCAG levels. Virtually indistinguishable for most users.</p>
+      </div>
+      <div class="usage-card">
+        <span class="usage-badge badge-dont">Never</span>
+        <h4>Green text on Red background (or reverse)</h4>
+        <p>1.2:1 ratio. Fails WCAG and is invisible to red-green colorblind users (8% of males).</p>
+      </div>
+      <div class="usage-card">
+        <span class="usage-badge badge-dont">Never</span>
+        <h4>Gold on Green / Green on Gold</h4>
+        <p>2.9:1 ratio. Fails all WCAG levels including large text. These colors are too close in luminance.</p>
+      </div>
+      <div class="usage-card">
+        <span class="usage-badge badge-dont">Never</span>
+        <h4>Gold on Blue / Blue on Gold</h4>
+        <p>2.6:1 ratio. Fails all WCAG levels. Do not pair these for any text or meaningful UI elements.</p>
+      </div>
+      <div class="usage-card">
+        <span class="usage-badge badge-dont">Never</span>
+        <h4>Red on Gold / Gold on Red</h4>
+        <p>2.7:1 ratio. Fails all WCAG levels. The brighter red and gold are too close in luminance to pair for any text.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 6. DESIGN TOKENS -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">6. Design Tokens</div>
+  <div class="section-desc">
+    Copy-paste-ready tokens for every implementation context. Pantone references are included as comments
+    so they travel with the code and never get lost.
+  </div>
+
+  <h4 style="margin-bottom:8px; font-size:14px;">CSS Custom Properties</h4>
+  <div class="code-block"><span class="comment">/* Pro Exteriors — Brand Color Tokens v1.0
+   Pantone matches via Delta-E 2000 (CIE Lab)
+   Generated 2026-04-12 by AIA4 */</span>
+
+<span class="label">:root</span> {
+  <span class="comment">/* ── Primary Anchor ── Pantone 2767 C / 2767 U */</span>
+  <span class="property">--pe-navy</span>: <span class="value">#13294B</span>;
+  <span class="property">--pe-navy-rgb</span>: <span class="value">19, 41, 75</span>;
+  <span class="property">--pe-navy-hsl</span>: <span class="value">216 60% 18%</span>;
+
+  <span class="comment">/* ── Secondary ── Pantone 711 C / 2349 U */</span>
+  <span class="property">--pe-red</span>: <span class="value">#C22328</span>;
+  <span class="property">--pe-red-rgb</span>: <span class="value">194, 35, 40</span>;
+  <span class="property">--pe-red-hsl</span>: <span class="value">358 69% 45%</span>;
+
+  <span class="comment">/* ── Accent Primary / CTA ── Pantone 7409 C / 7551 U */</span>
+  <span class="property">--pe-gold</span>: <span class="value">#EAA221</span>;
+  <span class="property">--pe-gold-rgb</span>: <span class="value">234, 162, 33</span>;
+  <span class="property">--pe-gold-hsl</span>: <span class="value">39 84% 52%</span>;
+
+  <span class="comment">/* ── Accent Secondary ── Pantone 7734 C / 7734 U */</span>
+  <span class="property">--pe-green</span>: <span class="value">#3B6B4C</span>;
+  <span class="property">--pe-green-rgb</span>: <span class="value">59, 107, 76</span>;
+  <span class="property">--pe-green-hsl</span>: <span class="value">141 29% 33%</span>;
+
+  <span class="comment">/* ── Links / Interactive ── Pantone 2174 C / 300 U */</span>
+  <span class="property">--pe-blue</span>: <span class="value">#0066CC</span>;
+  <span class="property">--pe-blue-rgb</span>: <span class="value">0, 102, 204</span>;
+  <span class="property">--pe-blue-hsl</span>: <span class="value">210 100% 40%</span>;
+}</div>
+
+  <h4 style="margin-top:24px; margin-bottom:8px; font-size:14px;">SCSS Variables</h4>
+  <div class="code-block"><span class="comment">// Pro Exteriors — Brand Colors v1.0
+// Pantone: 2767 C / 711 C / 7409 C / 7734 C / 2174 C</span>
+
+<span class="property">$pe-navy</span>: <span class="value">#13294B</span>;          <span class="comment">// Pantone 2767 C | Primary Anchor</span>
+<span class="property">$pe-red</span>: <span class="value">#C22328</span>;           <span class="comment">// Pantone 711 C  | Secondary</span>
+<span class="property">$pe-gold</span>: <span class="value">#EAA221</span>;          <span class="comment">// Pantone 7409 C | Accent / CTA</span>
+<span class="property">$pe-green</span>: <span class="value">#3B6B4C</span>;         <span class="comment">// Pantone 7734 C | Accent Secondary</span>
+<span class="property">$pe-blue</span>: <span class="value">#0066CC</span>;          <span class="comment">// Pantone 2174 C | Links / Interactive</span></div>
+
+  <h4 style="margin-top:24px; margin-bottom:8px; font-size:14px;">Tailwind Config (with Pantone annotations)</h4>
+  <div class="code-block"><span class="comment">// tailwind.config.js &mdash; Pro Exteriors Brand Colors v1.0</span>
+<span class="label">module</span>.<span class="property">exports</span> = {
+  <span class="property">theme</span>: {
+    <span class="property">extend</span>: {
+      <span class="property">colors</span>: {
+        <span class="comment">// Pantone 2767 C / 2767 U | &Delta;E 1.62 / 1.77</span>
+        <span class="property">prussian_blue</span>: {
+          DEFAULT: <span class="string">'#13294B'</span>,
+          50: <span class="string">'#E8EDF4'</span>, 100: <span class="string">'#D5E2F5'</span>, 200: <span class="string">'#ABC4EA'</span>,
+          300: <span class="string">'#82A7E0'</span>, 400: <span class="string">'#588AD5'</span>, 500: <span class="string">'#326DC7'</span>,
+          600: <span class="string">'#27569D'</span>, 700: <span class="string">'#1D3F73'</span>, 800: <span class="string">'#13294B'</span>,
+          900: <span class="string">'#0E1E37'</span>, 950: <span class="string">'#091425'</span>,
+        },
+        <span class="comment">// Pantone 711 C / 2349 U | &Delta;E 2.62 / 3.07</span>
+        <span class="property">burnt_sienna</span>: {
+          DEFAULT: <span class="string">'#C22328'</span>,
+          50: <span class="string">'#FCF4F4'</span>, 100: <span class="string">'#F7E4E4'</span>, 200: <span class="string">'#F0C8C9'</span>,
+          300: <span class="string">'#E8ACAE'</span>, 400: <span class="string">'#E09194'</span>, 500: <span class="string">'#D97679'</span>,
+          600: <span class="string">'#D15A5E'</span>, 700: <span class="string">'#CA3E43'</span>, 800: <span class="string">'#C22328'</span>,
+          900: <span class="string">'#921A1E'</span>, 950: <span class="string">'#611214'</span>,
+        },
+        <span class="comment">// Pantone 7409 C / 7551 U | &Delta;E 1.46 / 2.29</span>
+        <span class="property">golden_orange</span>: {
+          DEFAULT: <span class="string">'#EAA221'</span>,
+          50: <span class="string">'#FEF9ED'</span>, 100: <span class="string">'#FCF4E3'</span>, 200: <span class="string">'#FAE8C7'</span>,
+          300: <span class="string">'#F7DDAB'</span>, 400: <span class="string">'#F5D18F'</span>, 500: <span class="string">'#F2C673'</span>,
+          600: <span class="string">'#EFBA57'</span>, 700: <span class="string">'#EDAF3B'</span>, 800: <span class="string">'#EAA221'</span>,
+          900: <span class="string">'#B67C11'</span>, 950: <span class="string">'#79530B'</span>,
+        },
+        <span class="comment">// Pantone 7734 C / 7734 U | &Delta;E 4.17 / 1.73</span>
+        <span class="property">hunter_green</span>: {
+          DEFAULT: <span class="string">'#3B6B4C'</span>,
+          50: <span class="string">'#EEF5F0'</span>, 100: <span class="string">'#E3F0E8'</span>, 200: <span class="string">'#C8E1D1'</span>,
+          300: <span class="string">'#ACD2B9'</span>, 400: <span class="string">'#91C2A2'</span>, 500: <span class="string">'#75B38B'</span>,
+          600: <span class="string">'#5AA474'</span>, 700: <span class="string">'#4B8860'</span>, 800: <span class="string">'#3B6B4C'</span>,
+          900: <span class="string">'#2D513A'</span>, 950: <span class="string">'#1E3626'</span>,
+        },
+        <span class="comment">// Pantone 2174 C / 300 U | &Delta;E 1.14 / 2.18</span>
+        <span class="property">smart_blue</span>: {
+          DEFAULT: <span class="string">'#0066CC'</span>,
+          50: <span class="string">'#E5F1FF'</span>, 100: <span class="string">'#D9ECFF'</span>, 200: <span class="string">'#B3D9FF'</span>,
+          300: <span class="string">'#8CC6FF'</span>, 400: <span class="string">'#66B2FF'</span>, 500: <span class="string">'#409FFF'</span>,
+          600: <span class="string">'#1A8CFF'</span>, 700: <span class="string">'#0079F2'</span>, 800: <span class="string">'#0066CC'</span>,
+          900: <span class="string">'#004C99'</span>, 950: <span class="string">'#003366'</span>,
+        },
+      }
+    }
+  }
+}</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- 7. COLOR BLINDNESS REFERENCE -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">7. Color Vision Deficiency Reference</div>
+  <div class="section-desc">
+    How the palette appears under the most common forms of color blindness. Data from the Coolors simulation.
+    The palette maintains sufficient differentiation across all conditions because it relies on value contrast (light vs. dark)
+    rather than hue alone.
+  </div>
+
+  <table class="medium-table">
+    <thead>
+      <tr>
+        <th>Condition</th>
+        <th>% Affected</th>
+        <th style="width:80px;">Green</th>
+        <th style="width:80px;">Red</th>
+        <th style="width:80px;">Navy</th>
+        <th style="width:80px;">Gold</th>
+        <th style="width:80px;">Blue</th>
+        <th>Design Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="medium-name">Normal Vision</td>
+        <td>&mdash;</td>
+        <td><span class="swatch-dot" style="background:#3B6B4C;"></span></td>
+        <td><span class="swatch-dot" style="background:#C22328;"></span></td>
+        <td><span class="swatch-dot" style="background:#13294B;"></span></td>
+        <td><span class="swatch-dot" style="background:#EAA221;"></span></td>
+        <td><span class="swatch-dot" style="background:#0066CC;"></span></td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Protanopia</td>
+        <td>~1% males</td>
+        <td><span class="swatch-dot" style="background:#4F5053;"></span></td>
+        <td><span class="swatch-dot" style="background:#727129;"></span></td>
+        <td><span class="swatch-dot" style="background:#1C1C42;"></span></td>
+        <td><span class="swatch-dot" style="background:#CACA40;"></span></td>
+        <td><span class="swatch-dot" style="background:#2C2DB3;"></span></td>
+        <td>Green &amp; Red converge in hue. Value contrast preserved.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Deuteranopia</td>
+        <td>~6% males</td>
+        <td><span class="swatch-dot" style="background:#4D4955;"></span></td>
+        <td><span class="swatch-dot" style="background:#79812A;"></span></td>
+        <td><span class="swatch-dot" style="background:#1B1940;"></span></td>
+        <td><span class="swatch-dot" style="background:#CFD447;"></span></td>
+        <td><span class="swatch-dot" style="background:#261EAD;"></span></td>
+        <td>Most common CVD. Green/Red shift but remain separable by lightness.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Tritanopia</td>
+        <td>~0.01%</td>
+        <td><span class="swatch-dot" style="background:#3D595A;"></span></td>
+        <td><span class="swatch-dot" style="background:#9D2C2C;"></span></td>
+        <td><span class="swatch-dot" style="background:#143C3A;"></span></td>
+        <td><span class="swatch-dot" style="background:#E6585E;"></span></td>
+        <td><span class="swatch-dot" style="background:#059F9B;"></span></td>
+        <td>Gold shifts to pink. Navy shifts teal. Rare condition.</td>
+      </tr>
+      <tr>
+        <td class="medium-name">Achromatopsia</td>
+        <td>~0.003%</td>
+        <td><span class="swatch-dot" style="background:#595959;"></span></td>
+        <td><span class="swatch-dot" style="background:#535353;"></span></td>
+        <td><span class="swatch-dot" style="background:#262626;"></span></td>
+        <td><span class="swatch-dot" style="background:#A8A8A8;"></span></td>
+        <td><span class="swatch-dot" style="background:#535353;"></span></td>
+        <td>Full grayscale. Navy/Gold maintain strong value separation. Green/Red/Blue converge &mdash; never rely on these three alone to convey different states.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- FOOTER -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<div class="footer">
+  <div class="container">
+    Pro Exteriors LLC &mdash; Master Color System v1.0 &bull; April 12, 2026<br>
+    Prepared by AIA4 Pro Exteriors &bull; Pantone matching via CIE Delta-E 2000<br>
+    <strong>This document is the single source of truth for all color reproduction.</strong>
+  </div>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

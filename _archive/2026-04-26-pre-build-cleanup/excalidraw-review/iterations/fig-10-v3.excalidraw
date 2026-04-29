@@ -1,0 +1,397 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "type": "rectangle",
+      "version": 98,
+      "versionNonce": 4000000001,
+      "isDeleted": false,
+      "id": "pipeline-stage-1",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 50,
+      "y": 50,
+      "width": 110,
+      "height": 60,
+      "seed": 400001,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "backgroundColor": "#3b82f6",
+      "strokeColor": "#1e3a5f",
+      "text": "Pillar\nContent",
+      "index": "a0",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 98,
+      "versionNonce": 4000000002,
+      "isDeleted": false,
+      "id": "pipeline-stage-2",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 180,
+      "y": 90,
+      "width": 110,
+      "height": 60,
+      "seed": 400002,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "backgroundColor": "#60a5fa",
+      "strokeColor": "#1e40af",
+      "text": "Service\nPages",
+      "index": "a1",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 98,
+      "versionNonce": 4000000003,
+      "isDeleted": false,
+      "id": "pipeline-stage-3",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 310,
+      "y": 130,
+      "width": 110,
+      "height": 60,
+      "seed": 400003,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "backgroundColor": "#93c5fd",
+      "strokeColor": "#1e3a8a",
+      "text": "Supporting\nBlog Posts",
+      "index": "a2",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 98,
+      "versionNonce": 4000000004,
+      "isDeleted": false,
+      "id": "pipeline-stage-4",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 440,
+      "y": 170,
+      "width": 110,
+      "height": 60,
+      "seed": 400004,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "backgroundColor": "#a7f3d0",
+      "strokeColor": "#047857",
+      "text": "Authority\nFlow Back",
+      "index": "a3",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "arrow",
+      "version": 98,
+      "versionNonce": 4000000005,
+      "isDeleted": false,
+      "id": "arrow-pipe-1-to-2",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 160,
+      "y": 75,
+      "width": 20,
+      "height": 25,
+      "seed": 400005,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "backgroundColor": "transparent",
+      "strokeColor": "#3b82f6",
+      "startBinding": {
+        "elementId": "pipeline-stage-1",
+        "focus": [
+          1,
+          0.3
+        ],
+        "gap": 5
+      },
+      "endBinding": {
+        "elementId": "pipeline-stage-2",
+        "focus": [
+          -1,
+          -0.3
+        ],
+        "gap": 5
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "index": "a4",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          25
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 98,
+      "versionNonce": 4000000006,
+      "isDeleted": false,
+      "id": "arrow-pipe-2-to-3",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 290,
+      "y": 115,
+      "width": 20,
+      "height": 25,
+      "seed": 400006,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "backgroundColor": "transparent",
+      "strokeColor": "#3b82f6",
+      "startBinding": {
+        "elementId": "pipeline-stage-2",
+        "focus": [
+          1,
+          0.3
+        ],
+        "gap": 5
+      },
+      "endBinding": {
+        "elementId": "pipeline-stage-3",
+        "focus": [
+          -1,
+          -0.3
+        ],
+        "gap": 5
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "index": "a5",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          25
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 98,
+      "versionNonce": 4000000007,
+      "isDeleted": false,
+      "id": "arrow-pipe-3-to-4",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 420,
+      "y": 155,
+      "width": 20,
+      "height": 25,
+      "seed": 400007,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "backgroundColor": "transparent",
+      "strokeColor": "#a7f3d0",
+      "startBinding": {
+        "elementId": "pipeline-stage-3",
+        "focus": [
+          1,
+          0.3
+        ],
+        "gap": 5
+      },
+      "endBinding": {
+        "elementId": "pipeline-stage-4",
+        "focus": [
+          -1,
+          -0.3
+        ],
+        "gap": 5
+      },
+      "startArrowType": null,
+      "endArrowType": "arrow",
+      "index": "a6",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          25
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 98,
+      "versionNonce": 4000000008,
+      "isDeleted": false,
+      "id": "arrow-pipe-4-back",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 420,
+      "y": 230,
+      "width": -300,
+      "height": 40,
+      "seed": 400008,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "backgroundColor": "transparent",
+      "strokeColor": "#a7f3d0",
+      "startBinding": {
+        "elementId": "pipeline-stage-4",
+        "focus": [
+          0.5,
+          1
+        ],
+        "gap": 5
+      },
+      "endBinding": {
+        "elementId": "pipeline-stage-1",
+        "focus": [
+          0.5,
+          1
+        ],
+        "gap": 5
+      },
+      "startArrowType": null,
+      "endArrowType": "arrow",
+      "index": "a7",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -300,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "version": 98,
+      "versionNonce": 4000000009,
+      "isDeleted": false,
+      "id": "label-pipeline",
+      "x": 50,
+      "y": 270,
+      "width": 200,
+      "height": 30,
+      "seed": 400009,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "fontSize": 11,
+      "fontFamily": 3,
+      "text": "Pipeline: Sequential content creation\nwith iterative authority reinforcement",
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "Pipeline: Sequential content creation\nwith iterative authority reinforcement",
+      "lineHeight": 1.25,
+      "index": "a8",
+      "angle": 0,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    }
+  ],
+  "appState": {
+    "gridMode": "grid",
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": null
+  }
+}

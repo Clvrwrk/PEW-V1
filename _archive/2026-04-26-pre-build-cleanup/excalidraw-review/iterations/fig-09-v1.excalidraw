@@ -1,0 +1,1002 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "type": "ellipse",
+      "version": 41,
+      "versionNonce": 1001,
+      "isDeleted": false,
+      "id": "hub-pillar-page",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 750,
+      "y": 360,
+      "width": 180,
+      "height": 100,
+      "seed": 1001,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "boundElements": null,
+      "updated": 1712973600000,
+      "link": null,
+      "locked": false,
+      "customData": null,
+      "fill": "#3b82f6",
+      "stroke": "#1e3a5f",
+      "lastCommittedPoint": null,
+      "startArrowType": null,
+      "endArrowType": null,
+      "startBinding": null,
+      "endBinding": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "text": "Pillar Page:\nCommercial\nRoof\nReplacement",
+      "index": "a0"
+    },
+    {
+      "type": "rectangle",
+      "version": 42,
+      "versionNonce": 1002,
+      "isDeleted": false,
+      "id": "spoke-tpo",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 200,
+      "y": 300,
+      "width": 140,
+      "height": 80,
+      "seed": 1002,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#60a5fa",
+      "stroke": "#1e3a5f",
+      "text": "TPO Roofing\nSpecialties",
+      "index": "a1",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 43,
+      "versionNonce": 1003,
+      "isDeleted": false,
+      "id": "spoke-epdm",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 200,
+      "y": 420,
+      "width": 140,
+      "height": 80,
+      "seed": 1003,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#60a5fa",
+      "stroke": "#1e3a5f",
+      "text": "EPDM Roofing\nSpecialties",
+      "index": "a2",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 44,
+      "versionNonce": 1004,
+      "isDeleted": false,
+      "id": "spoke-metal",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 480,
+      "y": 200,
+      "width": 140,
+      "height": 80,
+      "seed": 1004,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#60a5fa",
+      "stroke": "#1e3a5f",
+      "text": "Metal Roofing\nSystems",
+      "index": "a3",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 45,
+      "versionNonce": 1005,
+      "isDeleted": false,
+      "id": "spoke-coating",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 480,
+      "y": 520,
+      "width": 140,
+      "height": 80,
+      "seed": 1005,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#60a5fa",
+      "stroke": "#1e3a5f",
+      "text": "Roof Coatings\nand Sealants",
+      "index": "a4",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 46,
+      "versionNonce": 1006,
+      "isDeleted": false,
+      "id": "spoke-blog",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 1200,
+      "y": 300,
+      "width": 140,
+      "height": 80,
+      "seed": 1006,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#93c5fd",
+      "stroke": "#1e3a5f",
+      "text": "Blog Articles:\nIndustry\nInsights",
+      "index": "a5",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 47,
+      "versionNonce": 1007,
+      "isDeleted": false,
+      "id": "spoke-blog2",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 1200,
+      "y": 420,
+      "width": 140,
+      "height": 80,
+      "seed": 1007,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#93c5fd",
+      "stroke": "#1e3a5f",
+      "text": "Blog Articles:\nMaintenance\nGuides",
+      "index": "a6",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "arrow",
+      "version": 48,
+      "versionNonce": 1008,
+      "isDeleted": false,
+      "id": "arrow-hub-tpo",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 600,
+      "y": 340,
+      "width": -260,
+      "height": 0,
+      "seed": 1008,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke-tpo",
+        "focus": 0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a7",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -260,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 49,
+      "versionNonce": 1009,
+      "isDeleted": false,
+      "id": "arrow-tpo-hub",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 340,
+      "y": 380,
+      "width": 410,
+      "height": 0,
+      "seed": 1009,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "arrow",
+      "endArrowType": "dot",
+      "startBinding": {
+        "elementId": "spoke-tpo",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#a7f3d0",
+      "index": "a8",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          410,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 50,
+      "versionNonce": 1010,
+      "isDeleted": false,
+      "id": "arrow-hub-epdm",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 600,
+      "y": 400,
+      "width": -260,
+      "height": 0,
+      "seed": 1010,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke-epdm",
+        "focus": 0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a9",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -260,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 51,
+      "versionNonce": 1011,
+      "isDeleted": false,
+      "id": "arrow-epdm-hub",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 340,
+      "y": 460,
+      "width": 410,
+      "height": 0,
+      "seed": 1011,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "arrow",
+      "endArrowType": "dot",
+      "startBinding": {
+        "elementId": "spoke-epdm",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#a7f3d0",
+      "index": "a10",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          410,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 52,
+      "versionNonce": 1012,
+      "isDeleted": false,
+      "id": "arrow-hub-metal",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 700,
+      "y": 330,
+      "width": -170,
+      "height": -100,
+      "seed": 1012,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke-metal",
+        "focus": 0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a11",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -170,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 53,
+      "versionNonce": 1013,
+      "isDeleted": false,
+      "id": "arrow-metal-hub",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 620,
+      "y": 280,
+      "width": 170,
+      "height": 100,
+      "seed": 1013,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "arrow",
+      "endArrowType": "dot",
+      "startBinding": {
+        "elementId": "spoke-metal",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#a7f3d0",
+      "index": "a12",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          170,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 54,
+      "versionNonce": 1014,
+      "isDeleted": false,
+      "id": "arrow-hub-coating",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 700,
+      "y": 410,
+      "width": -170,
+      "height": 100,
+      "seed": 1014,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke-coating",
+        "focus": 0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a13",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -170,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 55,
+      "versionNonce": 1015,
+      "isDeleted": false,
+      "id": "arrow-coating-hub",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 620,
+      "y": 480,
+      "width": 170,
+      "height": -100,
+      "seed": 1015,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "arrow",
+      "endArrowType": "dot",
+      "startBinding": {
+        "elementId": "spoke-coating",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#a7f3d0",
+      "index": "a14",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          170,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 56,
+      "versionNonce": 1016,
+      "isDeleted": false,
+      "id": "arrow-hub-blog1",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 930,
+      "y": 340,
+      "width": 270,
+      "height": 0,
+      "seed": 1016,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke-blog",
+        "focus": 0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a15",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          270,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 57,
+      "versionNonce": 1017,
+      "isDeleted": false,
+      "id": "arrow-blog1-hub",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 1070,
+      "y": 360,
+      "width": -270,
+      "height": 0,
+      "seed": 1017,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "arrow",
+      "endArrowType": "dot",
+      "startBinding": {
+        "elementId": "spoke-blog",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#a7f3d0",
+      "index": "a16",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -270,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 58,
+      "versionNonce": 1018,
+      "isDeleted": false,
+      "id": "arrow-hub-blog2",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 930,
+      "y": 400,
+      "width": 270,
+      "height": 0,
+      "seed": 1018,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke-blog2",
+        "focus": 0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a17",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          270,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 59,
+      "versionNonce": 1019,
+      "isDeleted": false,
+      "id": "arrow-blog2-hub",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 1070,
+      "y": 440,
+      "width": -270,
+      "height": 0,
+      "seed": 1019,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "arrow",
+      "endArrowType": "dot",
+      "startBinding": {
+        "elementId": "spoke-blog2",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "hub-pillar-page",
+        "focus": -0.8,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#a7f3d0",
+      "index": "a18",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -270,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "version": 60,
+      "versionNonce": 1020,
+      "isDeleted": false,
+      "id": "label-version",
+      "x": 50,
+      "y": 50,
+      "width": 300,
+      "height": 25,
+      "seed": 1020,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "text": "FIG. 9 \u2014 HUB-AND-SPOKE (CLASSIC RADIAL)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "baseline": 18,
+      "containerId": null,
+      "originalText": "FIG. 9 \u2014 HUB-AND-SPOKE (CLASSIC RADIAL)",
+      "lineBreakMode": "wrap",
+      "textWrapping": "wrap",
+      "hasBoundTextElement": false,
+      "syncTextElementAlign": "left",
+      "autoResize": true,
+      "fill": "#1e40af",
+      "index": "a19",
+      "angle": 0,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "text",
+      "version": 61,
+      "versionNonce": 1021,
+      "isDeleted": false,
+      "id": "label-equity-down",
+      "x": 440,
+      "y": 300,
+      "width": 80,
+      "height": 18,
+      "seed": 1021,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "text": "Link equity",
+      "fontSize": 12,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "baseline": 12,
+      "containerId": null,
+      "originalText": "Link equity",
+      "lineBreakMode": "wrap",
+      "textWrapping": "wrap",
+      "hasBoundTextElement": false,
+      "syncTextElementAlign": "center",
+      "autoResize": true,
+      "fill": "#64748b",
+      "index": "a20",
+      "angle": 0,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "text",
+      "version": 62,
+      "versionNonce": 1022,
+      "isDeleted": false,
+      "id": "label-equity-up",
+      "x": 440,
+      "y": 360,
+      "width": 80,
+      "height": 18,
+      "seed": 1022,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "text": "Authority flow",
+      "fontSize": 12,
+      "fontFamily": 3,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "baseline": 12,
+      "containerId": null,
+      "originalText": "Authority flow",
+      "lineBreakMode": "wrap",
+      "textWrapping": "wrap",
+      "hasBoundTextElement": false,
+      "syncTextElementAlign": "center",
+      "autoResize": true,
+      "fill": "#64748b",
+      "index": "a21",
+      "angle": 0,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    }
+  ],
+  "appState": {
+    "zoom": {
+      "value": 1
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "scrolledOutside": false,
+    "theme": "light",
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": null,
+    "gridMode": false
+  },
+  "files": {},
+  "metadata": {
+    "title": "Hub-and-Spoke (Classic Radial)",
+    "created": "2026-04-12"
+  }
+}

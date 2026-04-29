@@ -1,0 +1,824 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "type": "ellipse",
+      "version": 41,
+      "versionNonce": 2001,
+      "isDeleted": false,
+      "id": "hub1-commercial",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 150,
+      "y": 200,
+      "width": 160,
+      "height": 100,
+      "seed": 2001,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#3b82f6",
+      "stroke": "#1e3a5f",
+      "text": "Commercial\nRoof Hub",
+      "index": "a0",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 42,
+      "versionNonce": 2002,
+      "isDeleted": false,
+      "id": "spoke1-tpo",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 50,
+      "y": 360,
+      "width": 120,
+      "height": 70,
+      "seed": 2002,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#60a5fa",
+      "stroke": "#1e3a5f",
+      "text": "TPO\nSystems",
+      "index": "a1",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 43,
+      "versionNonce": 2003,
+      "isDeleted": false,
+      "id": "spoke1-epdm",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 250,
+      "y": 380,
+      "width": 120,
+      "height": 70,
+      "seed": 2003,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#60a5fa",
+      "stroke": "#1e3a5f",
+      "text": "EPDM\nCoatings",
+      "index": "a2",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "ellipse",
+      "version": 44,
+      "versionNonce": 2004,
+      "isDeleted": false,
+      "id": "hub2-residential",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 750,
+      "y": 180,
+      "width": 160,
+      "height": 100,
+      "seed": 2004,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#3b82f6",
+      "stroke": "#1e3a5f",
+      "text": "Residential\nRoof Hub",
+      "index": "a3",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 45,
+      "versionNonce": 2005,
+      "isDeleted": false,
+      "id": "spoke2-metal",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 650,
+      "y": 340,
+      "width": 120,
+      "height": 70,
+      "seed": 2005,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#60a5fa",
+      "stroke": "#1e3a5f",
+      "text": "Metal\nRoofing",
+      "index": "a4",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 46,
+      "versionNonce": 2006,
+      "isDeleted": false,
+      "id": "spoke2-asphalt",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 870,
+      "y": 340,
+      "width": 120,
+      "height": 70,
+      "seed": 2006,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#60a5fa",
+      "stroke": "#1e3a5f",
+      "text": "Asphalt\nShingles",
+      "index": "a5",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "ellipse",
+      "version": 47,
+      "versionNonce": 2007,
+      "isDeleted": false,
+      "id": "hub3-maintenance",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 450,
+      "y": 520,
+      "width": 160,
+      "height": 100,
+      "seed": 2007,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#3b82f6",
+      "stroke": "#1e3a5f",
+      "text": "Maintenance\nHub",
+      "index": "a6",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 48,
+      "versionNonce": 2008,
+      "isDeleted": false,
+      "id": "spoke3-inspection",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 300,
+      "y": 680,
+      "width": 120,
+      "height": 70,
+      "seed": 2008,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#60a5fa",
+      "stroke": "#1e3a5f",
+      "text": "Inspections\nGuides",
+      "index": "a7",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "rectangle",
+      "version": 49,
+      "versionNonce": 2009,
+      "isDeleted": false,
+      "id": "spoke3-repairs",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 600,
+      "y": 680,
+      "width": 120,
+      "height": 70,
+      "seed": 2009,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "adaptive"
+      },
+      "fill": "#60a5fa",
+      "stroke": "#1e3a5f",
+      "text": "Repair\nTutorials",
+      "index": "a8",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    },
+    {
+      "type": "arrow",
+      "version": 50,
+      "versionNonce": 2010,
+      "isDeleted": false,
+      "id": "arrow-hub1-spoke1",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 110,
+      "y": 300,
+      "width": 0,
+      "height": 60,
+      "seed": 2010,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub1-commercial",
+        "focus": 0,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke1-tpo",
+        "focus": 0,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a9",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          60
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 51,
+      "versionNonce": 2011,
+      "isDeleted": false,
+      "id": "arrow-hub1-spoke2",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 260,
+      "y": 295,
+      "width": 0,
+      "height": 85,
+      "seed": 2011,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub1-commercial",
+        "focus": 0,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke1-epdm",
+        "focus": 0,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a10",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          85
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 52,
+      "versionNonce": 2012,
+      "isDeleted": false,
+      "id": "arrow-hub2-spoke3",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 720,
+      "y": 280,
+      "width": 0,
+      "height": 60,
+      "seed": 2012,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub2-residential",
+        "focus": 0,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke2-metal",
+        "focus": 0,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a11",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          60
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 53,
+      "versionNonce": 2013,
+      "isDeleted": false,
+      "id": "arrow-hub2-spoke4",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 850,
+      "y": 280,
+      "width": 0,
+      "height": 60,
+      "seed": 2013,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub2-residential",
+        "focus": 0,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke2-asphalt",
+        "focus": 0,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a12",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          60
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 54,
+      "versionNonce": 2014,
+      "isDeleted": false,
+      "id": "arrow-hub3-spoke5",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 380,
+      "y": 620,
+      "width": 0,
+      "height": 60,
+      "seed": 2014,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub3-maintenance",
+        "focus": 0,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke3-inspection",
+        "focus": 0,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a13",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          60
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 55,
+      "versionNonce": 2015,
+      "isDeleted": false,
+      "id": "arrow-hub3-spoke6",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 570,
+      "y": 620,
+      "width": 0,
+      "height": 60,
+      "seed": 2015,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": "dot",
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub3-maintenance",
+        "focus": 0,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "spoke3-repairs",
+        "focus": 0,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#3b82f6",
+      "index": "a14",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          60
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 56,
+      "versionNonce": 2016,
+      "isDeleted": false,
+      "id": "arrow-hub1-hub2",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "dashed",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 310,
+      "y": 240,
+      "width": 440,
+      "height": 0,
+      "seed": 2016,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": null,
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub1-commercial",
+        "focus": 0,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "hub2-residential",
+        "focus": 0,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#93c5fd",
+      "index": "a15",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          440,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 57,
+      "versionNonce": 2017,
+      "isDeleted": false,
+      "id": "arrow-hub1-hub3",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "dashed",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 280,
+      "y": 300,
+      "width": 170,
+      "height": 220,
+      "seed": 2017,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": null,
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub1-commercial",
+        "focus": 0,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "hub3-maintenance",
+        "focus": 0,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#93c5fd",
+      "index": "a16",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          220
+        ]
+      ]
+    },
+    {
+      "type": "arrow",
+      "version": 58,
+      "versionNonce": 2018,
+      "isDeleted": false,
+      "id": "arrow-hub2-hub3",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "dashed",
+      "roughness": 0,
+      "opacity": 100,
+      "angle": 0,
+      "x": 700,
+      "y": 380,
+      "width": -250,
+      "height": 140,
+      "seed": 2018,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": "round"
+      },
+      "startArrowType": null,
+      "endArrowType": "arrow",
+      "startBinding": {
+        "elementId": "hub2-residential",
+        "focus": 0,
+        "gap": 10
+      },
+      "endBinding": {
+        "elementId": "hub3-maintenance",
+        "focus": 0,
+        "gap": 10
+      },
+      "lastCommittedPoint": null,
+      "startShaftType": "solid",
+      "endShaftType": "solid",
+      "stroke": "#93c5fd",
+      "index": "a17",
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -250,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "version": 59,
+      "versionNonce": 2019,
+      "isDeleted": false,
+      "id": "label-version",
+      "x": 50,
+      "y": 50,
+      "width": 420,
+      "height": 25,
+      "seed": 2019,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "text": "FIG. 9 \u2014 CONSTELLATION (MULTI-HUB INTERCONNECTED)",
+      "fontSize": 14,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "baseline": 18,
+      "containerId": null,
+      "originalText": "FIG. 9 \u2014 CONSTELLATION (MULTI-HUB INTERCONNECTED)",
+      "lineBreakMode": "wrap",
+      "textWrapping": "wrap",
+      "hasBoundTextElement": false,
+      "syncTextElementAlign": "left",
+      "autoResize": true,
+      "fill": "#1e40af",
+      "index": "a18",
+      "angle": 0,
+      "updated": 1,
+      "link": null,
+      "locked": false,
+      "boundElements": null
+    }
+  ],
+  "appState": {
+    "zoom": {
+      "value": 1
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "scrolledOutside": false,
+    "theme": "light",
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": null,
+    "gridMode": false
+  },
+  "files": {},
+  "metadata": {
+    "title": "Hub-and-Spoke (Constellation)",
+    "created": "2026-04-12"
+  }
+}

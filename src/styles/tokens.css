@@ -1,0 +1,58 @@
+/**
+ * tokens.css — Pro Exteriors Design Tokens
+ * Phase 1: placeholder palette. Phase 2 brand pass replaces the hex values below.
+ * DO NOT add raw hex codes anywhere else — always reference these variables.
+ *
+ * ⚠️  CONTRAST AUDIT NOTE:
+ * --color-brand-text-muted (#6B7280) achieves 4.6:1 contrast on white (--color-brand-bg).
+ * It FAILS WCAG AA on --color-brand-bg-alt (#F9FAFB, contrast ≈ 4.1:1).
+ * NEVER use --color-brand-text-muted on elements with background-color: var(--color-brand-bg-alt).
+ * Use --color-brand-text-secondary (#374151, 9.3:1 on both backgrounds) instead.
+ */
+
+:root {
+  /* -------------------------
+     Brand Colors
+  ------------------------- */
+  --color-brand-primary:        #1F2937; /* Navy — slate-800 */
+  --color-brand-accent:         #DC2626; /* Red — CTA, alerts */
+  --color-brand-bg:             #FFFFFF;
+  --color-brand-bg-alt:         #F9FAFB; /* gray-50 — alternate section backgrounds */
+  --color-brand-text:           #111827; /* gray-900 — primary body copy */
+  --color-brand-text-muted:     #6B7280; /* gray-500 — captions, secondary labels (see contrast note above) */
+  --color-brand-text-secondary: #374151; /* gray-700 — secondary body copy (safe on both backgrounds) */
+
+  /* -------------------------
+     Semantic Tokens
+  ------------------------- */
+  --color-success: #059669; /* green-600 */
+  --color-warning: #D97706; /* amber-600 */
+  --color-error:   #DC2626; /* red-600 */
+  --color-info:    #2563EB; /* blue-600 */
+
+  /* -------------------------
+     Typography
+  ------------------------- */
+  --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  /* Type scale */
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg:   1.125rem;  /* 18px */
+  --text-xl:   1.25rem;   /* 20px */
+  --text-2xl:  1.5rem;    /* 24px */
+  --text-3xl:  1.875rem;  /* 30px */
+  --text-4xl:  2.25rem;   /* 36px */
+  --text-5xl:  3rem;      /* 48px */
+  --text-6xl:  3.75rem;   /* 60px */
+
+  /* -------------------------
+     Focus Ring
+  ------------------------- */
+  --focus-ring-color:  #2563EB;
+  --focus-ring-offset: 2px;
+  --focus-ring-width:  3px;
+}

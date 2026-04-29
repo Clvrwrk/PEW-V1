@@ -1,0 +1,53 @@
+{
+  "name": "@proexteriors/office-locations-map",
+  "version": "0.1.0",
+  "description": "Interactive SVG map of Pro Exteriors office locations and licensed service areas. Drop-in React component with three-tier states, brick & mortar / satellite pins, and a full contact-card modal.",
+  "author": "AIA4 / Maren Castellan-Reyes <maren@aia4.agency>",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "dist/office-locations-map.cjs.js",
+  "module": "dist/office-locations-map.esm.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/office-locations-map.esm.js",
+      "require": "./dist/office-locations-map.cjs.js",
+      "default": "./dist/office-locations-map.esm.js"
+    },
+    "./source": "./dist/OfficeLocationsMap.jsx",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "node build.js",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=17",
+    "react-dom": ">=17",
+    "d3-geo": "^3",
+    "topojson-client": "^3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  },
+  "keywords": [
+    "pro-exteriors",
+    "aia4",
+    "react",
+    "svg",
+    "map",
+    "us-map",
+    "roofing",
+    "office-locations"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

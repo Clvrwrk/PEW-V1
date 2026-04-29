@@ -1,0 +1,110 @@
+/* global.css — Pro Exteriors Website */
+/* Import order matters: tokens → fonts → tailwind */
+
+@import './tokens.css';
+
+/* Inter — self-hosted via @fontsource (no Google Fonts CDN render-block) */
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ----------------------------------------
+   Base styles
+---------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--color-brand-text);
+    background-color: var(--color-brand-bg);
+  }
+
+  /* Accessible focus ring — visible only on keyboard navigation */
+  *:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: 2px;
+  }
+
+  /* Remove focus ring on mouse click */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Heading defaults */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-brand-primary);
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  /* Anchor defaults */
+  a {
+    color: var(--color-brand-accent);
+    text-decoration-skip-ink: auto;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Images */
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ----------------------------------------
+   Component utilities
+---------------------------------------- */
+@layer components {
+  /* Screen-reader-only but surfaceable on focus (skip nav) */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .sr-only.focus\:not-sr-only:focus,
+  .sr-only:focus-visible {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Alt-background section */
+  .section-alt {
+    background-color: var(--color-brand-bg-alt);
+  }
+
+  /* Container utility */
+  .container-prose {
+    max-width: 72ch;
+    margin-inline: auto;
+  }
+}

@@ -1,0 +1,6 @@
+src/
+build.js
+.npmignore
+node_modules/
+*.log
+.DS_Store

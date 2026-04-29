@@ -1,0 +1,374 @@
+# PRD Addendum — DESIGN.md as Canonical Visual Identity Source
+
+**Date:** 2026-04-25
+**Codifies:** Google Labs `DESIGN.md` format (https://github.com/google-labs-code/design.md) into the Pro Exteriors Phase 1 build plan
+**Supersedes:** PRD §8 (Brand & Design Tokens) inline-CSS-variable approach
+
+---
+
+## What changes
+
+PRD §8 originally specified design tokens as inline CSS variables in `src/styles/tokens.css`. This addendum replaces that approach with `/DESIGN.md` at the repo root as the canonical visual identity source. The CSS variables, Tailwind theme config, and component class definitions all regenerate from `/DESIGN.md` on every build.
+
+The motivation:
+
+- **Single source of truth.** Phase 2 brand pass becomes a one-file edit. Change tokens in DESIGN.md → next `npm run build` regenerates Tailwind theme + CSS variables + component styles. No find-and-replace through the codebase.
+- **Architectural enforcement of accessibility.** `npx @google/design.md lint` runs WCAG AA contrast checks on every component's backgroundColor / textColor pair as a build-time gate. CLAUDE.md §4 accessibility requirement becomes mechanical, not operational.
+- **Agent-readable spec.** Each Claude Code session pulls the spec via `npx @google/design.md spec` and gets the full token schema + linting rules in its prompt context. Eliminates drift across parallel agent teams.
+- **Portable to W3C DTCG.** `npx @google/design.md export --format dtcg` emits a tokens.json compatible with the W3C Design Tokens Format Module — survives a future framework migration.
+- **Regression protection.** When Phase 2 lands, `npx @google/design.md diff DESIGN.md DESIGN-v2.md` detects token-level regressions before merge.
+
+---
+
+## File location
+
+`/DESIGN.md` lives at the repo root, alongside `package.json` and `astro.config.mjs`. NOT in `/src/` and NOT in `/tech/`. The Phase 1 placeholder file currently in `/tech/DESIGN.md` is moved to `/DESIGN.md` at repo init (Walkthrough Step 1.5).
+
+---
+
+## Build pipeline integration
+
+### Step A — Install the CLI
+
+```bash
+npm install -D @google/design.md
+```
+
+### Step B — Update `package.json` scripts
+
+```json
+{
+  "scripts": {
+    "design:lint": "npx @google/design.md lint DESIGN.md",
+    "design:export-tailwind": "npx @google/design.md export --format tailwind DESIGN.md > .design-tokens.tailwind.json",
+    "design:export-dtcg": "npx @google/design.md export --format dtcg DESIGN.md > .design-tokens.dtcg.json",
+    "design:diff": "npx @google/design.md diff DESIGN.md DESIGN-v2.md",
+    "prebuild": "npm run design:lint && npm run design:export-tailwind",
+    "build": "astro build && npm run audit:schema && npm run audit:silo && npm run audit:orphans"
+  }
+}
+```
+
+The `prebuild` hook runs `design:lint` (fails build on contrast/ref errors) and `design:export-tailwind` (regenerates `.design-tokens.tailwind.json`). Tailwind config reads the exported file.
+
+### Step C — `tailwind.config.mjs` reads from exported tokens
+
+```javascript
+// tailwind.config.mjs
+import designTokens from './.design-tokens.tailwind.json' with { type: 'json' }
+
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
+  theme: {
+    extend: {
+      ...designTokens.theme,  // colors, fontFamily, fontSize, spacing, borderRadius from DESIGN.md
+    }
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
+}
+```
+
+### Step D — `src/styles/tokens.css` becomes a build-generated file
+
+A short `scripts/export-css-tokens.mjs` reads the same `.design-tokens.tailwind.json` and emits CSS custom properties for any places where Tailwind utilities are insufficient (e.g., dynamic styles in React islands, MDX prose):
+
+```javascript
+// scripts/export-css-tokens.mjs (sketch)
+import tokens from '../.design-tokens.tailwind.json' with { type: 'json' }
+import fs from 'node:fs'
+
+const cssVars = []
+for (const [name, value] of Object.entries(tokens.theme.colors || {})) {
+  cssVars.push(`  --color-${name}: ${value};`)
+}
+// ... typography, spacing, etc.
+
+const output = `:root {\n${cssVars.join('\n')}\n}\n`
+fs.writeFileSync('src/styles/tokens.css', output)
+```
+
+Wire this into `prebuild`:
+```json
+"prebuild": "npm run design:lint && npm run design:export-tailwind && node scripts/export-css-tokens.mjs"
+```
+
+### Step E — Component classes use Tailwind utilities sourced from DESIGN.md
+
+Any component reaching for a color or typography uses Tailwind utilities that resolve through DESIGN.md → exported tokens → Tailwind theme:
+
+```astro
+<!-- Before (inline CSS variables) -->
+<button style="background: var(--color-brand-accent)">CTA</button>
+
+<!-- After (Tailwind utility from DESIGN.md component definition) -->
+<button class="bg-tertiary text-on-tertiary rounded-md px-3 py-3 h-12 font-semibold">CTA</button>
+```
+
+For more strict component-token mapping (e.g., button-primary inherits the full DESIGN.md component definition), use Tailwind component classes generated by a small build helper that reads `components` from the exported tokens.
+
+### Step F — CI gate
+
+```yaml
+# .github/workflows/ci.yml — add to existing CI workflow
+- name: Lint DESIGN.md
+  run: npm run design:lint
+
+- name: Verify exported tokens are committed
+  run: |
+    npm run design:export-tailwind
+    git diff --exit-code .design-tokens.tailwind.json || \
+      (echo "DESIGN.md has been edited but tokens not regenerated. Run 'npm run design:export-tailwind' and commit." && exit 1)
+```
+
+This ensures `.design-tokens.tailwind.json` is regenerated and committed whenever `DESIGN.md` is edited — agents can't merge a DESIGN.md change without the corresponding token export.
+
+---
+
+## Phase 2 brand pass workflow (using DESIGN.md tooling)
+
+Phase 2 = real Pro Exteriors brand replaces Phase 1 placeholder. The workflow:
+
+1. **Pro Exteriors marketing supplies the real brand values:**
+   - Color palette hex codes
+   - Font files + family names
+   - Component-specific guidance ("primary CTAs use the brand red, hover state is darker")
+
+2. **Designer drafts `DESIGN-v2.md`** with the new tokens, preserving the same token names (`primary`, `tertiary`, `body-md`, etc.) so component definitions don't break.
+
+3. **Run diff to catch regressions:**
+   ```bash
+   npx @google/design.md diff DESIGN.md DESIGN-v2.md
+   ```
+   Output reports:
+   ```json
+   {
+     "tokens": {
+       "colors": { "modified": ["primary", "tertiary"], "added": ["accent-2"], "removed": [] },
+       "typography": { "modified": ["body-md"], "added": [], "removed": [] }
+     },
+     "regression": false
+   }
+   ```
+   `regression: true` fires if WCAG contrast got worse or any component's tokens went orphaned. Fix before merge.
+
+4. **Replace `DESIGN.md` with `DESIGN-v2.md`:**
+   ```bash
+   mv DESIGN-v2.md DESIGN.md
+   git add DESIGN.md
+   ```
+
+5. **Run lint + build:**
+   ```bash
+   npm run design:lint
+   npm run build
+   ```
+   The build regenerates Tailwind theme + CSS variables + component class definitions automatically.
+
+6. **Push + deploy:**
+   ```bash
+   git commit -m "brand: Phase 2 brand pass — DESIGN.md tokens replaced with Pro Exteriors brand values"
+   git push origin main
+   ```
+   Coolify deploys; site updates within ~2 minutes; every page gets the new brand without engineering touch.
+
+That's the entire Phase 2 brand pass. One file edit, lint, build, push.
+
+---
+
+## Agent prompt augmentation
+
+For every Claude Code session in the build cycle, prepend the design spec context. Use:
+
+```bash
+npx @google/design.md spec --rules > .design-spec.md
+```
+
+Then in agent prompts (Walkthrough Step 8, 9, etc.), include this line near the top:
+
+```
+Design system: read /DESIGN.md and /tech/DESIGN.md (the formal spec) before writing
+any component. The token schema is described in .design-spec.md. NEVER hardcode
+colors or typography — every visual decision references a token via Tailwind
+utility class. If a token doesn't exist for what you need, edit DESIGN.md to add it
+and run `npm run design:lint` before committing.
+```
+
+This keeps every parallel agent on the same visual identity without drift.
+
+---
+
+## Updated PRD §8 — Brand & Design Tokens (replaces original)
+
+### 8.1 Canonical source: `/DESIGN.md`
+
+The visual identity is defined in `/DESIGN.md` at the repo root using the Google Labs DESIGN.md format (https://github.com/google-labs-code/design.md). YAML front matter holds machine-readable tokens (colors, typography, spacing, components); markdown body holds the design rationale.
+
+Phase 1 ships with a placeholder DESIGN.md (currently at `/tech/DESIGN.md`, moved to `/DESIGN.md` in Walkthrough Step 1.5) using neutral palette, Inter font, and the standard token scale. Phase 2 brand pass replaces the file.
+
+### 8.2 Build pipeline
+
+The `prebuild` script runs:
+1. `npm run design:lint` — validates DESIGN.md (broken refs, contrast violations, missing primary, orphaned tokens, section order). Fails build on errors.
+2. `npm run design:export-tailwind` — emits `.design-tokens.tailwind.json` consumed by `tailwind.config.mjs`.
+3. `node scripts/export-css-tokens.mjs` — emits `src/styles/tokens.css` for non-Tailwind contexts.
+
+Tailwind utility classes (`bg-tertiary`, `text-on-primary`, `rounded-md`, etc.) resolve through the exported tokens and ultimately reference DESIGN.md.
+
+### 8.3 Component-class mapping
+
+Every component definition in DESIGN.md (`button-primary`, `card`, `testimonial-quote`, etc.) corresponds to an Astro component (`src/components/atoms/Button.astro`, `src/components/molecules/Card.astro`, etc.) that consumes the tokens via Tailwind classes. A Button with variant="primary" generates classes from the `button-primary` component tokens; with variant="primary-hover" generates from `button-primary-hover`.
+
+### 8.4 Photo discipline (unchanged)
+
+Real Pro Exteriors photography only — no stock imagery, per CLAUDE.md never-do. Phase 1 placeholders are clearly tagged `data-todo="real-photo-pe"` so Phase 2 brand pass can find and replace.
+
+### 8.5 Logo (unchanged)
+
+Phase 1: text wordmark "Pro Exteriors" using `display-2` typography token, `--color-primary` color. Phase 2: SVG logo files at `/public/brand/logo-*.svg` per Asset Tracker (sheet 2 row A001-A004).
+
+### 8.6 Property Card aesthetic
+
+Property Card components (`property-card-callout`, future `/property-card/preview/` rendering) use the `mono-md` typography token (IBM Plex Mono in Phase 1 placeholder). Per Property First doc §6.1, this is the analog Selectric II / Rolodex aesthetic. The mono component does NOT migrate to sans-serif in Phase 2 — the mono signal is part of the brand thesis.
+
+---
+
+## Updated Walkthrough — new Step 1.5 (after Step 1, before Step 2)
+
+### STEP 1.5 — Install DESIGN.md tooling and seed the canonical visual identity
+
+**Sequential. Depends on Step 1.**
+
+```
+After Astro project init in Step 1:
+
+1. Install the @google/design.md CLI:
+   npm install -D @google/design.md
+
+2. Move /tech/DESIGN.md to /DESIGN.md at repo root:
+   mv tech/DESIGN.md DESIGN.md
+
+3. Add scripts to package.json:
+   "scripts": {
+     "design:lint": "npx @google/design.md lint DESIGN.md",
+     "design:export-tailwind": "npx @google/design.md export --format tailwind DESIGN.md > .design-tokens.tailwind.json",
+     "design:export-dtcg": "npx @google/design.md export --format dtcg DESIGN.md > .design-tokens.dtcg.json",
+     "prebuild": "npm run design:lint && npm run design:export-tailwind && node scripts/export-css-tokens.mjs"
+   }
+
+4. Verify lint passes:
+   npm run design:lint
+   # Expect: { "errors": 0, "warnings": 0|1, "info": 1+ }
+   # Warnings about orphaned-tokens are acceptable for Phase 1; will resolve as components ship.
+
+5. Generate the Tailwind tokens:
+   npm run design:export-tailwind
+   # Creates .design-tokens.tailwind.json
+
+6. Create scripts/export-css-tokens.mjs per the PRD addendum and run it:
+   node scripts/export-css-tokens.mjs
+   # Creates src/styles/tokens.css
+
+7. Commit:
+   git add DESIGN.md package.json .design-tokens.tailwind.json scripts/export-css-tokens.mjs src/styles/tokens.css
+   git commit -m "feat: DESIGN.md canonical visual identity + Tailwind/CSS export pipeline"
+
+Acceptance: `npm run design:lint` exits 0; .design-tokens.tailwind.json exists; src/styles/tokens.css exists with --color-* CSS variables; Tailwind config can import the JSON; build passes.
+```
+
+**This step belongs between original Step 1 (Astro init) and Step 2 (Tailwind + tokens). Step 2 is updated to read from exported tokens rather than hand-rolling them.**
+
+---
+
+## Updated Walkthrough — replaces Step 2 entirely
+
+### STEP 2 — Configure Tailwind to consume DESIGN.md exported tokens
+
+**Sequential. Depends on Step 1.5.**
+
+```
+Configure Tailwind 3.x to consume the DESIGN.md exported tokens.
+
+Update tailwind.config.mjs:
+
+  import designTokens from './.design-tokens.tailwind.json' with { type: 'json' }
+
+  export default {
+    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
+    theme: {
+      extend: {
+        colors: designTokens.theme?.colors || {},
+        fontFamily: designTokens.theme?.fontFamily || {},
+        fontSize: designTokens.theme?.fontSize || {},
+        spacing: designTokens.theme?.spacing || {},
+        borderRadius: designTokens.theme?.borderRadius || {},
+        ...designTokens.theme,
+      }
+    },
+    plugins: [
+      require('@tailwindcss/typography'),
+      require('@tailwindcss/forms'),
+    ],
+  }
+
+Update src/styles/global.css:
+
+  @import 'tokens.css';
+  @import '@fontsource/inter/400.css';
+  @import '@fontsource/inter/500.css';
+  @import '@fontsource/inter/600.css';
+  @import '@fontsource/inter/700.css';
+
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans, Inter, system-ui, sans-serif); }
+  *:focus-visible { outline: 2px solid var(--color-tertiary); outline-offset: 2px; }
+
+NO LONGER hand-roll tokens.css. The file is now build-generated by export-css-tokens.mjs.
+
+Update src/pages/index.astro to import global.css.
+
+Run:
+  npm run build
+
+Verify the build:
+  - Tailwind utility classes like bg-tertiary, text-on-primary work
+  - CSS variables --color-* are present in src/styles/tokens.css
+
+Acceptance: build succeeds; basic styles applied; Inter font loaded; `bg-tertiary` Tailwind class generates the correct hex from DESIGN.md.
+```
+
+---
+
+## Asset tracker update
+
+Add a new row to the asset tracker (sheet 1 — Phase 1 Required) and a corresponding row to sheet 2 — Phase 2 Brand Pass:
+
+### Phase 1 row
+
+| ID | Phase | Category | Asset Name | Description | File Path | Format & Specs | Owner | Status | Notes |
+|---|---|---|---|---|---|---|---|---|---|
+| A138 | Phase 1 | Brand | DESIGN.md (placeholder) | Phase 1 canonical visual identity in Google Labs DESIGN.md format. Drives Tailwind theme, CSS variables, component classes via build-time export. Placeholder tokens (Inter, navy primary, red accent, neutral palette). | `/DESIGN.md` (repo root) | Markdown with YAML front matter; conforms to https://github.com/google-labs-code/design.md spec (alpha) | Designer / Engineering | Delivered (initial Phase 1 file shipped) | Engineering owns the file mechanically; design owns the values. Lint with `npm run design:lint`; export with `npm run design:export-tailwind`. |
+
+### Phase 2 row
+
+| ID | Phase | Category | Asset Name | Description | File Path | Format & Specs | Owner | Status | Notes |
+|---|---|---|---|---|---|---|---|---|---|
+| A139 | Phase 2 | Brand | DESIGN.md (real brand) | Phase 2 brand pass — Pro Exteriors actual brand colors, typography, and component refinements replace Phase 1 placeholder values. Single-file edit triggers Tailwind regen + CSS variables + component classes on next build. | `/DESIGN.md` (replaces Phase 1 file) | Same Markdown + YAML format. Token NAMES preserved; only values change. Run `npx @google/design.md diff DESIGN.md DESIGN-v2.md` before merge. | Pro Exteriors marketing → Designer (translation) → Engineering (lint + merge) | Pending | Brand colors come from Pro Exteriors brand guide. Designer translates brand guide into DESIGN.md token values, preserving names. Engineering runs lint, diff, build. Single PR; entire Phase 2 brand pass = this file change. |
+
+---
+
+## Closing note
+
+DESIGN.md isn't an aesthetic preference — it's an architectural commitment. By making the visual identity a single linted file with mechanical regeneration into the build pipeline, we eliminate the most common failure mode of multi-agent rebuilds: drift between what the design system says and what the codebase actually does.
+
+For Phase 1 with brand placeholders, the file isn't doing dramatic work — it's holding neutral tokens that engineering reads. The value compounds in Phase 2 when the brand pass becomes a single file edit, in Phase 3 when component variants get added without restructuring, and in Year 2 when a future framework migration is portable via DTCG export.
+
+The cost of adoption is one walkthrough step (1.5), one CI hook, and ~50 lines of build-helper code. The payoff is that every subsequent change to the visual identity is a token edit, not a refactor.
+
+— Maren
