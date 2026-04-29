@@ -1,0 +1,44 @@
+---
+import Button from '../atoms/Button.astro';
+import Icon from '../atoms/Icon.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`relative overflow-hidden rounded-2xl bg-[#FDFBF7] shadow-md ring-1 ring-gray-200 ${className}`}>
+  <!-- Warm paper texture placeholder -->
+  <div class="absolute inset-0 bg-gradient-to-br from-transparent to-[#F5EEDF] opacity-50" aria-hidden="true"></div>
+  
+  <!-- SMS Strip -->
+  <div class="absolute top-0 w-full bg-[#1A2E44] px-4 py-1.5 text-center sm:px-6">
+    <p class="text-[10px] font-bold uppercase tracking-widest text-[#E0E7FF]">Pro Exteriors • Private Property Report</p>
+  </div>
+
+  <div class="relative px-6 py-12 sm:px-12 sm:py-16 flex flex-col md:flex-row items-center gap-8">
+    <div class="flex-1 text-center md:text-left">
+      <h2 class="text-2xl font-display font-bold tracking-tight text-gray-900 sm:text-3xl">
+        Get the Pro Exteriors Property Card
+      </h2>
+      <p class="mx-auto md:mx-0 mt-4 max-w-xl text-base text-gray-600 font-serif">
+        A complete health and history report for your home's exterior. No commitment, just total transparency.
+      </p>
+      <div class="mt-8 flex justify-center md:justify-start gap-x-4">
+        <Button href="/property-card/" variant="primary" size="lg" data-cta-name="property_card_callout">
+          Get Your Card
+        </Button>
+      </div>
+    </div>
+    
+    <!-- Visual representation of the card -->
+    <div class="hidden md:flex flex-shrink-0 relative w-64 h-40 bg-white rounded-lg shadow-xl transform rotate-3 border border-gray-200 p-4">
+      <div class="w-full h-full border-2 border-dashed border-gray-300 rounded flex items-center justify-center text-gray-400 flex-col">
+        <Icon name="file-text" size={32} class="mb-2" />
+        <span class="text-xs font-mono">REPORT.PDF</span>
+      </div>
+    </div>
+  </div>
+</div>

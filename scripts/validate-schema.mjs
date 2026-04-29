@@ -2,14 +2,13 @@
 /**
  * validate-schema.mjs
  * Post-build: walks dist/, extracts all JSON-LD script blocks, validates structure.
- * Phase 1 stub — passes when no dist/ pages exist yet, and when pages have valid JSON-LD.
- * Full schema.org validation wired in Step 7.
  */
 
 import { readFileSync, readdirSync, statSync } from 'fs';
 import { join } from 'path';
 
 const DIST_DIR = new URL('../dist', import.meta.url).pathname;
+console.log(`[schema-audit] Searching in: ${DIST_DIR}`);
 
 function walkDir(dir) {
   const results = [];
@@ -32,13 +31,31 @@ function walkDir(dir) {
 
 const files = walkDir(DIST_DIR);
 let errors = 0;
+let totalSchemas = 0;
+
+console.log(`[schema-audit] Auditing ${files.length} pages in dist/...`);
 
 for (const file of files) {
   const content = readFileSync(file, 'utf8');
   const matches = content.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g);
+  
   for (const match of matches) {
+    totalSchemas++;
     try {
-      JSON.parse(match[1]);
+      const json = JSON.parse(match[1]);
+      
+      // Basic structural validation
+      if (!json['@type'] && !json['@graph']) {
+        console.error(`[schema-audit] Error in ${file}: Missing @type or @graph`);
+        errors++;
+      }
+      
+      // Check for common required fields on certain types if present
+      if (json['@type'] === 'Organization' && !json.name) {
+        console.error(`[schema-audit] Error in ${file}: Organization missing name`);
+        errors++;
+      }
+      
     } catch (e) {
       console.error(`[schema-audit] Invalid JSON-LD in ${file}: ${e.message}`);
       errors++;
@@ -47,8 +64,12 @@ for (const file of files) {
 }
 
 if (errors > 0) {
-  console.error(`[schema-audit] ${errors} schema error(s) found. Build blocked.`);
+  console.error(`[schema-audit] ❌ ${errors} schema error(s) found across ${totalSchemas} blocks. Build blocked.`);
   process.exit(1);
 }
 
-console.log(`[schema-audit] ✓ ${files.length} page(s) validated — no JSON-LD errors`);
+if (totalSchemas === 0 && files.length > 0) {
+  console.warn(`[schema-audit] ⚠️ No JSON-LD blocks found in ${files.length} pages.`);
+} else {
+  console.log(`[schema-audit] ✅ ${totalSchemas} schema block(s) validated across ${files.length} page(s).`);
+}

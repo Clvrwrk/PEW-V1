@@ -1,0 +1,14 @@
+---
+export interface Props {
+  jsonLd: Record<string, any> | Record<string, any>[];
+}
+
+const { jsonLd } = Astro.props;
+
+// Ensure we have valid JSON data before rendering
+const hasSchema = jsonLd && (Array.isArray(jsonLd) ? jsonLd.length > 0 : Object.keys(jsonLd).length > 0);
+---
+
+{hasSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}

@@ -1,0 +1,34 @@
+---
+import Stat from '../atoms/Stat.astro';
+
+export interface StatItem {
+  value: string;
+  label: string;
+  source?: string;
+}
+
+export interface Props {
+  stats: StatItem[];
+  disclaimer?: string;
+  class?: string;
+}
+
+const { stats, disclaimer, class: className = '' } = Astro.props;
+---
+
+<div class={`bg-brand-bg-alt py-12 sm:py-16 ${className}`}>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-4 sm:grid-cols-2">
+      {stats.map(stat => (
+        <div class="mx-auto flex max-w-xs flex-col gap-y-2">
+          <Stat value={stat.value} label={stat.label} source={stat.source} class="items-center" />
+        </div>
+      ))}
+    </dl>
+    {disclaimer && (
+      <div class="mt-8 text-center text-xs text-gray-400">
+        * {disclaimer}
+      </div>
+    )}
+  </div>
+</div>

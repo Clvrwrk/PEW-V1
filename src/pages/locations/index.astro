@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import FAQ from '../../components/molecules/FAQ.astro';
+import OfficeLocationsMap from '../../components/islands/OfficeLocationsMap';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import { collectionPageSchema } from '../../lib/schema/CollectionPage';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const locations = [
+  { name: "Fort Worth, TX", address: "5521 S Hulen St, Suite 440, Fort Worth, TX 76133", phone: "(469) 535-1708", url: "/locations/fort-worth/" },
+  { name: "Dallas, TX", address: "1408 N Riverfront Blvd #295, Dallas, TX 75207", phone: "(469) 535-1708", url: "/locations/dallas/" },
+  { name: "Frisco, TX", address: "6136 Frisco Square Blvd, Suite 400, Frisco, TX 75034", phone: "(469) 535-1708", url: "/locations/frisco/" },
+  { name: "Southlake, TX", address: "1560 E Southlake Blvd, Suite 100, Southlake, TX 76092", phone: "(469) 535-1708", url: "/locations/southlake/" },
+  { name: "Arlington, TX", address: "2000 E Lamar Blvd, Suite 600, Arlington, TX 76006", phone: "(469) 535-1708", url: "/locations/arlington/" },
+  { name: "Edmond, OK", address: "10 E 3rd St, Suite 200, Edmond, OK 73034", phone: "(469) 535-1708", url: "/locations/edmond/" }
+];
+
+const faqs = [
+  {
+    question: "Which office should I contact?",
+    answer: "You can contact any of our offices, or simply call our main number at (469) 535-1708. We will route your request to the local expert nearest to your property."
+  }
+];
+
+const mainSchema = [
+  collectionPageSchema(locations.map(l => ({ name: l.name, url: l.url })), "Pro Exteriors Locations", "Our offices serving Texas and Oklahoma."),
+  breadcrumbSchema([
+    { label: "Home", href: "/" },
+    { label: "Locations", href: "/locations/" }
+  ])
+];
+---
+
+<BaseLayout 
+  title="Our Locations | Pro Exteriors" 
+  description="Pro Exteriors serves communities across the Dallas-Fort Worth metroplex and surrounding areas. Find your local roofing experts."
+  canonicalPath="/locations/"
+  jsonLd={mainSchema}
+>
+  <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Locations", href: "/locations/" }]} />
+
+  <HeroSection 
+    title="Local Expertise, Regional Reach"
+    subtitle="With offices throughout the DFW metroplex and Oklahoma, we're always close enough to provide rapid response and local accountability."
+    primaryCta={{ label: "Find My Office", href: "#map" }}
+    secondaryCta={{ label: "Contact Main Office", href: "/contact/" }}
+    image="/images/locations-hero.jpg"
+  />
+
+  <section id="map" class="py-20 bg-gray-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold">Interactive Service Map</h2>
+        <p class="text-gray-600 mt-4 text-lg">Click a pin to view office details and contact information.</p>
+      </div>
+      <div class="bg-white p-4 rounded-3xl shadow-xl ring-1 ring-gray-200">
+        <OfficeLocationsMap client:visible />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-4 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {locations.map(loc => (
+        <div class="bg-white p-8 rounded-2xl shadow-sm ring-1 ring-gray-200 hover:shadow-md transition-shadow">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">{loc.name}</h3>
+          <p class="text-gray-600 mb-4 h-12 overflow-hidden">{loc.address}</p>
+          <div class="flex flex-col gap-2">
+            <a href={`tel:${loc.phone.replace(/\D/g, '')}`} class="text-brand-primary font-medium hover:underline">{loc.phone}</a>
+            <a href={loc.url} class="text-sm text-gray-500 hover:text-brand-primary font-medium">View Office Details →</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Locations FAQ</h2>
+      <FAQ faqs={faqs} />
+    </div>
+  </section>
+</BaseLayout>

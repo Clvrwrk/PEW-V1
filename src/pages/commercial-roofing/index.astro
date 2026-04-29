@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import StatBand from '../../components/molecules/StatBand.astro';
+import ServiceTile from '../../components/molecules/ServiceTile.astro';
+import FAQ from '../../components/molecules/FAQ.astro';
+import OfficeLocationsMap from '../../components/islands/OfficeLocationsMap';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import { collectionPageSchema } from '../../lib/schema/CollectionPage';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const commercialServices = [
+  { name: "Flat Roof Systems (TPO/PVC)", url: "/commercial-roofing/flat-roofs/" },
+  { name: "Metal Roofing", url: "/commercial-roofing/metal-roofing/" },
+  { name: "Emergency Repair & Leak Detection", url: "/commercial-roofing/repair/" },
+  { name: "Preventative Maintenance (ProPlan)", url: "/commercial-roofing/proplan/" }
+];
+
+const faqs = [
+  {
+    question: "Do you work with insurance adjusters?",
+    answer: "Yes, we have extensive experience working with adjusters on complex commercial claims to ensure all damage is properly documented and compensated."
+  },
+  {
+    question: "What areas do you serve for commercial projects?",
+    answer: "We serve the entire Dallas-Fort Worth metroplex and surrounding areas, including North Texas and Oklahoma for large-scale commercial assets."
+  }
+];
+
+const mainSchema = [
+  collectionPageSchema(commercialServices, "Commercial Roofing Services", "Expert commercial roofing solutions for retail, industrial, and multi-family properties."),
+  breadcrumbSchema([
+    { label: "Home", href: "/" },
+    { label: "Commercial Roofing", href: "/commercial-roofing/" }
+  ])
+];
+---
+
+<BaseLayout 
+  title="Commercial Roofing Contractor | Pro Exteriors" 
+  description="Expert commercial roofing solutions for property managers and building owners. TPO, Metal, Maintenance, and Emergency Repair."
+  canonicalPath="/commercial-roofing/"
+  jsonLd={mainSchema}
+>
+  <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Commercial Roofing", href: "/commercial-roofing/" }]} />
+
+  <HeroSection 
+    title="Commercial Roofing Contractor"
+    subtitle="Engineered roofing solutions for complex commercial assets. Minimize liability, protect your tenants, and extend your roof's lifecycle."
+    primaryCta={{ label: "Request a Quote", href: "/contact/?vertical=commercial" }}
+    secondaryCta={{ label: "Explore Services", href: "#services" }}
+    image="/images/commercial-hero.jpg"
+  />
+
+  <StatBand 
+    stats={[
+      { label: "Asset Value Managed", value: "$2B+", suffix: "" },
+      { label: "Emergency Response", value: "4", suffix: "Hours" },
+      { label: "Safety Rating", value: "Perfect", suffix: "Score" },
+      { label: "Warranty Coverage", value: "Up to 30", suffix: "Years" }
+    ]}
+    data-todo="source-stats"
+  />
+
+  <section id="services" class="py-20 px-4 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {commercialServices.map(service => (
+        <ServiceTile 
+          title={service.name}
+          description="High-performance roofing solutions designed for longevity and thermal efficiency."
+          href={service.url}
+          icon="building"
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="py-20 bg-gray-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold">Our Service Coverage</h2>
+        <p class="text-gray-600 mt-4 text-lg">We maintain offices across Texas to provide rapid response for our commercial clients.</p>
+      </div>
+      <div class="bg-white p-4 rounded-3xl shadow-xl ring-1 ring-gray-200">
+        <OfficeLocationsMap client:visible />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Commercial Roofing FAQ</h2>
+      <FAQ faqs={faqs} />
+    </div>
+  </section>
+</BaseLayout>

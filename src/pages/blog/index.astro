@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import Badge from '../../components/atoms/Badge.astro';
+import { collectionPageSchema } from '../../lib/schema/CollectionPage';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const posts = [
+  { 
+    title: "How to Identify Hail Damage on Your Roof", 
+    excerpt: "Learn the subtle signs of hail impact that can lead to long-term structural issues if left unaddressed.",
+    category: "Education",
+    date: "April 15, 2026",
+    url: "/blog/hail-damage-guide/"
+  },
+  { 
+    title: "TPO vs. PVC: Choosing the Right Flat Roof for Your Facility", 
+    excerpt: "A deep dive into the performance characteristics and cost-benefit analysis of modern commercial roof membranes.",
+    category: "Commercial",
+    date: "April 12, 2026",
+    url: "/blog/tpo-vs-pvc/"
+  },
+  { 
+    title: "The Importance of Regular Roof Maintenance for North Texas Homes", 
+    excerpt: "Why biannual inspections are the key to extending your roof's lifecycle in the DFW climate.",
+    category: "Residential",
+    date: "April 08, 2026",
+    url: "/blog/maintenance-importance/"
+  }
+];
+
+const categories = [
+  "All", "Commercial", "Residential", "Education", "Company News", "Storm Damage"
+];
+
+const mainSchema = [
+  collectionPageSchema(posts.map(p => ({ name: p.title, url: p.url, description: p.excerpt })), "Pro Exteriors Blog", "Insights and guides on roofing and exterior maintenance."),
+  breadcrumbSchema([
+    { label: "Home", href: "/" },
+    { label: "Blog", href: "/blog/" }
+  ])
+];
+---
+
+<BaseLayout 
+  title="Roofing Insights & Guides | Pro Exteriors Blog" 
+  description="Expert advice on roof maintenance, material selection, and storm damage restoration for Texas property owners."
+  canonicalPath="/blog/"
+  jsonLd={mainSchema}
+>
+  <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog/" }]} />
+
+  <HeroSection 
+    title="Roofing Insights for Property Leaders"
+    subtitle="Expert analysis on materials, maintenance, and the DFW roofing climate."
+    primaryCta={{ label: "Subscribe to Newsletter", href: "#subscribe" }}
+    secondaryCta={{ label: "Read Featured Story", href: posts[0].url }}
+    image="/images/blog-hero.jpg"
+  />
+
+  <section class="py-12 border-b">
+    <div class="max-w-7xl mx-auto px-4 flex flex-wrap gap-4 justify-center">
+      {categories.map((cat, index) => (
+        <button class={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${index === 0 ? 'bg-brand-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+          {cat}
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-20 px-4 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      {posts.map(post => (
+        <article class="group">
+          <div class="aspect-video bg-gray-200 rounded-2xl mb-6 overflow-hidden relative">
+            <div class="absolute top-4 left-4">
+              <Badge variant="primary">{post.category}</Badge>
+            </div>
+            <!-- Image placeholder -->
+            <div class="w-full h-full bg-brand-primary opacity-10 group-hover:opacity-20 transition-opacity"></div>
+          </div>
+          <div class="space-y-4">
+            <p class="text-sm text-gray-500">{post.date}</p>
+            <h3 class="text-2xl font-bold text-gray-900 group-hover:text-brand-primary transition-colors">
+              <a href={post.url}>{post.title}</a>
+            </h3>
+            <p class="text-gray-600 line-clamp-3">{post.excerpt}</p>
+            <a href={post.url} class="inline-block text-brand-primary font-bold hover:underline">Read Article →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="subscribe" class="py-20 bg-gray-900 text-white rounded-3xl mx-4 mb-20 overflow-hidden relative">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <!-- Decorative pattern -->
+      <svg class="w-full h-full" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0 100 L100 0 L100 100 Z" />
+      </svg>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+      <h2 class="text-3xl font-bold mb-4">Stay Ahead of the Storm</h2>
+      <p class="text-xl text-gray-400 mb-10">Get expert roofing tips and DFW weather alerts delivered to your inbox.</p>
+      <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+        <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-full bg-gray-800 border-gray-700 focus:outline-none focus:ring-2 focus:ring-brand-primary text-white" required />
+        <button type="submit" class="px-8 py-4 bg-brand-primary hover:bg-brand-accent text-white font-bold rounded-full transition-colors">Subscribe</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

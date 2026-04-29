@@ -1,0 +1,61 @@
+---
+import Button from '../atoms/Button.astro';
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+  image?: string;
+  primaryCta?: {
+    text: string;
+    href: string;
+  };
+  secondaryCta?: {
+    text: string;
+    href: string;
+  };
+  class?: string;
+}
+
+const {
+  title,
+  subtitle,
+  image,
+  primaryCta,
+  secondaryCta,
+  class: className = '',
+} = Astro.props;
+---
+
+<div class={`relative isolate overflow-hidden bg-brand-bg ${className}`}>
+  <!-- Optional Background Image -->
+  {image && (
+    <div class="absolute inset-0 -z-10 bg-gray-900">
+      <img src={image} alt="" class="h-full w-full object-cover opacity-30" loading="eager" />
+    </div>
+  )}
+
+  <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
+    <div class={`mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8 ${image ? 'text-white' : 'text-gray-900'}`}>
+      <h1 class="mt-10 text-4xl font-display font-bold tracking-tight sm:text-6xl">
+        {title}
+      </h1>
+      {subtitle && (
+        <p class={`mt-6 text-lg leading-8 ${image ? 'text-gray-300' : 'text-gray-600'}`}>
+          {subtitle}
+        </p>
+      )}
+      <div class="mt-10 flex items-center gap-x-6">
+        {primaryCta && (
+          <Button href={primaryCta.href} variant="primary" size="lg" data-cta-name="hero_primary">
+            {primaryCta.text}
+          </Button>
+        )}
+        {secondaryCta && (
+          <Button href={secondaryCta.href} variant={image ? "ghost" : "secondary"} size="lg" class={image ? 'text-white hover:text-white hover:bg-white/10' : ''} data-cta-name="hero_secondary">
+            {secondaryCta.text} <span aria-hidden="true" class="ml-1">→</span>
+          </Button>
+        )}
+      </div>
+    </div>
+  </div>
+</div>

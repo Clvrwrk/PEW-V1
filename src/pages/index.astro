@@ -1,17 +1,100 @@
 ---
-// Pro Exteriors — Phase 1 placeholder index
-// This file will be replaced in Step 8a with the full home hub template
-import '../styles/global.css';
+import BaseLayout from '../components/seo/BaseLayout.astro';
+import HeroSection from '../components/molecules/HeroSection.astro';
+import StatBand from '../components/molecules/StatBand.astro';
+import ServiceTile from '../components/molecules/ServiceTile.astro';
+import PropertyCardCallout from '../components/molecules/PropertyCardCallout.astro';
+import FAQ from '../components/molecules/FAQ.astro';
+import Button from '../components/atoms/Button.astro';
+import { websiteSchema } from '../lib/schema/WebSite';
+import { organizationSchema } from '../lib/schema/Organization';
+
+const homeFaqs = [
+  {
+    question: "How long does a roof replacement take?",
+    answer: "Most residential roof replacements are completed in 1-2 days, depending on the size and complexity of the project."
+  },
+  {
+    question: "Are you licensed and insured?",
+    answer: "Yes, Pro Exteriors is fully licensed and carries comprehensive liability and workers' compensation insurance to protect your property and our workers."
+  },
+  {
+    question: "Do you offer financing?",
+    answer: "We offer flexible financing options for both residential and commercial projects to help make your exterior improvements more affordable."
+  }
+];
+
+const mainSchema = [
+  websiteSchema(),
+  organizationSchema()
+];
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pro Exteriors — Roofing Contractor</title>
-  </head>
-  <body class="font-sans bg-brand-bg text-brand-text">
-    <h1 class="text-4xl font-bold text-brand-primary p-8">Pro Exteriors — Phase 1 Build in Progress</h1>
-    <p class="text-brand-text-secondary px-8">Tailwind + Inter loaded ✓</p>
-  </body>
-</html>
+
+<BaseLayout 
+  title="Pro Exteriors | Commercial & Residential Roofing Specialists" 
+  description="Your trusted partner for commercial and residential exterior solutions. Local experts. Not 'storm chasers'. Serving Dallas-Fort Worth and beyond."
+  canonicalPath="/"
+  jsonLd={mainSchema}
+>
+  <HeroSection 
+    title="Roofing Excellence for Property Leaders"
+    subtitle="From complex commercial assets to family homes, we deliver engineering-grade exterior solutions with local accountability."
+    primaryCta={{ label: "Request Inspection", href: "/contact/" }}
+    secondaryCta={{ label: "View Our Work", href: "/case-studies/" }}
+    image="/images/home-hero.jpg"
+  />
+
+  <StatBand 
+    stats={[
+      { label: "Roofs Installed", value: "500+", suffix: "Projects" },
+      { label: "Commercial Assets", value: "12M", suffix: "sq. ft." },
+      { label: "Service Response", value: "24", suffix: "Hours" },
+      { label: "Client Retention", value: "98", suffix: "%" }
+    ]}
+    data-todo="source-stats"
+  />
+
+  <section class="py-20 px-4 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Strategic Exterior Solutions</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">Expert roofing and exterior services tailored to your property's specific needs.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <ServiceTile 
+        title="Commercial Roofing"
+        description="Comprehensive maintenance, repair, and replacement for retail, industrial, and multi-family assets."
+        href="/commercial-roofing/"
+        icon="building"
+      />
+      <ServiceTile 
+        title="Residential Roofing"
+        description="Premium material options and expert installation for homeowners who value durability and aesthetics."
+        href="/residential-roofing/"
+        icon="home"
+      />
+    </div>
+  </section>
+
+  <PropertyCardCallout />
+
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+      <FAQ faqs={homeFaqs} />
+    </div>
+  </section>
+
+  <section class="py-20 text-center bg-brand-primary text-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Protect Your Asset?</h2>
+      <p class="text-xl mb-10 opacity-90">Schedule a professional inspection with our local experts today.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <Button href="/contact/" variant="white" size="lg">Schedule Now</Button>
+        <Button href="tel:4695351708" variant="outline" size="lg" class="border-white text-white hover:bg-white hover:text-brand-primary">
+          Call (469) 535-1708
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

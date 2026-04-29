@@ -1,0 +1,49 @@
+---
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  class?: string;
+  'data-cta-name'?: string;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  class: className = '',
+  'data-cta-name': ctaName,
+  type = 'button',
+  ...rest
+} = Astro.props;
+
+const baseStyles = 'inline-flex items-center justify-center font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors';
+
+const sizeStyles = {
+  sm: 'px-3 py-1.5 text-sm',
+  md: 'px-4 py-2 text-sm',
+  lg: 'px-6 py-3 text-base',
+};
+
+const variantStyles = {
+  primary: 'bg-brand-accent text-white hover:bg-orange-600 focus:ring-brand-accent',
+  secondary: 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-brand-primary',
+  ghost: 'bg-transparent text-brand-primary hover:bg-gray-100 focus:ring-brand-primary',
+  danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-600',
+};
+
+const classes = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;
+
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  href={href}
+  type={href ? undefined : type}
+  class={classes}
+  data-cta-name={ctaName}
+  {...rest}
+>
+  <slot />
+</Tag>

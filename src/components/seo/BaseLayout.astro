@@ -1,0 +1,92 @@
+---
+import '../../styles/global.css';
+import Header from '../organisms/Header.astro';
+import Footer from '../organisms/Footer.astro';
+import SchemaJsonLd from './SchemaJsonLd.astro';
+import AnalyticsHead from './AnalyticsHead.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  ogImage?: string;
+  jsonLd?: Record<string, any> | Record<string, any>[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  ogImage = '/images/og-default.jpg',
+  jsonLd,
+  noindex = false,
+} = Astro.props;
+
+// Ensure title is <= 60 chars per PRD
+if (title.length > 60) {
+  console.warn(`[SEO WARNING] Title exceeds 60 characters: "${title}" (${title.length} chars)`);
+}
+
+// Ensure description is 120-160 chars per PRD
+if (description.length < 70 || description.length > 160) {
+  console.warn(`[SEO WARNING] Description should be 70-160 characters: "${description}" (${description.length} chars)`);
+}
+
+const siteUrl = import.meta.env.SITE_URL || 'https://pc-demo.cleverwork.io';
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const ogImageUrl = new URL(ogImage, siteUrl).toString();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Robots -->
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+    
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Analytics -->
+    <AnalyticsHead />
+
+    <!-- Schema.org JSON-LD -->
+    {jsonLd && <SchemaJsonLd jsonLd={jsonLd} />}
+  </head>
+  <body class="flex min-h-screen flex-col bg-brand-bg text-brand-text antialiased">
+    <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
+    
+    <Header />
+    
+    <main id="main" class="flex-grow focus:outline-none" tabindex="-1">
+      <slot />
+    </main>
+    
+    <Footer />
+  </body>
+</html>

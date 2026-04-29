@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import Button from '../../components/atoms/Button.astro';
+import Stat from '../../components/atoms/Stat.astro';
+import Badge from '../../components/atoms/Badge.astro';
+import Input from '../../components/atoms/Input.astro';
+import Icon from '../../components/atoms/Icon.astro';
+import PartnerNetworkDisclosure from '../../components/atoms/PartnerNetworkDisclosure.astro';
+import Card from '../../components/molecules/Card.astro';
+import FAQ from '../../components/molecules/FAQ.astro';
+import Testimonial from '../../components/molecules/Testimonial.astro';
+import ServiceTile from '../../components/molecules/ServiceTile.astro';
+import StatBand from '../../components/molecules/StatBand.astro';
+import ProcessStep from '../../components/molecules/ProcessStep.astro';
+import PropertyCardCallout from '../../components/molecules/PropertyCardCallout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+
+if (!import.meta.env.DEV) {
+  // Return 404 in production if somehow hit
+  return new Response(null, { status: 404 });
+}
+---
+
+<BaseLayout
+  title="Component Library | Dev Playground"
+  description="Internal playground for verifying atoms and molecules."
+  canonicalPath="/_dev/components/"
+  noindex={true}
+>
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-24">
+    
+    <!-- Header -->
+    <div class="border-b border-gray-200 pb-5">
+      <h1 class="text-3xl font-bold leading-6 text-gray-900">Component Playground</h1>
+      <p class="mt-2 max-w-4xl text-sm text-gray-500">Only visible in development mode. Used to verify components created in Step 5.</p>
+    </div>
+
+    <!-- Atoms -->
+    <section>
+      <h2 class="text-2xl font-bold mb-8 text-brand-primary">Atoms</h2>
+      
+      <div class="space-y-12">
+        <!-- Buttons -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Buttons</h3>
+          <div class="flex flex-wrap gap-4 items-center">
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="ghost">Ghost</Button>
+            <Button variant="danger">Danger</Button>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center mt-4">
+            <Button size="sm">Small</Button>
+            <Button size="md">Medium</Button>
+            <Button size="lg">Large</Button>
+          </div>
+        </div>
+
+        <!-- Badges -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Badges</h3>
+          <div class="flex gap-4">
+            <Badge variant="verified">Verified</Badge>
+            <Badge variant="cert">Certification</Badge>
+            <Badge variant="new">New</Badge>
+            <Badge variant="todo">TODO</Badge>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Stats</h3>
+          <div class="grid grid-cols-2 gap-8 max-w-md">
+            <Stat value="20+" label="Years Experience" source="Internal Data" />
+            <Stat value="1,000+" label="Roofs Installed" /> <!-- Intentionally missing source to test TODO logic -->
+          </div>
+        </div>
+
+        <!-- Inputs -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Inputs</h3>
+          <div class="max-w-sm space-y-4">
+            <Input name="first_name" label="First Name" required />
+            <Input name="email" label="Email" type="email" placeholder="you@example.com" />
+            <Input name="phone" label="Phone" error="Please enter a valid phone number." />
+          </div>
+        </div>
+
+        <!-- Icons -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Icons</h3>
+          <div class="flex gap-4 text-brand-primary">
+            <Icon name="home" />
+            <Icon name="hammer" />
+            <Icon name="phone" />
+            <Icon name="mail" />
+            <Icon name="shield-check" />
+          </div>
+        </div>
+
+        <!-- Partner Disclosure -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Partner Disclosure</h3>
+          <PartnerNetworkDisclosure />
+        </div>
+      </div>
+    </section>
+
+    <hr class="border-gray-200" />
+
+    <!-- Molecules -->
+    <section>
+      <h2 class="text-2xl font-bold mb-8 text-brand-primary">Molecules</h2>
+      
+      <div class="space-y-16">
+        
+        <!-- Breadcrumb -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Breadcrumb</h3>
+          <Breadcrumb paths={[
+            { label: 'Services', href: '/services/' },
+            { label: 'Commercial Roofing', href: '/commercial-roofing/' },
+            { label: 'TPO', href: '/commercial-roofing/tpo/' },
+          ]} />
+        </div>
+
+        <!-- Cards -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Cards</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+            <Card 
+              title="Commercial TPO" 
+              description="Durable, reflective, and energy-efficient single-ply membrane roofing."
+              eyebrow="Commercial"
+              href="/commercial-roofing/tpo/"
+            />
+            <Card 
+              title="Storm Damage Repair" 
+              description="Emergency tarping and comprehensive repair after severe Texas weather."
+              eyebrow="Emergency"
+              href="/residential-roofing/storm-damage/"
+              image="https://images.unsplash.com/photo-1620288117769-70bdcdbc11c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            />
+          </div>
+        </div>
+
+        <!-- Service Tile -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Service Tile</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl">
+            <ServiceTile 
+              name="Flat Roof Systems" 
+              description="TPO, EPDM, and modified bitumen installations for commercial properties."
+              href="/commercial-roofing/"
+              icon="building"
+            />
+          </div>
+        </div>
+
+        <!-- Process Step -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Process Step</h3>
+          <div class="space-y-8 max-w-xl">
+            <ProcessStep 
+              number={1} 
+              title="Request an Inspection" 
+              description="Reach out via our portal or give us a call to schedule your free inspection." 
+            />
+            <ProcessStep 
+              number={2} 
+              icon="search"
+              title="Thorough Evaluation" 
+              description="Our experts assess your roof's condition and provide a detailed property report." 
+            />
+          </div>
+        </div>
+
+        <!-- Testimonial -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Testimonial</h3>
+          <div class="max-w-2xl">
+            <Testimonial 
+              quote="Pro Exteriors handled our warehouse reroofing with incredible professionalism. No disruptions to our operations."
+              author="Jane Smith"
+              role="Facilities Manager"
+              org="Texas Logistics Co."
+              rating={5}
+            />
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">FAQ Accordion</h3>
+          <div class="max-w-3xl">
+            <FAQ faqs={[
+              { question: "How long does a roof replacement take?", answer: "Most residential roofs are completed in 1-2 days. Commercial projects vary based on square footage." },
+              { question: "Do you offer financing?", answer: "Yes, we partner with leading lenders to offer flexible financing options for homeowners." }
+            ]} />
+          </div>
+        </div>
+
+        <!-- Property Card Callout -->
+        <div>
+          <h3 class="text-lg font-medium mb-4">Property Card Callout</h3>
+          <PropertyCardCallout />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Stat Band -->
+    <section>
+      <h3 class="text-lg font-medium mb-4 text-brand-primary">Stat Band</h3>
+    </section>
+  </div>
+  
+  <StatBand 
+    stats={[
+      { value: "24/7", label: "Emergency Service" },
+      { value: "15+", label: "Years in Business", source: "Company Records" },
+      { value: "500+", label: "5-Star Reviews", source: "Google Business Profile" },
+      { value: "100%", label: "Satisfaction Guarantee" },
+    ]}
+    disclaimer="Based on internal data as of Jan 2026."
+  />
+
+  <!-- Hero Section -->
+  <div class="mt-24">
+    <h3 class="text-lg font-medium mb-4 px-8 text-brand-primary">Hero Section</h3>
+    <HeroSection 
+      title="Protect Your Investment"
+      subtitle="Expert commercial and residential roofing services tailored for Texas weather."
+      primaryCta={{ text: "Get a Quote", href: "/contact/" }}
+      secondaryCta={{ text: "View Services", href: "/services/" }}
+    />
+  </div>
+
+</BaseLayout>

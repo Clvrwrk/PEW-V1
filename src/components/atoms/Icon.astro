@@ -1,0 +1,52 @@
+---
+import * as icons from 'lucide';
+
+export interface Props {
+  name: string;
+  size?: number | string;
+  class?: string;
+  strokeWidth?: number;
+}
+
+const { 
+  name, 
+  size = 24, 
+  class: className = '',
+  strokeWidth = 2 
+} = Astro.props;
+
+// Convert kebab-case or plain name to PascalCase for lucide export
+const toPascalCase = (str: string) => 
+  str.split('-').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+
+const iconName = toPascalCase(name) as keyof typeof icons;
+const IconData = icons[iconName];
+
+let svgString = '';
+
+if (IconData && Array.isArray(IconData)) {
+  const attrsToString = (attrs: Record<string, any>) => 
+    Object.entries(attrs).map(([key, value]) => `${key}="${value}"`).join(' ');
+  
+  // IconData is an array of [tag, attrs]
+  svgString = (IconData as any[]).map(([tag, attrs]) => {
+    return `<${tag} ${attrsToString(attrs)}></${tag}>`;
+  }).join('');
+} else {
+  console.warn(`[Icon WARNING] Icon "${name}" not found in lucide.`);
+}
+---
+
+<svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  width={size} 
+  height={size} 
+  viewBox="0 0 24 24" 
+  fill="none" 
+  stroke="currentColor" 
+  stroke-width={strokeWidth} 
+  stroke-linecap="round" 
+  stroke-linejoin="round" 
+  class={className}
+  set:html={svgString}
+/>

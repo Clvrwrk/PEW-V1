@@ -1,0 +1,35 @@
+---
+export interface Props {
+  value: string;
+  label: string;
+  source?: string;
+  class?: string;
+}
+
+const { value, label, source, class: className = '' } = Astro.props;
+
+// Determine if we are in development mode to show the visual pill
+const isDev = import.meta.env.DEV;
+const needsSource = !source;
+---
+
+<div class={`flex flex-col relative ${className}`} data-todo={needsSource ? "source-stats" : undefined}>
+  <div class="text-4xl font-display font-bold text-brand-primary tracking-tight">
+    {value}
+  </div>
+  <div class="mt-1 text-sm font-medium text-gray-500 uppercase tracking-wide">
+    {label}
+  </div>
+  
+  {source && (
+    <div class="mt-2 text-xs text-gray-400">
+      Source: {source}
+    </div>
+  )}
+
+  {needsSource && isDev && (
+    <div class="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 text-[10px] font-bold px-1.5 py-0.5 rounded shadow-sm z-10" title="Missing source prop">
+      TODO: SRC
+    </div>
+  )}
+</div>
