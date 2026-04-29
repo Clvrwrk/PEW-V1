@@ -11,7 +11,10 @@ import { join } from 'path';
 import { fileURLToPath } from 'url';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const BLOG_POSTS_DIR = join(ROOT, 'src/content/blog-posts');
+// Collection folder must match the key in src/content/config.ts (`blogPosts`).
+// Older drafts of this script pointed at the kebab-case folder which is empty
+// and made the audit silently pass with zero posts.
+const BLOG_POSTS_DIR = join(ROOT, 'src/content/blogPosts');
 
 let postCount = 0;
 let errors = 0;

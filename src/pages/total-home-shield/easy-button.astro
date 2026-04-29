@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import PartnerNetworkDisclosure from '../../components/atoms/PartnerNetworkDisclosure.astro';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Total Home Shield', href: '/total-home-shield/' },
+  { label: 'The Easy Button', href: '/total-home-shield/easy-button/' },
+];
+const schemaPayload = [breadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="The Easy Button | Pro Exteriors Total Home Shield"
+  description="Pro Exteriors handles every exterior trade through one accountable team. No bidding contractors. No coordination. Just one phone call."
+  canonicalPath="/total-home-shield/easy-button/"
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <HeroSection title="The Easy Button" subtitle="One team. One contract. One warranty interface. Every exterior trade covered." />
+  <article class="prose mx-auto max-w-3xl px-4 py-16">
+    <p>Phase 1 placeholder. Verbatim campaign copy lands with Step 8c.</p>
+    <p class="mt-8 text-sm">P.S. Ready to see the offer now? <a href="/total-home-shield/claim-offer/">Yes, Show Me My $997 Loyalty Offer Now</a>.</p>
+  </article>
+  <div class="mx-auto max-w-3xl px-4 pb-16">
+    <PartnerNetworkDisclosure />
+  </div>
+</BaseLayout>

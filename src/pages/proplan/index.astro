@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import StatBand from '../../components/molecules/StatBand.astro';
+import PropertyCardCallout from '../../components/molecules/PropertyCardCallout.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'ProPlan', href: '/proplan/' },
+];
+const schemaPayload = [breadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="ProPlan — Strategic Roof Maintenance | Pro Exteriors"
+  description="ProPlan is Pro Exteriors' preventative maintenance program — scheduled inspections, repairs, and reporting that extend your roof's lifecycle."
+  canonicalPath="/proplan/"
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <HeroSection
+    title="ProPlan: Treat Your Roof Like the Strategic Asset It Is"
+    subtitle="Preventative maintenance, scheduled inspections, and a single accountable team. Designed for facility managers and property owners."
+    primaryCta={{ label: 'Request a ProPlan Assessment', href: '/contact/?type=proplan' }}
+    secondaryCta={{ label: 'See How It Works', href: '#how-it-works' }}
+  />
+  <StatBand
+    stats={[
+      { value: '30%', label: 'Lifecycle Extension' },
+      { value: '4hr', label: 'Emergency Response' },
+      { value: '24/7', label: 'Scheduled Inspections' },
+      { value: '$0', label: 'Surprise Failures' }
+    ]}
+    disclaimer="Phase 1 placeholders — sources land with the analytics wire-up."
+  />
+  <div class="mx-auto max-w-7xl px-4 py-16">
+    <PropertyCardCallout />
+  </div>
+</BaseLayout>

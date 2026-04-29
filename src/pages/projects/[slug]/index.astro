@@ -1,0 +1,70 @@
+---
+/**
+ * src/pages/projects/[slug]/index.astro
+ * Case-study detail template (Step 8b).
+ */
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import HeroSection from '../../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import { caseStudySchema } from '../../../lib/schema/CaseStudy';
+import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
+
+export async function getStaticPaths() {
+  const studies = await getCollection('caseStudies');
+  return studies.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'caseStudies'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const data = entry.data;
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Projects', href: '/projects/' },
+  { label: data.projectName, href: data.canonicalPath },
+];
+
+const schemaPayload = [
+  caseStudySchema({
+    title: data.projectName,
+    description: data.description,
+    city: 'Texas',
+    service: data.scope,
+    url: `https://pc-demo.cleverwork.io${data.canonicalPath}`,
+  }),
+  breadcrumbSchema(breadcrumbs),
+];
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  canonicalPath={data.canonicalPath}
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+
+  <HeroSection
+    title={data.projectName}
+    subtitle={data.scope}
+  />
+
+  <article class="prose mx-auto max-w-3xl px-4 py-16">
+    <p class="text-gray-500 italic mb-2">Industry: {data.industryCategory}</p>
+    {data.timeline && <p class="text-gray-500 italic mb-6">Timeline: {data.timeline}</p>}
+    <Content />
+    {data.testimonial && (
+      <blockquote class="border-l-4 border-brand-accent pl-4 italic text-gray-700 mt-8">
+        "{data.testimonial}"
+      </blockquote>
+    )}
+  </article>
+</BaseLayout>

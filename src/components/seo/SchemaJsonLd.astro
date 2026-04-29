@@ -1,14 +1,45 @@
 ---
+/**
+ * SchemaJsonLd.astro
+ * Emits one <script type="application/ld+json"> block.
+ *
+ * - If `jsonLd` is an array, the entries are wrapped in an `@graph` document so
+ *   the post-build schema audit (validate-schema.mjs) sees a valid root with
+ *   `@context` + `@graph` + `@type` on every node.
+ * - If `jsonLd` is a single object, `@context` is added when missing so the
+ *   audit's top-level `@type` check is satisfied.
+ */
+
 export interface Props {
   jsonLd: Record<string, any> | Record<string, any>[];
 }
 
 const { jsonLd } = Astro.props;
 
-// Ensure we have valid JSON data before rendering
+const SCHEMA_CONTEXT = 'https://schema.org';
+
 const hasSchema = jsonLd && (Array.isArray(jsonLd) ? jsonLd.length > 0 : Object.keys(jsonLd).length > 0);
+
+let payload: Record<string, any> | null = null;
+
+if (hasSchema) {
+  if (Array.isArray(jsonLd)) {
+    payload = {
+      '@context': SCHEMA_CONTEXT,
+      '@graph': jsonLd.map((node) => {
+        // Strip any nested @context — invalid inside @graph
+        const { ['@context']: _ctx, ...rest } = node ?? {};
+        return rest;
+      }),
+    };
+  } else {
+    payload = jsonLd['@context']
+      ? jsonLd
+      : { '@context': SCHEMA_CONTEXT, ...jsonLd };
+  }
+}
 ---
 
-{hasSchema && (
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+{payload && (
+  <script type="application/ld+json" set:html={JSON.stringify(payload)} />
 )}
