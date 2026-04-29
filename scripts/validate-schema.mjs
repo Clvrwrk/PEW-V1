@@ -6,8 +6,9 @@
 
 import { readFileSync, readdirSync, statSync } from 'fs';
 import { join } from 'path';
+import { fileURLToPath } from 'url';
 
-const DIST_DIR = new URL('../dist', import.meta.url).pathname;
+const DIST_DIR = fileURLToPath(new URL('../dist', import.meta.url));
 console.log(`[schema-audit] Searching in: ${DIST_DIR}`);
 
 function walkDir(dir) {
