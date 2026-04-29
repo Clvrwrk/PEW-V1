@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Partner Network', href: '/partners/' },
+];
+const schemaPayload = [breadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Partner Network & Disclosure | Pro Exteriors"
+  description="Pro Exteriors fulfills roofing, gutters, and siding in-house. Windows and exterior painting are coordinated through our vetted partner network."
+  canonicalPath="/partners/"
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <HeroSection
+    title="One Point of Contact. Every Trade Vetted."
+    subtitle="How Pro Exteriors coordinates roofing, gutters, siding, windows, and exterior painting for whole-property projects."
+  />
+  <article class="prose mx-auto max-w-3xl px-4 py-16">
+    <h2>What we self-perform</h2>
+    <p>Pro Exteriors crews self-perform roofing, gutters, and siding from start to finish.</p>
+
+    <h2>What we coordinate through partners</h2>
+    <p>Windows and exterior painting are fulfilled by our vetted partner network. Pro Exteriors remains your single point of contact, single contract, and single warranty interface — partners deliver under our QC standard.</p>
+
+    <h2>Why this model</h2>
+    <p>Specialization is how craft scales. Self-performing every trade dilutes quality. Coordinating with proven partners protects scope and schedule without compromising the standard our clients pay for.</p>
+  </article>
+</BaseLayout>

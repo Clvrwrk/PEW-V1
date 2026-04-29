@@ -8,8 +8,12 @@
 
 import { readFileSync, readdirSync, statSync } from 'fs';
 import { join } from 'path';
+import { fileURLToPath } from 'url';
 
-const DIST_DIR = new URL('../dist', import.meta.url).pathname;
+// fileURLToPath decodes URL-encoded characters (e.g. spaces in the parent
+// directory). Plain `new URL(...).pathname` keeps `%20` and the walker
+// silently finds zero files.
+const DIST_DIR = fileURLToPath(new URL('../dist', import.meta.url));
 
 function walkDir(dir) {
   const results = [];

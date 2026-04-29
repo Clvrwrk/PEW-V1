@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Property Card', href: '/property-card/' },
+  { label: 'Get Yours', href: '/property-card/get-yours/' },
+];
+const schemaPayload = [breadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Request Your Pro Exteriors Property Card"
+  description="Enter your address and we'll prepare your free Pro Exteriors Property Card — a complete health and history report for your home's exterior."
+  canonicalPath="/property-card/get-yours/"
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <HeroSection title="Request Your Property Card" subtitle="Enter your address. We'll prepare it within 48 hours." />
+  <section class="py-16 px-4 max-w-2xl mx-auto">
+    <p class="text-gray-700">Phase 1 placeholder — the address autocomplete + lead capture island lands in Step 11.</p>
+  </section>
+</BaseLayout>

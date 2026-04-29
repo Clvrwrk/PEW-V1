@@ -18,12 +18,14 @@ const faqItem = z.object({
 // ─── Content Collections ──────────────────────────────────────────────────────
 
 /** Commercial and residential services */
+// `slug` cannot appear in a content-collection schema (Astro reserves it for
+// route generation). The frontmatter may still define `slug`; Astro picks it
+// up to override the filename-derived slug, exposed as `entry.slug` at runtime.
 const services = defineCollection({
   type: 'content',
   schema: z.object({
     ...seoFields.shape,
     vertical: z.enum(['commercial', 'residential']),
-    slug: z.string(),
     name: z.string(),
     h1: z.string(),
     heroImage: z.string().optional(),   // public/ path or placeholder
@@ -41,10 +43,8 @@ const cities = defineCollection({
     ...seoFields.shape,
     vertical: z.enum(['commercial', 'residential']),
     name: z.string(),
-    slug: z.string(),
     state: z.string().length(2),
     h1: z.string(),
-    description: z.string(),
     nearestOffice: z.string(), // office slug
     faqs: z.array(faqItem).optional(),
     projectGallery: z.array(z.string()).optional(),
@@ -58,7 +58,6 @@ const subdivisions = defineCollection({
   schema: z.object({
     ...seoFields.shape,
     name: z.string(),
-    slug: z.string(),
     parentCity: z.string(), // city slug
     state: z.string().length(2),
     h1: z.string(),
@@ -75,7 +74,6 @@ const offices = defineCollection({
   schema: z.object({
     ...seoFields.shape,
     name: z.string(),
-    slug: z.string(),
     metro: z.string(),
     type: z.enum(['headquarters', 'branch', 'satellite']),
     address: z.object({
@@ -98,7 +96,6 @@ const caseStudies = defineCollection({
   schema: z.object({
     ...seoFields.shape,
     projectName: z.string(),
-    slug: z.string(),
     industryCategory: z.enum(['commercial', 'residential', 'proplan']),
     scope: z.string(),
     timeline: z.string().optional(),
@@ -111,7 +108,6 @@ const blogPosts = defineCollection({
   type: 'content',
   schema: z.object({
     ...seoFields.shape,
-    slug: z.string(),
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     author: z.string(),
@@ -138,7 +134,6 @@ const pillars = defineCollection({
   schema: z.object({
     ...seoFields.shape,
     name: z.string(),
-    slug: z.string(),
     vertical: z.enum(['commercial', 'residential', 'brand']),
     intro: z.string(),
   }),
@@ -149,6 +144,13 @@ const legal = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    /**
+     * Canonical URL path for the legal page (e.g. "/privacy-policy/").
+     * Required so the dynamic [slug] route can map an MDX entry to its
+     * production URL without depending on the entry's filename.
+     */
+    canonicalPath: z.string(),
+    description: z.string().optional(),
     lastUpdated: z.coerce.date().optional(),
     noindex: z.boolean().default(false),
   }),

@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../components/seo/BaseLayout.astro';
 import HeroSection from '../../components/molecules/HeroSection.astro';
 import StatBand from '../../components/molecules/StatBand.astro';
@@ -9,12 +10,13 @@ import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
 import { collectionPageSchema } from '../../lib/schema/CollectionPage';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
-const commercialServices = [
-  { name: "Flat Roof Systems (TPO/PVC)", url: "/commercial-roofing/flat-roofs/" },
-  { name: "Metal Roofing", url: "/commercial-roofing/metal-roofing/" },
-  { name: "Emergency Repair & Leak Detection", url: "/commercial-roofing/repair/" },
-  { name: "Preventative Maintenance (ProPlan)", url: "/commercial-roofing/proplan/" }
-];
+// Drive the services grid + collection schema directly from the services
+// content collection so URLs always match a real page. No hand-maintained
+// duplicate list.
+const commercialServiceEntries = await getCollection('services', ({ data }) => data.vertical === 'commercial');
+const commercialServices = commercialServiceEntries
+  .map((entry) => ({ name: entry.data.name, url: entry.data.canonicalPath }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 
 const faqs = [
   {

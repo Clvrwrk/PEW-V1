@@ -1,18 +1,20 @@
 ---
 import Button from '../atoms/Button.astro';
 
+// CTA prop accepts either `text` or `label` so older page authors and the
+// design library can both call it without breaking. The first non-empty wins.
+export interface CtaProp {
+  text?: string;
+  label?: string;
+  href: string;
+}
+
 export interface Props {
   title: string;
   subtitle?: string;
   image?: string;
-  primaryCta?: {
-    text: string;
-    href: string;
-  };
-  secondaryCta?: {
-    text: string;
-    href: string;
-  };
+  primaryCta?: CtaProp;
+  secondaryCta?: CtaProp;
   class?: string;
 }
 
@@ -24,6 +26,10 @@ const {
   secondaryCta,
   class: className = '',
 } = Astro.props;
+
+const ctaLabel = (cta?: CtaProp) => cta?.text ?? cta?.label ?? '';
+const primaryLabel = ctaLabel(primaryCta);
+const secondaryLabel = ctaLabel(secondaryCta);
 ---
 
 <div class={`relative isolate overflow-hidden bg-brand-bg ${className}`}>
@@ -47,12 +53,12 @@ const {
       <div class="mt-10 flex items-center gap-x-6">
         {primaryCta && (
           <Button href={primaryCta.href} variant="primary" size="lg" data-cta-name="hero_primary">
-            {primaryCta.text}
+            {primaryLabel}
           </Button>
         )}
         {secondaryCta && (
           <Button href={secondaryCta.href} variant={image ? "ghost" : "secondary"} size="lg" class={image ? 'text-white hover:text-white hover:bg-white/10' : ''} data-cta-name="hero_secondary">
-            {secondaryCta.text} <span aria-hidden="true" class="ml-1">→</span>
+            {secondaryLabel} <span aria-hidden="true" class="ml-1">→</span>
           </Button>
         )}
       </div>

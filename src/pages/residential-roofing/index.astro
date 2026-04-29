@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../components/seo/BaseLayout.astro';
 import HeroSection from '../../components/molecules/HeroSection.astro';
 import StatBand from '../../components/molecules/StatBand.astro';
@@ -10,12 +11,10 @@ import Button from '../../components/atoms/Button.astro';
 import { collectionPageSchema } from '../../lib/schema/CollectionPage';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
-const residentialServices = [
-  { name: "Roof Replacement", url: "/residential-roofing/replacement/" },
-  { name: "Storm Damage Repair", url: "/residential-roofing/storm-damage/" },
-  { name: "Roof Maintenance", url: "/residential-roofing/maintenance/" },
-  { name: "Gutters & Siding", url: "/residential-roofing/gutters-siding/" }
-];
+const residentialServiceEntries = await getCollection('services', ({ data }) => data.vertical === 'residential');
+const residentialServices = residentialServiceEntries
+  .map((entry) => ({ name: entry.data.name, url: entry.data.canonicalPath }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 
 const faqs = [
   {

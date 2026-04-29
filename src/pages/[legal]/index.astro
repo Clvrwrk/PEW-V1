@@ -1,0 +1,63 @@
+---
+/**
+ * src/pages/[legal]/index.astro
+ * Legal/utility page template (Step 8e).
+ *
+ * One file renders every legal-collection entry. The route param is derived
+ * from the entry's canonicalPath so links across the site can use the
+ * canonical URL (e.g. "/privacy-policy/") without hard-coding a per-page
+ * Astro file.
+ */
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+export async function getStaticPaths() {
+  // Helper inlined because Astro hoists getStaticPaths above any module-scope
+  // helpers it would otherwise close over.
+  const pathToParam = (canonicalPath: string): string =>
+    canonicalPath.replace(/^\/+|\/+$/g, '');
+
+  const entries = await getCollection('legal');
+  return entries.map((entry) => ({
+    params: { legal: pathToParam(entry.data.canonicalPath) },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'legal'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const data = entry.data;
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: data.title, href: data.canonicalPath },
+];
+
+const schemaPayload = [breadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title={`${data.title} | Pro Exteriors`}
+  description={data.description ?? `${data.title} for the Pro Exteriors website.`}
+  canonicalPath={data.canonicalPath}
+  noindex={data.noindex}
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+
+  <article class="prose mx-auto max-w-3xl px-4 py-16">
+    <h1>{data.title}</h1>
+    <Content />
+    {data.lastUpdated && (
+      <p class="text-sm text-gray-500 mt-12">
+        Last updated: {data.lastUpdated.toLocaleDateString()}
+      </p>
+    )}
+  </article>
+</BaseLayout>

@@ -1,0 +1,118 @@
+---
+/**
+ * src/pages/residential-roofing/[service]/index.astro
+ * Residential service-detail template (Step 8b).
+ */
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import HeroSection from '../../../components/molecules/HeroSection.astro';
+import FAQ from '../../../components/molecules/FAQ.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import ServiceTile from '../../../components/molecules/ServiceTile.astro';
+import PartnerNetworkDisclosure from '../../../components/atoms/PartnerNetworkDisclosure.astro';
+import PropertyCardCallout from '../../../components/molecules/PropertyCardCallout.astro';
+import { serviceSchema } from '../../../lib/schema/Service';
+import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
+import { faqPageSchema } from '../../../lib/schema/FAQPage';
+
+export async function getStaticPaths() {
+  const urlSegment = (canonicalPath: string): string =>
+    canonicalPath.replace(/\/$/, '').split('/').pop() ?? '';
+
+  const services = await getCollection('services', ({ data }) => data.vertical === 'residential');
+  return services.map((entry) => ({
+    params: { service: urlSegment(entry.data.canonicalPath) },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'services'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const data = entry.data;
+
+const allResidential = await getCollection('services', ({ data: d }) => d.vertical === 'residential');
+const siblings = allResidential
+  .filter((s) => s.slug !== entry.slug)
+  .slice(0, 3);
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Residential Roofing', href: '/residential-roofing/' },
+  { label: data.name, href: data.canonicalPath },
+];
+
+const schemaPayload: Record<string, any>[] = [
+  serviceSchema(
+    {
+      name: data.name,
+      description: data.description,
+      url: data.canonicalPath,
+    },
+    'Pro Exteriors',
+  ),
+  breadcrumbSchema(breadcrumbs),
+];
+if (data.faqs && data.faqs.length > 0) {
+  schemaPayload.push(faqPageSchema(data.faqs));
+}
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  canonicalPath={data.canonicalPath}
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+
+  <HeroSection
+    title={data.h1}
+    subtitle={data.description}
+    primaryCta={{ label: 'Get a Free Inspection', href: '/contact/?vertical=residential' }}
+    secondaryCta={{ label: 'Get Your Property Card', href: '/property-card/' }}
+    image={data.heroImage}
+  />
+
+  <article class="prose mx-auto max-w-3xl px-4 py-16">
+    <Content />
+  </article>
+
+  {data.partnerFulfilled && (
+    <div class="mx-auto max-w-3xl px-4 pb-8">
+      <PartnerNetworkDisclosure />
+    </div>
+  )}
+
+  <div class="mx-auto max-w-7xl px-4 pb-8">
+    <PropertyCardCallout />
+  </div>
+
+  {data.faqs && data.faqs.length > 0 && (
+    <section class="bg-gray-50 py-20">
+      <div class="mx-auto max-w-4xl px-4">
+        <h2 class="mb-12 text-center text-3xl font-bold">Frequently Asked Questions</h2>
+        <FAQ faqs={data.faqs} />
+      </div>
+    </section>
+  )}
+
+  {siblings.length > 0 && (
+    <section class="py-20 px-4 max-w-7xl mx-auto">
+      <h2 class="mb-12 text-center text-3xl font-bold">Other Residential Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {siblings.map((sibling) => (
+          <ServiceTile
+            name={sibling.data.name}
+            description={sibling.data.description}
+            href={sibling.data.canonicalPath}
+            icon="home"
+          />
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>

@@ -7,9 +7,12 @@ import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
 import { collectionPageSchema } from '../../lib/schema/CollectionPage';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
+// Office cards on this page must match real office MDX entries under
+// src/content/offices/. Slugs here are kept aligned with each entry's
+// canonicalPath so internal links never 404.
 const locations = [
   { name: "Fort Worth, TX", address: "5521 S Hulen St, Suite 440, Fort Worth, TX 76133", phone: "(469) 535-1708", url: "/locations/fort-worth/" },
-  { name: "Dallas, TX", address: "1408 N Riverfront Blvd #295, Dallas, TX 75207", phone: "(469) 535-1708", url: "/locations/dallas/" },
+  { name: "Dallas, TX (HQ)", address: "1408 N Riverfront Blvd #295, Dallas, TX 75207", phone: "(469) 535-1708", url: "/locations/dallas-hq/" },
   { name: "Frisco, TX", address: "6136 Frisco Square Blvd, Suite 400, Frisco, TX 75034", phone: "(469) 535-1708", url: "/locations/frisco/" },
   { name: "Southlake, TX", address: "1560 E Southlake Blvd, Suite 100, Southlake, TX 76092", phone: "(469) 535-1708", url: "/locations/southlake/" },
   { name: "Arlington, TX", address: "2000 E Lamar Blvd, Suite 600, Arlington, TX 76006", phone: "(469) 535-1708", url: "/locations/arlington/" },
