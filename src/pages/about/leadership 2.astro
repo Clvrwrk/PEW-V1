@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Leadership', href: '/about/leadership/' },
+];
+const schemaPayload = [breadcrumbSchema(breadcrumbs)];
+
+const leaders = [
+  { name: 'Leadership Placeholder', role: 'Role TBD', bio: 'Phase 2 will replace this card with real leadership data.' },
+  { name: 'Leadership Placeholder', role: 'Role TBD', bio: 'Phase 2 will replace this card with real leadership data.' },
+  { name: 'Leadership Placeholder', role: 'Role TBD', bio: 'Phase 2 will replace this card with real leadership data.' },
+];
+---
+
+<BaseLayout
+  title="Leadership | Pro Exteriors"
+  description="Meet the Pro Exteriors leadership team. Local operators with deep field experience and clear accountability for client outcomes."
+  canonicalPath="/about/leadership/"
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <HeroSection title="Leadership" subtitle="The people accountable to your roof and your bottom line." />
+  <section class="py-16 px-4 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    {leaders.map((leader) => (
+      <div class="bg-white rounded-xl p-6 ring-1 ring-gray-200 shadow-sm" data-todo="real-leadership">
+        <h3 class="text-xl font-bold">{leader.name}</h3>
+        <p class="text-sm text-brand-primary uppercase tracking-wider mt-1">{leader.role}</p>
+        <p class="text-gray-600 mt-3 text-sm">{leader.bio}</p>
+      </div>
+    ))}
+  </section>
+</BaseLayout>

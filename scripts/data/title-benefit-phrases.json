@@ -1,0 +1,78 @@
+{
+  "_doc": "Per-vertical 'Benefit / Searcher's Goal' phrases for the bottom-of-funnel Title formula: [Target Keyword] | [Benefit] | Pro Exteriors. Phrases are 2-5 words, present-tense, outcome-focused. The generator picks one per page and avoids reusing the same phrase on adjacent siblings within the same vertical.",
+  "_format": "[Target Keyword] | [Benefit or Searcher's Goal] | Pro Exteriors",
+  "_brand_suffix": "Pro Exteriors",
+  "commercial": [
+    "Lifecycle Cost Control",
+    "30-Year Warranty",
+    "Tenant-Safe Re-Roof",
+    "Procurement-Ready Bid",
+    "SLA-Backed Maintenance",
+    "Single Accountable Roofer",
+    "Engineered for Hail Belts",
+    "Same-Week Quote",
+    "Fast RFQ Turnaround",
+    "Five-Metro Coverage",
+    "Built to Spec",
+    "Code-Ready Documentation"
+  ],
+  "residential": [
+    "48-Hour Storm Response",
+    "Free Inspection This Week",
+    "Insurance Claim Done Right",
+    "Local Crew, No Storm Chasers",
+    "Lifetime Workmanship Warranty",
+    "Same-Week Repair",
+    "HOA-Approved Replacement",
+    "Hail-Belt Specialists",
+    "Trusted by DFW Homeowners",
+    "Real Crews, Real Accountability",
+    "Family-Home Protection",
+    "Storm-Ready Installation"
+  ],
+  "proplan": [
+    "Strategic Asset Management",
+    "Predictable Roof Capex",
+    "Recurring Inspection Program",
+    "Lifecycle ROI Modeling",
+    "Tenant-Safe Maintenance Cycle",
+    "Asset Lifespan Extension"
+  ],
+  "total-home-shield": [
+    "$997 Anchor Credit Active",
+    "Stop the Contractor Dance",
+    "One Visit, Whole Exterior",
+    "Trojan Horse Inspection",
+    "48-Hour Whole-Home Audit",
+    "Single-Crew Convenience"
+  ],
+  "city-commercial": [
+    "Local Commercial Specialists",
+    "Permit-Aware Crews",
+    "Hail-Season Ready",
+    "Tenant Operations Protected",
+    "Same-Week Site Visit",
+    "Building-Owner First"
+  ],
+  "city-residential": [
+    "Hail-Belt Local Roofer",
+    "Subdivision Accountability",
+    "Free Roof Inspection",
+    "Same-Week Repair Crew",
+    "HOA-Compliant Materials",
+    "Insurance Claim Ally"
+  ],
+  "subdivision": [
+    "HOA-Approved Replacement",
+    "Subdivision-Specific Materials",
+    "Hail History Documented",
+    "Architectural Review Ready",
+    "Neighbors Already Served"
+  ],
+  "conversion-endpoint": [
+    "Free Quote, No Pressure",
+    "Same-Day Response",
+    "Direct to Project Manager",
+    "Local Office Coverage"
+  ]
+}

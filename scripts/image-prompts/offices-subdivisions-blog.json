@@ -1,0 +1,117 @@
+{
+  "_doc": "Office, subdivision, and blog hero/featured images. 1200x900 JPEG ≤300KB for offices and subdivision. Blog featured at 1200x630 (OG aspect) ≤250KB.",
+  "_default": {
+    "model": "google/gemini-2.5-flash-image",
+    "aspect": "4:3",
+    "target_dimensions": { "width": 1200, "height": 900 },
+    "max_bytes": 300000,
+    "format": "jpeg"
+  },
+  "_blog_default": {
+    "model": "google/gemini-2.5-flash-image",
+    "aspect": "16:9",
+    "target_dimensions": { "width": 1200, "height": 630 },
+    "max_bytes": 250000,
+    "format": "jpeg"
+  },
+  "prompts": [
+    {
+      "id": "office-dallas-hq-hero",
+      "target_path": "public/images/offices/dallas-hq-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic photograph of a professional 4-story modern office building exterior in Dallas, TX, glass and stone facade, double-height entrance with a clean lobby visible through tall windows, mature oak trees in the foreground parking lot, late afternoon sun. Editorial corporate-headquarters aesthetic. No humans, no readable signage."
+    },
+    {
+      "id": "office-fort-worth-hero",
+      "target_path": "public/images/offices/fort-worth-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic photograph of a mid-rise professional office building in Fort Worth, TX, brick and glass facade typical of South Hulen Boulevard corridor, ground-floor retail visible, parking lot in foreground with manicured landscaping, late afternoon sun. Editorial commercial-real-estate aesthetic. No humans, no readable signage."
+    },
+    {
+      "id": "office-frisco-hero",
+      "target_path": "public/images/offices/frisco-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic photograph of a modern office building in Frisco Square, TX, contemporary glass and stone facade, retail at ground floor, walkable plaza with fountains and outdoor seating in foreground, blue Texas sky. Editorial mixed-use-commercial aesthetic. No humans, no readable signage."
+    },
+    {
+      "id": "office-southlake-hero",
+      "target_path": "public/images/offices/southlake-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic photograph of an upscale Southlake Town Square professional office building, Texas-Mediterranean stucco and stone facade, second-floor balconies, manicured oak trees and landscape lighting in the foreground, golden afternoon light. Editorial premium-commercial aesthetic. No humans, no readable signage."
+    },
+    {
+      "id": "office-arlington-hero",
+      "target_path": "public/images/offices/arlington-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic photograph of a professional office building in Arlington, TX near East Lamar Boulevard, contemporary brick and glass facade, ground-floor lobby, surrounding parking and mature trees, late afternoon sun. Editorial corporate-office aesthetic. No humans, no readable signage."
+    },
+    {
+      "id": "office-edmond-hero",
+      "target_path": "public/images/offices/edmond-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic photograph of a charming brick-faced two-story professional office building in downtown Edmond, OK, traditional small-city Main Street character, large windows on both floors, mature trees on the sidewalk, golden Oklahoma afternoon light. Editorial small-city-commercial aesthetic. No humans, no readable signage."
+    },
+    {
+      "id": "subdivision-preston-hollow-hero",
+      "target_path": "public/images/subdivisions/preston-hollow-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic angled photograph of a stately Preston Hollow, Dallas estate home: classical brick and limestone architecture, premium dark slate or tile roof, manicured boxwood hedges, mature live oaks, expansive front lawn, brick driveway. Soft late-afternoon light. Premium residential aesthetic. No humans, no readable house numbers."
+    },
+    {
+      "id": "blog-pillar-commercial-roofing-hero",
+      "target_path": "public/images/blog/commercial-roofing-featured.jpg",
+      "safety_class": "architecture",
+      "_aspect_override": "blog",
+      "prompt": "A photorealistic editorial overhead photograph of a commercial flat roof with a clean white TPO membrane in foreground transitioning to an aged dark modified bitumen system in the background, conveying the lifecycle decision moment between maintenance and replacement. Strong directional sunlight casts dramatic shadows. Wide cinematic composition. No humans, no signage."
+    },
+    {
+      "id": "blog-pillar-residential-roofing-hero",
+      "target_path": "public/images/blog/residential-roofing-featured.jpg",
+      "safety_class": "architecture",
+      "_aspect_override": "blog",
+      "prompt": "A photorealistic editorial photograph of a North Texas residential street at golden hour: rows of two-story brick homes with varied roof styles (asphalt shingle, metal, tile), mature oak trees casting long shadows, warm sunset glow on the rooflines. Wide cinematic composition. No humans, no readable house numbers."
+    },
+    {
+      "id": "blog-supporter-tpo-vs-epdm-pvc-hero",
+      "target_path": "public/images/blog/tpo-vs-epdm-vs-pvc-featured.jpg",
+      "safety_class": "material",
+      "_aspect_override": "blog",
+      "prompt": "A photorealistic editorial close-up triptych composition showing three distinct commercial roofing membrane samples laid side by side on a clean stainless-steel workbench: a brilliant white TPO membrane sample on the left, a matte black EPDM sample in the middle, a pale gray PVC sample on the right, each with a small numbered tag. Studio lighting, slight depth of field. Editorial materials-comparison aesthetic. No humans, no text."
+    },
+    {
+      "id": "blog-supporter-repair-vs-replacement-hero",
+      "target_path": "public/images/blog/commercial-roof-repair-vs-replacement-featured.jpg",
+      "safety_class": "architecture",
+      "_aspect_override": "blog",
+      "prompt": "A photorealistic editorial overhead photograph of a commercial flat roof split visually down the middle: the left half shows a precision repair patch on aged TPO membrane, the right half shows the same membrane with widespread weathering, ponding, and seam failures requiring full replacement. Strong directional sunlight. Wide cinematic composition. No humans, no signage."
+    },
+    {
+      "id": "blog-supporter-replacement-cost-hero",
+      "target_path": "public/images/blog/how-much-does-a-roof-replacement-cost-featured.jpg",
+      "safety_class": "architecture",
+      "_aspect_override": "blog",
+      "prompt": "A photorealistic editorial photograph of a North Texas suburban home mid-replacement: half the roof has fresh dimensional architectural shingles, half is exposed roof deck with synthetic underlayment, a tidy stack of shingle bundles on the driveway in foreground, clean tarping protecting landscaping. Bright midday sun. Documentary residential-construction aesthetic. No humans visible."
+    },
+    {
+      "id": "blog-supporter-architectural-vs-3-tab-hero",
+      "target_path": "public/images/blog/architectural-vs-3-tab-shingles-featured.jpg",
+      "safety_class": "material",
+      "_aspect_override": "blog",
+      "prompt": "A photorealistic editorial close-up of two asphalt shingle samples laid side by side on a clean wood workbench: a thick dimensional architectural shingle on the left showing its layered random-tab profile, a thinner flat 3-tab shingle on the right showing its uniform rectangular tabs, both in matching weathered-wood color. Studio lighting, slight depth of field. Editorial materials-comparison aesthetic. No humans, no text."
+    },
+    {
+      "id": "blog-supporter-best-time-of-year-hero",
+      "target_path": "public/images/blog/best-time-of-year-to-replace-your-roof-featured.jpg",
+      "safety_class": "atmosphere",
+      "_aspect_override": "blog",
+      "prompt": "A photorealistic editorial four-season composite photograph of the same North Texas residential home shown across spring (blue sky, dogwood blossoms), summer (intense sun, deep blue sky), fall (warm golden trees), and winter (clear pale-blue sky, bare branches). Each quadrant clearly distinguished. Wide cinematic composition. No humans, no readable house numbers."
+    },
+    {
+      "id": "blog-supporter-5-signs-replacement-hero",
+      "target_path": "public/images/blog/5-signs-commercial-roof-replacement-featured.jpg",
+      "safety_class": "architecture",
+      "_aspect_override": "blog",
+      "prompt": "A photorealistic editorial overhead photograph of an aged commercial flat roof showing multiple failure signs: ponding water reflecting the sky, blistered membrane, exposed underlayment near a flashing tear, and granule loss along a seam line. Strong directional sunlight reveals every defect. Wide cinematic composition. No humans, no signage. Documentary commercial-roofing-failure aesthetic."
+    }
+  ]
+}

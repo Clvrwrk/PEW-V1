@@ -1,0 +1,51 @@
+{
+  "_doc": "Image prompts for commercial money-page heroes. Routed through OpenRouter -> google/gemini-2.5-flash-image (nano banana). Output is 1024x1024 PNG; scripts/optimize-image.mjs resizes to spec'd dimensions and re-encodes to JPEG/AVIF.",
+  "_default": {
+    "model": "google/gemini-2.5-flash-image",
+    "aspect": "4:3",
+    "target_dimensions": {
+      "width": 1200,
+      "height": 900
+    },
+    "max_bytes": 300000,
+    "format": "jpeg"
+  },
+  "prompts": [
+    {
+      "id": "commercial-tpo-hero",
+      "target_path": "public/images/services/commercial/tpo-hero.jpg",
+      "safety_class": "material",
+      "prompt": "A photorealistic close-up of a brilliant white TPO (thermoplastic polyolefin) single-ply commercial roof membrane covering a vast warehouse rooftop. Precision heat-welded seams form clean parallel lines across the foreground, perforated drains in the mid-ground, and the curve of an HVAC unit visible at the right edge. Late afternoon golden-hour sunlight rakes across the membrane texture, casting subtle shadows that emphasize the slight pebble grain of the TPO. Wide-angle architectural photography, no humans, no signage, no logos. Editorial commercial-construction aesthetic."
+    },
+    {
+      "id": "commercial-epdm-hero",
+      "target_path": "public/images/services/commercial/epdm-hero.jpg",
+      "safety_class": "material",
+      "prompt": "A photorealistic close-up of a black EPDM (ethylene propylene diene monomer) rubber roofing membrane on a flat commercial rooftop. The matte black surface stretches across the frame with crisp adhesive seams, an aluminum edge termination bar at the bottom of the image, and a galvanized roof drain in the upper-third. Overcast diffused light reveals the subtle pebbled texture and slight water-bead reflectivity of the rubber. Wide-angle architectural photography, no humans, no signage. Industrial commercial-construction aesthetic, neutral and authoritative."
+    },
+    {
+      "id": "commercial-metal-hero",
+      "target_path": "public/images/services/commercial/metal-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic upward-angle architectural photograph of a standing-seam metal commercial roof system in galvalume silver-grey, panels running diagonally across the frame with crisp 1.5-inch raised seams, snow guards visible at the eave, and a clear deep-blue sky filling the upper-third. Strong directional sunlight emphasizes the metal's specular highlights along each seam. Wide-angle, no humans, no signage. Premium commercial-construction aesthetic, conveys precision and 50-year longevity."
+    },
+    {
+      "id": "commercial-flat-roof-systems-hero",
+      "target_path": "public/images/services/commercial/flat-roof-systems-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic high-angle drone-style photograph of a vast flat commercial rooftop on a distribution-warehouse-scale building, modified bitumen and TPO sections visible side by side, mechanical units (HVAC condensers, exhaust fans, duct runs) arranged in a grid across the surface, parapets visible at the edges, and a clear blue Texas sky. Mid-afternoon light, sharp shadows under each rooftop unit. Wide-angle aerial perspective. No humans, no signage, no logos. Editorial industrial-architecture photography aesthetic."
+    },
+    {
+      "id": "commercial-repair-hero",
+      "target_path": "public/images/services/commercial/repair-hero.jpg",
+      "safety_class": "material",
+      "prompt": "A photorealistic mid-shot of a commercial flat-roof surface where a precision membrane patch has just been welded into place over a previously damaged area. The patch is slightly lighter than the surrounding aged TPO, with a perfectly even heat-welded perimeter seam. Tools of the trade are arranged neatly on the deck nearby: a hot-air welder, a silicone roller, a chalk line. Warm afternoon light, no humans visible in frame. Documentary commercial-roofing-craft photography, conveys expertise and minimal disruption."
+    },
+    {
+      "id": "commercial-replacement-hero",
+      "target_path": "public/images/services/commercial/replacement-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic split-frame architectural photograph showing a commercial building's full roof replacement: the left half displays an aged, weather-streaked, ponding-prone existing membrane; the right half displays a freshly installed brilliant-white TPO system with crisp new flashings and clean drains. Camera elevated above the roofline, sharp daylight, dramatic before/after composition. No humans, no signage. Premium commercial-construction transformation aesthetic."
+    }
+  ]
+}

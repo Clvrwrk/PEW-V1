@@ -1,0 +1,95 @@
+{
+  "timestamp": "2026-04-29T05:13:41.809Z",
+  "results": [
+    {
+      "canonicalPath": "/commercial-roofing/tpo/",
+      "keyword": "TPO roofing",
+      "ok": true,
+      "slots": {
+        "title": true,
+        "description": true,
+        "url": true,
+        "h1": true,
+        "ledeFirst5Words": true
+      },
+      "title": "TPO Roofing | Lifecycle Cost Control | Pro Exteriors",
+      "description": "TPO roofing systems deliver proven lifecycle cost control for commercial properties. Professional installation, material partnerships, comprehensive warranties.",
+      "h1": "TPO Roofing Systems for Commercial Properties"
+    },
+    {
+      "canonicalPath": "/commercial-roofing/epdm/",
+      "keyword": "EPDM roofing",
+      "ok": true,
+      "slots": {
+        "title": true,
+        "description": true,
+        "url": true,
+        "h1": true,
+        "ledeFirst5Words": true
+      },
+      "title": "EPDM Roofing | 30-Year Warranty | Pro Exteriors",
+      "description": "EPDM roofing delivers proven commercial membrane performance with 30-year warranties. Pro Exteriors installs premium Carlisle and Versico systems across Texas.",
+      "h1": "EPDM Roofing Solutions for Commercial Buildings"
+    },
+    {
+      "canonicalPath": "/commercial-roofing/metal/",
+      "keyword": "commercial metal roofing",
+      "ok": true,
+      "slots": {
+        "title": true,
+        "description": true,
+        "url": true,
+        "h1": true,
+        "ledeFirst5Words": true
+      },
+      "title": "Commercial Metal Roofing | Pro Exteriors",
+      "description": "Commercial metal roofing with tenant-safe re-roof systems. Standing seam and concealed fastener installations across Dallas-Fort Worth, Denver, Wichita, Kansas.",
+      "h1": "Commercial Metal Roofing Systems Built for Texas Weather"
+    },
+    {
+      "canonicalPath": "/commercial-roofing/flat-roof-systems/",
+      "keyword": "flat roof systems",
+      "ok": true,
+      "slots": {
+        "title": true,
+        "description": true,
+        "url": true,
+        "h1": true,
+        "ledeFirst5Words": true
+      },
+      "title": "Flat Roof Systems | Procurement-Ready Bid | Pro Exteriors",
+      "description": "Flat roof systems engineered for commercial buildings across Dallas-Fort Worth, Denver, Wichita, Kansas City, and Atlanta.",
+      "h1": "Flat Roof Systems for Commercial Buildings"
+    },
+    {
+      "canonicalPath": "/commercial-roofing/repair/",
+      "keyword": "commercial roof repair",
+      "ok": true,
+      "slots": {
+        "title": true,
+        "description": true,
+        "url": true,
+        "h1": true,
+        "ledeFirst5Words": true
+      },
+      "title": "Commercial Roof Repair | Pro Exteriors",
+      "description": "Commercial roof repair with SLA-backed maintenance from Dallas-Fort Worth's trusted contractor. Emergency response, honest assessments, warranty protection.",
+      "h1": "Commercial Roof Repair Services in Dallas-Fort Worth"
+    },
+    {
+      "canonicalPath": "/commercial-roofing/replacement/",
+      "keyword": "commercial roof replacement",
+      "ok": true,
+      "slots": {
+        "title": true,
+        "description": true,
+        "url": true,
+        "h1": true,
+        "ledeFirst5Words": true
+      },
+      "title": "Commercial Roof Replacement | Pro Exteriors",
+      "description": "Commercial roof replacement with single accountable roofer. TPO, EPDM, modified bitumen systems. Dallas-Fort Worth, Denver, Wichita, Kansas City, Atlanta.",
+      "h1": "Commercial Roof Replacement Services"
+    }
+  ]
+}

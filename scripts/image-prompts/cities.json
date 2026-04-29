@@ -1,0 +1,60 @@
+{
+  "_doc": "City-page hero images: skyline atmospherics for commercial, neighborhood character for residential. 1200x900 JPEG ≤300KB.",
+  "_default": {
+    "model": "google/gemini-2.5-flash-image",
+    "aspect": "4:3",
+    "target_dimensions": { "width": 1200, "height": 900 },
+    "max_bytes": 300000,
+    "format": "jpeg"
+  },
+  "prompts": [
+    {
+      "id": "city-commercial-dallas-hero",
+      "target_path": "public/images/cities/commercial/dallas-hero.jpg",
+      "safety_class": "aerial",
+      "prompt": "A photorealistic aerial photograph of the Dallas, Texas central business district at golden hour: Reunion Tower on the left, Bank of America Plaza in the center, surrounding office and warehouse rooftops with mechanical equipment visible, all under a dramatic Texas sunset sky. Editorial commercial-real-estate aesthetic. No humans, no readable signage."
+    },
+    {
+      "id": "city-commercial-fort-worth-hero",
+      "target_path": "public/images/cities/commercial/fort-worth-hero.jpg",
+      "safety_class": "aerial",
+      "prompt": "A photorealistic aerial photograph of downtown Fort Worth, Texas in late afternoon: the Burnett Plaza skyline, surrounding industrial and commercial rooftops, the Trinity River winding in the background. Warm Western Texas light. Editorial commercial-real-estate aesthetic. No humans, no readable signage."
+    },
+    {
+      "id": "city-commercial-plano-hero",
+      "target_path": "public/images/cities/commercial/plano-hero.jpg",
+      "safety_class": "aerial",
+      "prompt": "A photorealistic aerial drone photograph of a sprawling commercial corporate campus in Plano, Texas: large flat-roof office buildings with TPO membranes, surrounding parking lots, mature landscaping, the Sam Rayburn Tollway visible at the edge. Bright midday sun. Editorial business-park aesthetic. No humans, no readable signage."
+    },
+    {
+      "id": "city-commercial-frisco-hero",
+      "target_path": "public/images/cities/commercial/frisco-hero.jpg",
+      "safety_class": "aerial",
+      "prompt": "A photorealistic aerial photograph of new commercial construction in Frisco, Texas: modern mixed-use developments with white TPO commercial roofs, the Star office tower complex in the distance, fresh asphalt parking lots, manicured landscaping. Crisp blue Texas sky. Editorial commercial-development aesthetic. No humans, no readable signage."
+    },
+    {
+      "id": "city-residential-dallas-hero",
+      "target_path": "public/images/cities/residential/dallas-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic angled photograph of an established Dallas residential neighborhood with mature oak trees, traditional brick two-story homes with dimensional asphalt shingle roofs in varied tones, well-maintained lawns, and the downtown Dallas skyline barely visible in the distance through the tree canopy. Late afternoon light. Editorial residential-real-estate aesthetic. No humans, no readable house numbers."
+    },
+    {
+      "id": "city-residential-fort-worth-hero",
+      "target_path": "public/images/cities/residential/fort-worth-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic photograph of a quintessential Fort Worth residential street: ranch-style and Craftsman homes with stone and brick exteriors, varied asphalt shingle and metal roofs, mature pecan trees, white picket fence in foreground. Warm Western light. Editorial neighborhood aesthetic. No humans, no readable house numbers."
+    },
+    {
+      "id": "city-residential-highland-park-hero",
+      "target_path": "public/images/cities/residential/highland-park-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic angled photograph of a stately Highland Park, Dallas estate home: traditional Georgian Revival architecture with red brick, white columns, slate or premium tile roof in deep charcoal, manicured boxwood hedges, mature oaks, immaculate lawn. Soft afternoon light. Premium residential aesthetic. No humans, no readable house numbers."
+    },
+    {
+      "id": "city-residential-southlake-hero",
+      "target_path": "public/images/cities/residential/southlake-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic photograph of a Southlake, Texas custom luxury home: Texas-Mediterranean architecture with stone and stucco exterior, premium clay barrel tile roof, three-car garage, circular drive with mature crepe myrtles, blue Texas sky. Bright midday sun. Premium residential aesthetic. No humans, no readable house numbers."
+    }
+  ]
+}

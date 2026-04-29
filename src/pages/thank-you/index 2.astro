@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Thank You', href: '/thank-you/' },
+];
+const schemaPayload = [breadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Thank You — We'll Be in Touch | Pro Exteriors"
+  description="Thank you for contacting Pro Exteriors. A specialist will reach out shortly to confirm next steps for your roofing project or inspection."
+  canonicalPath="/thank-you/"
+  noindex={true}
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <HeroSection
+    title="Thanks — We'll be in touch"
+    subtitle="A Pro Exteriors specialist will reach out within one business day."
+    primaryCta={{ label: 'Back to Home', href: '/' }}
+    secondaryCta={{ label: 'Browse Projects', href: '/projects/' }}
+  />
+</BaseLayout>

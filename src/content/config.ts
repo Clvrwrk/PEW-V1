@@ -7,6 +7,7 @@ const seoFields = z.object({
   description: z.string().min(70).max(160),
   canonicalPath: z.string(),
   ogImage: z.string().optional(),
+  heroImage: z.string().optional(),
   noindex: z.boolean().default(false),
 });
 

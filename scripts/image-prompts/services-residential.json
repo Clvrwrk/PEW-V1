@@ -1,0 +1,48 @@
+{
+  "_doc": "Residential service-page hero image prompts. Routed via OpenRouter -> google/gemini-2.5-flash-image (nano banana). 1200x900 JPEG, ≤300KB.",
+  "_default": {
+    "model": "google/gemini-2.5-flash-image",
+    "aspect": "4:3",
+    "target_dimensions": { "width": 1200, "height": 900 },
+    "max_bytes": 300000,
+    "format": "jpeg"
+  },
+  "prompts": [
+    {
+      "id": "residential-asphalt-shingles-hero",
+      "target_path": "public/images/services/residential/asphalt-shingles-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic angled close-up of a Texas suburban two-story home's freshly installed dimensional architectural asphalt shingle roof in slate-gray tone, with crisp ridge cap, drip edge, and aluminum gutters visible at the eave. Late afternoon golden-hour light. Mature oak tree branches frame the upper corner. Wide editorial photography aesthetic. No humans, no text, no readable house numbers."
+    },
+    {
+      "id": "residential-replacement-hero",
+      "target_path": "public/images/services/residential/replacement-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic before/after split-frame architectural photograph of a North Texas suburban brick home's full roof replacement: left half shows aged, weather-worn 3-tab asphalt shingles with curling edges; right half shows freshly installed dimensional architectural shingles, new flashings, new ridge cap, new pipe boots. Bright midday sun. No humans, no readable signage."
+    },
+    {
+      "id": "residential-inspection-hero",
+      "target_path": "public/images/services/residential/inspection-hero.jpg",
+      "safety_class": "material",
+      "prompt": "A photorealistic top-down close-up of a North Texas residential asphalt shingle roof showing inspection markings — small chalk circles around three suspected hail-impact bruises on different shingle tabs, a measuring tape draped across the surface, and a clipboard with checklist visible at the bottom of frame. Natural daylight. Documentary roofing-inspection aesthetic. No humans visible."
+    },
+    {
+      "id": "residential-emergency-hero",
+      "target_path": "public/images/services/residential/emergency-hero.jpg",
+      "safety_class": "atmosphere",
+      "prompt": "A photorealistic atmospheric photograph of a Texas residential roofline at dusk after a thunderstorm: dark gray storm clouds receding, a freshly installed bright blue emergency tarp neatly secured over a damaged roof section with sandbags at the corners, water still beading on the shingles below, porch lights glowing warm. Editorial photojournalism aesthetic. No humans visible. No readable text."
+    },
+    {
+      "id": "residential-metal-hero",
+      "target_path": "public/images/services/residential/metal-hero.jpg",
+      "safety_class": "architecture",
+      "prompt": "A photorealistic angled close-up of a premium Texas Hill Country style home's standing-seam metal roof in deep charcoal-gray, panels running vertically with crisp 1-inch raised seams, snow guards visible, beautiful integration with stone chimney and stucco gable. Strong directional sunlight. Premium residential aesthetic. No humans, no signage."
+    },
+    {
+      "id": "residential-storm-damage-hero",
+      "target_path": "public/images/services/residential/storm-damage-hero.jpg",
+      "safety_class": "material",
+      "prompt": "A photorealistic close-up of a North Texas residential asphalt shingle roof showing visible hail-impact damage: small circular bruises and granule loss on multiple shingle tabs, a damaged aluminum gutter visible at the eave with a large dent, leaves scattered across the surface from the storm. Diffused overcast light revealing the texture. Documentary insurance-claim aesthetic. No humans, no signage."
+    }
+  ]
+}

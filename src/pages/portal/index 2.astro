@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Customer Portal', href: '/portal/' },
+];
+const schemaPayload = [breadcrumbSchema(breadcrumbs)];
+---
+
+<BaseLayout
+  title="Customer Portal | Pro Exteriors"
+  description="Access your Pro Exteriors customer portal — view your project status, documents, and next steps in one place."
+  canonicalPath="/portal/"
+  noindex={true}
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <HeroSection
+    title="Customer Portal Access"
+    subtitle="Sign in via SSO to view your project status, documents, and scheduled work."
+    primaryCta={{ label: 'Continue to Portal Login', href: '#' }}
+    secondaryCta={{ label: 'Back to Website', href: '/' }}
+  />
+  <article class="prose mx-auto max-w-3xl px-4 py-16">
+    <p>Phase 1 placeholder. Centerpoint SSO redirect URL is wired in via env var BOOKING_CALENDAR_EMBED_URL or PORTAL_SSO_URL during deploy.</p>
+  </article>
+</BaseLayout>
