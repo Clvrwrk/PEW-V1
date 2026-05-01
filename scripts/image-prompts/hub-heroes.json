@@ -1,0 +1,37 @@
+{
+  "_doc": "Hub hero images missing from public/images/. Generated via FAL MCP.",
+  "_default": {
+    "model": "fal-ai/flux-pro/v1.1-ultra",
+    "target_dimensions": { "width": 1920, "height": 1080 },
+    "max_bytes": 250000,
+    "format": "jpg",
+    "aspect_ratio": "16:9"
+  },
+  "prompts": [
+    {
+      "id": "home-hero",
+      "target_path": "public/images/home-hero.jpg",
+      "prompt": "Professional architectural photography of a modern commercial building with a pristine new roof system, shot at golden hour with dramatic sky. The building is a sleek distribution center in North Texas flat terrain, clean lines, professional crew in safety gear visible on the roof performing an inspection. Ultra-realistic, editorial quality, warm golden light, shot with Sony A7R IV, 24-70mm lens, f/8. No text, no logos, no watermarks."
+    },
+    {
+      "id": "commercial-hero",
+      "target_path": "public/images/commercial-hero.jpg",
+      "prompt": "Aerial drone photography of a large commercial flat roof being installed on a modern industrial warehouse in Texas. Workers in high-vis safety gear applying white TPO membrane roofing. Clear blue sky, strong midday light casting defined shadows. The building is surrounded by a business park. Ultra-realistic, professional commercial photography, shot with DJI Mavic 3, sharp details. No text, no logos, no watermarks."
+    },
+    {
+      "id": "residential-hero",
+      "target_path": "public/images/residential-hero.jpg",
+      "prompt": "Professional real estate photography of a beautiful suburban family home in a North Texas neighborhood with a brand new architectural shingle roof in charcoal gray. Lush green lawn, mature trees, blue sky with scattered clouds. The home is a two-story brick and stone craftsman style. Shot from street level at a slight angle, golden hour lighting. Ultra-realistic, editorial quality, warm tones. No text, no logos, no watermarks."
+    },
+    {
+      "id": "blog-hero",
+      "target_path": "public/images/blog-hero.jpg",
+      "prompt": "Close-up professional photography of roofing materials and tools laid out on a workbench — architectural shingles, TPO membrane samples, metal roofing panels, measuring tape, chalk line, roofing nails. Soft natural light from a nearby window, shallow depth of field, editorial still-life composition. The scene suggests expertise and craftsmanship. Ultra-realistic, product photography quality. No text, no logos, no watermarks."
+    },
+    {
+      "id": "locations-hero",
+      "target_path": "public/images/locations-hero.jpg",
+      "prompt": "Panoramic aerial photography of the Dallas-Fort Worth metroplex skyline at sunset, showing the sprawling suburban landscape with commercial and residential buildings stretching to the horizon. The iconic Dallas skyline is visible in the distance. Warm golden and orange tones in the sky, city lights beginning to appear. Ultra-realistic, cinematic drone photography, wide landscape format. No text, no logos, no watermarks."
+    }
+  ]
+}

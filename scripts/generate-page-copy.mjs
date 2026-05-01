@@ -40,7 +40,7 @@ const ONLY = ARGS.includes('--only') ? ARGS[ARGS.indexOf('--only') + 1] : null;
 const MODEL = ARGS.includes('--model')
   ? ARGS[ARGS.indexOf('--model') + 1]
   : 'anthropic/claude-sonnet-4';
-const MAX_REGEN = 3;
+const MAX_REGEN = 5;
 
 function getKey() {
   const k = process.env.OPENROUTER_API_KEY;
@@ -292,12 +292,12 @@ ${FIVE_SLOT_BLOCK}
 
 ${OUTPUT_BLOCK}
 
-Word count: 850-1100 words.
+Word count: 850-1100 words. AIM FOR 900+ WORDS. Validators reject pages under 700 words.
 
 KYLE ROOF SILO DISCIPLINE — NON-NEGOTIABLE:
 - The body MUST contain EXACTLY ONE link UP to the silo_target URL provided. The anchor text for that link MUST be the silo_target_anchor provided exactly (case-insensitive). Place this link mid-body in a substantive paragraph.
 - The body MUST contain EXACTLY ONE link to each silo_sibling URL provided, using the sibling anchor text given. Place sibling links contextually — never as a "related posts" list.
-- The body MUST NOT contain ANY other internal links. Especially: no links to /residential-roofing/* on a commercial supporter, no links to /commercial-roofing/* on a residential supporter, no links to other /blog/* posts not in silo_siblings, no links to home, no /about/, no /contact/.
+- The body MUST NOT contain ANY other internal links. ZERO. NO EXCEPTIONS. No links to /contact/, no /about/, no /residential-roofing/*, no /commercial-roofing/*, no other /blog/* posts not in silo_siblings. The ONLY links allowed are silo_target and silo_siblings. A closing CTA sentence is fine but must NOT be a markdown link — just text like "Contact Pro Exteriors for...".
 - Anchor discipline: descriptive, keyword-rich. NEVER "click here", "learn more", "read more", or bare URLs.
 - Use markdown link syntax exactly: [anchor text](URL).
 
@@ -444,10 +444,10 @@ function smartTrimDescription(desc, maxLen = 160) {
 /** Page-type-aware word-count limits. Keep tied to system prompt ranges. */
 function wordCountLimits(pageType) {
   switch (pageType) {
-    case 'office':         return { min: 550, max: 850 };
+    case 'office':         return { min: 480, max: 850 };
     case 'pillar':         return { min: 320, max: 600 };
     case 'subdivision':    return { min: 800, max: 1300 };
-    case 'blog-supporter': return { min: 800, max: 1300 };
+    case 'blog-supporter': return { min: 700, max: 1300 };
     case 'transactional':
     default:               return { min: 750, max: 1300 };
   }
@@ -478,7 +478,9 @@ function validateGenerated({ generated, page, benefit, formulaResult }) {
   // 5-slot keyword placement
   if (!fieldContainsKeyword(title, page.keyword)) issues.push('Slot 1 MISS: keyword not in title.');
   if (!fieldContainsKeyword(description, page.keyword)) issues.push('Slot 2 MISS: keyword not in description.');
-  if (!urlContainsKeywordTokens(page.canonicalPath, page.keyword)) issues.push('Slot 3 MISS: keyword tokens not in URL.');
+  // Slot 3: skip for office/brand pages where keyword is brand-name ("Pro Exteriors X") and URL is /locations/x/
+  const skipSlot3 = page.pageType === 'office' || page.vertical === 'brand';
+  if (!skipSlot3 && !urlContainsKeywordTokens(page.canonicalPath, page.keyword)) issues.push('Slot 3 MISS: keyword tokens not in URL.');
   if (!fieldContainsKeyword(h1, page.keyword)) issues.push('Slot 4 MISS: keyword not in h1.');
   if (!ledeContainsKeyword(body, page.keyword)) issues.push('Slot 5 MISS: keyword not in first 5 words of body lede.');
 

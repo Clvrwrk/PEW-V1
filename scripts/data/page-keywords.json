@@ -1,46 +1,590 @@
 {
   "_doc": "Per-page primary keyword + page-type tag for the keyword-placement validator and copy generator. pageType drives title-formula behavior + benefit-phrase corpus segment.",
   "pages": [
-    { "canonicalPath": "/commercial-roofing/tpo/",                        "mdxPath": "src/content/services/commercial/tpo.mdx",                       "keyword": "TPO roofing",                          "pageType": "transactional",   "vertical": "commercial",  "heroImage": "/images/services/commercial/tpo-hero.jpg" },
-    { "canonicalPath": "/commercial-roofing/epdm/",                       "mdxPath": "src/content/services/commercial/epdm.mdx",                      "keyword": "EPDM roofing",                         "pageType": "transactional",   "vertical": "commercial",  "heroImage": "/images/services/commercial/epdm-hero.jpg" },
-    { "canonicalPath": "/commercial-roofing/metal/",                      "mdxPath": "src/content/services/commercial/metal.mdx",                     "keyword": "commercial metal roofing",             "pageType": "transactional",   "vertical": "commercial",  "heroImage": "/images/services/commercial/metal-hero.jpg" },
-    { "canonicalPath": "/commercial-roofing/flat-roof-systems/",          "mdxPath": "src/content/services/commercial/flat-roof-systems.mdx",         "keyword": "flat roof systems",                    "pageType": "transactional",   "vertical": "commercial",  "heroImage": "/images/services/commercial/flat-roof-systems-hero.jpg" },
-    { "canonicalPath": "/commercial-roofing/repair/",                     "mdxPath": "src/content/services/commercial/repair.mdx",                    "keyword": "commercial roof repair",               "pageType": "transactional",   "vertical": "commercial",  "heroImage": "/images/services/commercial/repair-hero.jpg" },
-    { "canonicalPath": "/commercial-roofing/replacement/",                "mdxPath": "src/content/services/commercial/replacement.mdx",               "keyword": "commercial roof replacement",          "pageType": "transactional",   "vertical": "commercial",  "heroImage": "/images/services/commercial/replacement-hero.jpg" },
-
-    { "canonicalPath": "/residential-roofing/asphalt-shingles/",          "mdxPath": "src/content/services/residential/asphalt-shingles.mdx",         "keyword": "asphalt shingle roofing",              "pageType": "transactional",   "vertical": "residential", "heroImage": "/images/services/residential/asphalt-shingles-hero.jpg" },
-    { "canonicalPath": "/residential-roofing/replacement/",               "mdxPath": "src/content/services/residential/replacement.mdx",              "keyword": "residential roof replacement",         "pageType": "transactional",   "vertical": "residential", "heroImage": "/images/services/residential/replacement-hero.jpg" },
-    { "canonicalPath": "/residential-roofing/inspection/",                "mdxPath": "src/content/services/residential/inspection.mdx",               "keyword": "free roof inspection",                 "pageType": "transactional",   "vertical": "residential", "heroImage": "/images/services/residential/inspection-hero.jpg" },
-    { "canonicalPath": "/residential-roofing/emergency/",                 "mdxPath": "src/content/services/residential/emergency.mdx",                "keyword": "emergency roof repair",                "pageType": "transactional",   "vertical": "residential", "heroImage": "/images/services/residential/emergency-hero.jpg" },
-    { "canonicalPath": "/residential-roofing/metal/",                     "mdxPath": "src/content/services/residential/metal.mdx",                    "keyword": "residential metal roofing",            "pageType": "transactional",   "vertical": "residential", "heroImage": "/images/services/residential/metal-hero.jpg" },
-    { "canonicalPath": "/residential-roofing/storm-damage/",              "mdxPath": "src/content/services/residential/storm-damage.mdx",             "keyword": "storm damage roof repair",             "pageType": "transactional",   "vertical": "residential", "heroImage": "/images/services/residential/storm-damage-hero.jpg" },
-
-    { "canonicalPath": "/commercial-roofing/dallas/",                     "mdxPath": "src/content/cities/commercial-dallas.mdx",                      "keyword": "commercial roofing Dallas",            "pageType": "transactional",   "vertical": "commercial",  "heroImage": "/images/cities/commercial/dallas-hero.jpg" },
-    { "canonicalPath": "/commercial-roofing/fort-worth/",                 "mdxPath": "src/content/cities/commercial-fort-worth.mdx",                  "keyword": "commercial roofing Fort Worth",        "pageType": "transactional",   "vertical": "commercial",  "heroImage": "/images/cities/commercial/fort-worth-hero.jpg" },
-    { "canonicalPath": "/commercial-roofing/plano/",                      "mdxPath": "src/content/cities/commercial-plano.mdx",                       "keyword": "commercial roofing Plano",             "pageType": "transactional",   "vertical": "commercial",  "heroImage": "/images/cities/commercial/plano-hero.jpg" },
-    { "canonicalPath": "/commercial-roofing/frisco/",                     "mdxPath": "src/content/cities/commercial-frisco.mdx",                      "keyword": "commercial roofing Frisco",            "pageType": "transactional",   "vertical": "commercial",  "heroImage": "/images/cities/commercial/frisco-hero.jpg" },
-
-    { "canonicalPath": "/residential-roofing/dallas/",                    "mdxPath": "src/content/cities/residential-dallas.mdx",                     "keyword": "residential roofing Dallas",           "pageType": "transactional",   "vertical": "residential", "heroImage": "/images/cities/residential/dallas-hero.jpg" },
-    { "canonicalPath": "/residential-roofing/fort-worth/",                "mdxPath": "src/content/cities/residential-fort-worth.mdx",                 "keyword": "residential roofing Fort Worth",       "pageType": "transactional",   "vertical": "residential", "heroImage": "/images/cities/residential/fort-worth-hero.jpg" },
-    { "canonicalPath": "/residential-roofing/highland-park/",             "mdxPath": "src/content/cities/residential-highland-park.mdx",              "keyword": "residential roofing Highland Park",    "pageType": "transactional",   "vertical": "residential", "heroImage": "/images/cities/residential/highland-park-hero.jpg" },
-    { "canonicalPath": "/residential-roofing/southlake/",                 "mdxPath": "src/content/cities/residential-southlake.mdx",                  "keyword": "residential roofing Southlake",        "pageType": "transactional",   "vertical": "residential", "heroImage": "/images/cities/residential/southlake-hero.jpg" },
-
-    { "canonicalPath": "/residential-roofing/preston-hollow/",            "mdxPath": "src/content/subdivisions/preston-hollow.mdx",                   "keyword": "Preston Hollow roofing",               "pageType": "subdivision",     "vertical": "residential", "heroImage": "/images/subdivisions/preston-hollow-hero.jpg" },
-
-    { "canonicalPath": "/locations/dallas-hq/",                           "mdxPath": "src/content/offices/dallas-hq.mdx",                             "keyword": "Pro Exteriors Dallas",                 "pageType": "office",          "vertical": "brand",       "heroImage": "/images/offices/dallas-hq-hero.jpg" },
-    { "canonicalPath": "/locations/fort-worth/",                          "mdxPath": "src/content/offices/fort-worth.mdx",                            "keyword": "Pro Exteriors Fort Worth",             "pageType": "office",          "vertical": "brand",       "heroImage": "/images/offices/fort-worth-hero.jpg" },
-    { "canonicalPath": "/locations/frisco/",                              "mdxPath": "src/content/offices/frisco.mdx",                                "keyword": "Pro Exteriors Frisco",                 "pageType": "office",          "vertical": "brand",       "heroImage": "/images/offices/frisco-hero.jpg" },
-    { "canonicalPath": "/locations/southlake/",                           "mdxPath": "src/content/offices/southlake.mdx",                             "keyword": "Pro Exteriors Southlake",              "pageType": "office",          "vertical": "brand",       "heroImage": "/images/offices/southlake-hero.jpg" },
-    { "canonicalPath": "/locations/arlington/",                           "mdxPath": "src/content/offices/arlington.mdx",                             "keyword": "Pro Exteriors Arlington",              "pageType": "office",          "vertical": "brand",       "heroImage": "/images/offices/arlington-hero.jpg" },
-    { "canonicalPath": "/locations/edmond/",                              "mdxPath": "src/content/offices/edmond.mdx",                                "keyword": "Pro Exteriors Edmond",                 "pageType": "office",          "vertical": "brand",       "heroImage": "/images/offices/edmond-hero.jpg" },
-
-    { "canonicalPath": "/blog/commercial-roofing/",                       "mdxPath": "src/content/pillars/commercial-roofing.mdx",                    "keyword": "commercial roofing",                   "pageType": "pillar",          "vertical": "commercial",  "heroImage": "/images/blog/commercial-roofing-featured.jpg" },
-    { "canonicalPath": "/blog/residential-roofing/",                      "mdxPath": "src/content/pillars/residential-roofing.mdx",                   "keyword": "residential roofing",                  "pageType": "pillar",          "vertical": "residential", "heroImage": "/images/blog/residential-roofing-featured.jpg" },
-
-    { "canonicalPath": "/blog/tpo-vs-epdm-vs-pvc/",                       "mdxPath": "src/content/blogPosts/tpo-vs-epdm-vs-pvc.mdx",                  "keyword": "TPO vs EPDM vs PVC",                   "pageType": "blog-supporter",  "vertical": "commercial",  "heroImage": "/images/blog/tpo-vs-epdm-vs-pvc-featured.jpg",                       "silo_target": "/commercial-roofing/tpo/",         "silo_target_anchor": "TPO roofing systems",          "silo_siblings": [{"url": "/blog/commercial-roof-repair-vs-replacement/", "anchor": "commercial roof repair vs replacement"}] },
-    { "canonicalPath": "/blog/commercial-roof-repair-vs-replacement/",    "mdxPath": "src/content/blogPosts/commercial-roof-repair-vs-replacement.mdx", "keyword": "commercial roof repair vs replacement","pageType": "blog-supporter",  "vertical": "commercial",  "heroImage": "/images/blog/commercial-roof-repair-vs-replacement-featured.jpg",   "silo_target": "/commercial-roofing/repair/",       "silo_target_anchor": "commercial roof repair",       "silo_siblings": [{"url": "/blog/tpo-vs-epdm-vs-pvc/", "anchor": "TPO vs EPDM vs PVC comparison"}] },
-    { "canonicalPath": "/blog/how-much-does-a-roof-replacement-cost/",    "mdxPath": "src/content/blogPosts/how-much-does-a-roof-replacement-cost.mdx", "keyword": "roof replacement cost",               "pageType": "blog-supporter",  "vertical": "residential", "heroImage": "/images/blog/how-much-does-a-roof-replacement-cost-featured.jpg",   "silo_target": "/residential-roofing/replacement/", "silo_target_anchor": "residential roof replacement", "silo_siblings": [{"url": "/blog/architectural-vs-3-tab-shingles/", "anchor": "architectural vs 3-tab shingle comparison"}] },
-    { "canonicalPath": "/blog/architectural-vs-3-tab-shingles/",          "mdxPath": "src/content/blogPosts/architectural-vs-3-tab-shingles.mdx",      "keyword": "architectural vs 3-tab shingles",      "pageType": "blog-supporter",  "vertical": "residential", "heroImage": "/images/blog/architectural-vs-3-tab-shingles-featured.jpg",          "silo_target": "/residential-roofing/asphalt-shingles/", "silo_target_anchor": "asphalt shingle roofing",  "silo_siblings": [{"url": "/blog/how-much-does-a-roof-replacement-cost/", "anchor": "roof replacement cost guide"}] },
-    { "canonicalPath": "/blog/best-time-of-year-to-replace-your-roof/",   "mdxPath": "src/content/blogPosts/best-time-of-year-to-replace-your-roof.mdx","keyword": "best time to replace your roof",       "pageType": "blog-supporter",  "vertical": "residential", "heroImage": "/images/blog/best-time-of-year-to-replace-your-roof-featured.jpg",   "silo_target": "/residential-roofing/replacement/", "silo_target_anchor": "residential roof replacement", "silo_siblings": [{"url": "/blog/how-much-does-a-roof-replacement-cost/", "anchor": "roof replacement cost guide"}] }
-  ]
+    {
+      "canonicalPath": "/commercial-roofing/tpo/",
+      "mdxPath": "src/content/services/commercial/tpo.mdx",
+      "keyword": "TPO roofing",
+      "pageType": "transactional",
+      "vertical": "commercial",
+      "heroImage": "/images/services/commercial/tpo-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/commercial-roofing/epdm/",
+      "mdxPath": "src/content/services/commercial/epdm.mdx",
+      "keyword": "EPDM roofing",
+      "pageType": "transactional",
+      "vertical": "commercial",
+      "heroImage": "/images/services/commercial/epdm-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": "HIGH",
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/commercial-roofing/metal/",
+      "mdxPath": "src/content/services/commercial/metal.mdx",
+      "keyword": "commercial metal roofing",
+      "pageType": "transactional",
+      "vertical": "commercial",
+      "heroImage": "/images/services/commercial/metal-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/commercial-roofing/flat-roof-systems/",
+      "mdxPath": "src/content/services/commercial/flat-roof-systems.mdx",
+      "keyword": "flat roof systems",
+      "pageType": "transactional",
+      "vertical": "commercial",
+      "heroImage": "/images/services/commercial/flat-roof-systems-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/commercial-roofing/repair/",
+      "mdxPath": "src/content/services/commercial/repair.mdx",
+      "keyword": "commercial roof repair",
+      "pageType": "transactional",
+      "vertical": "commercial",
+      "heroImage": "/images/services/commercial/repair-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/commercial-roofing/replacement/",
+      "mdxPath": "src/content/services/commercial/replacement.mdx",
+      "keyword": "commercial roof replacement",
+      "pageType": "transactional",
+      "vertical": "commercial",
+      "heroImage": "/images/services/commercial/replacement-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/residential-roofing/asphalt-shingles/",
+      "mdxPath": "src/content/services/residential/asphalt-shingles.mdx",
+      "keyword": "asphalt shingle roofing",
+      "pageType": "transactional",
+      "vertical": "residential",
+      "heroImage": "/images/services/residential/asphalt-shingles-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/residential-roofing/replacement/",
+      "mdxPath": "src/content/services/residential/replacement.mdx",
+      "keyword": "residential roof replacement",
+      "pageType": "transactional",
+      "vertical": "residential",
+      "heroImage": "/images/services/residential/replacement-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/residential-roofing/inspection/",
+      "mdxPath": "src/content/services/residential/inspection.mdx",
+      "keyword": "roof inspection",
+      "pageType": "transactional",
+      "vertical": "residential",
+      "heroImage": "/images/services/residential/inspection-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/residential-roofing/emergency/",
+      "mdxPath": "src/content/services/residential/emergency.mdx",
+      "keyword": "emergency roofing",
+      "pageType": "transactional",
+      "vertical": "residential",
+      "heroImage": "/images/services/residential/emergency-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": "LOW",
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/residential-roofing/metal/",
+      "mdxPath": "src/content/services/residential/metal.mdx",
+      "keyword": "residential metal roofing",
+      "pageType": "transactional",
+      "vertical": "residential",
+      "heroImage": "/images/services/residential/metal-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/residential-roofing/storm-damage/",
+      "mdxPath": "src/content/services/residential/storm-damage.mdx",
+      "keyword": "storm damage roofing",
+      "pageType": "transactional",
+      "vertical": "residential",
+      "heroImage": "/images/services/residential/storm-damage-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/commercial-roofing/dallas/",
+      "mdxPath": "src/content/cities/commercial-dallas.mdx",
+      "keyword": "commercial roofing Dallas",
+      "pageType": "transactional",
+      "vertical": "commercial",
+      "heroImage": "/images/cities/commercial/dallas-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/commercial-roofing/fort-worth/",
+      "mdxPath": "src/content/cities/commercial-fort-worth.mdx",
+      "keyword": "commercial roofing Fort Worth",
+      "pageType": "transactional",
+      "vertical": "commercial",
+      "heroImage": "/images/cities/commercial/fort-worth-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/commercial-roofing/plano/",
+      "mdxPath": "src/content/cities/commercial-plano.mdx",
+      "keyword": "commercial roofing Plano",
+      "pageType": "transactional",
+      "vertical": "commercial",
+      "heroImage": "/images/cities/commercial/plano-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/commercial-roofing/frisco/",
+      "mdxPath": "src/content/cities/commercial-frisco.mdx",
+      "keyword": "commercial roofing Frisco",
+      "pageType": "transactional",
+      "vertical": "commercial",
+      "heroImage": "/images/cities/commercial/frisco-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/residential-roofing/dallas/",
+      "mdxPath": "src/content/cities/residential-dallas.mdx",
+      "keyword": "residential roofing Dallas",
+      "pageType": "transactional",
+      "vertical": "residential",
+      "heroImage": "/images/cities/residential/dallas-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/residential-roofing/fort-worth/",
+      "mdxPath": "src/content/cities/residential-fort-worth.mdx",
+      "keyword": "residential roofing Fort Worth",
+      "pageType": "transactional",
+      "vertical": "residential",
+      "heroImage": "/images/cities/residential/fort-worth-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/residential-roofing/highland-park/",
+      "mdxPath": "src/content/cities/residential-highland-park.mdx",
+      "keyword": "residential roofing Highland Park",
+      "pageType": "transactional",
+      "vertical": "residential",
+      "heroImage": "/images/cities/residential/highland-park-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/residential-roofing/southlake/",
+      "mdxPath": "src/content/cities/residential-southlake.mdx",
+      "keyword": "residential roofing Southlake",
+      "pageType": "transactional",
+      "vertical": "residential",
+      "heroImage": "/images/cities/residential/southlake-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 7
+      }
+    },
+    {
+      "canonicalPath": "/residential-roofing/preston-hollow/",
+      "mdxPath": "src/content/subdivisions/preston-hollow.mdx",
+      "keyword": "Preston Hollow roofing",
+      "pageType": "subdivision",
+      "vertical": "residential",
+      "heroImage": "/images/subdivisions/preston-hollow-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 4
+      }
+    },
+    {
+      "canonicalPath": "/locations/dallas-hq/",
+      "mdxPath": "src/content/offices/dallas-hq.mdx",
+      "keyword": "Pro Exteriors Dallas",
+      "pageType": "office",
+      "vertical": "brand",
+      "heroImage": "/images/offices/dallas-hq-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 5
+      }
+    },
+    {
+      "canonicalPath": "/locations/fort-worth/",
+      "mdxPath": "src/content/offices/fort-worth.mdx",
+      "keyword": "Pro Exteriors Fort Worth",
+      "pageType": "office",
+      "vertical": "brand",
+      "heroImage": "/images/offices/fort-worth-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 5
+      }
+    },
+    {
+      "canonicalPath": "/locations/frisco/",
+      "mdxPath": "src/content/offices/frisco.mdx",
+      "keyword": "Pro Exteriors Frisco",
+      "pageType": "office",
+      "vertical": "brand",
+      "heroImage": "/images/offices/frisco-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 5
+      }
+    },
+    {
+      "canonicalPath": "/locations/southlake/",
+      "mdxPath": "src/content/offices/southlake.mdx",
+      "keyword": "Pro Exteriors Southlake",
+      "pageType": "office",
+      "vertical": "brand",
+      "heroImage": "/images/offices/southlake-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 5
+      }
+    },
+    {
+      "canonicalPath": "/locations/arlington/",
+      "mdxPath": "src/content/offices/arlington.mdx",
+      "keyword": "Pro Exteriors Arlington",
+      "pageType": "office",
+      "vertical": "brand",
+      "heroImage": "/images/offices/arlington-hero.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 5
+      }
+    },
+    {
+      "canonicalPath": "/locations/edmond/",
+      "mdxPath": "src/content/offices/edmond.mdx",
+      "keyword": "Pro Exteriors Edmond",
+      "pageType": "office",
+      "vertical": "brand",
+      "heroImage": "/images/offices/edmond-hero.jpg",
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 5
+      }
+    },
+    {
+      "canonicalPath": "/blog/commercial-roofing/",
+      "mdxPath": "src/content/pillars/commercial-roofing.mdx",
+      "keyword": "commercial roofing",
+      "pageType": "pillar",
+      "vertical": "commercial",
+      "heroImage": "/images/blog/commercial-roofing-featured.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": "LOW",
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 4
+      }
+    },
+    {
+      "canonicalPath": "/blog/residential-roofing/",
+      "mdxPath": "src/content/pillars/residential-roofing.mdx",
+      "keyword": "residential roofing",
+      "pageType": "pillar",
+      "vertical": "residential",
+      "heroImage": "/images/blog/residential-roofing-featured.jpg",
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": "LOW",
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 4
+      }
+    },
+    {
+      "canonicalPath": "/blog/tpo-vs-epdm-vs-pvc/",
+      "mdxPath": "src/content/blogPosts/tpo-vs-epdm-vs-pvc.mdx",
+      "keyword": "TPO vs EPDM vs PVC",
+      "pageType": "blog-supporter",
+      "vertical": "commercial",
+      "heroImage": "/images/blog/tpo-vs-epdm-vs-pvc-featured.jpg",
+      "silo_target": "/commercial-roofing/tpo/",
+      "silo_target_anchor": "TPO roofing systems",
+      "silo_siblings": [
+        {
+          "url": "/blog/commercial-roof-repair-vs-replacement/",
+          "anchor": "commercial roof repair vs replacement"
+        }
+      ],
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 4
+      }
+    },
+    {
+      "canonicalPath": "/blog/commercial-roof-repair-vs-replacement/",
+      "mdxPath": "src/content/blogPosts/commercial-roof-repair-vs-replacement.mdx",
+      "keyword": "commercial roof repair vs replacement",
+      "pageType": "blog-supporter",
+      "vertical": "commercial",
+      "heroImage": "/images/blog/commercial-roof-repair-vs-replacement-featured.jpg",
+      "silo_target": "/commercial-roofing/repair/",
+      "silo_target_anchor": "commercial roof repair",
+      "silo_siblings": [
+        {
+          "url": "/blog/tpo-vs-epdm-vs-pvc/",
+          "anchor": "TPO vs EPDM vs PVC comparison"
+        }
+      ],
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 4
+      }
+    },
+    {
+      "canonicalPath": "/blog/how-much-does-a-roof-replacement-cost/",
+      "mdxPath": "src/content/blogPosts/how-much-does-a-roof-replacement-cost.mdx",
+      "keyword": "roof replacement cost",
+      "pageType": "blog-supporter",
+      "vertical": "residential",
+      "heroImage": "/images/blog/how-much-does-a-roof-replacement-cost-featured.jpg",
+      "silo_target": "/residential-roofing/replacement/",
+      "silo_target_anchor": "residential roof replacement",
+      "silo_siblings": [
+        {
+          "url": "/blog/architectural-vs-3-tab-shingles/",
+          "anchor": "architectural vs 3-tab shingle comparison"
+        }
+      ],
+      "_dfs": {
+        "search_volume": 10,
+        "cpc": 0,
+        "competition": "LOW",
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 4
+      }
+    },
+    {
+      "canonicalPath": "/blog/architectural-vs-3-tab-shingles/",
+      "mdxPath": "src/content/blogPosts/architectural-vs-3-tab-shingles.mdx",
+      "keyword": "architectural vs 3-tab shingles",
+      "pageType": "blog-supporter",
+      "vertical": "residential",
+      "heroImage": "/images/blog/architectural-vs-3-tab-shingles-featured.jpg",
+      "silo_target": "/residential-roofing/asphalt-shingles/",
+      "silo_target_anchor": "asphalt shingle roofing",
+      "silo_siblings": [
+        {
+          "url": "/blog/how-much-does-a-roof-replacement-cost/",
+          "anchor": "roof replacement cost guide"
+        }
+      ],
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 4
+      }
+    },
+    {
+      "canonicalPath": "/blog/best-time-of-year-to-replace-your-roof/",
+      "mdxPath": "src/content/blogPosts/best-time-of-year-to-replace-your-roof.mdx",
+      "keyword": "best time to replace roof",
+      "pageType": "blog-supporter",
+      "vertical": "residential",
+      "heroImage": "/images/blog/best-time-of-year-to-replace-your-roof-featured.jpg",
+      "silo_target": "/residential-roofing/replacement/",
+      "silo_target_anchor": "residential roof replacement",
+      "silo_siblings": [
+        {
+          "url": "/blog/how-much-does-a-roof-replacement-cost/",
+          "anchor": "roof replacement cost guide"
+        }
+      ],
+      "_dfs": {
+        "search_volume": 0,
+        "cpc": 0,
+        "competition": 0,
+        "competition_level": null,
+        "evaluated_at": "2026-05-01",
+        "candidates_evaluated": 4
+      }
+    }
+  ],
+  "_evaluated_at": "2026-05-01T19:07:32.956Z"
 }
