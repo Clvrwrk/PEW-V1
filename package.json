@@ -4,10 +4,11 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && npm run audit:schema && npm run audit:silo && npm run audit:orphans",
+    "build": "astro build && npm run audit:contrast && npm run audit:schema && npm run audit:silo && npm run audit:orphans",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
+    "audit:contrast": "node scripts/audit-contrast.mjs",
     "audit:schema": "node scripts/validate-schema.mjs",
     "audit:silo": "node scripts/audit-silo.mjs",
     "audit:orphans": "node scripts/audit-orphans.mjs"

@@ -34,6 +34,48 @@ const services = defineCollection({
     relatedServices: z.array(z.string()).optional(), // slugs within same vertical
     // Path C — partner-fulfilled services
     partnerFulfilled: z.boolean().default(false),
+
+    // ── Magazine-quality structured sections (all optional) ─────────────
+    // When present, the service detail template renders rich visual sections.
+    // When absent, the page gracefully degrades to the simpler prose layout.
+    intro: z.object({
+      heading: z.string(),
+      body: z.string(),
+      image: z.string(),
+      badges: z.array(z.string()).optional(),
+    }).optional(),
+    benefits: z.object({
+      heading: z.string(),
+      subtitle: z.string().optional(),
+      items: z.array(z.object({
+        icon: z.string(),
+        title: z.string(),
+        description: z.string(),
+      })),
+    }).optional(),
+    structureTypes: z.object({
+      heading: z.string(),
+      items: z.array(z.object({
+        icon: z.string(),
+        title: z.string(),
+        description: z.string(),
+      })),
+    }).optional(),
+    processSteps: z.object({
+      heading: z.string(),
+      image: z.string(),
+      steps: z.array(z.object({
+        title: z.string(),
+        description: z.string(),
+      })),
+    }).optional(),
+    galleryImages: z.array(z.string()).optional(),
+    ctaBanner: z.object({
+      heading: z.string(),
+      subtitle: z.string().optional(),
+      ctaText: z.string(),
+      ctaHref: z.string(),
+    }).optional(),
   }),
 });
 

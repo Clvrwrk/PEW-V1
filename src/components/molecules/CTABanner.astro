@@ -1,0 +1,39 @@
+---
+import Button from '../atoms/Button.astro';
+
+export interface Props {
+  heading: string;
+  subtitle?: string;
+  ctaText: string;
+  ctaHref: string;
+  class?: string;
+}
+
+const {
+  heading,
+  subtitle,
+  ctaText,
+  ctaHref,
+  class: className = '',
+} = Astro.props;
+---
+
+<section class={`py-16 sm:py-24 bg-surface-inverted ${className}`}>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-display font-bold tracking-tight text-text-inverted sm:text-4xl">
+          {heading}
+        </h2>
+        {subtitle && (
+          <p class="mt-4 text-lg text-text-inverted-secondary">{subtitle}</p>
+        )}
+      </div>
+      <div class="flex-shrink-0">
+        <Button href={ctaHref} variant="primary" size="lg" data-cta-name="service_cta_banner">
+          {ctaText}
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>

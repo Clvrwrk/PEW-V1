@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  variant: 'verified' | 'cert' | 'new' | 'todo';
+  variant: 'primary' | 'verified' | 'cert' | 'new' | 'todo';
   class?: string;
 }
 
@@ -9,10 +9,11 @@ const { variant, class: className = '' } = Astro.props;
 const baseStyles = 'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium';
 
 const variantStyles = {
-  verified: 'bg-green-100 text-green-800',
-  cert: 'bg-blue-100 text-blue-800',
-  new: 'bg-orange-100 text-brand-accent',
-  todo: 'bg-gray-100 text-gray-800 border border-dashed border-gray-300',
+  primary: 'bg-accent/10 text-accent',
+  verified: 'bg-success-surface text-success-text',
+  cert: 'bg-info-surface text-info-text',
+  new: 'bg-warning-surface text-warning-text',
+  todo: 'bg-surface-inset text-text-primary border border-dashed border-border',
 };
 
 const classes = `${baseStyles} ${variantStyles[variant]} ${className}`;

@@ -29,7 +29,7 @@ export default function AddressAutocomplete() {
       <div className="relative flex items-center">
         <label htmlFor="property-address" className="sr-only">Property Address</label>
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="h-5 w-5 text-text-tertiary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
@@ -45,8 +45,8 @@ export default function AddressAutocomplete() {
           }}
           className={`block w-full pl-11 pr-32 py-4 text-base rounded-full border shadow-sm focus:ring-2 focus:outline-none transition-shadow ${
             error 
-              ? 'border-red-300 focus:border-red-500 focus:ring-red-500 text-red-900 placeholder-red-300' 
-              : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary text-gray-900 placeholder-gray-400'
+              ? 'border-danger-border focus:border-danger focus:ring-danger text-danger-text placeholder-danger-border'
+              : 'border-border focus:border-accent focus:ring-accent text-text-primary placeholder-text-tertiary'
           }`}
           placeholder="Enter your property address..."
           aria-invalid={error ? "true" : "false"}
@@ -57,14 +57,14 @@ export default function AddressAutocomplete() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-brand-primary hover:bg-brand-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-full shadow-sm text-text-on-brand bg-brand-primary hover:bg-brand-accent-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
           >
             {isSubmitting ? 'Searching...' : 'Get Card'}
           </button>
         </div>
       </div>
       {error && (
-        <p className="mt-2 text-sm text-red-600 text-center" id="address-error">
+        <p className="mt-2 text-sm text-danger text-center" id="address-error">
           {error}
         </p>
       )}

@@ -58,11 +58,11 @@ const schemaPayload = [
   />
 
   <article class="prose mx-auto max-w-3xl px-4 py-16">
-    <p class="text-gray-500 italic mb-2">Industry: {data.industryCategory}</p>
-    {data.timeline && <p class="text-gray-500 italic mb-6">Timeline: {data.timeline}</p>}
+    <p class="text-text-tertiary italic mb-2">Industry: {data.industryCategory}</p>
+    {data.timeline && <p class="text-text-tertiary italic mb-6">Timeline: {data.timeline}</p>}
     <Content />
     {data.testimonial && (
-      <blockquote class="border-l-4 border-brand-accent pl-4 italic text-gray-700 mt-8">
+      <blockquote class="border-l-4 border-accent pl-4 italic text-text-secondary mt-8">
         "{data.testimonial}"
       </blockquote>
     )}

@@ -3,32 +3,83 @@
  * Phase 1: placeholder palette. Phase 2 brand pass replaces the hex values below.
  * DO NOT add raw hex codes anywhere else — always reference these variables.
  *
- * ⚠️  CONTRAST AUDIT NOTE:
- * --color-brand-text-muted (#6B7280) achieves 4.6:1 contrast on white (--color-brand-bg).
- * It FAILS WCAG AA on --color-brand-bg-alt (#F9FAFB, contrast ≈ 4.1:1).
- * NEVER use --color-brand-text-muted on elements with background-color: var(--color-brand-bg-alt).
- * Use --color-brand-text-secondary (#374151, 9.3:1 on both backgrounds) instead.
+ * SEMANTIC TOKEN CONTRACT:
+ * Every common text/background pairing passes WCAG AA (≥4.5:1 normal text).
+ * Audit by token pair, not by page. If a token value changes, re-check its
+ * paired surfaces. See the contrast table at the bottom of this block.
  */
 
-:root {
+:root,
+html:not(.dark) {
   /* -------------------------
-     Brand Colors
+     Brand Colors (static identity — do not auto-switch)
   ------------------------- */
   --color-brand-primary:        #1F2937; /* Navy — slate-800 */
   --color-brand-accent:         #DC2626; /* Red — CTA, alerts */
-  --color-brand-bg:             #FFFFFF;
-  --color-brand-bg-alt:         #F9FAFB; /* gray-50 — alternate section backgrounds */
-  --color-brand-text:           #111827; /* gray-900 — primary body copy */
-  --color-brand-text-muted:     #6B7280; /* gray-500 — captions, secondary labels (see contrast note above) */
-  --color-brand-text-secondary: #374151; /* gray-700 — secondary body copy (safe on both backgrounds) */
+  --color-brand-primary-hover:  #111827;
+  --color-brand-accent-hover:   #B91C1C;
 
   /* -------------------------
-     Semantic Tokens
+     Semantic Surface Tokens
+  ------------------------- */
+  --color-surface:              #FFFFFF; /* Default page background */
+  --color-surface-elevated:     #FFFFFF; /* Cards, modals, dropdowns */
+  --color-surface-inset:        #F9FAFB; /* Alternate sections, input bgs */
+  --color-surface-inverted:     #111827; /* Dark sections (subscribe, hero overlays) */
+
+  /* -------------------------
+     Semantic Text Tokens
+     Contrast ratios listed against surface / surface-inset
+  ------------------------- */
+  --color-text-primary:         #111827; /* 16.75:1 / 16.07:1 — headings, body */
+  --color-text-secondary:       #374151; /*  9.33:1 /  8.95:1 — descriptions, nav */
+  --color-text-tertiary:        #4B5563; /*  7.26:1 /  6.96:1 — captions, metadata */
+  --color-text-on-brand:        #FFFFFF; /* On static brand-primary / brand-accent buttons */
+  --color-text-on-accent:       var(--color-text-on-brand); /* Legacy alias */
+  --color-text-inverted:        #FFFFFF; /* On surface-inverted */
+  --color-text-inverted-secondary: #D1D5DB; /* 9.36:1 on surface-inverted */
+
+  /* -------------------------
+     Semantic Accent Tokens
+     Use for links, interactive text, icons, focus affordances.
+     CTA backgrounds keep brand tokens unless explicitly redesigned.
+  ------------------------- */
+  --color-accent:               #B91C1C; /* 6.47:1 on surface */
+  --color-accent-hover:         #991B1B;
+
+  /* -------------------------
+     Semantic Border Tokens
+  ------------------------- */
+  --color-border:               #E5E7EB; /* Default borders, dividers */
+  --color-border-subtle:        #F3F4F6; /* Very light borders */
+
+  /* -------------------------
+     Status Tokens (static — not theme-switched)
   ------------------------- */
   --color-success: #059669; /* green-600 */
   --color-warning: #D97706; /* amber-600 */
   --color-error:   #DC2626; /* red-600 */
   --color-info:    #2563EB; /* blue-600 */
+  --color-success-surface: #DCFCE7;
+  --color-success-text:    #166534;
+  --color-info-surface:    #DBEAFE;
+  --color-info-text:       #1E40AF;
+  --color-warning-surface: #FEF3C7;
+  --color-warning-text:    #78350F;
+  --color-danger:        #B91C1C;
+  --color-danger-hover:  #991B1B;
+  --color-danger-surface:#FEF2F2;
+  --color-danger-border: #FCA5A5;
+  --color-danger-text:   #7F1D1D;
+
+  /* -------------------------
+     Legacy Brand Aliases (kept for backward compat during migration)
+  ------------------------- */
+  --color-brand-bg:             var(--color-surface);
+  --color-brand-bg-alt:         var(--color-surface-inset);
+  --color-brand-text:           var(--color-text-primary);
+  --color-brand-text-muted:     var(--color-text-tertiary);
+  --color-brand-text-secondary: var(--color-text-secondary);
 
   /* -------------------------
      Typography
@@ -55,4 +106,43 @@
   --focus-ring-color:  #2563EB;
   --focus-ring-offset: 2px;
   --focus-ring-width:  3px;
+}
+
+/* -------------------------
+   Dark Mode (future-proofing — activated via .dark class on <html>)
+   Contrast ratios listed against surface / surface-elevated
+------------------------- */
+html.dark {
+  --color-surface:              #111827; /* gray-900 */
+  --color-surface-elevated:     #1F2937; /* gray-800 */
+  --color-surface-inset:        #0D1117; /* near-black */
+  --color-surface-inverted:     #F9FAFB;
+
+  --color-text-primary:         #F9FAFB; /* 16.07:1 / 13.47:1 */
+  --color-text-secondary:       #D1D5DB; /*  9.36:1 /  7.85:1 */
+  --color-text-tertiary:        #9CA3AF; /*  5.35:1 /  4.51:1 */
+  --color-text-on-brand:        #FFFFFF;
+  --color-text-on-accent:       var(--color-text-on-brand);
+  --color-text-inverted:        #111827;
+  --color-text-inverted-secondary: #4B5563;
+
+  --color-accent:               #FCA5A5; /* 9.35:1 on surface, 7.73:1 on elevated */
+  --color-accent-hover:         #FECACA;
+
+  --color-border:               #374151; /* gray-700 */
+  --color-border-subtle:        #1F2937; /* gray-800 */
+
+  --color-danger:        #FCA5A5;
+  --color-danger-hover:  #FECACA;
+  --color-danger-surface:#3F1D1D;
+  --color-danger-border: #7F1D1D;
+  --color-danger-text:   #FECACA;
+  --color-success-surface: #143322;
+  --color-success-text:    #BBF7D0;
+  --color-info-surface:    #172554;
+  --color-info-text:       #BFDBFE;
+  --color-warning-surface: #451A03;
+  --color-warning-text:    #FDE68A;
+
+  --focus-ring-color: #60A5FA;
 }

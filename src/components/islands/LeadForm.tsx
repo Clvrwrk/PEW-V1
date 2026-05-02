@@ -118,16 +118,16 @@ export default function LeadForm({
       <input type="hidden" {...register('campaign')} />
 
       {submitError && (
-        <div className="rounded-md bg-red-50 p-4" role="alert">
-          <p className="text-sm text-red-700">{submitError}</p>
+        <div className="rounded-md bg-danger-surface p-4" role="alert">
+          <p className="text-sm text-danger-text">{submitError}</p>
         </div>
       )}
 
       {/* Errors Summary for Accessibility */}
       {Object.keys(errors).length > 0 && (
-        <div className="rounded-md bg-red-50 p-4" role="alert" aria-live="assertive">
-          <h3 className="text-sm font-medium text-red-800">There were errors with your submission:</h3>
-          <ul className="mt-2 list-disc pl-5 text-sm text-red-700">
+        <div className="rounded-md bg-danger-surface p-4" role="alert" aria-live="assertive">
+          <h3 className="text-sm font-medium text-danger-text">There were errors with your submission:</h3>
+          <ul className="mt-2 list-disc pl-5 text-sm text-danger-text">
             {Object.values(errors).map((err, i) => (
               <li key={i}>{err?.message}</li>
             ))}
@@ -137,14 +137,14 @@ export default function LeadForm({
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">First Name <span className="text-red-500">*</span></label>
+          <label htmlFor="firstName" className="block text-sm font-medium text-text-secondary">First Name <span className="text-danger">*</span></label>
           <div className="mt-1">
             <input
               id="firstName"
               type="text"
               {...register('firstName')}
               className={`block w-full rounded-md shadow-sm sm:text-sm ${
-                errors.firstName ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
+                errors.firstName ? 'border-danger-border focus:border-danger focus:ring-danger' : 'border-border focus:border-accent focus:ring-accent'
               }`}
               aria-invalid={!!errors.firstName}
               aria-describedby={errors.firstName ? "firstName-error" : undefined}
@@ -153,14 +153,14 @@ export default function LeadForm({
         </div>
 
         <div>
-          <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">Last Name <span className="text-red-500">*</span></label>
+          <label htmlFor="lastName" className="block text-sm font-medium text-text-secondary">Last Name <span className="text-danger">*</span></label>
           <div className="mt-1">
             <input
               id="lastName"
               type="text"
               {...register('lastName')}
               className={`block w-full rounded-md shadow-sm sm:text-sm ${
-                errors.lastName ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
+                errors.lastName ? 'border-danger-border focus:border-danger focus:ring-danger' : 'border-border focus:border-accent focus:ring-accent'
               }`}
               aria-invalid={!!errors.lastName}
             />
@@ -170,14 +170,14 @@ export default function LeadForm({
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email <span className="text-red-500">*</span></label>
+          <label htmlFor="email" className="block text-sm font-medium text-text-secondary">Email <span className="text-danger">*</span></label>
           <div className="mt-1">
             <input
               id="email"
               type="email"
               {...register('email')}
               className={`block w-full rounded-md shadow-sm sm:text-sm ${
-                errors.email ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
+                errors.email ? 'border-danger-border focus:border-danger focus:ring-danger' : 'border-border focus:border-accent focus:ring-accent'
               }`}
               aria-invalid={!!errors.email}
             />
@@ -185,14 +185,14 @@ export default function LeadForm({
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone <span className="text-red-500">*</span></label>
+          <label htmlFor="phone" className="block text-sm font-medium text-text-secondary">Phone <span className="text-danger">*</span></label>
           <div className="mt-1">
             <input
               id="phone"
               type="tel"
               {...register('phone')}
               className={`block w-full rounded-md shadow-sm sm:text-sm ${
-                errors.phone ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : 'border-gray-300 focus:border-brand-primary focus:ring-brand-primary'
+                errors.phone ? 'border-danger-border focus:border-danger focus:ring-danger' : 'border-border focus:border-accent focus:ring-accent'
               }`}
               aria-invalid={!!errors.phone}
             />
@@ -202,7 +202,7 @@ export default function LeadForm({
 
       {(!isEmergency || isCommercial) && (
         <div>
-          <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="address" className="block text-sm font-medium text-text-secondary">
             {isCommercial ? 'Property Address' : 'Home Address'}
           </label>
           <div className="mt-1">
@@ -210,14 +210,14 @@ export default function LeadForm({
               id="address"
               type="text"
               {...register('address')}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-primary focus:ring-brand-primary sm:text-sm"
+              className="block w-full rounded-md border-border shadow-sm focus:border-accent focus:ring-accent sm:text-sm"
             />
           </div>
         </div>
       )}
 
       <div>
-        <label htmlFor="projectDetails" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="projectDetails" className="block text-sm font-medium text-text-secondary">
           {isEmergency ? 'Describe the Damage/Emergency' : 'Project Details'}
         </label>
         <div className="mt-1">
@@ -225,7 +225,7 @@ export default function LeadForm({
             id="projectDetails"
             rows={4}
             {...register('projectDetails')}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-primary focus:ring-brand-primary sm:text-sm"
+            className="block w-full rounded-md border-border shadow-sm focus:border-accent focus:ring-accent sm:text-sm"
           />
         </div>
       </div>
@@ -234,10 +234,10 @@ export default function LeadForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full flex justify-center rounded-md border border-transparent py-3 px-4 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+          className={`w-full flex justify-center rounded-md border border-transparent py-3 px-4 text-sm font-medium text-text-on-brand shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 ${
             isEmergency 
-              ? 'bg-red-600 hover:bg-red-700 focus:ring-red-500' 
-              : 'bg-brand-primary hover:bg-brand-accent focus:ring-brand-primary'
+              ? 'bg-danger hover:bg-danger-hover focus:ring-danger'
+              : 'bg-brand-primary hover:bg-brand-accent-hover focus:ring-accent'
           } ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
         >
           {isSubmitting ? 'Submitting...' : (isEmergency ? 'Request Emergency Service' : 'Submit Request')}

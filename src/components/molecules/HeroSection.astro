@@ -32,21 +32,21 @@ const primaryLabel = ctaLabel(primaryCta);
 const secondaryLabel = ctaLabel(secondaryCta);
 ---
 
-<div class={`relative isolate overflow-hidden bg-brand-bg ${className}`}>
+<div class={`relative isolate overflow-hidden bg-surface ${className}`}>
   <!-- Optional Background Image -->
   {image && (
-    <div class="absolute inset-0 -z-10 bg-gray-900">
+    <div class="absolute inset-0 -z-10 bg-surface-inverted">
       <img src={image} alt="" class="h-full w-full object-cover opacity-30" loading="eager" />
     </div>
   )}
 
   <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
-    <div class={`mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8 ${image ? 'text-white' : 'text-gray-900'}`}>
-      <h1 class="mt-10 text-4xl font-display font-bold tracking-tight sm:text-6xl">
+    <div class={`mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8 ${image ? 'text-text-inverted' : 'text-text-primary'}`}>
+      <h1 class={`mt-10 text-4xl font-display font-bold tracking-tight sm:text-6xl ${image ? 'text-text-inverted' : 'text-text-primary'}`}>
         {title}
       </h1>
       {subtitle && (
-        <p class={`mt-6 text-lg leading-8 ${image ? 'text-gray-300' : 'text-gray-600'}`}>
+        <p class={`mt-6 text-lg leading-8 ${image ? 'text-text-inverted-secondary' : 'text-text-secondary'}`}>
           {subtitle}
         </p>
       )}
@@ -57,7 +57,7 @@ const secondaryLabel = ctaLabel(secondaryCta);
           </Button>
         )}
         {secondaryCta && (
-          <Button href={secondaryCta.href} variant={image ? "ghost" : "secondary"} size="lg" class={image ? 'text-white hover:text-white hover:bg-white/10' : ''} data-cta-name="hero_secondary">
+          <Button href={secondaryCta.href} variant={image ? "inverted" : "secondary"} size="lg" data-cta-name="hero_secondary">
             {secondaryLabel} <span aria-hidden="true" class="ml-1">→</span>
           </Button>
         )}

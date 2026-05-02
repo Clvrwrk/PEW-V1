@@ -27,8 +27,8 @@
     font-family: var(--font-sans);
     font-size: var(--text-base);
     line-height: 1.6;
-    color: var(--color-brand-text);
-    background-color: var(--color-brand-bg);
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
   }
 
   /* Accessible focus ring — visible only on keyboard navigation */
@@ -46,14 +46,14 @@
   /* Heading defaults */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    color: var(--color-brand-primary);
+    color: var(--color-text-primary);
     line-height: 1.2;
     font-weight: 700;
   }
 
   /* Anchor defaults */
   a {
-    color: var(--color-brand-accent);
+    color: var(--color-accent);
     text-decoration-skip-ink: auto;
   }
 
@@ -99,7 +99,7 @@
 
   /* Alt-background section */
   .section-alt {
-    background-color: var(--color-brand-bg-alt);
+    background-color: var(--color-surface-inset);
   }
 
   /* Container utility */

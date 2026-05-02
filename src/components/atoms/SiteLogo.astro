@@ -1,0 +1,31 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className = 'h-10 w-auto' } = Astro.props;
+
+const lightLogo = '/Logos/Horizontal%201200x280%20lgt.svg';
+const darkLogo = '/Logos/Horizontal%201200x280%20drk.svg';
+---
+
+<span class="inline-flex items-center" aria-hidden="true">
+  <img
+    src={lightLogo}
+    alt=""
+    width="1200"
+    height="280"
+    class={`${className} block dark:hidden`}
+    loading="eager"
+    decoding="async"
+  />
+  <img
+    src={darkLogo}
+    alt=""
+    width="1200"
+    height="280"
+    class={`${className} hidden dark:block`}
+    loading="eager"
+    decoding="async"
+  />
+</span>

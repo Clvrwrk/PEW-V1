@@ -6,10 +6,10 @@ export interface Props {
 const { class: className = '' } = Astro.props;
 ---
 
-<div class={`inline-flex items-center text-sm text-gray-500 bg-gray-50 rounded-md px-3 py-2 border border-gray-200 ${className}`}>
+<div class={`inline-flex items-center text-sm text-text-tertiary bg-surface-inset rounded-md px-3 py-2 border border-border ${className}`}>
   <span>
     Coordinated by Pro Exteriors &bull; Installed by our trusted partner network.
-    <a href="/partners/" class="ml-1 text-brand-primary font-medium hover:text-brand-accent transition-colors focus:outline-none focus:underline">
+    <a href="/partners/" class="ml-1 text-text-primary font-medium hover:text-accent transition-colors focus:outline-none focus:underline">
       Learn more &rarr;
     </a>
   </span>

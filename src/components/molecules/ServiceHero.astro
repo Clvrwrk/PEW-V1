@@ -1,0 +1,78 @@
+---
+import Icon from '../atoms/Icon.astro';
+
+export interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
+export interface Props {
+  title: string;
+  image?: string;
+  breadcrumbs?: BreadcrumbItem[];
+  class?: string;
+}
+
+const {
+  title,
+  image,
+  breadcrumbs = [],
+  class: className = '',
+} = Astro.props;
+---
+
+<section class={`relative isolate overflow-hidden ${className}`}>
+  <!-- Background image -->
+  <div class="absolute inset-0 -z-10 bg-surface-inverted">
+    {image && (
+      <img
+        src={image}
+        alt=""
+        class="h-full w-full object-cover opacity-40"
+        loading="eager"
+      />
+    )}
+    <!-- Gradient overlay for text legibility -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" aria-hidden="true"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 pt-8 sm:pb-20 sm:pt-12">
+    <!-- Breadcrumbs -->
+    {breadcrumbs.length > 0 && (
+      <nav class="mb-8" aria-label="Breadcrumb">
+        <ol role="list" class="flex items-center space-x-2 text-sm">
+          <li>
+            <a href="/" class="text-text-inverted-secondary hover:text-text-inverted transition-colors">
+              <Icon name="home" size={16} class="inline-block" />
+              <span class="sr-only">Home</span>
+            </a>
+          </li>
+          {breadcrumbs.map((item, i) => (
+            <li class="flex items-center">
+              <Icon name="chevron-right" size={16} class="text-text-inverted-secondary mr-2" />
+              <a
+                href={item.href}
+                class={`font-medium transition-colors ${
+                  i === breadcrumbs.length - 1
+                    ? 'text-text-inverted'
+                    : 'text-text-inverted-secondary hover:text-text-inverted'
+                }`}
+                aria-current={i === breadcrumbs.length - 1 ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+
+    <!-- Title -->
+    <h1 class="max-w-3xl text-4xl font-display font-bold tracking-tight text-text-inverted sm:text-5xl lg:text-6xl">
+      {title}
+    </h1>
+
+    <!-- Red accent bar -->
+    <div class="mt-6 h-1 w-24 bg-brand-accent rounded-full" aria-hidden="true"></div>
+  </div>
+</section>

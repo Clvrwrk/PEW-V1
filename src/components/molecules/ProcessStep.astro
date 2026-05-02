@@ -19,17 +19,17 @@ const {
 ---
 
 <div class={`relative pl-16 ${className}`}>
-  <dt class="text-base font-semibold leading-7 text-gray-900">
-    <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-brand-primary text-white">
+  <dt class="text-base font-semibold leading-7 text-text-primary">
+    <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-brand-primary text-text-on-brand">
       {icon ? (
-        <Icon name={icon} size={20} class="text-white" />
+        <Icon name={icon} size={20} class="text-text-on-brand" />
       ) : (
         <span class="text-lg font-bold">{number}</span>
       )}
     </div>
     {title}
   </dt>
-  <dd class="mt-2 text-base leading-7 text-gray-600">
+  <dd class="mt-2 text-base leading-7 text-text-secondary">
     {description}
   </dd>
 </div>

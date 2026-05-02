@@ -33,7 +33,7 @@ const breadcrumbSchema = {
   <ol role="list" class="flex items-center space-x-2">
     <li>
       <div>
-        <a href="/" class="text-gray-400 hover:text-gray-500">
+        <a href="/" class="text-text-tertiary hover:text-text-secondary">
           <Icon name="home" size={20} class="flex-shrink-0" />
           <span class="sr-only">Home</span>
         </a>
@@ -42,10 +42,10 @@ const breadcrumbSchema = {
     {items.map((item, index) => (
       <li>
         <div class="flex items-center">
-          <Icon name="chevron-right" size={20} class="flex-shrink-0 text-gray-400" />
+          <Icon name="chevron-right" size={20} class="flex-shrink-0 text-text-tertiary" />
           <a
             href={item.href}
-            class="ml-2 text-sm font-medium text-gray-500 hover:text-gray-700"
+            class="ml-2 text-sm font-medium text-text-tertiary hover:text-text-secondary"
             aria-current={index === items.length - 1 ? 'page' : undefined}
           >
             {item.label}

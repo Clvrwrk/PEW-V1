@@ -52,20 +52,20 @@ const mainSchema = [
     image="/images/residential-hero.jpg"
   />
 
-  <section class="bg-red-50 border-y border-red-100 py-6">
+  <section class="bg-danger-surface border-y border-danger-border py-6">
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-4 text-red-900">
-        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center shrink-0">
+      <div class="flex items-center gap-4 text-danger-text">
+        <div class="w-12 h-12 bg-danger-surface rounded-full flex items-center justify-center shrink-0">
           <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div>
         <div>
           <h3 class="font-bold text-lg">Need Help Fast?</h3>
-          <p class="text-red-700">Recent storm damage? We can have an expert on-site within 48 hours.</p>
+          <p class="text-danger-text">Recent storm damage? We can have an expert on-site within 48 hours.</p>
         </div>
       </div>
-      <Button href="/contact/?type=emergency" variant="primary" class="bg-red-600 hover:bg-red-700">Request Emergency Service</Button>
+      <Button href="/contact/?type=emergency" variant="primary" class="bg-danger hover:bg-danger-hover">Request Emergency Service</Button>
     </div>
   </section>
 
@@ -82,7 +82,7 @@ const mainSchema = [
   <section class="py-20 px-4 max-w-7xl mx-auto">
     <div class="text-center mb-16">
       <h2 class="text-3xl font-bold mb-4 italic">Local Experts. Not "Storm Chasers."</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto text-center">We live and work in your community. Our reputation is built on quality, not volume.</p>
+      <p class="text-xl text-text-secondary max-w-3xl mx-auto text-center">We live and work in your community. Our reputation is built on quality, not volume.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -99,7 +99,7 @@ const mainSchema = [
 
   <PropertyCardCallout />
 
-  <section class="py-20 bg-gray-50">
+  <section class="py-20 bg-surface-inset">
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12">Residential Roofing FAQ</h2>
       <FAQ faqs={faqs} />

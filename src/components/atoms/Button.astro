@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'danger';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'danger' | 'white' | 'outline' | 'inverted' | 'onBrandOutline';
   size?: 'sm' | 'md' | 'lg';
   href?: string;
   class?: string;
@@ -27,10 +27,14 @@ const sizeStyles = {
 };
 
 const variantStyles = {
-  primary: 'bg-brand-accent text-white hover:bg-orange-600 focus:ring-brand-accent',
-  secondary: 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-brand-primary',
-  ghost: 'bg-transparent text-brand-primary hover:bg-gray-100 focus:ring-brand-primary',
-  danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-600',
+  primary: 'bg-brand-accent text-text-on-brand hover:bg-brand-accent-hover focus:ring-accent',
+  secondary: 'bg-surface-elevated text-text-secondary border border-border hover:bg-surface-inset focus:ring-accent',
+  ghost: 'bg-transparent text-text-primary hover:bg-surface-inset focus:ring-accent',
+  danger: 'bg-danger text-text-on-brand hover:bg-danger-hover focus:ring-danger',
+  white: 'bg-surface-elevated text-text-primary border border-border hover:bg-surface-inset focus:ring-accent',
+  outline: 'bg-transparent text-text-primary border border-border hover:bg-surface-inset focus:ring-accent',
+  inverted: 'bg-transparent text-text-inverted hover:bg-white/10 focus:ring-accent',
+  onBrandOutline: 'bg-transparent text-text-on-brand border border-white hover:bg-white hover:text-accent focus:ring-accent',
 };
 
 const classes = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;

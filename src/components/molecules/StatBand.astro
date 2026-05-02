@@ -16,7 +16,7 @@ export interface Props {
 const { stats, disclaimer, class: className = '' } = Astro.props;
 ---
 
-<div class={`bg-brand-bg-alt py-12 sm:py-16 ${className}`}>
+<div class={`bg-surface-inset py-12 sm:py-16 ${className}`}>
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-4 sm:grid-cols-2">
       {stats.map(stat => (
@@ -26,7 +26,7 @@ const { stats, disclaimer, class: className = '' } = Astro.props;
       ))}
     </dl>
     {disclaimer && (
-      <div class="mt-8 text-center text-xs text-gray-400">
+      <div class="mt-8 text-center text-xs text-text-tertiary">
         * {disclaimer}
       </div>
     )}

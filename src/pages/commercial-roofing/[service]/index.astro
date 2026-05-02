@@ -1,14 +1,25 @@
 ---
 /**
  * src/pages/commercial-roofing/[service]/index.astro
- * Commercial service-detail template (Step 8b).
- * Renders one page per services-collection entry where vertical === 'commercial'.
+ * Commercial service-detail template — magazine-quality layout.
+ *
+ * When structured frontmatter fields (intro, benefits, processSteps, etc.)
+ * are present, the page renders rich visual sections matching the Figma
+ * reference design. When absent, sections are skipped and the MDX body
+ * renders as a prose article — graceful degradation for services that
+ * haven't been populated yet.
  */
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../components/seo/BaseLayout.astro';
-import HeroSection from '../../../components/molecules/HeroSection.astro';
+import ServiceHero from '../../../components/molecules/ServiceHero.astro';
+import SplitIntro from '../../../components/molecules/SplitIntro.astro';
+import BenefitsGrid from '../../../components/molecules/BenefitsGrid.astro';
+import StructureTypes from '../../../components/molecules/StructureTypes.astro';
+import QualityProcess from '../../../components/molecules/QualityProcess.astro';
+import ProjectGallery from '../../../components/molecules/ProjectGallery.astro';
+import CTABanner from '../../../components/molecules/CTABanner.astro';
 import FAQ from '../../../components/molecules/FAQ.astro';
-import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import Card from '../../../components/molecules/Card.astro';
 import ServiceTile from '../../../components/molecules/ServiceTile.astro';
 import PartnerNetworkDisclosure from '../../../components/atoms/PartnerNetworkDisclosure.astro';
 import { serviceSchema } from '../../../lib/schema/Service';
@@ -16,18 +27,11 @@ import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
 import { faqPageSchema } from '../../../lib/schema/FAQPage';
 
 export async function getStaticPaths() {
-  // Pull the final URL segment out of a canonicalPath like
-  // "/commercial-roofing/tpo/". Helper is defined inside getStaticPaths
-  // because Astro hoists this function and any module-scope helpers it
-  // depends on are not in scope at hoist time.
   const urlSegment = (canonicalPath: string): string =>
     canonicalPath.replace(/\/$/, '').split('/').pop() ?? '';
 
   const services = await getCollection('services', ({ data }) => data.vertical === 'commercial');
   return services.map((entry) => ({
-    // Routing is driven by the entry's canonicalPath, not entry.slug, because
-    // collection slugs are globally unique (Astro requirement) and therefore
-    // include vertical prefixes. The URL only needs the last segment.
     params: { service: urlSegment(entry.data.canonicalPath) },
     props: { entry },
   }));
@@ -41,28 +45,30 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 const data = entry.data;
 
-// Build sibling cross-sell — same vertical only (containment rule)
+// Detect whether this service has magazine-quality structured data
+const hasMagazineLayout = !!(data.intro || data.benefits || data.processSteps);
+
+// Sibling services for cross-sell (up to 4 for the magazine layout)
 const allCommercial = await getCollection('services', ({ data: d }) => d.vertical === 'commercial');
 const siblings = allCommercial
   .filter((s) => s.slug !== entry.slug)
-  .slice(0, 3);
+  .slice(0, 4);
+
+// Case studies for this vertical
+const caseStudies = await getCollection('caseStudies', ({ data: d }) => d.industryCategory === 'commercial');
+const topStudies = caseStudies.slice(0, 2);
 
 const breadcrumbs = [
-  { label: 'Home', href: '/' },
   { label: 'Commercial Roofing', href: '/commercial-roofing/' },
   { label: data.name, href: data.canonicalPath },
 ];
 
 const schemaPayload: Record<string, any>[] = [
   serviceSchema(
-    {
-      name: data.name,
-      description: data.description,
-      url: data.canonicalPath,
-    },
+    { name: data.name, description: data.description, url: data.canonicalPath },
     'Pro Exteriors',
   ),
-  breadcrumbSchema(breadcrumbs),
+  breadcrumbSchema([{ label: 'Home', href: '/' }, ...breadcrumbs]),
 ];
 if (data.faqs && data.faqs.length > 0) {
   schemaPayload.push(faqPageSchema(data.faqs));
@@ -75,48 +81,144 @@ if (data.faqs && data.faqs.length > 0) {
   canonicalPath={data.canonicalPath}
   jsonLd={schemaPayload}
 >
-  <Breadcrumb items={breadcrumbs.slice(1)} />
-
-  <HeroSection
+  {/* ── 1. Hero ───────────────────────────────────────── */}
+  <ServiceHero
     title={data.h1}
-    subtitle={data.description}
-    primaryCta={{ label: 'Request a Quote', href: '/contact/?vertical=commercial' }}
-    secondaryCta={{ label: 'Talk to a Specialist', href: 'tel:4695351708' }}
     image={data.heroImage}
+    breadcrumbs={breadcrumbs}
   />
 
-  <article class="prose mx-auto max-w-3xl px-4 py-16">
-    <Content />
-  </article>
+  {hasMagazineLayout ? (
+    <>
+      {/* ── 2. Intro split ──────────────────────────────── */}
+      {data.intro && (
+        <SplitIntro
+          heading={data.intro.heading}
+          body={data.intro.body}
+          image={data.intro.image}
+          badges={data.intro.badges}
+        />
+      )}
 
-  {data.partnerFulfilled && (
-    <div class="mx-auto max-w-3xl px-4 pb-8">
-      <PartnerNetworkDisclosure />
-    </div>
+      {/* ── 3. Benefits grid ────────────────────────────── */}
+      {data.benefits && (
+        <BenefitsGrid
+          heading={data.benefits.heading}
+          subtitle={data.benefits.subtitle}
+          items={data.benefits.items}
+        />
+      )}
+
+      {/* ── 4. Structure types ──────────────────────────── */}
+      {data.structureTypes && (
+        <StructureTypes
+          heading={data.structureTypes.heading}
+          items={data.structureTypes.items}
+        />
+      )}
+
+      {/* ── 5. Quality process ──────────────────────────── */}
+      {data.processSteps && (
+        <QualityProcess
+          heading={data.processSteps.heading}
+          image={data.processSteps.image}
+          steps={data.processSteps.steps}
+        />
+      )}
+
+      {/* ── 6. Project gallery ──────────────────────────── */}
+      {data.galleryImages && data.galleryImages.length > 0 && (
+        <ProjectGallery
+          heading={`Completed ${data.name} Projects`}
+          images={data.galleryImages}
+        />
+      )}
+
+      {/* ── 7. Case studies ──────────────────────────────── */}
+      {topStudies.length > 0 && (
+        <section class="py-16 sm:py-24">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-baseline justify-between mb-12">
+              <div>
+                <h2 class="text-3xl font-display font-bold tracking-tight text-text-primary">Case Studies</h2>
+                <p class="mt-2 text-text-secondary">Real world results for our partners.</p>
+              </div>
+              <a href="/projects/" class="hidden sm:inline-flex text-sm font-medium text-accent hover:underline">
+                View All Stories &rarr;
+              </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {topStudies.map((study) => (
+                <Card
+                  title={study.data.projectName}
+                  description={study.data.description}
+                  eyebrow={study.data.scope}
+                  href={study.data.canonicalPath}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+    </>
+  ) : (
+    <>
+      {/* ── Fallback: prose MDX body ────────────────────── */}
+      <article class="prose mx-auto max-w-3xl px-4 py-16">
+        <Content />
+      </article>
+
+      {data.partnerFulfilled && (
+        <div class="mx-auto max-w-3xl px-4 pb-8">
+          <PartnerNetworkDisclosure />
+        </div>
+      )}
+    </>
   )}
 
+  {/* ── 8. Service FAQ ───────────────────────────────── */}
   {data.faqs && data.faqs.length > 0 && (
-    <section class="bg-gray-50 py-20">
+    <section class="py-16 sm:py-24">
       <div class="mx-auto max-w-4xl px-4">
-        <h2 class="mb-12 text-center text-3xl font-bold">Frequently Asked Questions</h2>
+        <h2 class="mb-12 text-center text-3xl font-display font-bold tracking-tight text-text-primary">Service FAQ</h2>
         <FAQ faqs={data.faqs} />
       </div>
     </section>
   )}
 
+  {/* ── 9. Other commercial services ─────────────────── */}
   {siblings.length > 0 && (
-    <section class="py-20 px-4 max-w-7xl mx-auto">
-      <h2 class="mb-12 text-center text-3xl font-bold">Other Commercial Services</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {siblings.map((sibling) => (
-          <ServiceTile
-            name={sibling.data.name}
-            description={sibling.data.description}
-            href={sibling.data.canonicalPath}
-            icon="building"
-          />
-        ))}
+    <section class="py-16 sm:py-24 bg-surface-inset">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="mb-12 text-center text-3xl font-display font-bold tracking-tight text-text-primary">Other Commercial Solutions</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {siblings.map((sibling) => (
+            <ServiceTile
+              name={sibling.data.name}
+              description={sibling.data.description}
+              href={sibling.data.canonicalPath}
+              icon="building"
+            />
+          ))}
+        </div>
       </div>
     </section>
+  )}
+
+  {/* ── 10. CTA banner ───────────────────────────────── */}
+  {data.ctaBanner ? (
+    <CTABanner
+      heading={data.ctaBanner.heading}
+      subtitle={data.ctaBanner.subtitle}
+      ctaText={data.ctaBanner.ctaText}
+      ctaHref={data.ctaBanner.ctaHref}
+    />
+  ) : (
+    <CTABanner
+      heading={`Ready to discuss ${data.name.toLowerCase()}?`}
+      subtitle="Talk to a specialist about your commercial roofing needs."
+      ctaText="Get a Quote"
+      ctaHref="/contact/?vertical=commercial"
+    />
   )}
 </BaseLayout>

@@ -94,17 +94,17 @@ if (kind === 'post') {
   {kind === 'post' ? (
     <>
       <article class="mx-auto max-w-3xl px-4 py-16">
-        <p class="text-sm text-gray-500 mb-2">By {(entry as CollectionEntry<'blogPosts'>).data.author}</p>
-        <h1 class="text-4xl font-display font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
+        <p class="text-sm text-text-tertiary mb-2">By {(entry as CollectionEntry<'blogPosts'>).data.author}</p>
+        <h1 class="text-4xl font-display font-bold tracking-tight text-text-primary sm:text-5xl mb-6">
           {data.title}
         </h1>
-        <p class="text-lg text-gray-600 mb-10">{data.description}</p>
+        <p class="text-lg text-text-secondary mb-10">{data.description}</p>
         <div class="prose prose-lg">
           <Content />
         </div>
       </article>
       {(entry as CollectionEntry<'blogPosts'>).data.faqs && (entry as CollectionEntry<'blogPosts'>).data.faqs!.length > 0 && (
-        <section class="bg-gray-50 py-16">
+        <section class="bg-surface-inset py-16">
           <div class="mx-auto max-w-3xl px-4">
             <h2 class="mb-10 text-3xl font-bold text-center">Related questions</h2>
             <FAQ faqs={(entry as CollectionEntry<'blogPosts'>).data.faqs!} />

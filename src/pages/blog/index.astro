@@ -62,7 +62,7 @@ const mainSchema = [
   <section class="py-12 border-b">
     <div class="max-w-7xl mx-auto px-4 flex flex-wrap gap-4 justify-center">
       {categories.map((cat, index) => (
-        <button class={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${index === 0 ? 'bg-brand-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+        <button class={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${index === 0 ? 'bg-brand-primary text-text-on-brand' : 'bg-surface-inset text-text-secondary hover:bg-border'}`}>
           {cat}
         </button>
       ))}
@@ -73,7 +73,7 @@ const mainSchema = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {posts.map(post => (
         <article class="group">
-          <div class="aspect-video bg-gray-200 rounded-2xl mb-6 overflow-hidden relative">
+          <div class="aspect-video bg-border rounded-2xl mb-6 overflow-hidden relative">
             <div class="absolute top-4 left-4">
               <Badge variant="primary">{post.category}</Badge>
             </div>
@@ -81,19 +81,19 @@ const mainSchema = [
             <div class="w-full h-full bg-brand-primary opacity-10 group-hover:opacity-20 transition-opacity"></div>
           </div>
           <div class="space-y-4">
-            <p class="text-sm text-gray-500">{post.date}</p>
-            <h3 class="text-2xl font-bold text-gray-900 group-hover:text-brand-primary transition-colors">
+            <p class="text-sm text-text-tertiary">{post.date}</p>
+            <h3 class="text-2xl font-bold text-text-primary group-hover:text-accent transition-colors">
               <a href={post.url}>{post.title}</a>
             </h3>
-            <p class="text-gray-600 line-clamp-3">{post.excerpt}</p>
-            <a href={post.url} class="inline-block text-brand-primary font-bold hover:underline">Read Article →</a>
+            <p class="text-text-secondary line-clamp-3">{post.excerpt}</p>
+            <a href={post.url} class="inline-block text-text-primary font-bold hover:underline">Read Article →</a>
           </div>
         </article>
       ))}
     </div>
   </section>
 
-  <section id="subscribe" class="py-20 bg-gray-900 text-white rounded-3xl mx-4 mb-20 overflow-hidden relative">
+  <section id="subscribe" class="py-20 bg-surface-inverted text-text-inverted rounded-3xl mx-4 mb-20 overflow-hidden relative">
     <div class="absolute inset-0 opacity-10 pointer-events-none">
       <!-- Decorative pattern -->
       <svg class="w-full h-full" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -102,10 +102,10 @@ const mainSchema = [
     </div>
     <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
       <h2 class="text-3xl font-bold mb-4">Stay Ahead of the Storm</h2>
-      <p class="text-xl text-gray-400 mb-10">Get expert roofing tips and DFW weather alerts delivered to your inbox.</p>
+      <p class="text-xl text-text-inverted-secondary mb-10">Get expert roofing tips and DFW weather alerts delivered to your inbox.</p>
       <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-        <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-full bg-gray-800 border-gray-700 focus:outline-none focus:ring-2 focus:ring-brand-primary text-white" required />
-        <button type="submit" class="px-8 py-4 bg-brand-primary hover:bg-brand-accent text-white font-bold rounded-full transition-colors">Subscribe</button>
+        <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-full bg-surface-elevated border-border focus:outline-none focus:ring-2 focus:ring-accent text-text-primary placeholder-text-tertiary" required />
+        <button type="submit" class="px-8 py-4 bg-brand-primary hover:bg-brand-accent-hover text-text-on-brand font-bold rounded-full transition-colors">Subscribe</button>
       </form>
     </div>
   </section>

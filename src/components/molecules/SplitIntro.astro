@@ -1,0 +1,57 @@
+---
+import Icon from '../atoms/Icon.astro';
+
+export interface Props {
+  heading: string;
+  body: string;
+  image: string;
+  badges?: string[];
+  class?: string;
+}
+
+const {
+  heading,
+  body,
+  image,
+  badges = [],
+  class: className = '',
+} = Astro.props;
+---
+
+<section class={`py-16 sm:py-24 overflow-hidden ${className}`}>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Text column -->
+      <div>
+        <h2 class="text-3xl font-display font-bold tracking-tight text-text-primary sm:text-4xl">
+          {heading}
+        </h2>
+        <p class="mt-6 text-lg leading-8 text-text-secondary">
+          {body}
+        </p>
+        {badges.length > 0 && (
+          <div class="mt-8 flex flex-wrap gap-3">
+            {badges.map((badge) => (
+              <span class="inline-flex items-center gap-2 rounded-full bg-surface-inset px-4 py-2 text-sm font-medium text-text-primary ring-1 ring-border">
+                <Icon name="check-circle" size={16} class="text-accent" />
+                {badge}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <!-- Image column — offset upward for magazine feel -->
+      <div class="relative">
+        <div class="aspect-[4/3] overflow-hidden rounded-2xl shadow-xl lg:-mt-8">
+          <img
+            src={image}
+            alt={heading}
+            class="h-full w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

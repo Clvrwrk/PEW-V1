@@ -28,10 +28,10 @@ const leaders = [
   <HeroSection title="Leadership" subtitle="The people accountable to your roof and your bottom line." />
   <section class="py-16 px-4 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
     {leaders.map((leader) => (
-      <div class="bg-white rounded-xl p-6 ring-1 ring-gray-200 shadow-sm" data-todo="real-leadership">
+      <div class="bg-surface-elevated rounded-xl p-6 ring-1 ring-border shadow-sm" data-todo="real-leadership">
         <h3 class="text-xl font-bold">{leader.name}</h3>
-        <p class="text-sm text-brand-primary uppercase tracking-wider mt-1">{leader.role}</p>
-        <p class="text-gray-600 mt-3 text-sm">{leader.bio}</p>
+        <p class="text-sm text-text-primary uppercase tracking-wider mt-1">{leader.role}</p>
+        <p class="text-text-secondary mt-3 text-sm">{leader.bio}</p>
       </div>
     ))}
   </section>

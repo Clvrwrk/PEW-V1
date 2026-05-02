@@ -45,29 +45,29 @@ const reviewSchema = {
 
 <SchemaJsonLd jsonLd={reviewSchema} />
 
-<figure class={`bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200 ${className}`}>
-  <div class="flex items-center gap-1 text-brand-accent mb-6">
+<figure class={`bg-surface-elevated rounded-2xl p-8 shadow-sm ring-1 ring-border ${className}`}>
+  <div class="flex items-center gap-1 text-accent mb-6">
     {[...Array(5)].map((_, i) => (
-      <Icon name="star" class={i < Math.floor(rating) ? 'fill-brand-accent' : 'text-gray-300'} size={20} />
+      <Icon name="star" class={i < Math.floor(rating) ? 'fill-accent' : 'text-border'} size={20} />
     ))}
   </div>
   
-  <blockquote class="text-lg leading-8 text-gray-900 mb-6">
+  <blockquote class="text-lg leading-8 text-text-primary mb-6">
     <p>"{quote}"</p>
   </blockquote>
   
   <figcaption class="flex items-center gap-x-4">
     {photo ? (
-      <img src={photo} alt="" class="h-12 w-12 rounded-full bg-gray-50 object-cover" loading="lazy" />
+      <img src={photo} alt="" class="h-12 w-12 rounded-full bg-surface-inset object-cover" loading="lazy" />
     ) : (
-      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-bg-alt text-brand-primary font-bold">
+      <div class="flex h-12 w-12 items-center justify-center rounded-full bg-surface-inset text-text-primary font-bold">
         {author.charAt(0)}
       </div>
     )}
     <div>
-      <div class="font-semibold text-gray-900">{author}</div>
+      <div class="font-semibold text-text-primary">{author}</div>
       {(role || org) && (
-        <div class="text-sm text-gray-500">
+        <div class="text-sm text-text-tertiary">
           {role}{role && org ? ', ' : ''}{org}
         </div>
       )}
