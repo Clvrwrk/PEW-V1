@@ -1,5 +1,33 @@
 ---
 import SiteLogo from '../atoms/SiteLogo.astro';
+
+/**
+ * Services nav model — single source of truth for the dropdown + mobile drawer.
+ * Order is intent-based (top of column = highest buyer intent), not alphabetical.
+ * If a service is added to /src/content/services/, add it here too. Labels are
+ * deliberately short — the column header already says "Commercial" / "Residential",
+ * so we don't repeat that word in every child.
+ */
+const commercialOverview = '/commercial-roofing/';
+const residentialOverview = '/residential-roofing/';
+
+const commercialServices = [
+  { label: 'TPO Roofing Systems', href: '/commercial-roofing/tpo-roofing-systems/' },
+  { label: 'EPDM',                href: '/commercial-roofing/epdm/' },
+  { label: 'Metal',               href: '/commercial-roofing/metal/' },
+  { label: 'Flat Roof Systems',   href: '/commercial-roofing/flat-roof-systems/' },
+  { label: 'Replacement',         href: '/commercial-roofing/replacement/' },
+  { label: 'Repair',              href: '/commercial-roofing/repair/' },
+];
+
+const residentialServices = [
+  { label: 'Replacement',     href: '/residential-roofing/replacement/' },
+  { label: 'Storm Damage',    href: '/residential-roofing/storm-damage/' },
+  { label: 'Asphalt Shingles', href: '/residential-roofing/asphalt-shingles/' },
+  { label: 'Metal',           href: '/residential-roofing/metal/' },
+  { label: 'Inspection',      href: '/residential-roofing/inspection/' },
+  { label: 'Emergency',       href: '/residential-roofing/emergency/' },
+];
 ---
 
 <header class="bg-surface border-b border-border sticky top-0 z-50">
@@ -27,17 +55,35 @@ import SiteLogo from '../atoms/SiteLogo.astro';
             <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
               <div class="relative grid gap-6 bg-surface-elevated px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
                 <div>
-                  <h3 class="text-sm font-semibold text-text-primary uppercase tracking-wider">Commercial</h3>
+                  <a
+                    href={commercialOverview}
+                    class="block text-sm font-semibold text-text-primary uppercase tracking-wider hover:text-accent"
+                    data-cta-name="nav_commercial_overview"
+                  >
+                    Commercial
+                  </a>
                   <ul class="mt-4 space-y-4">
-                    <li><a href="/commercial-roofing/" class="text-base text-text-primary hover:text-accent">Overview</a></li>
-                    <li><a href="/commercial-roofing/tpo/" class="text-base text-text-primary hover:text-accent">TPO</a></li>
+                    {commercialServices.map((s) => (
+                      <li>
+                        <a href={s.href} class="text-base text-text-primary hover:text-accent">{s.label}</a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div>
-                  <h3 class="text-sm font-semibold text-text-primary uppercase tracking-wider">Residential</h3>
+                  <a
+                    href={residentialOverview}
+                    class="block text-sm font-semibold text-text-primary uppercase tracking-wider hover:text-accent"
+                    data-cta-name="nav_residential_overview"
+                  >
+                    Residential
+                  </a>
                   <ul class="mt-4 space-y-4">
-                    <li><a href="/residential-roofing/" class="text-base text-text-primary hover:text-accent">Overview</a></li>
-                    <li><a href="/residential-roofing/replacement/" class="text-base text-text-primary hover:text-accent">Replacement</a></li>
+                    {residentialServices.map((s) => (
+                      <li>
+                        <a href={s.href} class="text-base text-text-primary hover:text-accent">{s.label}</a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -76,8 +122,34 @@ import SiteLogo from '../atoms/SiteLogo.astro';
           <!-- Mobile Menu Drawer -->
           <div class="absolute left-0 top-16 w-full bg-surface shadow-lg z-50">
             <div class="space-y-1 pb-3 pt-2 px-4">
-              <a href="/commercial-roofing/" class="block py-2 text-base font-medium text-text-secondary hover:bg-surface-inset hover:text-accent">Commercial Services</a>
-              <a href="/residential-roofing/" class="block py-2 text-base font-medium text-text-secondary hover:bg-surface-inset hover:text-accent">Residential Services</a>
+              <details class="group/sub">
+                <summary class="flex items-center justify-between py-2 text-base font-medium text-text-secondary hover:bg-surface-inset hover:text-accent cursor-pointer list-none">
+                  Commercial
+                  <svg class="h-4 w-4 transition-transform group-open/sub:rotate-180" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </summary>
+                <div class="pl-3 mt-1 space-y-1">
+                  <a href={commercialOverview} class="block py-2 text-sm font-semibold uppercase tracking-wider text-text-primary hover:text-accent">Commercial Overview</a>
+                  {commercialServices.map((s) => (
+                    <a href={s.href} class="block py-2 text-sm text-text-secondary hover:text-accent">{s.label}</a>
+                  ))}
+                </div>
+              </details>
+              <details class="group/sub">
+                <summary class="flex items-center justify-between py-2 text-base font-medium text-text-secondary hover:bg-surface-inset hover:text-accent cursor-pointer list-none">
+                  Residential
+                  <svg class="h-4 w-4 transition-transform group-open/sub:rotate-180" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </summary>
+                <div class="pl-3 mt-1 space-y-1">
+                  <a href={residentialOverview} class="block py-2 text-sm font-semibold uppercase tracking-wider text-text-primary hover:text-accent">Residential Overview</a>
+                  {residentialServices.map((s) => (
+                    <a href={s.href} class="block py-2 text-sm text-text-secondary hover:text-accent">{s.label}</a>
+                  ))}
+                </div>
+              </details>
               <a href="/proplan/" class="block py-2 text-base font-medium text-text-secondary hover:bg-surface-inset hover:text-accent">ProPlan</a>
               <a href="/locations/" class="block py-2 text-base font-medium text-text-secondary hover:bg-surface-inset hover:text-accent">Locations</a>
               <a href="/projects/" class="block py-2 text-base font-medium text-text-secondary hover:bg-surface-inset hover:text-accent">Projects</a>
