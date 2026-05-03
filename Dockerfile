@@ -12,9 +12,12 @@
 FROM node:20-alpine AS build
 WORKDIR /app
 
-# Install deps with reproducible lockfile
-COPY package.json package-lock.json* ./
-RUN npm ci
+# Install deps — omit the lockfile so npm resolves platform-specific optional
+# binaries (e.g. @rollup/rollup-linux-x64-musl) for the Alpine build target.
+# The macOS-generated package-lock.json only contains darwin/arm64 optionals
+# and causes `npm ci` to fail on linux/x64-musl (the Docker/Coolify target).
+COPY package.json ./
+RUN npm install --no-audit --no-fund
 
 # Build (runs astro build + audit:schema + audit:silo + audit:orphans)
 COPY . .
