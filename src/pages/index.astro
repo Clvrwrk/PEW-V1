@@ -1,100 +1,583 @@
 ---
 import BaseLayout from '../components/seo/BaseLayout.astro';
-import HeroSection from '../components/molecules/HeroSection.astro';
-import StatBand from '../components/molecules/StatBand.astro';
-import ServiceTile from '../components/molecules/ServiceTile.astro';
-import PropertyCardCallout from '../components/molecules/PropertyCardCallout.astro';
-import FAQ from '../components/molecules/FAQ.astro';
-import Button from '../components/atoms/Button.astro';
 import { websiteSchema } from '../lib/schema/WebSite';
 import { organizationSchema } from '../lib/schema/Organization';
+import { getCollection } from 'astro:content';
+import OfficeLocationsMap from '../components/islands/OfficeLocationsMap';
 
-const homeFaqs = [
-  {
-    question: "How long does a roof replacement take?",
-    answer: "Most residential roof replacements are completed in 1-2 days, depending on the size and complexity of the project."
-  },
-  {
-    question: "Are you licensed and insured?",
-    answer: "Yes, Pro Exteriors is fully licensed and carries comprehensive liability and workers' compensation insurance to protect your property and our workers."
-  },
-  {
-    question: "Do you offer financing?",
-    answer: "We offer flexible financing options for both residential and commercial projects to help make your exterior improvements more affordable."
-  }
-];
+// ── Blog posts for Industry Insights strip ────────────────────────────────────
+const allPosts = await getCollection('blogPosts');
+const recentPosts = allPosts
+  .filter(p => p.data.heroImage)
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
+  .slice(0, 3);
 
-const mainSchema = [
-  websiteSchema(),
-  organizationSchema()
-];
+// Pillar → display category label
+const pillarCategory: Record<string, string> = {
+  'commercial-roofing':  'Commercial',
+  'residential-roofing': 'Residential',
+  'roof-repair':         'Repair',
+  'storm-damage':        'Storm',
+  'proplan':             'ProPlan',
+  'total-home-shield':   'Insurance',
+  'property-card':       'Technology',
+};
+
+// ── Schema ────────────────────────────────────────────────────────────────────
+const mainSchema = [websiteSchema(), organizationSchema()];
 ---
 
-<BaseLayout 
-  title="Pro Exteriors | Commercial & Residential Roofing Specialists" 
-  description="Your trusted partner for commercial and residential exterior solutions. Local experts. Not 'storm chasers'. Serving Dallas-Fort Worth and beyond."
+<BaseLayout
+  title="Pro Exteriors | Commercial & Residential Roofing — 16 States"
+  description="Institutional-grade roofing for commercial procurement and dedicated care for residential homeowners across 16 states. Local crews. Engineering-grade results."
   canonicalPath="/"
   jsonLd={mainSchema}
 >
-  <HeroSection 
-    title="Roofing Excellence for Property Leaders"
-    subtitle="From complex commercial assets to family homes, we deliver engineering-grade exterior solutions with local accountability."
-    primaryCta={{ label: "Request Inspection", href: "/contact/" }}
-    secondaryCta={{ label: "View Our Work", href: "/case-studies/" }}
-    image="/images/home-hero.jpg"
-  />
 
-  <StatBand 
-    stats={[
-      { label: "Roofs Installed", value: "500+", suffix: "Projects" },
-      { label: "Commercial Assets", value: "12M", suffix: "sq. ft." },
-      { label: "Service Response", value: "24", suffix: "Hours" },
-      { label: "Client Retention", value: "98", suffix: "%" }
-    ]}
-    data-todo="source-stats"
-  />
-
-  <section class="py-20 px-4 max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-4">Strategic Exterior Solutions</h2>
-      <p class="text-xl text-text-secondary max-w-3xl mx-auto">Expert roofing and exterior services tailored to your property's specific needs.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <ServiceTile 
-        title="Commercial Roofing"
-        description="Comprehensive maintenance, repair, and replacement for retail, industrial, and multi-family assets."
-        href="/commercial-roofing/"
-        icon="building"
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       HERO — full-bleed dark overlay, bifurcated CTAs
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <section
+    class="relative flex items-center overflow-hidden"
+    style="height: calc(100vh - 80px); min-height: 600px; max-height: 870px;"
+    aria-label="Homepage hero"
+  >
+    <div class="absolute inset-0">
+      <img
+        src="/images/home-hero.jpg"
+        alt=""
+        class="w-full h-full object-cover"
+        loading="eager"
+        fetchpriority="high"
       />
-      <ServiceTile 
-        title="Residential Roofing"
-        description="Premium material options and expert installation for homeowners who value durability and aesthetics."
-        href="/residential-roofing/"
-        icon="home"
-      />
+      <div class="absolute inset-0 bg-slate-900/75"></div>
     </div>
-  </section>
 
-  <PropertyCardCallout />
-
-  <section class="py-20 bg-surface-inset">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-      <FAQ faqs={homeFaqs} />
-    </div>
-  </section>
-
-  <section class="py-20 text-center bg-brand-primary text-text-on-brand">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Protect Your Asset?</h2>
-      <p class="text-xl mb-10 opacity-90">Schedule a professional inspection with our local experts today.</p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <Button href="/contact/" variant="white" size="lg">Schedule Now</Button>
-        <Button href="tel:4695351708" variant="onBrandOutline" size="lg">
-          Call (469) 535-1708
-        </Button>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl flex flex-col gap-6">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
+          Roofing Partner.<br/>Not Just a Contractor.
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90 leading-relaxed max-w-2xl">
+          Institutional-grade performance for commercial procurement and
+          dedicated care for residential homeowners across 16 states.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a
+            href="/commercial-roofing/"
+            class="inline-flex items-center justify-center px-8 py-4 bg-red-700 hover:bg-red-800 text-white text-lg font-bold rounded transition-colors focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-slate-900"
+            data-cta-name="hero_commercial"
+          >
+            Commercial Solutions
+          </a>
+          <a
+            href="/residential-roofing/"
+            class="inline-flex items-center justify-center px-8 py-4 bg-transparent hover:bg-white/10 text-white text-lg font-bold rounded border-2 border-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900"
+            data-cta-name="hero_residential"
+          >
+            Residential Services
+          </a>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       STATS BAND — dark, 5 trust signals
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-slate-900 py-12" aria-label="Trust signals">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <dl class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
+        <div class="flex flex-col items-center gap-1">
+          <dt class="text-3xl font-bold text-white">BBB A+</dt>
+          <dd class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Accredited</dd>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <dt class="flex items-center gap-1.5 text-3xl font-bold text-white">
+            4.8
+            <svg class="w-5 h-5 fill-orange-500" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          </dt>
+          <dd class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Google Rating</dd>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <dt class="text-3xl font-bold text-white">25+</dt>
+          <dd class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Years Active</dd>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <dt class="text-3xl font-bold text-white">16</dt>
+          <dd class="text-xs font-semibold text-slate-400 uppercase tracking-widest">States Served</dd>
+        </div>
+        <div class="flex flex-col items-center gap-1 col-span-2 sm:col-span-1">
+          <dt class="text-3xl font-bold text-white">10M+</dt>
+          <dd class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Sq Ft Installed</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       AUDIENCE SPLIT — Commercial / Residential dual cards
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stone-50 py-24" aria-label="Service paths">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Commercial -->
+        <div class="relative h-[500px] rounded-lg overflow-hidden bg-blue-950 flex items-end">
+          <img
+            src="/images/commercial-hero.jpg"
+            alt="Commercial roofing project"
+            class="absolute inset-0 w-full h-full object-cover opacity-60"
+            loading="lazy"
+          />
+          <div class="relative z-10 w-full p-10 bg-gradient-to-l from-slate-900 to-transparent flex flex-col gap-4">
+            <h2 class="text-3xl font-bold text-white">Commercial Procurement</h2>
+            <p class="text-white/80 leading-relaxed max-w-sm pb-4">
+              Asset management, maintenance, and large-scale replacements for
+              facilities managers and institutional owners.
+            </p>
+            <a
+              href="/commercial-roofing/"
+              class="self-start inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 text-base font-bold rounded hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+              data-cta-name="split_commercial"
+            >
+              Commercial Portal
+            </a>
+          </div>
+        </div>
+
+        <!-- Residential -->
+        <div class="relative h-[500px] rounded-lg overflow-hidden bg-blue-100 flex items-end">
+          <img
+            src="/images/residential-hero.jpg"
+            alt="Residential roofing project"
+            class="absolute inset-0 w-full h-full object-cover opacity-60"
+            loading="lazy"
+          />
+          <div class="relative z-10 w-full p-10 bg-gradient-to-l from-slate-700 to-transparent flex flex-col gap-4">
+            <h2 class="text-3xl font-bold text-white">Residential Roofing</h2>
+            <p class="text-white/80 leading-relaxed max-w-sm pb-4">
+              Dedicated homeowner services focusing on durability, aesthetic
+              appeal, and seamless insurance claim handling.
+            </p>
+            <a
+              href="/residential-roofing/"
+              class="self-start inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 text-base font-bold rounded hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+              data-cta-name="split_residential"
+            >
+              Residential Services
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       FULL-SPECTRUM SERVICES — 6-card grid
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stone-100 py-24" aria-labelledby="services-heading">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-16">
+
+      <div class="flex flex-col gap-4">
+        <h2 id="services-heading" class="text-4xl font-bold text-slate-900">Full-Spectrum Exterior Solutions</h2>
+        <div class="w-20 h-1.5 bg-orange-500 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-300 rounded-lg overflow-hidden border border-neutral-300">
+        {[
+          {
+            title: 'Roof Replacement',
+            desc: 'End-to-end replacement using premium materials engineered for longevity and extreme weather resistance.',
+            href: '/commercial-roofing/replacement/',
+          },
+          {
+            title: 'Emergency Repair',
+            desc: '24/7 rapid response for storm damage and critical leaks to mitigate further property loss immediately.',
+            href: '/commercial-roofing/emergency-repair/',
+          },
+          {
+            title: 'Asset Management',
+            desc: 'Strategic maintenance programs designed to extend the lifecycle of your roofing portfolio and reduce TCO.',
+            href: '/commercial-roofing/asset-management/',
+          },
+          {
+            title: 'Design & Consulting',
+            desc: 'Technical expertise for complex architectural challenges and new construction exterior specifications.',
+            href: '/commercial-roofing/consulting/',
+          },
+          {
+            title: 'Siding & Gutters',
+            desc: 'Comprehensive envelope protection including high-performance siding systems and custom drainage solutions.',
+            href: '/residential-roofing/siding-gutters/',
+          },
+          {
+            title: 'Inspections & Audits',
+            desc: 'Detailed forensic inspections providing actionable data for real estate transactions or insurance needs.',
+            href: '/commercial-roofing/inspections/',
+          },
+        ].map((s) => (
+          <a
+            href={s.href}
+            class="group bg-white p-8 flex flex-col gap-3 hover:bg-stone-50 transition-colors"
+          >
+            <div class="w-7 h-7 bg-orange-500 rounded-sm flex-shrink-0" aria-hidden="true"></div>
+            <h3 class="text-xl font-bold text-slate-900 pt-3">{s.title}</h3>
+            <p class="text-slate-600 leading-relaxed text-base">{s.desc}</p>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       NATIONAL REACH — locations map + office list
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-slate-900 py-24 overflow-hidden" aria-labelledby="locations-heading">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Copy + office list -->
+        <div class="flex flex-col gap-6">
+          <h2 id="locations-heading" class="text-4xl font-bold text-white leading-tight">
+            National Reach.<br/>Local Accountability.
+          </h2>
+          <p class="text-white/70 text-lg leading-relaxed">
+            We operate in 16 states with localized crews who understand the
+            specific climate challenges of their region.
+          </p>
+
+          <div class="flex flex-col gap-3 pt-2">
+            <div class="flex items-center gap-3">
+              <span class="w-3 h-3 rounded-full bg-orange-500 flex-shrink-0" aria-hidden="true"></span>
+              <span class="text-white font-medium">Regional Offices</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-3 h-3 rounded-full bg-stone-200 flex-shrink-0" aria-hidden="true"></span>
+              <span class="text-white font-medium">Service Areas</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-4 pt-2">
+            {[
+              { state: 'Texas',    city: 'Richardson, Euless' },
+              { state: 'Kansas',   city: 'Wichita' },
+              { state: 'Colorado', city: 'Denver' },
+              { state: 'Georgia',  city: 'Valdosta' },
+            ].map((o) => (
+              <div class="pl-4 border-l-2 border-orange-500">
+                <div class="text-white/50 text-sm">{o.state}</div>
+                <div class="text-white font-bold">{o.city}</div>
+              </div>
+            ))}
+          </div>
+
+          <div class="pt-2">
+            <a
+              href="/locations/"
+              class="inline-flex items-center gap-2 text-orange-400 font-bold hover:text-orange-300 transition-colors"
+              data-cta-name="locations_view_all"
+            >
+              View all service areas
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive map -->
+        <div class="w-full h-[480px] lg:h-[560px]">
+          <OfficeLocationsMap client:visible />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       PERFORMANCE IN ACTION — 2 horizontal case study cards
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stone-50 py-24" aria-labelledby="projects-heading">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-16">
+
+      <div class="flex items-end justify-between gap-4">
+        <div class="flex flex-col gap-2">
+          <h2 id="projects-heading" class="text-4xl font-black text-slate-900">Performance in Action</h2>
+          <p class="text-slate-600 text-lg">Detailed looks at our recent institutional and residential projects.</p>
+        </div>
+        <a
+          href="/projects/"
+          class="flex-shrink-0 flex items-center gap-2 text-red-700 font-bold hover:text-red-800 transition-colors whitespace-nowrap"
+          data-cta-name="projects_view_all"
+        >
+          View All Projects
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M3.75 7.25a.75.75 0 000 1.5h6.19l-2.72 2.72a.75.75 0 101.06 1.06l4-4a.75.75 0 000-1.06l-4-4a.75.75 0 00-1.06 1.06l2.72 2.72H3.75z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="flex flex-col gap-8">
+
+        <article class="bg-white rounded-lg border border-neutral-300 overflow-hidden flex flex-col md:flex-row">
+          <div class="md:w-96 flex-shrink-0 h-60 md:h-auto overflow-hidden">
+            <img
+              src="/images/projects/tpo-techpark-logistics.webp"
+              alt="Multi-building industrial park TPO roofing retrofit in Richardson TX"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="flex-1 p-8 flex flex-col justify-center gap-4">
+            <div class="flex items-center gap-4">
+              <span class="px-2 py-1 bg-blue-950 text-white text-[10px] font-black uppercase tracking-wider rounded-sm">Commercial</span>
+              <span class="text-slate-600 text-sm">Richardson, TX</span>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900">Multi-Building Industrial Park Overhaul</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Complete removal and replacement of 250,000 sq ft of failing asphalt systems with
+              high-reflectivity TPO, resulting in a 22% energy cost reduction for the tenant.
+            </p>
+            <div class="flex gap-8 pt-2">
+              <div>
+                <div class="text-slate-600 text-xs font-bold uppercase tracking-wide">Scope</div>
+                <div class="text-stone-900 font-semibold">Full TPO Retrofit</div>
+              </div>
+              <div>
+                <div class="text-slate-600 text-xs font-bold uppercase tracking-wide">Duration</div>
+                <div class="text-stone-900 font-semibold">45 Days</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-lg border border-neutral-300 overflow-hidden flex flex-col md:flex-row">
+          <div class="md:w-96 flex-shrink-0 h-60 md:h-auto overflow-hidden">
+            <img
+              src="/images/projects/tpo-dallas-north-mall.webp"
+              alt="Post-hail residential shingle restoration in Denver CO"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="flex-1 p-8 flex flex-col justify-center gap-4">
+            <div class="flex items-center gap-4">
+              <span class="px-2 py-1 bg-slate-500 text-white text-[10px] font-black uppercase tracking-wider rounded-sm">Residential</span>
+              <span class="text-slate-600 text-sm">Denver, CO</span>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900">Post-Hail Restoration &amp; Shingle Upgrade</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Full insurance restoration following a record-setting hail event. Upgraded homeowner to
+              Class 4 Impact Resistant shingles with zero out-of-pocket beyond deductible.
+            </p>
+            <div class="flex gap-8 pt-2">
+              <div>
+                <div class="text-slate-600 text-xs font-bold uppercase tracking-wide">Scope</div>
+                <div class="text-stone-900 font-semibold">Storm Restoration</div>
+              </div>
+              <div>
+                <div class="text-slate-600 text-xs font-bold uppercase tracking-wide">Duration</div>
+                <div class="text-stone-900 font-semibold">3 Days</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       CLIENT VOICES — single centered testimonial
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stone-200 py-24" aria-labelledby="testimonial-heading">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center gap-12">
+      <h2 id="testimonial-heading" class="text-3xl font-black text-slate-900 uppercase tracking-[0.2em]">Client Voices</h2>
+
+      <figure class="relative w-full max-w-3xl bg-white rounded-lg p-12 flex flex-col gap-6 shadow-sm">
+        <!-- Decorative quote mark -->
+        <div class="absolute top-8 left-8 text-slate-900/10" aria-hidden="true">
+          <svg width="44" height="28" viewBox="0 0 44 28" fill="currentColor">
+            <path d="M0 28V17.5C0 7.833 5.167 2.167 15.5 0l2 3.5C12.167 5.167 9.5 8.5 9.5 14H18V28H0zm26 0V17.5C26 7.833 31.167 2.167 41.5 0l2 3.5C38.167 5.167 35.5 8.5 35.5 14H44V28H26z"/>
+          </svg>
+        </div>
+
+        <div class="flex items-center justify-center gap-1">
+          {[0,1,2,3,4].map(() => (
+            <svg class="w-5 h-5 fill-orange-500" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          ))}
+        </div>
+
+        <blockquote class="text-center text-2xl font-medium text-slate-900 leading-relaxed">
+          "In the commercial world, responsiveness is everything. Pro Exteriors
+          not only fixed our immediate leaks but provided a 5-year maintenance
+          strategy that finally gave us budget predictability."
+        </blockquote>
+
+        <figcaption class="flex items-center justify-center gap-4 pt-2">
+          <div class="w-16 h-16 rounded-xl bg-slate-200 overflow-hidden flex-shrink-0 flex items-center justify-center text-slate-600 font-bold text-xl">
+            M
+          </div>
+          <div>
+            <div class="font-bold text-slate-900">Marcus Thorne</div>
+            <div class="text-slate-600 text-sm">Director of Facilities, Southwest Logistics</div>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       WHY PRO EXTERIORS — 4 pillars
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stone-50 py-24" aria-labelledby="pillars-heading">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <h2 id="pillars-heading" class="sr-only">Why Pro Exteriors</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+
+        <div class="flex flex-col gap-3">
+          <div class="w-16 h-16 bg-slate-900 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 pt-3">Responsiveness</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            24-hour response window guaranteed. We understand that every minute of a
+            leak costs your business or family.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <div class="w-16 h-16 bg-slate-900 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 pt-3">Accountability</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            A dedicated project manager for every job. You will always have a single
+            point of contact who knows your project.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <div class="w-16 h-16 bg-slate-900 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 pt-3">Expertise</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Certified installers for GAF, Owens Corning, and Firestone. We don't just
+            roof; we engineer protection.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <div class="w-16 h-16 bg-slate-900 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 pt-3">Community</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Rooted in Texas and serving 16 states with a focus on local workforce and
+            community development.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       INDUSTRY INSIGHTS — 3 latest blog posts
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stone-100 py-24" aria-labelledby="insights-heading">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col gap-12">
+
+      <div class="flex items-center justify-between gap-4">
+        <h2 id="insights-heading" class="text-3xl font-bold text-slate-900">Industry Insights</h2>
+        <a href="/blog/" class="text-red-700 font-bold hover:text-red-800 transition-colors text-sm flex-shrink-0">
+          View All Articles →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {recentPosts.map((post) => (
+          <a
+            href={`/blog/${post.slug}/`}
+            class="group bg-white rounded-lg border border-neutral-300 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
+            data-cta-name={`blog_${post.slug}`}
+          >
+            <div class="h-48 bg-slate-100 overflow-hidden">
+              <img
+                src={post.data.heroImage}
+                alt=""
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6 flex flex-col gap-2 flex-1">
+              <span class="text-orange-500 text-xs font-bold uppercase tracking-wide">
+                {pillarCategory[post.data.pillar] ?? 'Insights'}
+              </span>
+              <h3 class="text-stone-900 text-xl font-bold leading-snug pb-1 group-hover:text-red-700 transition-colors">
+                {post.data.title}
+              </h3>
+              <span class="text-slate-900 text-sm font-semibold mt-auto">Read Article →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════
+       CTA BAND — final conversion push
+  ══════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-slate-900 py-20 px-6 lg:px-8" aria-label="Get a quote">
+    <div class="max-w-4xl mx-auto flex flex-col items-center gap-8 text-center">
+      <h2 class="text-4xl md:text-5xl font-black text-white leading-tight">
+        Ready to talk about your roof?
+      </h2>
+      <p class="text-white/70 text-xl leading-relaxed max-w-2xl">
+        Schedule a comprehensive audit or get an immediate estimate for your
+        residential or commercial property.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-8 pt-4">
+        <a
+          href="tel:4695351708"
+          class="flex items-center gap-4 group"
+          data-cta-name="cta_phone"
+          aria-label="Call Pro Exteriors at (469) 535-1708"
+        >
+          <div class="p-3 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+          </div>
+          <span class="text-3xl font-bold text-white">(469) 535-1708</span>
+        </a>
+        <span class="text-white/20 text-4xl hidden sm:block" aria-hidden="true">|</span>
+        <a
+          href="/contact/"
+          class="inline-flex items-center justify-center px-10 py-5 bg-red-700 hover:bg-red-800 text-white text-xl font-bold rounded transition-colors focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-slate-900"
+          data-cta-name="cta_request_quote"
+        >
+          Request Quote Now
+        </a>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
