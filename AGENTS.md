@@ -1,4 +1,4 @@
-# CLAUDE.md — Pro Exteriors Website
+# AGENTS.md — Pro Exteriors Website
 
 > Operating rulebook for this project. Read at the start of every session. Keep this file dense and scannable — strategic narrative lives in `PROJECT_INSTRUCTIONS.md`, not here.
 
@@ -8,7 +8,7 @@
 
 ## 1. Read order
 
-1. This file (CLAUDE.md) — operational rules
+1. This file (AGENTS.md) — operational rules
 2. `PROJECT_INSTRUCTIONS.md` — strategic narrative, persona, deliverables backlog
 3. Any file in `/discovery/`, `/research/`, or `/decisions/` relevant to the current task
 
@@ -104,14 +104,6 @@ Reach for the right skill rather than reinventing the wheel. Read the SKILL.md b
 |---|---|
 | Pressure-test a new initiative before scoping it (six forcing questions, premise challenge, alternatives, strategy brief) | `aia4-office-hours` (project-local, at `/_aia4-skills/aia4-office-hours/SKILL.md`) |
 | Any client-facing report (audit, brief, analysis, readout, one-pager) | `aia4-client-report` (project-local, at `/_aia4-skills/aia4-client-report/SKILL.md`) |
-| Build a full pillar / service page end-to-end (manager — dispatches the seven specialists below) | `aia4-pagebuilder` (project-local). **Read `references/orchestration-model.md` BEFORE first invoke.** |
-| Section copy in Maren voice — drafts + Hue Write humanization + forbidden-vocab gate | `aia4-copywriter` (project-local) |
-| Page images via Higgsfield (Nano Banana Pro / GPT Image 2 / Cinema Studio) + Fal.ai (Flux) | `aia4-image-gen` (project-local) |
-| Term-frequency / LSI / schema validation per Kyle Roof on-page methodology | `aia4-seo-validator` (project-local) |
-| Internal links + anchor text per Kyle Roof reverse-silo methodology | `aia4-page-link` (project-local) |
-| Section-level Astro components from Figma blueprint with brand tokens | `aia4-layout` (project-local) |
-| Page-level QC — voice, sourcing, depth, hypothesis, alt-text | `aia4-page-qc` (project-local) |
-| Code-level QC — WCAG 2.2 AA, Lighthouse, schema, semantic HTML | `aia4-code-qc` (project-local) |
 | Discovery interviews, persona research | `design:user-research`, `design:research-synthesis` |
 | Design feedback before handoff | `design:design-critique` |
 | WCAG audit on a design or page | `design:accessibility-review` |
@@ -161,11 +153,11 @@ Do not invoke a skill just because it exists. Tool sprawl kills projects.
 > Folder map current as of 2026-04-26 v1.9 cleanup. If a path here doesn't resolve, the cleanup didn't finish — flag it, don't guess.
 
 **Root rulebooks (only files at root):**
-- `CLAUDE.md` — this file
+- `AGENTS.md` — this file
 - `PROJECT_INSTRUCTIONS.md` — strategic narrative, full persona resume, deliverables backlog, principles in long form
 
 **Working subfolders (active build references):**
-- `/_aia4-skills/` — project-local skills. Read SKILL.md before invoking. Active skills: `aia4-office-hours/`, `aia4-client-report/`, plus the page-build pipeline added 2026-05-03: `aia4-pagebuilder/` (manager, with `references/orchestration-model.md` defining the I/O contract for every specialist), `aia4-copywriter/`, `aia4-image-gen/`, `aia4-seo-validator/`, `aia4-page-link/`, `aia4-layout/`, `aia4-page-qc/`, `aia4-code-qc/`.
+- `/_aia4-skills/` — project-local skills (`aia4-office-hours/`, `aia4-client-report/`). Read SKILL.md before invoking.
 - `/brand-assets/` — agency + client brand assets (logos, fonts, colors, swag mockups, brand guidebook docx/pptx). See section 11a.
 - `/content/` — editorial calendar, content briefs, copy decks (currently empty; populated during content phase)
 - `/decisions/` — decision log (one file per consequential choice). Active entries: `2026-04-25-architecture-astro-react-islands.md`, `2026-04-26-gstack-evaluation.md`.
@@ -238,8 +230,7 @@ Never write the name as "AIA," "AIA-4," "AIA Four," or "Aia4." Never explain the
 
 ## 12. Change log
 
-- **2026-05-03 v2.0** — Multi-agent page-build pipeline added. Eight new project-local skills under `/_aia4-skills/`: `aia4-pagebuilder` (manager), `aia4-copywriter`, `aia4-image-gen`, `aia4-seo-validator`, `aia4-page-link`, `aia4-layout`, `aia4-page-qc`, `aia4-code-qc`. Orchestration model and I/O contracts for every specialist live in `/_aia4-skills/aia4-pagebuilder/references/orchestration-model.md` — that file is the source of truth for how the eight skills interact; if any individual SKILL.md disagrees, the orchestration model wins. SEO methodology synthesized from Kyle Roof's public framework (term-frequency vs. SERP, LSI breadth, schema-as-ranking-signal, reverse-silo internal linking). Section 8 updated with the eight new skill pointers; section 11 updated with the new folder roster. Phase 1 SKILL.md files are intentionally lean — references/ folders will be deepened as we use each skill on real builds (TPO first). Brand-token canon updated separately on 2026-05-03 — see `/decisions/2026-05-03-brand-token-canon.md`. Build-pipeline tooling shipped as part of the same day: `/tech/scripts/` contains curl-based wrappers for Hue Write (humanizer), DataForSEO, OpenRouter, and Fal.ai, all reading from `.env` via `lib/load_env.sh`.
-- **2026-04-26 v1.9** — Pre-build spring cleaning. Root reduced to two files (`CLAUDE.md`, `PROJECT_INSTRUCTIONS.md`). Apr-12 strategic deliverables (ICP, USP, Conversion Offer Menu, Topical Authority, SEO Architecture) moved into `/strategy/`. Discovery deliverables (Client-Request-Synthesis, Competitive-Structural-Analysis, the 7,402-row Competitor-Domain-Keywords xlsx) moved into `/discovery/`. `Website-Design-Brief_FINAL` moved into `/design/`. Brand Guidebook docx + pptx moved into `/brand-assets/`. Created `/_archive/2026-04-26-pre-build-cleanup/` housing 4 categories: superseded design briefs (Pass-1, Scope, V1.0), 102 excalidraw review iterations, the Apr-12 v1.0 design-system plan (now superseded by `/tech/DESIGN.md`), and root prompt/skill scaffolds (`Google-Stitch-Prompts.md`, `Relume-Sitemap-Prompt.md`, `5q.skill`, `3d-animation-creator.skill`, `website-intelligence.skill`, `aia4-agency.plugin`). Cleared all `.DS_Store` and `~$` Excel-lock files into `_archive/.../junk-and-locks/`. Moved `packages/office-locations-map/node_modules/` (~18MB, regenerable via `npm install`) to `_archive/.../regenerable-build-artifacts/`. Three empty stub folders (`/design-system/`, `/excalidraw-complete/`, `/excalidraw-diagram-skill/`) could not be deleted under the mount permission model — each now contains a redirect README. Section 11 rewritten as the canonical project map. Updated `Pro-Exteriors_GBP-and-Silo-Memo`'s competitor-keyword reference to point at the new `/discovery/` location. Folder is now build-ready: every path referenced by `/tech/PRD_Phase-1_April-2026.md` and `/tech/Build-Cycle-Walkthrough_Phase-1.md` resolves.
+- **2026-04-26 v1.9** — Pre-build spring cleaning. Root reduced to two files (`AGENTS.md`, `PROJECT_INSTRUCTIONS.md`). Apr-12 strategic deliverables (ICP, USP, Conversion Offer Menu, Topical Authority, SEO Architecture) moved into `/strategy/`. Discovery deliverables (Client-Request-Synthesis, Competitive-Structural-Analysis, the 7,402-row Competitor-Domain-Keywords xlsx) moved into `/discovery/`. `Website-Design-Brief_FINAL` moved into `/design/`. Brand Guidebook docx + pptx moved into `/brand-assets/`. Created `/_archive/2026-04-26-pre-build-cleanup/` housing 4 categories: superseded design briefs (Pass-1, Scope, V1.0), 102 excalidraw review iterations, the Apr-12 v1.0 design-system plan (now superseded by `/tech/DESIGN.md`), and root prompt/skill scaffolds (`Google-Stitch-Prompts.md`, `Relume-Sitemap-Prompt.md`, `5q.skill`, `3d-animation-creator.skill`, `website-intelligence.skill`, `aia4-agency.plugin`). Cleared all `.DS_Store` and `~$` Excel-lock files into `_archive/.../junk-and-locks/`. Moved `packages/office-locations-map/node_modules/` (~18MB, regenerable via `npm install`) to `_archive/.../regenerable-build-artifacts/`. Three empty stub folders (`/design-system/`, `/excalidraw-complete/`, `/excalidraw-diagram-skill/`) could not be deleted under the mount permission model — each now contains a redirect README. Section 11 rewritten as the canonical project map. Updated `Pro-Exteriors_GBP-and-Silo-Memo`'s competitor-keyword reference to point at the new `/discovery/` location. Folder is now build-ready: every path referenced by `/tech/PRD_Phase-1_April-2026.md` and `/tech/Build-Cycle-Walkthrough_Phase-1.md` resolves.
 - **2026-04-26 v1.8** — Added the `aia4-office-hours` skill pointer to section 8 (skill usage map). The skill lives at `/_aia4-skills/aia4-office-hours/` and adapts Garry Tan's gstack `/office-hours` methodology (six forcing questions, response posture, alternatives generation, strategy-brief output) to AIA4 client engagement work. Use BEFORE writing any strategy brief or scoping any deliverable when the underlying initiative hasn't been pressure-tested. Decision rationale for cherry-picking from gstack rather than installing it: see `/decisions/2026-04-26-gstack-evaluation.md`.
 - **2026-04-11 v1.7** — Section 11a updated with the local-mirror working model. Created `/brand-assets/client/` with `_inbox/` + 7 category subfolders + `_INVENTORY.md` manifest. Drive remains source of truth; the local mirror is the read/working copy because the connector cannot read non-native binary contents. File transfer is Chris's responsibility (Drive download); classification + manifest maintenance is Maren's.
 - **2026-04-11 v1.6** — Section 11a corrected after a discovery error: I previously reported the `Website Assets` subfolder as empty based on a `google_drive_search` `parents` query that returned zero results. The folder is **not** empty — it contains at least `Outlook-2cqf4gde.jpg`, confirmed via direct `google_drive_fetch` by file ID. The Drive connector's `parents` query does not reliably surface non-Google-native files (images, PDFs, binaries). New rule: never declare a Drive folder empty from a `parents` query alone; for non-native files require an explicit file ID from Chris or use direct fetch to confirm.
@@ -248,4 +239,4 @@ Never write the name as "AIA," "AIA-4," "AIA Four," or "Aia4." Never explain the
 - **2026-04-11 v1.3** — Section 11a updated with the confirmed engagement lockup ("AIA4 Pro Exteriors") and the dual meaning of the "4": phonetic "for" (positioning) + Shift-4 = "$" (outcome promise — we make you money). Noted that the Shift-4 meaning is internal brand canon and should never be explained in client-facing copy.
 - **2026-04-11 v1.2** — Section 11a expanded with agency identity: AIA4 = "Artificial Intelligence and Automations 4 [Client]." The "4" is a positioning hook that gets completed with the client's industry or company name on each engagement. Added engagement lockup default ("AIA4 Pro Exteriors"), logo file pointers (SVG preferred), and explicit usage rules.
 - **2026-04-11 v1.1** — Added section 11a covering agency/client brand assets and the cover-sheet rule for all report-style deliverables. Created `/brand-assets/logos/` directory.
-- **2026-04-11 v1.0** — Initial CLAUDE.md authored by Maren after Chris requested a best-practices rebuild of the original PROJECT_INSTRUCTIONS.md.
+- **2026-04-11 v1.0** — Initial AGENTS.md authored by Maren after Chris requested a best-practices rebuild of the original PROJECT_INSTRUCTIONS.md.

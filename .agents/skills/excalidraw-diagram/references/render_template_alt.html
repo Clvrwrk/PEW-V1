@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #ffffff; overflow: hidden; }
+    #root { display: inline-block; }
+    #root svg { display: block; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="module">
+    import init, { render } from "https://cdn.jsdelivr.net/npm/@excalidraw/excalidraw-wasm@0.16.0/+esm";
+
+    async function loadWasm() {
+      await init();
+      return render;
+    }
+
+    window.renderDiagram = async function(jsonData) {
+      try {
+        const data = typeof jsonData === "string" ? JSON.parse(jsonData) : jsonData;
+        const elements = data.elements || [];
+        const appState = data.appState || {};
+        const files = data.files || {};
+
+        if (!Array.isArray(elements) || elements.length === 0) {
+          throw new Error("Elements must be a non-empty array");
+        }
+
+        // Ensure required appState properties
+        if (!appState.zoom) appState.zoom = { value: 1 };
+        if (!appState.scrollX && appState.scrollX !== 0) appState.scrollX = 0;
+        if (!appState.scrollY && appState.scrollY !== 0) appState.scrollY = 0;
+        appState.viewBackgroundColor = appState.viewBackgroundColor || "#ffffff";
+        appState.exportWithDarkMode = false;
+
+        const renderFunc = await loadWasm();
+        const svg = await renderFunc(elements, appState, files);
+
+        if (!svg) {
+          throw new Error("render returned null or undefined");
+        }
+
+        if (!svg.getAttribute("width")) {
+          svg.setAttribute("width", "1920");
+        }
+        if (!svg.getAttribute("height")) {
+          svg.setAttribute("height", "1080");
+        }
+
+        const root = document.getElementById("root");
+        root.innerHTML = "";
+        root.appendChild(svg);
+
+        window.__renderComplete = true;
+        window.__renderError = null;
+        return { success: true, width: svg.getAttribute("width"), height: svg.getAttribute("height") };
+      } catch (err) {
+        window.__renderComplete = true;
+        window.__renderError = err.message + " | Stack: " + err.stack;
+        return { success: false, error: err.message, stack: err.stack };
+      }
+    };
+
+    window.__moduleReady = true;
+  </script>
+</body>
+</html>

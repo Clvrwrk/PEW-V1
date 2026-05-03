@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #ffffff; overflow: hidden; }
+    #root { display: inline-block; }
+    #root svg { display: block; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="module">
+    import { exportToSvg } from "https://esm.sh/@excalidraw/excalidraw?bundle";
+
+    window.renderDiagram = async function(jsonData) {
+      try {
+        const data = typeof jsonData === "string" ? JSON.parse(jsonData) : jsonData;
+        const elements = data.elements || [];
+        const appState = data.appState || {};
+        const files = data.files || {};
+
+        // Force white background in appState
+        appState.viewBackgroundColor = appState.viewBackgroundColor || "#ffffff";
+        appState.exportWithDarkMode = false;
+
+        // Ensure elements is an array and has valid structure
+        if (!Array.isArray(elements) || elements.length === 0) {
+          throw new Error("Elements must be a non-empty array");
+        }
+
+        // Validate appState has required properties for export
+        if (!appState.zoom) {
+          appState.zoom = { value: 1 };
+        }
+        if (!appState.scrollX && appState.scrollX !== 0) {
+          appState.scrollX = 0;
+        }
+        if (!appState.scrollY && appState.scrollY !== 0) {
+          appState.scrollY = 0;
+        }
+
+        const svg = await exportToSvg({
+          elements: elements,
+          appState: {
+            ...appState,
+            exportBackground: true,
+          },
+          files: files,
+        });
+
+        if (!svg) {
+          throw new Error("exportToSvg returned null or undefined");
+        }
+
+        // Ensure SVG has width and height attributes
+        if (!svg.getAttribute("width")) {
+          svg.setAttribute("width", "1920");
+        }
+        if (!svg.getAttribute("height")) {
+          svg.setAttribute("height", "1080");
+        }
+
+        // Clear any previous render
+        const root = document.getElementById("root");
+        root.innerHTML = "";
+        root.appendChild(svg);
+
+        window.__renderComplete = true;
+        window.__renderError = null;
+        return { success: true, width: svg.getAttribute("width"), height: svg.getAttribute("height") };
+      } catch (err) {
+        window.__renderComplete = true;
+        window.__renderError = err.message + " | Stack: " + err.stack;
+        return { success: false, error: err.message, stack: err.stack };
+      }
+    };
+
+    // Signal that the module is loaded and ready
+    window.__moduleReady = true;
+  </script>
+</body>
+</html>

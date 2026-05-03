@@ -1,0 +1,6 @@
+# References for aia4-seo-validator
+
+Reference docs in this folder are loaded only when the skill needs them — keeping
+SKILL.md lean. Each reference is a single concern, named for what it covers.
+
+Pending depth (TBD as we use this skill on real builds):

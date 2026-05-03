@@ -1,13 +1,21 @@
 ---
-version: alpha
+version: 1.1
 name: Pro Exteriors
 description: |
   Canonical visual identity for the Pro Exteriors website. Five-color brand
-  palette (hunter green primary, flag red interaction, deep navy authority,
-  golden orange warmth, smart blue links) paired with Archivo as the primary
+  palette (deep navy primary, hunter green secondary, flag red interaction,
+  golden orange accent, smart blue links) paired with Archivo as the primary
   typeface and IBM Plex Mono as the Property Card secondary. This file is the
   source of truth for tokens; Tailwind theme, CSS variables, and component
   classes regenerate from it on every build.
+
+  ROLE CANON (do not invert without a /decisions/ entry):
+    primary   = deep-navy        (B2B authority, body text, dark surfaces)
+    secondary = hunter-green     (brand voice color, residential warmth)
+    tertiary  = flag-red         (sole CTA — used sparingly)
+    accent    = golden-orange    (eyebrows, callouts, badges)
+    info      = smart-blue       (inline links, secondary actions)
+  See /decisions/2026-05-03-brand-token-canon.md for rationale and reversal cost.
 
   Phase 1 ships with this file as-is — real brand colors, real fonts. Phase 2
   brand pass (formerly the largest deliverable cycle) is now scoped to font-file
@@ -18,9 +26,11 @@ description: |
 # This is OPPOSITE the standard Tailwind direction; the build helper handles
 # the inversion when emitting Tailwind tokens.
 colors:
-  # ── Hunter Green — primary brand voice color ──
-  # Heritage, growth, place-memory. The "Pro Exteriors" color. Hero overlays,
-  # primary brand surfaces, secondary CTAs (button-secondary).
+  # ── Hunter Green — secondary anchor, brand voice color ──
+  # Heritage, growth, place-memory. The "Pro Exteriors" color. Used on
+  # secondary surfaces, brand-voice sections, and residential-segment hero
+  # overlays where warmth matters more than authority. Role demoted from
+  # primary to secondary on 2026-05-03 — see /decisions/2026-05-03-brand-token-canon.md.
   hunter-green-100: "#0c160f"
   hunter-green-200: "#182b1f"
   hunter-green-300: "#24412e"
@@ -45,9 +55,11 @@ colors:
   flag-red-800: "#eea0a1"
   flag-red-900: "#f6d0d0"
 
-  # ── Deep Navy — B2B authority + body text ──
-  # Body copy, dark surfaces, footer, secondary headings. Procurement-officer
-  # gravitas for the commercial vertical.
+  # ── Deep Navy — PRIMARY anchor, B2B authority, body text ──
+  # The procurement-officer color. Body copy, dark surfaces, hero overlays
+  # for the commercial vertical (80% of the engagement), footer, and primary
+  # headings on light surfaces. Role promoted from secondary to primary on
+  # 2026-05-03 — see /decisions/2026-05-03-brand-token-canon.md.
   deep-navy-100: "#03040d"
   deep-navy-200: "#07081a"
   deep-navy-300: "#0a0c27"
@@ -86,20 +98,31 @@ colors:
   smart-blue-900: "#c2e0ff"
 
   # ─── Semantic role tokens — components reference THESE, not the raw palette ───
+  # Canon source: /decisions/2026-05-03-brand-token-canon.md
   # Phase 2 brand refinement changes only the values on the right; component
   # definitions stay stable. If a component needs a brand color directly, it's
   # a sign that color should be promoted to a semantic role.
+  #
+  # ROLE-TO-COLOR MAPPING (canonical, do not invert without a /decisions/ entry):
+  #   primary   = deep-navy   (anchor, B2B authority, body text, dark surfaces)
+  #   secondary = hunter-green (brand voice color, residential warmth, place-memory)
+  #   tertiary  = flag-red    (sole CTA color — used sparingly)
+  #   accent    = golden-orange (eyebrows, callouts, badges)
+  #   info      = smart-blue  (inline links, secondary actions)
 
-  primary: "#3b6b4c"              # hunter-green-500
-  on-primary: "#FFFFFF"           # contrast 5.6:1 — passes WCAG AA
-  primary-container: "#24412e"    # hunter-green-300 — hover/active state
+  primary: "#11133f"              # deep-navy-500 — primary anchor
+  on-primary: "#FFFFFF"           # contrast 16.8:1 — passes WCAG AA easily
+  primary-container: "#0a0c27"    # deep-navy-300 — hover/active state, darker
   on-primary-container: "#FFFFFF"
-  primary-soft: "#d3e7da"         # hunter-green-900 — light tint background
+  primary-soft: "#bbbeed"         # deep-navy-900 — light tint background
+  on-primary-soft: "#11133f"
 
-  secondary: "#11133f"            # deep-navy-500 — B2B authority + body text dark
-  on-secondary: "#FFFFFF"         # contrast 16.8:1
-  secondary-container: "#0a0c27"  # deep-navy-300 — darker hover state
+  secondary: "#3b6b4c"            # hunter-green-500 — brand voice color
+  on-secondary: "#FFFFFF"         # contrast 5.6:1 — passes WCAG AA
+  secondary-container: "#24412e"  # hunter-green-300 — hover/active state, darker
   on-secondary-container: "#FFFFFF"
+  secondary-soft: "#d3e7da"       # hunter-green-900 — light tint background
+  on-secondary-soft: "#11133f"
 
   tertiary: "#c22326"             # flag-red-500 — sole interaction CTA color
   on-tertiary: "#FFFFFF"          # contrast 5.0:1 — passes WCAG AA
@@ -414,7 +437,7 @@ Twenty component definitions cover the core surfaces: three button variants (pri
 
 **DO** prefer semantic tokens (`primary`, `tertiary`, `accent`) over raw palette tokens (`hunter-green-500`, `flag-red-400`) in component definitions. Raw tokens are fine for chart data viz and one-off shade needs; semantic tokens are required for components.
 
-**DON'T** use `muted` (#374151) on `surface-alt` (#F3F4F6). Contrast falls below 4.5:1 in some browser color profiles. Use `secondary` (#11133f) instead — it's the body-text default and passes contrast everywhere.
+**DON'T** use `muted` (#374151) on `surface-alt` (#F3F4F6). Contrast falls below 4.5:1 in some browser color profiles. Use `primary` (#11133f, deep-navy) instead — it's the body-text default and passes contrast everywhere.
 
 **DON'T** introduce a CSS variable that bypasses the token system (e.g., `--brand-pe-red`). The whole point of DESIGN.md is that the brand changes by editing this file, not by editing the codebase. If you find yourself wanting a brand-specific variable, promote the value to a token here.
 
@@ -423,3 +446,8 @@ Twenty component definitions cover the core surfaces: three button variants (pri
 **DON'T** use flag_red for anything that isn't an interaction trigger. Errors and status-error reuse flag_red because errors *are* interaction triggers ("fix this thing"). Decorative red — even brand-aligned — is forbidden.
 
 **DON'T** put hunter_green on surfaces that aren't brand-voice surfaces. It's the rarest of the five colors by intent. If hunter_green appears on every page section, it stops being brand voice.
+
+## Change log
+
+- **2026-05-03 v1.1** — Role-token canon clarified. Inverted `primary` and `secondary`: primary is now deep-navy (#11133f); secondary is now hunter-green (#3b6b4c). Tertiary (flag-red), accent (golden-orange), and info (smart-blue) unchanged. Added a ROLE CANON block to the front matter and palette comments now state primary/secondary status explicitly. Reasoning, hex values, and reversal cost: `/decisions/2026-05-03-brand-token-canon.md`. Triggered by token-file conflict surfaced during the TPO pillar-page rebuild — both this file and `/brand-assets/.../_variables.css` claimed canon with conflicting role assignments. This file is now authoritative; `_variables.css` will be patched on next touch.
+- **2026-04-12 v1.0** — Initial DESIGN.md authored as the build's design source-of-truth.

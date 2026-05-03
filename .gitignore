@@ -27,3 +27,13 @@ npm-debug.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Script run outputs (API responses, generated assets)
+tech/scripts/output/
+
+# Raw image / video sources kept locally as backups (regeneratable from Higgsfield jobs)
+**/.original/
+
+# Stray duplicated node_modules folders (npm pathologies on macOS — ignore by pattern)
+node_modules*/
+"node_modules *"/
