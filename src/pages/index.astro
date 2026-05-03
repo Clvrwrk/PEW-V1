@@ -244,11 +244,15 @@ const mainSchema = [websiteSchema(), organizationSchema()];
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════════════════
-       NATIONAL REACH — locations map
+       NATIONAL REACH — locations map (formatting mirrors /locations/)
   ══════════════════════════════════════════════════════════════════════════════ -->
-  <section class="bg-slate-900 py-24 overflow-hidden" aria-label="Where we work">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="mx-auto w-full max-w-3xl h-[480px] lg:h-[560px]">
+  <section class="py-20 bg-surface-inset overflow-hidden" aria-labelledby="home-map-heading">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 id="home-map-heading" class="text-3xl font-bold">Where We Work</h2>
+        <p class="text-text-secondary mt-4 text-lg">Click a pin to view office details and contact information.</p>
+      </div>
+      <div class="bg-surface-elevated p-4 rounded-3xl shadow-xl ring-1 ring-border">
         <OfficeLocationsMap client:visible />
       </div>
     </div>
