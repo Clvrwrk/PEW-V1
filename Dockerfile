@@ -12,12 +12,15 @@
 FROM node:20-alpine AS build
 WORKDIR /app
 
-# Install deps — omit the lockfile so npm resolves platform-specific optional
-# binaries (e.g. @rollup/rollup-linux-x64-musl) for the Alpine build target.
-# The macOS-generated package-lock.json only contains darwin/arm64 optionals
-# and causes `npm ci` to fail on linux/x64-musl (the Docker/Coolify target).
-COPY package.json ./
-RUN npm install --no-audit --no-fund
+# Install deps with the lockfile for reproducibility, then patch in the
+# Alpine/musl rollup binary that the macOS-generated lockfile omits.
+# `npm ci` is strict about the lockfile — it will not resolve optional
+# platform binaries for other OSes. We inject @rollup/rollup-linux-x64-musl
+# explicitly so Vite/Rollup can load its native module on node:alpine.
+COPY package.json package-lock.json* ./
+RUN npm ci --ignore-scripts
+RUN npm install @rollup/rollup-linux-x64-musl --no-save --no-audit --no-fund 2>/dev/null || true
+RUN npm rebuild
 
 # Build (runs astro build + audit:schema + audit:silo + audit:orphans)
 COPY . .
