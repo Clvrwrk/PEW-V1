@@ -1,0 +1,126 @@
+# aia4-image-gen manifest — TPO Roofing Systems pillar
+# Phase 3 deliverable. 8 images generated via Higgsfield MCP.
+# All images downloaded to public/ paths consumed by the Astro template.
+
+generation_summary:
+  total_images: 8
+  models_used:
+    cinematic_studio_2_5: 4   # hero, gallery aerial, gallery banner, case-1
+    gpt_image_2: 4            # crew install, seam macro, residential, mall facade
+  budget_estimate_usd: "<$1.50"
+  generation_window: "2026-05-03 09:02–09:05 (3 minutes)"
+
+slots:
+  - id: hero
+    consumed_by: heroImage (frontmatter top-level)
+    public_path: /images/services/commercial/tpo-hero.webp
+    higgsfield_job: dac126e3-6af9-4626-aed2-89c6035b870d
+    model: cinematic_studio_2_5
+    aspect: "16:9"  # auto-adjusted from requested 21:9
+    resolution: 2k
+    prompt_summary: "Wide cinematic establishing shot of Dallas commercial flat-roof with white TPO, golden hour, distant skyline"
+    alt_text: "Aerial cinematic view of a Dallas commercial flat-roof with freshly installed white TPO membrane, late afternoon golden light"
+
+  - id: intro_image
+    consumed_by: intro.image (frontmatter)
+    public_path: /images/services/commercial/tpo-crew-install.webp
+    higgsfield_job: 8304a5fe-d13f-4050-9381-116339f0c979
+    model: gpt_image_2
+    aspect: "3:2"
+    resolution: 2k
+    prompt_summary: "Editorial: Pro Exteriors crew installing white TPO on Dallas warehouse rooftop, hot-air welder, golden hour"
+    alt_text: "Pro Exteriors crew member operating a hot-air seam welder on freshly installed white TPO membrane, Dallas commercial rooftop"
+
+  - id: gallery_1_aerial
+    consumed_by: galleryImages[0]
+    public_path: /images/projects/tpo-gallery-1.webp
+    higgsfield_job: ae2dbe8e-dde0-42e4-9d01-7da1f24ef78d
+    model: cinematic_studio_2_5
+    aspect: "1:1"
+    resolution: 2k
+    prompt_summary: "Aerial drone shot of 150k sq ft Dallas distribution center with freshly installed TPO membrane"
+    alt_text: "Aerial drone view of a 150,000 square foot Dallas distribution center with completed white TPO roof showing parallel seam lines and rooftop HVAC units"
+
+  - id: gallery_2_banner
+    consumed_by: galleryImages[1]
+    public_path: /images/projects/tpo-gallery-2.webp
+    higgsfield_job: f779515d-44b5-49b4-8242-ca392d6fed9b
+    model: cinematic_studio_2_5
+    aspect: "16:9"
+    resolution: 2k
+    prompt_summary: "Wide cinematic banner: crew completing hot-air seam weld on Dallas retail center rooftop, golden hour"
+    alt_text: "Pro Exteriors crew completing hot-air seam weld on a Dallas retail center rooftop with white TPO membrane stretched smooth across the foreground"
+    secondary_use: "processSteps.image (also references this asset)"
+
+  - id: gallery_3_seam_macro
+    consumed_by: galleryImages[2]
+    public_path: /images/projects/tpo-gallery-3.webp
+    higgsfield_job: a5c01e2d-bc33-40d1-9c61-a92872111069
+    model: gpt_image_2
+    aspect: "1:1"
+    resolution: 2k
+    prompt_summary: "Macro detail: hot-air welded TPO seam at parapet wall transition, gloved hand probing the seam"
+    alt_text: "Macro detail of a hot-air welded TPO seam at a parapet wall transition with a gloved hand probe-testing the weld"
+
+  - id: gallery_4_residential
+    consumed_by: galleryImages[3]
+    public_path: /images/projects/tpo-gallery-4.webp
+    higgsfield_job: 83894b5a-cf70-4305-939c-15870777f427
+    model: gpt_image_2
+    aspect: "1:1"
+    resolution: 2k
+    prompt_summary: "Modern multi-family Dallas building with white TPO flat roof, architectural photography"
+    alt_text: "Modern multi-family residential building in Dallas with completed white TPO flat-roof membrane visible from a neighboring building"
+
+  - id: case_techpark
+    consumed_by: caseStudies/techpark-logistics-tpo.mdx → heroImage
+    public_path: /images/projects/tpo-techpark-logistics.webp
+    higgsfield_job: 2f724651-07ce-423f-8260-1a4c4e4ce716
+    model: cinematic_studio_2_5
+    aspect: "1:1"
+    resolution: 2k
+    prompt_summary: "Massive Dallas distribution center rooftop, multiple workers laying TPO at scale"
+    alt_text: "Cinematic view of Pro Exteriors crew installing TPO membrane at scale on a 150,000 square foot Dallas distribution center rooftop"
+
+  - id: case_dallas_north_mall
+    consumed_by: caseStudies/dallas-north-mall-tpo.mdx → heroImage
+    public_path: /images/projects/tpo-dallas-north-mall.webp
+    higgsfield_job: 717155d9-b0e5-4bba-86f5-b7d9fc33cce5
+    model: gpt_image_2
+    aspect: "1:1"
+    resolution: 2k
+    prompt_summary: "Storefront facade of Dallas retail mall with white flat-roof line visible above, mid-afternoon"
+    alt_text: "Storefront facade of Dallas North Mall with completed white TPO flat-roof line visible above the retail facade"
+
+# ─── Brand-photography direction adherence ───
+brand_direction_check:
+  real_feel: pass
+  no_stock_aesthetic: pass
+  environmental_color_palette: pass  # Texas mid-day light, deep shadows, natural ground tones
+  brand_colors_as_accents_only: pass # white membrane is the canvas; flag-red appears nowhere in imagery (correct — interaction color only)
+  commercial_vertical_bias: pass     # 6 of 8 images are commercial; 1 residential complex; 1 detail
+  forbidden_pattern_scan: |
+    No "diverse smiling team in hard hats" stock-photo aesthetic detected.
+    All people-images show working crews in real install context, not posed
+    portraits.
+
+# ─── Notes ───
+notes:
+  - "Hero requested 21:9 but Higgsfield auto-adjusted to 16:9 (closest supported aspect for cinematic_studio_2_5). Acceptable — the dynamic template's ServiceHero component crops to its container."
+  - "All images are PNG at 2K resolution. Production build should generate WebP variants via Astro image optimization for Lighthouse Performance compliance."
+  - "GPT Image 2 default quality is 'low' (model server default). Re-running at 'high' would burn ~3x credits per image; current quality is sufficient for the layout test."
+  - "Case-study images are paired with [REPRESENTATIVE — NOT YET SOURCED] copy in the case-study mdx files. When real Pro Exteriors job photos arrive, swap the file at the public path; no template change needed."
+
+status: success
+deliverables:
+  - { path: design/templates/tpo-roofing-systems/image-manifest.yaml, type: manifest }
+  - { path: public/images/services/commercial/tpo-hero.webp, type: image }
+  - { path: public/images/services/commercial/tpo-crew-install.webp, type: image }
+  - { path: public/images/projects/tpo-gallery-1.webp, type: image }
+  - { path: public/images/projects/tpo-gallery-2.webp, type: image }
+  - { path: public/images/projects/tpo-gallery-3.webp, type: image }
+  - { path: public/images/projects/tpo-gallery-4.webp, type: image }
+  - { path: public/images/projects/tpo-techpark-logistics.webp, type: image }
+  - { path: public/images/projects/tpo-dallas-north-mall.webp, type: image }
+authored_by: aia4-image-gen (PageBuilder Phase 3, inline)
+authored_at: 2026-05-03

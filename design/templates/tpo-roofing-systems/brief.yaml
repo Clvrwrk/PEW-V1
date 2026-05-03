@@ -1,0 +1,79 @@
+# TPO Roofing Systems — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 intake on 2026-05-03
+# Confirmed by Chris Hussey
+#
+# This file is the stable artifact every specialist reads. PageBuilder does not
+# re-run intake on retries — the brief is locked once written. Update only via
+# explicit user request.
+
+# ─── Always required ───
+slug: tpo-roofing-systems
+template: commercial-service
+location: "Dallas, TX"
+target_keyword: "tpo roofing systems"
+secondary_keywords:
+  - tpo roofing
+  - tpo roofing system dallas texas
+audience: commercial-procurement
+intent: solution-evaluation
+hypothesis: |
+  Pillar-depth content + reverse-silo internal linking + sourced bento gallery
+  + sourced case studies will:
+    (a) lift TPO-page → "Get a TPO Assessment" form completion by ≥30% within
+        90 days vs. the current thin-page baseline, AND
+    (b) move organic ranking for "tpo roofing systems" + "tpo roofing dallas"
+        into the top 5 organic results within 6 months.
+  This is a dual-metric hypothesis — both gates must hit for the build to be
+  considered successful at the 6-month review.
+
+# ─── SEO copy bundle ───
+seo_copy:
+  metadata:
+    title: "TPO Roofing Systems in Dallas — Pro Exteriors"
+    meta_description: |
+      Industry-leading thermoplastic polyolefin (TPO) roofing solutions for
+      Dallas commercial properties. Energy-efficient, hail-resistant, 25-year
+      lifespan. Get a complimentary TPO assessment from Pro Exteriors.
+    canonical: "https://proexteriorsus.com/commercial-roofing/tpo-roofing-systems"
+  body_path: "uploads/TPO Systems.docx"
+  html_path: null
+
+# ─── Figma reference (no existing template covers this layout yet) ───
+figma:
+  file_key: n8EC2AgOcubGyfEq7YJoiW
+  node_id: "9:3144"
+  page_image_path: "design/templates/tpo-roofing-systems/source/figma-page-render.png"
+  code_path: "design/templates/tpo-roofing-systems/source/figma-code-dump.html"
+  blueprint_cache: "design/figma-cache/9-3144-tpo-structure.md"
+
+# ─── Output paths ───
+output:
+  content: "src/content/services/commercial/tpo-roofing-systems.mdx"
+  page_template: "src/pages/commercial-roofing/[service].astro"   # already exists, no rebuild needed
+  components: "src/components/templates/commercial-service/"      # new — first commercial-service template
+  assets: "src/assets/services/tpo-roofing-systems/"
+  schema_block: "src/lib/schema/services/tpo-roofing-systems.ts"
+
+# ─── Localhost preview ───
+preview:
+  command: "npm run dev"
+  url: "http://localhost:4321/commercial-roofing/tpo-roofing-systems"
+  publish_to_repo: false  # Chris reviews locally before any commit
+
+# ─── Build flags raised at intake ───
+flags:
+  - id: lean-secondary-keywords
+    severity: warning
+    message: "Only 2 secondary keywords provided (protocol prefers 3–8). aia4-seo-validator Phase 1 will backfill LSI breadth from DataForSEO related-keywords."
+  - id: combined-hypothesis
+    severity: info
+    message: "Combined hypothesis = stricter QC. aia4-page-qc must check both conversion-tracking wiring AND keyword-ranking schema."
+  - id: first-of-template
+    severity: info
+    message: "This is the first commercial-service template. Layout components built here will become the reusable base for EPDM, Metal, Coatings, and Gutter pages."
+
+# ─── Provenance ───
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

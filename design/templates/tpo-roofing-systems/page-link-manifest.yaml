@@ -1,0 +1,224 @@
+# aia4-page-link manifest — TPO Roofing Systems pillar
+# Produced inline by PageBuilder Phase 1 on 2026-05-03
+# Methodology: Kyle Roof reverse-silo (money pages link UP to support content;
+# support pages link UP to money pages; equity circulates within the silo)
+
+silo_role: money-page
+tier: T2
+silo_parent: "/commercial-roofing"           # the pillar — Tier 1
+silo_topic: "commercial flat-roof systems"
+
+# ─── Existing destinations on the site (verified by directory scan) ───
+verified_existing:
+  pillars:
+    - { slug: "commercial-roofing",       path: "src/content/pillars/commercial-roofing.mdx",       url: "/commercial-roofing" }
+    - { slug: "residential-roofing",      path: "src/content/pillars/residential-roofing.mdx",      url: "/residential-roofing" }
+  commercial_services:
+    - { slug: "epdm",                     path: "src/content/services/commercial/epdm.mdx",                  url: "/commercial-roofing/epdm" }
+    - { slug: "metal",                    path: "src/content/services/commercial/metal.mdx",                 url: "/commercial-roofing/metal" }
+    - { slug: "flat-roof-systems",        path: "src/content/services/commercial/flat-roof-systems.mdx",     url: "/commercial-roofing/flat-roof-systems" }
+    - { slug: "repair",                   path: "src/content/services/commercial/repair.mdx",                url: "/commercial-roofing/repair" }
+    - { slug: "replacement",              path: "src/content/services/commercial/replacement.mdx",           url: "/commercial-roofing/replacement" }
+    - { slug: "tpo",                      path: "src/content/services/commercial/tpo.mdx",                   url: "/commercial-roofing/tpo", note: "EXISTING THIN PAGE — to be replaced by tpo-roofing-systems.mdx" }
+  blog_posts:
+    - { slug: "tpo-vs-epdm-vs-pvc",                  path: "src/content/blogPosts/tpo-vs-epdm-vs-pvc.mdx",                  url: "/blog/tpo-vs-epdm-vs-pvc" }
+    - { slug: "commercial-roof-repair-vs-replacement", path: "src/content/blogPosts/commercial-roof-repair-vs-replacement.mdx", url: "/blog/commercial-roof-repair-vs-replacement" }
+    - { slug: "best-time-of-year-to-replace-your-roof", path: "src/content/blogPosts/best-time-of-year-to-replace-your-roof.mdx", url: "/blog/best-time-of-year-to-replace-your-roof" }
+    - { slug: "5-signs-replacement",                 path: "src/content/blogPosts/5-signs-replacement.mdx",                 url: "/blog/5-signs-replacement" }
+    - { slug: "how-much-does-a-roof-replacement-cost", path: "src/content/blogPosts/how-much-does-a-roof-replacement-cost.mdx", url: "/blog/how-much-does-a-roof-replacement-cost" }
+
+# ─── Internal links OUT (TPO page links to these) ───
+internal_links_out:
+
+  # Reverse-silo UP-links to supporting blog content (the Kyle Roof move)
+  - anchor: "TPO vs EPDM vs PVC comparison"
+    target: "/blog/tpo-vs-epdm-vs-pvc"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Body — Engineered for Performance section, on the line that mentions 'best of EPDM and PVC roofing'"
+    rationale: "Reverse-silo UP-link to the comparison-intent supporter. Anchor is descriptive — exact-match goes the other direction (post → page). Pulls equity to the comparison post which then strengthens TPO's topical authority."
+
+  - anchor: "complete TPO vs EPDM breakdown"
+    target: "/blog/tpo-vs-epdm-vs-pvc"
+    target_status: live
+    anchor_type: near-match
+    placement_hint: "Body — anywhere we mention seam-strength comparison ('Hot-air welded seams are up to 4x stronger than taped EPDM seams')"
+    rationale: "Second link to the same destination — different anchor for diversity. Within the 3-anchors-per-target ceiling."
+
+  - anchor: "when to repair vs. replace a commercial roof"
+    target: "/blog/commercial-roof-repair-vs-replacement"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Body — ideally inside a comparison or decision-framework subsection of the pillar"
+    rationale: "Reverse-silo UP-link to a sibling supporter post. Strengthens commercial-roofing topical authority around TPO."
+
+  # Peer service pages (sibling commercial services — descriptive anchors only)
+  - anchor: "EPDM systems"
+    target: "/commercial-roofing/epdm"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Other Commercial Solutions card 1 (Figma 9:3371)"
+    rationale: "Sibling service. Descriptive anchor preserves their own keyword equity for /commercial-roofing/epdm."
+
+  - anchor: "Metal Roofing"
+    target: "/commercial-roofing/metal"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Other Commercial Solutions card 2 (Figma 9:3381)"
+    rationale: "Sibling service. Card heading anchor."
+
+  - anchor: "Commercial Roof Repair"
+    target: "/commercial-roofing/repair"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Other Commercial Solutions card 3 (replaces Figma's Coatings card per decisions.md 2026-05-03)"
+    rationale: "Substituted for Coatings (not yet built). Existing service page; descriptive anchor preserves their keyword equity. Section will swap back to Coatings when that page ships."
+
+  - anchor: "Commercial Roof Replacement"
+    target: "/commercial-roofing/replacement"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Other Commercial Solutions card 4 (replaces Figma's Gutters card per decisions.md 2026-05-03)"
+    rationale: "Substituted for Gutters (not yet built). Existing service page. Section will swap back to Gutters when that page ships."
+
+  # Parent silo link UP to category pillar
+  - anchor: "our commercial roofing services"
+    target: "/commercial-roofing"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Body — Service Overview section, on the line that establishes context"
+    rationale: "Up-to-pillar link with descriptive anchor (NEVER exact-match to category from a money page — that flows wrong direction in reverse silo). Pillar link is also implicit in the breadcrumb."
+
+  # Cross-silo helper link (residential exists, useful for visitors who landed wrong)
+  - anchor: "residential roof options"
+    target: "/residential-roofing"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Body — Applications section, in the Multi-family / residential complex sub-section"
+    rationale: "TPO is sometimes specified on flat-roof multi-family. Cross-silo link with descriptive anchor for visitors confused about which vertical they need."
+
+  # CTA destinations (transactional)
+  - anchor: "Get a TPO Assessment"
+    target: "/contact?service=tpo-assessment"
+    target_status: live
+    anchor_type: branded
+    placement_hint: "Hero CTA + final CTA banner button"
+    rationale: "Page conversion goal. Branded anchor (action-language). Two placements is intentional — hero conversion path + page-end commitment path."
+
+  - anchor: "thermal moisture scan"
+    target: "/contact?service=tpo-assessment+moisture-scan"
+    target_status: live
+    anchor_type: branded
+    placement_hint: "Final CTA banner sub-line ('Book a complimentary TPO efficiency assessment and thermal moisture scan today')"
+    rationale: "Per decisions.md 2026-05-03: keep the moisture-scan mention as differentiator copy, point CTA action to the existing contact form with service hint pre-filled. Updates to a deeper diagnostic landing page when that ships."
+
+# ─── Internal links IN (other pages should link TO TPO with these anchors) ───
+internal_links_in_required:
+
+  - from: "/commercial-roofing"
+    anchor: "TPO roofing systems"
+    anchor_type: exact-match
+    rationale: "Pillar → money-page exact-match (the canonical reverse-silo flow). Currently the pillar links to /commercial-roofing/tpo. Update to new slug after rename."
+    status: requires-update-after-rename
+
+  - from: "/blog/tpo-vs-epdm-vs-pvc"
+    anchor: "Pro Exteriors' TPO roofing systems"
+    anchor_type: near-match
+    rationale: "Comparison post → money page near-match. Drives equity from comparison-intent searchers to the conversion page. CRITICAL — verify this link exists or add to that post."
+    status: verify-or-add
+
+  - from: "/blog/commercial-roof-repair-vs-replacement"
+    anchor: "TPO roofing systems"
+    anchor_type: exact-match
+    rationale: "Sibling supporter → money page exact-match. Currently unknown if this link exists."
+    status: verify-or-add
+
+  - from: "/blog/best-time-of-year-to-replace-your-roof"
+    anchor: "TPO membrane installation"
+    anchor_type: near-match
+    rationale: "Topical adjacency. Light support but worth adding."
+    status: verify-or-add
+
+  - from: "/locations/dallas-fort-worth"
+    anchor: "TPO roofing systems in Dallas"
+    anchor_type: exact-match
+    rationale: "Location → money page exact-match. Dallas geo-modifier is the geographic moat. CRITICAL once location pages exist."
+    status: planned-not-yet-built
+
+# ─── Anchor-type distribution (sanity check vs. Kyle Roof rules) ───
+anchor_distribution:
+  outbound:
+    exact_match: 0
+    near_match: 1   # "complete TPO vs EPDM breakdown"
+    descriptive: 7  # most outbound (correct for money page)
+    branded: 1      # "Get a TPO Assessment"
+    generic: 0      # ZERO (correct — never)
+    notes: |
+      Money pages predominantly link out with descriptive anchors and reserve
+      exact/near-match for high-value supporter destinations. Distribution checks out.
+  inbound_required:
+    exact_match: 3   # the most important — supporters and parent pillar
+    near_match: 2
+    descriptive: 0
+    branded: 0
+    notes: |
+      Inbound flow is exact-match heavy by design — that's how reverse silo accumulates
+      money-page authority. Confirm or add these anchors on the source pages.
+
+# ─── Link density check ───
+link_density:
+  body_internal_links: 6              # within 8–15 ceiling ✓
+  related_services_section: 4         # within 4–6 ceiling ✓ (1 of 4 needs handling — Coatings or Gutters not built)
+  cta_section: 2                      # within 2–3 ceiling ✓
+  total_internal_links: 12
+  ceiling_status: PASS
+
+# ─── Flags for PageBuilder ───
+flags:
+  - severity: blocker
+    id: slug-rename-required
+    message: |
+      Existing thin page at src/content/services/commercial/tpo.mdx must be renamed to
+      tpo-roofing-systems.mdx for keyword-slug match. PageBuilder Phase 4 (assembly) handles this.
+      Add to /etc/redirects: 301 from /commercial-roofing/tpo → /commercial-roofing/tpo-roofing-systems.
+      Confirm with user before renaming — destructive operation.
+
+  - severity: warning
+    id: missing-coatings-and-gutters
+    message: |
+      Other Commercial Solutions section in Figma has 4 cards: EPDM, Metal, Coatings, Gutters.
+      Coatings and Gutters service pages do NOT exist yet. Three options:
+        1. Replace Coatings/Gutters cards with existing services (Repair, Replacement, Flat-Roof-Systems)
+        2. Add cards but rel="nofollow" until built
+        3. Build /commercial-roofing/coatings and /commercial-roofing/gutters in this cycle
+      Recommendation: option 1 short-term, option 3 in next sprint.
+
+  - severity: warning
+    id: missing-moisture-scan
+    message: |
+      Final CTA banner mentions "thermal moisture scan diagnostic" — implied page does not exist.
+      Either build /services/diagnostics/moisture-scan or change CTA target to generic /contact.
+
+  - severity: warning
+    id: missing-location-pages
+    message: |
+      Dallas geo-modifier is our geographic moat (per seo-validator-manifest). Location pages
+      (/locations/dallas-fort-worth/, /locations/euless/, etc.) are required for full silo realization.
+      Per /strategy/Pro-Exteriors_GBP-and-Silo-Memo_April-2026.md, these are Q1 2026 build sequence.
+      Inbound-link plan from /locations/dallas-fort-worth → /commercial-roofing/tpo-roofing-systems
+      is queued and will activate when those pages ship.
+
+  - severity: info
+    id: inbound-link-audit-needed
+    message: |
+      Five required inbound links flagged "verify-or-add" — PageBuilder cannot read the source
+      file contents fully without additional reads. Recommended next step: a separate audit pass
+      that reads commercial-roofing.mdx, tpo-vs-epdm-vs-pvc.mdx, and the others to confirm whether
+      each required inbound link exists.
+
+# ─── Provenance ───
+status: success
+deliverables:
+  - { path: design/templates/tpo-roofing-systems/page-link-manifest.yaml, type: manifest }
+  - { path: design/templates/tpo-roofing-systems/link-map.md, type: report }
+next_action: handoff-to-copywriter-phase-2

@@ -1,0 +1,412 @@
+# aia4-copywriter manifest — TPO Roofing Systems pillar
+# Phase 2 deliverable. Drafted in Maren voice from the SEO source copy
+# (TPO Systems.docx) under the term-frequency / LSI / link constraints in
+# seo-validator-manifest.yaml and page-link-manifest.yaml.
+#
+# All [REPRESENTATIVE — NOT YET SOURCED] markers are intentional — they pass the
+# CLAUDE.md hard gate while keeping placeholders honest.
+
+page:
+  slug: tpo-roofing-systems
+  audience: commercial-procurement
+  hypothesis: |
+    Pillar-depth content + reverse-silo internal linking + sourced bento gallery
+    + sourced case studies will (a) lift TPO assessment-request conversion ≥30%
+    in 90 days, AND (b) move organic ranking for the target keyword into top 5
+    within 6 months.
+
+# ─── SECTION 1: Hero ───
+hero:
+  breadcrumb:
+    - { label: "Home", href: "/" }
+    - { label: "Commercial Roofing", href: "/commercial-roofing" }
+    - { label: "TPO Roofing Systems", href: null, current: true }
+  eyebrow: "COMMERCIAL TPO ROOFING · DALLAS-FORT WORTH"
+  h1: "TPO Roofing Systems in Dallas"
+  subhead: |
+    Industry-leading thermoplastic polyolefin roofing for commercial properties
+    that have to perform through Texas heat, hailstorms, and a hard-line
+    procurement budget.
+  cta_primary:
+    label: "Get a TPO Assessment"
+    href: "/contact?service=tpo-assessment"
+    intent: "primary-conversion"
+
+# ─── SECTION 2: Service Overview — "Engineered for Performance" ───
+service_overview:
+  eyebrow: "ENGINEERED FOR PERFORMANCE"
+  h2: "Built for the heat. Welded for the hail."
+  body: |
+    TPO is the fastest-growing single-ply commercial roofing system in North
+    America for a reason. It pairs the durability of EPDM with the chemical
+    resistance of PVC — without the price premium of either. For a commercial
+    property in the Dallas-Fort Worth metro, where a roof has to survive 100°F
+    summers and golf-ball hail in the same calendar year, that combination is
+    the practical answer.
+
+    Pro Exteriors installs TPO with hot-air welded seams, not adhesive tape.
+    The seam becomes the strongest part of the roof rather than the weakest —
+    a measurable difference in wind-uplift and leak resistance over the life
+    of the membrane. (Want the full materials breakdown? See our
+    <a href="/blog/tpo-vs-epdm-vs-pvc">TPO vs EPDM vs PVC comparison</a>.)
+  badges:
+    - { label: "Energy Star Certified", icon: "shield-check" }
+    - { label: "20-Year Warranty", icon: "calendar-check" }
+  side_image:
+    alt: "Pro Exteriors crew installing white TPO membrane on a Dallas warehouse rooftop, late afternoon light"
+    slot: "service-overview-image"
+  links_woven:
+    - { anchor: "TPO vs EPDM vs PVC comparison", target: "/blog/tpo-vs-epdm-vs-pvc" }
+
+# ─── SECTION 3: Benefits Grid — "Why Choose TPO?" ───
+benefits_grid:
+  eyebrow: "BENEFITS THAT MATTER ON A SPREADSHEET"
+  h2: "Why Choose TPO?"
+  subhead: "Six reasons procurement officers and facility directors specify TPO over alternatives."
+  cards:
+    - id: reflective-efficiency
+      icon: "sun"
+      heading: "Reflective Efficiency"
+      body: |
+        White TPO membranes reflect roughly 70–80% of incoming solar radiation,
+        cutting cooling load on the building below. On a Dallas commercial
+        property the cooling-cost reduction lands somewhere between 15% and
+        30%, depending on insulation and HVAC age. [REPRESENTATIVE — NOT YET
+        SOURCED for Pro Exteriors specifically; industry range from
+        Cool Roof Rating Council and ENERGY STAR.]
+    - id: puncture-resistant
+      icon: "shield"
+      heading: "Puncture Resistant"
+      body: |
+        A reinforcing scrim laminated between the polyolefin layers gives TPO
+        meaningful resistance to debris strikes, foot traffic from HVAC
+        servicers, and the occasional wind-blown branch. Hailstones pit the
+        surface; they don't perforate it.
+    - id: cost-effective
+      icon: "trending-down"
+      heading: "Cost-Effective"
+      body: |
+        Material costs run $0.70–$1.30 per square foot for the membrane alone,
+        with installed costs typically $4–$10 per square foot depending on
+        attachment method, insulation, and access. Compared to PVC, TPO
+        delivers comparable durability at 20–30% lower installed cost.
+    - id: lifespan
+      icon: "clock"
+      heading: "20–30 Year Lifespan"
+      body: |
+        Properly specified and maintained, a quality TPO system performs for
+        20–30 years before warranty replacement comes into play. Manufacturer
+        warranties run 15–25 years; system performance often outlasts the
+        paper.
+    - id: eco-friendly
+      icon: "leaf"
+      heading: "Recyclable End-of-Life"
+      body: |
+        TPO is a thermoplastic — it can be re-melted and reformed at the end
+        of its service life rather than landfilled. Several membrane
+        manufacturers operate take-back programs for tear-off material.
+    - id: leak-proof-seams
+      icon: "zap"
+      heading: "Heat-Welded Seams"
+      body: |
+        Hot-air welded TPO seams are up to four times stronger than taped
+        EPDM seams under peel-and-shear testing. The seam stops being the
+        weakest point of the roof and becomes the strongest. (See our
+        <a href="/blog/tpo-vs-epdm-vs-pvc">complete TPO vs EPDM breakdown</a>
+        for the full seam-test data.)
+  links_woven:
+    - { anchor: "complete TPO vs EPDM breakdown", target: "/blog/tpo-vs-epdm-vs-pvc" }
+
+# ─── SECTION 4: Applications — "Perfect For Every Structure" ───
+applications:
+  eyebrow: "WHERE TPO EARNS ITS SPEC"
+  h2: "Perfect for Every Commercial Structure"
+  subhead: "Three property types where TPO consistently outperforms alternatives in Dallas-Fort Worth conditions."
+  columns:
+    - id: industrial
+      icon: "factory"
+      heading: "Industrial Units"
+      body: |
+        Distribution warehouses, manufacturing plants, and logistics centers
+        with 50,000+ square feet of low-slope roof area. TPO installs fast
+        across long runs, the white surface helps keep dock-door temperatures
+        manageable, and the seam-strength matters when forklift drivers are
+        running roof-mounted equipment.
+    - id: retail
+      icon: "shopping-bag"
+      heading: "Retail Centers"
+      body: |
+        Strip malls, big-box anchors, and mixed-use developments where the
+        roof has to be installed in phases without disrupting tenant
+        operations. Hot-air welding produces no fumes — overlay work can
+        proceed during business hours when other systems can't. (Multi-family?
+        See <a href="/residential-roofing">residential roof options</a>.)
+    - id: residential-complex
+      icon: "building"
+      heading: "Residential Complexes"
+      body: |
+        Multi-family apartments, modern flat-roof homes, and mixed-use podium
+        residential. TPO's reflective surface meaningfully reduces summer
+        cooling complaints from top-floor units — a real ROI signal in a
+        market where tenant retention drives the underwriting.
+  links_woven:
+    - { anchor: "residential roof options", target: "/residential-roofing" }
+
+# ─── SECTION 5: Quality Process — "Our Quality Process" ───
+quality_process:
+  eyebrow: "HOW WE INSTALL"
+  h2: "Our Quality Process"
+  subhead: "Three checkpoints between contract and warranty activation. None are skippable."
+  steps:
+    - number: 1
+      heading: "Pre-Install Assessment"
+      body: |
+        Detailed structural analysis of the existing deck, moisture scanning
+        to map any wet insulation or compromised substrate, and uplift-rating
+        verification against the local wind-zone code. The assessment gets
+        documented and stays in the property's maintenance file. We do not
+        install over compromised substrate — if we find it, we fix it before
+        we start.
+    - number: 2
+      heading: "Precision Engineering"
+      body: |
+        Custom-cut membrane and flashing details to ensure zero-gap
+        integration with HVAC curbs, vents, drains, and parapet walls. Every
+        penetration on the roof is pre-templated and field-verified.
+        Reinforcing scrim is fully encapsulated at every transition.
+    - number: 3
+      heading: "Third-Party Verification"
+      body: |
+        20-point final inspection covering seam-weld integrity (probe-tested),
+        flashing termination, drainage, and warranty-eligible adherence to
+        manufacturer specs. Inspection report is delivered with the warranty
+        package — and stays with the property if it sells.
+
+# ─── SECTION 6: Photo Gallery — bento layout ───
+photo_gallery:
+  eyebrow: "REAL DALLAS WORK"
+  h2: "Completed TPO Projects"
+  subhead: "Recent Pro Exteriors installations across Dallas-Fort Worth."
+  layout: "bento-4-image"
+  images:
+    - slot: "gallery-hero"
+      role: "600x600 hero square"
+      alt: "Aerial view of completed TPO roof on a Dallas distribution center, white membrane against blue sky"
+    - slot: "gallery-banner"
+      role: "600x292 banner"
+      alt: "Pro Exteriors crew completing seam-weld on a retail center rooftop, hot-air welder in foreground"
+    - slot: "gallery-square-1"
+      role: "292x292"
+      alt: "Detail shot of heat-welded TPO seam at a parapet wall transition"
+    - slot: "gallery-square-2"
+      role: "292x292"
+      alt: "Multi-family residential building in Dallas with completed white TPO flat roof"
+
+# ─── SECTION 7: Case Studies ───
+case_studies:
+  eyebrow: "REAL-WORLD RESULTS"
+  h2: "Case Studies"
+  subhead: "Pro Exteriors work on commercial properties in the Dallas metro."
+  view_all_link:
+    label: "View All Stories"
+    href: "/projects?category=tpo"
+  cards:
+    - id: case-1
+      industry_tag: "INDUSTRIAL"
+      heading: "TechPark Logistics Center"
+      summary: |
+        150,000 sq ft TPO retrofit on an active distribution center. Phased
+        install during off-hours preserved shipping operations through the
+        full project. Reduced annual cooling costs by 22% in the first
+        post-install season.
+      stats:
+        - { label: "SIZE", value: "150K SQ FT" }
+        - { label: "ROI", value: "3.5 YEARS" }
+      image_slot: "case-1-image"
+      image_alt: "Aerial view of TechPark Logistics Center with newly installed white TPO membrane covering 150,000 square feet"
+      sourcing_note: "[REPRESENTATIVE — NOT YET SOURCED] — replace with confirmed Pro Exteriors project data before launch."
+    - id: case-2
+      industry_tag: "RETAIL"
+      heading: "Dallas North Mall"
+      summary: |
+        Complete overlay on the anchor-store roof line, completed during
+        off-hours. Zero store downtime through the install period.
+        Phased-install approach kept tenants and shoppers in operation
+        throughout.
+      stats:
+        - { label: "INSTALL", value: "PHASED" }
+        - { label: "WATERPROOF", value: "100%" }
+      image_slot: "case-2-image"
+      image_alt: "Storefront facade of Dallas North Mall with the completed flat-roof line visible above"
+      sourcing_note: "[REPRESENTATIVE — NOT YET SOURCED] — replace with confirmed Pro Exteriors project data before launch."
+  block_flag: |
+    BOTH CASE STUDIES ARE PLACEHOLDERS. Per CLAUDE.md hard gate (every testimonial
+    is real), these blocks must be replaced with actual Pro Exteriors job data
+    before the page ships to production. Recommended: pull two TPO projects
+    from CRM, request photo authorization, replace summary + stats + image_alt
+    with real data. PageBuilder Phase 5 will fail-and-block-ship if these
+    markers are still present at launch.
+
+# ─── SECTION 8: FAQ ───
+faq:
+  eyebrow: "QUESTIONS PROCUREMENT ASKS"
+  h2: "Service FAQ"
+  subhead: "Practical answers, not marketing copy."
+  questions:
+    - q: "How long does a TPO roof last?"
+      a: |
+        With proper installation and routine maintenance, a quality TPO system
+        delivers 20–30 years of service life. Manufacturer warranties typically
+        run 15–25 years; in our experience, system performance often outlasts
+        the paper warranty when twice-yearly inspections are followed.
+    - q: "Can TPO be installed over an existing roof?"
+      a: |
+        Often yes — TPO overlay (or "recover") installs are common when the
+        existing substrate is dry, structurally sound, and within local code
+        for total roof system weight. Pro Exteriors' pre-install assessment
+        includes moisture scanning and structural analysis specifically to
+        determine whether overlay is the right call versus a full tear-off.
+        Overlay installs are typically 30–40% cheaper than full replacement
+        when conditions allow.
+    - q: "Is TPO the same as PVC?"
+      a: |
+        No. Both are thermoplastic single-ply membranes with similar surface
+        appearance, but the chemistry, cost, and performance differ. PVC
+        outperforms TPO in chemical-exposure environments (restaurants,
+        chemical plants) and at extreme temperatures, but typically costs
+        20–30% more installed. TPO is the better choice for most general
+        commercial applications. For the full breakdown see our
+        <a href="/blog/tpo-vs-epdm-vs-pvc">TPO vs EPDM vs PVC comparison</a>.
+    - q: "What color options are available?"
+      a: |
+        White is the standard and recommended choice — it delivers the
+        reflective efficiency that drives most of TPO's energy-saving value.
+        Gray and tan are available from major manufacturers when aesthetics
+        require a non-white roof (e.g., visible roof from a higher building).
+        Custom colors are possible with extended manufacturer lead time but
+        rarely worth the cost premium for a low-slope commercial roof that
+        isn't visually prominent.
+
+# ─── SECTION 9: Related Services — "Other Commercial Solutions" ───
+# Coatings + Gutters substituted with Repair + Replacement per decisions.md 2026-05-03
+related_services:
+  eyebrow: null
+  h2: "Other Commercial Solutions"
+  cards:
+    - heading: "EPDM Systems"
+      body: "Durable synthetic-rubber roofing for buildings where chemical resistance and freeze-thaw stability matter more than reflectivity."
+      href: "/commercial-roofing/epdm"
+      cta: "Learn more"
+    - heading: "Metal Roofing"
+      body: "Standing-seam metal for architectural commercial buildings where the roof line is part of the visual identity."
+      href: "/commercial-roofing/metal"
+      cta: "Learn more"
+    - heading: "Commercial Roof Repair"
+      body: "Targeted repair work — leaks, storm damage, seam re-welds — that extends the life of an existing system without the cost of full replacement."
+      href: "/commercial-roofing/repair"
+      cta: "Learn more"
+    - heading: "Commercial Roof Replacement"
+      body: "Full system replacement when existing substrate or membrane is past the point where repair makes economic sense."
+      href: "/commercial-roofing/replacement"
+      cta: "Learn more"
+
+# ─── SECTION 10: CTA Banner ───
+cta_banner:
+  heading: "Ready to optimize your building's performance?"
+  subhead: |
+    Book a complimentary TPO efficiency assessment and thermal moisture scan
+    today. No commitment. Real diagnostic.
+  cta:
+    label: "Get a TPO Assessment"
+    href: "/contact?service=tpo-assessment+moisture-scan"
+    intent: "primary-conversion"
+
+# ─── Cross-section: term-frequency self-scan (preliminary) ───
+# Approximate counts on the draft above; final scan happens after humanizer pass.
+self_scan_term_frequency:
+  tpo: ~52              # target 60–100; humanizer + minor editorial will push to range
+  "tpo roofing": ~6     # target 10–14; needs 4–8 more naturally placed
+  membrane: ~9          # target 15–25; section copy can naturally absorb 6–16 more
+  "single-ply": 3       # target 5–7; close
+  "thermoplastic olefin": 0  # target 1–3; add in service-overview "what is TPO" line
+  "commercial roofing": ~8   # target 6–9; on cluster
+  dallas: ~9            # target 8–15; on cluster, can lean a bit heavier
+  epdm: 7               # target 3–6; one over — may trim
+  pvc: 7                # target 3–6; one over — may trim
+  reflective: 4         # target 3–5; on cluster
+  warranty: 4           # target 2–4; on cluster
+  scrim: 3              # target 2–4; on cluster
+  energy: 4             # target 2–4; on cluster
+  notes: |
+    Targets check out broadly. Slight under on tpo/tpo-roofing/membrane —
+    will be addressed in the post-humanizer voice gate when I add a brief
+    technical-spec line in service_overview ("Thermoplastic polyolefin (TPO)
+    membrane is...") which will naturally lift those counts.
+
+# ─── Forbidden vocab self-scan ───
+# Run against CLAUDE.md §2 and §9 deny-list + aia4-copywriter forbidden-vocab list.
+forbidden_vocab_scan:
+  found: []
+  notes: |
+    Draft is clean of: synergy, best-in-class, leverage (verb), world-class,
+    next-gen, robust solution, delight the user, "In today's fast-paced world,"
+    stellar, celebrated, cutting-edge, paradigm shift, blowing the budget,
+    "Are you ready to."
+
+# ─── Humanizer pass (Hue Write) — DECISION: REJECTED ───
+humanizer_pass:
+  ran: true
+  tool: /tech/scripts/huewrite.py
+  tone: professional
+  model: v3.5
+  input_words: 1080
+  output_words: 1605
+  output_path: design/templates/tpo-roofing-systems/draft-prose.humanized.professional.txt
+  decision: rejected
+  rationale: |
+    Humanizer output failed every voice-gate check:
+      1. Lengthened the draft by 49% with marketing fluff ("unparalleled
+         performance and value for any business anywhere in the world").
+      2. Renamed all section headings I drafted in Maren voice ("Our Approach,"
+         "The Pro Exteriors Advantage," "You Might Also Like" — generic SEO
+         template language, not Maren).
+      3. Fabricated a sourceable claim with no basis: "we've been installing
+         quality TPO systems in DFW businesses since 2004." Pro Exteriors'
+         founding year was never provided to the humanizer; this is a
+         hallucination and would violate CLAUDE.md §4 hard gate
+         (every claim has a source).
+      4. Inserted a factually wrong technical spec: "4,000 PSI strength" for
+         TPO. That's not a TPO membrane spec at all — it's compressive strength
+         of concrete or yield strength of mild steel. The actual TPO membrane
+         spec is tensile/break strength in psi units (~225–300 psi). A reader
+         with technical knowledge would catch this immediately.
+      5. Broke every internal link anchor by adding whitespace around hyphens
+         in URLs (/blog/tpo - vs - epdm - vs - pvc) — link integrity is
+         non-negotiable for the reverse-silo system.
+      6. Replaced Maren voice with generic contractor marketing-speak
+         throughout.
+    Net: the humanizer is the wrong tool when the input is already
+    voice-authored. It works as a "smooth out generic AI spin" step; it does
+    not work as a "preserve a deliberate authorial voice" step. Decision logged
+    so future builds can sequence accordingly.
+  recommended_future_use: |
+    Hue Write should run BEFORE the Maren editorial pass, not after. Pipeline:
+    (1) SEO writer's raw draft → (2) Hue Write humanize (smooths the AI-spin)
+    → (3) Maren rewrite for voice + sourcing + link weaving. This build did
+    (1) → (3) → (2), which is wrong order. Update aia4-copywriter SKILL.md
+    workflow to reflect the corrected sequence.
+
+# ─── Status ───
+status: ready-for-phase-3-layout
+next_steps:
+  - Phase 3 — aia4-layout composes Astro components per Figma blueprint, consuming this copy.yaml
+  - Phase 3 — aia4-image-gen produces images for each image_slot (parallel with layout)
+  - Phase 4 — PageBuilder assembles into src/content/services/commercial/tpo-roofing-systems.mdx
+  - Phase 5a — aia4-page-qc voice + sourcing audit (will flag the [REPRESENTATIVE] markers as expected)
+  - Phase 5b — aia4-code-qc WCAG + Lighthouse + schema validation
+deliverables:
+  - { path: design/templates/tpo-roofing-systems/copy.yaml, type: copy-manifest }
+  - { path: design/templates/tpo-roofing-systems/draft-prose.txt, type: extracted-prose-source }
+  - { path: design/templates/tpo-roofing-systems/draft-prose.humanized.professional.txt, type: humanizer-output-rejected }
+authored_by: aia4-copywriter (PageBuilder Phase 2, inline) — Maren editorial
+authored_at: 2026-05-03

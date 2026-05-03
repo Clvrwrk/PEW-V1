@@ -1,0 +1,65 @@
+{
+  "https://www.siplast.com/education/tpo-roofing-and-tpx": {
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "https://www.jm.com/en/commercial-roofing/tpo-roofing-systems/": {
+    "word_count": 11905,
+    "counts": {
+      "tpo": 295,
+      "tpo roofing": 10,
+      "membrane": 163,
+      "single-ply": 6,
+      "single ply": 84,
+      "thermoplastic olefin": 0,
+      "commercial roofing": 7,
+      "dallas": 0,
+      "epdm": 32,
+      "pvc": 34,
+      "energy": 2,
+      "warranty": 2,
+      "scrim": 6,
+      "reflective": 8
+    }
+  },
+  "https://www.gaf.com/en-us/roofing-materials/commercial-roofing-materials/tpo-membranes": {
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "https://www.iko.com/comm/blog/what-is-tpo-roofing/": {
+    "word_count": 2179,
+    "counts": {
+      "tpo": 65,
+      "tpo roofing": 19,
+      "membrane": 16,
+      "single-ply": 7,
+      "single ply": 1,
+      "thermoplastic olefin": 0,
+      "commercial roofing": 6,
+      "dallas": 0,
+      "epdm": 1,
+      "pvc": 1,
+      "energy": 0,
+      "warranty": 2,
+      "scrim": 2,
+      "reflective": 1
+    }
+  },
+  "https://westroofingsystems.com/tpo-roofing-everything-you-need-to-know/": {
+    "word_count": 1711,
+    "counts": {
+      "tpo": 45,
+      "tpo roofing": 8,
+      "membrane": 13,
+      "single-ply": 5,
+      "single ply": 0,
+      "thermoplastic olefin": 0,
+      "commercial roofing": 9,
+      "dallas": 0,
+      "epdm": 3,
+      "pvc": 0,
+      "energy": 2,
+      "warranty": 3,
+      "scrim": 1,
+      "reflective": 4
+    }
+  }
+}

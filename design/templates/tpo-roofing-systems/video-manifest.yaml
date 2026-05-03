@@ -1,0 +1,95 @@
+# aia4-image-gen video manifest — TPO Roofing Systems pillar
+# Phase 3 addendum (added 2026-05-03 after video gap was flagged)
+# Single hero background loop. Cinema Studio Video 3.0, 8s, 16:9.
+
+generation_summary:
+  total_videos: 1
+  model: cinematic_studio_3_0
+  budget_estimate_usd: "~$1.00"
+
+slot:
+  id: hero_loop
+  consumed_by: heroVideo (frontmatter top-level — services collection)
+  output_paths:
+    webm: /videos/services/commercial/tpo-hero.webm
+    mp4: /videos/services/commercial/tpo-hero.mp4
+  raw_source: public/videos/services/commercial/.original/tpo-hero-raw.mp4
+  higgsfield_job: 9ab2f3c7-7853-4130-b3c2-08d4e3ac02b9
+  prompt_summary: "Slow cinematic aerial drift over Dallas commercial flat-roof, white TPO membrane, golden hour, loops cleanly"
+  start_image_ref: dac126e3-6af9-4626-aed2-89c6035b870d  # the hero WebP
+  end_image_ref: dac126e3-6af9-4626-aed2-89c6035b870d    # same as start for seamless loop
+  duration_sec: 8
+  source_dimensions: "1344×768 (Higgsfield 720p output)"
+  delivery_dimensions: "1280×720 (downscaled in encoding)"
+
+# ─── Encoding ───
+encoding:
+  webm:
+    codec: VP9 (libvpx-vp9)
+    crf: 35
+    bitrate: variable (~790 kbps average)
+    pix_fmt: yuv420p
+    audio: stripped
+    file_size_kb: 771
+  mp4:
+    codec: H.264 (libx264)
+    preset: slow
+    crf: 28
+    pix_fmt: yuv420p
+    audio: stripped
+    moov_atom: front (faststart enabled)
+    file_size_kb: 653
+  raw_input_kb: 1919
+  total_compression: "63% smaller than raw (WebM), 66% smaller (MP4)"
+
+# ─── Browser delivery ───
+delivery:
+  effective_size_per_user_kb: ~700  # browser picks one format
+  format_distribution:
+    webm: "Chrome, Firefox, Edge, Opera (~85% of traffic)"
+    mp4:  "Safari, older browsers (~15% of traffic)"
+  loading_strategy:
+    preload: metadata
+    autoplay: true
+    muted: true
+    loop: true
+    playsinline: true
+    poster: "/images/services/commercial/tpo-hero.webp (instant paint)"
+  motion_reduce_handling: |
+    The ServiceHero component renders the static poster image when the user has
+    prefers-reduced-motion: reduce in their OS settings. The video does not play
+    for those users; they see the WebP hero instead. WCAG 2.2 success criterion
+    2.3.3 (Animation from Interactions) compliant by construction.
+
+# ─── Lighthouse impact (estimated) ───
+lighthouse_impact:
+  initial_paint_blocking: false   # poster image loads first; video metadata only
+  lcp_image_used: poster (tpo-hero.webp 140KB)
+  total_page_weight_after_video_buffers: ~1.5MB
+  expected_performance_score: ≥95   # video doesn't block, it loads on idle
+  notes: |
+    Browser downloads only metadata on initial paint (preload="metadata").
+    Full video stream begins after the page is interactive. Mobile users on
+    slow networks see the poster image and the page is fully usable; the
+    video loads when bandwidth allows.
+
+# ─── Component wiring ───
+component_wiring:
+  service_hero_component: src/components/molecules/ServiceHero.astro
+  schema_field_added: heroVideo (services collection)
+  template_pass_through: src/pages/commercial-roofing/[service]/index.astro (line 88, video={data.heroVideo})
+  schema_form_supported:
+    - "heroVideo: \"/videos/single-source.webm\"  (single string)"
+    - "heroVideo: { webm: \"/path.webm\", mp4: \"/path.mp4\" }  (cross-browser)"
+
+status: success
+deliverables:
+  - { path: design/templates/tpo-roofing-systems/video-manifest.yaml, type: manifest }
+  - { path: public/videos/services/commercial/tpo-hero.webm, type: video, kb: 771 }
+  - { path: public/videos/services/commercial/tpo-hero.mp4, type: video, kb: 653 }
+  - { path: public/videos/services/commercial/.original/tpo-hero-raw.mp4, type: source, kb: 1919 }
+  - { type: code-change, path: src/components/molecules/ServiceHero.astro, description: "Added video prop with motion-reduce fallback" }
+  - { type: code-change, path: src/content/config.ts, description: "Added heroVideo field to services collection schema" }
+  - { type: code-change, path: src/pages/commercial-roofing/[service]/index.astro, description: "Pass video={data.heroVideo} to ServiceHero" }
+authored_by: aia4-image-gen video addendum (PageBuilder Phase 3 retrofit)
+authored_at: 2026-05-03

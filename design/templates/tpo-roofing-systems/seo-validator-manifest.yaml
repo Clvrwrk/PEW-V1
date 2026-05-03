@@ -1,0 +1,232 @@
+# aia4-seo-validator manifest — TPO Roofing Systems pillar
+# Produced inline by PageBuilder Phase 1 on 2026-05-03
+# Methodology: Kyle Roof on-page (term-frequency vs. SERP, LSI breadth, schema-as-signal)
+
+target_keyword:
+  keyword: "tpo roofing systems"
+  search_volume: 1300
+  cpc_usd: 10.51
+  competition: LOW
+  source: DataForSEO Google Ads search_volume/live (US, 2026-05-03)
+  read: |
+    Strong target. LOW competition + $10.51 CPC means high commercial intent
+    with achievable ranking. Pair this with the "dallas" geo-modifier
+    (which scores 0 in every top-10 competitor — wide-open territory) and
+    we have both an organic moat and a local moat.
+
+primary_secondaries:
+  - keyword: "tpo roofing"
+    search_volume: 27100
+    cpc_usd: 10.20
+    competition: MEDIUM
+    read: "High-volume head term. Use as a near-match anchor variant; do not target as primary slug — too competitive without first ranking the longer-tail."
+  - keyword: "tpo roofing system dallas texas"
+    search_volume: null
+    cpc_usd: null
+    competition: null
+    read: "Long-tail, no DataForSEO volume. Will surface in geo-search as 'tpo roofing dallas tx' and similar variants. Treat as latent-volume — DataForSEO local pull (DFW location code 1003854) recommended in Phase 1.5 to validate."
+
+# ─── Term frequency targets (Kyle Roof: aim for the SERP cluster, not a guru's checklist) ───
+# Method: top 5 SERP organic results fetched and tokenized. siplast.com (rank 2) and
+# gaf.com (rank 5) blocked the bot — analysis based on jm.com, iko.com, westroofingsystems.com.
+# JM is an outlier (manufacturer landing page, 11,905 words). Targets below weight contractor
+# pages (iko + westroofingsystems) more heavily than the JM outlier.
+
+term_frequency_targets:
+  tpo:
+    raw_mean_with_jm_outlier: 135
+    contractor_realistic_target: "60–100"
+    read: "JM-skewed mean is misleading. For a contractor pillar of ~2,000 words, 60–100 mentions hits the cluster without overstuffing."
+  "tpo roofing":
+    raw_mean: 12.33
+    target_range: "10–14"
+    read: "On the cluster. Achievable with natural copy."
+  membrane:
+    raw_mean: 64
+    contractor_realistic_target: "15–25"
+    read: "JM mentions membrane 163 times — manufacturer behavior. Contractor pillar should stay 15–25."
+  "single-ply":
+    raw_mean: 6
+    target_range: "5–7"
+    read: "Hyphenated form preferred (cleaner editorial). JM uses 'single ply' (no hyphen) 84 times — manufacturer-speak. We match contractor convention."
+  "thermoplastic olefin":
+    raw_mean: 0
+    target_range: "1–3"
+    read: "Despite being THE technical name, top SERP pages don't use it. Restrict to 1–3 mentions for technical credibility — never as filler."
+  "thermoplastic polyolefin":
+    target_range: "1–2"
+    read: "Pro Exteriors' SEO copy uses 'polyolefin' rather than 'olefin.' Both are correct; we keep what's in the source draft."
+  "commercial roofing":
+    target_range: "6–9"
+    read: "On the cluster. Anchors the commercial-vertical positioning."
+  dallas:
+    raw_mean: 0
+    target_range: "8–15"
+    read: "GEOGRAPHIC MOAT. Zero competitors in the top 10 mention Dallas. Heavy use of geo-modifier is unrebutted territory — go heavier than competitors."
+  epdm:
+    raw_mean: 12
+    target_range: "3–6"
+    read: "Light comparison only. Don't dilute the TPO focus by over-comparing — link to /blog/tpo-vs-epdm-vs-pvc instead for deep comparison."
+  pvc:
+    raw_mean: 11.67
+    target_range: "3–6"
+    read: "Same as EPDM — light comparison, deep dive lives in the comparison blog post."
+  energy:
+    target_range: "2–4"
+    read: "Energy efficiency is a real TPO selling point. Don't underweight."
+  warranty:
+    target_range: "2–4"
+    read: "20-year warranty is a Figma badge. Mention naturally."
+  scrim:
+    target_range: "2–4"
+    read: "Technical credibility token. Reinforces 'we know what we're talking about' without going jargon-heavy."
+  reflective:
+    target_range: "3–5"
+    read: "Reflective efficiency is the lead benefit in the Figma 'Why Choose TPO?' grid. Mention 3–5 times naturally."
+
+# ─── LSI keyword breadth ───
+# Source: DataForSEO related-keywords for seed 'tpo roofing', volume ≥ 20 filter.
+# Lean — only 9 returned. Augmented with hand-picked terms from the SEO copy + Kyle Roof
+# semantic-coverage rules.
+
+lsi_keywords:
+  from_dataforseo:
+    - { kw: "tpo roofing", vol: 27100 }
+    - { kw: "tpo roofing installation", vol: 3600 }
+    - { kw: "tpo roofing cost", vol: 1000 }
+    - { kw: "tpo roofing vs pvc", vol: 880 }
+    - { kw: "tpo roofing vs epdm", vol: 880 }
+    - { kw: "tpo roofing details", vol: 480 }
+    - { kw: "tpo roofing for sale", vol: 140 }
+    - { kw: "tpo roofing home depot", vol: 70 }
+    - { kw: "tpo roofing installation details pdf", vol: 70 }
+  hand_picked_for_breadth:
+    # Materials and method
+    - "thermoplastic polyolefin"
+    - "single-ply membrane"
+    - "reinforcing scrim"
+    - "heat-welded seams"
+    - "hot-air weld"
+    - "mechanically attached"
+    - "fully adhered"
+    - "ballasted system"
+    # Performance attributes
+    - "energy star certified"
+    - "cool roof rating"
+    - "wind uplift resistance"
+    - "puncture resistance"
+    - "uv stability"
+    - "20-year warranty"
+    - "25-year lifespan"
+    # Application contexts
+    - "flat roof"
+    - "low-slope roof"
+    - "commercial flat roof"
+    - "warehouse roofing"
+    - "retail center roofing"
+    - "multi-family roofing"
+    # Process and service
+    - "roof retrofit"
+    - "roof overlay"
+    - "moisture scan"
+    - "thermal imaging"
+    - "roof assessment"
+    - "structural analysis"
+    # Pro Exteriors-specific
+    - "tpo invisiweld"
+    - "induction welding"
+  total_count: 36
+  coverage_rule: "Copy should hit ≥70% of the LSI list at least once. Aim for 25 of 36."
+
+flags:
+  - severity: warning
+    id: lean-related-keywords
+    message: |
+      DataForSEO related-keywords seed 'tpo roofing' returned only 9 keywords ≥20 vol.
+      Augmented LSI list with 27 hand-picked terms aligned to commercial-roofing intent
+      and the Pro Exteriors source copy. Phase 2 copywriter should use the augmented list,
+      not just the DataForSEO-only set.
+  - severity: warning
+    id: serp-fetches-blocked
+    message: |
+      siplast.com (rank 2) and gaf.com (rank 5) blocked the analysis bot. Term-frequency
+      means computed from 3 of 5 successful fetches (jm.com, iko.com, westroofingsystems.com).
+      JM is a manufacturer outlier and was hand-discounted in target setting.
+  - severity: info
+    id: dallas-geographic-moat
+    message: |
+      Zero top-10 competitors use 'dallas' in their on-page content. This is a geographic
+      moat — heavier use of the Dallas geo-modifier (8–15 mentions) is unrebutted territory.
+  - severity: info
+    id: slug-keyword-mismatch-pending
+    message: |
+      Existing thin page lives at src/content/services/commercial/tpo.mdx (slug /commercial-roofing/tpo).
+      The brief target slug is 'tpo-roofing-systems' — keyword-slug match. PageBuilder Phase 4
+      assembly should rename tpo.mdx → tpo-roofing-systems.mdx and configure a 301 redirect
+      from the old slug. Confirm with user before rename.
+
+# ─── Schema types required (Kyle Roof: schema is a quiet ranking lever) ───
+schema_types_required:
+  - type: RoofingContractor
+    location: "page-level @graph entry"
+    notes: "Service-specific instance referencing the parent Pro Exteriors LocalBusiness."
+    required_props:
+      - name
+      - description
+      - serviceArea
+      - areaServed
+      - hasOfferCatalog (with TPO service offering)
+      - aggregateRating (when reviews collected)
+  - type: Service
+    location: "page-level @graph entry"
+    required_props:
+      - name: "TPO Roofing Systems"
+      - serviceType
+      - provider (ref RoofingContractor)
+      - areaServed (Dallas-Fort Worth)
+      - description
+  - type: BreadcrumbList
+    location: "page-level @graph entry"
+    items:
+      - "Home"
+      - "Commercial Roofing"
+      - "TPO Roofing Systems"
+  - type: FAQPage
+    location: "page-level @graph entry"
+    notes: "Figma design has 4 FAQs. All four must have substantive answers (not just 'TBD')."
+    required_props: "questions array with @type=Question and acceptedAnswer @type=Answer"
+  schema_NOT_required:
+    - Review
+    - Product
+  schema_NOT_required_reasoning: |
+    Review schema is for individual reviews, not case studies. The TechPark Logistics and
+    Dallas North Mall blocks are case studies, not reviews — different schema type
+    (CaseStudy is not in schema.org core; we use generic Article schema for those if
+    promoted to standalone pages later, but for the embedded blocks on this pillar, no
+    schema is needed). Product schema is for productized SKUs — TPO is a service, not
+    a product.
+
+# ─── Competitor pages analyzed ───
+competitor_pages_analyzed:
+  - { url: "https://www.siplast.com/education/tpo-roofing-and-tpx", rank: 2, fetched: false, reason: "blocked" }
+  - { url: "https://www.jm.com/en/commercial-roofing/tpo-roofing-systems/", rank: 4, fetched: true, words: 11905, role: "manufacturer outlier" }
+  - { url: "https://www.gaf.com/en-us/roofing-materials/commercial-roofing-materials/tpo-membranes", rank: 5, fetched: false, reason: "blocked" }
+  - { url: "https://www.iko.com/comm/blog/what-is-tpo-roofing/", rank: 6, fetched: true, words: 2179, role: "comparable contractor pillar" }
+  - { url: "https://westroofingsystems.com/tpo-roofing-everything-you-need-to-know/", rank: 7, fetched: true, words: 1711, role: "comparable contractor pillar" }
+
+# ─── API budget used ───
+api_budget:
+  dataforseo_calls: 3
+  endpoints:
+    - keyword_volume (3 keywords)
+    - serp_organic (top 20 for 'tpo roofing systems')
+    - related_keywords (limit 100, seed 'tpo roofing')
+  cost_estimate_usd: "<$0.10"
+
+status: success
+deliverables:
+  - { path: design/templates/tpo-roofing-systems/seo-validator-manifest.yaml, type: manifest }
+  - { path: design/templates/tpo-roofing-systems/seo-validator-audit.md, type: report }
+  - { path: design/templates/tpo-roofing-systems/term-frequency-raw.json, type: raw-data }
+  - { path: design/templates/tpo-roofing-systems/top5-competitor-urls.txt, type: raw-data }
+next_action: handoff-to-copywriter-phase-2

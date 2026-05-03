@@ -1,0 +1,196 @@
+/* =====================================================================
+ * Pro Exteriors — Design Tokens (Canon)
+ * Source of truth: /decisions/2026-05-03-brand-token-canon.md
+ * Last updated: 2026-05-03
+ *
+ * This file is loaded once at the root layout. All components reference
+ * semantic role tokens (--color-primary, --color-tertiary, etc.) — not
+ * raw palette values. Phase-2 brand refinement changes only the right
+ * side of these declarations; component definitions stay stable.
+ * ===================================================================== */
+
+:root {
+  /* ─── Palette (raw values — do not reference directly from components) ─── */
+  --pe-navy:        #11133f;  /* deep navy — primary, B2B authority */
+  --pe-navy-soft:   #1a1d54;  /* deep navy soft — section backgrounds */
+  --pe-navy-tint:   #d4d6e6;  /* deep navy tint — soft surfaces */
+
+  --pe-green:       #3b6b4c;  /* hunter green — secondary, brand voice */
+  --pe-green-soft:  #54996c;  /* hunter green soft — hover states */
+  --pe-green-tint:  #d3e7da;  /* hunter green tint — light backgrounds */
+
+  --pe-red:         #C22326;  /* flag red — sole CTA interaction color */
+  --pe-red-hover:   #9b1c1f;  /* flag red — hover state */
+
+  --pe-gold:        #eaa221;  /* golden orange — accent, eyebrows */
+  --pe-gold-soft:   #fbedd2;  /* golden orange tint — callout backgrounds */
+
+  --pe-blue:        #0066cc;  /* smart blue — links, secondary actions */
+  --pe-blue-hover:  #0052a3;
+
+  --pe-white:       #ffffff;
+  --pe-off-white:   #F9FAFB;
+  --pe-surface-alt: #F3F4F6;
+  --pe-border:      #E5E7EB;
+  --pe-border-strong: #D1D5DB;
+  --pe-muted:       #374151;  /* body text on white — 10.4:1 contrast */
+  --pe-black:       #000000;
+
+  /* ─── Semantic role tokens (components reference these) ─── */
+  --color-primary:           var(--pe-navy);
+  --color-on-primary:         var(--pe-white);          /* contrast 16.8:1 */
+  --color-primary-soft:       var(--pe-navy-soft);
+  --color-primary-tint:       var(--pe-navy-tint);
+  --color-on-primary-tint:    var(--pe-navy);
+
+  --color-secondary:          var(--pe-green);
+  --color-on-secondary:       var(--pe-white);          /* contrast 5.6:1 */
+  --color-secondary-soft:     var(--pe-green-soft);
+  --color-secondary-tint:     var(--pe-green-tint);
+  --color-on-secondary-tint:  var(--pe-navy);
+
+  --color-tertiary:           var(--pe-red);            /* sole CTA color */
+  --color-on-tertiary:        var(--pe-white);          /* contrast 5.0:1 */
+  --color-tertiary-hover:     var(--pe-red-hover);
+
+  --color-accent:             var(--pe-gold);
+  --color-on-accent:          var(--pe-black);          /* contrast 10.0:1 */
+  --color-accent-soft:        var(--pe-gold-soft);
+  --color-on-accent-soft:     var(--pe-navy);
+
+  --color-info:               var(--pe-blue);
+  --color-on-info:            var(--pe-white);          /* contrast 5.4:1 */
+  --color-info-hover:         var(--pe-blue-hover);
+
+  --color-surface:            var(--pe-white);
+  --color-on-surface:         var(--pe-navy);           /* deep navy on white */
+  --color-surface-alt:        var(--pe-surface-alt);
+  --color-on-surface-alt:     var(--pe-navy);
+  --color-neutral:            var(--pe-off-white);
+  --color-on-neutral:         var(--pe-navy);
+  --color-muted:              var(--pe-muted);          /* never on surface-alt — fails contrast there */
+  --color-border:             var(--pe-border);
+  --color-border-strong:      var(--pe-border-strong);
+
+  /* ─── Typography ─── */
+  --font-display: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body:    'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --text-display-1: 800 3.75rem/1.05  var(--font-display);     /* 60 / -0.025em */
+  --text-display-2: 800 3rem/1.1      var(--font-display);     /* 48 / -0.02em */
+  --text-h1:        700 2.25rem/1.15  var(--font-display);     /* 36 */
+  --text-h2:        700 1.875rem/1.2  var(--font-display);     /* 30 */
+  --text-h3:        600 1.5rem/1.25   var(--font-display);     /* 24 */
+  --text-h4:        600 1.25rem/1.3   var(--font-display);     /* 20 */
+  --text-body-lg:   400 1.125rem/1.6  var(--font-body);        /* 18 */
+  --text-body-md:   400 1rem/1.6      var(--font-body);        /* 16 */
+  --text-body-sm:   400 0.875rem/1.55 var(--font-body);        /* 14 */
+  --text-label-md:  600 0.875rem/1.4  var(--font-body);        /* 14 */
+  --text-label-caps:700 0.75rem/1.3   var(--font-body);        /* 12, tracking 0.1em */
+
+  /* ─── Shape ─── */
+  --rounded-sm:   4px;
+  --rounded-md:   8px;
+  --rounded-lg:   12px;
+  --rounded-xl:   16px;
+  --rounded-2xl:  20px;
+  --rounded-full: 9999px;
+
+  /* ─── Spacing scale ─── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 128px;
+
+  /* ─── Layout ─── */
+  --container-max: 1216px;       /* 1280 page minus 32px gutters */
+  --container-narrow: 768px;     /* FAQ section centered */
+  --section-padding-y: var(--space-4xl);  /* 96px top/bottom on desktop */
+
+  /* ─── Elevation ─── */
+  --shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:  0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl:  0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* ─── Mobile overrides ─── */
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: var(--space-3xl);  /* 64px on mobile */
+    --text-display-1: 800 2.5rem/1.1    var(--font-display);   /* 40 mobile */
+    --text-display-2: 800 2rem/1.15     var(--font-display);   /* 32 mobile */
+  }
+}
+
+/* ─── Reset for the page baseline ─── */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font: var(--text-body-md);
+  color: var(--color-on-neutral);
+  background: var(--color-neutral);
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, svg, video { display: block; max-width: 100%; height: auto; }
+button { font: inherit; cursor: pointer; }
+
+/* ─── Reusable utility classes ─── */
+.container { max-width: var(--container-max); margin-inline: auto; padding-inline: var(--space-xl); }
+.container-narrow { max-width: var(--container-narrow); margin-inline: auto; padding-inline: var(--space-xl); }
+.section { padding-block: var(--section-padding-y); }
+.section--dark { background: var(--color-primary); color: var(--color-on-primary); }
+.section--secondary { background: var(--color-secondary-tint); color: var(--color-on-secondary-tint); }
+.section--alt { background: var(--color-surface-alt); }
+
+.eyebrow {
+  font: var(--text-label-caps);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-sm);
+  padding: var(--space-md) var(--space-2xl);
+  background: var(--color-tertiary); color: var(--color-on-tertiary);
+  font: var(--text-h4); border: 0; border-radius: var(--rounded-md);
+  text-decoration: none;
+  box-shadow: var(--shadow-xl);
+  transition: background-color 120ms ease, transform 120ms ease;
+}
+.btn-primary:hover { background: var(--color-tertiary-hover); }
+.btn-primary:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: var(--space-sm);
+  color: var(--color-on-primary);
+  font: var(--text-h4);
+  text-decoration: none;
+}
+.btn-secondary:hover { color: var(--color-accent); }
+
+.link-inline { color: var(--color-info); text-decoration: underline; text-underline-offset: 2px; }
+.link-inline:hover { color: var(--color-info-hover); }
+
+.tag-chip {
+  display: inline-flex; align-items: center; gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-accent-soft); color: var(--color-on-accent-soft);
+  font: var(--text-label-md); border-radius: var(--rounded-full);
+}
+
+.skip-link {
+  position: absolute; top: -40px; left: 0; padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary); color: var(--color-on-primary);
+  text-decoration: none;
+  z-index: 100;
+}
+.skip-link:focus { top: 0; }

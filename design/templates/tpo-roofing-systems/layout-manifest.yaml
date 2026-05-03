@@ -1,0 +1,121 @@
+# aia4-layout manifest — TPO Roofing Systems pillar
+# Phase 3 deliverable. NO new components written — layout is composition into
+# the existing Astro service-detail template at src/pages/commercial-roofing/[service]/index.astro.
+
+approach: composition-not-greenfield
+rationale: |
+  The Astro project already has a sophisticated dynamic service-detail
+  template that consumes structured frontmatter (intro, benefits,
+  structureTypes, processSteps, galleryImages, ctaBanner, faqs) and renders
+  rich magazine-quality sections via existing components: ServiceHero,
+  SplitIntro, BenefitsGrid, StructureTypes, QualityProcess, ProjectGallery,
+  CTABanner, FAQ, Card, ServiceTile. Phase 3 layout work is therefore
+  composition: write the TPO frontmatter that consumes these components,
+  not greenfield component authoring.
+
+deliverables:
+  primary:
+    path: src/content/services/commercial/tpo-roofing-systems.mdx
+    type: content-mdx
+    description: |
+      Rich frontmatter mapping copy.yaml to the services collection schema,
+      plus Maren-voice markdown body (Why Pro Exteriors, What TPO Involves,
+      How We Serve DFW, Our Process, Request a Quote). Dynamic template
+      auto-renders intro / benefits / structureTypes / processSteps / gallery
+      / cta / faqs sections in magazine layout via existing components.
+  case_studies:
+    - path: src/content/caseStudies/techpark-logistics-tpo.mdx
+      type: case-study-mdx
+      marked: REPRESENTATIVE
+    - path: src/content/caseStudies/dallas-north-mall-tpo.mdx
+      type: case-study-mdx
+      marked: REPRESENTATIVE
+  template_design_tokens:
+    path: design/templates/tpo-roofing-systems/design-tokens.css
+    description: "Standalone CSS variable layer mirroring /tech/DESIGN.md canon. Not currently consumed by the Astro app (the app likely has its own token integration in src/styles/) — kept as a portable reference for future template extraction."
+
+# ─── Section → component → frontmatter mapping ───
+section_mapping:
+  - figma_section: "Hero (9:3145)"
+    astro_component: ServiceHero
+    frontmatter_keys: [h1, heroImage, breadcrumbs (computed)]
+  - figma_section: "Service Overview (9:3163) — Engineered for Performance"
+    astro_component: SplitIntro
+    frontmatter_keys: [intro.heading, intro.body, intro.image, intro.badges]
+  - figma_section: "Benefits Grid (9:3181) — Why Choose TPO?"
+    astro_component: BenefitsGrid
+    frontmatter_keys: [benefits.heading, benefits.subtitle, benefits.items[]]
+    figma_layout: "3-col × 2-row grid, 6 cards"
+    expected_render: "Component handles grid layout from items array length"
+  - figma_section: "Applications (9:3225) — Perfect For Every Structure"
+    astro_component: StructureTypes
+    frontmatter_keys: [structureTypes.heading, structureTypes.items[]]
+    figma_layout: "3-column equal-width"
+  - figma_section: "Quality Process (9:3253)"
+    astro_component: QualityProcess
+    frontmatter_keys: [processSteps.heading, processSteps.image, processSteps.steps[]]
+    figma_layout: "Side-by-side image + 3-step list"
+  - figma_section: "Photo Gallery (9:3287) — Bento layout"
+    astro_component: ProjectGallery
+    frontmatter_keys: [galleryImages]
+    figma_layout: "Bento grid: 600x600 + 600x292 + 292x292 + 292x292"
+    expected_render: "Component handles bento layout from 4-image array"
+  - figma_section: "Case Studies (9:3299)"
+    astro_component: (template-level — not in service mdx)
+    frontmatter_keys: []
+    rendered_from: "getCollection('caseStudies', industryCategory='commercial').slice(0, 2)"
+    placeholder_status: "Both case studies marked [REPRESENTATIVE — NOT YET SOURCED]"
+  - figma_section: "FAQ Accordion (9:3340)"
+    astro_component: FAQ
+    frontmatter_keys: [faqs[]]
+    figma_layout: "Vertical accordion, 4 items"
+  - figma_section: "Related Services (9:3366) — Other Commercial Solutions"
+    astro_component: ServiceTile (mapped over siblings)
+    frontmatter_keys: [relatedServices]
+    figma_layout: "4-column grid"
+    note: |
+      Per /design/templates/tpo-roofing-systems/decisions.md, Coatings + Gutters
+      replaced with Repair + Replacement (existing service pages). Final 4 cards:
+      EPDM, Metal, Repair, Replacement.
+  - figma_section: "CTA Banner (9:3411)"
+    astro_component: CTABanner
+    frontmatter_keys: [ctaBanner.heading, ctaBanner.subtitle, ctaBanner.ctaText, ctaBanner.ctaHref]
+    figma_layout: "Heading-left + button-right, deep-navy background"
+
+# ─── Brand-token adherence ───
+brand_token_check:
+  source_of_truth: /tech/DESIGN.md (v1.1) + /decisions/2026-05-03-brand-token-canon.md
+  approach: |
+    Layout adherence is enforced by the existing Astro components that consume
+    the project's token system (likely tailwind.config.cjs or src/styles/).
+    This phase did not introduce new color tokens. Code-qc Phase 5 validates
+    contrast on the rendered page against DESIGN.md role tokens.
+  flags: []
+
+# ─── Pillar-depth check (preliminary) ───
+pillar_depth_check:
+  word_count: ~2400  # frontmatter prose + markdown body
+  tables: 0          # no explicit comparison table; benefits grid and structureTypes serve a similar role visually
+  listicles: 1       # Our Process section is a numbered list
+  pull_quotes: 0     # none in this draft — not a hard blocker for v1
+  internal_links: 6  # to /blog/tpo-vs-epdm-vs-pvc, /residential-roofing, /commercial-roofing, sibling services, /contact (multiple)
+  faqs: 4            # within 4-FAQ minimum
+  pillar_depth_status: "PASS for word count, listicles, internal links, FAQs. WARN for table count (consider adding a TPO-vs-EPDM-vs-PVC quick-comparison table during voice-gate or in the editorial calendar's pillar-pass)."
+
+# ─── Outstanding for assembly (Phase 4) ───
+outstanding_for_phase_4:
+  - description: "301 redirect from /commercial-roofing/tpo → /commercial-roofing/tpo-roofing-systems"
+    target_file: astro.config.mjs
+    type: post-launch-config
+    note: "Add redirect entry. The old tpo.mdx file remains in place for now — deleting it will cause Astro to fail to build the redirect target page. Sequence: (a) verify new page renders correctly, (b) add 301, (c) delete old tpo.mdx after redirect verified."
+  - description: "Replace REPRESENTATIVE case studies with real Pro Exteriors job data"
+    target_files:
+      - src/content/caseStudies/techpark-logistics-tpo.mdx
+      - src/content/caseStudies/dallas-north-mall-tpo.mdx
+    type: pre-launch-content
+    blocking: true   # CLAUDE.md hard gate
+
+status: success
+deliverables_summary: "1 service mdx, 2 case-study mdx, 8 image assets, design-tokens.css reference"
+authored_by: aia4-layout (PageBuilder Phase 3, inline)
+authored_at: 2026-05-03
