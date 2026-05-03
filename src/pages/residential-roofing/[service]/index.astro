@@ -9,6 +9,7 @@ import HeroSection from '../../../components/molecules/HeroSection.astro';
 import FAQ from '../../../components/molecules/FAQ.astro';
 import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
 import ServiceTile from '../../../components/molecules/ServiceTile.astro';
+import ServiceCard from '../../../components/molecules/ServiceCard.astro';
 import PartnerNetworkDisclosure from '../../../components/atoms/PartnerNetworkDisclosure.astro';
 import PropertyCardCallout from '../../../components/molecules/PropertyCardCallout.astro';
 import { serviceSchema } from '../../../lib/schema/Service';
@@ -105,11 +106,13 @@ if (data.faqs && data.faqs.length > 0) {
       <h2 class="mb-12 text-center text-3xl font-bold">Other Residential Services</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {siblings.map((sibling) => (
-          <ServiceTile
-            name={sibling.data.name}
+          <ServiceCard
+            title={sibling.data.name}
             description={sibling.data.description}
             href={sibling.data.canonicalPath}
-            icon="home"
+            image={sibling.data.heroImage}
+            icon={sibling.data.cardIcon ?? 'home'}
+            eyebrow="RESIDENTIAL"
           />
         ))}
       </div>

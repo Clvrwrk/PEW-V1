@@ -1,0 +1,856 @@
+---
+/**
+ * Card variant preview — dev only.
+ *
+ * Shows three design directions for both card types:
+ *   • "Other Commercial Solutions" cards (currently ServiceTile.astro)
+ *   • "Case Study" cards (currently Card.astro)
+ *
+ * Visit at:  http://localhost:4321/_dev/card-variants
+ *
+ * NOT linked from the live nav. Underscore-prefixed routes are dev-only by
+ * Astro convention. Pick a winner and tell Maren — the chosen variant gets
+ * extracted into its own production component.
+ */
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import Icon from '../../components/atoms/Icon.astro';
+
+// ─── Sample data ─────────────────────────────────────────────────────────────
+
+const otherSolutions = [
+  {
+    title: 'EPDM Systems',
+    body: 'Durable synthetic-rubber roofing for buildings where chemical resistance and freeze-thaw stability matter more than reflectivity.',
+    href: '/commercial-roofing/epdm/',
+    image: '/images/projects/tpo-gallery-3.webp',  // stand-in until EPDM hero exists
+    icon: 'layers',
+  },
+  {
+    title: 'Metal Roofing',
+    body: 'Standing-seam metal for architectural commercial buildings where the roof line is part of the visual identity.',
+    href: '/commercial-roofing/metal/',
+    image: '/images/projects/tpo-gallery-4.webp',  // stand-in until metal hero exists
+    icon: 'layers-2',
+  },
+  {
+    title: 'Commercial Roof Repair',
+    body: 'Targeted repair work — leaks, storm damage, seam re-welds — that extends the life of an existing system without the cost of full replacement.',
+    href: '/commercial-roofing/repair/',
+    image: '/images/projects/tpo-gallery-2.webp',
+    icon: 'wrench',
+  },
+  {
+    title: 'Commercial Roof Replacement',
+    body: 'Full system replacement when existing substrate or membrane is past the point where repair makes economic sense.',
+    href: '/commercial-roofing/replacement/',
+    image: '/images/services/commercial/tpo-crew-install.webp',
+    icon: 'refresh-cw',
+  },
+];
+
+const caseStudies = [
+  {
+    industryTag: 'INDUSTRIAL',
+    industryIcon: 'factory',
+    title: 'TechPark Logistics Center',
+    body: 'Reduced annual energy costs by 22% with 150,000 sq ft TPO retrofit.',
+    stats: [
+      { label: 'SIZE', value: '150K SQ FT' },
+      { label: 'ROI', value: '3.5 YEARS' },
+    ],
+    image: '/images/projects/tpo-techpark-logistics.webp',
+    href: '/projects/techpark-logistics-tpo/',
+  },
+  {
+    industryTag: 'RETAIL',
+    industryIcon: 'shopping-bag',
+    title: 'Dallas North Mall',
+    body: 'Complete overlay project completed during off-hours with zero store downtime.',
+    stats: [
+      { label: 'INSTALL', value: 'PHASED' },
+      { label: 'WATERPROOF', value: '100%' },
+    ],
+    image: '/images/projects/tpo-dallas-north-mall.webp',
+    href: '/projects/dallas-north-mall-tpo/',
+  },
+];
+---
+
+<BaseLayout
+  title="Card Variants — Dev Preview"
+  description="Three design directions for the Other Commercial Solutions and Case Study card components on the TPO pillar page."
+  canonicalPath="/_dev/card-variants/"
+  noindex={true}
+>
+  <div class="dev-page">
+    <header class="dev-header">
+      <h1>Card Variant Preview</h1>
+      <p>Three directions for each card. Page kept for posterity — the V2 picks below were extracted into production components on 2026-05-03.</p>
+      <p class="meta">
+        <strong>SELECTED — V2 Magazine Editorial</strong> for Other Commercial Solutions → <code>src/components/molecules/ServiceCard.astro</code>
+        <br/>
+        <strong>SELECTED — V2 Stats on Image</strong> for Case Studies → <code>src/components/molecules/CaseStudyCard.astro</code>
+        <br/>
+        Both vertical-agnostic. Wired into <code>commercial-roofing/[service]/index.astro</code> AND <code>residential-roofing/[service]/index.astro</code>.
+      </p>
+    </header>
+
+    {/* ═══════════════════════════════════════════════════════════════════════
+         OTHER COMMERCIAL SOLUTIONS — 3 variants
+         ═══════════════════════════════════════════════════════════════════ */}
+
+    <section class="variant-section">
+      <h2>Other Commercial Solutions — V1 · Icon Badge Overlay</h2>
+      <p class="variant-description">Image-top with a circular icon badge overlapping the image-content seam. Hunter-green badge, flag-red on hover. Body and "Learn more" stack cleanly below. Most architectural feel.</p>
+      <div class="grid grid-4">
+        {otherSolutions.map((s) => (
+          <a href={s.href} class="card-v1">
+            <div class="card-v1__image-wrap">
+              <div class="card-v1__image">
+                <img src={s.image} alt="" loading="lazy" />
+              </div>
+              <div class="card-v1__icon-badge">
+                <Icon name={s.icon} size={22} strokeWidth={2.25} />
+              </div>
+            </div>
+            <div class="card-v1__content">
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+              <span class="card-v1__cta">Learn more →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="variant-section">
+      <h2>Other Commercial Solutions — V2 · Magazine Editorial</h2>
+      <p class="variant-description">Full image with gradient at base. Icon and title share a single horizontal row in the content area for a more editorial rhythm. Eyebrow tag overlaid on image keeps the magazine feel.</p>
+      <div class="grid grid-4">
+        {otherSolutions.map((s) => (
+          <a href={s.href} class="card-v2">
+            <div class="card-v2__image">
+              <img src={s.image} alt="" loading="lazy" />
+              <span class="card-v2__eyebrow">COMMERCIAL</span>
+            </div>
+            <div class="card-v2__content">
+              <div class="card-v2__heading-row">
+                <Icon name={s.icon} size={20} strokeWidth={2.25} />
+                <h3>{s.title}</h3>
+              </div>
+              <p>{s.body}</p>
+              <span class="card-v2__cta">Learn more →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="variant-section">
+      <h2>Other Commercial Solutions — V3 · Geometric Split</h2>
+      <p class="variant-description">Image takes the top 60%. Content area has a 4px hunter-green accent strip on the left edge running floor-to-ceiling. Icon as a square (not round) badge in the top-right corner of the content. Brand-forward + structural.</p>
+      <div class="grid grid-4">
+        {otherSolutions.map((s) => (
+          <a href={s.href} class="card-v3">
+            <div class="card-v3__image">
+              <img src={s.image} alt="" loading="lazy" />
+            </div>
+            <div class="card-v3__content">
+              <div class="card-v3__icon-square">
+                <Icon name={s.icon} size={20} strokeWidth={2} />
+              </div>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+              <span class="card-v3__cta">Learn more →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <hr class="section-divider"/>
+
+    {/* ═══════════════════════════════════════════════════════════════════════
+         CASE STUDIES — 3 variants
+         ═══════════════════════════════════════════════════════════════════ */}
+
+    <section class="variant-section">
+      <h2>Case Studies — V1 · Industry Badge Overlay</h2>
+      <p class="variant-description">Closest to the original Figma. Full image dominant. Industry tag as a deep-navy chip with golden-orange text overlaid on top-left of image. Industry icon as a small ghost element next to the title. Stats in mono caps at the bottom.</p>
+      <div class="grid grid-2">
+        {caseStudies.map((c) => (
+          <a href={c.href} class="case-v1">
+            <div class="case-v1__image">
+              <img src={c.image} alt="" loading="lazy" />
+              <span class="case-v1__industry-chip">
+                <Icon name={c.industryIcon} size={14} strokeWidth={2.5} />
+                {c.industryTag}
+              </span>
+            </div>
+            <div class="case-v1__content">
+              <h3>{c.title}</h3>
+              <p>{c.body}</p>
+              <div class="case-v1__stats">
+                {c.stats.map((s) => (
+                  <div class="case-v1__stat">
+                    <div class="case-v1__stat-value">{s.value}</div>
+                    <div class="case-v1__stat-label">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="variant-section">
+      <h2>Case Studies — V2 · Stats on Image</h2>
+      <p class="variant-description">Image gets the dominant treatment. Stats overlay the image's bottom edge in a semi-transparent dark bar. Industry icon as a discrete top-right badge. Title + body in clean sans-serif below. Most editorial.</p>
+      <div class="grid grid-2">
+        {caseStudies.map((c) => (
+          <a href={c.href} class="case-v2">
+            <div class="case-v2__image">
+              <img src={c.image} alt="" loading="lazy" />
+              <span class="case-v2__industry-badge">
+                <Icon name={c.industryIcon} size={16} strokeWidth={2.25} />
+              </span>
+              <div class="case-v2__stats-bar">
+                {c.stats.map((s) => (
+                  <div class="case-v2__stat">
+                    <span class="case-v2__stat-label">{s.label}</span>
+                    <span class="case-v2__stat-value">{s.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div class="case-v2__content">
+              <span class="case-v2__industry-tag">{c.industryTag}</span>
+              <h3>{c.title}</h3>
+              <p>{c.body}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="variant-section">
+      <h2>Case Studies — V3 · Vertical Icon Pillar</h2>
+      <p class="variant-description">Image on top. A vertical golden-orange accent strip runs along the left edge of the content area with the industry icon vertically-centered. Stats in a clean inline row at the bottom. Strong visual rhythm; signals "this is a case study" instantly.</p>
+      <div class="grid grid-2">
+        {caseStudies.map((c) => (
+          <a href={c.href} class="case-v3">
+            <div class="case-v3__image">
+              <img src={c.image} alt="" loading="lazy" />
+            </div>
+            <div class="case-v3__content">
+              <div class="case-v3__icon-pillar">
+                <Icon name={c.industryIcon} size={26} strokeWidth={2} />
+              </div>
+              <div class="case-v3__text">
+                <span class="case-v3__industry-tag">{c.industryTag}</span>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+                <div class="case-v3__stats-row">
+                  {c.stats.map((s, i) => (
+                    <span class="case-v3__stat">
+                      <strong>{s.value}</strong>
+                      <em>{s.label}</em>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <footer class="dev-footer">
+      <p>Pick the variants you want and tell Maren — they'll be extracted into production components and wired into the TPO pillar page.</p>
+    </footer>
+  </div>
+</BaseLayout>
+
+<style>
+  /* ─── Page chrome ─── */
+  .dev-page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    color: #11133f;
+    font-family: 'Archivo', system-ui, sans-serif;
+  }
+  .dev-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+    color: #11133f;
+  }
+  .dev-header p {
+    font-size: 1rem;
+    line-height: 1.55;
+    color: #374151;
+    margin: 0 0 0.5rem;
+    max-width: 720px;
+  }
+  .dev-header .meta {
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    background: #F9FAFB;
+    border-left: 3px solid #3b6b4c;
+    font-size: 0.875rem;
+  }
+  .dev-header code {
+    background: #E5E7EB;
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+    font-size: 0.8125rem;
+    font-family: ui-monospace, monospace;
+  }
+
+  .variant-section {
+    margin-top: 3.5rem;
+  }
+  .variant-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #11133f;
+    margin: 0 0 0.5rem;
+  }
+  .variant-description {
+    color: #374151;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    margin: 0 0 1.5rem;
+    max-width: 760px;
+  }
+
+  .grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  @media (min-width: 900px) {
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  .section-divider {
+    border: 0;
+    border-top: 2px solid #E5E7EB;
+    margin: 4rem 0;
+  }
+  .dev-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #E5E7EB;
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     OTHER COMMERCIAL SOLUTIONS VARIANTS
+     ════════════════════════════════════════════════════════════════════ */
+
+  /* ─── V1 · Icon Badge Overlay ─── */
+  .card-v1 {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: 1px solid #E5E7EB;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .card-v1:hover {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .card-v1__image-wrap {
+    position: relative;
+    /* Allow badge to overflow downward past the image */
+  }
+  .card-v1__image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #F3F4F6;
+  }
+  .card-v1__image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 400ms ease;
+  }
+  .card-v1:hover .card-v1__image img { transform: scale(1.05); }
+  .card-v1__icon-badge {
+    position: absolute;
+    bottom: -24px;
+    left: 1.25rem;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: #3b6b4c;
+    color: #ffffff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 8px -2px rgba(0,0,0,0.18);
+    transition: background 200ms ease;
+    z-index: 2;
+  }
+  .card-v1:hover .card-v1__icon-badge {
+    background: #C22326;
+  }
+  .card-v1__content {
+    padding: 2.25rem 1.25rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-v1__content h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #11133f;
+    margin: 0 0 0.5rem;
+  }
+  .card-v1__content p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #374151;
+    margin: 0;
+    flex: 1;
+  }
+  .card-v1__cta {
+    margin-top: 1rem;
+    color: #C22326;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  /* ─── V2 · Magazine Editorial ─── */
+  .card-v2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: 1px solid #E5E7EB;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .card-v2:hover {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .card-v2__image {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #F3F4F6;
+  }
+  .card-v2__image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 400ms ease;
+  }
+  .card-v2:hover .card-v2__image img { transform: scale(1.05); }
+  .card-v2__image::after {
+    content: '';
+    position: absolute; inset: auto 0 0 0; height: 50%;
+    background: linear-gradient(to top, rgba(17,19,63,0.65), transparent);
+    pointer-events: none;
+  }
+  .card-v2__eyebrow {
+    position: absolute;
+    top: 0.875rem; left: 0.875rem;
+    background: #eaa221;
+    color: #11133f;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    border-radius: 3px;
+    z-index: 2;
+  }
+  .card-v2__content {
+    padding: 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-v2__heading-row {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.5rem;
+    color: #3b6b4c;
+  }
+  .card-v2__heading-row h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #11133f;
+    margin: 0;
+  }
+  .card-v2__content p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #374151;
+    margin: 0;
+    flex: 1;
+  }
+  .card-v2__cta {
+    margin-top: 1rem;
+    color: #C22326;
+    font-size: 0.875rem;
+    font-weight: 600;
+    position: relative;
+    align-self: flex-start;
+  }
+  .card-v2__cta::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -2px;
+    height: 2px; background: #eaa221;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 200ms ease;
+  }
+  .card-v2:hover .card-v2__cta::after { transform: scaleX(1); }
+
+  /* ─── V3 · Geometric Split ─── */
+  .card-v3 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: 1px solid #E5E7EB;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .card-v3:hover {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .card-v3__image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #F3F4F6;
+  }
+  .card-v3__image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 400ms ease;
+  }
+  .card-v3:hover .card-v3__image img { transform: scale(1.05); }
+  .card-v3__content {
+    position: relative;
+    padding: 1.25rem 1.25rem 1.5rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid #3b6b4c;
+  }
+  .card-v3__icon-square {
+    position: absolute;
+    top: 1.25rem; right: 1.25rem;
+    width: 40px; height: 40px;
+    background: #11133f;
+    color: #eaa221;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 4px;
+  }
+  .card-v3__content h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #11133f;
+    margin: 0 0 0.5rem;
+    padding-right: 3.25rem;  /* room for icon */
+  }
+  .card-v3__content p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #374151;
+    margin: 0;
+    flex: 1;
+  }
+  .card-v3__cta {
+    margin-top: 1rem;
+    color: #C22326;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     CASE STUDY VARIANTS
+     ════════════════════════════════════════════════════════════════════ */
+
+  /* ─── Case V1 · Industry Badge Overlay ─── */
+  .case-v1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: 1px solid #E5E7EB;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .case-v1:hover {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .case-v1__image {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #F3F4F6;
+  }
+  .case-v1__image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 400ms ease;
+  }
+  .case-v1:hover .case-v1__image img { transform: scale(1.04); }
+  .case-v1__industry-chip {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    display: inline-flex; align-items: center; gap: 0.375rem;
+    padding: 0.4rem 0.75rem;
+    background: #11133f;
+    color: #eaa221;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    border-radius: 3px;
+    z-index: 2;
+  }
+  .case-v1__content {
+    padding: 1.5rem;
+  }
+  .case-v1__content h3 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #11133f;
+    margin: 0 0 0.625rem;
+  }
+  .case-v1__content p {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #374151;
+    margin: 0 0 1.25rem;
+  }
+  .case-v1__stats {
+    display: flex;
+    gap: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #E5E7EB;
+  }
+  .case-v1__stat-value {
+    font-family: ui-monospace, monospace;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #11133f;
+    letter-spacing: 0.05em;
+  }
+  .case-v1__stat-label {
+    font-family: ui-monospace, monospace;
+    font-size: 0.6875rem;
+    color: #6b7280;
+    letter-spacing: 0.1em;
+    margin-top: 0.125rem;
+  }
+
+  /* ─── Case V2 · Stats on Image ─── */
+  .case-v2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: 1px solid #E5E7EB;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .case-v2:hover {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .case-v2__image {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: #F3F4F6;
+  }
+  .case-v2__image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 400ms ease;
+  }
+  .case-v2:hover .case-v2__image img { transform: scale(1.04); }
+  .case-v2__industry-badge {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.95);
+    color: #3b6b4c;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .case-v2__stats-bar {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex; gap: 0;
+    background: linear-gradient(to top, rgba(17,19,63,0.92), rgba(17,19,63,0.65));
+    padding: 1rem 1.25rem;
+    backdrop-filter: blur(2px);
+    color: #ffffff;
+    z-index: 2;
+  }
+  .case-v2__stat {
+    display: flex; flex-direction: column;
+    flex: 1;
+  }
+  .case-v2__stat:not(:last-child) {
+    border-right: 1px solid rgba(255,255,255,0.2);
+    margin-right: 1rem; padding-right: 1rem;
+  }
+  .case-v2__stat-label {
+    font-size: 0.6875rem;
+    color: #eaa221;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+  .case-v2__stat-value {
+    font-family: ui-monospace, monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-top: 0.125rem;
+  }
+  .case-v2__content {
+    padding: 1.5rem;
+  }
+  .case-v2__industry-tag {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #C22326;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .case-v2__content h3 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #11133f;
+    margin: 0 0 0.5rem;
+  }
+  .case-v2__content p {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #374151;
+    margin: 0;
+  }
+
+  /* ─── Case V3 · Vertical Icon Pillar ─── */
+  .case-v3 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: 1px solid #E5E7EB;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .case-v3:hover {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .case-v3__image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #F3F4F6;
+  }
+  .case-v3__image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 400ms ease;
+  }
+  .case-v3:hover .case-v3__image img { transform: scale(1.04); }
+  .case-v3__content {
+    display: flex;
+    align-items: stretch;
+  }
+  .case-v3__icon-pillar {
+    width: 64px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #eaa221 0%, #c28412 100%);
+    color: #11133f;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .case-v3__text {
+    flex: 1;
+    padding: 1.5rem;
+  }
+  .case-v3__industry-tag {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #3b6b4c;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .case-v3__text h3 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #11133f;
+    margin: 0 0 0.5rem;
+  }
+  .case-v3__text p {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #374151;
+    margin: 0 0 1.25rem;
+  }
+  .case-v3__stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #E5E7EB;
+  }
+  .case-v3__stat {
+    display: flex; flex-direction: column;
+  }
+  .case-v3__stat strong {
+    font-family: ui-monospace, monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #11133f;
+    letter-spacing: 0.05em;
+  }
+  .case-v3__stat em {
+    font-family: ui-monospace, monospace;
+    font-size: 0.6875rem;
+    color: #6b7280;
+    letter-spacing: 0.1em;
+    font-style: normal;
+    margin-top: 0.125rem;
+  }
+</style>
+</BaseLayout>

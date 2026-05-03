@@ -21,6 +21,8 @@ import CTABanner from '../../../components/molecules/CTABanner.astro';
 import FAQ from '../../../components/molecules/FAQ.astro';
 import Card from '../../../components/molecules/Card.astro';
 import ServiceTile from '../../../components/molecules/ServiceTile.astro';
+import ServiceCard from '../../../components/molecules/ServiceCard.astro';
+import CaseStudyCard from '../../../components/molecules/CaseStudyCard.astro';
 import PartnerNetworkDisclosure from '../../../components/atoms/PartnerNetworkDisclosure.astro';
 import { serviceSchema } from '../../../lib/schema/Service';
 import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
@@ -85,6 +87,7 @@ if (data.faqs && data.faqs.length > 0) {
   <ServiceHero
     title={data.h1}
     image={data.heroImage}
+    video={data.heroVideo}
     breadcrumbs={breadcrumbs}
   />
 
@@ -149,16 +152,30 @@ if (data.faqs && data.faqs.length > 0) {
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               {topStudies.map((study) => (
-                <Card
+                <CaseStudyCard
                   title={study.data.projectName}
                   description={study.data.description}
-                  eyebrow={study.data.scope}
                   href={study.data.canonicalPath}
+                  image={study.data.heroImage ?? '/images/projects/tpo-gallery-1.webp'}
+                  industryTag={study.data.industryTag ?? study.data.industryCategory.toUpperCase()}
+                  industryIcon={study.data.industryIcon ?? 'building'}
+                  stats={study.data.stats ?? []}
                 />
               ))}
             </div>
           </div>
         </section>
+      )}
+
+      {/* ── 7.5. Editorial body ──────────────────────────────
+         Magazine layouts can ALSO carry a long-form prose body in the
+         markdown (deeper editorial: tables, pull-quotes, "Why us", etc.).
+         Render only if the entry actually has body content beyond the
+         frontmatter. */}
+      {entry.body && entry.body.trim().length > 50 && (
+        <article class="prose prose-slate mx-auto max-w-3xl px-4 py-16">
+          <Content />
+        </article>
       )}
     </>
   ) : (
@@ -193,11 +210,13 @@ if (data.faqs && data.faqs.length > 0) {
         <h2 class="mb-12 text-center text-3xl font-display font-bold tracking-tight text-text-primary">Other Commercial Solutions</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {siblings.map((sibling) => (
-            <ServiceTile
-              name={sibling.data.name}
+            <ServiceCard
+              title={sibling.data.name}
               description={sibling.data.description}
               href={sibling.data.canonicalPath}
-              icon="building"
+              image={sibling.data.heroImage}
+              icon={sibling.data.cardIcon ?? 'building'}
+              eyebrow="COMMERCIAL"
             />
           ))}
         </div>

@@ -9,6 +9,10 @@ export interface BreadcrumbItem {
 export interface Props {
   title: string;
   image?: string;
+  /** Optional looping background video. Pass either a single source path or
+   *  { webm, mp4 } for cross-browser support. Image is used as the poster and
+   *  as the prefers-reduced-motion fallback. */
+  video?: string | { webm?: string; mp4?: string };
   breadcrumbs?: BreadcrumbItem[];
   class?: string;
 }
@@ -16,19 +20,45 @@ export interface Props {
 const {
   title,
   image,
+  video,
   breadcrumbs = [],
   class: className = '',
 } = Astro.props;
+
+// Normalize video prop into <source> entries
+const videoSources: { src: string; type: string }[] = [];
+if (typeof video === 'string') {
+  const ext = video.split('.').pop()?.toLowerCase();
+  videoSources.push({ src: video, type: ext === 'webm' ? 'video/webm' : 'video/mp4' });
+} else if (video && typeof video === 'object') {
+  if (video.webm) videoSources.push({ src: video.webm, type: 'video/webm' });
+  if (video.mp4) videoSources.push({ src: video.mp4, type: 'video/mp4' });
+}
+const hasVideo = videoSources.length > 0;
 ---
 
 <section class={`relative isolate overflow-hidden ${className}`}>
-  <!-- Background image -->
+  <!-- Background image / looping video -->
   <div class="absolute inset-0 -z-10 bg-surface-inverted">
+    {hasVideo && (
+      <video
+        class="h-full w-full object-cover opacity-50 motion-reduce:hidden"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster={image}
+        aria-hidden="true"
+      >
+        {videoSources.map((s) => <source src={s.src} type={s.type} />)}
+      </video>
+    )}
     {image && (
       <img
         src={image}
         alt=""
-        class="h-full w-full object-cover opacity-40"
+        class={`h-full w-full object-cover opacity-40 ${hasVideo ? 'motion-reduce:opacity-40 hidden motion-reduce:block' : ''}`}
         loading="eager"
       />
     )}

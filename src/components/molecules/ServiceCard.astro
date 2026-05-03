@@ -1,0 +1,149 @@
+---
+/**
+ * ServiceCard.astro — Magazine-editorial card (V2 selected 2026-05-03).
+ *
+ * Used for "Other Commercial Solutions" / "Other Residential Services" / any
+ * sibling-service cross-sell strip. Vertical-agnostic — pass `eyebrow` to
+ * label as COMMERCIAL / RESIDENTIAL / SERVICE / etc.
+ *
+ * Pattern: full image on top with subtle gradient at base, eyebrow tag
+ * overlaid on top-left of image, icon + title share a row in content.
+ *
+ * Replaces the older ServiceTile.astro on magazine layouts. ServiceTile
+ * remains for places that don't need imagery (the commercial-roofing
+ * pillar landing page still uses it).
+ */
+import Icon from '../atoms/Icon.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+  image?: string;
+  /** Lucide icon name. Falls back to a sensible default per vertical. */
+  icon?: string;
+  /** Tag overlaid on the image — e.g. "COMMERCIAL", "RESIDENTIAL", "SERVICE". */
+  eyebrow?: string;
+  /** CTA microcopy. Defaults to "Learn more". */
+  ctaText?: string;
+  class?: string;
+}
+
+const {
+  title,
+  description,
+  href,
+  image,
+  icon = 'building',
+  eyebrow,
+  ctaText = 'Learn more',
+  class: className = '',
+} = Astro.props;
+---
+
+<a href={href} class={`service-card ${className}`}>
+  {image && (
+    <div class="service-card__image">
+      <img src={image} alt="" loading="lazy" />
+      {eyebrow && <span class="service-card__eyebrow">{eyebrow}</span>}
+    </div>
+  )}
+  <div class="service-card__content">
+    <div class="service-card__heading-row">
+      <Icon name={icon} size={20} strokeWidth={2.25} />
+      <h3>{title}</h3>
+    </div>
+    <p>{description}</p>
+    <span class="service-card__cta">{ctaText} →</span>
+  </div>
+</a>
+
+<style>
+  .service-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: 1px solid #E5E7EB;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .service-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .service-card__image {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #F3F4F6;
+  }
+  .service-card__image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 400ms ease;
+  }
+  .service-card:hover .service-card__image img { transform: scale(1.05); }
+  .service-card__image::after {
+    content: '';
+    position: absolute; inset: auto 0 0 0; height: 50%;
+    background: linear-gradient(to top, rgba(17,19,63,0.65), transparent);
+    pointer-events: none;
+  }
+  .service-card__eyebrow {
+    position: absolute;
+    top: 0.875rem; left: 0.875rem;
+    background: #eaa221;
+    color: #11133f;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    border-radius: 3px;
+    z-index: 2;
+  }
+  .service-card__content {
+    padding: 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card__heading-row {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.5rem;
+    color: #3b6b4c;
+  }
+  .service-card__heading-row h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #11133f;
+    margin: 0;
+  }
+  .service-card__content p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #374151;
+    margin: 0;
+    flex: 1;
+  }
+  .service-card__cta {
+    margin-top: 1rem;
+    color: #C22326;
+    font-size: 0.875rem;
+    font-weight: 600;
+    position: relative;
+    align-self: flex-start;
+  }
+  .service-card__cta::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -2px;
+    height: 2px; background: #eaa221;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 200ms ease;
+  }
+  .service-card:hover .service-card__cta::after { transform: scaleX(1); }
+</style>

@@ -1,0 +1,166 @@
+---
+/**
+ * CaseStudyCard.astro — Stats-on-image card (V2 selected 2026-05-03).
+ *
+ * Used for case-study cards on service-detail pillars. Vertical-agnostic —
+ * works for commercial industries (Industrial / Retail / Distribution) and
+ * residential categories (Multi-Family / Single-Family / Storm Response).
+ *
+ * Pattern: image at 16:10 dominant, stats overlaid on a semi-transparent
+ * dark gradient bar at the image's bottom, industry icon as a discrete
+ * circular badge in the top-right, title + description below image.
+ *
+ * Replaces the older Card.astro on case-study cross-sell strips. Card.astro
+ * remains for general-purpose cards elsewhere on the site.
+ */
+import Icon from '../atoms/Icon.astro';
+
+export interface Stat {
+  label: string;
+  value: string;
+}
+
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+  image: string;
+  /** Industry tag e.g. "INDUSTRIAL", "RETAIL", "MULTI-FAMILY". */
+  industryTag?: string;
+  /** Lucide icon for the industry — defaults to a generic building icon. */
+  industryIcon?: string;
+  /** Up to 3 stat pairs. Rendered as overlay on the image. */
+  stats?: Stat[];
+  class?: string;
+}
+
+const {
+  title,
+  description,
+  href,
+  image,
+  industryTag,
+  industryIcon = 'building',
+  stats = [],
+  class: className = '',
+} = Astro.props;
+---
+
+<a href={href} class={`case-card ${className}`}>
+  <div class="case-card__image">
+    <img src={image} alt="" loading="lazy" />
+    <span class="case-card__industry-badge" aria-label={industryTag}>
+      <Icon name={industryIcon} size={16} strokeWidth={2.25} />
+    </span>
+    {stats.length > 0 && (
+      <div class="case-card__stats-bar">
+        {stats.slice(0, 3).map((s) => (
+          <div class="case-card__stat">
+            <span class="case-card__stat-label">{s.label}</span>
+            <span class="case-card__stat-value">{s.value}</span>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+  <div class="case-card__content">
+    {industryTag && <span class="case-card__industry-tag">{industryTag}</span>}
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+</a>
+
+<style>
+  .case-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: 1px solid #E5E7EB;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .case-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .case-card__image {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: #F3F4F6;
+  }
+  .case-card__image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 400ms ease;
+  }
+  .case-card:hover .case-card__image img { transform: scale(1.04); }
+  .case-card__industry-badge {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.95);
+    color: #3b6b4c;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .case-card__stats-bar {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex; gap: 0;
+    background: linear-gradient(to top, rgba(17,19,63,0.92), rgba(17,19,63,0.65));
+    padding: 1rem 1.25rem;
+    backdrop-filter: blur(2px);
+    color: #ffffff;
+    z-index: 2;
+  }
+  .case-card__stat {
+    display: flex; flex-direction: column;
+    flex: 1;
+  }
+  .case-card__stat:not(:last-child) {
+    border-right: 1px solid rgba(255,255,255,0.2);
+    margin-right: 1rem; padding-right: 1rem;
+  }
+  .case-card__stat-label {
+    font-size: 0.6875rem;
+    color: #eaa221;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+  .case-card__stat-value {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-top: 0.125rem;
+  }
+  .case-card__content {
+    padding: 1.5rem;
+  }
+  .case-card__industry-tag {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #C22326;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .case-card__content h3 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #11133f;
+    margin: 0 0 0.5rem;
+  }
+  .case-card__content p {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #374151;
+    margin: 0;
+  }
+</style>

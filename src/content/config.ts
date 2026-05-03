@@ -30,8 +30,17 @@ const services = defineCollection({
     name: z.string(),
     h1: z.string(),
     heroImage: z.string().optional(),   // public/ path or placeholder
+    /** Optional looping hero background video (silent, autoplay).
+     *  Pass either a single path or { webm, mp4 } for cross-browser delivery. */
+    heroVideo: z.union([
+      z.string(),
+      z.object({ webm: z.string().optional(), mp4: z.string().optional() }),
+    ]).optional(),
     faqs: z.array(faqItem).optional(),
     relatedServices: z.array(z.string()).optional(), // slugs within same vertical
+    /** Lucide icon name for the ServiceCard cross-sell tile.
+     *  Falls back to "building" (commercial) or "home" (residential) if unset. */
+    cardIcon: z.string().optional(),
     // Path C — partner-fulfilled services
     partnerFulfilled: z.boolean().default(false),
 
@@ -143,6 +152,16 @@ const caseStudies = defineCollection({
     scope: z.string(),
     timeline: z.string().optional(),
     testimonial: z.string().optional(),
+    /** Industry tag rendered on the case-study card (e.g. "INDUSTRIAL", "RETAIL", "MULTI-FAMILY").
+     *  Falls back to industryCategory uppercased when unset. */
+    industryTag: z.string().optional(),
+    /** Lucide icon for the industry badge on the case-study card. */
+    industryIcon: z.string().optional(),
+    /** Up to 3 stat pairs overlaid on the case-study card image. */
+    stats: z.array(z.object({
+      label: z.string(),
+      value: z.string(),
+    })).optional(),
   }),
 });
 
