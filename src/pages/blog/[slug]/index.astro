@@ -45,6 +45,28 @@ const { kind, entry } = Astro.props as Props;
 const { Content } = await entry.render();
 const data = entry.data;
 
+const fallbackImagesByPillar: Record<string, string> = {
+  'commercial-roofing': '/images/blog/commercial-roofing-featured.webp',
+  'residential-roofing': '/images/blog/residential-roofing-featured.webp',
+  'roof-repair': '/images/services/commercial/repair-hero.webp',
+  'storm-damage': '/images/services/residential/storm-damage-hero.webp',
+  proplan: '/images/commercial-hero.webp',
+  'total-home-shield': '/images/residential-hero.webp',
+  'property-card': '/images/locations-hero.webp',
+};
+
+const postData = kind === 'post' ? (entry as CollectionEntry<'blogPosts'>).data : null;
+const pillarData = kind === 'pillar' ? (entry as CollectionEntry<'pillars'>).data : null;
+const heroImage = postData
+  ? postData.heroImage ?? fallbackImagesByPillar[postData.pillar] ?? '/images/blog-hero.webp'
+  : pillarData?.heroImage ?? '/images/blog-hero.webp';
+const categoryLabel = postData?.pillar.replace(/-/g, ' ');
+const publishedDate = postData?.publishDate.toLocaleDateString('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+});
+
 const breadcrumbs = [
   { label: 'Home', href: '/' },
   { label: 'Blog', href: '/blog/' },
@@ -62,6 +84,7 @@ if (kind === 'post') {
       datePublished: post.data.publishDate.toISOString(),
       dateModified: post.data.updatedDate?.toISOString(),
       author: post.data.author,
+      image: `https://pc-demo.cleverwork.io${heroImage}`,
       url: `https://pc-demo.cleverwork.io${post.data.canonicalPath}`,
     }),
   );
@@ -93,14 +116,43 @@ if (kind === 'post') {
 
   {kind === 'post' ? (
     <>
-      <article class="mx-auto max-w-3xl px-4 py-16">
-        <p class="text-sm text-text-tertiary mb-2">By {(entry as CollectionEntry<'blogPosts'>).data.author}</p>
-        <h1 class="text-4xl font-display font-bold tracking-tight text-text-primary sm:text-5xl mb-6">
-          {data.title}
-        </h1>
-        <p class="text-lg text-text-secondary mb-10">{data.description}</p>
-        <div class="prose prose-lg">
-          <Content />
+      <article>
+        <header class="bg-surface-inset">
+          <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,0.7fr)] lg:items-center lg:px-8 lg:py-20">
+            <div>
+              <p class="text-sm font-bold uppercase tracking-widest text-accent">{categoryLabel}</p>
+              <h1 class="mt-4 text-4xl font-display font-bold tracking-tight text-text-primary sm:text-5xl lg:text-6xl">
+                {data.title}
+              </h1>
+              <p class="mt-6 max-w-3xl text-xl leading-8 text-text-secondary">{data.description}</p>
+              <div class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-text-tertiary">
+                <span>By {postData?.author}</span>
+                {publishedDate && <span aria-hidden="true">•</span>}
+                {publishedDate && <time datetime={postData?.publishDate.toISOString()}>{publishedDate}</time>}
+              </div>
+            </div>
+            <div class="overflow-hidden rounded-3xl bg-border shadow-xl ring-1 ring-border">
+              <img
+                src={heroImage}
+                alt=""
+                class="h-full min-h-[280px] w-full object-cover"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </header>
+
+        <div class="mx-auto grid max-w-7xl gap-12 px-4 py-16 lg:grid-cols-[minmax(0,48rem)_18rem] lg:px-8">
+          <div class="prose prose-lg max-w-none prose-headings:font-display prose-a:text-accent">
+            <Content />
+          </div>
+          <aside class="h-fit rounded-2xl bg-surface-elevated p-6 ring-1 ring-border">
+            <p class="text-sm font-bold uppercase tracking-widest text-text-tertiary">Article Focus</p>
+            <p class="mt-3 text-lg font-semibold capitalize text-text-primary">{categoryLabel}</p>
+            <a href="/blog/" class="mt-6 inline-flex text-sm font-bold text-accent hover:underline">Back to Knowledge Hub →</a>
+          </aside>
         </div>
       </article>
       {(entry as CollectionEntry<'blogPosts'>).data.faqs && (entry as CollectionEntry<'blogPosts'>).data.faqs!.length > 0 && (
@@ -117,6 +169,7 @@ if (kind === 'post') {
       <HeroSection
         title={(entry as CollectionEntry<'pillars'>).data.name}
         subtitle={(entry as CollectionEntry<'pillars'>).data.intro}
+        image={heroImage}
       />
       <article class="prose mx-auto max-w-3xl px-4 py-16">
         <Content />

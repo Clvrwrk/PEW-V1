@@ -10,21 +10,38 @@ import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 const blogPosts = await getCollection('blogPosts');
 const pillars = await getCollection('pillars');
 
+const fallbackImagesByPillar: Record<string, string> = {
+  'commercial-roofing': '/images/blog/commercial-roofing-featured.webp',
+  'residential-roofing': '/images/blog/residential-roofing-featured.webp',
+  'roof-repair': '/images/services/commercial/repair-hero.webp',
+  'storm-damage': '/images/services/residential/storm-damage-hero.webp',
+  proplan: '/images/commercial-hero.webp',
+  'total-home-shield': '/images/residential-hero.webp',
+  'property-card': '/images/locations-hero.webp',
+};
+
+const formatCategory = (pillar: string) => pillar.replace(/-/g, ' ');
+
 const posts = blogPosts
   .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
   .map((post) => ({
     title: post.data.title,
     excerpt: post.data.description,
-    category: post.data.pillar.replace(/-/g, ' '),
+    category: formatCategory(post.data.pillar),
+    categorySlug: post.data.pillar,
     date: post.data.publishDate.toLocaleDateString('en-US', {
       month: 'long',
       day: 'numeric',
       year: 'numeric',
     }),
+    image: post.data.heroImage ?? fallbackImagesByPillar[post.data.pillar] ?? '/images/blog-hero.webp',
     url: post.data.canonicalPath,
   }));
 
-const categories = ['All', ...Array.from(new Set(posts.map((post) => post.category)))];
+const categories = [
+  { label: 'All', slug: 'all' },
+  ...Array.from(new Map(posts.map((post) => [post.categorySlug, { label: post.category, slug: post.categorySlug }])).values()),
+];
 
 const mainSchema = [
   collectionPageSchema(posts.map(p => ({ name: p.title, url: p.url, description: p.excerpt })), "Pro Exteriors Blog", "Insights and guides on roofing and exterior maintenance."),
@@ -54,23 +71,40 @@ const mainSchema = [
   <section class="py-12 border-b">
     <div class="max-w-7xl mx-auto px-4 flex flex-wrap gap-4 justify-center">
       {categories.map((cat, index) => (
-        <button class={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${index === 0 ? 'bg-brand-primary text-text-on-brand' : 'bg-surface-inset text-text-secondary hover:bg-border'}`}>
-          {cat}
+        <button
+          type="button"
+          class={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${index === 0 ? 'bg-brand-primary text-text-on-brand' : 'bg-surface-inset text-text-secondary hover:bg-border'}`}
+          data-blog-filter={cat.slug}
+          aria-pressed={index === 0 ? 'true' : 'false'}
+        >
+          {cat.label}
         </button>
       ))}
     </div>
   </section>
 
   <section class="py-20 px-4 max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div class="mb-10 text-center" aria-live="polite">
+      <p class="text-sm font-semibold uppercase tracking-widest text-text-tertiary" data-blog-count>
+        Showing all {posts.length} guides
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" data-blog-grid>
       {posts.map(post => (
-        <article class="group">
+        <article class="group" data-blog-card data-category={post.categorySlug}>
           <div class="aspect-video bg-border rounded-2xl mb-6 overflow-hidden relative">
-            <div class="absolute top-4 left-4">
-          <Badge variant="primary">{post.category}</Badge>
+            <a href={post.url} class="block h-full" aria-label={`Read ${post.title}`}>
+              <img
+                src={post.image}
+                alt=""
+                class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <div class="absolute top-4 left-4 z-10">
+              <Badge variant="primary">{post.category}</Badge>
             </div>
-            <!-- Image placeholder -->
-            <div class="w-full h-full bg-brand-primary opacity-10 group-hover:opacity-20 transition-opacity"></div>
           </div>
           <div class="space-y-4">
             <p class="text-sm text-text-tertiary">{post.date}</p>
@@ -120,4 +154,43 @@ const mainSchema = [
       </form>
     </div>
   </section>
+
+  <script is:inline>
+    (() => {
+      const buttons = Array.from(document.querySelectorAll('[data-blog-filter]'));
+      const cards = Array.from(document.querySelectorAll('[data-blog-card]'));
+      const count = document.querySelector('[data-blog-count]');
+
+      const setActive = (activeButton) => {
+        buttons.forEach((button) => {
+          const isActive = button === activeButton;
+          button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+          button.classList.toggle('bg-brand-primary', isActive);
+          button.classList.toggle('text-text-on-brand', isActive);
+          button.classList.toggle('bg-surface-inset', !isActive);
+          button.classList.toggle('text-text-secondary', !isActive);
+        });
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const filter = button.getAttribute('data-blog-filter');
+          let visible = 0;
+
+          cards.forEach((card) => {
+            const matches = filter === 'all' || card.getAttribute('data-category') === filter;
+            card.toggleAttribute('hidden', !matches);
+            if (matches) visible += 1;
+          });
+
+          setActive(button);
+          if (count) {
+            count.textContent = filter === 'all'
+              ? `Showing all ${visible} guides`
+              : `Showing ${visible} ${button.textContent?.trim() ?? ''} guides`;
+          }
+        });
+      });
+    })();
+  </script>
 </BaseLayout>
