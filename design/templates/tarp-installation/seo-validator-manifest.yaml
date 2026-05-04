@@ -1,0 +1,95 @@
+# aia4-seo-validator manifest — Tarp Installation
+# Phase 1 · 2026-05-03
+
+target_keyword:
+  keyword: "emergency roof tarp"
+  search_volume: 880
+  cpc_usd: 35.95
+  competition: MEDIUM
+  read: |
+    $35.95 CPC with effectively zero dedicated competitor pages. This is the
+    single fastest-converting entry point in the residential silo — searchers
+    have an active emergency. MEDIUM competition at 880 volume is still winnable
+    with a dedicated, fast-loading, conversion-optimized page. No competitor has
+    a standalone tarp installation page, which means any page targeting this
+    cluster ranks by default with minimal SEO effort.
+
+primary_secondaries:
+  - keyword: "roof tarp installation"
+    search_volume: 1300
+    cpc_usd: 26.95
+    competition: LOW
+    read: "Higher volume than head term at LOW comp — use in H1 alongside 'emergency'."
+  - keyword: "emergency roof tarping"
+    search_volume: 720
+    cpc_usd: 31.40
+    competition: LOW
+    read: "Gerund variant — use in subhead and trust strip."
+  - keyword: "temporary roof repair"
+    search_volume: 2400
+    cpc_usd: 18.60
+    competition: LOW
+    read: "Broader temp-repair term — seed in what-tarping-does section and FAQ."
+  - keyword: "roof tarp after storm"
+    search_volume: 590
+    cpc_usd: 22.10
+    competition: LOW
+    read: "Storm-trigger variant — seed in service overview."
+  - keyword: "roof tarping near me"
+    search_volume: 480
+    cpc_usd: 28.30
+    competition: LOW
+    read: "Local intent — geo moat (state mentions) addresses this."
+
+lsi_keywords:
+  action:
+    - { kw: "stop roof leak", vol: 3600 }
+    - { kw: "roof water damage", vol: 4400 }
+    - { kw: "emergency roof repair", vol: 8100 }
+  process:
+    - { kw: "roof tarp cost", vol: 720 }
+    - { kw: "how to tarp a roof", vol: 2400 }
+    - { kw: "tarp storm damage roof", vol: 590 }
+  insurance:
+    - { kw: "insurance cover emergency roof", vol: 480 }
+  geographic_moats:
+    - TX, CO, KS, MO, GA (2–4× each)
+
+term_frequency_targets:
+  "emergency":
+    target_range: "10–16"
+    placement: "Title (1), H1 (1), meta (1), trust strip (1), headings (2–3), body (4–6)"
+  "roof tarp":
+    target_range: "12–18"
+  "tarping":
+    target_range: "8–14"
+  "temporary":
+    target_range: "5–8"
+  "water intrusion":
+    target_range: "3–5"
+  "storm damage":
+    target_range: "5–8"
+  "insurance":
+    target_range: "4–7"
+  geographic_moats: "Each state 2–4×"
+
+performance_gate:
+  lcp_target: "<1.0s on 4G mobile"
+  lcp_element: "H1 text + phone CTA button — NOT an image"
+  hero_background: "CSS gradient or flat color only — no background-image"
+  phone_placement: "ABOVE THE FOLD as primary CTA — largest interactive element in hero"
+  images_below_fold: "ALL loading=lazy + explicit width/height"
+  video: "PROHIBITED anywhere on page"
+  tarp_longevity: "No specific lifespan claims — 'temporary protection until permanent repairs' only"
+
+schema_types_required:
+  - type: RoofingContractor
+  - type: Service
+    notes: "serviceType: Emergency Roof Tarp Installation"
+  - type: BreadcrumbList
+  - type: FAQPage
+
+status: pass
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

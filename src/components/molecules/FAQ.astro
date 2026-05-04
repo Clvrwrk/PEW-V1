@@ -22,7 +22,8 @@ const faqSchema = {
     "name": faq.question,
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": faq.answer
+      // Strip HTML tags for schema text — Google rejects markup in Answer.text
+      "text": faq.answer.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()
     }
   }))
 };
@@ -42,7 +43,7 @@ const faqSchema = {
         </span>
       </summary>
       <div class="px-6 pb-4 text-text-secondary prose prose-sm max-w-none">
-        <p>{faq.answer}</p>
+        <p set:html={faq.answer} />
       </div>
     </details>
   ))}

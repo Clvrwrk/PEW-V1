@@ -1,0 +1,112 @@
+# Insurance Claim Assistance — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 on 2026-05-03
+# Low-volume but zero-competition, unrebutted positioning territory
+
+slug: insurance-claim-assistance
+template: residential-service
+location: null
+target_keyword: "insurance claim roof damage"
+secondary_keywords:
+  - "roof insurance claim"
+  - "insurance claim roofing contractor"
+  - "storm damage insurance claim roof"
+  - "hail damage insurance claim"
+  - "insurance deductible roof repair"
+  - "roof claim process"
+audience: residential-homeowner
+intent: solution-aware                 # Homeowner has damage; is researching the claim process before choosing contractor
+hypothesis: |
+  Insurance claim handling is an unrebutted positioning territory — competitors
+  barely mention it (cluster mean ~0.6 per the residential pillar SEO audit),
+  yet the "insurance claim roof" keyword cluster reflects a high-anxiety, high-
+  intent search by homeowners immediately after storm events. A dedicated page
+  that walks the homeowner through the exact claim process (adjuster, estimate
+  matching, supplement filing, direct pay) and positions Pro Exteriors as the
+  advocate — not just the installer — will:
+    (a) capture the insurance-claim long-tail cluster (including "roof claim
+        process", "storm damage insurance claim roof") with minimal competition
+        over 6 months; AND
+    (b) drive ≥35% form completion on 'Get a Free Damage Assessment' CTA
+        within 90 days — highest conversion hypothesis in the silo because
+        homeowners searching this keyword have already decided they have
+        damage, they just need an advocate.
+
+seo_copy:
+  metadata:
+    title: "Roof Insurance Claim Assistance — Pro Exteriors Guides You Through the Process"
+    meta_description: "Pro Exteriors helps TX, CO, KS, MO & GA homeowners navigate storm damage roof insurance claims — from damage assessment to final settlement. Free inspection, no surprises."
+    canonical: "https://proexteriorsus.com/residential/insurance-claim-assistance"
+  body_path: null
+  html_path: null
+
+figma:
+  reuse_template: residential-pillar
+  section_plan:
+    - id: hero
+      component: ServiceHero
+      notes: "H1 = 'Roof Insurance Claim Assistance from Pro Exteriors'. Primary CTA: 'Get Your Free Damage Assessment'. Secondary: 'See How the Claim Process Works'."
+    - id: trust_strip
+      component: inline
+      notes: "Storm Damage Specialists | Insurance Advocate | 5-State Coverage | [REPRESENTATIVE] rating | No Out-of-Pocket Surprises"
+    - id: service_overview
+      component: SplitIntro
+      notes: "Left: 'You have enough on your plate after a storm' — positions Pro Exteriors as the advocate. Right: what we handle (adjuster coordination, estimate matching, supplement filing)."
+    - id: claim_process_steps
+      component: QualityProcess
+      notes: "5 steps (or 4): (1) Free Damage Assessment & Photo Documentation, (2) We Contact Your Adjuster, (3) Estimate Review & Supplement Filing, (4) Approved — Schedule Installation, (5) Final Walkthrough & Settlement Confirmation."
+    - id: what_we_handle
+      component: BenefitsGrid
+      notes: "3 cards: Adjuster Coordination / Estimate Matching / Supplement Filing. Each: what it means, why it matters, how we do it."
+    - id: local_experts_proof
+      component: StatBand + Testimonial
+      notes: "Stat: number of storm claims handled [REPRESENTATIVE]. Testimonial: homeowner who went through the process. [REPRESENTATIVE] until real sourced."
+    - id: case_studies
+      component: CaseStudyCard × 3
+      notes: "Storm/hail claims across TX/CO/KS. Show the before → claim → installed arc. All [REPRESENTATIVE]."
+    - id: faq_insurance
+      component: FAQ
+      notes: "(1) Does Pro Exteriors work directly with my insurance company? (2) What if my claim is denied? (3) Will I owe anything out of pocket? (4) How long does the insurance claim process take?"
+    - id: final_cta
+      component: CTABanner
+      notes: "Primary: 'Get Your Free Storm Damage Assessment'. Secondary: link to /residential/storm-damage-repair."
+
+output:
+  page: "src/pages/residential/insurance-claim-assistance/index.astro"
+  assets: "src/assets/residential/insurance-claim-assistance/"
+
+silo:
+  role: T2-money-page
+  parent: "/residential"
+  parent_links_to_this_via: "insurance claim assistance for roof damage"
+  inbound_anchor_from_parent: descriptive
+  cross_links_to:
+    - "/residential/storm-damage-repair"
+    - "/residential/hail-damage-repair"
+    - "/residential/roof-replacement"
+
+flags:
+  - id: legal-compliance-insurance-claims
+    severity: critical
+    message: |
+      Insurance claim advocacy copy must be legally accurate. Do NOT imply
+      Pro Exteriors acts as a licensed public adjuster (unless they are).
+      The framing is "we coordinate with your adjuster" and "we help you
+      understand the estimate" — NOT "we file the claim for you" or "we
+      negotiate your settlement." Copywriter must flag any language that
+      could be construed as unlicensed public adjusting. Chris must review
+      this page's copy before ship.
+  - id: deductible-assistance
+    severity: warning
+    message: |
+      Some roofing contractors offer to waive or absorb insurance deductibles.
+      This practice is illegal in several states (TX, FL, CO among others).
+      Page must NOT promise deductible assistance or absorption. The Figma
+      financing band on the residential pillar mentions "Insurance Deductible
+      Assistance" — if that refers to financing the deductible via a third-
+      party lender, that's fine; if it implies Pro Exteriors absorbs it,
+      that is a legal red flag. Clarify with Chris before this language ships.
+
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

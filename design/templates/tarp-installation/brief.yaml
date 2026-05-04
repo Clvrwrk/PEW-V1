@@ -1,0 +1,112 @@
+# Emergency Roof Tarp Installation — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 on 2026-05-03
+# $35.95 CPC on "emergency roof tarp" — purest immediate-emergency intent.
+# Pro Exteriors-specific service; virtually no competitors have a dedicated page.
+
+slug: tarp-installation
+template: residential-service
+location: null
+target_keyword: "emergency roof tarp"
+secondary_keywords:
+  - "roof tarp installation"
+  - "emergency roof tarping"
+  - "temporary roof repair"
+  - "roof tarp after storm"
+  - "roof tarping near me"
+audience: residential-homeowner
+intent: transactional                  # The most transactional page in the silo — homeowner has active leak RIGHT NOW
+hypothesis: |
+  Tarp installation is a Pro Exteriors-specific service that virtually no
+  competitor has a dedicated page for. "Emergency roof tarp" earns $35.95
+  CPC at 880 searches/month with MEDIUM competition — but when combined
+  with "roof tarp installation" (110 vol, $26.95, LOW) and related emergency
+  terms, it's the single fastest-converting entry point in the silo.
+  A page that immediately answers "we can tarp your roof today" and converts
+  to a call/form will:
+    (a) own the "emergency roof tarp" cluster in served states within
+        90 days because there is effectively no dedicated competition; AND
+    (b) drive ≥50% phone-call or form-submit conversion from landing
+        because homeowners searching "emergency roof tarp" are in active
+        emergency — this is the highest-urgency, lowest-deliberation
+        conversion in the entire residential silo.
+
+seo_copy:
+  metadata:
+    title: "Emergency Roof Tarp Installation — Pro Exteriors | Storm Damage Response"
+    meta_description: "Roof damaged in a storm? Pro Exteriors installs emergency tarps across TX, CO, KS, MO & GA to stop the leak and protect your home until permanent repairs begin."
+    canonical: "https://proexteriorsus.com/residential/tarp-installation"
+  body_path: null
+  html_path: null
+
+figma:
+  reuse_template: residential-pillar
+  section_plan:
+    - id: hero
+      component: ServiceHero
+      notes: "H1 = 'Emergency Roof Tarp Installation by Pro Exteriors'. URGENT. Phone number as large as the H1. Primary CTA: 'Call for Emergency Tarping' (tel: link). Secondary: 'Request Online' (form). No decorative imagery in hero — speed is everything."
+    - id: trust_strip
+      component: inline
+      notes: "Emergency Response | Licensed & Insured | 5 States | Stops Leaks Fast | [REPRESENTATIVE] rating"
+    - id: what_tarping_does
+      component: SplitIntro
+      notes: "Left: 'What roof tarping does and why timing matters' — stop water intrusion, protect interior, preserve insurance claim. Right: same emergency CTA repeated."
+    - id: what_to_expect_grid
+      component: BenefitsGrid
+      notes: "3 cards: We Assess the Damage / We Install the Tarp Correctly / We Document Everything for Insurance. Short, action-oriented copy."
+    - id: process
+      component: QualityProcess
+      notes: "4 steps: You Call or Submit Online → We Arrive & Assess → Tarp Installed → Documentation Provided for Insurance."
+    - id: local_experts_proof
+      component: StatBand + Testimonial
+      notes: "Storm response stats [REPRESENTATIVE]. Testimonial from a homeowner who had a tarp emergency [REPRESENTATIVE]."
+    - id: next_steps_band
+      component: SplitIntro
+      notes: "What happens after the tarp: inspection → insurance coordination → permanent repair or replacement. Links to /residential/storm-damage-repair and /residential/insurance-claim-assistance."
+    - id: faq
+      component: FAQ
+      notes: "(1) How long will a tarp stay in place? (2) Will tarping prevent all water damage? (3) Does insurance cover emergency tarping? (4) How soon can Pro Exteriors arrive after I call?"
+    - id: final_cta
+      component: CTABanner
+      notes: "Emergency accent (var(--color-accent-emergency)). Primary: 'Call for Emergency Tarping' (tel: link). Secondary: 'Submit a Request Online'."
+
+output:
+  page: "src/pages/residential/tarp-installation/index.astro"
+  assets: "src/assets/residential/tarp-installation/"
+
+silo:
+  role: T2-money-page
+  parent: "/residential"
+  parent_links_to_this_via: "emergency roof tarping"
+  inbound_anchor_from_parent: near-match
+  cross_links_to:
+    - "/residential/storm-damage-repair"
+    - "/residential/insurance-claim-assistance"
+
+flags:
+  - id: page-speed-critical
+    severity: critical
+    message: |
+      Same as storm-damage-repair: this page is opened mid-emergency. No hero
+      video. LCP must be H1 + phone CTA. Defer all non-critical images. Target
+      LCP <1.0s on 4G (tighter than CLAUDE.md §4 floor of <1.5s because this
+      is an emergency-response page).
+  - id: phone-as-primary-cta
+    severity: warning
+    message: |
+      This is the ONE page in the silo where phone should be the PRIMARY CTA,
+      not a secondary. Form submission is a fallback. Hero must have a tel:
+      link that triggers the native phone dialer. Do not bury it below the fold.
+      Requires [REPRESENTATIVE] phone number until Chris provides the actual IVR
+      routing number.
+  - id: tarp-longevity-claims
+    severity: info
+    message: |
+      Do NOT make specific claims about tarp lifespan ("lasts 3 months,"
+      "good for one rainy season") without Chris confirming Pro Exteriors'
+      actual product specs. Use directional language: "temporary protection
+      until permanent repairs can be scheduled."
+
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

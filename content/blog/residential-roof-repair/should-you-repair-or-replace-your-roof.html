@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Should You Repair or Replace Your Roof? The Decision Framework for Homeowners | Pro Exteriors</title>
+  <meta name="description" content="Age, damage extent, insurance status, and resale plans all factor into the repair-vs-replace decision. Here is a structured framework that cuts through the contractor sales noise." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --deep-navy:        #11133f;
+      --deep-navy-dark:   #041534;
+      --deep-navy-nav:    #0f172a;
+      --deep-navy-cta:    #1b2a4a;
+      --flag-red:         #c22326;
+      --flag-red-hover:   #9b1c1f;
+      --hunter-green:     #3b6b4c;
+      --golden-orange:    #c28412;
+      --golden-orange-bg: #f5e6c4;
+      --smart-blue:       #232884;
+      --bg-warm:          #fbf9f6;
+      --bg-stone:         #f5f3f0;
+      --bg-white:         #ffffff;
+      --text-primary:     #041534;
+      --text-secondary:   #506071;
+      --text-muted:       #8392b7;
+      --border:           #c5c6cf;
+      --font-body:        'Archivo', sans-serif;
+      --font-mono:        'IBM Plex Mono', monospace;
+      --space-md:   16px;
+      --space-lg:   24px;
+      --space-xl:   32px;
+      --space-2xl:  48px;
+      --space-3xl:  64px;
+      --space-4xl:  96px;
+      --nav-h:      80px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--bg-warm); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; }
+
+    /* PROGRESS BAR */
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--flag-red); width: 0%; z-index: 200; transition: width 0.1s linear; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: var(--deep-navy-nav); display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-2xl); z-index: 100; }
+    .nav-logo { font-family: var(--font-body); font-weight: 800; font-size: 1.2rem; color: #fff; text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--flag-red); }
+    .nav-cta { background: var(--flag-red); color: #fff; font-size: 0.875rem; font-weight: 700; padding: 10px 20px; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--flag-red-hover, #9b1c1f); }
+
+    /* ARTICLE HEADER */
+    .article-header { padding: calc(var(--nav-h) + var(--space-3xl)) var(--space-2xl) var(--space-2xl); max-width: 1100px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin-bottom: var(--space-md); font-family: var(--font-mono); }
+    .breadcrumb a { color: var(--smart-blue); text-decoration: none; }
+    .article-badge { display: inline-block; background: #3b6b4c; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-md); }
+    .article-title { font-size: clamp(1.75rem, 3vw, 2.75rem); font-weight: 800; line-height: 1.15; color: var(--deep-navy); margin-bottom: var(--space-lg); letter-spacing: -0.02em; }
+    .article-meta { display: flex; align-items: center; gap: var(--space-lg); flex-wrap: wrap; font-size: 0.875rem; color: var(--text-secondary); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--border); }
+    .article-meta strong { color: var(--text-primary); }
+
+    /* HERO IMAGE */
+    .article-hero { max-width: 1100px; margin: 0 auto var(--space-2xl); padding: 0 var(--space-2xl); }
+    .article-hero img { width: 100%; aspect-ratio: 16/7; object-fit: cover; border-radius: 12px; display: block; }
+
+    /* CONTENT GRID */
+    .content-grid { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-2xl) var(--space-4xl); display: grid; grid-template-columns: 240px 1fr; gap: var(--space-3xl); align-items: start; }
+    @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: calc(var(--nav-h) + var(--space-lg)); }
+    .toc { background: var(--bg-white); border: 1px solid var(--border); border-radius: 10px; padding: var(--space-lg); }
+    .toc-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: var(--space-md); }
+    .toc ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .toc-link { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; line-height: 1.35; display: block; padding: 4px 8px; border-radius: 4px; border-left: 2px solid transparent; transition: all 0.2s; }
+    .toc-link:hover, .toc-link.active { color: var(--smart-blue); border-left-color: var(--smart-blue); background: rgba(35,40,132,0.05); }
+
+    /* ARTICLE BODY */
+    .article-body { min-width: 0; }
+    .article-body h2 { font-size: 1.55rem; font-weight: 800; color: var(--deep-navy); margin: var(--space-3xl) 0 var(--space-lg); letter-spacing: -0.02em; line-height: 1.2; padding-top: var(--space-md); border-top: 2px solid var(--border); }
+    .article-body h2:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+    .article-body h3 { font-size: 1.15rem; font-weight: 700; color: var(--deep-navy); margin: var(--space-xl) 0 var(--space-md); }
+    .article-body p { font-size: 1.0625rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: var(--space-lg); }
+    .article-body ul, .article-body ol { margin: 0 0 var(--space-lg) var(--space-xl); display: flex; flex-direction: column; gap: 8px; }
+    .article-body li { font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary); }
+    .article-body strong { color: var(--text-primary); font-weight: 600; }
+    .article-body a { color: var(--smart-blue); text-decoration: underline; }
+    .article-body blockquote { border-left: 4px solid var(--golden-orange); background: var(--golden-orange-bg); padding: var(--space-lg) var(--space-xl); border-radius: 0 8px 8px 0; margin: var(--space-xl) 0; font-size: 1.1rem; font-style: italic; color: var(--text-primary); }
+    .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-xl) 0; font-size: 0.9rem; }
+    .article-body th { background: var(--deep-navy); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    .article-body td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+    .article-body tr:nth-child(even) td { background: var(--bg-stone); }
+
+    /* CTA BANNER */
+    .cta-banner { background: var(--deep-navy-cta); border-radius: 12px; padding: var(--space-3xl); text-align: center; margin: var(--space-3xl) 0; }
+    .cta-banner h2 { font-size: 1.75rem; font-weight: 800; color: #fff; margin-bottom: var(--space-md); }
+    .cta-banner p { color: #94a3b8; font-size: 1rem; margin-bottom: var(--space-xl); }
+    .cta-banner a { display: inline-block; background: var(--flag-red); color: #fff; font-weight: 700; font-size: 1rem; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .cta-banner a:hover { background: #9b1c1f; }
+
+    /* RELATED */
+    .related-section { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-2xl) var(--space-4xl); }
+    .related-section h2 { font-size: 1.5rem; font-weight: 800; color: var(--deep-navy); margin-bottom: var(--space-2xl); }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+    @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+    .related-card { border-radius: 10px; overflow: hidden; background: var(--bg-white); border: 1px solid var(--border); }
+    .related-card-img { aspect-ratio: 16/9; background-size: cover; background-position: center; }
+    .related-card-body { padding: var(--space-lg); }
+    .related-card-category { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--golden-orange); margin-bottom: 6px; font-family: var(--font-mono); }
+    .related-card-title { font-size: 1rem; font-weight: 700; line-height: 1.35; }
+    .related-card-title a { color: var(--deep-navy); text-decoration: none; }
+    .related-card-title a:hover { color: var(--smart-blue); }
+
+    /* FOOTER */
+    footer { background: var(--deep-navy-nav); color: #94a3b8; padding: var(--space-3xl) var(--space-2xl); text-align: center; font-size: 0.875rem; }
+    footer a { color: #cbd5e1; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <nav class="nav">
+    <a class="nav-logo" href="/"><span>Pro</span> Exteriors</a>
+    <a class="nav-cta" href="/contact/">Get a Quote</a>
+  </nav>
+
+  <header class="article-header">
+    <p class="breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/blog/">Resources</a> &rsaquo;
+      <a href="/services/residential-roof-repair/">Residential Roof Repair</a>
+    </p>
+    <span class="article-badge">Residential Roofing</span>
+    <h1 class="article-title">Should You Repair or Replace Your Roof? The Decision Framework for Homeowners</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Team</strong></span>
+      <span>May 2026</span>
+      <span>~6 min read</span>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015701_b01a0532-4b93-4654-9b0c-a94cd9107b6c.png" alt="Should You Repair or Replace Your Roof? The Decision Framework for Homeowners" loading="eager" />
+  </div>
+
+  <div class="content-grid">
+    <aside class="sidebar">
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-title">In This Article</p>
+        <ul>
+          <li><a href="#the-age-rule-when-your-roof-s-birthday-changes-everything" class="toc-link">The Age Rule: When Your Roof's Birthday Changes Everything</a></li>
+<li><a href="#damage-extent-the-30-threshold" class="toc-link">Damage Extent: The 30% Threshold</a></li>
+<li><a href="#insurance-coverage-how-your-policy-affects-the-decision" class="toc-link">Insurance Coverage: How Your Policy Affects the Decision</a></li>
+<li><a href="#resale-value-what-buyers-and-appraisers-actually-care-about" class="toc-link">Resale Value: What Buyers and Appraisers Actually Care About</a></li>
+<li><a href="#the-true-cost-of-repeated-small-repairs" class="toc-link">The True Cost of Repeated Small Repairs</a></li>
+<li><a href="#how-to-get-an-honest-contractor-opinion" class="toc-link">How to Get an Honest Contractor Opinion</a></li>
+
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="article-body">
+      ```html
+<p>The decision to repair or replace your roof is one of the largest capital expenditures a homeowner will face. Unlike choosing between two paint colors, this decision affects your home's structural integrity, insurance coverage, resale value, and monthly cash flow. The stakes demand a framework, not a guess.</p>
+
+<p>This article walks through the specific factors that determine whether repair makes financial sense or whether replacement is the only responsible choice. We've built this framework from conversations with homeowners across Texas, Colorado, Kansas, and Missouri—regions where climate stress on roofing systems varies significantly.</p>
+
+<h2 id="the-age-rule-when-your-roof-s-birthday-changes-everything">The Age Rule: When Your Roof's Birthday Changes Everything</h2>
+
+<p>Roof age is the first filter. It determines not just whether repair is possible, but whether repair is prudent.</p>
+
+<p>Most asphalt shingle roofs are rated for 20 to 25 years under standard conditions [Representative stat — not yet sourced]. In climates with severe weather—hail in Colorado and Kansas, intense UV exposure across Texas, freeze-thaw cycles in Missouri—degradation accelerates. A roof installed 15 years ago in Denver ages differently than one installed 15 years ago in Dallas.</p>
+
+<p>Here's the practical rule:</p>
+
+<ul>
+<li><strong>Under 10 years old:</strong> Repair is almost always the correct choice. Your roof has significant remaining life, and isolated damage doesn't justify replacement cost.</li>
+<li><strong>10 to 15 years old:</strong> Repair remains sensible, but inspect the full roof carefully. If you're finding multiple problem areas in different zones, replacement begins to look competitive on a cost-per-year basis.</li>
+<li><strong>15 to 20 years old:</strong> This is the decision zone. Age alone doesn't mandate replacement, but combined with any of the other factors in this framework, replacement often makes more economic sense than repeated repairs.</li>
+<li><strong>Over 20 years old:</strong> Replacement is the default position. Repair costs for aging roofs approach replacement costs within 3 to 5 years anyway. You're delaying an inevitable expense, not avoiding it.</li>
+</ul>
+
+<p>Age matters because roofing material degrades predictably. Shingles lose granules, flashing corrodes, and the substrate weakens. A 22-year-old roof repaired today will need another repair in 18 months. A new roof gives you a 20-year reset.</p>
+
+<h2 id="damage-extent-the-30-threshold">Damage Extent: The 30% Threshold</h2>
+
+<p>The scope of damage determines whether you're fixing a problem or papering over systemic failure.</p>
+
+<p>Contractors often cite a 30% damage threshold as the decision point, and this guideline has merit. If damage affects 30% or more of your roof's surface area, replacement becomes economically equivalent to repair, and replacement carries the advantage of warranty coverage and predictable performance.</p>
+
+<p>Damage extent includes:</p>
+
+<ul>
+<li>Visible shingle loss or severe curling across multiple roof sections</li>
+<li>Flashing failures affecting multiple penetrations (vents, chimneys, skylights)</li>
+<li>Structural damage to decking visible from the attic</li>
+<li>Pattern damage suggesting systemic wear rather than isolated incident</li>
+</ul>
+
+<p>A single missing section of flashing: repair. Missing flashing on three sides of your chimney plus deteriorated shingles in the valley: replacement.</p>
+
+<p>The distinction matters because repair addresses the symptom while replacement addresses the system. If 35% of your roof is compromised, repairing the worst 30% leaves you with a 35% problem in six months.</p>
+
+<blockquote>
+<p><strong>Key insight:</strong> Get a written damage assessment that specifies square footage and percentage of roof affected. Vague estimates ("some damage," "pretty worn") are red flags. A contractor who won't quantify damage is either avoiding accountability or doesn't know their trade.</p>
+</blockquote>
+
+<h2 id="insurance-coverage-how-your-policy-affects-the-decision">Insurance Coverage: How Your Policy Affects the Decision</h2>
+
+<p>Insurance fundamentally changes the repair-or-replace calculus, but only if you understand what your policy actually covers.</p>
+
+<p>Most homeowners policies cover damage from sudden events—hail, wind, fallen trees—but not from wear and tear or lack of maintenance. This distinction determines your out-of-pocket cost.</p>
+
+<p>Before deciding to repair or replace, obtain a copy of your homeowner's insurance policy and contact your agent with these specific questions:</p>
+
+<ol>
+<li>What is your roof's replacement cost value (RCV) versus actual cash value (ACV)?</li>
+<li>Does the policy cover the specific damage you've sustained?</li>
+<li>What is your deductible, and does it apply per incident or per claim?</li>
+<li>Are there any exclusions related to roof age or material type?</li>
+<li>If you replace the roof, will your premium change based on the new roof's age?</li>
+</ol>
+
+<p>Insurance coverage shifts the decision dramatically. If hail damage is covered under RCV and your deductible is $1,000, replacement becomes substantially cheaper than if you're paying out of pocket. Conversely, if your roof is near the age where insurers deny claims for wear-related damage, you may need to replace now to maintain coverage.</p>
+
+<p>Some insurers in high-hail areas (Colorado and Kansas) now require impact-resistant shingles for renewal. This requirement can force a replacement decision even if repair would otherwise suffice.</p>
+
+<h2 id="resale-value-what-buyers-and-appraisers-actually-care-about">Resale Value: What Buyers and Appraisers Actually Care About</h2>
+
+<p>If you're planning to sell within the next 5 to 7 years, roof condition affects your home's appraised value and salability.</p>
+
+<p>Appraisers evaluate roof condition on a simple spectrum: new, good, fair, or poor. A roof rated "poor" reduces appraised value by 5 to 10% [Representative stat — not yet sourced]. A roof rated "fair" (the result of multiple repairs) reduces value by 2 to 5%.</p>
+
+<p>More importantly, buyers and their lenders care deeply about roof age. A 19-year-old roof with recent repairs will encounter financing obstacles. Many lenders require roof replacement if the roof is over 20 years old at the time of sale. This means a buyer may demand a price reduction to cover replacement, or may withdraw from the purchase entirely.</p>
+
+<p>If you're within 5 years of a planned sale and your roof is over 15 years old, replacement now protects your equity. You recover approximately 60 to 80% of replacement cost in resale value [Representative stat — not yet sourced], which is far better than the loss you'll absorb from a buyer's price reduction.</p>
+
+<p>If you're staying in your home long-term, resale value is irrelevant to the repair-or-replace decision. Make the choice based on remaining roof life and your own risk tolerance.</p>
+
+<h2 id="the-true-cost-of-repeated-small-repairs">The True Cost of Repeated Small Repairs</h2>
+
+<p>The most deceptive repair decision is the first one. It feels economical. It costs $500 or $1,200. You avoid the $12,000 replacement bill.</p>
+
+<p>Then, 18 months later, you need another repair. Then another.</p>
+
+<p>Track your repair history. If you've had two or more roof repairs in the past three years, and your roof is over 12 years old, calculate the cumulative cost:</p>
+
+      <div class="cta-banner">
+        <h2>Ready to Talk to an Expert?</h2>
+        <p>Pro Exteriors serves commercial and residential clients across Texas, Colorado, Kansas, and Missouri.</p>
+        <a href="/services/residential-roof-repair/">Get a No-Pressure Assessment</a>
+      </div>
+    </article>
+  </div>
+
+  <section class="related-section">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+      
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015604_d718a3a0-3029-4e59-9dc2-3ee0d2f08a0b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Residential Roof Repair</p>
+              <h3 class="related-card-title"><a href="/blog/roof-repair-costs-by-type/">Roof Repair Costs by Type</a></h3>
+            </div>
+          </article>
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015604_d718a3a0-3029-4e59-9dc2-3ee0d2f08a0b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Residential Roof Repair</p>
+              <h3 class="related-card-title"><a href="/blog/patching-vs-replacing-shingles/">Patching vs. Replacing Shingles</a></h3>
+            </div>
+          </article>
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015604_d718a3a0-3029-4e59-9dc2-3ee0d2f08a0b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Residential Roof Repair</p>
+              <h3 class="related-card-title"><a href="/blog/how-to-spot-roof-damage/">How to Spot Roof Damage</a></h3>
+            </div>
+          </article>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pro Exteriors. All rights reserved. |
+      <a href="/privacy-policy/">Privacy Policy</a> |
+      <a href="/terms/">Terms of Service</a>
+    </p>
+    <p style="margin-top: 8px;">Richardson, TX · Euless, TX · Denver, CO · Wichita, KS · Kansas City, MO</p>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
+      bar.style.width = Math.min(scrolled * 100, 100) + '%';
+    });
+
+    // ToC active section
+    const links = document.querySelectorAll('.toc-link');
+    const headings = document.querySelectorAll('.article-body h2');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    headings.forEach(h => observer.observe(h));
+  </script>
+</body>
+</html>

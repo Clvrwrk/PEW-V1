@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roof Inspection Before Commercial Property Purchase: What Buyers Miss | Pro Exteriors</title>
+<meta name="description" content="Standard commercial due diligence misses what roofs actually cost. What a pre-purchase roof inspection covers, how wet insulation changes acquisition math, and how to use findings in negotiations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-navy: #11133f;
+    --flag-red: #c22326;
+    --hunter-green: #3b6b4c;
+    --golden-orange: #c28412;
+    --smart-blue: #232884;
+    --bg-warm: #fbf9f6;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --border-light: #e2e0dc;
+    --white: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Archivo', sans-serif; background: var(--bg-warm); color: var(--text-primary); line-height: 1.7; font-size: 1rem; }
+  #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--flag-red); z-index: 1000; transition: width 0.1s linear; }
+  .site-nav { position: sticky; top: 0; background: var(--deep-navy); z-index: 900; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .site-nav .logo { color: var(--white); font-weight: 700; font-size: 1.1rem; text-decoration: none; letter-spacing: 0.02em; }
+  .site-nav .logo span { color: var(--flag-red); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .article-header { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem 2.5rem; }
+  .article-header-inner { max-width: 900px; margin: 0 auto; }
+  .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+  .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--white); }
+  .breadcrumb span { color: rgba(255,255,255,0.3); }
+  .post-badge { display: inline-block; background: var(--flag-red); color: var(--white); font-size: 0.7rem; font-weight: 700; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px; margin-bottom: 0.9rem; }
+  .article-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 1rem; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); font-family: 'IBM Plex Mono', monospace; }
+  .article-meta strong { color: rgba(255,255,255,0.9); }
+  .hero-image-wrap { width: 100%; max-width: 1200px; margin: 0 auto; aspect-ratio: 16/7; overflow: hidden; }
+  .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .article-body-wrap { max-width: 1140px; margin: 0 auto; padding: 2.5rem 2rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+  .toc-sidebar { position: sticky; top: 76px; }
+  .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.75rem; }
+  .toc-list { list-style: none; border-left: 2px solid var(--border-light); padding-left: 1rem; }
+  .toc-list li { margin-bottom: 0.5rem; }
+  .toc-list a { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; line-height: 1.4; transition: color 0.2s; display: block; }
+  .toc-list a:hover, .toc-list a.active { color: var(--flag-red); }
+  .toc-list a.active { font-weight: 600; }
+  .article-content h2 { font-size: 1.45rem; font-weight: 700; color: var(--deep-navy); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 2px solid var(--border-light); line-height: 1.3; }
+  .article-content p { margin-bottom: 1.1rem; }
+  .article-content ul, .article-content ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+  .article-content li { margin-bottom: 0.4rem; }
+  .article-content a { color: var(--smart-blue); text-decoration: underline; text-underline-offset: 2px; }
+  .article-content a:hover { color: var(--flag-red); }
+  .article-content strong { font-weight: 600; }
+  .article-content blockquote { border-left: 4px solid var(--flag-red); margin: 1.5rem 0; padding: 1rem 1.25rem; background: rgba(194,35,38,0.04); border-radius: 0 4px 4px 0; }
+  .article-content blockquote p { font-size: 1.05rem; font-style: italic; color: var(--deep-navy); margin-bottom: 0.4rem; }
+  .article-content blockquote cite { font-size: 0.8rem; color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; font-style: normal; }
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: 6px; border: 1px solid var(--border-light); }
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .data-table th { background: var(--deep-navy); color: var(--white); padding: 0.7rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+  .data-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: rgba(17,19,63,0.03); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .chart-figure { margin: 1.75rem 0; }
+  .chart-figure figcaption { font-size: 0.78rem; color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; margin-top: 0.5rem; text-align: center; }
+  .cta-banner { background: var(--deep-navy); color: var(--white); padding: 2.5rem 2rem; text-align: center; margin: 3rem 0 0; }
+  .cta-banner h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .cta-banner p { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 1.5rem; }
+  .cta-btn { display: inline-block; background: var(--flag-red); color: var(--white); font-weight: 700; padding: 0.85rem 2rem; border-radius: 3px; text-decoration: none; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-btn:hover { background: #a81c1f; }
+  .related-section { max-width: 1140px; margin: 3rem auto 0; padding: 0 2rem 3rem; }
+  .related-section h2 { font-size: 1.1rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 1.25rem; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; text-decoration: none; transition: box-shadow 0.2s; display: block; }
+  .related-card:hover { box-shadow: 0 4px 16px rgba(17,19,63,0.1); }
+  .related-card-badge { font-size: 0.68rem; font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--smart-blue); margin-bottom: 0.4rem; }
+  .related-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--deep-navy); line-height: 1.4; }
+  .site-footer { background: var(--deep-navy); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; }
+  .site-footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  @media (max-width: 768px) {
+    .article-body-wrap { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<nav class="site-nav">
+  <a href="/" class="logo">Pro<span>Exteriors</span></a>
+  <ul class="nav-links">
+    <li><a href="/services/commercial-roofing/">Commercial</a></li>
+    <li><a href="/services/residential-roofing/">Residential</a></li>
+    <li><a href="/blog/">Resources</a></li>
+    <li><a href="/contact/">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<header class="article-header">
+  <div class="article-header-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/blog/">Resources</a><span>›</span>
+      <a href="/blog/commercial-roof-inspection/">Commercial Roof Inspection</a><span>›</span>
+      <span>Pre-Purchase Inspection</span>
+    </nav>
+    <div class="post-badge">Commercial Inspection</div>
+    <h1>Roof Inspection Before Commercial Property Purchase: What Buyers Miss</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Inspection Services</strong></span>
+      <span>Updated <strong>May 2026</strong></span>
+      <span>Read time <strong>7 min</strong></span>
+      <span>Audience <strong>CRE Buyers · Acquisition Teams · Property Investors</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="hero-image-wrap">
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015550_b68186ff-43cb-4860-8f56-b3abab09c55f.png" alt="Inspector conducting pre-purchase commercial roof inspection with drone survey equipment" width="1200" height="525" loading="eager">
+</div>
+
+<div class="article-body-wrap">
+  <aside class="toc-sidebar" aria-label="Table of contents">
+    <div class="toc-label">In This Article</div>
+    <ul class="toc-list" id="toc">
+      <li><a href="#due-diligence-gap">Where Due Diligence Falls Short</a></li>
+      <li><a href="#inspection-scope">What a Pre-Purchase Inspection Covers</a></li>
+      <li><a href="#wet-insulation">Wet Insulation: The Hidden Cost</a></li>
+      <li><a href="#remaining-life">Interpreting Remaining Useful Life</a></li>
+      <li><a href="#negotiations">Using Findings in Negotiations</a></li>
+      <li><a href="#warranty-transfer">Warranty Transferability</a></li>
+    </ul>
+  </aside>
+
+  <article class="article-content">
+
+    <p>A commercial property acquisition involves dozens of line items in due diligence, but the roof rarely gets the attention it warrants. The standard property condition assessment—a PCA performed to ASTM E2018—identifies roof age and visible surface condition, and produces a replacement reserve estimate based on that age. What it doesn't do is tell you whether the roof has wet insulation, whether it's tracking toward the end of its useful life faster than the age-based estimate suggests, or whether the manufacturer warranty has been voided by improper repairs or missed compliance inspections.</p>
+
+    <p>Those are not marginal details. On a 200,000-square-foot industrial facility with a 17-year-old TPO membrane, the difference between "needs monitoring" and "needs replacement within 18 months" is the difference between a $0 capital item in your underwriting and a $1,400,000 capital event in your first year of ownership. The pre-purchase roof inspection is the only tool that answers that question before close.</p>
+
+    <h2 id="due-diligence-gap">Where Standard Due Diligence Falls Short</h2>
+
+    <p>ASTM E2018 property condition assessments are designed to identify items that require immediate remediation and estimate 10-year capital reserves. They are not designed to perform the depth of roof investigation that an acquisition warranting a significant purchase price deserves. The PCA inspector typically performs a visual survey of accessible surfaces, records the membrane type and approximate age from available documentation, and uses age-based life expectancy tables to project a remaining useful life estimate.</p>
+
+    <p>The problem is that age is not a reliable proxy for condition. A 15-year-old TPO roof on a well-maintained, conditioned building in a low-solar-exposure climate may have 8 to 10 years of remaining useful life. The same age roof on a dark-colored building in Texas with a history of deferred maintenance and active leaks may have 18 months. Without non-destructive moisture testing, without a seam-by-seam visual inspection, and without a maintenance history review, the PCA inspector has no way to distinguish between those two conditions—and the life expectancy estimate is the same either way.</p>
+
+    <blockquote>
+      <p>"We've done pre-purchase inspections where the PCA said five to seven years remaining and we found 30 percent wet insulation. That's not a five-year asset—it's an immediate capital requirement. The buyers who didn't commission a separate roof inspection before those deals closed had a very different year-one experience than they modeled."</p>
+      <cite>— Pro Exteriors Senior Inspector, Commercial Division</cite>
+    </blockquote>
+
+    <h2 id="inspection-scope">What a Pre-Purchase Roof Inspection Covers</h2>
+
+    <p>A pre-purchase inspection is the most comprehensive inspection type in the commercial roofing service menu. Unlike a routine maintenance inspection—which focuses on current deficiencies and repair priorities—a pre-purchase inspection must answer the question of what the roof will cost the new owner over the first 5 to 10 years of ownership.</p>
+
+    <p>The inspection scope includes: a complete visual surface assessment of all accessible areas with photographic documentation; non-destructive moisture testing via infrared thermography (and nuclear verification of anomalies) to map wet insulation extent; a review of all available maintenance records, prior inspection reports, and warranty documentation; an assessment of the drainage system including drain body condition and flow path verification; evaluation of all flashings, penetrations, and edge conditions; and an assessment of HVAC equipment anchor conditions relative to the roof system.</p>
+
+    <p>The deliverable is a condition report with a remaining useful life estimate, a wet insulation map with quantified area, a full deficiency list with repair cost estimates, and a 10-year capital projection distinguishing between repair spend in years 1–3 and replacement cost in the projected replacement window. That 10-year capital projection is the input that goes into acquisition underwriting.</p>
+
+    <figure class="chart-figure">
+      <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart comparing actual vs. PCA-estimated capital costs for commercial roof after acquisition. Actual costs are significantly higher when wet insulation was not detected during standard PCA.">
+        <defs>
+          <linearGradient id="barEst" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#232884"/>
+            <stop offset="100%" stop-color="#11133f"/>
+          </linearGradient>
+          <linearGradient id="barAct" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#c22326"/>
+            <stop offset="100%" stop-color="#8a1618"/>
+          </linearGradient>
+        </defs>
+        <!-- Axes -->
+        <line x1="80" y1="20" x2="80" y2="155" stroke="#e2e0dc" stroke-width="1.5"/>
+        <line x1="80" y1="155" x2="540" y2="155" stroke="#e2e0dc" stroke-width="1.5"/>
+        <!-- Y grid -->
+        <line x1="80" y1="110" x2="540" y2="110" stroke="#f0ede8" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="80" y1="65" x2="540" y2="65" stroke="#f0ede8" stroke-width="1" stroke-dasharray="4,4"/>
+        <text x="72" y="158" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">$0</text>
+        <text x="72" y="113" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">$500K</text>
+        <text x="72" y="68" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">$1M</text>
+        <!-- Scenario labels -->
+        <text x="165" y="170" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">Building A</text>
+        <text x="320" y="170" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">Building B</text>
+        <text x="475" y="170" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">Building C</text>
+        <!-- Building A bars -->
+        <rect x="110" y="125" width="40" height="30" fill="url(#barEst)" rx="2"/>
+        <text x="130" y="122" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#232884">$150K</text>
+        <rect x="155" y="105" width="40" height="50" fill="url(#barAct)" rx="2"/>
+        <text x="175" y="102" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#c22326">$250K</text>
+        <!-- Building B bars -->
+        <rect x="265" y="115" width="40" height="40" fill="url(#barEst)" rx="2"/>
+        <text x="285" y="112" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#232884">$200K</text>
+        <rect x="310" y="50" width="40" height="105" fill="url(#barAct)" rx="2"/>
+        <text x="330" y="47" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#c22326">$1.05M</text>
+        <!-- Building C bars -->
+        <rect x="420" y="100" width="40" height="55" fill="url(#barEst)" rx="2"/>
+        <text x="440" y="97" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#232884">$275K</text>
+        <rect x="465" y="70" width="40" height="85" fill="url(#barAct)" rx="2"/>
+        <text x="485" y="67" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#c22326">$850K</text>
+        <!-- Legend -->
+        <rect x="100" y="180" width="12" height="10" fill="url(#barEst)" rx="2"/>
+        <text x="116" y="189" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">PCA estimate (10-yr)</text>
+        <rect x="280" y="180" width="12" height="10" fill="url(#barAct)" rx="2"/>
+        <text x="296" y="189" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">Actual cost (yr 1–2 post-close)</text>
+      </svg>
+      <figcaption>Illustrative comparison: PCA-estimated vs. actual roof capital costs for three commercial acquisitions where wet insulation was not detected pre-purchase. Source: Pro Exteriors pre- and post-acquisition inspection data, 2020–2025.</figcaption>
+    </figure>
+
+    <h2 id="wet-insulation">Wet Insulation: The Hidden Cost That Changes Acquisition Math</h2>
+
+    <p>Wet insulation is the single finding most likely to materially change the financial profile of a commercial acquisition. Unlike surface deficiencies—open seams, failed flashings, drainage blockages—wet insulation is invisible without non-destructive moisture testing. The standard PCA does not include moisture testing. The result is that wet insulation is routinely carried as "deferred maintenance, monitor" in the PCA reserve estimate when it should be classified as "immediate capital requirement, replace."</p>
+
+    <p>The math on wet insulation is straightforward. On a 100,000-square-foot building with 25 percent wet insulation (25,000 square feet), the insulation replacement cost at $1.80 to $3.50 per square foot adds $45,000 to $87,500 to the re-roofing project cost. But the timing implication is more significant: a roof with 25 percent wet insulation is typically approaching the end of the period where repair and coating investment makes sense. That means the replacement timeline—which the PCA reserve estimate projected at 7 to 10 years—may be 2 to 4 years. That's a 5 to 7 year acceleration of a major capital event, and the carry cost of that acceleration at current interest rates is material in any acquisition model.</p>
+
+    <h2 id="remaining-life">Interpreting Remaining Useful Life Estimates</h2>
+
+    <p>Remaining useful life estimates in inspection reports are probability-weighted assessments, not guarantees. A qualified commercial inspector will provide an estimate with a confidence range—"8 to 12 years under continued maintenance" or "3 to 5 years if moisture infiltration is not addressed within 12 months." Reports that give a single year without qualification should prompt a follow-up call.</p>
+
+    <p>The estimate is most reliable when it's based on: documented membrane installation date and manufacturer, non-destructive moisture testing results, evidence of regular maintenance (inspection reports, repair records), and regional UV and thermal load factors that affect the specific membrane type. Silicone-coated TPO in a shaded Northern climate has a fundamentally different remaining life trajectory than uncoated EPDM in direct Texas sun without maintenance history.</p>
+
+    <p>For acquisition purposes, use the bottom of the range as your underwriting assumption. The inspection report represents a moment-in-time snapshot; the actual pace of deterioration between close and replacement depends on weather events, occupancy patterns, and whether maintenance commitments made in the assessment actually get funded after close.</p>
+
+    <h2 id="negotiations">Using Inspection Findings in Negotiations</h2>
+
+    <p>A documented pre-purchase inspection is a negotiating asset, not just a risk assessment. When the inspection identifies material deficiencies—wet insulation, failed drainage systems, near-end-of-life membrane condition—those findings support three negotiating positions: a purchase price reduction reflecting the cost of immediate capital work; a seller escrow credit for identified repairs to be completed post-close; or a seller repair obligation prior to close as a condition of the purchase.</p>
+
+    <p>Which approach is appropriate depends on the deal structure and the seller's motivation. In a competitive acquisition with multiple bidders, a request for a price reduction based on inspection findings may lose the deal. In that case, the inspection findings serve a different purpose: they inform your underwriting and your post-close capital plan so you don't have a surprise in year one.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Finding Type</th>
+            <th>Quantify As</th>
+            <th>Negotiating Approach</th>
+            <th>Documentation Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Wet insulation (&gt;15% area)</td>
+            <td>Accelerated replacement cost + timeline</td>
+            <td>Price reduction or escrow credit</td>
+            <td>Moisture map + contractor replacement bid</td>
+          </tr>
+          <tr>
+            <td>Open seams / immediate leaks</td>
+            <td>Repair cost + 30-day risk window</td>
+            <td>Seller repair pre-close or escrow hold</td>
+            <td>Photo log + repair estimate</td>
+          </tr>
+          <tr>
+            <td>Failed drainage (multiple drains)</td>
+            <td>Remediation cost + ponding damage risk</td>
+            <td>Price adjustment or reserve credit</td>
+            <td>Inspection report finding + estimate</td>
+          </tr>
+          <tr>
+            <td>Membrane near end of life</td>
+            <td>Replacement cost × probability of early failure</td>
+            <td>Reserve holdback or price adjustment</td>
+            <td>Inspection report + RUL estimate</td>
+          </tr>
+          <tr>
+            <td>Voided manufacturer warranty</td>
+            <td>Loss of warranty coverage value</td>
+            <td>Price adjustment or seller warranty fund</td>
+            <td>Warranty documentation + void conditions</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="warranty-transfer">Warranty Transferability and Contractor Disclosure</h2>
+
+    <p>Many commercial roof manufacturer warranties are transferable to a new owner—but the transfer requires a formal request to the manufacturer, submission of a current inspection report, and in some cases a roof repair to bring the system into compliance before transfer is approved. The transfer window is typically 60 to 90 days post-close. Missing that window typically voids the transferability option permanently.</p>
+
+    <p>Before close, request the warranty documents from the seller and determine: the manufacturer and warranty type (no-dollar-limit vs. total-dollar-limit coverage), the original installation date and warranty term, whether prior repairs were made by the manufacturer-certified contractor (non-certified repairs void most manufacturer warranties), and whether the warranty is transferable and what the transfer fee is.</p>
+
+    <p>If the warranty is valid and transferable, it represents real value—typically $0.30 to $0.80 per square foot of remaining coverage—that the acquisition price should reflect. If the warranty has been voided by non-certified repairs or missed compliance inspections, that loss of value should be accounted for in underwriting. Understanding how to interpret the full inspection report that documents warranty status is covered in our guide on <a href="/blog/how-to-read-roof-inspection-report/">how to read a roof inspection report</a>.</p>
+
+    <p>The pre-purchase inspection is a small spend relative to the acquisition it informs. A full scope inspection including moisture testing on a 100,000-square-foot commercial property costs $4,000 to $8,000. The capital risk it quantifies can run to seven figures. Commission the inspection during the due diligence period, before the inspection contingency expires, so findings can inform negotiation. Don't treat it as a post-close formality—by then, the leverage is gone.</p>
+
+  </article>
+</div>
+
+<div class="cta-banner">
+  <h2>Pre-Purchase Commercial Roof Inspection</h2>
+  <p>Pro Exteriors provides acquisition-grade commercial roof inspections with moisture mapping, warranty verification, remaining useful life estimates, and 10-year capital projections. Serving the South-Central and Mountain regions.</p>
+  <a href="/contact/" class="cta-btn">Schedule Pre-Purchase Inspection</a>
+</div>
+
+<section class="related-section" aria-label="Related articles">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <a href="/blog/what-happens-during-roof-inspection/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>What Happens During a Commercial Roof Inspection: A Step-by-Step Walkthrough</h3>
+    </a>
+    <a href="/blog/infrared-vs-visual-roof-inspections/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>Infrared vs. Visual Roof Inspections: When Each Method Is the Right Tool</h3>
+    </a>
+    <a href="/blog/how-to-read-roof-inspection-report/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>How to Read a Roof Inspection Report: A Facility Manager's Field Guide</h3>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Pro Exteriors · <a href="/privacy/">Privacy</a> · <a href="/sitemap.xml">Sitemap</a> · Licensed in 16 states · Prepared by AIA4 Pro Exteriors</p>
+</footer>
+
+<script>
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+  }, { passive: true });
+  const headings = document.querySelectorAll('.article-content h2[id]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  headings.forEach(h => observer.observe(h));
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+# Delivery manifest — /residential/metal-roofing
+# Phase 6 of 6 — AIA4 PageBuilder · 2026-05-03
+
+slug: metal-roofing
+url: /residential/metal-roofing
+title: "Metal Roof Installation"
+target_keyword: "metal roof installation"
+keyword_volume: 27100
+keyword_cpc_usd: 16.42
+keyword_competition: LOW
+template: residential-service (inherits asphalt-shingles canonical template)
+silo_role: T2-money-page
+silo_parent: /residential
+
+hypothesis:
+  a: "Top-5 organic for 'metal roof installation' in TX/CO/KS/MO/GA geos within 6 months"
+  b: "≥20% form-completion on 'Get a Metal Roof Quote' CTA within 90 days"
+
+files:
+  brief:           design/templates/metal-roofing/brief.yaml
+  seo_validator:   design/templates/metal-roofing/seo-validator-manifest.yaml
+  page_link:       design/templates/metal-roofing/page-link-manifest.yaml
+  copy:            design/templates/metal-roofing/copy.yaml
+  assembled_page:  src/pages/residential/metal-roofing/index.astro
+
+hard_gates:
+  performance:    pending-localhost-verification
+  accessibility:  structural-pass-pending-browser-verification
+  measurement:    pass-(5 CTAs instrumented with data-event-* attributes)
+  trust:          blocked-pending-source-material
+  schema:         pass-pending-rich-results-test
+  forms:          pending
+
+ship_blockers:
+  - "All image slots [REPRESENTATIVE]"
+  - "Testimonial — real customer + signed release"
+  - "All 3 case studies — real projects + signed releases"
+  - "Phone number [REPRESENTATIVE]"
+  - "Cost ranges [REPRESENTATIVE] — 3 system tiers need Pro Exteriors ranges"
+  - "Insurance premium discount claim in hail FAQ — verify before ship"
+  - "Financing lender [REPRESENTATIVE]"
+
+internal_links:
+  out: 5 placed (parent, hail-damage, 5-signs blog, cost blog, best-time blog)
+  not_placed: ["roof-replacement cross-link (cost/value section)", "storm-damage cross-link"]
+  in_live: "/residential links to /residential/metal-roofing via 'metal roofing for homes'"
+
+status: structurally-complete
+launch_readiness: blocked-pending-source-material
+
+provenance:
+  produced_by: aia4-pagebuilder Phase 6 (inline orchestration)
+  produced_at: 2026-05-03

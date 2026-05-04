@@ -1,0 +1,101 @@
+# Metal Roofing for Homes — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 on 2026-05-03
+# Primary: "metal roof installation" beats head-term CPC with lower competition
+
+slug: metal-roofing
+template: residential-service
+location: null
+target_keyword: "metal roof installation"
+secondary_keywords:
+  - "metal roofing for homes"
+  - "metal roofing"
+  - "standing seam metal roof"
+  - "metal roof cost"
+  - "steel roofing"
+  - "stone coated metal roofing"
+audience: residential-homeowner
+intent: solution-evaluation            # Researching a premium upgrade — longer consideration cycle than emergency
+hypothesis: |
+  Metal roofing has the highest national search volume (110,000) of any
+  residential service on the site. A dedicated T2 page targeting "metal
+  roof installation" (27,100 vol, LOW comp, $16.42 CPC) with a system
+  comparison table (standing seam vs. corrugated vs. stone-coated),
+  a 50-year lifespan value narrative, and a multi-state proof block will:
+    (a) rank in the top 5 for "metal roof installation" in served-state
+        geos within 6 months; AND
+    (b) drive ≥20% form-completion on the 'Get a Metal Roof Quote' CTA
+        within 90 days — lower than the emergency pages because this is a
+        considered purchase, but still a meaningful conversion lift over
+        the generic /residential baseline.
+
+seo_copy:
+  metadata:
+    title: "Metal Roof Installation for Homes — Pro Exteriors | TX, CO, KS, MO & GA"
+    meta_description: "Standing seam, corrugated & stone-coated metal roofing installed across 5 states. 50-year lifespans. GAF certified. Get a free metal roof assessment from Pro Exteriors."
+    canonical: "https://proexteriorsus.com/residential/metal-roofing"
+  body_path: null
+  html_path: null
+
+figma:
+  reuse_template: residential-pillar
+  section_plan:
+    - id: hero
+      component: ServiceHero
+      notes: "H1 = 'Metal Roof Installation by Pro Exteriors'. Primary CTA: 'Get a Free Metal Roof Assessment'. Secondary: 'Compare Metal Roofing Systems'."
+    - id: trust_strip
+      component: inline
+      notes: "GAF Certified | 50-Year Lifespan | Hail-Resistant | 5-State Coverage | [REPRESENTATIVE] rating"
+    - id: service_overview
+      component: SplitIntro
+      notes: "Left: the 50-year value story — cost per year vs asphalt. Right: hail-resistance + energy-savings credential badges."
+    - id: systems_grid
+      component: BenefitsGrid
+      notes: "3 columns: Standing Seam / Stone-Coated Steel / Corrugated Metal. Each: pros, best-for application, typical lifespan, warranty."
+    - id: local_experts_proof
+      component: StatBand + Testimonial
+      notes: "Stats: 15+ years, 5 states, hail-belt expertise. Testimonial [REPRESENTATIVE]."
+    - id: process
+      component: QualityProcess
+      notes: "4 steps: Structural Assessment → System Selection → Installation → Inspection & Warranty Transfer."
+    - id: case_studies
+      component: CaseStudyCard × 3
+      notes: "TX / CO / KS — hail-belt projects preferred to reinforce durability positioning. All [REPRESENTATIVE]."
+    - id: cost_value
+      component: SplitIntro
+      notes: "Cost transparency: metal vs asphalt 30-year TCO comparison. Financing options. [REPRESENTATIVE] cost ranges."
+    - id: faq
+      component: FAQ
+      notes: "(1) How long does a metal roof last? (2) Can metal roofing withstand hail? (3) Is metal roofing louder than shingles? (4) What does metal roof installation cost?"
+    - id: final_cta
+      component: CTABanner
+      notes: "Primary: 'Schedule Your Free Metal Roof Assessment'. Secondary: [REPRESENTATIVE] phone."
+
+output:
+  page: "src/pages/residential/metal-roofing/index.astro"
+  assets: "src/assets/residential/metal-roofing/"
+
+silo:
+  role: T2-money-page
+  parent: "/residential"
+  parent_links_to_this_via: "metal roofing for homes"
+  inbound_anchor_from_parent: near-match
+
+flags:
+  - id: high-volume-high-competition-head-term
+    severity: warning
+    message: |
+      "Metal roofing" at 110K vol is HIGH competition — dominated by manufacturers
+      and directories. Do not target the head term for H1 or title. "Metal roof
+      installation" (27,100 vol, LOW comp) is the correct primary. Use "metal
+      roofing" as a high-frequency body term only.
+  - id: noise-perception-faq
+    severity: info
+    message: |
+      "Is metal roofing loud?" is a real objection. FAQ must address this factually
+      (with proper insulation, metal is comparable to asphalt in indoor noise).
+      Do not claim it's "quieter" without a sourced reference.
+
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

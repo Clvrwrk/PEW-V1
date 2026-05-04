@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "produced_by": "aia4-seo-validator (PageBuilder Phase 1, inline)",
+    "produced_at": "2026-05-03",
+    "method": "Stripped <script>/<style>, removed all HTML tags + entities, lowercased, raw substring count.",
+    "notes": "Raw substring counts include partial matches (e.g., 'roofing' counts inside 'roofingbymidsouth'). Counts are directional, not perfect; the targets in seo-validator-manifest.yaml are derived from these but adjusted for competitor outliers."
+  },
+  "competitors": {
+    "bakerroofing.com (rank 9)": {
+      "visible_words": 828,
+      "counts": {
+        "residential roofing contractor": 1, "residential roofing": 1, "residential roofing company": 0,
+        "contractor": 6, "residential": 4, "roofing": 30, "roof": 40,
+        "storm": 2, "hail": 0, "inspection": 0, "warranty": 0,
+        "gaf": 0, "owens corning": 0, "asphalt": 0, "metal": 0, "shingle": 0
+      }
+    },
+    "linearroofing.com (rank 16)": {
+      "visible_words": 1272,
+      "counts": {
+        "residential roofing contractor": 0, "residential roofing": 5, "residential roofing company": 0,
+        "contractor": 9, "residential": 7, "roofing": 48, "roof": 60,
+        "storm": 10, "hail": 2, "inspection": 0, "warranty": 1,
+        "gaf": 1, "owens corning": 0, "asphalt": 0, "metal": 1, "shingle": 3
+      }
+    },
+    "whitecastleroofing.com (rank 17)": {
+      "visible_words": 2029,
+      "counts": {
+        "residential roofing contractor": 0, "residential roofing": 5, "residential roofing company": 0,
+        "contractor": 3, "residential": 10, "roofing": 44, "roof": 85,
+        "storm": 9, "hail": 1, "inspection": 2, "warranty": 0,
+        "gaf": 0, "owens corning": 1, "asphalt": 5, "metal": 11, "shingle": 16
+      }
+    },
+    "roofingbymidsouth.com/residential-roofing-company (rank 22)": {
+      "visible_words": 2156,
+      "counts": {
+        "residential roofing contractor": 4, "residential roofing": 29, "residential roofing company": 11,
+        "contractor": 14, "residential": 32, "roofing": 59, "roof": 116,
+        "storm": 5, "hail": 2, "inspection": 10, "warranty": 6,
+        "gaf": 5, "owens corning": 0, "asphalt": 0, "metal": 5, "shingle": 1
+      },
+      "note": "Most-relevant cluster member — actual residential-roofing-company landing page. Treat as primary reference point alongside white-castle."
+    },
+    "jimmersonroofing.com (rank 24)": {
+      "visible_words": 479,
+      "counts": {
+        "residential roofing contractor": 0, "residential roofing": 0, "residential roofing company": 0,
+        "contractor": 6, "residential": 2, "roofing": 23, "roof": 35,
+        "storm": 1, "hail": 0, "inspection": 0, "warranty": 0,
+        "gaf": 0, "owens corning": 0, "asphalt": 0, "metal": 0, "shingle": 1
+      },
+      "note": "Thin homepage, low-cluster outlier. Useful as a floor, not a target."
+    }
+  },
+  "cluster_means_for_a_2400_word_pillar": {
+    "_method": "Mean across 5 competitors. Mid-South (most relevant) and White Castle (closest in word count to our pillar) carry highest interpretive weight.",
+    "residential_roofing_contractor": 1.0,
+    "residential_roofing": 8.0,
+    "residential_roofing_company": 2.2,
+    "contractor": 7.6,
+    "residential": 11.0,
+    "roofing": 40.8,
+    "roof": 67.2,
+    "storm": 5.4,
+    "hail": 1.0,
+    "inspection": 2.4,
+    "warranty": 1.4,
+    "gaf": 1.2,
+    "owens_corning": 0.2,
+    "asphalt": 1.0,
+    "metal": 3.4,
+    "shingle": 4.2
+  },
+  "seo_writer_draft": {
+    "file": "uploads/Residentail Roofing Contractor.html",
+    "visible_words": 2424,
+    "counts": {
+      "residential roofing contractor": 2, "residential roofing": 18, "residential roofing company": 0,
+      "contractor": 13, "residential": 19, "roofing": 70, "roof": 107,
+      "storm": 17, "hail": 0, "inspection": 12, "warranty": 4,
+      "gaf": 3, "owens corning": 0, "asphalt": 1, "metal": 0, "shingle": 9,
+      "tarp": 11, "insurance": 1, "deductible": 0,
+      "tx": 0, "colorado": 0, "kansas": 0, "missouri": 0, "georgia": 0,
+      "master elite": 0, "five states": 0, "homeowner": 14
+    },
+    "scoring": "See seo-validator-manifest.yaml `draft_score`."
+  }
+}

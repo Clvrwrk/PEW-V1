@@ -16,7 +16,8 @@ const recentPosts = allPosts
 // Pillar → display category label
 const pillarCategory: Record<string, string> = {
   'commercial-roofing':  'Commercial',
-  'residential-roofing': 'Residential',
+  'residential-roofing': 'Residential', // legacy blog post pillar key — keep for back-compat
+  'residential':         'Residential',
   'roof-repair':         'Repair',
   'storm-damage':        'Storm',
   'proplan':             'ProPlan',
@@ -72,7 +73,7 @@ const mainSchema = [websiteSchema(), organizationSchema()];
             Commercial Solutions
           </a>
           <a
-            href="/residential-roofing/"
+            href="/residential/"
             class="inline-flex items-center justify-center px-8 py-4 bg-transparent hover:bg-white/10 text-white text-lg font-bold rounded border-2 border-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900"
             data-cta-name="hero_residential"
           >
@@ -164,7 +165,7 @@ const mainSchema = [websiteSchema(), organizationSchema()];
               appeal, and seamless insurance claim handling.
             </p>
             <a
-              href="/residential-roofing/"
+              href="/residential/"
               class="self-start inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 text-base font-bold rounded hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white"
               data-cta-name="split_residential"
             >
@@ -217,13 +218,13 @@ const mainSchema = [websiteSchema(), organizationSchema()];
           {
             title: 'Siding & Gutters',
             desc: 'Comprehensive envelope protection including high-performance siding systems and custom drainage solutions.',
-            href: '/residential-roofing/',
+            href: '/residential/siding',
             icon: 'layers',
           },
           {
             title: 'Inspections & Audits',
             desc: 'Detailed forensic inspections providing actionable data for real estate transactions or insurance needs.',
-            href: '/residential-roofing/inspection/',
+            href: '/contact/?intent=inspection',
             icon: 'search',
           },
         ].map((s) => (

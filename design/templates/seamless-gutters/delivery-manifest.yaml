@@ -1,0 +1,74 @@
+# Delivery manifest — /residential/seamless-gutters
+# Phase 6 of 6 — AIA4 PageBuilder · 2026-05-03
+
+slug: seamless-gutters
+url: /residential/seamless-gutters
+title: "Seamless Gutter Installation"
+target_keyword: "seamless gutter installation"
+keyword_volume: 8100
+keyword_cpc_usd: 21.43
+keyword_competition: LOW
+template: residential-service (standard hero — not emergency variant; mixed intent)
+silo_role: T2-money-page — storm-damage one-stop add-on and standalone gutter service
+silo_parent: /residential
+
+hypothesis:
+  a: "Top-5 organic for 'seamless gutter installation' in TX/CO/KS/MO/GA geos within 6 months"
+  b: "≥15% increase in average storm job value via combined roof+gutter quotes within 90 days (measured in CRM)"
+  note: |
+    The bundle positioning (roof + gutters = one crew, one claim) is the primary
+    conversion driver. The page converts in two modes: standalone gutter inquiries
+    from homeowners who found it organically, and add-on conversions from homeowners
+    already in a roof replacement discussion. CRM tracking must differentiate both.
+
+files:
+  brief:           design/templates/seamless-gutters/brief.yaml
+  seo_validator:   design/templates/seamless-gutters/seo-validator-manifest.yaml
+  page_link:       design/templates/seamless-gutters/page-link-manifest.yaml
+  copy:            design/templates/seamless-gutters/copy.yaml
+  assembled_page:  src/pages/residential/seamless-gutters/index.astro
+
+hard_gates:
+  performance:    pending-localhost-verification
+  accessibility:  structural-pass-pending-browser-verification
+  measurement:    pass-(4 CTAs instrumented with data-event-* attributes)
+  trust:          blocked-pending-source-material
+  schema:         pass-pending-rich-results-test (RoofingContractor + Service + BreadcrumbList + FAQPage)
+  forms:          pending (/contact?intent=gutter-estimate end-to-end test required)
+
+ship_blockers:
+  - "Hero background image [REPRESENTATIVE] — gutter installation action shot"
+  - "Service overview image [REPRESENTATIVE] — roll-forming machine on-site"
+  - "Testimonial — real customer (gutter or roof+gutter project, any served state) + signed release"
+  - "All 3 case studies — real projects + signed releases"
+  - "Gutter projects completed stat [REPRESENTATIVE] — confirm count with Pro Exteriors"
+  - "Google rating [REPRESENTATIVE] — pull from live GBP profile"
+  - "Bundle band image [REPRESENTATIVE] — combined roof + gutter project"
+  - "Localhost Lighthouse run — mobile ≥95 Performance required"
+
+internal_links:
+  out_placed: 4
+  out_detail:
+    - up:    "/residential (near-match: 'residential roofing and exterior contractor' in local_experts_proof)"
+    - across: "/residential/roof-replacement (live — bundle_band primary link, final CTA secondary)"
+    - across: "/residential/storm-damage-repair (live — bundle_band body)"
+    - across: "/residential/insurance-claim-assistance (live — FAQ answer 4)"
+  in_live: []
+  in_needed:
+    - "/residential parent — 'seamless gutter systems' anchor, needs wiring"
+    - "/residential/roof-replacement — 'seamless gutter installation' anchor, wire post-launch"
+    - "/residential/storm-damage-repair — 'seamless gutter replacement' anchor, wire post-launch"
+
+structural_notes:
+  - "Standard hero — background image slot, not CSS gradient. LCP target is standard (not emergency <1.0s)."
+  - "Bundle band section has id='bundle' — hero secondary CTA anchors to it (#bundle)."
+  - "Materials grid uses badge labels (Most Common / Premium Option / Heavy-Duty) — positioned top-right of each card."
+  - "4 CTAs: hero-primary, hero-secondary (anchor scroll), overview-cta, final-cta-primary, final-cta-secondary."
+  - "No sticky call bar — standard template."
+
+status: structurally-complete
+launch_readiness: blocked-pending-source-material
+
+provenance:
+  produced_by: aia4-pagebuilder Phase 6 (inline orchestration)
+  produced_at: 2026-05-03

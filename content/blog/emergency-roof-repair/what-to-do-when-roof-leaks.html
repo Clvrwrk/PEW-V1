@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What to Do When Your Roof Leaks: A Step-by-Step Response Guide for Homeowners | Pro Exteriors</title>
+  <meta name="description" content="Active roof leak? Here's what to do in the first hour — protect your interior, document damage correctly, and get the right kind of help on-site fast." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --deep-navy:        #11133f;
+      --deep-navy-dark:   #041534;
+      --deep-navy-nav:    #0f172a;
+      --deep-navy-cta:    #1b2a4a;
+      --flag-red:         #c22326;
+      --flag-red-hover:   #9b1c1f;
+      --hunter-green:     #3b6b4c;
+      --golden-orange:    #c28412;
+      --golden-orange-bg: #f5e6c4;
+      --smart-blue:       #232884;
+      --bg-warm:          #fbf9f6;
+      --bg-stone:         #f5f3f0;
+      --bg-white:         #ffffff;
+      --text-primary:     #041534;
+      --text-secondary:   #506071;
+      --text-muted:       #8392b7;
+      --border:           #c5c6cf;
+      --font-body:        'Archivo', sans-serif;
+      --font-mono:        'IBM Plex Mono', monospace;
+      --space-md:   16px;
+      --space-lg:   24px;
+      --space-xl:   32px;
+      --space-2xl:  48px;
+      --space-3xl:  64px;
+      --space-4xl:  96px;
+      --nav-h:      80px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--bg-warm); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; }
+
+    /* PROGRESS BAR */
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--flag-red); width: 0%; z-index: 200; transition: width 0.1s linear; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: var(--deep-navy-nav); display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-2xl); z-index: 100; }
+    .nav-logo { font-family: var(--font-body); font-weight: 800; font-size: 1.2rem; color: #fff; text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--flag-red); }
+    .nav-cta { background: var(--flag-red); color: #fff; font-size: 0.875rem; font-weight: 700; padding: 10px 20px; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--flag-red-hover, #9b1c1f); }
+
+    /* ARTICLE HEADER */
+    .article-header { padding: calc(var(--nav-h) + var(--space-3xl)) var(--space-2xl) var(--space-2xl); max-width: 1100px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin-bottom: var(--space-md); font-family: var(--font-mono); }
+    .breadcrumb a { color: var(--smart-blue); text-decoration: none; }
+    .article-badge { display: inline-block; background: #3b6b4c; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-md); }
+    .article-title { font-size: clamp(1.75rem, 3vw, 2.75rem); font-weight: 800; line-height: 1.15; color: var(--deep-navy); margin-bottom: var(--space-lg); letter-spacing: -0.02em; }
+    .article-meta { display: flex; align-items: center; gap: var(--space-lg); flex-wrap: wrap; font-size: 0.875rem; color: var(--text-secondary); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--border); }
+    .article-meta strong { color: var(--text-primary); }
+
+    /* HERO IMAGE */
+    .article-hero { max-width: 1100px; margin: 0 auto var(--space-2xl); padding: 0 var(--space-2xl); }
+    .article-hero img { width: 100%; aspect-ratio: 16/7; object-fit: cover; border-radius: 12px; display: block; }
+
+    /* CONTENT GRID */
+    .content-grid { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-2xl) var(--space-4xl); display: grid; grid-template-columns: 240px 1fr; gap: var(--space-3xl); align-items: start; }
+    @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: calc(var(--nav-h) + var(--space-lg)); }
+    .toc { background: var(--bg-white); border: 1px solid var(--border); border-radius: 10px; padding: var(--space-lg); }
+    .toc-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: var(--space-md); }
+    .toc ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .toc-link { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; line-height: 1.35; display: block; padding: 4px 8px; border-radius: 4px; border-left: 2px solid transparent; transition: all 0.2s; }
+    .toc-link:hover, .toc-link.active { color: var(--smart-blue); border-left-color: var(--smart-blue); background: rgba(35,40,132,0.05); }
+
+    /* ARTICLE BODY */
+    .article-body { min-width: 0; }
+    .article-body h2 { font-size: 1.55rem; font-weight: 800; color: var(--deep-navy); margin: var(--space-3xl) 0 var(--space-lg); letter-spacing: -0.02em; line-height: 1.2; padding-top: var(--space-md); border-top: 2px solid var(--border); }
+    .article-body h2:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+    .article-body h3 { font-size: 1.15rem; font-weight: 700; color: var(--deep-navy); margin: var(--space-xl) 0 var(--space-md); }
+    .article-body p { font-size: 1.0625rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: var(--space-lg); }
+    .article-body ul, .article-body ol { margin: 0 0 var(--space-lg) var(--space-xl); display: flex; flex-direction: column; gap: 8px; }
+    .article-body li { font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary); }
+    .article-body strong { color: var(--text-primary); font-weight: 600; }
+    .article-body a { color: var(--smart-blue); text-decoration: underline; }
+    .article-body blockquote { border-left: 4px solid var(--golden-orange); background: var(--golden-orange-bg); padding: var(--space-lg) var(--space-xl); border-radius: 0 8px 8px 0; margin: var(--space-xl) 0; font-size: 1.1rem; font-style: italic; color: var(--text-primary); }
+    .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-xl) 0; font-size: 0.9rem; }
+    .article-body th { background: var(--deep-navy); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    .article-body td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+    .article-body tr:nth-child(even) td { background: var(--bg-stone); }
+
+    /* CTA BANNER */
+    .cta-banner { background: var(--deep-navy-cta); border-radius: 12px; padding: var(--space-3xl); text-align: center; margin: var(--space-3xl) 0; }
+    .cta-banner h2 { font-size: 1.75rem; font-weight: 800; color: #fff; margin-bottom: var(--space-md); }
+    .cta-banner p { color: #94a3b8; font-size: 1rem; margin-bottom: var(--space-xl); }
+    .cta-banner a { display: inline-block; background: var(--flag-red); color: #fff; font-weight: 700; font-size: 1rem; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .cta-banner a:hover { background: #9b1c1f; }
+
+    /* RELATED */
+    .related-section { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-2xl) var(--space-4xl); }
+    .related-section h2 { font-size: 1.5rem; font-weight: 800; color: var(--deep-navy); margin-bottom: var(--space-2xl); }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+    @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+    .related-card { border-radius: 10px; overflow: hidden; background: var(--bg-white); border: 1px solid var(--border); }
+    .related-card-img { aspect-ratio: 16/9; background-size: cover; background-position: center; }
+    .related-card-body { padding: var(--space-lg); }
+    .related-card-category { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--golden-orange); margin-bottom: 6px; font-family: var(--font-mono); }
+    .related-card-title { font-size: 1rem; font-weight: 700; line-height: 1.35; }
+    .related-card-title a { color: var(--deep-navy); text-decoration: none; }
+    .related-card-title a:hover { color: var(--smart-blue); }
+
+    /* FOOTER */
+    footer { background: var(--deep-navy-nav); color: #94a3b8; padding: var(--space-3xl) var(--space-2xl); text-align: center; font-size: 0.875rem; }
+    footer a { color: #cbd5e1; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <nav class="nav">
+    <a class="nav-logo" href="/"><span>Pro</span> Exteriors</a>
+    <a class="nav-cta" href="/contact/">Get a Quote</a>
+  </nav>
+
+  <header class="article-header">
+    <p class="breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/blog/">Resources</a> &rsaquo;
+      <a href="/services/emergency-roof-repair/">Emergency Roof Repair</a>
+    </p>
+    <span class="article-badge">Residential Roofing</span>
+    <h1 class="article-title">What to Do When Your Roof Leaks: A Step-by-Step Response Guide for Homeowners</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Team</strong></span>
+      <span>May 2026</span>
+      <span>~5 min read</span>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015607_71713d7a-5d70-47a9-84ae-55c97b1c5a1b.png" alt="What to Do When Your Roof Leaks: A Step-by-Step Response Guide for Homeowners" loading="eager" />
+  </div>
+
+  <div class="content-grid">
+    <aside class="sidebar">
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-title">In This Article</p>
+        <ul>
+          <li><a href="#first-15-minutes-stop-the-interior-damage" class="toc-link">First 15 Minutes: Stop the Interior Damage</a></li>
+<li><a href="#where-the-leak-is-probably-coming-from" class="toc-link">Where the Leak Is Probably Coming From</a></li>
+<li><a href="#when-to-call-for-emergency-service" class="toc-link">When to Call for Emergency Service</a></li>
+<li><a href="#what-to-document-before-anyone-arrives" class="toc-link">What to Document Before Anyone Arrives</a></li>
+<li><a href="#temporary-fixes-that-work-and-those-that-don-t" class="toc-link">Temporary Fixes That Work — and Those That Don't</a></li>
+<li><a href="#what-happens-when-the-roofer-gets-there" class="toc-link">What Happens When the Roofer Gets There</a></li>
+
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="article-body">
+      ```html
+<p>A roof leak is not a problem that improves with time. Water moves through your home's structure systematically—through framing, insulation, drywall, and eventually into living spaces—causing damage that compounds hourly. The difference between a $2,000 repair and a $15,000 restoration often comes down to the first two hours after you notice water coming through your ceiling.</p>
+
+<p>This guide covers the immediate actions that protect your home, the information you need to gather, and what to expect when professionals arrive. The goal is to minimize water damage while you arrange for <a href="/services/emergency-roof-repair/">emergency roof repair</a>.</p>
+
+<h2 id="first-15-minutes-stop-the-interior-damage">First 15 Minutes: Stop the Interior Damage</h2>
+
+<p>Water inside your home requires immediate containment. Your priority is not fixing the roof—it's preventing water from saturating insulation, drywall, and structural components.</p>
+
+<ol>
+<li><strong>Locate the source of water entry.</strong> Go to the attic or crawlspace directly above where you see water damage. Bring a flashlight. Water stains on the underside of roof decking, wet insulation, or active dripping will show you where water is entering. The leak's entry point is often 6 to 12 feet horizontally from where water appears on your ceiling, because water travels along framing and insulation before dripping down.</li>
+
+<li><strong>Place buckets or containers under active drips.</strong> Position them to catch water before it hits drywall or flooring. If water is pooling in the attic, use a wet-dry vacuum to remove standing water. Do not leave water sitting on attic insulation or wood framing.</li>
+
+<li><strong>Move contents away from the affected area.</strong> Remove furniture, electronics, and personal items from the room where water is entering. Wet drywall and insulation create conditions for mold growth within 24 to 48 hours [Representative stat — not yet sourced]. Do not wait for a roofer to arrive before protecting your belongings.</li>
+
+<li><strong>Increase ventilation.</strong> Open windows in the affected room and adjacent spaces. Use fans to move air across wet surfaces. This slows mold colonization and helps moisture evaporate from materials.</li>
+
+<li><strong>Turn off electrical circuits serving the affected area.</strong> If water has reached ceiling fixtures, switches, or outlets, turn off the corresponding circuit breaker. Water and electricity create electrocution hazard. Do not touch wet electrical components.</li>
+</ol>
+
+<h2 id="where-the-leak-is-probably-coming-from">Where the Leak Is Probably Coming From</h2>
+
+<p>Roof leaks follow predictable patterns. Understanding where water typically enters helps you communicate accurately with your roofer and assess whether the problem is urgent.</p>
+
+<table border="1" cellpadding="10" cellspacing="0" style="width: 100%; margin: 20px 0; border-collapse: collapse;">
+<thead>
+<tr style="background-color: #f5f5f5;">
+<th>Leak Location</th>
+<th>Primary Causes</th>
+<th>Urgency Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Around roof penetrations (vents, chimneys, skylights)</td>
+<td>Failed sealant, corroded flashing, improper installation</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Valley areas (where two roof planes meet)</td>
+<td>Debris accumulation, damaged flashing, ice dam backup</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Eaves and soffit areas</td>
+<td>Inadequate ventilation, ice dams, gutter overflow</td>
+<td>Medium-High</td>
+</tr>
+<tr>
+<td>Seams in flat or low-slope roofs</td>
+<td>Membrane separation, thermal stress, poor installation</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Damaged or missing shingles</td>
+<td>Wind damage, age deterioration, impact</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+
+<p>Leaks that occur during heavy rain and stop when rain ends often indicate flashing failure or membrane compromise at specific points. Leaks that persist after rain ends or occur during light rain suggest systemic problems—failed sealant, deteriorated membrane, or structural issues—that require professional intervention regardless of weather.</p>
+
+<h2 id="when-to-call-for-emergency-service">When to Call for Emergency Service</h2>
+
+<p>Not all roof leaks require emergency response. Understanding the difference between urgent and routine repairs affects both cost and outcome.</p>
+
+<p><strong>Call for emergency service immediately if:</strong></p>
+
+<ul>
+<li>Water is actively entering your home during rainfall or weather events</li>
+<li>Multiple rooms or large areas are affected</li>
+<li>Water is entering electrical panels, HVAC equipment, or other critical systems</li>
+<li>You have a flat or low-slope roof with standing water or visible damage</li>
+<li>Severe weather (hail, high winds, tornado damage) has visibly damaged your roof</li>
+</ul>
+
+<p><strong>Schedule routine service if:</strong></p>
+
+<ul>
+<li>Water damage occurred but has stopped, and weather is clear</li>
+<li>You notice water stains or minor dampness without active leaking</li>
+<li>You found damaged shingles or flashing during inspection, but no water entry is occurring</li>
+</ul>
+
+<p>Pro Exteriors provides <a href="/services/emergency-roof-repair/">emergency roof repair</a> throughout Texas, Colorado, Kansas, and Missouri. In Dallas, Richardson, Euless, Denver, Wichita, and Kansas City, emergency response typically arrives within 4 to 6 hours of your call. Response time depends on current demand and your location. Call to confirm availability rather than assuming immediate arrival.</p>
+
+<h2 id="what-to-document-before-anyone-arrives">What to Document Before Anyone Arrives</h2>
+
+<p>Documentation serves two purposes: it creates a record for insurance claims and it provides your roofer with baseline information about damage extent and progression.</p>
+
+<p><strong>Photograph and document:</strong></p>
+
+<ul>
+<li>Water stains and damage on ceilings, walls, and flooring—capture wide shots showing room context and close-ups of damage</li>
+<li>Wet insulation or framing visible in the attic—photograph from multiple angles</li>
+<li>Active water entry or dripping—video is especially useful for showing water flow patterns</li>
+<li>Damaged roof surface visible from ground level—shingles, flashing, membrane tears</li>
+<li>Date and time stamps on all photos—most phones do this automatically</li>
+</ul>
+
+<p>Write down the following information before calling your roofer:</p>
+
+<ul>
+<li>When you first noticed the leak (date and time)</li>
+<li>Weather conditions at the time (rain, wind, temperature)</li>
+<li>Which rooms are affected</li>
+<li>Whether water is actively entering or has stopped</li>
+<li>Your roof's approximate age (if you know it)</li>
+<li>Any previous roof repairs or damage</li>
+</ul>
+
+<p>This information accelerates diagnosis and helps your roofer determine whether the problem is isolated or systemic.</p>
+
+<h2 id="temporary-fixes-that-work-and-those-that-don-t">Temporary Fixes That Work — and Those That Don't</h2>
+
+<p
+
+      <div class="cta-banner">
+        <h2>Ready to Talk to an Expert?</h2>
+        <p>Pro Exteriors serves commercial and residential clients across Texas, Colorado, Kansas, and Missouri.</p>
+        <a href="/services/emergency-roof-repair/">Call for Emergency Roof Service</a>
+      </div>
+    </article>
+  </div>
+
+  <section class="related-section">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+      
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015607_71713d7a-5d70-47a9-84ae-55c97b1c5a1b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Emergency Roof Repair</p>
+              <h3 class="related-card-title"><a href="/blog/emergency-tarping-costs/">Emergency Tarping: What It Costs</a></h3>
+            </div>
+          </article>
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015604_d718a3a0-3029-4e59-9dc2-3ee0d2f08a0b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Emergency Roof Repair</p>
+              <h3 class="related-card-title"><a href="/blog/temporary-vs-permanent-roof-fixes/">Temporary vs. Permanent Roof Fixes</a></h3>
+            </div>
+          </article>
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015604_d718a3a0-3029-4e59-9dc2-3ee0d2f08a0b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Emergency Roof Repair</p>
+              <h3 class="related-card-title"><a href="/blog/will-insurance-cover-emergency-roof-repair/">Will Insurance Cover Emergency Roof Repair?</a></h3>
+            </div>
+          </article>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pro Exteriors. All rights reserved. |
+      <a href="/privacy-policy/">Privacy Policy</a> |
+      <a href="/terms/">Terms of Service</a>
+    </p>
+    <p style="margin-top: 8px;">Richardson, TX · Euless, TX · Denver, CO · Wichita, KS · Kansas City, MO</p>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
+      bar.style.width = Math.min(scrolled * 100, 100) + '%';
+    });
+
+    // ToC active section
+    const links = document.querySelectorAll('.toc-link');
+    const headings = document.querySelectorAll('.article-body h2');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    headings.forEach(h => observer.observe(h));
+  </script>
+</body>
+</html>

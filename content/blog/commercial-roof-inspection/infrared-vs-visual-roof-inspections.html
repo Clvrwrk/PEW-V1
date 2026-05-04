@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infrared vs. Visual Roof Inspections: When Each Is the Right Tool | Pro Exteriors</title>
+<meta name="description" content="Visual inspection finds surface defects. Infrared finds wet insulation before leaks appear. A practical guide to when each method is appropriate, what each costs, and what each cannot find.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-navy: #11133f;
+    --flag-red: #c22326;
+    --hunter-green: #3b6b4c;
+    --golden-orange: #c28412;
+    --smart-blue: #232884;
+    --bg-warm: #fbf9f6;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --border-light: #e2e0dc;
+    --white: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Archivo', sans-serif; background: var(--bg-warm); color: var(--text-primary); line-height: 1.7; font-size: 1rem; }
+  #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--flag-red); z-index: 1000; transition: width 0.1s linear; }
+  .site-nav { position: sticky; top: 0; background: var(--deep-navy); z-index: 900; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .site-nav .logo { color: var(--white); font-weight: 700; font-size: 1.1rem; text-decoration: none; letter-spacing: 0.02em; }
+  .site-nav .logo span { color: var(--flag-red); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .article-header { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem 2.5rem; }
+  .article-header-inner { max-width: 900px; margin: 0 auto; }
+  .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+  .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--white); }
+  .breadcrumb span { color: rgba(255,255,255,0.3); }
+  .post-badge { display: inline-block; background: var(--flag-red); color: var(--white); font-size: 0.7rem; font-weight: 700; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px; margin-bottom: 0.9rem; }
+  .article-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 1rem; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); font-family: 'IBM Plex Mono', monospace; }
+  .article-meta strong { color: rgba(255,255,255,0.9); }
+  .hero-image-wrap { width: 100%; max-width: 1200px; margin: 0 auto; aspect-ratio: 16/7; overflow: hidden; }
+  .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .article-body-wrap { max-width: 1140px; margin: 0 auto; padding: 2.5rem 2rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+  .toc-sidebar { position: sticky; top: 76px; }
+  .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.75rem; }
+  .toc-list { list-style: none; border-left: 2px solid var(--border-light); padding-left: 1rem; }
+  .toc-list li { margin-bottom: 0.5rem; }
+  .toc-list a { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; line-height: 1.4; transition: color 0.2s; display: block; }
+  .toc-list a:hover, .toc-list a.active { color: var(--flag-red); }
+  .toc-list a.active { font-weight: 600; }
+  .article-content h2 { font-size: 1.45rem; font-weight: 700; color: var(--deep-navy); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 2px solid var(--border-light); line-height: 1.3; }
+  .article-content p { margin-bottom: 1.1rem; }
+  .article-content ul, .article-content ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+  .article-content li { margin-bottom: 0.4rem; }
+  .article-content a { color: var(--smart-blue); text-decoration: underline; text-underline-offset: 2px; }
+  .article-content a:hover { color: var(--flag-red); }
+  .article-content strong { font-weight: 600; }
+  .article-content blockquote { border-left: 4px solid var(--flag-red); margin: 1.5rem 0; padding: 1rem 1.25rem; background: rgba(194,35,38,0.04); border-radius: 0 4px 4px 0; }
+  .article-content blockquote p { font-size: 1.05rem; font-style: italic; color: var(--deep-navy); margin-bottom: 0.4rem; }
+  .article-content blockquote cite { font-size: 0.8rem; color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; font-style: normal; }
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: 6px; border: 1px solid var(--border-light); }
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .data-table th { background: var(--deep-navy); color: var(--white); padding: 0.7rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+  .data-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: rgba(17,19,63,0.03); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .chart-figure { margin: 1.75rem 0; }
+  .chart-figure figcaption { font-size: 0.78rem; color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; margin-top: 0.5rem; text-align: center; }
+  .cta-banner { background: var(--deep-navy); color: var(--white); padding: 2.5rem 2rem; text-align: center; margin: 3rem 0 0; }
+  .cta-banner h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .cta-banner p { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 1.5rem; }
+  .cta-btn { display: inline-block; background: var(--flag-red); color: var(--white); font-weight: 700; padding: 0.85rem 2rem; border-radius: 3px; text-decoration: none; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-btn:hover { background: #a81c1f; }
+  .related-section { max-width: 1140px; margin: 3rem auto 0; padding: 0 2rem 3rem; }
+  .related-section h2 { font-size: 1.1rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 1.25rem; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; text-decoration: none; transition: box-shadow 0.2s; display: block; }
+  .related-card:hover { box-shadow: 0 4px 16px rgba(17,19,63,0.1); }
+  .related-card-badge { font-size: 0.68rem; font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--smart-blue); margin-bottom: 0.4rem; }
+  .related-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--deep-navy); line-height: 1.4; }
+  .site-footer { background: var(--deep-navy); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; }
+  .site-footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  @media (max-width: 768px) {
+    .article-body-wrap { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<nav class="site-nav">
+  <a href="/" class="logo">Pro<span>Exteriors</span></a>
+  <ul class="nav-links">
+    <li><a href="/services/commercial-roofing/">Commercial</a></li>
+    <li><a href="/services/residential-roofing/">Residential</a></li>
+    <li><a href="/blog/">Resources</a></li>
+    <li><a href="/contact/">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<header class="article-header">
+  <div class="article-header-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/blog/">Resources</a><span>›</span>
+      <a href="/blog/commercial-roof-inspection/">Commercial Roof Inspection</a><span>›</span>
+      <span>Infrared vs. Visual Inspections</span>
+    </nav>
+    <div class="post-badge">Commercial Inspection</div>
+    <h1>Infrared vs. Visual Roof Inspections: When Each Method Is the Right Tool</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Inspection Services</strong></span>
+      <span>Updated <strong>May 2026</strong></span>
+      <span>Read time <strong>7 min</strong></span>
+      <span>Audience <strong>Facility Managers · Property Directors</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="hero-image-wrap">
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015550_b68186ff-43cb-4860-8f56-b3abab09c55f.png" alt="Commercial roof inspector using infrared camera to detect moisture beneath membrane at dusk" width="1200" height="525" loading="eager">
+</div>
+
+<div class="article-body-wrap">
+  <aside class="toc-sidebar" aria-label="Table of contents">
+    <div class="toc-label">In This Article</div>
+    <ul class="toc-list" id="toc">
+      <li><a href="#visual-limits">What Visual Inspection Finds and Misses</a></li>
+      <li><a href="#how-infrared-works">How Infrared Thermography Works</a></li>
+      <li><a href="#when-infrared">When Infrared Is Worth the Premium</a></li>
+      <li><a href="#nuclear-scanning">Nuclear Moisture Scanning</a></li>
+      <li><a href="#limitations">Limitations of Every Method</a></li>
+      <li><a href="#choosing">Choosing the Right Method</a></li>
+    </ul>
+  </aside>
+
+  <article class="article-content">
+
+    <p>The question isn't which method is better—it's which method is appropriate for the question you're trying to answer. Visual inspection answers the question "what surface deficiencies exist right now?" Infrared thermography answers "where is moisture already in the insulation assembly?" Those are different questions with different financial stakes, and confusing them leads to either overspending on diagnostic tools that aren't needed or underspending and missing the damage that will drive the next capital expense.</p>
+
+    <p>This guide breaks down the mechanics, appropriate use cases, costs, and honest limitations of each approach. It's written for facility managers who need to commission the right inspection scope, not for inspectors who already know the methodology.</p>
+
+    <h2 id="visual-limits">What a Visual Inspection Can and Cannot Find</h2>
+
+    <p>A qualified visual inspection performed by an experienced commercial roofing professional covers the entire accessible roof surface and produces findings in every category that is observable from the surface: membrane condition, seam integrity, flashing and penetration condition, drainage system status, and structural evidence visible at the surface. For a complete description of what each phase of a visual inspection involves, see our guide on <a href="/blog/what-happens-during-roof-inspection/">what happens during a commercial roof inspection</a>.</p>
+
+    <p>What visual inspection cannot reliably find is moisture that has already entered the insulation assembly beneath an intact membrane. A membrane can be visually intact—no open seams, no visible cracks, no obvious penetration failures—while harboring thousands of square feet of wet insulation beneath it. The entry point may have self-sealed through compression, sealant creep, or debris accumulation. The moisture may have entered months or years prior and migrated laterally through the insulation. The surface shows nothing.</p>
+
+    <p>This limitation matters because wet insulation is not a maintenance item—it's a replacement cost driver. Every saturated square foot of polyisocyanurate insulation represents a square foot that cannot be retained in a re-roofing project and must be replaced as part of it, adding $1.80 to $3.50 per square foot to the re-roofing cost. On a 40,000-square-foot roof with 30 percent wet insulation, that's $21,000 to $42,000 in additional cost that would be invisible to a visual inspection alone.</p>
+
+    <h2 id="how-infrared-works">How Infrared Thermography Works on Roofs</h2>
+
+    <p>Infrared thermography applied to commercial roofing is a passive technique that measures surface temperature variation. The principle is straightforward: during daylight hours, the roof surface and the insulation beneath it absorb solar radiation. After sunset, both begin to cool—but dry insulation releases heat faster than wet insulation, because water has a higher thermal mass and retains heat longer. An infrared camera scanned over the roof surface during the thermal capture window captures this differential as a temperature map. Wet insulation appears as warm anomalies, ranging from 2°F to 8°F warmer than surrounding dry areas.</p>
+
+    <p>The thermal capture window is typically the first two to three hours after sunset when solar heating has concluded and the differential between wet and dry areas is at its maximum. Earlier in the evening, the surface temperature is too uniform. Later, the differential collapses as everything reaches ambient temperature. This time constraint is non-negotiable and shapes the inspection logistics: for large roofs, infrared surveys are often conducted from drone platforms to cover more surface area within the window than a walking inspector can achieve.</p>
+
+    <p>ASTM D7877 is the standard governing infrared thermographic inspection of roofing systems. The standard specifies environmental requirements—minimum four hours of unobstructed solar loading, less than 15 mph wind during scanning, no precipitation within 24 hours of scanning, and a 2°F minimum differential between wet and dry areas. Inspectors who don't reference ASTM D7877 when discussing their methodology are not performing to industry standard.</p>
+
+    <blockquote>
+      <p>"We've found roofs where the owner thought they had a $150,000 repair problem and it turned out to be a $600,000 replacement because the infrared showed 35 percent wet insulation that the visual scan didn't flag at all. That's the conversation nobody wants to have, but better to have it before you re-coat a roof you should be replacing."</p>
+      <cite>— Pro Exteriors Senior Inspector, Commercial Division</cite>
+    </blockquote>
+
+    <h2 id="when-infrared">When Infrared Is Worth the Premium</h2>
+
+    <p>Infrared scanning adds $0.03 to $0.08 per square foot to an inspection cost, or $1,500 to $4,000 for a typical 50,000-square-foot commercial roof. That premium is justified in specific circumstances and unnecessary in others.</p>
+
+    <p>Infrared is worth commissioning when: the roof is more than 10 years old and has had no prior non-destructive moisture testing; the roof has had a history of active leaks, even if currently "dry"; a re-roofing bid is being evaluated and the wet insulation extent will materially affect the project cost; an insurance claim for storm damage is being prepared and the extent of damage must be documented; or a building is being acquired or disposed of and the roof condition must be accurately represented to buyers or sellers.</p>
+
+    <p>Infrared is not necessary for a routine annual inspection on a roof under 8 years old with no known leak history. In that case, a thorough visual inspection with documented findings is the appropriate scope and a more efficient use of the inspection budget.</p>
+
+    <figure class="chart-figure">
+      <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison chart showing inspection method selection by roof age and leak history. Infrared recommended for roofs over 10 years or with leak history.">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3b6b4c"/><stop offset="100%" stop-color="#254433"/></linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c28412"/><stop offset="100%" stop-color="#8a5c0d"/></linearGradient>
+          <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c22326"/><stop offset="100%" stop-color="#8a1618"/></linearGradient>
+        </defs>
+        <!-- Title -->
+        <text x="290" y="18" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#11133f" font-weight="600">Inspection Method by Roof Age &amp; Condition</text>
+        <!-- Headers -->
+        <text x="145" y="40" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#4a4a6a">0–8 Years</text>
+        <text x="290" y="40" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#4a4a6a">9–15 Years</text>
+        <text x="435" y="40" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#4a4a6a">15+ Years</text>
+        <!-- No leak history row -->
+        <text x="30" y="80" font-family="Archivo, sans-serif" font-size="10" fill="#4a4a6a">No leak history</text>
+        <rect x="70" y="58" width="150" height="32" fill="url(#g1)" rx="3"/>
+        <text x="145" y="79" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="white" font-weight="600">Visual only</text>
+        <rect x="215" y="58" width="150" height="32" fill="url(#g2)" rx="3"/>
+        <text x="290" y="79" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="white" font-weight="600">Visual + consider IR</text>
+        <rect x="360" y="58" width="150" height="32" fill="url(#g3)" rx="3"/>
+        <text x="435" y="79" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="white" font-weight="600">Visual + IR required</text>
+        <!-- Leak history row -->
+        <text x="30" y="130" font-family="Archivo, sans-serif" font-size="10" fill="#4a4a6a">Leak history</text>
+        <rect x="70" y="108" width="150" height="32" fill="url(#g2)" rx="3"/>
+        <text x="145" y="129" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="white" font-weight="600">Visual + consider IR</text>
+        <rect x="215" y="108" width="150" height="32" fill="url(#g3)" rx="3"/>
+        <text x="290" y="129" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="white" font-weight="600">Visual + IR required</text>
+        <rect x="360" y="108" width="150" height="32" fill="url(#g3)" rx="3"/>
+        <text x="435" y="129" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="white" font-weight="600">Visual + IR required</text>
+        <!-- Legend -->
+        <rect x="70" y="160" width="12" height="10" fill="#3b6b4c" rx="2"/>
+        <text x="86" y="169" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">Standard visual</text>
+        <rect x="185" y="160" width="12" height="10" fill="#c28412" rx="2"/>
+        <text x="201" y="169" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">Consider IR</text>
+        <rect x="290" y="160" width="12" height="10" fill="#c22326" rx="2"/>
+        <text x="306" y="169" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">IR strongly recommended</text>
+      </svg>
+      <figcaption>Inspection method selection matrix based on roof age and leak history. IR = infrared thermography per ASTM D7877.</figcaption>
+    </figure>
+
+    <h2 id="nuclear-scanning">Nuclear Moisture Scanning: The Third Option</h2>
+
+    <p>Nuclear moisture scanning uses a neutron backscatter gauge—a handheld device that emits low-level neutron radiation and measures the return signal from hydrogen atoms in the material beneath it. Because hydrogen is present in water and not in dry insulation, the reading correlates to moisture content. The device must be positioned and read at individual grid points, typically on 10-foot centers across the roof surface, and the resulting point dataset is interpolated into a moisture map.</p>
+
+    <p>Nuclear scanning is slower and more expensive per square foot than infrared—a full nuclear scan of a 50,000-square-foot roof takes 6 to 10 hours compared to 2 to 4 hours for infrared—but it has two advantages infrared does not. First, it functions in any weather, at any time of day, without the solar loading and thermal differential requirements that govern infrared. Second, it verifies anomalies that infrared identifies, because infrared is subject to false positives from HVAC exhaust, reflective surfaces, and surface contamination that nuclear scanning does not share.</p>
+
+    <p>In practice, nuclear scanning is used most frequently as a verification tool rather than a primary survey instrument: infrared identifies candidate wet areas, nuclear scanning confirms them. For pre-purchase or pre-litigation inspections where the moisture extent must be documented to a defensible standard, combining both methods is the appropriate scope.</p>
+
+    <h2 id="limitations">Limitations of Every Method</h2>
+
+    <p>No inspection method is exhaustive, and knowing the failure modes of each prevents over-reliance on any single technique. Visual inspection misses subsurface moisture by definition. Infrared produces false positives from HVAC heat exhaust, roof traffic shadows, and surface contamination; it also fails to detect moisture in roofs with highly reflective membranes or in conditions with strong wind that suppress the thermal differential. Nuclear scanning is sensitive to building penetrations and metallic substrate, which produce anomalous readings that must be filtered from the dataset. None of these methods can determine the age and condition of the insulation in a way that predicts when it will require replacement independent of moisture status.</p>
+
+    <p>Test cuts remain the only definitive verification method: a small incision through the membrane to the insulation layer, evaluated visually and by compression moisture test. Test cuts are used to calibrate infrared and nuclear results and to verify the moisture content at specific points. Most condition assessments include three to five test cuts distributed across the roof, positioned to sample both identified anomalies and visually clean areas as a control.</p>
+
+    <h2 id="choosing">Choosing the Right Method for Your Building</h2>
+
+    <p>The decision framework is this: if you need to know what the surface condition is, commission a visual inspection. If you need to know what the moisture condition is—because you're evaluating a coating investment, preparing a re-roofing scope, filing an insurance claim, or executing due diligence on a property transaction—commission infrared with nuclear verification on the most significant anomalies. If conditions prevent infrared (persistent overcast, recent precipitation, high wind), commission nuclear as the primary survey instrument.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Detects Surface Defects</th>
+            <th>Detects Wet Insulation</th>
+            <th>Weather Dependent</th>
+            <th>Typical Added Cost (50K sf)</th>
+            <th>ASTM Standard</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Visual only</strong></td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>Minimal</td>
+            <td>Baseline</td>
+            <td>ASTM D4820</td>
+          </tr>
+          <tr>
+            <td><strong>Infrared thermography</strong></td>
+            <td>No</td>
+            <td>Yes (indirect)</td>
+            <td>Yes — clear sky, solar loading required</td>
+            <td>+$1,500–$4,000</td>
+            <td>ASTM D7877</td>
+          </tr>
+          <tr>
+            <td><strong>Nuclear moisture scan</strong></td>
+            <td>No</td>
+            <td>Yes (direct)</td>
+            <td>No</td>
+            <td>+$3,000–$6,000</td>
+            <td>ASTM D7954</td>
+          </tr>
+          <tr>
+            <td><strong>Test cuts (verification)</strong></td>
+            <td>Partial</td>
+            <td>Yes (definitive)</td>
+            <td>No</td>
+            <td>+$200–$600 (3–5 cuts)</td>
+            <td>NRCA guidelines</td>
+          </tr>
+          <tr>
+            <td><strong>Drone + IR survey</strong></td>
+            <td>Yes (high res imagery)</td>
+            <td>Yes (indirect)</td>
+            <td>Yes — same as infrared</td>
+            <td>+$2,000–$5,500</td>
+            <td>ASTM D7877</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>For a step-by-step guide to what happens during the full inspection process, see <a href="/blog/what-happens-during-roof-inspection/">what happens during a commercial roof inspection</a>. For guidance on interpreting the report that results, see <a href="/blog/how-to-read-roof-inspection-report/">how to read a roof inspection report</a>.</p>
+
+  </article>
+</div>
+
+<div class="cta-banner">
+  <h2>Need a Moisture Assessment on Your Commercial Roof?</h2>
+  <p>Pro Exteriors provides infrared thermographic surveys and nuclear moisture scans across the South-Central and Mountain regions. Reports include moisture maps, test cut verification, and remaining useful life estimates.</p>
+  <a href="/contact/" class="cta-btn">Request Moisture Assessment</a>
+</div>
+
+<section class="related-section" aria-label="Related articles">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <a href="/blog/what-happens-during-roof-inspection/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>What Happens During a Commercial Roof Inspection: A Step-by-Step Walkthrough</h3>
+    </a>
+    <a href="/blog/how-to-read-roof-inspection-report/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>How to Read a Roof Inspection Report: A Facility Manager's Field Guide</h3>
+    </a>
+    <a href="/blog/roof-inspection-before-property-purchase/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>Roof Inspection Before Commercial Property Purchase: What Buyers Miss</h3>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Pro Exteriors · <a href="/privacy/">Privacy</a> · <a href="/sitemap.xml">Sitemap</a> · Licensed in 16 states · Prepared by AIA4 Pro Exteriors</p>
+</footer>
+
+<script>
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+  }, { passive: true });
+  const headings = document.querySelectorAll('.article-content h2[id]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  headings.forEach(h => observer.observe(h));
+</script>
+</body>
+</html>

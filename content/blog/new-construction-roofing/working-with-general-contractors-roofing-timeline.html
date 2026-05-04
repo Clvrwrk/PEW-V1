@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Working with General Contractors on Commercial Roofing Timelines | Pro Exteriors</title>
+<meta name="description" content="How roofing contractors work within GC-managed construction schedules—critical path milestones, weather windows, sequence coordination with mechanical subs, and what GCs need from roofing before substantial completion.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-navy: #11133f;
+    --flag-red: #c22326;
+    --hunter-green: #3b6b4c;
+    --golden-orange: #c28412;
+    --smart-blue: #232884;
+    --bg-warm: #fbf9f6;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --border-light: #e2e0dc;
+    --white: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Archivo', sans-serif; background: var(--bg-warm); color: var(--text-primary); line-height: 1.7; font-size: 1rem; }
+  #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--flag-red); z-index: 1000; transition: width 0.1s linear; }
+  .site-nav { position: sticky; top: 0; background: var(--deep-navy); z-index: 900; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .site-nav .logo { color: var(--white); font-weight: 700; font-size: 1.1rem; text-decoration: none; letter-spacing: 0.02em; }
+  .site-nav .logo span { color: var(--flag-red); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .article-header { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem 2.5rem; }
+  .article-header-inner { max-width: 900px; margin: 0 auto; }
+  .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+  .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--white); }
+  .breadcrumb span { color: rgba(255,255,255,0.3); }
+  .post-badge { display: inline-block; background: var(--flag-red); color: var(--white); font-size: 0.7rem; font-weight: 700; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px; margin-bottom: 0.9rem; }
+  .article-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 1rem; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); font-family: 'IBM Plex Mono', monospace; }
+  .article-meta strong { color: rgba(255,255,255,0.9); }
+  .hero-image-wrap { width: 100%; max-width: 1200px; margin: 0 auto; aspect-ratio: 16/7; overflow: hidden; }
+  .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .article-body-wrap { max-width: 1140px; margin: 0 auto; padding: 2.5rem 2rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+  .toc-sidebar { position: sticky; top: 76px; }
+  .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.75rem; }
+  .toc-list { list-style: none; border-left: 2px solid var(--border-light); padding-left: 1rem; }
+  .toc-list li { margin-bottom: 0.5rem; }
+  .toc-list a { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; line-height: 1.4; transition: color 0.2s; display: block; }
+  .toc-list a:hover, .toc-list a.active { color: var(--flag-red); }
+  .toc-list a.active { font-weight: 600; }
+  .article-content h2 { font-size: 1.45rem; font-weight: 700; color: var(--deep-navy); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 2px solid var(--border-light); line-height: 1.3; }
+  .article-content p { margin-bottom: 1.1rem; }
+  .article-content ul, .article-content ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+  .article-content li { margin-bottom: 0.4rem; }
+  .article-content a { color: var(--smart-blue); text-decoration: underline; text-underline-offset: 2px; }
+  .article-content a:hover { color: var(--flag-red); }
+  .article-content strong { font-weight: 600; }
+  .article-content blockquote { border-left: 4px solid var(--flag-red); margin: 1.5rem 0; padding: 1rem 1.25rem; background: rgba(194,35,38,0.04); border-radius: 0 4px 4px 0; }
+  .article-content blockquote p { font-size: 1.05rem; font-style: italic; color: var(--deep-navy); margin-bottom: 0.4rem; }
+  .article-content blockquote cite { font-size: 0.8rem; color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; font-style: normal; }
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: 6px; border: 1px solid var(--border-light); }
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .data-table th { background: var(--deep-navy); color: var(--white); padding: 0.7rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+  .data-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: rgba(17,19,63,0.03); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .cta-banner { background: var(--deep-navy); color: var(--white); padding: 2.5rem 2rem; text-align: center; margin: 3rem 0 0; }
+  .cta-banner h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .cta-banner p { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 1.5rem; }
+  .cta-btn { display: inline-block; background: var(--flag-red); color: var(--white); font-weight: 700; padding: 0.85rem 2rem; border-radius: 3px; text-decoration: none; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-btn:hover { background: #a81c1f; }
+  .related-section { max-width: 1140px; margin: 3rem auto 0; padding: 0 2rem 3rem; }
+  .related-section h2 { font-size: 1.1rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 1.25rem; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; text-decoration: none; transition: box-shadow 0.2s; display: block; }
+  .related-card:hover { box-shadow: 0 4px 16px rgba(17,19,63,0.1); }
+  .related-card-badge { font-size: 0.68rem; font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--smart-blue); margin-bottom: 0.4rem; }
+  .related-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--deep-navy); line-height: 1.4; }
+  .site-footer { background: var(--deep-navy); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; }
+  .site-footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  @media (max-width: 768px) {
+    .article-body-wrap { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<nav class="site-nav">
+  <a href="/" class="logo">Pro<span>Exteriors</span></a>
+  <ul class="nav-links">
+    <li><a href="/services/commercial-roofing/">Commercial</a></li>
+    <li><a href="/services/residential-roofing/">Residential</a></li>
+    <li><a href="/blog/">Resources</a></li>
+    <li><a href="/contact/">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<header class="article-header">
+  <div class="article-header-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/blog/">Resources</a><span>›</span>
+      <a href="/blog/new-construction-roofing/">New Construction Roofing</a><span>›</span>
+      <span>GC Roofing Timelines</span>
+    </nav>
+    <div class="post-badge">New Construction</div>
+    <h1>Working with General Contractors on Commercial Roofing Timelines</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors New Construction Division</strong></span>
+      <span>Updated <strong>May 2026</strong></span>
+      <span>Read time <strong>6 min</strong></span>
+      <span>Audience <strong>General Contractors · Owner's Reps · Project Managers</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="hero-image-wrap">
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015558_8ad1ca71-927b-4faa-aa47-9e6bba3c5321.png" alt="Commercial construction site showing coordination between roofing crew and general contractor team" width="1200" height="525" loading="eager">
+</div>
+
+<div class="article-body-wrap">
+  <aside class="toc-sidebar" aria-label="Table of contents">
+    <div class="toc-label">In This Article</div>
+    <ul class="toc-list" id="toc">
+      <li><a href="#critical-path">Roofing's Role on the Critical Path</a></li>
+      <li><a href="#weather-windows">Weather Windows and Float</a></li>
+      <li><a href="#mep-coordination">MEP Sub Coordination</a></li>
+      <li><a href="#submittals">Submittals and Lead Times</a></li>
+      <li><a href="#substantial-completion">Closeout Requirements</a></li>
+      <li><a href="#change-orders">Scope Changes and Change Orders</a></li>
+    </ul>
+  </aside>
+
+  <article class="article-content">
+
+    <p>Roofing is the trade that closes the building. Everything that follows it—interior finishes, MEP rough-in above the ceiling plane, elevator work, exterior cladding in the eave zone—either depends on a weathertight roof or is significantly complicated by the absence of one. That position in the construction sequence gives the roofing contractor real leverage over the project schedule, which makes the GC-roofer relationship one of the most consequential subcontractor relationships on any commercial construction project.</p>
+
+    <p>This guide is written for general contractors and project owners who want to understand how roofing timelines work, what creates schedule risk in the roofing scope, and how to structure the GC-roofer relationship to protect the project's critical path.</p>
+
+    <h2 id="critical-path">Roofing's Role on the Critical Path</h2>
+
+    <p>On a standard commercial new construction project, roofing becomes critical path at the point where the structural deck is ready for insulation and membrane installation. Before that point, roofing is typically scheduled with float—the structural steel, deck, and related trades must complete before the roofer can mobilize. Once the deck is ready, the clock starts, and any day of delay in the roofing scope typically translates directly to delay in the substantial completion date.</p>
+
+    <p>The critical path handoff from structural to roofing requires two things: a structurally completed and inspected deck, and all rooftop curbs set in their final locations by the mechanical, electrical, and plumbing subs. The second requirement is the more common source of schedule problems. MEP subs frequently install curbs late or in incorrect locations, requiring roofers to work around incomplete equipment installations or to execute post-membrane penetration work that requires more time and produces more warranty risk than properly sequenced curb installation.</p>
+
+    <p>Establish a curb freeze date in the project schedule—the date by which all rooftop curbs must be set in final locations—and communicate it to all MEP subs with adequate notice. A 2-to-4-week buffer between the curb freeze date and roofing mobilization is appropriate on most projects. MEP changes requested after the curb freeze date should be treated as scope changes with associated cost and schedule impact.</p>
+
+    <h2 id="weather-windows">Weather Windows and Float Planning</h2>
+
+    <p>Commercial membrane roofing installation is weather-dependent. TPO and EPDM heat-weld seam work requires ambient temperatures above 40°F and declining for the weld adhesion to cure properly. Adhesive-based applications (EPDM fully-adhered systems) require temperatures above 45°F. Rain during installation forces work stoppage and introduces potential for wet insulation if the membrane is not immediately covered.</p>
+
+    <p>In the South-Central construction market, the practical implication is that roofing scheduled from November through February on exposed structures carries weather delay risk that must be addressed in the project schedule with contingency float. A project targeting a February substantial completion date with membrane installation planned for December and January has approximately 30 to 40 days of historical weather delay exposure in the DFW market based on NOAA station data for precipitation, freeze days, and wind events that suspend crane and rooftop work.</p>
+
+    <blockquote>
+      <p>"GCs who build realistic weather float into the roofing window don't call us in December to recover a schedule they should have protected. GCs who don't do that call us in December asking for overtime and weekend crews that cost twice as much as the float they declined to include."</p>
+      <cite>— Pro Exteriors New Construction Division, Senior Project Manager</cite>
+    </blockquote>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Avg Precip Days (DFW)</th>
+            <th>Avg Freeze Days</th>
+            <th>Roofing Risk Level</th>
+            <th>Recommended Float</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>October–November</td>
+            <td>6–8 days</td>
+            <td>0–3 days</td>
+            <td>Low</td>
+            <td>5% of roofing duration</td>
+          </tr>
+          <tr>
+            <td>December–February</td>
+            <td>6–9 days</td>
+            <td>8–14 days</td>
+            <td>High</td>
+            <td>20–30% of roofing duration</td>
+          </tr>
+          <tr>
+            <td>March–April</td>
+            <td>8–10 days</td>
+            <td>0–2 days</td>
+            <td>Moderate (severe wx)</td>
+            <td>10–15% of roofing duration</td>
+          </tr>
+          <tr>
+            <td>May–September</td>
+            <td>4–7 days</td>
+            <td>0 days</td>
+            <td>Low–Moderate</td>
+            <td>5–10% of roofing duration</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="mep-coordination">MEP Sub Coordination Requirements</h2>
+
+    <p>The roofing contractor's work intersects with three other subcontractor scopes on every commercial new construction project: mechanical (HVAC curbs and equipment), plumbing (roof drains, vent penetrations, gas line penetrations), and electrical (conduit sleeves, lightning protection system components). Each intersection is a potential quality control failure if coordination is inadequate.</p>
+
+    <p>The most consequential coordination requirement is between roofing and mechanical on HVAC curb installation. Curbs must be set to the correct height above the finished roofing surface—typically 8 inches minimum above the completed insulation and membrane assembly—and at the correct elevation relative to the drainage design. Curbs set too low create ponding conditions around equipment; curbs set too high create access problems for maintenance staff and may require field modifications to ductwork connections.</p>
+
+    <p>The roofing contractor should participate in a pre-roofing coordination meeting with all MEP subs before membrane installation begins. The agenda should cover: final curb location confirmation against the roofing plan, curb height verification, drain body seating and collar height, all penetration sleeve locations and sizes, and the warranty requirements for any post-membrane penetrations. That meeting, documented in writing with an attendance sheet, provides the audit trail if warranty disputes arise later.</p>
+
+    <h2 id="submittals">Submittals and Material Lead Times</h2>
+
+    <p>Commercial roofing submittals—the manufacturer's data sheets, product specifications, and shop drawings for the proposed assembly—must be reviewed and approved by the architect before material orders can be placed. On fast-track projects where the structural package is released before the architectural specifications are finalized, submittals may be in review at the same time the deck is being installed, creating a sequencing risk where the deck is ready before the materials are approved and delivered.</p>
+
+    <p>Primary membrane materials—TPO rolls, polyiso boards, edge metal, and flashing components—typically carry 4-to-8-week lead times from order to delivery. Projects that don't confirm material availability before they're needed routinely encounter 2-to-4-week delivery delays that aren't recoverable without premium freight costs. The roofing contractor should be required to submit material procurement documentation—confirmed purchase orders and expected delivery dates—as part of the construction schedule update process.</p>
+
+    <h2 id="substantial-completion">Closeout Requirements Before Substantial Completion</h2>
+
+    <p>The roofing closeout package that the GC needs before certifying substantial completion includes: as-built roofing drawings showing all penetration locations and drain locations as installed; manufacturer warranty registration confirmation; OSHA fall protection documentation for all rooftop access points; AHJ final inspection sign-off on the permitted roofing installation; and the warranty package including coverage terms, compliance inspection schedule, and certified contractor designation.</p>
+
+    <p>The most frequently missing item at substantial completion is the warranty registration confirmation. Manufacturer warranties are registered at the manufacturer, not by the roofing contractor alone—the manufacturer must inspect or accept documentation before issuing the warranty certificate. On some systems, that process takes 4 to 8 weeks from installation completion, which means the roofing contractor needs to submit for warranty registration within days of achieving substantial completion, not weeks after. Build the warranty registration timeline into the project closeout plan before construction begins.</p>
+
+    <h2 id="change-orders">Scope Changes and Change Orders</h2>
+
+    <p>Roofing scope changes during construction typically fall into two categories: design changes requested by the owner or architect, and conditions-based changes driven by deck conditions or MEP coordination failures. Both categories have schedule and cost implications, and both are most efficiently resolved when the GC has a clear change order process agreed to with the roofing subcontractor at contract execution.</p>
+
+    <p>The most expensive change order scenario in commercial roofing is a design change to the drainage system—relocating drains, adding drains, or modifying the slope design—after membrane installation has begun or been completed. Structural deck modifications to accommodate drain relocations require coordination with the structural engineer of record and can carry permit implications. Establish the drainage design as a fixed document before roofing mobilization and require written confirmation from all MEP subs that their penetration locations are finalized before the membrane goes down. For a broader look at roofing system selection that affects the scope of work, see <a href="/blog/choosing-roofing-system-new-build/">choosing a roofing system for new commercial construction</a>.</p>
+
+  </article>
+</div>
+
+<div class="cta-banner">
+  <h2>Commercial New Construction Roofing — GC-Ready</h2>
+  <p>Pro Exteriors works within GC-managed schedules with clear submittal timelines, coordination protocols, and fully documented closeout packages. Licensed in 16 states across the South-Central and Mountain regions.</p>
+  <a href="/contact/" class="cta-btn">Request Subcontractor Qualification Package</a>
+</div>
+
+<section class="related-section" aria-label="Related articles">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <a href="/blog/choosing-roofing-system-new-build/" class="related-card">
+      <div class="related-card-badge">New Construction</div>
+      <h3>Choosing a Roofing System for New Commercial Construction: The Decision Framework</h3>
+    </a>
+    <a href="/blog/roof-design-considerations-warehouses/" class="related-card">
+      <div class="related-card-badge">New Construction</div>
+      <h3>Roof Design Considerations for Warehouses and Industrial Buildings</h3>
+    </a>
+    <a href="/blog/energy-efficient-roofing-new-buildings/" class="related-card">
+      <div class="related-card-badge">New Construction</div>
+      <h3>Energy-Efficient Roofing for New Commercial Buildings: What ASHRAE 90.1 Requires</h3>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Pro Exteriors · <a href="/privacy/">Privacy</a> · <a href="/sitemap.xml">Sitemap</a> · Licensed in 16 states · Prepared by AIA4 Pro Exteriors</p>
+</footer>
+
+<script>
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+  }, { passive: true });
+  const headings = document.querySelectorAll('.article-content h2[id]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  headings.forEach(h => observer.observe(h));
+</script>
+</body>
+</html>

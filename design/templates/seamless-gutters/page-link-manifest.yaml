@@ -1,0 +1,58 @@
+# aia4-page-link manifest — Seamless Gutter Installation
+# Phase 1 · 2026-05-03 · Kyle Roof reverse-silo
+
+silo_role: T2-money-page
+silo_parent: "/residential"
+silo_topic: "seamless gutter installation — storm-damage one-stop add-on and standalone gutter service"
+
+internal_links_out:
+
+  # UP to parent
+  - anchor: "residential roofing and exterior contractor"
+    target: "/residential"
+    anchor_type: near-match
+    placement_hint: "local_experts_proof section — proof copy referencing services"
+
+  # ACROSS — bundle partner (primary conversion path)
+  - anchor: "roof replacement"
+    target: "/residential/roof-replacement"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "bundle_band — 'one crew, one project, one insurance claim'"
+
+  # ACROSS — storm damage cluster
+  - anchor: "storm damage roof repair"
+    target: "/residential/storm-damage-repair"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "bundle_band or FAQ answer 4 (insurance coverage context)"
+
+  # ACROSS — insurance context
+  - anchor: "insurance claim assistance"
+    target: "/residential/insurance-claim-assistance"
+    anchor_type: descriptive
+    target_status: live
+    placement_hint: "FAQ answer 4 — does insurance cover gutter damage"
+
+internal_links_in_required:
+  - from: "/residential"
+    anchor: "seamless gutter systems"
+    status: needs-wiring
+
+  - from: "/residential/roof-replacement"
+    anchor: "seamless gutter installation"
+    status: needs-wiring   # wire in bundle_band equivalent on roof-replacement page post-launch
+
+  - from: "/residential/storm-damage-repair"
+    anchor: "seamless gutter replacement"
+    status: needs-wiring   # wire in storm-damage-repair next-steps or FAQ post-launch
+
+notes:
+  - "Gutters are an add-on service, not a pillar — keep link profile lean. Four outbound links is the right ceiling."
+  - "The bundle story (roof + gutters together) is the primary cross-link driver. All bundle references point to /residential/roof-replacement."
+  - "Siding cross-link intentionally excluded from this page — the user is in gutter mode, not siding mode. Avoid distraction."
+
+status: success
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

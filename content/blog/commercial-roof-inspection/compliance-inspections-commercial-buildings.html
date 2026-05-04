@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compliance Roof Inspections for Commercial Buildings | Pro Exteriors</title>
+<meta name="description" content="What building codes, insurance carriers, and manufacturers actually require for commercial roof inspections—and how to document compliance before regulators or adjusters ask for it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-navy: #11133f;
+    --flag-red: #c22326;
+    --hunter-green: #3b6b4c;
+    --golden-orange: #c28412;
+    --smart-blue: #232884;
+    --bg-warm: #fbf9f6;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --border-light: #e2e0dc;
+    --white: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Archivo', sans-serif; background: var(--bg-warm); color: var(--text-primary); line-height: 1.7; font-size: 1rem; }
+  #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--flag-red); z-index: 1000; transition: width 0.1s linear; }
+  .site-nav { position: sticky; top: 0; background: var(--deep-navy); z-index: 900; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .site-nav .logo { color: var(--white); font-weight: 700; font-size: 1.1rem; text-decoration: none; letter-spacing: 0.02em; }
+  .site-nav .logo span { color: var(--flag-red); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .article-header { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem 2.5rem; }
+  .article-header-inner { max-width: 900px; margin: 0 auto; }
+  .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+  .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--white); }
+  .breadcrumb span { color: rgba(255,255,255,0.3); }
+  .post-badge { display: inline-block; background: var(--flag-red); color: var(--white); font-size: 0.7rem; font-weight: 700; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px; margin-bottom: 0.9rem; }
+  .article-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 1rem; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); font-family: 'IBM Plex Mono', monospace; }
+  .article-meta strong { color: rgba(255,255,255,0.9); }
+  .hero-image-wrap { width: 100%; max-width: 1200px; margin: 0 auto; aspect-ratio: 16/7; overflow: hidden; }
+  .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .article-body-wrap { max-width: 1140px; margin: 0 auto; padding: 2.5rem 2rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+  .toc-sidebar { position: sticky; top: 76px; }
+  .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.75rem; }
+  .toc-list { list-style: none; border-left: 2px solid var(--border-light); padding-left: 1rem; }
+  .toc-list li { margin-bottom: 0.5rem; }
+  .toc-list a { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; line-height: 1.4; transition: color 0.2s; display: block; }
+  .toc-list a:hover, .toc-list a.active { color: var(--flag-red); }
+  .toc-list a.active { font-weight: 600; }
+  .article-content h2 { font-size: 1.45rem; font-weight: 700; color: var(--deep-navy); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 2px solid var(--border-light); line-height: 1.3; }
+  .article-content p { margin-bottom: 1.1rem; }
+  .article-content ul, .article-content ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+  .article-content li { margin-bottom: 0.4rem; }
+  .article-content a { color: var(--smart-blue); text-decoration: underline; text-underline-offset: 2px; }
+  .article-content a:hover { color: var(--flag-red); }
+  .article-content strong { font-weight: 600; }
+  .article-content blockquote { border-left: 4px solid var(--flag-red); margin: 1.5rem 0; padding: 1rem 1.25rem; background: rgba(194,35,38,0.04); border-radius: 0 4px 4px 0; }
+  .article-content blockquote p { font-size: 1.05rem; font-style: italic; color: var(--deep-navy); margin-bottom: 0.4rem; }
+  .article-content blockquote cite { font-size: 0.8rem; color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; font-style: normal; }
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: 6px; border: 1px solid var(--border-light); }
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .data-table th { background: var(--deep-navy); color: var(--white); padding: 0.7rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+  .data-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: rgba(17,19,63,0.03); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .cta-banner { background: var(--deep-navy); color: var(--white); padding: 2.5rem 2rem; text-align: center; margin: 3rem 0 0; }
+  .cta-banner h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .cta-banner p { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 1.5rem; }
+  .cta-btn { display: inline-block; background: var(--flag-red); color: var(--white); font-weight: 700; padding: 0.85rem 2rem; border-radius: 3px; text-decoration: none; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-btn:hover { background: #a81c1f; }
+  .related-section { max-width: 1140px; margin: 3rem auto 0; padding: 0 2rem 3rem; }
+  .related-section h2 { font-size: 1.1rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 1.25rem; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; text-decoration: none; transition: box-shadow 0.2s; display: block; }
+  .related-card:hover { box-shadow: 0 4px 16px rgba(17,19,63,0.1); }
+  .related-card-badge { font-size: 0.68rem; font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--smart-blue); margin-bottom: 0.4rem; }
+  .related-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--deep-navy); line-height: 1.4; }
+  .site-footer { background: var(--deep-navy); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; }
+  .site-footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  @media (max-width: 768px) {
+    .article-body-wrap { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<nav class="site-nav">
+  <a href="/" class="logo">Pro<span>Exteriors</span></a>
+  <ul class="nav-links">
+    <li><a href="/services/commercial-roofing/">Commercial</a></li>
+    <li><a href="/services/residential-roofing/">Residential</a></li>
+    <li><a href="/blog/">Resources</a></li>
+    <li><a href="/contact/">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<header class="article-header">
+  <div class="article-header-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/blog/">Resources</a><span>›</span>
+      <a href="/blog/commercial-roof-inspection/">Commercial Roof Inspection</a><span>›</span>
+      <span>Compliance Inspections</span>
+    </nav>
+    <div class="post-badge">Commercial Inspection</div>
+    <h1>Compliance Roof Inspections for Commercial Buildings: What Regulators and Insurers Actually Require</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Inspection Services</strong></span>
+      <span>Updated <strong>May 2026</strong></span>
+      <span>Read time <strong>7 min</strong></span>
+      <span>Audience <strong>Facility Directors · Risk Managers · Property Owners</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="hero-image-wrap">
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015550_b68186ff-43cb-4860-8f56-b3abab09c55f.png" alt="Commercial building inspector reviewing compliance documentation on rooftop with clipboard" width="1200" height="525" loading="eager">
+</div>
+
+<div class="article-body-wrap">
+  <aside class="toc-sidebar" aria-label="Table of contents">
+    <div class="toc-label">In This Article</div>
+    <ul class="toc-list" id="toc">
+      <li><a href="#building-code">Building Code Requirements</a></li>
+      <li><a href="#insurance-triggers">Insurance Carrier Triggers</a></li>
+      <li><a href="#warranty-compliance">Warranty Compliance Schedules</a></li>
+      <li><a href="#osha-access">OSHA Roof Access Standards</a></li>
+      <li><a href="#documenting">Documenting Compliance</a></li>
+      <li><a href="#when-expires">When Compliance Expires</a></li>
+    </ul>
+  </aside>
+
+  <article class="article-content">
+
+    <p>Most commercial property owners think of roof inspections as something they do when they're worried about the roof. Compliance inspections operate differently—they're required on a schedule set by parties outside the building owner's control: the building code authority, the property insurer, the roof manufacturer, and in some cases federal safety regulators. Missing a required compliance inspection doesn't just mean the roof doesn't get inspected; it can void a manufacturer warranty, trigger a claim denial, or expose the property owner to regulatory liability.</p>
+
+    <p>This guide covers the four primary compliance requirements—building code, insurance, warranty, and OSHA—and the documentation practices that protect the property owner when any of these authorities asks for evidence of compliance.</p>
+
+    <h2 id="building-code">Building Code Inspection Requirements</h2>
+
+    <p>The International Building Code (IBC), adopted in some form by most jurisdictions across the United States, governs roofing work on commercial buildings. The IBC does not mandate periodic inspections of existing roofs in the same way that elevator or fire suppression systems require recurring inspection certifications. However, it does require permitted inspection at specific points during roofing work: at minimum at the completion of the roofing system installation, before concealment of any substrate or deck work, and in some jurisdictions at intermediate stages for complex assemblies.</p>
+
+    <p>Where local jurisdictions impose additional compliance requirements—some municipalities, particularly in Florida and Texas following major storm events, have adopted enhanced inspection mandates for commercial roofing—those requirements are codified in local amendments to the IBC. Dallas, Fort Worth, and several municipalities in the DFW metroplex have adopted enhanced wind uplift testing requirements for new commercial roofing installations on buildings exceeding a threshold height. Confirm the local amendment status with the AHJ (authority having jurisdiction) before any permitted roofing project.</p>
+
+    <p>Buildings that have received permits for roofing work that was not inspected by the AHJ at the required stages have open permits on record. Open permits can affect property transactions, refinancing, and insurance coverage. If your facility has had permitted roofing work in the past 10 years, verify through the local building department that all required inspections were completed and the permit was closed.</p>
+
+    <h2 id="insurance-triggers">Insurance Carrier Inspection Triggers</h2>
+
+    <p>Commercial property insurers impose their own inspection requirements, which are separate from building code compliance and are enforced through the policy terms. The most common triggers are: initial policy inception on a building over a defined age (typically 15 to 20 years), policy renewal on a building where the carrier has identified elevated risk, following a claim, and following a major weather event in the insured location.</p>
+
+    <p>When an insurer orders a roof inspection, they are assessing underwriting risk—not providing a maintenance service. The inspection is performed by the carrier's preferred inspector or an independent adjuster, and the findings influence the policy renewal terms: premium, coverage limits, or whether the policy is renewed at all. A report showing that the roof is in poor condition may result in a coverage rider excluding wind and hail damage, or a requirement that specified repairs be completed within 60 days as a condition of coverage continuation.</p>
+
+    <blockquote>
+      <p>"The worst scenario for a property owner is getting a carrier inspection report and seeing findings they didn't know about. A proactive inspection before renewal puts you in control of the findings and gives you time to address critical items before the underwriter sees them."</p>
+      <cite>— Pro Exteriors Commercial Services, Risk Documentation Specialist</cite>
+    </blockquote>
+
+    <p>The strategic response to carrier-mandated inspections is to commission your own inspection before the carrier's inspector arrives. A proactive inspection gives you the findings in advance, allows you to address the most critical items, and demonstrates to the underwriter that the property is actively managed. Carriers look at documented maintenance history as a positive risk signal.</p>
+
+    <h2 id="warranty-compliance">Warranty Compliance Inspection Schedules</h2>
+
+    <p>Most manufacturer-backed commercial roof warranties—particularly no-dollar-limit (NDL) warranties from GAF, Carlisle, Johns Manville, Firestone, and similar manufacturers—require periodic compliance inspections as a condition of maintaining warranty coverage. The inspection must be performed by the manufacturer's certified contractor (not an independent inspector, and not the property owner's preferred contractor unless they hold the relevant certification).</p>
+
+    <p>Compliance inspection schedules vary by warranty tier: 5-year warranties may not require periodic inspections; 10-year warranties typically require an inspection in year 5; 15- and 20-year NDL warranties typically require inspections every 3 to 5 years. The manufacturer uses these inspections to verify that the installation remains in the condition that warranty coverage was underwritten against, and that no non-certified repairs or modifications have been made.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Compliance Source</th>
+            <th>Inspection Trigger</th>
+            <th>Inspector Requirement</th>
+            <th>Documentation Output</th>
+            <th>Failure Consequence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Building Code (IBC)</td>
+            <td>At permit stages for roofing work</td>
+            <td>AHJ inspector (city/county)</td>
+            <td>Permit inspection record</td>
+            <td>Open permit, transaction issue</td>
+          </tr>
+          <tr>
+            <td>Property Insurance</td>
+            <td>Policy inception, renewal, post-claim</td>
+            <td>Carrier's inspector or adjuster</td>
+            <td>Condition report to carrier</td>
+            <td>Coverage exclusion or non-renewal</td>
+          </tr>
+          <tr>
+            <td>Manufacturer Warranty</td>
+            <td>Per warranty schedule (3–5 yr intervals)</td>
+            <td>Manufacturer-certified contractor</td>
+            <td>Compliance certificate</td>
+            <td>Warranty void; claim denial</td>
+          </tr>
+          <tr>
+            <td>OSHA (1926.502)</td>
+            <td>Before any rooftop worker access</td>
+            <td>Qualified person (employer designation)</td>
+            <td>Hazard assessment + fall protection plan</td>
+            <td>Citation, stop-work, fine up to $15,625/violation</td>
+          </tr>
+          <tr>
+            <td>LEED / Energy Code</td>
+            <td>At commissioning and per certification schedule</td>
+            <td>Commissioning authority (CxA)</td>
+            <td>Commissioning report</td>
+            <td>Certification loss or non-compliance</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="osha-access">OSHA Roof Access Standards</h2>
+
+    <p>OSHA's fall protection standard (29 CFR 1926.502) applies to all workers accessing a commercial roof at elevations of 6 feet or more above a lower level. The standard requires that a qualified person conduct a pre-work hazard assessment and that an appropriate fall protection system—guardrails, personal fall arrest, or safety nets—be in place before work begins. The qualified person designation is the employer's responsibility, not the contractor's; if a property owner's facilities staff accesses the roof for any purpose, the property owner must ensure OSHA compliance.</p>
+
+    <p>For most commercial building owners, the practical OSHA compliance question is whether contractors accessing the roof for inspections, maintenance, or repair work are complying with the standard. Verify that any contractor you engage carries workers' compensation insurance (which protects the property owner in the event of a worker injury), maintains an active OSHA compliance program, and can provide a job hazard analysis (JHA) for any rooftop work. A contractor who cannot produce those documents is a liability on your property.</p>
+
+    <h2 id="documenting">Documenting Compliance for Audit</h2>
+
+    <p>The value of compliance documentation is realized when an auditor, adjuster, or regulator asks for it—which typically happens at the worst possible time (during a claim, during a transaction, or during a regulatory inspection). Maintaining a proactive compliance file eliminates the scramble and provides documented evidence that the property is managed to a professional standard.</p>
+
+    <p>A complete compliance file contains: the original roof installation permit and final inspection certificate; all manufacturer warranty documentation including any compliance inspection certificates; a chronological file of all inspection reports in chronological order; all repair work orders and contractor invoices; insurance inspection reports received from carriers; and OSHA fall protection plans for rooftop work performed by facility staff or contractors.</p>
+
+    <p>Store the compliance file digitally with redundant backup. Physical-only records create a document recovery problem in exactly the scenarios where you most need them—post-storm events, post-fire, or during an acquisition where the records are in a filing cabinet at a property the buyer is evaluating. A cloud-stored digital compliance file is accessible to your attorney, your insurer, and your buyer's due diligence team within minutes of a request.</p>
+
+    <h2 id="when-expires">When Compliance Expires</h2>
+
+    <p>Each compliance source has a different expiration logic. Building code permits expire if work is not completed within the permit's active period (typically 12 to 24 months from issuance); completed inspections don't expire, but the underlying code compliance may be revisited if a subsequent permit is pulled on the same building. Insurance compliance is annual at policy renewal. Manufacturer warranty compliance expires between required inspection intervals—a compliance certificate issued in year 5 on a 20-year warranty expires when year 10 inspection is due. OSHA fall protection assessments are site-specific and should be refreshed whenever the rooftop conditions change (new equipment installed, access points modified, surface condition changes).</p>
+
+    <p>A calendar-based compliance tracking system prevents expiration surprises. Map the required inspection dates for each compliance source against a rolling 24-month calendar, with 60- and 30-day advance reminders. For property managers overseeing multiple buildings, a spreadsheet tracker—or a formal property management system with compliance module—is the minimum viable infrastructure. Letting a manufacturer warranty compliance inspection lapse by three months on a roof with a $1,200,000 replacement cost is not a $0 mistake. The warranty coverage that lapses does not restore itself.</p>
+
+    <p>For the complete inspection process that generates compliance documentation, see <a href="/blog/what-happens-during-roof-inspection/">what happens during a commercial roof inspection</a>. For guidance on acting on the findings, see <a href="/blog/how-to-read-roof-inspection-report/">how to read a roof inspection report</a>.</p>
+
+  </article>
+</div>
+
+<div class="cta-banner">
+  <h2>Compliance Inspections for Commercial Buildings</h2>
+  <p>Pro Exteriors performs compliance inspections for manufacturer warranties, insurance carriers, and building codes across the South-Central and Mountain regions. Documented reports delivered within 5 business days.</p>
+  <a href="/contact/" class="cta-btn">Schedule Compliance Inspection</a>
+</div>
+
+<section class="related-section" aria-label="Related articles">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <a href="/blog/what-happens-during-roof-inspection/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>What Happens During a Commercial Roof Inspection: A Step-by-Step Walkthrough</h3>
+    </a>
+    <a href="/blog/roof-inspection-before-property-purchase/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>Roof Inspection Before Commercial Property Purchase: What Buyers Miss</h3>
+    </a>
+    <a href="/blog/how-to-read-roof-inspection-report/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>How to Read a Roof Inspection Report: A Facility Manager's Field Guide</h3>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Pro Exteriors · <a href="/privacy/">Privacy</a> · <a href="/sitemap.xml">Sitemap</a> · Licensed in 16 states · Prepared by AIA4 Pro Exteriors</p>
+</footer>
+
+<script>
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+  }, { passive: true });
+  const headings = document.querySelectorAll('.article-content h2[id]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  headings.forEach(h => observer.observe(h));
+</script>
+</body>
+</html>

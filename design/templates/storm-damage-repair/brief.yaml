@@ -1,0 +1,105 @@
+# Storm Damage Roof Repair — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 on 2026-05-03
+# "storm damage roofing" wins at $44.87 CPC — purest emergency intent signal in the residential silo
+
+slug: storm-damage-repair
+template: residential-service
+location: null
+target_keyword: "storm damage roofing"
+secondary_keywords:
+  - "storm damage roof repair"
+  - "emergency roof repair"
+  - "storm damage roofing contractor"
+  - "storm damage roof inspection"
+  - "roof repair after storm"
+  - "wind damage roof repair"
+audience: residential-homeowner
+intent: transactional                  # Wallet-open emergency — homeowner has active storm damage
+hypothesis: |
+  "Storm damage roofing" earns a $44.87 CPC — the strongest commercial-intent
+  signal in the residential silo — at 4,400 monthly searches and LOW competition.
+  A fast-loading, mobile-first emergency page that leads with action (call now,
+  get tarp, book inspection) rather than information will:
+    (a) rank in the top 3 for "storm damage roofing" in served-state geos
+        within 90 days — LOW competition makes this achievable faster than
+        standard 6-month projections; AND
+    (b) drive ≥40% form-completion on 'Get Emergency Roof Assessment' within
+        90 days — highest conversion hypothesis in the silo because $44.87
+        CPC reflects buyers in motion, not researchers.
+
+seo_copy:
+  metadata:
+    title: "Storm Damage Roof Repair — Pro Exteriors Emergency Response | TX, CO, KS, MO, GA"
+    meta_description: "Storm hit your roof? Pro Exteriors provides emergency tarping, storm damage inspection & repair across 5 states. Licensed, insured. Available when storms happen."
+    canonical: "https://proexteriorsus.com/residential/storm-damage-repair"
+  body_path: null
+  html_path: null
+
+figma:
+  reuse_template: residential-pillar
+  section_plan:
+    - id: hero
+      component: ServiceHero
+      notes: "H1 = 'Storm Damage Roof Repair by Pro Exteriors'. URGENT framing — no fluffy subhead. Primary CTA: 'Request Emergency Inspection' (data-event-action=emergency-inspection). Accent color: var(--color-accent-emergency). Phone number prominent."
+    - id: trust_strip
+      component: inline
+      notes: "Storm Specialists | Emergency Response | 5-State Coverage | Insurance Claim Help | [REPRESENTATIVE] rating"
+    - id: immediate_steps
+      component: SplitIntro
+      notes: "Left: 'What to do right now after storm damage' (3 immediate steps: document → temporary tarp → call us). Right: emergency contact CTA + [REPRESENTATIVE] phone."
+    - id: damage_types_grid
+      component: BenefitsGrid
+      notes: "3 cards: Wind Damage / Hail Damage / Tree Impact. Each: what it looks like, urgency level, what we do."
+    - id: local_experts_proof
+      component: StatBand + Testimonial
+      notes: "Stat: storm claims handled [REPRESENTATIVE]. Hail-belt expertise positioning. Testimonial [REPRESENTATIVE]."
+    - id: process
+      component: QualityProcess
+      notes: "4 steps: Emergency Tarp → Damage Assessment → Insurance Coordination → Permanent Repair or Replacement."
+    - id: case_studies
+      component: CaseStudyCard × 3
+      notes: "Hail/wind storm projects. TX hail / CO hail / KS wind. All [REPRESENTATIVE]."
+    - id: insurance_band
+      component: SplitIntro
+      notes: "Storm damage and your insurance claim — brief, reassuring. Link to /residential/insurance-claim-assistance."
+    - id: faq
+      component: FAQ
+      notes: "(1) How quickly can Pro Exteriors respond after a storm? (2) Will you work directly with my insurance adjuster? (3) What if I have a temporary tarp — do I still need an inspection? (4) What counts as storm damage for an insurance claim?"
+    - id: final_cta
+      component: CTABanner
+      notes: "Emergency accent. Primary: 'Request Your Emergency Roof Inspection'. Secondary: 'Learn About Insurance Claims' → /residential/insurance-claim-assistance."
+
+output:
+  page: "src/pages/residential/storm-damage-repair/index.astro"
+  assets: "src/assets/residential/storm-damage-repair/"
+
+silo:
+  role: T2-money-page
+  parent: "/residential"
+  parent_links_to_this_via: "storm damage roof repair"
+  inbound_anchor_from_parent: exact-match
+  cross_links_to:
+    - "/residential/hail-damage-repair"
+    - "/residential/tarp-installation"
+    - "/residential/insurance-claim-assistance"
+
+flags:
+  - id: emergency-page-speed
+    severity: critical
+    message: |
+      This page is opened on damaged-property day, often on mobile with bad
+      signal. It MUST load fast. Hero above the fold must render in <1s on 4G.
+      No hero video. Lazy-load everything below the fold. LCP target is the
+      H1 + primary CTA, not an image. Layout skill must defer all
+      non-critical images (case studies, financing band) with loading="lazy".
+  - id: emergency-cta-prominence
+    severity: warning
+    message: |
+      Do not bury the phone number or primary CTA. Phone must appear in hero
+      AND in sticky header on mobile. Both CTAs must be ≥48px tap targets.
+      This is a life/property emergency for the homeowner.
+
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

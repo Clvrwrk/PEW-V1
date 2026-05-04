@@ -1,0 +1,300 @@
+# aia4-copywriter — Storm Damage Repair copy manifest
+# Phase 2 · 2026-05-03
+# Voice: Maren Castellan-Reyes persona. Forbidden vocab: clean.
+# PERFORMANCE GATE ACTIVE: LCP <1.0s — hero is CSS-only, no background image.
+# EMERGENCY FRAMING: every section moves the homeowner toward contact.
+
+metadata:
+  title: "Storm Damage Roof Repair — Pro Exteriors Emergency Response | TX, CO, KS, MO, GA"
+  title_chars: 74
+  meta_description: "Storm hit your roof? Pro Exteriors provides emergency tarping, storm damage inspection & repair across 5 states. Licensed, insured. Available when storms happen."
+  meta_description_chars: 163
+  canonical: "https://proexteriorsus.com/residential/storm-damage-repair"
+
+breadcrumb:
+  items:
+    - { label: "Home", href: "/" }
+    - { label: "Residential Roofing", href: "/residential" }
+    - { label: "Storm Damage Repair", href: "/residential/storm-damage-repair" }
+
+hero:
+  eyebrow: "EMERGENCY RESPONSE — TX · CO · KS · MO · GA"
+  h1: "Storm Damage Roof Repair by Pro Exteriors"
+  subhead: "Hail, wind, tree impact. We document the damage, stop the water, and get your roof back to code. Emergency inspections across five states."
+  phone_display: "[REPRESENTATIVE]"
+  phone_href: "tel:[REPRESENTATIVE]"
+  cta_primary:
+    label: "Request Emergency Inspection"
+    href: "/contact?intent=emergency-inspection&source=storm-damage-hero"
+    data_event_action: "emergency-inspection"
+    data_event_label: "hero-primary"
+    data_event_category: "storm-damage-repair"
+  cta_secondary:
+    label: "See What We Do First"
+    href: "#immediate-steps"
+    data_event_action: "cta-click"
+    data_event_label: "hero-secondary"
+    data_event_category: "storm-damage-repair"
+  performance_note: "Hero uses CSS gradient background only — NO background image. H1 + primary CTA must be LCP element. No image above the fold."
+
+trust_strip:
+  items:
+    - { icon: "zap", label: "Emergency Response" }
+    - { icon: "shield", label: "Storm Damage Specialists" }
+    - { icon: "map-pin", label: "5-State Coverage" }
+    - { icon: "file-text", label: "Insurance Claim Coordination" }
+    - { icon: "star", label: "[REPRESENTATIVE] Google Rating" }
+
+immediate_steps:
+  id: "immediate-steps"
+  eyebrow: "RIGHT NOW"
+  h2: "Storm Just Hit. Here's What to Do Before You Call Anyone."
+  steps:
+    - number: 1
+      title: "Document Everything"
+      body: "Take photos of every piece of visible damage from ground level — don't get on the roof yourself. Photograph the yard debris, the gutters, any interior ceiling or wall staining. Timestamp every photo. This documentation is the foundation of your insurance claim."
+    - number: 2
+      title: "Stop the Water with a Temporary Tarp"
+      body: "If there's active water intrusion, interior damage compounds every hour. Emergency tarping protects your structure and your insurance claim. We offer <a href=\"/residential/tarp-installation\">emergency roof tarping</a> as a standalone service — it is not contingent on you committing to a repair or replacement."
+    - number: 3
+      title: "Get a Professional Damage Assessment"
+      body: "Your insurance carrier will send an adjuster. Having a contractor's independent damage report — with photos and written findings — before that visit is not optional if you want the full scope documented. We conduct free storm damage assessments within 24–48 hours of contact."
+  contact_block:
+    heading: "Ready to move? Call or request an inspection online."
+    phone_display: "[REPRESENTATIVE]"
+    phone_href: "tel:[REPRESENTATIVE]"
+    cta_label: "Request Emergency Inspection"
+    cta_href: "/contact?intent=emergency-inspection&source=storm-damage-steps"
+    data_event_action: "emergency-inspection"
+    data_event_label: "steps-cta"
+    data_event_category: "storm-damage-repair"
+  image_slot:
+    alt: "Pro Exteriors crew member documenting hail damage on a residential roof with a camera"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+damage_types:
+  eyebrow: "WHAT WE REPAIR"
+  h2: "Three Types of Storm Damage. One Call."
+  subhead: "Pro Exteriors residential roofing contractors handle all three in the states we serve."
+  cards:
+    - id: "wind-damage"
+      icon: "wind"
+      h3: "Wind Damage"
+      urgency: "Moderate — Water Intrusion Risk"
+      body: |
+        Missing shingles, lifted tabs, blown ridge cap, and torn flashing are the most
+        common wind damage patterns we see in Texas, Kansas, and Missouri. Each is an
+        active water intrusion point. Wind damage repairs restore the weather envelope
+        before secondary damage — decking rot, interior mold, insulation degradation —
+        compounds the repair cost.
+    - id: "hail-damage"
+      icon: "cloud-rain"
+      h3: "Hail Damage"
+      urgency: "High — Insurance Claim Window Applies"
+      body: |
+        Hail damage is the leading claim driver in Texas, Colorado, and Kansas. Impact
+        bruises, granule loss, and cracked shingles are often invisible from ground
+        level but detectable immediately on a professional inspection. Most insurance
+        policies have a claim filing window after a hail event — don't wait weeks
+        to call for an assessment. See our <a href="/residential/hail-damage-repair">hail damage repair</a> page
+        for a dedicated breakdown.
+    - id: "tree-impact"
+      icon: "tree"
+      h3: "Tree & Debris Impact"
+      urgency: "Critical — Structural Assessment Required"
+      body: |
+        A direct tree impact can breach the decking and require structural repair
+        beyond shingle replacement. Emergency tarping is always the first step.
+        Once the site is safe and dry, we assess decking integrity, rafter condition,
+        and the full shingle field before scoping the repair. Do not attempt to remove
+        a large tree from your roof without professional equipment — secondary damage
+        is common.
+
+local_experts_proof:
+  left_column:
+    eyebrow: "THE NUMBERS"
+    h2: "Five Hail-Belt States. Our Own Crews. No Storm Chasers."
+    body: |
+      Pro Exteriors has been handling storm damage repairs across Texas, Colorado,
+      Kansas, Missouri, and Georgia since 2011. We are not a storm-chaser operation
+      that arrives after a major hail event and leaves when the insurance money runs
+      out. Our crews are based in our five states. The same project manager who scopes
+      the storm repair oversees the installation and signs off on the final walkthrough.
+      Our <a href="/residential">residential roofing contractors</a> know the local
+      adjuster relationships, the carrier preferences in each market, and the code
+      requirements that vary by municipality.
+    stats:
+      - { value: "15+", label: "Years in Business" }
+      - { value: "5", label: "States Served" }
+      - { value: "[REPRESENTATIVE]", label: "Storm Claims Managed [REPRESENTATIVE]" }
+  right_column:
+    type: testimonial
+    quote: |
+      "[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial, storm damage
+      repair, any served state. Signed release required before ship.]"
+    attribution: "[REPRESENTATIVE — Customer Name, City, State, Year]"
+    rating: 5
+    image_slot:
+      alt: "Completed storm damage roof repair by Pro Exteriors"
+      src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+repair_process:
+  id: "process"
+  eyebrow: "OUR PROCESS"
+  h2: "Emergency Tarp to Permanent Repair — Four Steps."
+  subhead: "From the moment you call to the final walkthrough. No vague timelines, no subcontracted crews."
+  steps:
+    - number: 1
+      title: "Emergency Tarping"
+      body: "When there's active water intrusion, tarping happens first. We secure heavy-duty tarp over the breach, seal the perimeter, and stop the clock on interior damage. Tarping is a standalone service — it is not contingent on committing to a repair with us."
+      icon: "shield"
+    - number: 2
+      title: "Free Damage Assessment & Documentation"
+      body: "Our crew inspects the full shingle field, ridge, flashing, gutters, fascia, and decking — and produces a written damage report with timestamped photos. This report goes to you and, if you choose, to your insurance adjuster."
+      icon: "search"
+    - number: 3
+      title: "Insurance Claim Coordination"
+      body: "We coordinate your adjuster inspection, attend the visit, review the carrier's estimate, and file supplement requests when the scope is undervalued. See our dedicated <a href=\"/residential/insurance-claim-assistance\">insurance claim assistance</a> page for a full process breakdown."
+      icon: "file-text"
+    - number: 4
+      title: "Permanent Repair or Full Replacement"
+      body: "Isolated damage gets a targeted repair. Widespread field damage — common after major hail events — may make a <a href=\"/residential/roof-replacement\">full roof replacement</a> the better economic decision. We put that recommendation in writing with the reasoning before we ask you to sign anything."
+      icon: "wrench"
+  cta:
+    label: "Request Your Emergency Inspection"
+    href: "/contact?intent=emergency-inspection&source=storm-damage-process"
+    data_event_action: "emergency-inspection"
+    data_event_label: "process-cta"
+    data_event_category: "storm-damage-repair"
+
+case_studies:
+  eyebrow: "RECENT STORM REPAIRS"
+  h2: "Hail, Wind, and Tree Impact — Across Five States"
+  cards:
+    - id: "tx-hail-case"
+      state: "Texas"
+      title: "[REPRESENTATIVE — TX Project: Hail Damage, Full Field Inspection, DFW or Houston Area]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real storm repair project from Texas.]"
+      alt: "Completed hail damage roof repair in Texas by Pro Exteriors"
+      tag: "Hail Damage Repair"
+    - id: "co-hail-case"
+      state: "Colorado"
+      title: "[REPRESENTATIVE — CO Project: Hail Storm Repair, Denver Metro or Front Range]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real storm repair project from Colorado.]"
+      alt: "Completed hail damage roof repair in Colorado by Pro Exteriors"
+      tag: "Hail Damage + Insurance Claim"
+    - id: "ks-wind-case"
+      state: "Kansas"
+      title: "[REPRESENTATIVE — KS/MO Project: Wind Damage Repair]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real wind storm repair project from Kansas or Missouri.]"
+      alt: "Completed wind damage roof repair by Pro Exteriors"
+      tag: "Wind Damage Repair"
+
+insurance_band:
+  eyebrow: "STORM DAMAGE AND YOUR INSURANCE CLAIM"
+  h2: "Your Claim Is Part of the Job. We Handle Our Side of It."
+  body: |
+    Storm damage repairs and insurance claims run on parallel tracks. Most homeowners
+    manage the claim process — adjuster scheduling, estimate review, supplement filing —
+    while also managing a damaged property and a family. That's a second job they didn't
+    sign up for.
+
+    Pro Exteriors coordinates the adjuster inspection, reviews the carrier's estimate
+    for completeness, and files supplement requests when scope is missing. We do not
+    act as your public adjuster — that is a separate licensed role. What we do is make
+    sure the contractor's scope is documented completely so your carrier pays for the
+    full repair.
+
+    For a complete breakdown of what the insurance claim process looks like from our
+    side, see our <a href="/residential/insurance-claim-assistance">insurance claim assistance</a> page.
+  image_slot:
+    alt: "Pro Exteriors project manager and homeowner reviewing storm damage insurance estimate"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+faq:
+  eyebrow: "FREQUENTLY ASKED"
+  h2: "Storm Damage Repair Questions, Answered."
+  items:
+    - q: "How quickly can Pro Exteriors respond after a storm?"
+      a: |
+        We conduct free storm damage assessments within 24–48 hours of contact in all
+        five states we serve. Emergency tarping, when needed to stop active water
+        intrusion, is scheduled as quickly as same-day or next-day depending on crew
+        availability and weather conditions at the site.
+
+        High-volume storm events — a hail corridor that hits thousands of homes in a
+        single day — compress our scheduling. In those situations, we prioritize by
+        severity of damage and active water intrusion risk. Call or request an
+        inspection online and we will tell you the current response window honestly.
+
+    - q: "Will you work directly with my insurance adjuster?"
+      a: |
+        Yes. We coordinate the adjuster inspection schedule, attend the inspection, and
+        review the carrier's estimate against our scope of work. When the adjuster's
+        estimate is incomplete or undervalues the damage, we prepare a supplement
+        request and file it with your carrier.
+
+        See our <a href="/residential/insurance-claim-assistance" class="underline hover:no-underline">insurance claim assistance</a>
+        page for the full process breakdown. The short version: we handle our side of
+        the claim process; you handle the policy and the deductible.
+
+    - q: "What if I already have a temporary tarp — do I still need an inspection?"
+      a: |
+        Yes. A tarp stops water intrusion; it does not document the damage beneath it.
+        Your insurance carrier needs a professional damage report — not a tarp receipt —
+        to process the claim accurately. The inspection also catches damage the tarp
+        doesn't cover: perimeter flashing, gutters, fascia, soffit, and any decking
+        compromise that won't be visible until the shingles are removed.
+
+        If you need <a href="/residential/tarp-installation" class="underline hover:no-underline">emergency roof tarping</a>
+        as a standalone service before the inspection, we offer that separately.
+
+    - q: "What counts as storm damage for an insurance claim?"
+      a: |
+        Most homeowner policies cover direct physical loss from wind, hail, lightning,
+        and falling objects (tree limbs). What qualifies depends on your specific
+        policy language, your carrier, and the evidence of causation.
+
+        What we document at the inspection: hail impact bruising and granule loss,
+        missing or lifted shingles, torn or displaced flashing, cracked ridge cap,
+        gutter dents, and any structural damage from falling objects. This
+        documentation is what your adjuster uses to determine covered scope — which
+        is why having a contractor's independent report before the adjuster arrives
+        matters. We attend the adjuster inspection with that report in hand.
+
+final_cta:
+  eyebrow: "EMERGENCY RESPONSE"
+  h2: "Every Hour of Active Water Intrusion Compounds the Damage."
+  subhead: "Free damage assessment. Emergency tarping available. Insurance claim coordination included. Our own crews across five states."
+  cta_primary:
+    label: "Request Your Emergency Roof Inspection"
+    href: "/contact?intent=emergency-inspection&source=storm-damage-final-cta"
+    data_event_action: "emergency-inspection"
+    data_event_label: "final-cta-primary"
+    data_event_category: "storm-damage-repair"
+  cta_secondary:
+    label: "Learn About Insurance Claims"
+    href: "/residential/insurance-claim-assistance"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-secondary"
+    data_event_category: "storm-damage-repair"
+  phone_display: "[REPRESENTATIVE]"
+  phone_href: "tel:[REPRESENTATIVE]"
+
+self_audit:
+  persona_voice: pass
+  forbidden_vocab: pass
+  emergency_framing: pass — every section moves toward contact; no decorative prose
+  internal_links_check:
+    up_to_parent: "pass — 'residential roofing contractors' in local_experts_proof"
+    across_to_tarp: "pass — immediate_steps step 2 + FAQ answer 3"
+    across_to_hail: "pass — damage types hail card"
+    across_to_insurance: "pass — repair_process step 3 + insurance_band + final CTA secondary"
+    across_to_replacement: "pass — repair_process step 4 + implied in FAQ answer 1"
+  performance_gate: "pass — hero is CSS gradient only, no background image"
+
+status: success
+next_action: handoff
+provenance:
+  produced_by: aia4-copywriter (inline, PageBuilder orchestration)
+  produced_at: 2026-05-03

@@ -1,0 +1,559 @@
+---
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import FAQ from '../../../components/molecules/FAQ.astro';
+import Icon from '../../../components/atoms/Icon.astro';
+
+const title = "Roof Insurance Claim Assistance — Pro Exteriors Guides You Through the Process";
+const description = "Pro Exteriors helps TX, CO, KS, MO & GA homeowners navigate roof insurance claims after storm or hail damage. Free damage assessment, adjuster coordination, supplement filing.";
+const canonicalPath = "/residential/insurance-claim-assistance";
+
+const roofingContractorSchema = {
+  "@type": "RoofingContractor",
+  "name": "Pro Exteriors",
+  "url": "https://proexteriorsus.com",
+  "telephone": "[REPRESENTATIVE]",
+  "areaServed": ["Texas","Colorado","Kansas","Missouri","Georgia"].map(n => ({ "@type": "State", "name": n })),
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "US"
+  }
+};
+
+const serviceSchema = {
+  "@type": "Service",
+  "name": "Roof Insurance Claim Assistance",
+  "serviceType": "Roof Insurance Claim Assistance",
+  "provider": { "@type": "RoofingContractor", "name": "Pro Exteriors" },
+  "areaServed": ["Texas","Colorado","Kansas","Missouri","Georgia"].map(n => ({ "@type": "State", "name": n })),
+  "description": "Pro Exteriors assists homeowners with roof insurance claims after storm or hail damage, including damage documentation, adjuster coordination, estimate review, and supplement filing."
+};
+
+const jsonLd = [roofingContractorSchema, serviceSchema];
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Residential Roofing", href: "/residential" },
+  { label: "Insurance Claim Assistance", href: "/residential/insurance-claim-assistance" }
+];
+
+const processSteps = [
+  {
+    number: 1,
+    title: "Free Damage Assessment & Photo Documentation",
+    body: "A Pro Exteriors crew member inspects every element of storm impact — shingle field, ridge, flashing, gutters, fascia, and any interior water intrusion — and produces a written damage summary with timestamped photos. This document is what your insurance carrier needs to open the claim.",
+    icon: "search"
+  },
+  {
+    number: 2,
+    title: "Adjuster Coordination",
+    body: "We coordinate the adjuster's inspection visit with your schedule and attend the inspection in person. We bring our documentation, walk the roof alongside the adjuster, and make sure every damage item we identified is visible and on record during the visit.",
+    icon: "calendar"
+  },
+  {
+    number: 3,
+    title: "Estimate Review & Supplement Filing",
+    body: "We review the adjuster's written estimate against the actual scope of work. When line items are missing, underpriced, or omit required code upgrades, we prepare a supplement request and file it directly with your carrier. Supplements are normal — they are how the insurance process self-corrects.",
+    icon: "file-text"
+  },
+  {
+    number: 4,
+    title: "Approval — Schedule Installation",
+    body: "Once the claim is approved for the full scope, we schedule your installation. If a partial approval is issued first, we communicate the status, explain what's pending, and do not begin installation until the scope is resolved.",
+    icon: "check-circle"
+  },
+  {
+    number: 5,
+    title: "Final Walkthrough & Settlement Confirmation",
+    body: "At project completion, we walk the finished installation with you, confirm site cleanup, and provide documentation of the completed work for your records and for your carrier's final settlement file.",
+    icon: "home"
+  }
+];
+
+const whatWeHandle = [
+  {
+    id: "adjuster-coordination",
+    icon: "users",
+    title: "Adjuster Coordination",
+    body: "The adjuster works for your insurance carrier. Our project manager attends the inspection because a contractor who knows what they're looking at can point to damage the adjuster might miss from a fast pass. We don't argue with adjusters — we document everything and let the evidence speak."
+  },
+  {
+    id: "estimate-matching",
+    icon: "clipboard",
+    title: "Estimate Review",
+    body: "Insurance estimates are generated from carrier software that doesn't always reflect current material costs, local labor rates, or code-required upgrades. We review every line item and flag the gaps before installation begins — not after, when the change-order conversation is harder."
+  },
+  {
+    id: "supplement-filing",
+    icon: "file-plus",
+    title: "Supplement Filing",
+    body: "A supplement request is a formal written request to the carrier to cover scope that was missed or undervalued in the original estimate. Supplements are a standard part of the claims process — most carriers have a defined procedure for them. We file the paperwork; you stay out of it."
+  }
+];
+
+const caseStudies = [
+  {
+    id: "tx-hail-case",
+    state: "Texas",
+    title: "[REPRESENTATIVE — TX Project: Hail Claim, Full Replacement, Dallas/Fort Worth Area]",
+    description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed storm claim project from Texas.]",
+    alt: "Completed hail damage roof replacement in Texas after successful insurance claim",
+    tag: "Hail Claim · Full Replacement"
+  },
+  {
+    id: "co-hail-case",
+    state: "Colorado",
+    title: "[REPRESENTATIVE — CO Project: Hail Claim, Denver Metro or Front Range]",
+    description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed storm claim project from Colorado.]",
+    alt: "Completed storm damage roof replacement in Colorado after insurance claim",
+    tag: "Hail Claim · Supplement Filed"
+  },
+  {
+    id: "ks-wind-case",
+    state: "Kansas / Missouri",
+    title: "[REPRESENTATIVE — KS/MO Project: Wind or Storm Claim, Full Replacement]",
+    description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed storm claim project from Kansas or Missouri.]",
+    alt: "Completed storm damage roof replacement by Pro Exteriors",
+    tag: "Storm Claim · Full Replacement"
+  }
+];
+
+const faqItems = [
+  {
+    question: "Does Pro Exteriors work directly with my insurance company?",
+    answer: `Yes — within a defined scope. We document your damage, coordinate the adjuster inspection, review the carrier's estimate, and file supplement requests when the initial estimate is incomplete. We communicate with your carrier in writing on anything that relates to the scope of the physical work.
+
+What we do not do is file your claim or negotiate your settlement. Those activities require a public adjuster license. Our role is as your contractor — we make sure the scope of work is documented completely, and we make sure the carrier's estimate reflects what it actually costs to fix your roof to code. Your carrier issues the claim check; you pay us from those proceeds.`
+  },
+  {
+    question: "What if the insurance company denies my claim or undervalues the damage?",
+    answer: `Partial payments and scope disputes are common and usually addressable. When the adjuster's estimate misses line items — decking allowance, drip edge, code-required ventilation upgrades, ice-and-water shield — we prepare a supplement request with documentation and file it with your carrier.
+
+A full denial is less common but does happen. In that case, your options are to request a re-inspection with additional documentation, invoke your policy's appraisal clause (which typically involves a licensed public adjuster on each side), or pursue the claim independently. We cannot file an appeal on your behalf — that is a legal action that requires either your direct involvement or a licensed public adjuster. We can provide the documentation you or your adjuster needs to make that case.`
+  },
+  {
+    question: "Will I owe anything out of pocket?",
+    answer: `Your insurance deductible is your responsibility — it is the portion of the claim your policy requires you to pay directly. We do not waive, absorb, or offset deductibles. Any contractor offering to "cover your deductible" is likely violating state law in Texas, Colorado, and several of the other states we operate in. That practice also frequently constitutes insurance fraud.
+
+Beyond the deductible, what you owe depends on what your carrier approves. If the approved scope matches the actual work, your out-of-pocket cost is the deductible only. If there are upgrades you want beyond what insurance covers — a material upgrade from standard 3-tab to architectural shingles, for example — those are out-of-pocket additions you control.`
+  },
+  {
+    question: "How long does the roof insurance claim process take?",
+    answer: `Timeline varies by carrier and claim complexity. A straightforward claim in a low-storm-volume period can move from inspection to installation in three to four weeks. In a high-volume event year — after a major hail storm that affects thousands of homes — carrier response times and scheduling backlogs can extend that to six to ten weeks or longer.
+
+The steps we control: we conduct your damage assessment within 24–48 hours of contact, attend the adjuster inspection at whatever time the carrier schedules, and file any supplement requests within five business days of receiving the adjuster's estimate. If the project requires a <a href="/residential/roof-replacement" class="underline hover:no-underline">full roof replacement</a>, installation typically runs one to two days once the claim is approved. Storm damage can also be addressed with temporary protection while the claim processes — see our <a href="/residential/storm-damage-repair" class="underline hover:no-underline">storm damage repair</a> page for emergency options.`
+  }
+];
+---
+
+<BaseLayout {title} {description} {canonicalPath} {jsonLd}>
+
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section
+    style="min-height: 760px; background-color: var(--color-surface-dark, #0f172a); display: flex; align-items: center; position: relative; overflow: hidden;"
+    aria-label="Roof Insurance Claim Assistance hero"
+  >
+    <!-- Hero background image -->
+    <div style="position: absolute; inset: 0; z-index: 0;" aria-hidden="true">
+      <img
+        src="[REPRESENTATIVE — NOT YET SOURCED]"
+        alt=""
+        width="1440"
+        height="760"
+        loading="eager"
+        fetchpriority="high"
+        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.35;"
+        title="Not yet sourced"
+      />
+    </div>
+
+    <div style="position: relative; z-index: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 80px 24px;">
+      <p style="color: var(--color-accent, #f97316); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">
+        TX · CO · KS · MO · GA
+      </p>
+
+      <h1 style="color: #ffffff; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; max-width: 800px; margin-bottom: 24px;">
+        Roof Insurance Claim Assistance from Pro Exteriors
+      </h1>
+
+      <p style="color: rgba(255,255,255,0.85); font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.6; max-width: 620px; margin-bottom: 40px;">
+        Storm hit your home. Now the insurance process starts. We document the damage, coordinate with your adjuster, and make sure the estimate reflects the full scope — so the project gets done right.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
+        <a
+          href="/contact?intent=damage-assessment&source=insurance-claim-hero"
+          style="display: inline-flex; align-items: center; gap: 8px; background-color: var(--color-accent, #f97316); color: #ffffff; font-size: 1rem; font-weight: 700; padding: 16px 32px; border-radius: 6px; text-decoration: none; transition: background-color 0.2s;"
+          data-event-action="cta-click"
+          data-event-label="hero-primary"
+          data-event-category="insurance-claim-assistance"
+        >
+          Get Your Free Damage Assessment
+        </a>
+        <a
+          href="#process"
+          style="display: inline-flex; align-items: center; gap: 8px; color: #ffffff; font-size: 1rem; font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,0.4); padding-bottom: 2px;"
+          data-event-action="cta-click"
+          data-event-label="hero-secondary"
+          data-event-category="insurance-claim-assistance"
+        >
+          See How the Claim Process Works
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TRUST STRIP
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-mid, #1e293b); padding: 20px 24px;" aria-label="Trust indicators">
+    <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; list-style: none; margin: 0; padding: 0; max-width: 1200px; margin-inline: auto;">
+      {[
+        { icon: "shield", label: "Storm Damage Specialists" },
+        { icon: "users", label: "Adjuster Coordination Included" },
+        { icon: "map-pin", label: "5-State Coverage" },
+        { icon: "star", label: "[REPRESENTATIVE] Google Rating" },
+        { icon: "file-text", label: "Supplement Filing Experience" }
+      ].map(item => (
+        <li style="display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.85); font-size: 0.875rem; font-weight: 600; white-space: nowrap;">
+          <Icon name={item.icon} size={18} color="var(--color-accent, #f97316)" aria-hidden="true" />
+          {item.label}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SERVICE OVERVIEW (SplitIntro)
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-light, #ffffff); padding: 80px 24px;" aria-labelledby="overview-heading">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center;">
+
+      <!-- Text column -->
+      <div style="max-width: 640px;">
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          YOU SHOULDN'T HAVE TO MANAGE THIS ALONE
+        </p>
+        <h2 id="overview-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2; margin-bottom: 24px;">
+          After a Storm, the Insurance Process Is a Second Job. We Handle Our Part of It.
+        </h2>
+        <div style="font-size: 1rem; line-height: 1.75; color: var(--color-text-secondary, #475569);">
+          <p style="margin-bottom: 20px;">
+            A roof insurance claim involves a free inspection, damage documentation, adjuster scheduling, estimate review, and — more often than most homeowners expect — a supplement filing when the initial payout doesn't cover the full scope of work. Most homeowners navigate this once in a lifetime. We navigate it every week.
+          </p>
+          <p style="margin-bottom: 20px;">
+            What Pro Exteriors does in a storm-damage claim: we conduct a free damage assessment and document every element of the loss with photos and written notes. We coordinate the adjuster inspection schedule and attend the adjuster's visit so you're not standing on your roof alone with someone whose job it is to keep the claim check as small as defensible. When the adjuster's estimate misses line items or undervalues the scope, we identify the gap and file a supplement request with your carrier — directly and in writing.
+          </p>
+          <p>
+            What we do not do: we do not file your claim on your behalf, and we do not negotiate your settlement. Those activities require a public adjuster license we do not hold. What we do is make sure that the contractor's scope of work is documented completely and that your carrier has everything it needs to pay for that scope. Our <a href="/residential" style="color: var(--color-accent, #f97316); font-weight: 600; text-decoration: underline;">residential roofing contractors</a> operate in all five states we serve and understand the carrier preferences, adjuster relationships, and local code requirements that affect how a claim gets settled in each market.
+          </p>
+        </div>
+      </div>
+
+      <!-- Image column -->
+      <div style="background-color: var(--color-surface-subtle, #f1f5f9); border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; max-width: 560px; width: 100%;">
+        <img
+          src="[REPRESENTATIVE — NOT YET SOURCED]"
+          alt="Pro Exteriors project manager reviewing insurance adjuster estimate with homeowner at a kitchen table"
+          width="560"
+          height="420"
+          loading="lazy"
+          style="width: 100%; height: 100%; object-fit: cover;"
+          title="Not yet sourced"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CLAIM PROCESS (QualityProcess — 5 steps)
+  ═══════════════════════════════════════════ -->
+  <section id="process" style="background-color: var(--color-surface-subtle, #f8fafc); padding: 80px 24px;" aria-labelledby="process-heading">
+    <div style="max-width: 1200px; margin: 0 auto;">
+
+      <div style="text-align: center; margin-bottom: 56px;">
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          OUR PROCESS
+        </p>
+        <h2 id="process-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2; margin-bottom: 16px;">
+          Free Assessment to Final Settlement — Five Steps.
+        </h2>
+        <p style="font-size: 1.125rem; color: var(--color-text-secondary, #475569); max-width: 600px; margin: 0 auto; line-height: 1.6;">
+          This is what a Pro Exteriors insurance claim looks like from day one to install complete.
+        </p>
+      </div>
+
+      <ol style="list-style: none; margin: 0 0 48px; padding: 0; display: grid; grid-template-columns: 1fr; gap: 32px; max-width: 800px; margin-inline: auto;">
+        {processSteps.map(step => (
+          <li style="display: flex; gap: 24px; align-items: flex-start;">
+            <div
+              style="flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; background-color: var(--color-accent, #f97316); display: flex; align-items: center; justify-content: center; font-size: 1.125rem; font-weight: 800; color: #ffffff;"
+              aria-hidden="true"
+            >
+              {step.number}
+            </div>
+            <div>
+              <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--color-text-primary, #0f172a); margin-bottom: 8px;">
+                {step.title}
+              </h3>
+              <p style="font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-secondary, #475569); margin: 0;">
+                {step.body}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div style="text-align: center;">
+        <a
+          href="/contact?intent=damage-assessment&source=insurance-claim-process"
+          style="display: inline-flex; align-items: center; gap: 8px; background-color: var(--color-accent, #f97316); color: #ffffff; font-size: 1rem; font-weight: 700; padding: 16px 32px; border-radius: 6px; text-decoration: none;"
+          data-event-action="cta-click"
+          data-event-label="process-cta"
+          data-event-category="insurance-claim-assistance"
+        >
+          Get Your Free Damage Assessment
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       WHAT WE HANDLE (BenefitsGrid — 3 cards)
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-light, #ffffff); padding: 80px 24px;" aria-labelledby="handles-heading">
+    <div style="max-width: 1200px; margin: 0 auto;">
+
+      <div style="text-align: center; margin-bottom: 48px;">
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          WHAT THIS COVERS
+        </p>
+        <h2 id="handles-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2; margin-bottom: 16px;">
+          Three Things Most Homeowners Don't Know to Ask About.
+        </h2>
+        <p style="font-size: 1.125rem; color: var(--color-text-secondary, #475569); max-width: 620px; margin: 0 auto; line-height: 1.6;">
+          The gap between what your insurance pays and what your roof actually costs often comes down to whether your contractor knows how to do these three things.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+        {whatWeHandle.map(card => (
+          <div style="background-color: var(--color-surface-subtle, #f8fafc); border-radius: 8px; padding: 36px 28px; border-top: 4px solid var(--color-accent, #f97316);">
+            <div style="width: 48px; height: 48px; border-radius: 8px; background-color: rgba(249,115,22,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;" aria-hidden="true">
+              <Icon name={card.icon} size={24} color="var(--color-accent, #f97316)" />
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--color-text-primary, #0f172a); margin-bottom: 12px;">
+              {card.title}
+            </h3>
+            <p style="font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-secondary, #475569); margin: 0;">
+              {card.body}
+            </p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       LOCAL EXPERTS PROOF (StatBand + Testimonial)
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-dark, #0f172a); padding: 80px 24px;" aria-labelledby="proof-heading">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start;">
+
+      <!-- Stats column -->
+      <div>
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          THE NUMBERS
+        </p>
+        <h2 id="proof-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 20px;">
+          <em style="font-style: italic; color: rgba(255,255,255,0.5);" title="Not yet sourced">[REPRESENTATIVE]</em> Storm Claims Handled. Five States. Our Own Crews.
+        </h2>
+        <p style="font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.75); margin-bottom: 36px;">
+          Pro Exteriors has handled storm-damage insurance claims across Texas, Colorado, Kansas, Missouri, and Georgia since 2011. We know the carrier landscape in each state, the adjuster relationships in each market, and the code requirements that affect what a carrier is legally required to cover. That knowledge is not available from a storm-chaser crew that rolled into your neighborhood after the last hail event.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+          {[
+            { value: "[REPRESENTATIVE]", label: "Storm Claims Managed", rep: true },
+            { value: "5", label: "States Served", rep: false },
+            { value: "15+", label: "Years in Business", rep: false }
+          ].map(stat => (
+            <div>
+              <p style="font-size: 2.5rem; font-weight: 800; color: var(--color-accent, #f97316); line-height: 1; margin-bottom: 4px;">
+                {stat.rep
+                  ? <em style="font-style: italic; font-size: 1.25rem; color: rgba(255,255,255,0.5);" title="Not yet sourced">{stat.value}</em>
+                  : stat.value
+                }
+              </p>
+              <p style="font-size: 0.875rem; color: rgba(255,255,255,0.6); margin: 0;">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Testimonial column -->
+      <div style="background-color: rgba(255,255,255,0.05); border-radius: 8px; padding: 36px; border-left: 4px solid var(--color-accent, #f97316);">
+        <div style="display: flex; gap: 4px; margin-bottom: 20px;" aria-label="5 out of 5 stars">
+          {Array.from({ length: 5 }).map(() => (
+            <Icon name="star" size={20} color="var(--color-accent, #f97316)" aria-hidden="true" />
+          ))}
+        </div>
+        <blockquote style="margin: 0 0 20px;">
+          <p style="font-size: 1.0625rem; line-height: 1.7; color: rgba(255,255,255,0.85); font-style: italic;">
+            <em title="Not yet sourced">[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial, insurance claim assistance, any served state. Signed release required before ship.]</em>
+          </p>
+        </blockquote>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="width: 56px; height: 56px; border-radius: 50%; background-color: rgba(255,255,255,0.1); overflow: hidden; flex-shrink: 0;">
+            <img
+              src="[REPRESENTATIVE — NOT YET SOURCED]"
+              alt="Completed storm damage roof replacement by Pro Exteriors"
+              width="56"
+              height="56"
+              loading="lazy"
+              style="width: 100%; height: 100%; object-fit: cover;"
+              title="Not yet sourced"
+            />
+          </div>
+          <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem; margin: 0;">
+            <em title="Not yet sourced">[REPRESENTATIVE — Customer Name, City, State, Year]</em>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CASE STUDIES
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-subtle, #f8fafc); padding: 80px 24px;" aria-labelledby="cases-heading">
+    <div style="max-width: 1200px; margin: 0 auto;">
+
+      <div style="text-align: center; margin-bottom: 48px;">
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          RECENT CLAIM PROJECTS
+        </p>
+        <h2 id="cases-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2; margin-bottom: 16px;">
+          From Storm Event to Settlement — Across Five States
+        </h2>
+        <p style="font-size: 1.125rem; color: var(--color-text-secondary, #475569); max-width: 600px; margin: 0 auto; line-height: 1.6;">
+          Every project starts with a free damage assessment and ends with a completed installation and a closed claim file.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 40px;">
+        {caseStudies.map(cs => (
+          <article style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08);">
+            <div style="aspect-ratio: 16/9; background-color: var(--color-surface-subtle, #e2e8f0); overflow: hidden;">
+              <img
+                src="[REPRESENTATIVE — NOT YET SOURCED]"
+                alt={cs.alt}
+                width="400"
+                height="225"
+                loading="lazy"
+                style="width: 100%; height: 100%; object-fit: cover;"
+                title="Not yet sourced"
+              />
+            </div>
+            <div style="padding: 24px;">
+              <p style="font-size: 0.75rem; font-weight: 700; color: var(--color-accent, #f97316); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
+                {cs.state} · {cs.tag}
+              </p>
+              <h3 style="font-size: 1rem; font-weight: 700; color: var(--color-text-primary, #0f172a); margin-bottom: 10px; line-height: 1.4;">
+                <em title="Not yet sourced">{cs.title}</em>
+              </h3>
+              <p style="font-size: 0.875rem; line-height: 1.6; color: var(--color-text-secondary, #475569); margin: 0;">
+                <em title="Not yet sourced">{cs.description}</em>
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div style="text-align: center;">
+        <a href="/projects" style="font-size: 0.9375rem; font-weight: 600; color: var(--color-accent, #f97316); text-decoration: underline;">
+          See All Projects
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-light, #ffffff); padding: 80px 24px;" aria-labelledby="faq-heading">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          FREQUENTLY ASKED
+        </p>
+        <h2 id="faq-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2;">
+          Roof Insurance Claim Questions, Answered.
+        </h2>
+      </div>
+      <FAQ items={faqItems} schemaType="FAQPage" />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FINAL CTA BANNER
+  ═══════════════════════════════════════════ -->
+  <section
+    style="position: relative; background-color: var(--color-surface-dark, #0f172a); padding: 96px 24px; overflow: hidden; text-align: center;"
+    aria-label="Final call to action"
+  >
+    <div style="position: absolute; inset: 0; z-index: 0;" aria-hidden="true">
+      <img
+        src="[REPRESENTATIVE — NOT YET SOURCED]"
+        alt=""
+        width="1440"
+        height="480"
+        loading="lazy"
+        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.10;"
+        title="Not yet sourced"
+      />
+    </div>
+
+    <div style="position: relative; z-index: 1; max-width: 700px; margin: 0 auto;">
+      <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;">
+        START HERE
+      </p>
+      <h2 style="font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; color: #ffffff; line-height: 1.15; margin-bottom: 20px;">
+        The Assessment Is Free. Waiting Costs More With Every Rain Event.
+      </h2>
+      <p style="font-size: 1.125rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 40px;">
+        We document the damage, coordinate the adjuster, and handle the scope so you can focus on everything else that comes after a storm. Our own crews. Five states. No surprises.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; align-items: center;">
+        <a
+          href="/contact?intent=damage-assessment&source=insurance-claim-final-cta"
+          style="display: inline-flex; align-items: center; gap: 8px; background-color: var(--color-accent, #f97316); color: #ffffff; font-size: 1rem; font-weight: 700; padding: 18px 36px; border-radius: 6px; text-decoration: none;"
+          data-event-action="cta-click"
+          data-event-label="final-cta-primary"
+          data-event-category="insurance-claim-assistance"
+        >
+          Get Your Free Storm Damage Assessment
+        </a>
+        <a
+          href="/residential/storm-damage-repair"
+          style="display: inline-flex; align-items: center; gap: 8px; color: #ffffff; font-size: 1rem; font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,0.4); padding-bottom: 2px;"
+          data-event-action="cta-click"
+          data-event-label="final-cta-secondary"
+          data-event-category="insurance-claim-assistance"
+        >
+          Learn About Storm Damage Repair
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

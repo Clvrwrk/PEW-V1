@@ -1,0 +1,179 @@
+# aia4-image-gen manifest — Asphalt Shingle Roofing service page
+# Phase 3 deliverable. Image strategy and slot inventory.
+# Per CLAUDE.md §9: no stock photography, no generated rooftop photos.
+# Every slot is [REPRESENTATIVE — NOT YET SOURCED] until Chris supplies real
+# Pro Exteriors project photos from /brand-assets/client/ or Google Drive.
+
+strategy: real-photography-only
+rationale: |
+  CLAUDE.md §9 hard rule: "Never use stock photography of diverse smiling team
+  in hard hats — every image is real Pro Exteriors work or it doesn't ship."
+  AI-generated rooftop images also prohibited (cannot verify they match Pro
+  Exteriors' actual work or geographic markets).
+  All slots below are placeholder paths. Phase 5 page-qc blocks ship if any
+  slot still holds a placeholder at launch time.
+
+# ─── Image slot inventory (13 total) ───
+image_slots:
+
+  # SLOT 1 — Hero background
+  - slot_id: hero-bg
+    section: hero
+    path_placeholder: "/images/placeholders/hero-asphalt-shingles.jpg"
+    alt: "Pro Exteriors crew installing architectural asphalt shingles on a residential roof"
+    usage: "Full-bleed hero behind 40% dark overlay. LCP image — must use loading='eager' fetchpriority='high'."
+    spec: |
+      Preferred: wide-angle aerial or near-aerial showing crew actively working on
+      a shingle roof. Shows work quality and scale. Any of the 5 served states.
+      Minimum: 1920×1080 original. Compress to WebP <120KB for LCP target.
+    source_required: true
+    ship_blocked: true
+
+  # SLOT 2 — Service overview (SplitIntro image-right)
+  - slot_id: service-overview-right
+    section: service_overview
+    path_placeholder: "/images/placeholders/service-overview-asphalt.jpg"
+    alt: "Pro Exteriors crew member carrying a bundle of architectural shingles up a ladder"
+    usage: "Right column of SplitIntro. Lazy-loaded."
+    spec: "Portrait or near-portrait. Crew in action. Natural light. Real job site."
+    source_required: true
+    ship_blocked: true
+
+  # SLOT 3 — Materials grid: 3-Tab card
+  - slot_id: materials-3tab
+    section: materials_grid
+    path_placeholder: "/images/placeholders/material-3tab.jpg"
+    alt: "3-tab asphalt shingles on a residential roof"
+    usage: "BenefitsGrid card image. Small square or 4:3."
+    spec: "Close-up detail shot of 3-tab shingle field showing exposure pattern. Any state."
+    source_required: true
+    ship_blocked: false    # cards can initially render icon-only if photos unavailable
+
+  # SLOT 4 — Materials grid: Architectural card
+  - slot_id: materials-architectural
+    section: materials_grid
+    path_placeholder: "/images/placeholders/material-architectural.jpg"
+    alt: "Architectural dimensional asphalt shingles installed on a residential home"
+    usage: "BenefitsGrid card image."
+    spec: "Detail shot showing the laminate texture and dimensional shadow lines. GAF or OC product preferred."
+    source_required: true
+    ship_blocked: false
+
+  # SLOT 5 — Materials grid: Premium Designer card
+  - slot_id: materials-premium
+    section: materials_grid
+    path_placeholder: "/images/placeholders/material-premium.jpg"
+    alt: "Premium designer asphalt shingles simulating natural slate on a luxury home"
+    usage: "BenefitsGrid card image."
+    spec: "Finished roof showing premium product — Grand Sequoia, Presidential Shake, or Berkshire Collection. Luxury home preferred."
+    source_required: true
+    ship_blocked: false
+
+  # SLOT 6 — Manufacturers band: GAF logo
+  - slot_id: logo-gaf
+    section: manufacturers_band
+    path_placeholder: "/images/placeholders/logo-gaf-master-elite.svg"
+    alt: "GAF Master Elite Certified contractor logo"
+    usage: "Manufacturer logo in dark-surface credential band. SVG preferred."
+    spec: |
+      GAF official Master Elite logo. Must be obtained directly from GAF brand
+      portal or contractor account — cannot use a scraped version. Chris to confirm
+      Pro Exteriors has permission to display the current-year certification badge.
+    source_required: true
+    ship_blocked: true    # legal risk — cannot display without confirmed permission
+
+  # SLOT 7 — Manufacturers band: Owens Corning logo
+  - slot_id: logo-owens-corning
+    section: manufacturers_band
+    path_placeholder: "/images/placeholders/logo-owens-corning-preferred.svg"
+    alt: "Owens Corning Preferred Contractor logo"
+    usage: "Manufacturer logo in dark-surface credential band. SVG preferred."
+    spec: "OC official Preferred Contractor logo from OC contractor portal. Same permission rules as GAF."
+    source_required: true
+    ship_blocked: true    # legal risk
+
+  # SLOT 8 — Local experts proof: testimonial project photo
+  - slot_id: testimonial-project
+    section: local_experts_proof
+    path_placeholder: "/images/placeholders/testimonial-asphalt.jpg"
+    alt: "Pro Exteriors completed asphalt shingle roof project"
+    usage: "Testimonial card project photo. Square or 4:3."
+    spec: "Finished roof from the same project as the testimonial customer (or a comparable TX/CO/KS project)."
+    source_required: true
+    ship_blocked: true    # testimonial itself is ship-blocked; photo follows
+
+  # SLOT 9 — Case study: Texas
+  - slot_id: case-tx
+    section: case_studies
+    path_placeholder: "/images/placeholders/case-asphalt-tx.jpg"
+    alt: "Completed asphalt shingle roof replacement in Texas by Pro Exteriors"
+    usage: "CaseStudyCard image. 3:2 landscape."
+    spec: "Real completed Pro Exteriors project in Texas. Architectural shingles preferred. Aerial or near-aerial."
+    source_required: true
+    ship_blocked: true
+
+  # SLOT 10 — Case study: Colorado
+  - slot_id: case-co
+    section: case_studies
+    path_placeholder: "/images/placeholders/case-asphalt-co.jpg"
+    alt: "Completed asphalt shingle roof replacement in Colorado by Pro Exteriors"
+    usage: "CaseStudyCard image. 3:2 landscape."
+    spec: "Real completed Pro Exteriors project in Colorado. Hail-damage replacement preferred."
+    source_required: true
+    ship_blocked: true
+
+  # SLOT 11 — Case study: Kansas
+  - slot_id: case-ks
+    section: case_studies
+    path_placeholder: "/images/placeholders/case-asphalt-ks.jpg"
+    alt: "Completed asphalt shingle roof replacement in Kansas by Pro Exteriors"
+    usage: "CaseStudyCard image. 3:2 landscape."
+    spec: "Real completed Pro Exteriors project in Kansas or Missouri."
+    source_required: true
+    ship_blocked: true
+
+  # SLOT 12 — Warranties & financing (SplitIntro image-left)
+  - slot_id: warranties-left
+    section: warranties_financing
+    path_placeholder: "/images/placeholders/warranty-handoff.jpg"
+    alt: "Pro Exteriors crew member reviewing warranty documentation with a homeowner"
+    usage: "SplitIntro left column image."
+    spec: "Crew member or PM handing paperwork to homeowner. Genuine moment — not staged stock photo."
+    source_required: true
+    ship_blocked: false    # section can render with icon treatment if photo unavailable
+
+  # SLOT 13 — Final CTA background
+  - slot_id: final-cta-bg
+    section: final_cta
+    path_placeholder: "/images/placeholders/final-cta-asphalt.jpg"
+    alt: "Pro Exteriors completed asphalt shingle roof, aerial view"
+    usage: "CTABanner background at 10% opacity. Full-bleed behind dark overlay. Lazy-loaded."
+    spec: "Aerial or near-aerial of a finished shingle roof. Clean, sunny. Any served state."
+    source_required: true
+    ship_blocked: false    # renders gracefully on solid dark bg without photo
+
+# ─── Hard-block summary ───
+ship_blocked_count: 7   # hero-bg, service-overview-right, logo-gaf, logo-owens-corning, testimonial-project, case-tx, case-co, case-ks
+ship_blocked_reason: |
+  7 of 13 slots are ship-blocked because:
+    (a) Hero requires real Pro Exteriors photography (largest CLS/LCP risk)
+    (b) Both manufacturer logos require permission confirmation before display
+    (c) Case studies and testimonial require real project content and customer release
+  The remaining 6 slots (materials cards, warranty left, final-cta bg) can
+  render with tasteful placeholder treatments (icon + color band) and are
+  NOT ship-blocking if real photos are unavailable at launch. They ship with
+  [REPRESENTATIVE] placeholder paths and should be backfilled within 30 days.
+
+# ─── Image optimization spec (applies to all slots) ───
+optimization:
+  format: "WebP primary, JPEG fallback via <picture>"
+  hero_lcp: "Compress to <120KB WebP. loading='eager' fetchpriority='high'. No lazy."
+  all_others: "loading='lazy'. Compress to <80KB WebP for cards, <200KB for SplitIntro panels."
+  responsive_srcset: "Minimum: 400w, 800w, 1200w variants for hero. 400w, 800w for all others."
+  no_cls: "Always specify explicit width/height attributes on <img> to prevent CLS."
+
+status: success
+next_action: handoff    # to Phase 4 assembly
+provenance:
+  produced_by: aia4-image-gen (inline, PageBuilder orchestration)
+  produced_at: 2026-05-03

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Texas Storm Season Roofing FAQ: Everything DFW Homeowners Need to Know | Pro Exteriors</title>
+  <meta name="description" content="Answers to the most common questions Texas homeowners ask after storm season: timing, insurance, contractors, materials, and what to expect." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep-navy: #11133f;
+      --flag-red: #c22326;
+      --hunter-green: #3b6b4c;
+      --golden-orange: #c28412;
+      --smart-blue: #232884;
+      --bg-warm: #fbf9f6;
+      --text-primary: #1a1a2e;
+      --text-muted: #5a5a7a;
+      --border-light: #e4e2dd;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Archivo', sans-serif; background: var(--bg-warm); color: var(--text-primary); line-height: 1.7; font-size: 1rem; }
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--flag-red); width: 0%; z-index: 1000; transition: width 0.1s linear; }
+    nav.site-nav { position: sticky; top: 0; z-index: 900; background: var(--deep-navy); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-logo { font-size: 1.25rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-logo span { color: var(--flag-red); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .article-header { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; }
+    .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+    .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .breadcrumb a:hover { color: rgba(255,255,255,0.9); }
+    .article-badge { display: inline-block; background: var(--flag-red); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 2px; margin-bottom: 1.25rem; font-family: 'IBM Plex Mono', monospace; }
+    .article-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 780px; margin: 0 auto 1.25rem; }
+    .article-meta { display: flex; gap: 1.5rem; justify-content: center; font-size: 0.82rem; color: rgba(255,255,255,0.6); flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; }
+    .article-hero { width: 100%; aspect-ratio: 16/7; overflow: hidden; background: var(--deep-navy); }
+    .article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .content-grid { max-width: 1160px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+    .sidebar { position: sticky; top: 72px; }
+    .toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; }
+    .toc-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-family: 'IBM Plex Mono', monospace; margin-bottom: 0.75rem; }
+    .toc ul { list-style: none; }
+    .toc li { margin-bottom: 0.35rem; }
+    .toc-link { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; display: block; padding: 0.2rem 0; border-left: 2px solid transparent; padding-left: 0.5rem; transition: all 0.2s; line-height: 1.4; }
+    .toc-link:hover, .toc-link.active { color: var(--deep-navy); border-left-color: var(--flag-red); }
+    .article-body h2 { font-size: 1.5rem; font-weight: 700; color: var(--deep-navy); margin: 2.5rem 0 1rem; padding-top: 0.5rem; line-height: 1.25; }
+    .article-body h3 { font-size: 1.1rem; font-weight: 600; color: var(--deep-navy); margin: 1.75rem 0 0.6rem; }
+    .article-body p { margin-bottom: 1.1rem; color: var(--text-primary); }
+    .article-body ul, .article-body ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+    .article-body li { margin-bottom: 0.4rem; }
+    .article-body strong { font-weight: 600; }
+    .faq-item { border: 1px solid var(--border-light); border-radius: 6px; margin-bottom: 1rem; background: var(--white); overflow: hidden; }
+    .faq-q { font-weight: 700; color: var(--deep-navy); padding: 1rem 1.25rem; font-size: 1.02rem; border-left: 4px solid var(--smart-blue); }
+    .faq-a { padding: 0 1.25rem 1.1rem 1.5rem; color: var(--text-primary); font-size: 0.97rem; }
+    blockquote { border-left: 4px solid var(--flag-red); background: var(--white); padding: 1.25rem 1.5rem; margin: 2rem 0; border-radius: 0 6px 6px 0; }
+    blockquote p { font-size: 1.05rem; font-style: italic; color: var(--text-primary); margin-bottom: 0.5rem; }
+    blockquote cite { font-size: 0.82rem; color: var(--text-muted); font-style: normal; font-family: 'IBM Plex Mono', monospace; }
+    figure { margin: 2rem 0; }
+    figcaption { font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem; font-family: 'IBM Plex Mono', monospace; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; background: var(--white); border-radius: 6px; overflow: hidden; border: 1px solid var(--border-light); }
+    .data-table th { background: var(--deep-navy); color: var(--white); font-weight: 600; padding: 0.75rem 1rem; text-align: left; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'IBM Plex Mono', monospace; }
+    .data-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .data-table tr:nth-child(even) td { background: #f7f5f2; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .cta-banner { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem; text-align: center; margin: 3rem 0 0; }
+    .cta-banner h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .cta-banner p { color: rgba(255,255,255,0.75); max-width: 500px; margin: 0 auto 1.75rem; }
+    .btn-primary { display: inline-block; background: var(--flag-red); color: var(--white); font-weight: 700; padding: 0.875rem 2rem; border-radius: 4px; text-decoration: none; font-size: 1rem; transition: background 0.2s; }
+    .btn-primary:hover { background: #a81d20; }
+    .related-section { max-width: 1160px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+    .related-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 1.5rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s; }
+    .related-card:hover { border-color: var(--flag-red); }
+    .related-card .badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--flag-red); font-family: 'IBM Plex Mono', monospace; margin-bottom: 0.4rem; }
+    .related-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--deep-navy); line-height: 1.35; }
+    site-footer { background: var(--deep-navy); color: rgba(255,255,255,0.6); text-align: center; padding: 2rem; font-size: 0.82rem; display: block; }
+    @media (max-width: 768px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .related-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="/" class="nav-logo">Pro<span>Exteriors</span></a>
+    <ul class="nav-links">
+      <li><a href="/services/commercial/">Commercial</a></li>
+      <li><a href="/services/residential/">Residential</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/blog/">Resources</a></li>
+      <li><a href="/contact/">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <header class="article-header">
+    <p class="breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/blog/">Resources</a> &rsaquo;
+      <a href="/services/storm-damage-restoration/">Storm Damage Restoration</a>
+    </p>
+    <span class="article-badge">Storm Damage</span>
+    <h1 class="article-title">Texas Storm Season Roofing FAQ: Everything DFW Homeowners Need to Know</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Team</strong></span>
+      <span>May 2026</span>
+      <span>~8 min read</span>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015658_959f9d0f-a022-4b36-b356-79901934e35d.png" alt="Texas Storm Season Roofing FAQ: Everything DFW Homeowners Need to Know" loading="eager" />
+  </div>
+
+  <div class="content-grid">
+    <aside class="sidebar">
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-title">In This Article</p>
+        <ul>
+          <li><a href="#storm-season-in-texas" class="toc-link">Storm Season in Texas</a></li>
+          <li><a href="#immediately-after-the-storm" class="toc-link">Immediately After the Storm</a></li>
+          <li><a href="#insurance-claim-questions" class="toc-link">Insurance Claim Questions</a></li>
+          <li><a href="#contractor-selection-faq" class="toc-link">Contractor Selection FAQ</a></li>
+          <li><a href="#material-and-timing-faq" class="toc-link">Material and Timing FAQ</a></li>
+          <li><a href="#storm-chaser-warning-signs" class="toc-link">Storm Chaser Warning Signs</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="article-body">
+
+      <p>Every spring in North Texas, the same questions flood in: the hail sounded like a war, the roof looks like it survived a fight, and now what? Pro Exteriors has worked through hundreds of post-storm cycles in DFW, and the questions homeowners ask are remarkably consistent. This FAQ compiles the most common ones with direct, accurate answers — because the last thing you need after a storm is vague advice from someone with something to sell.</p>
+
+      <h2 id="storm-season-in-texas">Storm Season in Texas: The Reality</h2>
+
+      <p>Texas occupies a unique position in the geography of severe weather. The southern Plains states — Texas, Oklahoma, Kansas, Colorado, and Missouri — form the core of "Hail Alley," the geographic band stretching from the Texas Panhandle to the Dakotas where large hail events occur at the highest frequency in the world. Within that band, the Dallas-Fort Worth metroplex sits at a particular convergence point where Gulf moisture, dry air from the west, and cold air from Canada collide repeatedly through spring and early summer.</p>
+
+      <figure aria-label="Bar chart showing average monthly hail events in DFW metroplex">
+        <svg viewBox="0 0 620 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Monthly bar chart showing hail event frequency in DFW, peaking April through June">
+          <defs>
+            <linearGradient id="gradBlueStorm" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#232884"/>
+              <stop offset="100%" stop-color="#11133f"/>
+            </linearGradient>
+            <linearGradient id="gradRedStorm" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#e04548"/>
+              <stop offset="100%" stop-color="#c22326"/>
+            </linearGradient>
+          </defs>
+          <rect width="620" height="280" fill="#ffffff" rx="6"/>
+          <text x="310" y="26" font-family="Archivo, sans-serif" font-size="13" font-weight="700" fill="#11133f" text-anchor="middle">Average Monthly Hail Events — DFW Metroplex (NOAA 10-Year Avg.)</text>
+          <!-- Grid -->
+          <line x1="60" y1="50" x2="600" y2="50" stroke="#e4e2dd" stroke-width="1"/>
+          <line x1="60" y1="90" x2="600" y2="90" stroke="#e4e2dd" stroke-width="1"/>
+          <line x1="60" y1="130" x2="600" y2="130" stroke="#e4e2dd" stroke-width="1"/>
+          <line x1="60" y1="170" x2="600" y2="170" stroke="#e4e2dd" stroke-width="1"/>
+          <line x1="60" y1="210" x2="600" y2="210" stroke="#e4e2dd" stroke-width="1"/>
+          <!-- Y axis labels -->
+          <text x="52" y="54" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="end">10</text>
+          <text x="52" y="94" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="end">8</text>
+          <text x="52" y="134" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="end">6</text>
+          <text x="52" y="174" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="end">4</text>
+          <text x="52" y="214" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="end">2</text>
+          <!-- Base line -->
+          <line x1="60" y1="210" x2="600" y2="210" stroke="#11133f" stroke-width="1.5"/>
+          <!-- Months: Jan through Dec — values roughly: 0.5, 0.8, 2, 6, 9, 10, 7, 5, 3, 1.5, 0.8, 0.3 -->
+          <!-- Scale: 10 events = 160px height; base at y=210 -->
+          <!-- Jan: 0.5 → h=8 -->
+          <rect x="68" y="202" width="32" height="8" fill="url(#gradBlueStorm)" rx="2"/>
+          <text x="84" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Jan</text>
+          <!-- Feb: 0.8 → h=13 -->
+          <rect x="112" y="197" width="32" height="13" fill="url(#gradBlueStorm)" rx="2"/>
+          <text x="128" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Feb</text>
+          <!-- Mar: 2 → h=32 -->
+          <rect x="156" y="178" width="32" height="32" fill="url(#gradBlueStorm)" rx="2"/>
+          <text x="172" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Mar</text>
+          <!-- Apr: 6 → h=96 -->
+          <rect x="200" y="114" width="32" height="96" fill="url(#gradRedStorm)" rx="2"/>
+          <text x="216" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Apr</text>
+          <!-- May: 9 → h=144 -->
+          <rect x="244" y="66" width="32" height="144" fill="url(#gradRedStorm)" rx="2"/>
+          <text x="260" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">May</text>
+          <!-- Jun: 10 → h=160 -->
+          <rect x="288" y="50" width="32" height="160" fill="url(#gradRedStorm)" rx="2"/>
+          <text x="304" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Jun</text>
+          <!-- Jul: 7 → h=112 -->
+          <rect x="332" y="98" width="32" height="112" fill="url(#gradBlueStorm)" rx="2"/>
+          <text x="348" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Jul</text>
+          <!-- Aug: 5 → h=80 -->
+          <rect x="376" y="130" width="32" height="80" fill="url(#gradBlueStorm)" rx="2"/>
+          <text x="392" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Aug</text>
+          <!-- Sep: 3 → h=48 -->
+          <rect x="420" y="162" width="32" height="48" fill="url(#gradBlueStorm)" rx="2"/>
+          <text x="436" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Sep</text>
+          <!-- Oct: 1.5 → h=24 -->
+          <rect x="464" y="186" width="32" height="24" fill="url(#gradBlueStorm)" rx="2"/>
+          <text x="480" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Oct</text>
+          <!-- Nov: 0.8 → h=13 -->
+          <rect x="508" y="197" width="32" height="13" fill="url(#gradBlueStorm)" rx="2"/>
+          <text x="524" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Nov</text>
+          <!-- Dec: 0.3 → h=5 -->
+          <rect x="552" y="205" width="32" height="5" fill="url(#gradBlueStorm)" rx="2"/>
+          <text x="568" y="225" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Dec</text>
+          <!-- Peak season label -->
+          <text x="304" y="44" font-family="IBM Plex Mono, monospace" font-size="9" fill="#c22326" text-anchor="middle">Peak Season</text>
+          <!-- Legend -->
+          <rect x="200" y="240" width="12" height="12" fill="url(#gradRedStorm)" rx="2"/>
+          <text x="216" y="251" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a">High risk (Apr–Jun)</text>
+          <rect x="340" y="240" width="12" height="12" fill="url(#gradBlueStorm)" rx="2"/>
+          <text x="356" y="251" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a">Moderate / low risk</text>
+          <text x="310" y="270" font-family="IBM Plex Mono, monospace" font-size="8" fill="#5a5a7a" text-anchor="middle">Source: NOAA Storm Events Database, 10-year average (2015–2024)</text>
+        </svg>
+        <figcaption>DFW hail event frequency peaks in May–June. A significant percentage of the year's total hail events occur in a 90-day window — the same window when contractor demand spikes.</figcaption>
+      </figure>
+
+      <h2 id="immediately-after-the-storm">Immediately After the Storm: FAQ</h2>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I know if my roof actually sustained damage?</p>
+        <div class="faq-a"><p>You can make a preliminary assessment from the ground. Look for missing shingles, visible dark spots or bruising on shingles visible from the ground or eave edge, dents on aluminum gutters or downspouts, and damaged window screens. None of these are conclusive on their own — a licensed contractor or adjuster on the roof is the only way to get a definitive assessment. But ground-level evidence of hail impact on soft metals is the most reliable indicator that your roof warrants close inspection.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Should I get on my roof to check the damage myself?</p>
+        <div class="faq-a"><p>Not immediately after a storm event. Wet shingles are slippery; potential structural damage makes the surface unpredictable; and granule displacement from hail impacts makes footing less reliable even when dry. Document what you can from the ground, and call a licensed contractor for roof-level inspection. The documentation value doesn't outweigh the fall risk.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">How long do I have to file a claim after a storm?</p>
+        <div class="faq-a"><p>Texas Insurance Code does not specify a claim filing deadline, but your individual policy will have a "prompt notice" requirement — typically language saying you must report a loss "as soon as practicable." In practice, most insurers treat claims filed within 12 months of the event as timely. However, filing promptly is strongly recommended: damage documented closer to the event date is less susceptible to "was this pre-existing?" disputes, and contractor scheduling is easier before the post-storm surge.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">There's no active leak — do I still need to do anything?</p>
+        <div class="faq-a"><p>Yes. Hail and wind damage that doesn't immediately produce a visible leak often creates conditions that will lead to water intrusion over the next several rain events — compromised granule coverage accelerates shingle aging, cracked or lifted shingles allow wind-driven rain penetration, and failed seal strips create uplift pathways. Filing a claim while the damage is fresh and documented is significantly easier than filing after the first leak appears and the damage has been attributed to "wear and tear."</p></div>
+      </div>
+
+      <h2 id="insurance-claim-questions">Insurance Claim Questions</h2>
+
+      <div class="faq-item">
+        <p class="faq-q">What is a wind and hail deductible, and how does it work?</p>
+        <div class="faq-a"><p>Standard homeowner's policies carry an AOP (All Other Perils) deductible — typically a flat dollar amount — for most claims. Many Texas policies have a separate, higher wind and hail deductible that applies specifically to storm damage. This deductible is often expressed as a percentage of Coverage A (your dwelling coverage limit) rather than a flat dollar amount. On a home with a $400,000 Coverage A limit and a 2% wind/hail deductible, your out-of-pocket on any hail claim is $8,000 before insurance pays a dollar. Check your declarations page before you file.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">What's the difference between ACV and RCV policies?</p>
+        <div class="faq-a"><p>Actual Cash Value (ACV) pays the depreciated value of your damaged roof — what a used, partially aged roof is worth, not what it costs to replace it with new materials. Replacement Cost Value (RCV) pays the full cost to replace damaged materials with new materials of like kind and quality. RCV policies typically pay in two stages: an initial payment of ACV (minus depreciation and deductible), then a recoverable depreciation check once the repair is completed and the final invoice is submitted. Texas homeowners should verify which coverage type they carry before a storm season.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Can a contractor waive my deductible?</p>
+        <div class="faq-a"><p>No — and it's illegal for them to offer. Texas Insurance Code §27.02 prohibits roofing contractors from waiving, absorbing, or rebating all or part of a homeowner's deductible. A contractor who offers this is committing a Class B misdemeanor under Texas law, and the homeowner who knowingly participates may face civil liability. Legitimate contractors price their work fairly and do not factor in "covering" your deductible.</p></div>
+      </div>
+
+      <blockquote>
+        <p>"The deductible waiver thing comes up constantly. We explain to every homeowner: we can't legally do it, and you don't want us to. A contractor who absorbs your $8,000 deductible either has an $8,000 margin in their quote — which means you're paying it anyway — or they're cutting corners somewhere to make up the difference. Neither is a good outcome for your roof."</p>
+        <cite>— Pro Exteriors Residential Sales Manager, Richardson TX</cite>
+      </blockquote>
+
+      <h2 id="contractor-selection-faq">Contractor Selection FAQ</h2>
+
+      <table class="data-table" aria-label="Texas roofing contractor verification checklist">
+        <thead>
+          <tr>
+            <th>Verification Item</th>
+            <th>What to Ask or Check</th>
+            <th>Where to Verify</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>State registration</td>
+            <td>Texas doesn't require a roofing license, but contractors must register with TDI if they do insurance restoration work</td>
+            <td>Texas Department of Insurance (tdi.texas.gov)</td>
+          </tr>
+          <tr>
+            <td>General liability insurance</td>
+            <td>Minimum $1M per occurrence; request the COI before work begins</td>
+            <td>Request certificate directly from contractor's insurer</td>
+          </tr>
+          <tr>
+            <td>Workers' comp coverage</td>
+            <td>Protects you if a worker is injured on your property</td>
+            <td>Request workers' comp COI; verify with contractor's insurer</td>
+          </tr>
+          <tr>
+            <td>Physical business address</td>
+            <td>A local, verifiable address — not a P.O. box</td>
+            <td>Google Maps / county records</td>
+          </tr>
+          <tr>
+            <td>Manufacturer certification</td>
+            <td>GAF Master Elite, Owens Corning Preferred, or equivalent</td>
+            <td>Manufacturer's website contractor locator</td>
+          </tr>
+          <tr>
+            <td>References from your area</td>
+            <td>Ask for jobs completed in your city in the past 12 months</td>
+            <td>Contact references directly; check Google and BBB</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="material-and-timing-faq">Material and Timing FAQ</h2>
+
+      <div class="faq-item">
+        <p class="faq-q">How long will I wait for a contractor after a major storm event?</p>
+        <div class="faq-a"><p>After a widespread hail event affecting 50,000+ homes in the DFW metroplex — which happens multiple times in a typical severe weather year — established local contractors will typically schedule repairs 4–8 weeks out from the initial inspection. The surge in demand for both contractors and materials (shingles, underlayment, decking) is real. Out-of-state "storm chasers" will fill the gap and accept work immediately — this is exactly when verification of contractor credentials becomes most important.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Is there a best time of year to have a roof replaced in DFW?</p>
+        <div class="faq-a"><p>Asphalt shingles require ambient temperatures of 40°F or above for proper adhesive activation and sealing. In DFW, the practical installation window is year-round with the exception of extreme cold events. Fall (October–November) and early spring (February–March) offer favorable temperature conditions and lower contractor demand relative to the post-storm surge period. If you're scheduling a non-emergency replacement, those windows offer shorter lead times and potentially more flexibility in scheduling.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">Should I upgrade to Class 4 impact-resistant shingles after a storm replacement?</p>
+        <div class="faq-a"><p>In a market with DFW's hail frequency, Class 4 impact-resistant shingles are a sound investment to evaluate. Class 4 products (rated to UL 2218 Class 4 standard, meaning they withstand a 2-inch steel ball drop from 20 feet without cracking) command a premium of roughly $1–$3 per square foot installed over standard architectural shingles. The insurance discount available from most Texas carriers for Class 4 roofs ranges from 15% to 30% on the wind and hail premium component of your policy — and the reduction in future storm claims from a more resilient material speaks for itself in this geography.</p></div>
+      </div>
+
+      <h2 id="storm-chaser-warning-signs">Storm Chaser Warning Signs</h2>
+
+      <p>Every major storm event in DFW brings an influx of out-of-state roofing contractors — colloquially called "storm chasers" — who follow severe weather events market to market. Not all are disreputable, but the category has a high proportion of contractors who disappear after collecting a deposit, perform substandard work, and have no lasting accountability to the local market. Warning signs:</p>
+
+      <ul>
+        <li><strong>They knocked on your door unsolicited within 24 hours of the storm.</strong> Organized storm chasers deploy canvassers immediately after major events.</li>
+        <li><strong>They pressure you to sign a contract the same day.</strong> Legitimate contractors give you time to verify their credentials.</li>
+        <li><strong>They can start immediately.</strong> After a widespread storm event, established local contractors have backlogs. Immediate availability from an unknown contractor is itself a signal.</li>
+        <li><strong>No verifiable local address or phone number.</strong> Search their business name + city. If it doesn't resolve to a local presence, they don't have one.</li>
+        <li><strong>They offer to "handle everything" with your insurance.</strong> Your contractor can assist with documentation and supplement requests, but only you and your insurer are parties to your claim. A contractor who wants to control the claim communication is a red flag.</li>
+        <li><strong>They offer to waive your deductible.</strong> Illegal in Texas. Full stop.</li>
+      </ul>
+
+    </article>
+  </div>
+
+  <div class="cta-banner">
+    <h2>Storm Damage in DFW? Start with a Professional Inspection.</h2>
+    <p>Pro Exteriors has operated in the Dallas-Fort Worth market for years. We're licensed, insured, and here after this storm season and every one after it.</p>
+    <a href="/contact/" class="btn-primary">Schedule a Storm Inspection</a>
+  </div>
+
+  <section class="related-section">
+    <h2>Related Resources</h2>
+    <div class="related-grid">
+      <a href="/blog/hail-damage-how-to-identify/" class="related-card">
+        <div class="badge">Storm Damage</div>
+        <h3>Hail Damage on a Roof: How to Identify It Before Your Adjuster Arrives</h3>
+      </a>
+      <a href="/blog/filing-roof-insurance-claim/" class="related-card">
+        <div class="badge">Storm Damage</div>
+        <h3>How to File a Roof Insurance Claim: The Complete Step-by-Step Guide</h3>
+      </a>
+      <a href="/blog/working-with-adjusters-after-storm/" class="related-card">
+        <div class="badge">Storm Damage</div>
+        <h3>Working with Adjusters After a Storm: What to Say, What to Show</h3>
+      </a>
+    </div>
+  </section>
+
+  <site-footer>
+    <p>&copy; 2026 Pro Exteriors &mdash; Prepared by AIA4 Pro Exteriors &mdash; Maren Castellan-Reyes, Senior Director, Website &amp; Application Experience</p>
+  </site-footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const max = document.body.scrollHeight - window.innerHeight;
+      bar.style.width = (scrolled / max * 100) + '%';
+    }, { passive: true });
+    const sections = document.querySelectorAll('article h2[id]');
+    const links = document.querySelectorAll('.toc-link');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>

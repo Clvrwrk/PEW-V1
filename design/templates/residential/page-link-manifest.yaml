@@ -1,0 +1,353 @@
+# aia4-page-link manifest — Residential Roofing Contractor pillar
+# Produced inline by PageBuilder Phase 1 on 2026-05-03
+# Methodology: Kyle Roof reverse-silo (money pages link UP to support content;
+# support pages link UP to money pages; equity circulates within the silo)
+#
+# This pillar is TIER-1 — the top of the residential silo. It is not a money page
+# in the same sense as a service page; it is the silo HUB. The reverse-silo move
+# for a hub is to link DOWN to its first-tier services AND to the supporting blog
+# cluster, with anchor patterns that strengthen the supporters' rankings (which
+# in turn pass equity back up to the hub).
+
+silo_role: pillar-hub
+tier: T1
+silo_parent: null                            # this IS the top of the residential silo
+silo_topic: "residential roofing services across all five Pro Exteriors states"
+silo_companion: "/commercial-roofing"        # parallel pillar — link across once
+
+# ─── Existing destinations on the site (verified by directory scan, 2026-05-03) ───
+verified_existing:
+  pillars:
+    - { slug: "commercial-roofing",         path: "src/content/pillars/commercial-roofing.mdx",         url: "/commercial-roofing", status: live }
+    - { slug: "residential-roofing",        path: "src/content/pillars/residential-roofing.mdx",        url: "/blog/residential-roofing", status: live, note: "Existing thin pillar at canonicalPath /blog/residential-roofing/. Will need consolidation/301 to /residential after this build ships — flag for /decisions/." }
+  residential_service_pages:
+    note: |
+      None of the dedicated residential service pages (asphalt-shingles, metal-roofing,
+      tile-clay, natural-slate, gutters, siding, storm-damage-repair, roof-replacement,
+      tarp-installation, hail-damage-repair, insurance-claim-assistance) are built yet.
+      Per /strategy/Pro-Exteriors_GBP-and-Silo-Memo_April-2026.md, residential service
+      pages are scheduled for June (M2) and July (M3) of the Q1 build calendar.
+      Internal links below mark each service-page target as `planned-Q2` and the
+      anchor placement as `provisional` — copywriter inserts the link copy now,
+      page-qc marks unresolved links as `data-broken-link-acceptable=true` for the
+      pillar-first ship, and we revisit when each service page goes live.
+    verified_files: []
+  blog_post_supporters:
+    - { slug: "5-signs-replacement",                    path: "src/content/blogPosts/5-signs-replacement.mdx",                    url: "/blog/5-signs-replacement",                    status: live }
+    - { slug: "how-much-does-a-roof-replacement-cost",  path: "src/content/blogPosts/how-much-does-a-roof-replacement-cost.mdx",  url: "/blog/how-much-does-a-roof-replacement-cost",  status: live }
+    - { slug: "best-time-of-year-to-replace-your-roof", path: "src/content/blogPosts/best-time-of-year-to-replace-your-roof.mdx", url: "/blog/best-time-of-year-to-replace-your-roof", status: live }
+    - { slug: "architectural-vs-3-tab-shingles",        path: "src/content/blogPosts/architectural-vs-3-tab-shingles.mdx",        url: "/blog/architectural-vs-3-tab-shingles",        status: live }
+  city_pages_residential:
+    - { slug: "residential-dallas",       path: "src/content/cities/residential-dallas.mdx",       url: "/residential/dallas",       status: live }
+    - { slug: "residential-fort-worth",   path: "src/content/cities/residential-fort-worth.mdx",   url: "/residential/fort-worth",   status: live }
+    - { slug: "residential-southlake",    path: "src/content/cities/residential-southlake.mdx",    url: "/residential/southlake",    status: live }
+    - { slug: "residential-highland-park",path: "src/content/cities/residential-highland-park.mdx",url: "/residential/highland-park",status: live }
+    - note: "All currently-live residential city pages are TX/DFW-only. CO/KS/MO/GA city pages are planned per the GBP-silo memo Q1 build calendar."
+  office_pages:
+    - { slug: "dallas-hq",  path: "src/content/offices/dallas-hq.mdx",  url: "/locations/dallas-hq",  status: live }
+    - { slug: "frisco",     path: "src/content/offices/frisco.mdx",     url: "/locations/frisco",     status: live }
+    - { slug: "fort-worth", path: "src/content/offices/fort-worth.mdx", url: "/locations/fort-worth", status: live }
+    - { slug: "arlington",  path: "src/content/offices/arlington.mdx",  url: "/locations/arlington",  status: live }
+    - { slug: "southlake",  path: "src/content/offices/southlake.mdx",  url: "/locations/southlake",  status: live }
+    - { slug: "edmond",     path: "src/content/offices/edmond.mdx",     url: "/locations/edmond",     status: live }
+    - note: "Brick-and-mortars per memory: Richardson TX, Euless TX, Greenwood Village CO, Wichita KS, Kansas City MO + Atlanta satellite. The currently-live offices/ files (dallas-hq, frisco, fort-worth, arlington, southlake, edmond) DO NOT cleanly match the office-locations memory. Flag for /decisions/ — this needs reconciliation before any office-page links from this pillar go live. For now, link only to /locations/ index until the per-office pages are reconciled."
+
+# ─── Internal links OUT (residential pillar links to these) ───
+internal_links_out:
+
+  # ─── Tier 1 → Tier 2 service pages (DOWN-links — primary silo backbone) ───
+  # The 6 service cards in the Figma each become a Service-tier link. Anchors are
+  # NEAR-MATCH or DESCRIPTIVE (per Kyle Roof — reserve EXACT-MATCH for support→money,
+  # not money→support). Copywriter places these inside each service card.
+
+  - anchor: "asphalt shingle roofing systems"
+    target: "/residential/asphalt-shingles"
+    target_status: planned-M3
+    anchor_type: near-match
+    placement_hint: "Service grid card 1 — body sentence after 'Versatile, durable…'"
+    rationale: "Asphalt is the volume-driver in residential ($49,500 vol on 'asphalt shingles'). DOWN-link with near-match anchor sets up the support page to rank when it ships."
+
+  - anchor: "metal roofing for homes"
+    target: "/residential/metal-roofing"
+    target_status: planned-M3
+    anchor_type: near-match
+    placement_hint: "Service grid card 2"
+    rationale: "Metal is the highest-volume residential service term (110K). Anchor avoids the exact-match competing keyword."
+
+  - anchor: "tile and clay roofing options"
+    target: "/residential/tile-clay-roofing"
+    target_status: planned-Q3
+    anchor_type: descriptive
+    placement_hint: "Service grid card 3"
+    rationale: "Lower-volume specialty service. Descriptive anchor keeps the pillar from being weighted toward a low-priority destination."
+
+  - anchor: "natural slate installation"
+    target: "/residential/natural-slate"
+    target_status: planned-Q3
+    anchor_type: descriptive
+    placement_hint: "Service grid card 4"
+    rationale: "Same as tile/clay — high-end specialty, descriptive anchor."
+
+  - anchor: "seamless gutter systems"
+    target: "/residential/seamless-gutters"
+    target_status: planned-Q2
+    anchor_type: near-match
+    placement_hint: "Service grid card 5"
+    rationale: "Gutters is a confirmed Q1 GBP category and pairs naturally with roof-replacement on storm jobs (per /strategy/ silo memo). Near-match anchor."
+
+  - anchor: "fiber-cement and vinyl siding"
+    target: "/residential/siding"
+    target_status: planned-Q2
+    anchor_type: descriptive
+    placement_hint: "Service grid card 6"
+    rationale: "Siding is a GBP category and a defensible cross-sell. Descriptive anchor; the siding pillar will own the exact-match."
+
+  # ─── Storm-emergency cluster DOWN-links (supports the storm hypothesis) ───
+
+  - anchor: "emergency roof tarping"
+    target: "/residential/tarp-installation"
+    target_status: planned-Q2
+    anchor_type: near-match
+    placement_hint: "Body — Emergency Roof Repair feature card and inside the Storm Damage section"
+    rationale: "Tarp installation is Pro Exteriors-specific service. $46 CPC on 'emergency roof repair' makes this the single highest commercial-intent destination from this pillar."
+
+  - anchor: "storm damage roof repair"
+    target: "/residential/storm-damage-repair"
+    target_status: planned-Q2
+    anchor_type: exact-match
+    placement_hint: "Body — Storm Damage section opening"
+    rationale: "Exact-match DOWN-link to the planned storm-damage page. This is the ONE exact-match the pillar is allowed (Kyle Roof: keep exact-match anchors mostly for support→money; one DOWN exact-match is acceptable when the destination is the named entry-point service)."
+
+  - anchor: "hail damage assessment and repair"
+    target: "/residential/hail-damage-repair"
+    target_status: planned-Q2
+    anchor_type: descriptive
+    placement_hint: "Body — Storm Damage section, after 'tarping' link"
+    rationale: "Closes the storm-hail-content-gap flag. Hail damage is a 6,600-volume keyword — separate destination from generic storm damage."
+
+  - anchor: "insurance claim assistance for roof damage"
+    target: "/residential/insurance-claim-assistance"
+    target_status: planned-M3
+    anchor_type: descriptive
+    placement_hint: "Body — Storm Damage section AND inside the Pricing & Financing band where 'Insurance Deductible Assistance' bullet appears"
+    rationale: "Insurance handling is unrebutted positioning territory per the SEO validator audit. Two placements in the pillar — one inside the storm narrative, one in the financing band — set up the insurance-assistance page to rank when it ships."
+
+  # ─── Roof-replacement DOWN-link (planned Q1 M3) ───
+
+  - anchor: "complete residential roof replacement guide"
+    target: "/residential/roof-replacement"
+    target_status: planned-M3
+    anchor_type: descriptive
+    placement_hint: "Body — Roof Installation Process section"
+    rationale: "Roof replacement is a 49,500-volume keyword. Pillar narrates the process; the dedicated page goes deep on materials/timeline/cost."
+
+  # ─── Reverse-silo UP-links to existing blog supporters (Kyle Roof move) ───
+  # Money/hub pages link UP to their supporting blog cluster. Anchors here are
+  # DESCRIPTIVE — exact-match flows the OTHER direction (post → pillar).
+
+  - anchor: "five signs your roof is past repair"
+    target: "/blog/5-signs-replacement"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Body — inside the FAQ answer 'Should I repair or replace my roof?' OR Roof Installation Process section"
+    rationale: "Reverse-silo UP-link to a sibling blog supporter. Strengthens the residential silo's topical authority around the repair-vs-replace decision."
+
+  - anchor: "actual cost of a residential roof replacement"
+    target: "/blog/how-much-does-a-roof-replacement-cost"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Body — Pricing & Financing band, near the 'Detailed Line-Item Estimates' bullet"
+    rationale: "Reverse-silo UP-link to the cost-evaluation supporter. Pairs naturally with the financing CTA."
+
+  - anchor: "best time of year to schedule a roof replacement"
+    target: "/blog/best-time-of-year-to-replace-your-roof"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Body — FAQ answer about timing"
+    rationale: "Pillar surfaces the seasonality question; the supporter post answers it deeply."
+
+  - anchor: "architectural vs. 3-tab shingle comparison"
+    target: "/blog/architectural-vs-3-tab-shingles"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Body — Asphalt Shingles service card, inside the 'Choosing the Right Roof Shingles' subsection"
+    rationale: "Closes the loop on shingle selection. Pillar mentions the comparison; supporter has the deep dive."
+
+  # ─── Cross-pillar UP-link (parallel pillar) ───
+
+  - anchor: "commercial roofing services"
+    target: "/commercial-roofing"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Footer or 'Other Services' band — NOT in main body"
+    rationale: "One cross-link to the parallel pillar. Anchor is descriptive (NOT exact-match commercial roofing keyword) to avoid pulling equity from this pillar's residential intent."
+
+  # ─── City-page DOWN-links (provisional — TX-only currently live) ───
+
+  - anchor: "Dallas residential roofing"
+    target: "/residential/dallas"
+    target_status: live
+    anchor_type: near-match
+    placement_hint: "Body — inside or near the case-study triptych OR the proof block when discussing the multi-state footprint"
+    rationale: "Dallas is the flagship market. Near-match anchor pulls residential-Dallas city page up the rankings. CO/KS/MO/GA equivalents will be added when those city pages ship."
+    flag: "Per Phase 0 geo-neutralization decision, do not OVER-WEIGHT Dallas city links. One link only; balance with descriptive 'see all service areas' link to /service-area or /locations index."
+
+  - anchor: "see all service areas"
+    target: "/service-area"
+    target_status: planned
+    anchor_type: descriptive
+    placement_hint: "Proof block — after the multi-state copy"
+    rationale: "Brand-anchor catch-all that lets users browse all five states. Replaces the 'View Project Gallery' line in the case-study triptych for non-DFW visitors."
+
+  # ─── CTA DOWN-link (Free Inspection form) ───
+
+  - anchor: "schedule my free inspection"
+    target: "/contact?intent=inspection&source=residential-pillar"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Hero CTA #1 ('Plan Your New Roof'), Final CTA, and inline within Free Inspection process step"
+    rationale: "Phase 0 hypothesis CTA #1 — planned-replacement intent path. Source param tags this pillar for analytics attribution."
+
+  - anchor: "request emergency roof inspection"
+    target: "/contact?intent=emergency&source=residential-pillar"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Hero CTA #2 ('Emergency Roof Repair') and inline within Storm Damage section + 'Request Inspection' on the URGENT RESPONSE feature card"
+    rationale: "Phase 0 hypothesis CTA #2 — urgent storm intent path. Separate URL param so analytics can score the dual-CTA hypothesis cleanly (CRITICAL — page-qc must verify both events fire separately)."
+
+# ─── Internal links IN required (other pages MUST link to this pillar) ───
+internal_links_in_required:
+
+  # ─── Tier 2 services link UP with EXACT-MATCH anchors (Kyle Roof reverse-silo core) ───
+  - from: "/residential/asphalt-shingles"
+    anchor: "residential roofing contractor"
+    anchor_type: exact-match
+    when_built: "M3 — June/July 2026"
+  - from: "/residential/metal-roofing"
+    anchor: "residential roofing contractor"
+    anchor_type: exact-match
+    when_built: "M3"
+  - from: "/residential/tile-clay-roofing"
+    anchor: "residential roofing services"
+    anchor_type: near-match
+    when_built: "Q3"
+  - from: "/residential/natural-slate"
+    anchor: "residential roofing services"
+    anchor_type: near-match
+    when_built: "Q3"
+  - from: "/residential/seamless-gutters"
+    anchor: "residential roofing"
+    anchor_type: near-match
+    when_built: "Q2"
+  - from: "/residential/siding"
+    anchor: "residential roofing company"
+    anchor_type: exact-match
+    when_built: "Q2"
+    rationale: "Sibling-service page picks up the secondary keyword 'residential roofing company' to flow that volume up to the pillar."
+  - from: "/residential/tarp-installation"
+    anchor: "residential roofing contractor"
+    anchor_type: exact-match
+    when_built: "Q2"
+  - from: "/residential/storm-damage-repair"
+    anchor: "residential roofing"
+    anchor_type: near-match
+    when_built: "Q2"
+  - from: "/residential/hail-damage-repair"
+    anchor: "residential roofing contractor"
+    anchor_type: exact-match
+    when_built: "Q2"
+  - from: "/residential/insurance-claim-assistance"
+    anchor: "residential roofing services"
+    anchor_type: near-match
+    when_built: "M3"
+  - from: "/residential/roof-replacement"
+    anchor: "residential roofing contractor"
+    anchor_type: exact-match
+    when_built: "M3"
+
+  # ─── Tier 3 blog supporters link UP with mixed anchors ───
+  - from: "/blog/5-signs-replacement"
+    anchor: "residential roofing services"
+    anchor_type: near-match
+    when_built: "live — UPDATE on next blog edit cycle"
+  - from: "/blog/how-much-does-a-roof-replacement-cost"
+    anchor: "residential roofing contractor"
+    anchor_type: exact-match
+    when_built: "live — UPDATE on next blog edit cycle"
+  - from: "/blog/best-time-of-year-to-replace-your-roof"
+    anchor: "residential roofing"
+    anchor_type: near-match
+    when_built: "live — UPDATE on next blog edit cycle"
+  - from: "/blog/architectural-vs-3-tab-shingles"
+    anchor: "residential roofing company"
+    anchor_type: exact-match
+    when_built: "live — UPDATE on next blog edit cycle"
+    rationale: "One blog UP-link picks up the secondary 'residential roofing company' to flow that volume too."
+
+  # ─── City pages link UP with branded anchors ───
+  - from: "/residential/dallas"
+    anchor: "Pro Exteriors residential roofing"
+    anchor_type: branded+near-match
+    when_built: "live"
+  - from: "/residential/fort-worth"
+    anchor: "Pro Exteriors residential roofing"
+    anchor_type: branded+near-match
+    when_built: "live"
+  - from: "/residential/southlake"
+    anchor: "residential roofing services"
+    anchor_type: near-match
+    when_built: "live"
+  - from: "/residential/highland-park"
+    anchor: "Pro Exteriors residential roofing contractor"
+    anchor_type: branded+exact-match
+    when_built: "live"
+
+  - note: |
+      Total inbound links required when the silo is fully built: 19 (11 service pages
+      + 4 blog supporters + 4 city pages). At pillar launch only 8 of those are live
+      (4 blog + 4 city). page-qc Phase 5 will flag the gap; PageBuilder Phase 6
+      delivery manifest will list the 11 outstanding inbound links as a follow-up
+      backlog item tied to the M2/M3/Q2/Q3 build calendar.
+
+# ─── Anchor-text density check (Kyle Roof: total internal body links 8–15 + 4–6 related + 2–3 CTA) ───
+density_check:
+  body_links: 14
+  related_services_band_links: 6
+  cta_links: 3
+  cross_pillar_links: 1
+  total_outbound: 24
+  ceiling_per_skill_md: "8–15 body + 4–6 related + 2–3 CTA = 14–24 total"
+  status: at-ceiling
+  read: |
+    24 outbound links is at the high end of the Kyle Roof ceiling for a pillar.
+    A pillar warrants more than a service page (it's the silo hub); 24 is acceptable
+    for a 2,400-word pillar. If page-qc flags as boilerplate-risk, the first cut
+    is the city-page link and the 'see all service areas' link (those duplicate
+    the multi-state proof block's intent and can be consolidated to one).
+
+# ─── Per-target-anchor-count rule (no destination receives >3 anchors from this page) ───
+per_target_audit:
+  /contact?intent=*: 2 distinct URLs (one inspection, one emergency) — within rule
+  /commercial-roofing: 1 — within rule
+  /residential/* (services): 1 each — within rule
+  /blog/* (supporters): 1 each — within rule
+  /residential/dallas: 1 — within rule
+  status: pass
+
+# ─── Status ───
+status: success
+warnings_count: 1
+critical_count: 0
+warnings:
+  - "Existing /blog/residential-roofing pillar at canonicalPath /blog/residential-roofing/ overlaps with the new /residential pillar. Needs consolidation/301 decision after this build ships — flag for /decisions/."
+  - "Office-page directory does not match the office-locations memory (Richardson TX, Euless TX, Greenwood Village CO, Wichita KS, Kansas City MO, Atlanta). The existing files are DFW-region only. Don't link to specific office pages from this pillar until the office-page reconciliation happens."
+  - "11 of 19 required inbound links are not yet possible because the destination service pages don't exist. PageBuilder Phase 6 must list these as the post-launch backlog tied to M2/M3/Q2/Q3."
+next_action: handoff           # handoff to Phase 2 (copywriter)
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline orchestration)
+  produced_at: 2026-05-03
+  data_sources:
+    - design/templates/residential/brief.yaml
+    - strategy/Pro-Exteriors_GBP-and-Silo-Memo_April-2026.md
+    - src/content/ (directory scan, 2026-05-03)
+    - design/templates/tpo-roofing-systems/page-link-manifest.yaml (precedent shape)

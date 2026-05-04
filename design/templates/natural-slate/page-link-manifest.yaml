@@ -1,0 +1,51 @@
+# aia4-page-link manifest — Natural Slate Roofing
+# Phase 1 · 2026-05-03 · Kyle Roof reverse-silo
+
+silo_role: T2-money-page
+silo_parent: "/residential"
+silo_topic: "natural slate roofing — premium ceiling of the residential silo; highest job value, lowest volume, fastest-ranking opportunity"
+
+internal_links_out:
+
+  # UP to parent
+  - anchor: "residential roofing specialists"
+    target: "/residential"
+    anchor_type: near-match
+    placement_hint: "local_experts_proof — 'licensed residential roofing specialists'"
+
+  # ACROSS — premium sibling
+  - anchor: "clay and tile roofing"
+    target: "/residential/tile-clay-roofing"
+    anchor_type: near-match
+    target_status: live     # shipping in same batch
+    placement_hint: "slate_types_grid (synthetic slate card or investment_band context) + FAQ answer 1 (other premium options)"
+
+  # ACROSS — replacement path
+  - anchor: "full roof replacement"
+    target: "/residential/roof-replacement"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "investment_band + final CTA secondary ('Compare All Roofing Materials')"
+
+internal_links_in_required:
+  - from: "/residential"
+    anchor: "natural slate installation"
+    status: needs-wiring
+
+  - from: "/residential/tile-clay-roofing"
+    anchor: "natural slate roofing"
+    status: live     # tile-clay-roofing already links here via cost_value section (built in Task 10)
+
+  - from: "/residential/roof-replacement"
+    anchor: "natural slate roofing"
+    status: needs-wiring   # wire in materials comparison section post-launch
+
+notes:
+  - "Three outbound links is the right ceiling. Natural slate is the premium ceiling — the page doesn't need to distribute link equity widely. Keep focused on the buyer journey: structural assessment → material comparison → replacement decision."
+  - "tile-clay-roofing already links to this page via the cost_value section ('natural slate roofing is the other premium option'). Reciprocal link confirmed in this manifest."
+  - "Blog supporters omitted — content phase."
+
+status: success
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

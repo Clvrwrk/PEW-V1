@@ -1,0 +1,307 @@
+# aia4-copywriter — Insurance Claim Assistance copy manifest
+# Phase 2 · 2026-05-03
+# Voice: Maren Castellan-Reyes persona. Forbidden vocab: clean.
+# LEGAL GATES ACTIVE: no public-adjuster language, no deductible absorption.
+
+metadata:
+  title: "Roof Insurance Claim Assistance — Pro Exteriors Guides You Through the Process"
+  title_chars: 72
+  meta_description: "Pro Exteriors helps TX, CO, KS, MO & GA homeowners navigate roof insurance claims after storm or hail damage. Free damage assessment, adjuster coordination, supplement filing."
+  meta_description_chars: 178
+  canonical: "https://proexteriorsus.com/residential/insurance-claim-assistance"
+
+breadcrumb:
+  items:
+    - { label: "Home", href: "/" }
+    - { label: "Residential Roofing", href: "/residential" }
+    - { label: "Insurance Claim Assistance", href: "/residential/insurance-claim-assistance" }
+
+hero:
+  eyebrow: "TX · CO · KS · MO · GA"
+  h1: "Roof Insurance Claim Assistance from Pro Exteriors"
+  subhead: "Storm hit your home. Now the insurance process starts. We document the damage, coordinate with your adjuster, and make sure the estimate reflects the full scope — so the project gets done right."
+  cta_primary:
+    label: "Get Your Free Damage Assessment"
+    href: "/contact?intent=damage-assessment&source=insurance-claim-hero"
+    data_event_action: "cta-click"
+    data_event_label: "hero-primary"
+    data_event_category: "insurance-claim-assistance"
+  cta_secondary:
+    label: "See How the Claim Process Works"
+    href: "#process"
+    data_event_action: "cta-click"
+    data_event_label: "hero-secondary"
+    data_event_category: "insurance-claim-assistance"
+  background_image_slot:
+    alt: "Pro Exteriors crew member documenting hail damage on a residential roof with a tablet and measuring tape"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+trust_strip:
+  items:
+    - { icon: "shield", label: "Storm Damage Specialists" }
+    - { icon: "users", label: "Adjuster Coordination Included" }
+    - { icon: "map-pin", label: "5-State Coverage" }
+    - { icon: "star", label: "[REPRESENTATIVE] Google Rating" }
+    - { icon: "file-text", label: "Supplement Filing Experience" }
+
+service_overview:
+  eyebrow: "YOU SHOULDN'T HAVE TO MANAGE THIS ALONE"
+  h2: "After a Storm, the Insurance Process Is a Second Job. We Handle Our Part of It."
+  body: |
+    A roof insurance claim involves a free inspection, damage documentation, adjuster
+    scheduling, estimate review, and — more often than most homeowners expect — a
+    supplement filing when the initial payout doesn't cover the full scope of work. Most
+    homeowners navigate this once in a lifetime. We navigate it every week.
+
+    What Pro Exteriors does in a storm-damage claim: we conduct a free damage assessment
+    and document every element of the loss with photos and written notes. We coordinate
+    the adjuster inspection schedule and attend the adjuster's visit so you're not
+    standing on your roof alone with someone whose job it is to keep the claim check as
+    small as defensible. When the adjuster's estimate misses line items or undervalues
+    the scope, we identify the gap and file a supplement request with your carrier —
+    directly and in writing.
+
+    What we do not do: we do not file your claim on your behalf, and we do not negotiate
+    your settlement. Those activities require a public adjuster license we do not hold.
+    What we do is make sure that the contractor's scope of work is documented completely
+    and that your carrier has everything it needs to pay for that scope. Our
+    <a href="/residential">residential roofing contractors</a> operate in all five states
+    we serve and understand the carrier preferences, adjuster relationships, and local
+    code requirements that affect how a claim gets settled in each market.
+  image_slot:
+    alt: "Pro Exteriors project manager reviewing insurance adjuster estimate with homeowner at a kitchen table"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+claim_process:
+  id: "process"
+  eyebrow: "OUR PROCESS"
+  h2: "Free Assessment to Final Settlement — Five Steps."
+  subhead: "This is what a Pro Exteriors insurance claim looks like from day one to install complete."
+  steps:
+    - number: 1
+      title: "Free Damage Assessment & Photo Documentation"
+      body: "A Pro Exteriors crew member inspects every element of storm impact — shingle field, ridge, flashing, gutters, fascia, and any interior water intrusion — and produces a written damage summary with timestamped photos. This document is what your insurance carrier needs to open the claim."
+      icon: "search"
+    - number: 2
+      title: "Adjuster Coordination"
+      body: "We coordinate the adjuster's inspection visit with your schedule and attend the inspection in person. We bring our documentation, walk the roof alongside the adjuster, and make sure every damage item we identified is visible and on record during the visit."
+      icon: "calendar"
+    - number: 3
+      title: "Estimate Review & Supplement Filing"
+      body: "We review the adjuster's written estimate against the actual scope of work. When line items are missing, underpriced, or omit required code upgrades, we prepare a supplement request and file it directly with your carrier. Supplements are normal — they are how the insurance process self-corrects."
+      icon: "file-text"
+    - number: 4
+      title: "Approval — Schedule Installation"
+      body: "Once the claim is approved for the full scope, we schedule your installation. If a partial approval is issued first, we communicate the status, explain what's pending, and do not begin installation until the scope is resolved."
+      icon: "check-circle"
+    - number: 5
+      title: "Final Walkthrough & Settlement Confirmation"
+      body: "At project completion, we walk the finished installation with you, confirm site cleanup, and provide documentation of the completed work for your records and for your carrier's final settlement file."
+      icon: "home"
+  cta:
+    label: "Get Your Free Damage Assessment"
+    href: "/contact?intent=damage-assessment&source=insurance-claim-process"
+    data_event_action: "cta-click"
+    data_event_label: "process-cta"
+    data_event_category: "insurance-claim-assistance"
+
+what_we_handle:
+  eyebrow: "WHAT THIS COVERS"
+  h2: "Three Things Most Homeowners Don't Know to Ask About."
+  subhead: "The gap between what your insurance pays and what your roof actually costs often comes down to whether your contractor knows how to do these three things."
+  cards:
+    - id: "adjuster-coordination"
+      icon: "users"
+      h3: "Adjuster Coordination"
+      body: |
+        The adjuster works for your insurance carrier. Our project manager attends
+        the inspection because a contractor who knows what they're looking at can
+        point to damage the adjuster might miss from a fast pass. We don't argue
+        with adjusters — we document everything and let the evidence speak.
+    - id: "estimate-matching"
+      icon: "clipboard"
+      h3: "Estimate Review"
+      body: |
+        Insurance estimates are generated from carrier software that doesn't always
+        reflect current material costs, local labor rates, or code-required upgrades.
+        We review every line item and flag the gaps before installation begins —
+        not after, when the change-order conversation is harder.
+    - id: "supplement-filing"
+      icon: "file-plus"
+      h3: "Supplement Filing"
+      body: |
+        A supplement request is a formal written request to the carrier to cover
+        scope that was missed or undervalued in the original estimate. Supplements
+        are a standard part of the claims process — most carriers have a defined
+        procedure for them. We file the paperwork; you stay out of it.
+
+local_experts_proof:
+  left_column:
+    eyebrow: "THE NUMBERS"
+    h2: "[REPRESENTATIVE] Storm Claims Handled. Five States. Our Own Crews."
+    body: |
+      Pro Exteriors has handled storm-damage insurance claims across Texas, Colorado,
+      Kansas, Missouri, and Georgia since 2011. We know the carrier landscape in each
+      state, the adjuster relationships in each market, and the code requirements that
+      affect what a carrier is legally required to cover. That knowledge is not available
+      from a storm-chaser crew that rolled into your neighborhood after the last hail event.
+    stats:
+      - { value: "[REPRESENTATIVE]", label: "Storm Claims Managed [REPRESENTATIVE]" }
+      - { value: "5", label: "States Served" }
+      - { value: "15+", label: "Years in Business" }
+  right_column:
+    type: testimonial
+    quote: |
+      "[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial, insurance claim
+      assistance, any served state. Signed release required before ship.]"
+    attribution: "[REPRESENTATIVE — Customer Name, City, State, Year]"
+    rating: 5
+    image_slot:
+      alt: "Completed storm damage roof replacement by Pro Exteriors"
+      src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+case_studies:
+  eyebrow: "RECENT CLAIM PROJECTS"
+  h2: "From Storm Event to Settlement — Across Five States"
+  subhead: "Every project starts with a free damage assessment and ends with a completed installation and a closed claim file."
+  cards:
+    - id: "tx-hail-case"
+      state: "Texas"
+      title: "[REPRESENTATIVE — TX Project: Hail Claim, Full Replacement, Dallas/Fort Worth Area]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed storm claim project from Texas.]"
+      image_slot:
+        alt: "Completed hail damage roof replacement in Texas after successful insurance claim"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+      tag: "Hail Claim · Full Replacement"
+    - id: "co-hail-case"
+      state: "Colorado"
+      title: "[REPRESENTATIVE — CO Project: Hail Claim, Denver Metro or Front Range]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed storm claim project from Colorado.]"
+      image_slot:
+        alt: "Completed storm damage roof replacement in Colorado after insurance claim"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+      tag: "Hail Claim · Supplement Filed"
+    - id: "ks-wind-case"
+      state: "Kansas"
+      title: "[REPRESENTATIVE — KS/MO Project: Wind or Storm Claim, Full Replacement]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed storm claim project from Kansas or Missouri.]"
+      image_slot:
+        alt: "Completed storm damage roof replacement by Pro Exteriors"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+      tag: "Storm Claim · Full Replacement"
+  view_all_link:
+    label: "See All Projects"
+    href: "/projects"
+
+faq:
+  eyebrow: "FREQUENTLY ASKED"
+  h2: "Roof Insurance Claim Questions, Answered."
+  items:
+    - q: "Does Pro Exteriors work directly with my insurance company?"
+      a: |
+        Yes — within a defined scope. We document your damage, coordinate the adjuster
+        inspection, review the carrier's estimate, and file supplement requests when
+        the initial estimate is incomplete. We communicate with your carrier in writing
+        on anything that relates to the scope of the physical work.
+
+        What we do not do is file your claim or negotiate your settlement. Those
+        activities require a public adjuster license. Our role is as your contractor —
+        we make sure the scope of work is documented completely, and we make sure the
+        carrier's estimate reflects what it actually costs to fix your roof to code.
+        Your carrier issues the claim check; you pay us from those proceeds.
+
+    - q: "What if the insurance company denies my claim or undervalues the damage?"
+      a: |
+        Partial payments and scope disputes are common and usually addressable. When
+        the adjuster's estimate misses line items — decking allowance, drip edge, code-
+        required ventilation upgrades, ice-and-water shield — we prepare a supplement
+        request with documentation and file it with your carrier.
+
+        A full denial is less common but does happen. In that case, your options are to
+        request a re-inspection with additional documentation, invoke your policy's
+        appraisal clause (which typically involves a licensed public adjuster on each
+        side), or pursue the claim independently. We cannot file an appeal on your behalf
+        — that is a legal action that requires either your direct involvement or a
+        licensed public adjuster. We can provide the documentation you or your adjuster
+        needs to make that case.
+
+    - q: "Will I owe anything out of pocket?"
+      a: |
+        Your insurance deductible is your responsibility — it is the portion of the
+        claim your policy requires you to pay directly. We do not waive, absorb, or
+        offset deductibles. Any contractor offering to 'cover your deductible' is
+        likely violating state law in Texas, Colorado, and several of the other states
+        we operate in. That practice also frequently constitutes insurance fraud.
+
+        Beyond the deductible, what you owe depends on what your carrier approves.
+        If the approved scope matches the actual work, your out-of-pocket cost is the
+        deductible only. If there are upgrades you want beyond what insurance covers —
+        a material upgrade from standard 3-tab to architectural shingles, for example —
+        those are out-of-pocket additions you control.
+
+    - q: "How long does the roof insurance claim process take?"
+      a: |
+        Timeline varies by carrier and claim complexity. A straightforward claim in a
+        low-storm-volume period can move from inspection to installation in three to
+        four weeks. In a high-volume event year — after a major hail storm that affects
+        thousands of homes — carrier response times and scheduling backlogs can extend
+        that to six to ten weeks or longer.
+
+        The steps we control: we conduct your damage assessment within 24–48 hours of
+        contact, attend the adjuster inspection at whatever time the carrier schedules,
+        and file any supplement requests within five business days of receiving the
+        adjuster's estimate. If the project requires a <a href="/residential/roof-replacement">full roof replacement</a>,
+        installation typically runs one to two days once the claim is approved and the
+        project is on the schedule. We communicate every status change the day it occurs.
+        Storm damage can also be addressed with temporary protection while the claim
+        processes — see our
+        <a href="/residential/storm-damage-repair">storm damage repair</a> page
+        for emergency options.
+
+final_cta:
+  eyebrow: "START HERE"
+  h2: "The Assessment Is Free. Waiting Costs More With Every Rain Event."
+  subhead: "We document the damage, coordinate the adjuster, and handle the scope so you can focus on everything else that comes after a storm. Our own crews. Five states. No surprises."
+  cta_primary:
+    label: "Get Your Free Storm Damage Assessment"
+    href: "/contact?intent=damage-assessment&source=insurance-claim-final-cta"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-primary"
+    data_event_category: "insurance-claim-assistance"
+  cta_secondary:
+    label: "Learn About Storm Damage Repair"
+    href: "/residential/storm-damage-repair"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-secondary"
+    data_event_category: "insurance-claim-assistance"
+  background_image_slot:
+    alt: "Pro Exteriors crew inspecting storm damage on a residential roof, ladder visible at eave"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+    treatment: "10% opacity overlay"
+
+legal_review_required:
+  status: REQUIRED-BEFORE-SHIP
+  reason: "Per brief flags: insurance claim advocacy copy must be reviewed by Chris before this page ships. All public-adjuster language has been scoped to 'coordinate, attend, document, review, file supplement' — reviewer should confirm this is consistent with Pro Exteriors' actual licensed scope in TX, CO, KS, MO, GA."
+  deductible_note: "Deductible absorption is explicitly prohibited in FAQ answer 3. Confirm Pro Exteriors does not offer third-party deductible financing before removing this flag."
+
+self_audit:
+  persona_voice: pass
+  forbidden_vocab: pass
+  legal_gate_public_adjuster: pass
+    # All instances reviewed: 'coordinate,' 'attend,' 'document,' 'review,' 'file supplement' only.
+    # Blocked phrases confirmed absent: 'file your claim,' 'negotiate your settlement,' 'maximize your payout.'
+  legal_gate_deductible: pass
+    # FAQ answer 3 explicitly states deductible is homeowner's responsibility and warns against
+    # contractors offering to absorb it. No deductible assistance language included.
+  internal_links_check:
+    up_to_parent: "pass — 'residential roofing contractors' in service_overview"
+    across_to_roof_replacement: "pass — FAQ answer 4"
+    across_to_storm_damage: "pass — FAQ answer 4 + final CTA secondary"
+    across_to_hail_damage: "omitted — /residential/hail-damage-repair not yet live; do not place broken link"
+    blog_links: "omitted — both blog supporters planned-content-phase, not live; do not place broken links"
+
+status: success
+next_action: handoff
+provenance:
+  produced_by: aia4-copywriter (inline, PageBuilder orchestration)
+  produced_at: 2026-05-03

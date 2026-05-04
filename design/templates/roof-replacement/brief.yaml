@@ -1,0 +1,111 @@
+# Residential Roof Replacement — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 on 2026-05-03
+# Primary: "roof replacement" (49,500 vol, LOW comp, $28.79 CPC) — volume monster
+
+slug: roof-replacement
+template: residential-service
+location: null
+target_keyword: "roof replacement"
+secondary_keywords:
+  - "residential roof replacement"
+  - "full roof replacement"
+  - "roof replacement cost"
+  - "when to replace a roof"
+  - "roof replacement near me"
+  - "new roof installation"
+audience: residential-homeowner
+intent: mixed                          # high-intent transactional + research (cost + timing)
+hypothesis: |
+  "Roof replacement" is a 49,500-volume, LOW-competition keyword with a $28.79
+  CPC — the clearest signal of transactional intent in the residential silo.
+  A dedicated page with a transparent cost framework, material comparison,
+  and a step-by-step process narrative (from free inspection to final
+  walkthrough) will:
+    (a) rank in the top 5 for "roof replacement" in Pro Exteriors' served-
+        state geos within 6 months, capturing a significant slice of the
+        ~49,500 monthly searchers; AND
+    (b) drive ≥30% form-completion on the 'Schedule Your Replacement
+        Assessment' CTA within 90 days — the highest conversion hypothesis
+        in the residential silo because this page targets the furthest-along
+        homeowners (they've decided to replace; they're choosing a contractor).
+
+seo_copy:
+  metadata:
+    title: "Roof Replacement — Full Home Re-Roofing by Pro Exteriors | 5 States"
+    meta_description: "Pro Exteriors replaces residential roofs across TX, CO, KS, MO & GA. Asphalt, metal, tile & slate options. Transparent pricing. Free inspection and detailed estimate."
+    canonical: "https://proexteriorsus.com/residential/roof-replacement"
+  body_path: null
+  html_path: null
+
+figma:
+  reuse_template: residential-pillar
+  section_plan:
+    - id: hero
+      component: ServiceHero
+      notes: "H1 = 'Residential Roof Replacement by Pro Exteriors'. Dual CTA: primary = 'Schedule Replacement Assessment', secondary = 'See Our Process'."
+    - id: trust_strip
+      component: inline
+      notes: "15+ Years | 2,500+ Roofs Replaced | 5-State Coverage | [REPRESENTATIVE] rating | Financing Available"
+    - id: service_overview
+      component: SplitIntro
+      notes: "When to replace vs. repair — the 5 decisive signals. Positions Pro Exteriors as the honest advisor."
+    - id: materials_grid
+      component: BenefitsGrid
+      notes: "4-column (or 2×2): Asphalt Shingles / Metal Roofing / Tile & Clay / Natural Slate. Each: lifespan, cost tier, best-for. Internal link to each dedicated service page."
+    - id: local_experts_proof
+      component: StatBand + Testimonial
+      notes: "15+ years, 2,500+ replacements, 5 states. Testimonial [REPRESENTATIVE]."
+    - id: process
+      component: QualityProcess
+      notes: "4 steps: Free Inspection & Assessment → Detailed Line-Item Estimate → Scheduled Installation → Final Walkthrough & Warranty Registration."
+    - id: case_studies
+      component: CaseStudyCard × 3
+      notes: "One per region. Mix: asphalt replacement + metal upgrade + storm-driven replacement. All [REPRESENTATIVE]."
+    - id: cost_financing
+      component: SplitIntro
+      notes: "Cost transparency: what drives price (square footage, material, tearoff, decking condition). Financing. [REPRESENTATIVE] ranges."
+    - id: faq
+      component: FAQ
+      notes: "(1) How long does roof replacement take? (2) How do I know if I need a replacement vs repair? (3) What does a new roof cost? (4) Does Pro Exteriors handle the insurance claim?"
+    - id: final_cta
+      component: CTABanner
+      notes: "Primary: 'Schedule Your Free Replacement Assessment'. Secondary: internal link to /residential/insurance-claim-assistance."
+
+output:
+  page: "src/pages/residential/roof-replacement/index.astro"
+  assets: "src/assets/residential/roof-replacement/"
+
+silo:
+  role: T2-money-page
+  parent: "/residential"
+  parent_links_to_this_via: "complete residential roof replacement guide"
+  inbound_anchor_from_parent: descriptive
+  cross_links_to:
+    - "/residential/asphalt-shingles"
+    - "/residential/metal-roofing"
+    - "/residential/tile-clay-roofing"
+    - "/residential/natural-slate"
+    - "/residential/insurance-claim-assistance"
+
+flags:
+  - id: cross-link-opportunity
+    severity: info
+    message: |
+      This page links DOWN to all 4 material-specific service pages and ACROSS
+      to insurance-claim-assistance (many replacements are storm-driven). These
+      cross-links must be natural in body copy — not a list of links bolted on.
+      Copywriter should weave them into the materials section and the FAQ answer
+      about insurance.
+  - id: repair-vs-replace-content
+    severity: info
+    message: |
+      The "when to replace" section is a pull-forward for organic searchers
+      on queries like "should I repair or replace my roof." The 5-signals
+      framework (age, granule loss, sagging, repeated leaks, storm damage)
+      must be based on real roofing industry guidance. Copywriter must source
+      or mark [REPRESENTATIVE] for any specific thresholds cited.
+
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

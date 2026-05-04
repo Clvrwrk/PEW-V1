@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roof Design Considerations for Warehouses and Industrial Buildings | Pro Exteriors</title>
+<meta name="description" content="Warehouse and distribution center roofing requires specific design decisions around span, drainage, penetration density, wind uplift, and energy performance. The technical guide for developers and GCs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-navy: #11133f;
+    --flag-red: #c22326;
+    --hunter-green: #3b6b4c;
+    --golden-orange: #c28412;
+    --smart-blue: #232884;
+    --bg-warm: #fbf9f6;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --border-light: #e2e0dc;
+    --white: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Archivo', sans-serif; background: var(--bg-warm); color: var(--text-primary); line-height: 1.7; font-size: 1rem; }
+  #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--flag-red); z-index: 1000; transition: width 0.1s linear; }
+  .site-nav { position: sticky; top: 0; background: var(--deep-navy); z-index: 900; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .site-nav .logo { color: var(--white); font-weight: 700; font-size: 1.1rem; text-decoration: none; letter-spacing: 0.02em; }
+  .site-nav .logo span { color: var(--flag-red); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .article-header { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem 2.5rem; }
+  .article-header-inner { max-width: 900px; margin: 0 auto; }
+  .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+  .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--white); }
+  .breadcrumb span { color: rgba(255,255,255,0.3); }
+  .post-badge { display: inline-block; background: var(--flag-red); color: var(--white); font-size: 0.7rem; font-weight: 700; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px; margin-bottom: 0.9rem; }
+  .article-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 1rem; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); font-family: 'IBM Plex Mono', monospace; }
+  .article-meta strong { color: rgba(255,255,255,0.9); }
+  .hero-image-wrap { width: 100%; max-width: 1200px; margin: 0 auto; aspect-ratio: 16/7; overflow: hidden; }
+  .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .article-body-wrap { max-width: 1140px; margin: 0 auto; padding: 2.5rem 2rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+  .toc-sidebar { position: sticky; top: 76px; }
+  .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.75rem; }
+  .toc-list { list-style: none; border-left: 2px solid var(--border-light); padding-left: 1rem; }
+  .toc-list li { margin-bottom: 0.5rem; }
+  .toc-list a { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; line-height: 1.4; transition: color 0.2s; display: block; }
+  .toc-list a:hover, .toc-list a.active { color: var(--flag-red); }
+  .toc-list a.active { font-weight: 600; }
+  .article-content h2 { font-size: 1.45rem; font-weight: 700; color: var(--deep-navy); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 2px solid var(--border-light); line-height: 1.3; }
+  .article-content p { margin-bottom: 1.1rem; }
+  .article-content ul, .article-content ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+  .article-content li { margin-bottom: 0.4rem; }
+  .article-content a { color: var(--smart-blue); text-decoration: underline; text-underline-offset: 2px; }
+  .article-content a:hover { color: var(--flag-red); }
+  .article-content strong { font-weight: 600; }
+  .article-content blockquote { border-left: 4px solid var(--flag-red); margin: 1.5rem 0; padding: 1rem 1.25rem; background: rgba(194,35,38,0.04); border-radius: 0 4px 4px 0; }
+  .article-content blockquote p { font-size: 1.05rem; font-style: italic; color: var(--deep-navy); margin-bottom: 0.4rem; }
+  .article-content blockquote cite { font-size: 0.8rem; color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; font-style: normal; }
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: 6px; border: 1px solid var(--border-light); }
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .data-table th { background: var(--deep-navy); color: var(--white); padding: 0.7rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+  .data-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: rgba(17,19,63,0.03); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .chart-figure { margin: 1.75rem 0; }
+  .chart-figure figcaption { font-size: 0.78rem; color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; margin-top: 0.5rem; text-align: center; }
+  .cta-banner { background: var(--deep-navy); color: var(--white); padding: 2.5rem 2rem; text-align: center; margin: 3rem 0 0; }
+  .cta-banner h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .cta-banner p { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 1.5rem; }
+  .cta-btn { display: inline-block; background: var(--flag-red); color: var(--white); font-weight: 700; padding: 0.85rem 2rem; border-radius: 3px; text-decoration: none; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-btn:hover { background: #a81c1f; }
+  .related-section { max-width: 1140px; margin: 3rem auto 0; padding: 0 2rem 3rem; }
+  .related-section h2 { font-size: 1.1rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 1.25rem; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; text-decoration: none; transition: box-shadow 0.2s; display: block; }
+  .related-card:hover { box-shadow: 0 4px 16px rgba(17,19,63,0.1); }
+  .related-card-badge { font-size: 0.68rem; font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--smart-blue); margin-bottom: 0.4rem; }
+  .related-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--deep-navy); line-height: 1.4; }
+  .site-footer { background: var(--deep-navy); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; }
+  .site-footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  @media (max-width: 768px) {
+    .article-body-wrap { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<nav class="site-nav">
+  <a href="/" class="logo">Pro<span>Exteriors</span></a>
+  <ul class="nav-links">
+    <li><a href="/services/commercial-roofing/">Commercial</a></li>
+    <li><a href="/services/residential-roofing/">Residential</a></li>
+    <li><a href="/blog/">Resources</a></li>
+    <li><a href="/contact/">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<header class="article-header">
+  <div class="article-header-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/blog/">Resources</a><span>›</span>
+      <a href="/blog/new-construction-roofing/">New Construction Roofing</a><span>›</span>
+      <span>Warehouse Roof Design</span>
+    </nav>
+    <div class="post-badge">New Construction</div>
+    <h1>Roof Design Considerations for Warehouses and Industrial Buildings</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors New Construction Division</strong></span>
+      <span>Updated <strong>May 2026</strong></span>
+      <span>Read time <strong>7 min</strong></span>
+      <span>Audience <strong>Developers · GCs · Industrial Real Estate</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="hero-image-wrap">
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015558_8ad1ca71-927b-4faa-aa47-9e6bba3c5321.png" alt="Aerial view of large warehouse complex under construction with roofing installation in progress" width="1200" height="525" loading="eager">
+</div>
+
+<div class="article-body-wrap">
+  <aside class="toc-sidebar" aria-label="Table of contents">
+    <div class="toc-label">In This Article</div>
+    <ul class="toc-list" id="toc">
+      <li><a href="#span-deck">Span and Deck Type</a></li>
+      <li><a href="#drainage-design">Drainage Design for Large Footprints</a></li>
+      <li><a href="#penetration-density">Penetration Density</a></li>
+      <li><a href="#wind-uplift">Wind Uplift Engineering</a></li>
+      <li><a href="#energy-performance">Energy Performance Requirements</a></li>
+      <li><a href="#future-proofing">Future-Proofing for Tenant Modifications</a></li>
+    </ul>
+  </aside>
+
+  <article class="article-content">
+
+    <p>Warehouse and distribution center roofing occupies a category of its own in commercial construction. The footprints are large—100,000 to 1,000,000 square feet is common in modern logistics development—and the design parameters that govern those large flat surfaces are more demanding than most commercial building types. Drainage volumes are enormous, structural spans are long, penetration density is high, and wind uplift forces on low-profile buildings in open terrain are significant. A roofing specification that would be adequate on a 20,000-square-foot office building may be critically undersized on a 400,000-square-foot distribution center.</p>
+
+    <p>This guide is written for developers, general contractors, and owner's representatives who need to understand what makes industrial roofing different and what the design decisions with the largest consequences are.</p>
+
+    <h2 id="span-deck">Structural Span and Deck Type in Industrial Construction</h2>
+
+    <p>Modern warehouse and distribution center construction relies on long-span structural steel framing—40-foot to 60-foot column spacing is standard, with clear-span buildings up to 180 feet—that supports a light-gauge steel deck roof assembly. The deck gauge is typically 22 or 20, and the deck profile is 1.5-inch Type B or Type F, selected for the combination of structural capacity and insulation fastener holding strength.</p>
+
+    <p>The critical design parameter for the deck-to-roofing system interface is the fastener pullout value. FM Global's wind uplift classifications—1-60, 1-90, 1-120—specify the wind uplift resistance the assembled roofing system must achieve, and those classifications drive the insulation attachment pattern and the membrane fastening density. A 1-90 classified assembly on a 22-gauge deck requires a specific fastener pattern and density that must be field-verified against the manufacturer's tested assemblies.</p>
+
+    <p>FM Global's jurisdiction is significant for warehouses and distribution centers because most large commercial property insurers require FM approval for the roofing assembly as a condition of coverage. An FM-approved roofing assembly is not the same as a manufacturer-warranted assembly—both are required, and the specifications may differ. Confirm with both the manufacturer and the insurance broker what is required before the roofing subcontractor submits the final specification.</p>
+
+    <h2 id="drainage-design">Drainage Design for Large Roof Footprints</h2>
+
+    <p>A 400,000-square-foot warehouse roof in a market with 4 inches per hour peak rainfall intensity must drain approximately 9,000 gallons per minute at peak design flow. That volume requires a drainage system—primary drains, conductor pipes, scuppers—sized and positioned to handle the peak flow without creating ponding conditions that exceed the structural live load design of 20 pounds per square foot.</p>
+
+    <p>The spacing of interior drains is the primary drainage design parameter. The IBC specifies that drains must be spaced to prevent water accumulation in excess of the structural capacity under design rainfall conditions. On a large low-slope warehouse roof, that typically means interior drains on 50- to 75-foot centers in each direction, with scuppers at parapet perimeters set 2 inches above the finished roof surface as secondary overflow protection. Every 2-inch deviation from design slope in the field creates a potential secondary low point; structural deflection under snow load or ponding load can convert a code-compliant drainage design into a chronic ponding condition.</p>
+
+    <blockquote>
+      <p>"The drainage calculation is almost never wrong on paper. It gets wrong in the field when the deck deflects under insulation load before the roofing contractor arrives and nobody re-surveys the low points. The inspector who signs off on the finished installation needs to know where the water actually goes, not where the drawings say it should go."</p>
+      <cite>— Pro Exteriors New Construction Division, Project Manager</cite>
+    </blockquote>
+
+    <h2 id="penetration-density">Penetration Density and Curb Coordination</h2>
+
+    <p>Warehouse and distribution center roofs carry high densities of mechanical penetrations: HVAC make-up air units, exhaust fans, conduit sleeves, sprinkler risers, rooftop communication equipment, and in modern fulfillment centers, automated material handling system access points. Each penetration is a potential leak source that requires a properly sealed curb and flashing detail.</p>
+
+    <p>The critical coordination issue is between the roofing subcontractor and the mechanical, electrical, and plumbing subs whose penetrations must be completed before the roofing membrane can be sealed around them. In fast-track construction schedules, the sequence is frequently violated: the membrane is installed, then penetrations are cut after the fact—creating field conditions where the warranty may be voided if the penetrations are not made by the membrane manufacturer's certified contractor using manufacturer-approved details.</p>
+
+    <p>Establish a penetration freeze date in the construction schedule: the date by which all penetration locations must be confirmed and curbs must be set. Any penetration added after the membrane installation must be treated as a post-installation modification subject to the manufacturer's warranty requirements for field additions.</p>
+
+    <h2 id="wind-uplift">Wind Uplift Engineering for Open-Terrain Warehouses</h2>
+
+    <p>Low-profile industrial buildings in open terrain—the standard setting for distribution center development on the urban fringe—experience significantly higher wind uplift coefficients than the same building would in a suburban setting with surrounding structures providing wind shielding. ASCE 7's exposure category classification (B, C, or D) must be applied to the specific site, and the resulting design wind pressure—typically expressed in pounds per square foot—drives the fastener pattern and spacing requirements for the insulation and membrane systems.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ASCE 7 Exposure</th>
+            <th>Typical Setting</th>
+            <th>Design Wind Pressure (90 mph)</th>
+            <th>FM Global Classification</th>
+            <th>Fastener Density (Field)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Exposure B</td>
+            <td>Suburban, urban center</td>
+            <td>18–24 psf</td>
+            <td>FM 1-60</td>
+            <td>Standard (1 fastener per 2 SF)</td>
+          </tr>
+          <tr>
+            <td>Exposure C</td>
+            <td>Open terrain, scattered obstructions</td>
+            <td>25–35 psf</td>
+            <td>FM 1-90</td>
+            <td>Increased (1 fastener per 1.5 SF)</td>
+          </tr>
+          <tr>
+            <td>Exposure D</td>
+            <td>Open flat terrain, coastal</td>
+            <td>36–50+ psf</td>
+            <td>FM 1-120+</td>
+            <td>Enhanced (1 fastener per 1 SF or adhesive)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Corner and perimeter zones require higher fastener density than the field of the roof—typically 1.5× to 2× the field pattern—because wind pressure concentrations at building corners and edges are significantly higher than in the field. This is a well-established engineering requirement that some roofing subcontractors attempt to value-engineer out of the specification. It should not be negotiable.</p>
+
+    <h2 id="energy-performance">Energy Performance Requirements for Warehouse Roofing</h2>
+
+    <p>ASHRAE 90.1-2022 and its adopted state equivalents set minimum insulation requirements for warehouse and semi-conditioned space roofing that differ from the requirements for conditioned commercial occupancies. Semi-conditioned warehouses—spaces that are mechanically heated but not cooled—may qualify for reduced insulation requirements under some energy code interpretations, but this qualification is jurisdiction-specific and must be confirmed with the local code authority before specification.</p>
+
+    <p>For conditioned warehouse and distribution center space in Climate Zones 2–4 (covering most of Pro Exteriors' service territory), ASHRAE 90.1 requires minimum continuous insulation of R-20 to R-25 for roof assemblies. Polyisocyanurate at 3.5 inches (R-20 at aged rated value, per ASTM C1289 aged testing protocols) meets this requirement in Climate Zone 3. High-performance specifications targeting net-zero or LEED certification may require R-30 to R-40, achievable with 5 to 6 inches of polyiso or a hybrid assembly combining polyiso with a secondary insulation layer.</p>
+
+    <h2 id="future-proofing">Future-Proofing for Tenant Modifications</h2>
+
+    <p>Distribution center and warehouse leases frequently change occupancy and use over a 20- to 30-year building life. A fulfillment center that is currently a single-tenant facility may be subdivided for multi-tenant use; a refrigerated storage building may be converted to ambient temperature; a manufacturing facility may be converted to e-commerce fulfillment. Each conversion typically involves rooftop modifications—additional HVAC curbs, exhaust systems, communication equipment—that the original roofing specification may not have anticipated.</p>
+
+    <p>Future-proofing the roofing specification means documenting the as-built system completely (membrane type, thickness, manufacturer, warranty documentation, fastener pattern, insulation type and R-value), establishing a written protocol for post-installation modifications that preserves warranty coverage, and providing the owner with a clear picture of what the warranty will and won't cover for future modifications. That documentation package is the roofing contractor's final deliverable on a new construction project, and it should be treated as such in the contract. For an overview of system selection decisions, see our guide on <a href="/blog/choosing-roofing-system-new-build/">choosing a roofing system for new commercial construction</a>.</p>
+
+  </article>
+</div>
+
+<div class="cta-banner">
+  <h2>Industrial and Warehouse Roofing for New Construction</h2>
+  <p>Pro Exteriors provides new construction roofing for distribution centers, manufacturing facilities, and industrial buildings across the South-Central and Mountain regions. FM-approved assemblies, manufacturer-certified crews, NDL warranty programs.</p>
+  <a href="/contact/" class="cta-btn">Request New Construction Quote</a>
+</div>
+
+<section class="related-section" aria-label="Related articles">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <a href="/blog/choosing-roofing-system-new-build/" class="related-card">
+      <div class="related-card-badge">New Construction</div>
+      <h3>Choosing a Roofing System for New Commercial Construction: The Decision Framework</h3>
+    </a>
+    <a href="/blog/metal-vs-membrane-new-construction/" class="related-card">
+      <div class="related-card-badge">New Construction</div>
+      <h3>Metal vs. Membrane Roofing for New Construction: A Performance and Cost Comparison</h3>
+    </a>
+    <a href="/blog/working-with-general-contractors-roofing-timeline/" class="related-card">
+      <div class="related-card-badge">New Construction</div>
+      <h3>Working with General Contractors on Commercial Roofing Timelines</h3>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Pro Exteriors · <a href="/privacy/">Privacy</a> · <a href="/sitemap.xml">Sitemap</a> · Licensed in 16 states · Prepared by AIA4 Pro Exteriors</p>
+</footer>
+
+<script>
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+  }, { passive: true });
+  const headings = document.querySelectorAll('.article-content h2[id]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  headings.forEach(h => observer.observe(h));
+</script>
+</body>
+</html>

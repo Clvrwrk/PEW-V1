@@ -1,0 +1,77 @@
+# Delivery manifest — /residential/hail-damage-repair
+# Phase 6 of 6 — AIA4 PageBuilder · 2026-05-03
+
+slug: hail-damage-repair
+url: /residential/hail-damage-repair
+title: "Hail Damage Roof Repair"
+target_keyword: "hail damage roofing"
+keyword_volume: 8100
+keyword_cpc_usd: 20.76
+keyword_competition: LOW
+template: residential-service (standard hero — not emergency variant; mixed intent page)
+silo_role: T2-money-page — hail belt expertise hub
+silo_parent: /residential
+
+hypothesis:
+  a: "Top-5 organic for 'hail damage roofing' in TX/CO/KS/MO/GA geos within 6 months"
+  b: "≥35% form-completion on 'Get Your Free Hail Damage Inspection' CTA within 90 days"
+  note: |
+    Mixed intent (research + transactional) means the 5-indicator damage guide serves
+    the research segment and converts it to inspection CTA. Hail belt geo moat
+    (TX/CO/KS/MO) amplifies national 8,100 volume locally. Class 4 upsell path
+    to /residential/asphalt-shingles is in place.
+
+files:
+  brief:           design/templates/hail-damage-repair/brief.yaml
+  seo_validator:   design/templates/hail-damage-repair/seo-validator-manifest.yaml
+  page_link:       design/templates/hail-damage-repair/page-link-manifest.yaml
+  copy:            design/templates/hail-damage-repair/copy.yaml
+  assembled_page:  src/pages/residential/hail-damage-repair/index.astro
+
+hard_gates:
+  performance:    pending-localhost-verification
+  accessibility:  structural-pass-pending-browser-verification
+  measurement:    pass-(5 CTAs instrumented with data-event-* attributes)
+  trust:          blocked-pending-source-material
+  schema:         pass-pending-rich-results-test
+  forms:          pending
+
+ship_blockers:
+  - "Hero background image [REPRESENTATIVE]"
+  - "Damage guide right-column image [REPRESENTATIVE]"
+  - "Testimonial — real customer (hail repair, TX/CO/KS/MO preferred) + signed release"
+  - "All 3 case studies — real hail projects + signed releases (TX, CO, KS/MO)"
+  - "Hail damage repairs stat [REPRESENTATIVE] — needs Pro Exteriors confirmation"
+  - "Google rating [REPRESENTATIVE] — trust strip"
+  - "Insurance band image [REPRESENTATIVE]"
+  - "Final CTA background image [REPRESENTATIVE]"
+  - "Localhost Lighthouse run — mobile ≥95 Performance required"
+  - "Class 4 insurance discount: copy qualified with 'check with your carrier' — confirm before adding any specific carrier names"
+
+internal_links:
+  out_placed: 5
+  out_detail:
+    - up:    "/residential (near-match: 'residential roofing contractors' in proof section)"
+    - across: "/residential/storm-damage-repair (live — FAQ answer 1)"
+    - across: "/residential/insurance-claim-assistance (live — process step 3 + insurance band + FAQ answer 4 + final CTA secondary)"
+    - across: "/residential/asphalt-shingles (live — asphalt damage card, Class 4 upsell)"
+    - across: "/residential/roof-replacement (live — process step 4)"
+  in_live:
+    - "/residential/storm-damage-repair links here via damage types hail card (live)"
+  in_needed:
+    - "/residential parent — needs 'hail damage assessment and repair' anchor wired"
+    - "/residential/asphalt-shingles — upsell opportunity, wire post-launch"
+    - "/residential/insurance-claim-assistance — add when hail page is live"
+
+structural_notes:
+  - "Damage guide uses a numbered indicator list (5 items) inside a SplitIntro layout — unique section, not in template"
+  - "No manufacturers band, no warranties_financing section — insurance band replaces it"
+  - "Standard hero (not emergency variant) — no sticky call bar, standard LCP target"
+  - "5 CTAs total: hero primary/secondary, guide-cta, process-cta, final-cta-primary/secondary"
+
+status: structurally-complete
+launch_readiness: blocked-pending-source-material
+
+provenance:
+  produced_by: aia4-pagebuilder Phase 6 (inline orchestration)
+  produced_at: 2026-05-03

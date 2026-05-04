@@ -1,0 +1,143 @@
+# aia4-layout manifest — Asphalt Shingle Roofing service page
+# Phase 3 deliverable. Inherits residential-service template (first instance).
+# Template established by: this page. All 10 subsequent residential service
+# pages inherit this component mapping unless their brief.yaml specifies a deviation.
+
+approach: residential-service-template
+rationale: |
+  /residential/asphalt-shingles is the FIRST residential-service T2 money page.
+  It establishes the canonical residential-service component pattern.
+  The component choices below are deliberate and documented — they become
+  the template other pages reference. No new components needed; all sections
+  map cleanly to molecules already present in the residential pillar.
+
+# ─── Section → component mapping ───
+section_mapping:
+
+  - copy_section: hero
+    astro_pattern: "Inline section — same pattern as residential pillar hero"
+    notes: |
+      Single H1 path (not split dual-card like the pillar). Dual CTAs:
+      primary = "Schedule Your Free Inspection" / secondary = "Explore Shingle Options" (anchor).
+      Background: real photo behind 40% dark overlay. Eyebrow: state string.
+      H1 must be in viewport on mobile without scroll.
+
+  - copy_section: trust_strip
+    astro_pattern: "Inline <ul> in a stone-50 band — same as residential pillar"
+    notes: |
+      5 items: GAF Master Elite / Owens Corning Preferred / 15+ Yrs in Business /
+      [REPRESENTATIVE] rating / Free Roof Inspection. Rating carries [REPRESENTATIVE]
+      span with title attribute per pillar precedent.
+
+  - copy_section: service_overview
+    astro_pattern: "SplitIntro — image-right, content-left (2-column at ≥1024px)"
+    notes: |
+      H2 + eyebrow + 2-paragraph body + credential badges. UP-link to /residential
+      lives in body paragraph 2 as inline anchor ("residential roofing contractor").
+      Image slot on right side; credential badges below copy as inline pills.
+
+  - copy_section: materials_grid
+    astro_pattern: "BenefitsGrid — 3-column at desktop, 1-up at mobile"
+    notes: |
+      id="materials" anchor target for hero secondary CTA.
+      3 cards: 3-Tab / Architectural (MOST POPULAR badge) / Premium Designer.
+      Each card: eyebrow tag + H3 + body + spec list. Image slot per card
+      (all [REPRESENTATIVE] until real Pro Exteriors material photos provided).
+      "architectural vs. 3-tab shingle comparison" DOWN-link wired in card body.
+
+  - copy_section: manufacturers_band
+    astro_pattern: "Inline 2-column credential section on var(--color-surface-dark)"
+    notes: |
+      Dark-surface band. 2 manufacturer blocks side by side at desktop, stacked mobile.
+      Each block: logo slot + name + body copy. Logo slots [REPRESENTATIVE] until
+      official GAF/OC brand asset permission confirmed. This band is an additive
+      pattern not in the residential pillar — document as residential-service addition.
+
+  - copy_section: local_experts_proof
+    astro_pattern: "StatBand (left) + Testimonial card (right) in a 2-col section"
+    notes: |
+      Same pattern as residential pillar local_experts_proof. StatBand takes
+      3 stats: 15+ / 2,500+ / 5. Testimonial card: quote + attribution + rating
+      stars + project photo. All content [REPRESENTATIVE].
+
+  - copy_section: seamless_process
+    astro_pattern: "QualityProcess — 4-step horizontal connector at desktop"
+    notes: |
+      4 steps with icons: search / clipboard / wrench / check-circle.
+      Process CTA ("Schedule Your Free Inspection") below the step row as a Button atom.
+      Same icon set used in residential pillar processSteps.
+
+  - copy_section: case_studies
+    astro_pattern: "3 × CaseStudyCard in a row (3-col desktop, 1-up mobile)"
+    notes: |
+      Eyebrow + H2 + subhead above cards. State tag on each card.
+      All 3 cards [REPRESENTATIVE] until real project content supplied.
+      "See All Projects" → /projects link below card row.
+
+  - copy_section: warranties_financing
+    astro_pattern: "SplitIntro — image-left, content-right"
+    notes: |
+      Image slot left (crew + homeowner at handoff). Right: eyebrow + H2 + body +
+      4 bullet points + CTA ("Ask About Warranty Options").
+      Financing bullet carries [REPRESENTATIVE — confirm lender] marker.
+
+  - copy_section: faq
+    astro_pattern: "FAQ component (accordion with FAQPage schema auto-rendered)"
+    notes: |
+      4 items. Internal links wired in answer HTML:
+        — /residential/roof-replacement × 1
+        — /residential/hail-damage-repair × 1
+        — /blog/architectural-vs-3-tab-shingles × 1
+        — /blog/how-much-does-a-roof-replacement-cost × 1
+        — /blog/5-signs-replacement × 1
+      /blog/best-time-of-year-to-replace-your-roof NOT placed in this copy —
+      page-qc to decide whether to add or mark as intentionally deferred.
+      FAQ schema auto-output by FAQ.astro — JSON-LD block in Phase 4 does NOT
+      duplicate this; only wires the explicit Service schema.
+
+  - copy_section: final_cta
+    astro_pattern: "CTABanner — dark surface, background image at 10% opacity"
+    notes: |
+      Eyebrow + H2 + subhead. Primary CTA = inspection form link. Secondary CTA =
+      phone (tel: [REPRESENTATIVE]). Phone must carry data-event-routing="per-state-ivr"
+      attribute per copy.yaml spec. Background image slot [REPRESENTATIVE].
+
+# ─── New section vs. residential pillar ───
+additive_vs_pillar:
+  manufacturers_band: "ADDITIVE — residential-service pages add this section; pillar does not have it."
+  materials_grid: "ADDITIVE — pillar uses service_grid for 6 services; service pages use BenefitsGrid for material tiers."
+  warranties_financing: "ADDITIVE — service-specific warranty detail; pillar handles this in processSteps only."
+  removed_from_pillar: "dual_feature_cards section NOT present on service pages — service pages have single-audience intent."
+
+# ─── No new components required ───
+no_new_components_required: true
+reasoning: |
+  Every section maps to an existing molecule (BenefitsGrid, FAQ, SplitIntro,
+  QualityProcess, CaseStudyCard, CTABanner) or to an inline pattern already
+  in the residential pillar. The manufacturers_band is inline HTML in a new
+  `<section>` — no greenfield component needed.
+
+# ─── Brand tokens ───
+brand_tokens: "Per decisions/2026-05-03-brand-token-canon.md — inherit from residential pillar. No overrides."
+
+# ─── A11y ───
+a11y:
+  contrast: "≥4.5:1 body on white; ≥7:1 white on var(--color-surface-dark)"
+  tap_targets: "≥48×48px on all interactive elements"
+  skip_link: "Required — <a href='#main' class='sr-only focus:not-sr-only ...'>"
+  one_h1: true
+  faq_accordion: "FAQ.astro uses semantic <details>/<summary> or aria-expanded — verify at Phase 5"
+  alt_text: "All image slots carry alt text from copy.yaml — Phase 4 carries through verbatim"
+
+# ─── Responsive ───
+responsive:
+  mobile:   "H1 + subhead + both CTAs visible in first viewport. Materials grid → 1-up. Case studies → 1-up."
+  tablet:   "Materials grid → 2-up. Case studies → 2-up."
+  desktop:  "Full 3-col layout."
+
+# ─── Status ───
+status: success
+next_action: handoff    # to image-manifest, then Phase 4 assembly
+provenance:
+  produced_by: aia4-pagebuilder Phase 3 (inline, residential-service-template first instance)
+  produced_at: 2026-05-03

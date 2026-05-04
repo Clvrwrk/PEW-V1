@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filing a Roof Insurance Claim After a Storm: A Step-by-Step Guide | Pro Exteriors</title>
+  <meta name="description" content="From first notice of loss to settlement check — a homeowner's walkthrough of the storm damage roof insurance claim process, with the steps most claimants miss." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --deep-navy:        #11133f;
+      --deep-navy-dark:   #041534;
+      --deep-navy-nav:    #0f172a;
+      --deep-navy-cta:    #1b2a4a;
+      --flag-red:         #c22326;
+      --flag-red-hover:   #9b1c1f;
+      --hunter-green:     #3b6b4c;
+      --golden-orange:    #c28412;
+      --golden-orange-bg: #f5e6c4;
+      --smart-blue:       #232884;
+      --bg-warm:          #fbf9f6;
+      --bg-stone:         #f5f3f0;
+      --bg-white:         #ffffff;
+      --text-primary:     #041534;
+      --text-secondary:   #506071;
+      --text-muted:       #8392b7;
+      --border:           #c5c6cf;
+      --font-body:        'Archivo', sans-serif;
+      --font-mono:        'IBM Plex Mono', monospace;
+      --space-md:   16px;
+      --space-lg:   24px;
+      --space-xl:   32px;
+      --space-2xl:  48px;
+      --space-3xl:  64px;
+      --space-4xl:  96px;
+      --nav-h:      80px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--bg-warm); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; }
+
+    /* PROGRESS BAR */
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--flag-red); width: 0%; z-index: 200; transition: width 0.1s linear; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: var(--deep-navy-nav); display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-2xl); z-index: 100; }
+    .nav-logo { font-family: var(--font-body); font-weight: 800; font-size: 1.2rem; color: #fff; text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--flag-red); }
+    .nav-cta { background: var(--flag-red); color: #fff; font-size: 0.875rem; font-weight: 700; padding: 10px 20px; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--flag-red-hover, #9b1c1f); }
+
+    /* ARTICLE HEADER */
+    .article-header { padding: calc(var(--nav-h) + var(--space-3xl)) var(--space-2xl) var(--space-2xl); max-width: 1100px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin-bottom: var(--space-md); font-family: var(--font-mono); }
+    .breadcrumb a { color: var(--smart-blue); text-decoration: none; }
+    .article-badge { display: inline-block; background: #3b6b4c; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-md); }
+    .article-title { font-size: clamp(1.75rem, 3vw, 2.75rem); font-weight: 800; line-height: 1.15; color: var(--deep-navy); margin-bottom: var(--space-lg); letter-spacing: -0.02em; }
+    .article-meta { display: flex; align-items: center; gap: var(--space-lg); flex-wrap: wrap; font-size: 0.875rem; color: var(--text-secondary); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--border); }
+    .article-meta strong { color: var(--text-primary); }
+
+    /* HERO IMAGE */
+    .article-hero { max-width: 1100px; margin: 0 auto var(--space-2xl); padding: 0 var(--space-2xl); }
+    .article-hero img { width: 100%; aspect-ratio: 16/7; object-fit: cover; border-radius: 12px; display: block; }
+
+    /* CONTENT GRID */
+    .content-grid { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-2xl) var(--space-4xl); display: grid; grid-template-columns: 240px 1fr; gap: var(--space-3xl); align-items: start; }
+    @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: calc(var(--nav-h) + var(--space-lg)); }
+    .toc { background: var(--bg-white); border: 1px solid var(--border); border-radius: 10px; padding: var(--space-lg); }
+    .toc-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: var(--space-md); }
+    .toc ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .toc-link { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; line-height: 1.35; display: block; padding: 4px 8px; border-radius: 4px; border-left: 2px solid transparent; transition: all 0.2s; }
+    .toc-link:hover, .toc-link.active { color: var(--smart-blue); border-left-color: var(--smart-blue); background: rgba(35,40,132,0.05); }
+
+    /* ARTICLE BODY */
+    .article-body { min-width: 0; }
+    .article-body h2 { font-size: 1.55rem; font-weight: 800; color: var(--deep-navy); margin: var(--space-3xl) 0 var(--space-lg); letter-spacing: -0.02em; line-height: 1.2; padding-top: var(--space-md); border-top: 2px solid var(--border); }
+    .article-body h2:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+    .article-body h3 { font-size: 1.15rem; font-weight: 700; color: var(--deep-navy); margin: var(--space-xl) 0 var(--space-md); }
+    .article-body p { font-size: 1.0625rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: var(--space-lg); }
+    .article-body ul, .article-body ol { margin: 0 0 var(--space-lg) var(--space-xl); display: flex; flex-direction: column; gap: 8px; }
+    .article-body li { font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary); }
+    .article-body strong { color: var(--text-primary); font-weight: 600; }
+    .article-body a { color: var(--smart-blue); text-decoration: underline; }
+    .article-body blockquote { border-left: 4px solid var(--golden-orange); background: var(--golden-orange-bg); padding: var(--space-lg) var(--space-xl); border-radius: 0 8px 8px 0; margin: var(--space-xl) 0; font-size: 1.1rem; font-style: italic; color: var(--text-primary); }
+    .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-xl) 0; font-size: 0.9rem; }
+    .article-body th { background: var(--deep-navy); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    .article-body td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+    .article-body tr:nth-child(even) td { background: var(--bg-stone); }
+
+    /* CTA BANNER */
+    .cta-banner { background: var(--deep-navy-cta); border-radius: 12px; padding: var(--space-3xl); text-align: center; margin: var(--space-3xl) 0; }
+    .cta-banner h2 { font-size: 1.75rem; font-weight: 800; color: #fff; margin-bottom: var(--space-md); }
+    .cta-banner p { color: #94a3b8; font-size: 1rem; margin-bottom: var(--space-xl); }
+    .cta-banner a { display: inline-block; background: var(--flag-red); color: #fff; font-weight: 700; font-size: 1rem; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .cta-banner a:hover { background: #9b1c1f; }
+
+    /* RELATED */
+    .related-section { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-2xl) var(--space-4xl); }
+    .related-section h2 { font-size: 1.5rem; font-weight: 800; color: var(--deep-navy); margin-bottom: var(--space-2xl); }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+    @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+    .related-card { border-radius: 10px; overflow: hidden; background: var(--bg-white); border: 1px solid var(--border); }
+    .related-card-img { aspect-ratio: 16/9; background-size: cover; background-position: center; }
+    .related-card-body { padding: var(--space-lg); }
+    .related-card-category { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--golden-orange); margin-bottom: 6px; font-family: var(--font-mono); }
+    .related-card-title { font-size: 1rem; font-weight: 700; line-height: 1.35; }
+    .related-card-title a { color: var(--deep-navy); text-decoration: none; }
+    .related-card-title a:hover { color: var(--smart-blue); }
+
+    /* FOOTER */
+    footer { background: var(--deep-navy-nav); color: #94a3b8; padding: var(--space-3xl) var(--space-2xl); text-align: center; font-size: 0.875rem; }
+    footer a { color: #cbd5e1; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <nav class="nav">
+    <a class="nav-logo" href="/"><span>Pro</span> Exteriors</a>
+    <a class="nav-cta" href="/contact/">Get a Quote</a>
+  </nav>
+
+  <header class="article-header">
+    <p class="breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/blog/">Resources</a> &rsaquo;
+      <a href="/services/storm-damage-repair/">Storm Damage Roof Repair</a>
+    </p>
+    <span class="article-badge">Residential Roofing</span>
+    <h1 class="article-title">Filing a Roof Insurance Claim After a Storm: A Step-by-Step Guide</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Team</strong></span>
+      <span>May 2026</span>
+      <span>~6 min read</span>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015658_959f9d0f-a022-4b36-b356-79901934e35d.png" alt="Filing a Roof Insurance Claim After a Storm: A Step-by-Step Guide" loading="eager" />
+  </div>
+
+  <div class="content-grid">
+    <aside class="sidebar">
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-title">In This Article</p>
+        <ul>
+          <li><a href="#step-1-document-before-you-do-anything-else" class="toc-link">Step 1: Document Before You Do Anything Else</a></li>
+<li><a href="#step-2-file-the-claim-within-the-policy-window" class="toc-link">Step 2: File the Claim — Within the Policy Window</a></li>
+<li><a href="#step-3-get-your-contractor-s-report-before-the-adjuster-visits" class="toc-link">Step 3: Get Your Contractor's Report Before the Adjuster Visits</a></li>
+<li><a href="#step-4-the-adjuster-inspection" class="toc-link">Step 4: The Adjuster Inspection</a></li>
+<li><a href="#step-5-the-estimate-and-the-gap" class="toc-link">Step 5: The Estimate and the Gap</a></li>
+<li><a href="#step-6-supplement-and-negotiate-if-needed" class="toc-link">Step 6: Supplement and Negotiate if Needed</a></li>
+
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="article-body">
+      ```html
+<p>Storm damage to your roof creates a compressed timeline. You have days, not weeks, to initiate the insurance claim process. The difference between filing immediately and waiting ten days can determine whether your insurer covers the full scope of damage or denies supplemental claims outright. This guide walks you through the six critical steps that separate successful claims from denied or underpaid ones.</p>
+
+<h2 id="step-1-document-before-you-do-anything-else">Step 1: Document Before You Do Anything Else</h2>
+
+<p>Documentation is your evidentiary foundation. Before contacting your insurance company, photograph and video-record every visible damage point on your roof and property. This includes:</p>
+
+<ul>
+<li>Wide-angle shots of the entire roof from ground level</li>
+<li>Close-ups of individual damaged shingles, flashing, gutters, and vents</li>
+<li>Damage to adjacent structures (fences, sheds, HVAC units)</li>
+<li>Interior water stains, ceiling damage, or other secondary effects</li>
+<li>Downed branches, debris, or hail accumulation if still visible</li>
+</ul>
+
+<p>Timestamp your photos. Most smartphones embed metadata; if yours doesn't, write the date and time on a notepad and photograph it alongside the damage. This prevents insurers from claiming damage occurred before the storm event.</p>
+
+<p>If you have <a href="/blog/hail-damage-how-to-identify/">how to identify hail damage</a> concerns specifically, document the impact patterns and any dents in metal components. Hail damage claims are frequently undervalued because adjusters misidentify impact severity or conflate weathering with storm damage.</p>
+
+<p>Save all receipts, invoices, and proof of purchase for roof components if you've performed recent maintenance or upgrades. Age and condition of materials directly affect replacement value calculations.</p>
+
+<blockquote>
+<p><strong>Critical timing note:</strong> Do not enter your attic or climb onto the roof yourself. You risk personal injury and may inadvertently disturb evidence that supports your claim. Wait for a professional assessment.</p>
+</blockquote>
+
+<h2 id="step-2-file-the-claim-within-the-policy-window">Step 2: File the Claim — Within the Policy Window</h2>
+
+<p>Contact your insurance agent or insurer's claims department within 24 to 48 hours of the storm. Most homeowners policies require notice within a specific timeframe—often 30 to 60 days, but some carriers impose stricter windows [Representative stat — not yet sourced]. Filing early establishes the claim date, which becomes the reference point for all subsequent valuations.</p>
+
+<p>When you call, provide:</p>
+
+<ol>
+<li>Your policy number</li>
+<li>The date and time the storm occurred</li>
+<li>A description of the damage (hail, wind, falling debris, water intrusion)</li>
+<li>Your contact information and preferred inspection appointment window</li>
+</ol>
+
+<p>Request written confirmation of your claim number via email or mail. Do not rely on verbal confirmation alone. Your claim number is the identifier for all future correspondence.</p>
+
+<p>Ask the claims representative three specific questions:</p>
+
+<ul>
+<li>What is the deductible amount for wind and hail damage?</li>
+<li>What is the typical adjuster response time in your area?</li>
+<li>Does the policy cover the cost of temporary repairs (tarping, water mitigation)?</li>
+</ul>
+
+<p>If temporary repairs are needed to prevent secondary water damage, photograph the interim condition and obtain written estimates for that work. Some insurers will reimburse temporary mitigation costs; others will not. Knowing your policy's stance before you spend money prevents disputes later.</p>
+
+<h2 id="step-3-get-your-contractor-s-report-before-the-adjuster-visits">Step 3: Get Your Contractor's Report Before the Adjuster Visits</h2>
+
+<p>This step is where most homeowners lose leverage. Schedule a professional roof inspection with a licensed contractor—ideally one experienced in <a href="/services/storm-damage-repair/">storm damage roof repair</a>—before the insurance adjuster arrives. This is not redundant. It is essential.</p>
+
+<p>A qualified contractor provides a detailed damage assessment that includes:</p>
+
+<ul>
+<li>Photographic documentation with measurements and location references</li>
+<li>Identification of damage type (wind uplift, hail impact, debris strike)</li>
+<li>Assessment of underlying structural or water damage</li>
+<li>Itemized repair or replacement costs based on current material pricing</li>
+<li>Notation of any pre-existing damage or maintenance issues</li>
+</ul>
+
+<p>This report serves as your independent baseline. Insurance adjusters work for the insurance company, not you. Their role is to verify the claim is valid, but not necessarily to identify every damage point. A contractor's detailed report flags issues an adjuster might overlook or undervalue, and it provides documentation to support supplemental claims later.</p>
+
+<p>Obtain the contractor's report in writing. Digital copies with photos are standard. Do not share this report with the adjuster unprompted—keep it for your records until the adjuster's inspection is complete. You will use it to identify discrepancies.</p>
+
+<h2 id="step-4-the-adjuster-inspection">Step 4: The Adjuster Inspection</h2>
+
+<p>The adjuster will contact you to schedule an inspection. Be present during this inspection. Do not allow it to occur without you on-site.</p>
+
+<p>Before the adjuster arrives, walk the roof perimeter yourself (from ground level, not climbing) and note any obvious damage. During the inspection:</p>
+
+<ul>
+<li>Follow the adjuster onto the roof if permitted, or observe from a safe vantage point</li>
+<li>Ask the adjuster to explain their assessment of each damage area</li>
+<li>Take photos of the adjuster's inspection process and any notes they write</li>
+<li>Request a copy of the adjuster's report or photos before they leave</li>
+<li>Note any areas the adjuster does not inspect or dismisses without detailed examination</li>
+</ul>
+
+<p>Do not argue with the adjuster during the inspection. Record their findings and statements. Disputes are resolved through supplemental claims and negotiation, not confrontation on-site.</p>
+
+<p>If the adjuster's findings differ significantly from your contractor's assessment, note the specific discrepancies. These become the basis for a supplemental claim filing.</p>
+
+<h2 id="step-5-the-estimate-and-the-gap">Step 5: The Estimate and the Gap</h2>
+
+<p>The adjuster will issue an estimate within 5 to 10 business days. This estimate becomes your initial insurance authorization for repairs. Review it carefully against your contractor's report and your own documentation.</p>
+
+<p>Common gaps between the adjuster's estimate and actual repair costs include:</p>
+
+<table border="1" cellpadding="10" cellspacing="0" style="width: 100%; margin: 20px 0; border-collapse: collapse;">
+<thead>
+<tr style="background-color: #f5f5f5;">
+<th style="text-align: left;"><strong>Gap Category</strong></th>
+<th style="text-align: left;"><strong>Why It Occurs</strong></th>
+<th style="text-align: left;"><strong>Typical Impact</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Material cost inflation</td>
+<td>Adjuster uses regional pricing from 30–60 days prior; current market prices are higher</td>
+<td>$500–$2,000+ per roof section</td>
+</tr>
+<tr>
+<td>Hidden structural damage</td>
+<td>Adj
+
+      <div class="cta-banner">
+        <h2>Ready to Talk to an Expert?</h2>
+        <p>Pro Exteriors serves commercial and residential clients across Texas, Colorado, Kansas, and Missouri.</p>
+        <a href="/services/storm-damage-repair/">Start Your Storm Damage Claim</a>
+      </div>
+    </article>
+  </div>
+
+  <section class="related-section">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+      
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015607_71713d7a-5d70-47a9-84ae-55c97b1c5a1b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Storm Damage Roof Repair</p>
+              <h3 class="related-card-title"><a href="/blog/hail-damage-how-to-identify/">Hail Damage: How to Identify It</a></h3>
+            </div>
+          </article>
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015607_71713d7a-5d70-47a9-84ae-55c97b1c5a1b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Storm Damage Roof Repair</p>
+              <h3 class="related-card-title"><a href="/blog/working-with-adjusters-after-storm/">Working with Adjusters After a Storm</a></h3>
+            </div>
+          </article>
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015607_71713d7a-5d70-47a9-84ae-55c97b1c5a1b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Storm Damage Roof Repair</p>
+              <h3 class="related-card-title"><a href="/blog/wind-damage-vs-hail-damage/">Wind Damage vs. Hail Damage</a></h3>
+            </div>
+          </article>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pro Exteriors. All rights reserved. |
+      <a href="/privacy-policy/">Privacy Policy</a> |
+      <a href="/terms/">Terms of Service</a>
+    </p>
+    <p style="margin-top: 8px;">Richardson, TX · Euless, TX · Denver, CO · Wichita, KS · Kansas City, MO</p>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
+      bar.style.width = Math.min(scrolled * 100, 100) + '%';
+    });
+
+    // ToC active section
+    const links = document.querySelectorAll('.toc-link');
+    const headings = document.querySelectorAll('.article-body h2');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    headings.forEach(h => observer.observe(h));
+  </script>
+</body>
+</html>

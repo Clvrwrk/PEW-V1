@@ -1,0 +1,133 @@
+# Asphalt Shingle Roofing — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 on 2026-05-03
+# Confirmed primary keyword from batch DataForSEO pull (20260504-012953)
+# Template reuses residential-pillar components — no Figma cycle required
+
+slug: asphalt-shingles
+template: residential-service          # First residential-service template; establishes the pattern
+location: null                         # National service page; geo-neutralized per residential pillar decision
+target_keyword: "asphalt shingle roofing"
+secondary_keywords:
+  - "asphalt shingles"
+  - "asphalt shingles installation"
+  - "architectural shingles"
+  - "roof shingles installation"
+  - "shingle roof replacement"
+  - "GAF shingles"
+  - "Owens Corning shingles"
+audience: residential-homeowner
+intent: mixed                          # solution-aware (researching materials) + transactional (ready to replace)
+hypothesis: |
+  Separating asphalt shingles into its own dedicated T2 service page — with
+  material comparison (3-tab vs. architectural vs. premium), manufacturer
+  credential trust signals (GAF Master Elite + Owens Corning), and a
+  transparent cost framework — will:
+    (a) lift organic ranking for "asphalt shingle roofing" into the top 5
+        results in Pro Exteriors' served-state geos within 6 months of
+        publish, capturing a share of the 40,500 monthly searchers; AND
+    (b) achieve a ≥25% form-completion rate on the page's Free Inspection
+        CTA within 90 days, vs. the generic /residential baseline, because
+        homeowners arriving with material-level specificity are further along
+        the decision funnel and convert faster with matching depth of content.
+
+# ─── SEO copy bundle ───
+seo_copy:
+  metadata:
+    title: "Asphalt Shingle Roofing — Expert Installation & Replacement | Pro Exteriors"
+    meta_description: "Pro Exteriors installs and replaces asphalt shingles across TX, CO, KS, MO & GA. GAF Master Elite certified. Architectural, 3-tab, and premium shingles. Free inspection."
+    canonical: "https://proexteriorsus.com/residential/asphalt-shingles"
+  body_path: null                      # No SEO writer file — copywriter originates from scratch
+  html_path: null
+
+# ─── Layout (template reuse — no Figma cycle) ───
+figma:
+  reuse_template: residential-pillar
+  template_path: "src/pages/residential/index.astro"
+  notes: |
+    The residential-pillar template established the component library.
+    Service pages inherit the same atoms (Button, Badge, Icon, Stat) and
+    molecules (ServiceHero, BenefitsGrid, SplitIntro, QualityProcess,
+    ProjectGallery, CaseStudyCard, CTABanner, FAQ, Breadcrumb, Testimonial).
+    Layout skill composes them per the section manifest below without a
+    fresh Figma pass. First residential-service build — the output becomes
+    the template pattern for all remaining 10 service pages.
+  section_plan:
+    - id: hero
+      component: ServiceHero
+      notes: "H1 = 'Asphalt Shingle Roofing by Pro Exteriors'. Dual CTA: primary = 'Schedule Free Inspection' (?intent=inspection), secondary = 'Explore Shingle Options' (anchors to materials section)."
+    - id: trust_strip
+      component: inline
+      notes: "GAF Master Elite | Owens Corning Certified | 15+ Years | [REPRESENTATIVE] rating | Free Inspections"
+    - id: service_overview
+      component: SplitIntro
+      notes: "Left: H2 overview, body on why asphalt shingles dominate residential. Right: key credential badges + 'homes re-roofed' stat."
+    - id: materials_grid
+      component: BenefitsGrid
+      notes: "3-column: 3-Tab Shingles / Architectural Shingles / Premium Shingles. Each card: name, description, best-for, warranty spec."
+    - id: manufacturers_band
+      component: inline trust band
+      notes: "GAF Master Elite + Owens Corning Preferred logos. Brief copy on what each certification means for the homeowner."
+    - id: local_experts_proof
+      component: StatBand + Testimonial
+      notes: "15+ years, 2,500+ roofs, 5-state coverage. Testimonial = [REPRESENTATIVE] pending real customer."
+    - id: process
+      component: QualityProcess
+      notes: "4 steps: Free Inspection → Material Recommendation → Scheduled Install → Final Walkthrough & Warranty."
+    - id: case_studies
+      component: CaseStudyCard × 3
+      notes: "One per region (TX / CO / KS or MO). All [REPRESENTATIVE] pending real project photos."
+    - id: warranties_financing
+      component: SplitIntro
+      notes: "Left: image slot. Right: warranty tiers (25yr / 30yr / Lifetime), manufacturer warranty pass-through, financing options."
+    - id: faq
+      component: FAQ
+      notes: "4 questions: (1) 3-tab vs architectural — which should I choose? (2) How long do asphalt shingles last? (3) What does asphalt shingle installation cost? (4) Can asphalt shingles withstand hail?"
+    - id: final_cta
+      component: CTABanner
+      notes: "Primary CTA: 'Schedule Your Free Roof Inspection'. Secondary: 'Call Us' with [REPRESENTATIVE] phone."
+
+# ─── Output paths ───
+output:
+  page: "src/pages/residential/asphalt-shingles/index.astro"
+  assets: "src/assets/residential/asphalt-shingles/"
+
+# ─── Silo role ───
+silo:
+  role: T2-money-page
+  parent: "/residential"
+  parent_links_to_this_via: "asphalt shingle roofing systems"   # from residential page-link-manifest
+  inbound_anchor_from_parent: near-match
+
+# ─── Build flags ───
+flags:
+  - id: first-residential-service-template
+    severity: info
+    message: |
+      This is the first residential-service template build. The section
+      composition and component choices here become the canonical pattern
+      for the remaining 10 service pages. Layout skill should document
+      any additive component changes (e.g., ServiceHero dual-CTA extension)
+      in the layout manifest so subsequent pages inherit them automatically.
+  - id: gaf-owens-corning-credentials
+    severity: warning
+    message: |
+      Page leans heavily on GAF Master Elite and Owens Corning Preferred
+      certifications. Per CLAUDE.md §4 every claim has a receipt — Phase 5
+      page-qc must verify Pro Exteriors holds both credentials (per Figma
+      trust strip on the residential pillar, both appear, but confirm with
+      Chris before these phrases ship on a dedicated service page).
+  - id: cost-transparency
+    severity: info
+    message: |
+      The FAQ section addresses cost. Per CLAUDE.md never ship an unsourced
+      claim — if copywriter writes a cost range ($X–$Y per square), it MUST
+      be marked [REPRESENTATIVE — NOT YET SOURCED] and flagged for Chris
+      to validate against Pro Exteriors' actual price book. Alternatively,
+      frame cost as ranges with explicit variables (material grade, square
+      footage, tearoff) and avoid specific dollar figures until sourced.
+
+# ─── Provenance ───
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey (batch approval for all 11 residential service pages)
+confirmed_at: 2026-05-03

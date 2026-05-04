@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sustainable Roofing Systems: A Strategic Guide for Industrial Facilities | Pro Exteriors</title>
+  <meta name="description" content="A 25-year material selection framework for commercial facility managers — TPO, EPDM, and modified bitumen compared by lifespan, energy rating, and lifecycle cost." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── DESIGN TOKENS — Pro Exteriors v1.1 ─── */
+    :root {
+      --deep-navy:        #11133f;
+      --deep-navy-dark:   #041534;
+      --deep-navy-nav:    #0f172a;
+      --deep-navy-cta:    #1b2a4a;
+      --flag-red:         #c22326;
+      --flag-red-hover:   #9b1c1f;
+      --flag-red-light:   #dc2626;
+      --hunter-green:     #3b6b4c;
+      --golden-orange:    #c28412;
+      --golden-orange-bg: #f5e6c4;
+      --smart-blue:       #232884;
+      --bg-warm:          #fbf9f6;
+      --bg-stone:         #f5f3f0;
+      --bg-stone-table:   #eae8e5;
+      --bg-white:         #ffffff;
+      --text-primary:     #041534;
+      --text-secondary:   #506071;
+      --text-muted:       #8392b7;
+      --text-nav:         #cbd5e1;
+      --text-footer:      #94a3b8;
+      --border:           #c5c6cf;
+      --border-dark:      #1e293b;
+      --badge-bg:         #d4e4f9;
+      --badge-text:       #566677;
+
+      --font-body:        'Archivo', sans-serif;
+      --font-mono:        'IBM Plex Mono', monospace;
+
+      --space-xs:   4px;
+      --space-sm:   8px;
+      --space-md:   16px;
+      --space-lg:   24px;
+      --space-xl:   32px;
+      --space-2xl:  48px;
+      --space-3xl:  64px;
+      --space-4xl:  96px;
+      --radius-sm:  4px;
+      --radius-md:  8px;
+      --radius-lg:  12px;
+      --nav-h:      80px;
+    }
+
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-warm);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── READING PROGRESS BAR ─── */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--flag-red);
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--deep-navy-nav);
+      border-bottom: 1px solid var(--border-dark);
+      box-shadow: 0 4px 6px -4px rgba(0,0,0,0.25);
+    }
+    .nav__inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.04em;
+    }
+    .nav__links {
+      display: flex;
+      gap: var(--space-xl);
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-nav);
+      transition: color 0.2s;
+    }
+    .nav__links a:hover { color: #fff; }
+    .nav__links .active a {
+      color: #fff;
+      border-bottom: 2px solid var(--flag-red-light);
+      padding-bottom: 6px;
+    }
+    .nav__cta {
+      background: var(--flag-red);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: var(--radius-md);
+      transition: background 0.2s;
+    }
+    .nav__cta:hover { background: var(--flag-red-hover); }
+
+    /* ─── MAIN WRAPPER ─── */
+    .page {
+      padding-top: var(--nav-h);
+    }
+
+    /* ─── ARTICLE HEADER ─── */
+    .article-header {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: var(--space-4xl) var(--space-xl) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    .breadcrumb__sep {
+      width: 4px;
+      height: 6px;
+      opacity: 0.7;
+    }
+    .breadcrumb a:hover { color: var(--text-primary); }
+
+    /* Category badge */
+    .badge {
+      display: inline-flex;
+      padding: 4px 12px;
+      background: var(--badge-bg);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--badge-text);
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    /* H1 */
+    .article-title {
+      font-size: clamp(40px, 4.5vw, 60px);
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--text-primary);
+      max-width: 896px;
+    }
+
+    /* Author + meta row */
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      padding-top: var(--space-sm);
+    }
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author__avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+    .author__name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: block;
+    }
+    .author__role {
+      font-size: 12px;
+      color: var(--text-secondary);
+      display: block;
+    }
+    .meta-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+    }
+    .meta-items {
+      display: flex;
+      gap: var(--space-md);
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .meta-item svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+
+    /* ─── HERO IMAGE ─── */
+    .hero-image-wrap {
+      max-width: 1280px;
+      margin: var(--space-3xl) auto 0;
+      padding: 0 var(--space-xl);
+    }
+    .hero-image {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+
+    /* ─── CONTENT GRID ─── */
+    .content-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: var(--space-md) var(--space-xl) var(--space-4xl);
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: var(--space-3xl);
+      align-items: start;
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + var(--space-xl));
+    }
+    .toc-card {
+      background: var(--bg-stone);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+    }
+    .toc-heading {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: var(--space-lg);
+    }
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      transition: color 0.2s;
+      display: block;
+    }
+    .toc-list a:hover { color: var(--text-primary); }
+    .toc-list li.active a {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .toc-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: var(--space-xl) 0 var(--space-md);
+    }
+    .toc-assist-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+      margin-bottom: var(--space-sm);
+    }
+    .toc-assist-text {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--space-sm);
+    }
+    .toc-assist-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--flag-red-light);
+      margin-top: var(--space-sm);
+      transition: color 0.2s;
+    }
+    .toc-assist-link:hover { color: var(--flag-red-hover); }
+    .toc-assist-link svg {
+      width: 10px;
+      height: 10px;
+    }
+
+    /* ─── ARTICLE BODY ─── */
+    .article-body {
+      max-width: 720px;
+    }
+
+    .article-lead {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-3xl);
+    }
+
+    .article-section {
+      margin-bottom: var(--space-3xl);
+    }
+
+    .article-h2 {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+      scroll-margin-top: calc(var(--nav-h) + var(--space-xl));
+    }
+
+    .article-h3 {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+      scroll-margin-top: calc(var(--nav-h) + var(--space-xl));
+    }
+
+    .article-p {
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* ─── CALLOUT BOX ─── */
+    .callout {
+      background: var(--deep-navy-dark);
+      border-left: 8px solid var(--flag-red-light);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl) var(--space-xl) var(--space-xl) 36px;
+      display: flex;
+      gap: var(--space-md);
+      margin: var(--space-xl) 0;
+    }
+    .callout__icon {
+      width: 20px;
+      height: 24px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--flag-red-light);
+    }
+    .callout__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .callout__body {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* ─── DATA TABLE ─── */
+    .data-table-wrap {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: var(--space-md) 0 var(--space-xl);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .data-table thead tr {
+      background: var(--bg-stone-table);
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table thead th {
+      padding: 14px 24px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+    .data-table tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table tbody tr:last-child { border-bottom: none; }
+    .data-table tbody tr:hover { background: rgba(0,0,0,0.02); }
+    .data-table tbody td {
+      padding: 14px 24px;
+      color: var(--text-secondary);
+    }
+    .data-table tbody td:first-child {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .data-table .tag-excellent {
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+    .data-table .tag-good {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+    .data-table .tag-fair {
+      display: inline-block;
+      background: #fef9c3;
+      color: #854d0e;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+
+    /* ─── PULL QUOTE ─── */
+    .pull-quote {
+      border-left: 4px solid var(--golden-orange);
+      padding: var(--space-md) var(--space-xl) var(--space-md) var(--space-2xl);
+      margin: var(--space-xl) 0;
+    }
+    .pull-quote__text {
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+    }
+    .pull-quote__attr {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    /* ─── VIDEO EMBED ─── */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: var(--bg-stone-table);
+      margin: var(--space-md) 0 var(--space-xl);
+      cursor: pointer;
+    }
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.65;
+      transition: opacity 0.3s;
+    }
+    .video-wrap:hover .video-thumb { opacity: 0.75; }
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+    }
+    .video-play-btn {
+      width: 80px;
+      height: 80px;
+      background: var(--flag-red-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .video-wrap:hover .video-play-btn {
+      transform: scale(1.08);
+      background: var(--flag-red-hover);
+    }
+    .video-play-btn svg {
+      width: 24px;
+      height: 24px;
+      color: #fff;
+      margin-left: 4px;
+    }
+    .video-caption {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-shadow: 0 1px 4px rgba(255,255,255,0.6);
+    }
+
+    /* ─── AUTHOR BIO CARD ─── */
+    .author-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      display: flex;
+      gap: var(--space-xl);
+      align-items: flex-start;
+      margin-top: var(--space-3xl);
+    }
+    .author-card__avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--border);
+    }
+    .author-card__name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .author-card__bio {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
+    }
+    .author-card__socials {
+      display: flex;
+      gap: var(--space-md);
+    }
+    .author-card__socials a {
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+    .author-card__socials a:hover { color: var(--text-primary); }
+    .author-card__socials svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      max-width: 1280px;
+      margin: 0 auto var(--space-3xl);
+      padding: 0 var(--space-xl);
+    }
+    .cta-banner__inner {
+      background: var(--deep-navy-cta);
+      border-radius: var(--radius-lg);
+      padding: var(--space-3xl);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .cta-banner__glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255,255,255,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-banner__eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--golden-orange);
+      margin-bottom: var(--space-md);
+    }
+    .cta-banner__h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+    .cta-banner__sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto var(--space-xl);
+    }
+    .cta-banner__actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--flag-red);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: var(--flag-red-hover);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* ─── RELATED ARTICLES ─── */
+    .related-section {
+      background: var(--bg-white);
+      padding: var(--space-4xl) var(--space-xl);
+    }
+    .related-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .related-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: var(--space-3xl);
+    }
+    .related-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .related-sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+    .related-view-all {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: color 0.2s;
+    }
+    .related-view-all:hover { color: var(--flag-red); }
+    .related-view-all svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s;
+    }
+    .related-view-all:hover svg { transform: translateX(3px); }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .post-card__image-wrap {
+      height: 200px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .post-card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .post-card:hover .post-card__image { transform: scale(1.04); }
+    .post-card__category {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--flag-red-light);
+      margin-top: var(--space-sm);
+    }
+    .post-card__title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+      margin-top: 4px;
+    }
+    .post-card__excerpt {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .post-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: var(--space-sm);
+      transition: color 0.2s;
+    }
+    .post-card__link:hover { color: var(--flag-red); }
+    .post-card__link svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.2s;
+    }
+    .post-card__link:hover svg { transform: translateX(3px); }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--deep-navy-nav);
+      border-top: 1px solid var(--border-dark);
+      padding: var(--space-3xl) var(--space-xl) var(--space-xl);
+    }
+    .footer__grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: var(--space-3xl);
+      padding-bottom: var(--space-3xl);
+    }
+    .footer__brand-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: var(--space-md);
+    }
+    .footer__tagline {
+      font-size: 14px;
+      color: var(--text-footer);
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
+    }
+    .footer__socials {
+      display: flex;
+      gap: var(--space-md);
+    }
+    .footer__socials a {
+      color: var(--text-footer);
+      transition: color 0.2s;
+    }
+    .footer__socials a:hover { color: #fff; }
+    .footer__socials svg { width: 18px; height: 18px; }
+    .footer__col-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: var(--space-lg);
+    }
+    .footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .footer__links a {
+      font-size: 14px;
+      color: var(--text-footer);
+      transition: color 0.2s;
+    }
+    .footer__links a:hover { color: #fff; }
+    .footer__address {
+      font-size: 14px;
+      color: var(--text-footer);
+      line-height: 1.65;
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+    .footer__email {
+      font-size: 14px;
+      color: var(--text-footer);
+      margin-bottom: var(--space-xs);
+    }
+    .footer__phone {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ef4444;
+    }
+    .footer__bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--border-dark);
+      text-align: center;
+    }
+    .footer__copy {
+      font-size: 13px;
+      color: var(--text-footer);
+    }
+
+    /* ─── SECTION ANCHORS ─── */
+    [id] {
+      scroll-margin-top: calc(var(--nav-h) + 24px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading progress -->
+  <div id="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">Pro Exteriors</a>
+      <ul class="nav__links">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/maintenance">Maintenance</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li class="active"><a href="/blog">Blog</a></li>
+      </ul>
+      <a href="/quote" class="nav__cta">Get a Quote</a>
+    </div>
+  </nav>
+
+  <main class="page">
+
+    <!-- ARTICLE HEADER -->
+    <header class="article-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/blog">Blog</a>
+        <svg class="breadcrumb__sep" viewBox="0 0 4 7" fill="none" aria-hidden="true">
+          <path d="M1 1l2.5 2.5L1 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <a href="/blog/commercial-roofing">Commercial Roofing</a>
+      </nav>
+
+      <span class="badge">Commercial Roofing</span>
+
+      <h1 class="article-title">Sustainable Roofing Systems:<br>A Strategic Guide for<br>Industrial Facilities</h1>
+
+      <div class="article-meta">
+        <div class="author">
+          <img
+            class="author__avatar"
+            src="https://www.figma.com/api/mcp/asset/85dcfd8f-7727-46c8-b093-e3575666661c"
+            alt="Marcus Thorne, Chief Operations Officer"
+            width="48" height="48"
+          />
+          <div>
+            <span class="author__name">Marcus Thorne</span>
+            <span class="author__role">Chief Operations Officer</span>
+          </div>
+        </div>
+        <div class="meta-divider" aria-hidden="true"></div>
+        <div class="meta-items">
+          <span class="meta-item">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M5 1v4M11 1v4M2 7h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            <span>May 14, 2024</span>
+          </span>
+          <span class="meta-item">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            <span>12 min read</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <div class="hero-image-wrap">
+      <img
+        class="hero-image"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_012914_f6d5d325-f8c2-4dcd-a5d0-b917bf47e5c8.png"
+        alt="Aerial view of a large commercial industrial facility roof with white single-ply TPO membrane, HVAC units, and parapet walls under Texas mid-day sun"
+        width="1376" height="768"
+        id="hero-img"
+      />
+    </div>
+
+    <!-- CONTENT GRID: sidebar + article body -->
+    <div class="content-grid">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar" aria-label="Table of contents">
+        <div class="toc-card">
+          <p class="toc-heading">Table of Contents</p>
+          <ol class="toc-list" id="toc-list">
+            <li id="toc-evolution"><a href="#industry-evolution">Industry Evolution</a></li>
+            <li id="toc-materials"><a href="#advanced-materials">Advanced Material Selection</a></li>
+            <li id="toc-efficiency"><a href="#energy-efficiency">Energy Efficiency Metrics</a></li>
+            <li id="toc-video"><a href="#application-video">Application Video</a></li>
+            <li id="toc-lifecycle"><a href="#lifecycle-maintenance">Lifecycle Maintenance</a></li>
+            <li id="toc-roadmap"><a href="#strategic-roadmap">The Strategic Roadmap</a></li>
+          </ol>
+          <hr class="toc-divider" />
+          <p class="toc-assist-label">Need Assistance?</p>
+          <p class="toc-assist-text">Speak with our commercial roofing engineers today.</p>
+          <a href="/contact" class="toc-assist-link">
+            Contact Specialist
+            <svg viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </aside>
+
+      <!-- ARTICLE BODY -->
+      <article class="article-body" aria-label="Article content">
+
+        <!-- Lead paragraph -->
+        <p id="industry-evolution" class="article-lead">
+          The industrial landscape is undergoing a significant transformation. As operational costs rise and environmental standards tighten, the commercial roof has evolved from a simple protective barrier into a strategic asset. At Pro Exteriors, we've observed a 40% increase in high-performance membrane adoption over the last decade. [Representative stat — sourced to Pro Exteriors internal sales data pending client confirmation]
+        </p>
+
+        <!-- Section: Advanced Materials -->
+        <section class="article-section" id="advanced-materials">
+          <h2 class="article-h2">Advanced Material Selection</h2>
+          <p class="article-p">
+            Choosing the right material isn't just about the immediate budget — it's about the 25-year lifecycle. From TPO to EPDM and modified bitumen, each system offers unique advantages depending on the facility's localized climate and internal thermal requirements. A procurement officer signing off on a 400,000 sq ft distribution center re-roof needs to walk away with a number they can defend in year 20, not just at ribbon-cutting.
+          </p>
+
+          <!-- Pro Tip callout -->
+          <div class="callout" role="note" aria-label="Pro Tip: Thermal Reflectance">
+            <svg class="callout__icon" viewBox="0 0 20 24" fill="none" aria-hidden="true">
+              <path d="M10 2a6 6 0 0 1 6 6c0 3-1.5 5.5-4 7v2H8v-2C5.5 13.5 4 11 4 8a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M8 21h4M9 18h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <p class="callout__title">Pro Tip: Thermal Reflectance</p>
+              <p class="callout__body">Cool roofing systems with a high Solar Reflectance Index (SRI) can reduce peak cooling demand by as much as 15%. [Source: Lawrence Berkeley National Laboratory, Heat Island Group] This translates to significant HVAC equipment longevity and measurably lower operational overhead over a 10-year maintenance cycle.</p>
+            </div>
+          </div>
+
+          <!-- Sub-section: Technical Specs table -->
+          <h3 id="energy-efficiency" class="article-h3">Technical Specification Metrics</h3>
+          <p class="article-p">
+            When evaluating a commercial installation, facilities managers and procurement officers must focus on the core performance metrics that drive long-term ROI — not just the bid-day cost per square foot.
+          </p>
+
+          <div class="data-table-wrap" role="region" aria-label="Roofing system comparison table">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">System Type</th>
+                  <th scope="col">Avg. Lifespan</th>
+                  <th scope="col">Energy Rating</th>
+                  <th scope="col">Typical Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Single-Ply TPO</td>
+                  <td>20–30 Years</td>
+                  <td><span class="tag-excellent">Excellent</span></td>
+                  <td>Moderate</td>
+                </tr>
+                <tr>
+                  <td>EPDM Rubber</td>
+                  <td>25–35 Years</td>
+                  <td><span class="tag-good">Good</span></td>
+                  <td>Cost-Effective</td>
+                </tr>
+                <tr>
+                  <td>Modified Bitumen</td>
+                  <td>15–20 Years</td>
+                  <td><span class="tag-fair">Fair</span></td>
+                  <td>Mid-Range</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pull quote -->
+          <blockquote class="pull-quote">
+            <p class="pull-quote__text">"The most expensive roof is the one that was installed based purely on the lowest initial bid without accounting for structural drainage or thermal expansion."</p>
+            <cite class="pull-quote__attr">— Sarah Jenkins, Senior Structural Engineer</cite>
+          </blockquote>
+        </section>
+
+        <!-- Section: Application Video -->
+        <section class="article-section" id="application-video">
+          <h2 class="article-h2">Application Video Demo</h2>
+
+          <div class="video-wrap" role="button" tabindex="0" aria-label="Watch: Precision TPO Installation">
+            <img
+              class="video-thumb"
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_012917_c25cd851-6e6d-49d3-b62c-3a393f08f36f.png"
+              alt="Two Pro Exteriors crew members in orange safety vests installing white TPO membrane on a commercial flat roof mid-day"
+              id="video-thumb-img"
+            />
+            <div class="video-overlay">
+              <div class="video-play-btn" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <p class="video-caption">Watch: Precision TPO Installation</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section: Lifecycle Maintenance -->
+        <section class="article-section" id="lifecycle-maintenance">
+          <h2 id="lifecycle-maintenance-h" class="article-h2">Lifecycle Maintenance</h2>
+          <p class="article-p">
+            Finalizing your material strategy requires a holistic view of the building's envelope. We recommend a full structural assessment before any material finalization to ensure the deck and drainage systems are compatible with modern high-load membranes. A 90-day pre-installation audit typically identifies 12–18% of scope items that would otherwise surface as costly change orders mid-project. [Representative stat — representative of industry norms pending Pro Exteriors internal data]
+          </p>
+        </section>
+
+        <!-- Section: Strategic Roadmap -->
+        <section class="article-section" id="strategic-roadmap">
+          <h2 class="article-h2">The Strategic Roadmap</h2>
+          <p class="article-p">
+            The path from initial assessment to a fully warrantied, high-performance commercial roof typically follows a six-phase sequence: structural audit, material selection, budget modeling, permitting, installation, and post-install commissioning. Each phase has hard gates — skip one and you carry the risk into the next.
+          </p>
+        </section>
+
+        <!-- Author bio card -->
+        <div class="author-card" aria-label="About the author">
+          <img
+            class="author-card__avatar"
+            src="https://www.figma.com/api/mcp/asset/bb5c7e63-9eea-4274-a39d-b136ed6691d4"
+            alt="Marcus Thorne, Chief Operations Officer at Pro Exteriors"
+            width="120" height="120"
+          />
+          <div>
+            <h3 class="author-card__name">About Marcus Thorne</h3>
+            <p class="author-card__bio">
+              Marcus is a LEED-certified professional with over 22 years of experience in industrial infrastructure management. He leads the commercial division at Pro Exteriors, focusing on sustainable retrofitting and large-scale asset preservation across the 16-state service territory.
+            </p>
+            <div class="author-card__socials">
+              <a href="#" aria-label="Marcus Thorne on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+              </a>
+              <a href="#" aria-label="Marcus Thorne on X">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </article>
+    </div><!-- /content-grid -->
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner" aria-labelledby="cta-h2">
+      <div class="cta-banner__inner">
+        <div class="cta-banner__glow" aria-hidden="true"></div>
+        <p class="cta-banner__eyebrow">Commercial Assessments</p>
+        <h2 class="cta-banner__h2" id="cta-h2">Secure Your Facility's Future Performance</h2>
+        <p class="cta-banner__sub">
+          Our engineers provide detailed structural assessments and custom roofing roadmaps for commercial properties across the 16-state service area.
+        </p>
+        <div class="cta-banner__actions">
+          <a href="/commercial-assessment" class="btn-primary">Request a Commercial Assessment</a>
+          <a href="/resources/capacity-guide" class="btn-secondary">Download Capacity Guide</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RELATED ARTICLES -->
+  <section class="related-section" aria-labelledby="related-h2">
+    <div class="related-inner">
+      <div class="related-header">
+        <div>
+          <h2 class="related-title" id="related-h2">Related Articles</h2>
+          <p class="related-sub">Explore more insights from our commercial roofing engineers.</p>
+        </div>
+        <a href="/blog" class="related-view-all">
+          View All Posts
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="related-grid">
+        <article class="post-card">
+          <div class="post-card__image-wrap">
+            <img
+              class="post-card__image"
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_012920_74b4b04d-6cc0-4095-b2a3-2efb9bd361a3_min.webp"
+              alt="Roofing inspector in safety harness examining membrane seams on a commercial high-rise rooftop, city skyline below"
+              id="card1-img"
+              width="384" height="200"
+            />
+          </div>
+          <p class="post-card__category">Maintenance</p>
+          <h3 class="post-card__title">Preventative Care for High-Rise Assets</h3>
+          <p class="post-card__excerpt">How quarterly inspections can extend the life of your commercial investment by 10+ years.</p>
+          <a href="/blog/preventative-care-high-rise" class="post-card__link">
+            Read Post
+            <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+        <article class="post-card">
+          <div class="post-card__image-wrap">
+            <img
+              class="post-card__image"
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_012923_3e8de340-be4b-424d-926c-c884c4565760_min.webp"
+              alt="Dark storm clouds rolling over a commercial warehouse district, roofing membrane edge detail in foreground"
+              id="card2-img"
+              width="384" height="200"
+            />
+          </div>
+          <p class="post-card__category">Emergency</p>
+          <h3 class="post-card__title">Storm Preparedness: A Checklist</h3>
+          <p class="post-card__excerpt">Critical steps facility managers must take before the hurricane season peaks.</p>
+          <a href="/blog/storm-preparedness-checklist" class="post-card__link">
+            Read Post
+            <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+        <article class="post-card">
+          <div class="post-card__image-wrap">
+            <img
+              class="post-card__image"
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_012926_9e8ba868-5308-4be4-b982-bbef4a17797e_min.webp"
+              alt="Commercial rooftop solar panel array integrated with white TPO membrane in golden afternoon light, industrial facility below"
+              id="card3-img"
+              width="384" height="200"
+            />
+          </div>
+          <p class="post-card__category">Sustainability</p>
+          <h3 class="post-card__title">Solar Integration Strategies</h3>
+          <p class="post-card__excerpt">Integrating photovoltaic systems into your existing roofing structure without voiding warranties.</p>
+          <a href="/blog/solar-integration-strategies" class="post-card__link">
+            Read Post
+            <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand-name">Pro Exteriors</p>
+        <p class="footer__tagline">Professional commercial and residential roofing solutions with a commitment to excellence and structural integrity.</p>
+        <div class="footer__socials">
+          <a href="#" aria-label="Pro Exteriors on Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="Pro Exteriors on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Pro Exteriors on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Company</p>
+        <ul class="footer__links">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="/sustainability">Sustainability</a></li>
+          <li><a href="/safety">Safety Protocols</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Legal &amp; Support</p>
+        <ul class="footer__links">
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/warranty">Warranty Information</a></li>
+          <li><a href="/emergency">Emergency Repairs</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <p class="footer__address">1200 Industrial Way, Suite 400<br>Philadelphia, PA 19104</p>
+        <p class="footer__email">sales@proexteriors.com</p>
+        <p class="footer__phone">1-800-PRO-ROOF</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2024 Pro Exteriors Roofing. All rights reserved. Licensed &amp; Insured.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ─── Reading progress bar ───
+    const progressBar = document.getElementById('progress-bar');
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
+      progressBar.setAttribute('aria-valuenow', Math.round(pct));
+    }
+
+    // ─── Sticky ToC active state ───
+    const sectionIds = [
+      'industry-evolution',
+      'advanced-materials',
+      'energy-efficiency',
+      'application-video',
+      'lifecycle-maintenance',
+      'strategic-roadmap'
+    ];
+    const tocIds = [
+      'toc-evolution',
+      'toc-materials',
+      'toc-efficiency',
+      'toc-video',
+      'toc-lifecycle',
+      'toc-roadmap'
+    ];
+
+    let activeIdx = 0;
+
+    function updateToc() {
+      const navH = 80 + 32;
+      let current = 0;
+      sectionIds.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const top = el.getBoundingClientRect().top;
+        if (top <= navH + 40) current = i;
+      });
+      if (current !== activeIdx) {
+        document.getElementById(tocIds[activeIdx])?.classList.remove('active');
+        document.getElementById(tocIds[current])?.classList.add('active');
+        activeIdx = current;
+      }
+    }
+
+    // Init active state
+    document.getElementById(tocIds[0])?.classList.add('active');
+
+    window.addEventListener('scroll', () => {
+      updateProgress();
+      updateToc();
+    }, { passive: true });
+
+    updateProgress();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+# aia4-page-link manifest — Storm Damage Repair
+# Phase 1 · 2026-05-03 · Kyle Roof reverse-silo
+
+silo_role: T2-money-page
+silo_parent: "/residential"
+silo_topic: "storm damage roof repair — emergency response hub for the residential silo"
+
+internal_links_out:
+
+  # UP to parent
+  - anchor: "residential roofing contractors"
+    target: "/residential"
+    anchor_type: near-match
+    placement_hint: "Service overview — first paragraph"
+
+  # ACROSS to storm cluster siblings
+  - anchor: "emergency roof tarping"
+    target: "/residential/tarp-installation"
+    anchor_type: near-match
+    target_status: planned-Q2
+    placement_hint: "Immediate steps section — step 2 (temporary tarp)"
+
+  - anchor: "hail damage repair"
+    target: "/residential/hail-damage-repair"
+    anchor_type: near-match
+    target_status: planned-Q2
+    placement_hint: "Damage types grid — hail card or FAQ answer 4"
+
+  - anchor: "insurance claim assistance"
+    target: "/residential/insurance-claim-assistance"
+    anchor_type: descriptive
+    target_status: live
+    placement_hint: "Insurance band section + final CTA secondary"
+
+  # ACROSS to roof-replacement (many storm events lead to full replacement)
+  - anchor: "full roof replacement"
+    target: "/residential/roof-replacement"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "Process step 4 (permanent repair or replacement) or FAQ"
+
+  # DOWN to blog supporters (planned — omit links until live)
+  - anchor: "what to do after storm roof damage"
+    target: "/blog/what-to-do-after-storm-roof-damage"
+    anchor_type: descriptive
+    target_status: planned-content-phase
+    note: "Omit until blog post is live"
+
+internal_links_in_required:
+  - from: "/residential"
+    anchor: "storm damage roof repair"
+    status: needs-wiring
+    anchor_type: exact-match
+
+  - from: "/residential/insurance-claim-assistance"
+    anchor: "storm damage repair"
+    status: live    # wired in insurance-claim-assistance FAQ answer 4 + final CTA secondary
+
+  - from: "/residential/hail-damage-repair"
+    anchor: "storm damage repair"
+    status: planned-Q2
+
+  - from: "/residential/tarp-installation"
+    anchor: "permanent storm damage repair"
+    status: planned-Q2
+
+notes:
+  - "/residential/tarp-installation and /residential/hail-damage-repair are both planned-Q2 — link to them in the assembled page regardless; they will be live by the time this page ships in production."
+  - "Blog supporter does not yet exist — omit that link from the assembled page."
+  - "insurance-claim-assistance page already links to storm-damage-repair via its final CTA secondary — reciprocal link confirmed."
+
+status: success
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

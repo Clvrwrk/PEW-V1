@@ -54,8 +54,34 @@ Pass ALL of these or the section is not ready for handoff:
 - **Image-text balance.** Sections with images: text occupies ≥40% of the visible area, never less. Bento sections are the exception.
 - **Whitespace as a tool.** Section padding is at least `--space-3xl` (64px) on mobile, `--space-4xl` (96px) on desktop. Compressed whitespace is reserved for the CTA banner.
 - **No orphan headings.** Every H2 has at least 100 words of supporting content directly below.
-- **Brand-color discipline.** Flag-red appears at most twice on the page (typically once as the primary CTA, optionally once as a critical inline accent). Never as a section background, body text, or border decoration.
+- **Brand-color discipline.** Flag-red appears at most twice on the page (typically once as the primary CTA, optionally once as a critical inline accent). Never as a section background, body text, or border decoration. **Exception:** the conversion banner (see Conversion-led composition below) — when a section's purpose IS conversion, a flag-red banner anchoring the CTA earns its place because flag-red is the brand canon's sole interaction color.
 - **Pillar-depth markers present.** At least 1 table, 1 listicle, 1 pull-quote. If the page lacks any of these, it's a thin page, not a pillar.
+
+### Bento integrity — no orphan cells (added 2026-05-03 after commercial pillar review)
+
+A bento grid is a contract: every cell has a tile. Period.
+
+- If you use `col-span` and `row-span` to size tiles asymmetrically, you must verify that the resulting cells fully tile the grid area — no empty col/row positions left behind. Empty cells produce the unbalanced "lonely tile next to dead space" look that reads as broken, makes the page feel anxious, and signals to a procurement audience that the contractor is sloppy.
+- The fix when a span pattern leaves an orphan cell is one of: (a) resize a neighboring tile to absorb the cell, (b) add a tile to fill it, or (c) abandon the asymmetric pattern and revert to a symmetric grid. Never ship the orphan.
+- Test at every breakpoint. A balanced lg layout can become an orphan-cell layout at md when col-counts change. `grid-flow-row-dense` does NOT solve this — it reorders, it doesn't fill empty cells.
+- A symmetric 2-row × 3-col grid filled with 4 tiles (one tile spanning 2 rows, three tiles 1×1) reads cleaner than an asymmetric 3-row arrangement with a missing cell. Default to symmetry when the case-study count is awkward; reach for asymmetry only when you have enough tiles to fill it.
+- **The math check:** `Σ (tile.col-span × tile.row-span) === grid.cols × grid.rows`. If that equation doesn't balance, the layout has orphan cells. Run the math before shipping.
+
+### Conversion-led composition — the eye must land on the CTA (added 2026-05-03)
+
+When a section has a CTA — a button, a form, a phone number — the section's job is to deliver the user to that CTA. Decoration that competes with the CTA is decoration that costs money. **This rubric supersedes the magazine-quality instinct anywhere the two conflict.**
+
+Rules for any section containing a CTA:
+
+- **The CTA is the visual climax.** The eye flows H2 → supporting content → CTA. If the CTA is buried under a floating overlay, off in a corner, or visually outweighed by a decorative image, the layout has failed regardless of how pretty it is.
+- **No decorative images in conversion sections.** "Decorative" = adds no information the copy doesn't already deliver. A photo of a building, a stock crew shot, an abstract pattern — all decoration. Drop them. Use the visual real estate for the CTA. Genuinely informational images (a real customer's roof, a thermal-scan output, a diagram showing a process) earn their place; everything else competes with the conversion goal and loses.
+- **No floating overlays burying the CTA.** Designy patterns like "card overlapping image, with CTA inside the card" trade conversion for visual interest. They look great in a portfolio and underperform in conversion tests. If the CTA matters more than the visual flourish, build the section around the CTA, not around the flourish.
+- **Flag-red belongs on the conversion CTA.** A full-width flag-red banner with the CTA in white is the textbook conversion pattern. It anchors the eye, matches brand canon (flag-red is the sole interaction color), and earns its real estate. Use it.
+- **Single dominant CTA per section.** If a section needs two CTAs (primary + secondary), the primary should be ≥1.5× the visual weight of the secondary (size, color, contrast). A row of two equally-sized buttons is a tie — both lose.
+- **Conversion-section composition pattern (default):** H2 + subhead → educational content (3-up grid, list, table — uniform visual weight) → full-width flag-red CTA banner with the single primary action. Eye flows top-to-bottom, lands on the CTA, has nowhere else to go.
+- **The decoration filter:** before shipping a conversion section, ask "what does this image do for the conversion?" If the answer is "it looks nice," it's decoration — drop it. If the answer is "it shows the prospect what they get / proves the claim above / clarifies the process," it earns its place.
+
+If the magazine-quality rubric wants a beautiful image and the conversion rubric wants the image gone — **the conversion rubric wins. Every time.** CLAUDE.md §4 is the gate, not the visual portfolio.
 
 ## References
 

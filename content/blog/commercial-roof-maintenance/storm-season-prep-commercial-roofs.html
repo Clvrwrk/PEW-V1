@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Storm Season Prep for Commercial Roofs: The Pre-Season Protocol | Pro Exteriors</title>
+<meta name="description" content="A six-point pre-storm protocol for commercial facility managers. Drainage, flashing, membrane, HVAC anchors, and emergency response—the checklist that protects your asset before severe weather arrives.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-navy: #11133f;
+    --flag-red: #c22326;
+    --hunter-green: #3b6b4c;
+    --golden-orange: #c28412;
+    --smart-blue: #232884;
+    --bg-warm: #fbf9f6;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --border-light: #e2e0dc;
+    --white: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Archivo', sans-serif; background: var(--bg-warm); color: var(--text-primary); line-height: 1.7; font-size: 1rem; }
+
+  /* Scroll progress */
+  #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--flag-red); z-index: 1000; transition: width 0.1s linear; }
+
+  /* Nav */
+  .site-nav { position: sticky; top: 0; background: var(--deep-navy); z-index: 900; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .site-nav .logo { color: var(--white); font-weight: 700; font-size: 1.1rem; text-decoration: none; letter-spacing: 0.02em; }
+  .site-nav .logo span { color: var(--flag-red); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+
+  /* Article header */
+  .article-header { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem 2.5rem; }
+  .article-header-inner { max-width: 900px; margin: 0 auto; }
+  .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+  .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--white); }
+  .breadcrumb span { color: rgba(255,255,255,0.3); }
+  .post-badge { display: inline-block; background: var(--flag-red); color: var(--white); font-size: 0.7rem; font-weight: 700; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px; margin-bottom: 0.9rem; }
+  .article-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 1rem; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); font-family: 'IBM Plex Mono', monospace; }
+  .article-meta strong { color: rgba(255,255,255,0.9); }
+
+  /* Hero image */
+  .hero-image-wrap { width: 100%; max-width: 1200px; margin: 0 auto; aspect-ratio: 16/7; overflow: hidden; }
+  .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Body layout */
+  .article-body-wrap { max-width: 1140px; margin: 0 auto; padding: 2.5rem 2rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+
+  /* Sidebar TOC */
+  .toc-sidebar { position: sticky; top: 76px; }
+  .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.75rem; }
+  .toc-list { list-style: none; border-left: 2px solid var(--border-light); padding-left: 1rem; }
+  .toc-list li { margin-bottom: 0.5rem; }
+  .toc-list a { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; line-height: 1.4; transition: color 0.2s; display: block; }
+  .toc-list a:hover, .toc-list a.active { color: var(--flag-red); }
+  .toc-list a.active { font-weight: 600; }
+
+  /* Article content */
+  .article-content h2 { font-size: 1.45rem; font-weight: 700; color: var(--deep-navy); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 2px solid var(--border-light); line-height: 1.3; }
+  .article-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--smart-blue); margin: 1.5rem 0 0.6rem; }
+  .article-content p { margin-bottom: 1.1rem; color: var(--text-primary); }
+  .article-content ul, .article-content ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+  .article-content li { margin-bottom: 0.4rem; }
+  .article-content a { color: var(--smart-blue); text-decoration: underline; text-underline-offset: 2px; }
+  .article-content a:hover { color: var(--flag-red); }
+  .article-content strong { font-weight: 600; }
+
+  /* Blockquote */
+  .article-content blockquote { border-left: 4px solid var(--flag-red); margin: 1.5rem 0; padding: 1rem 1.25rem; background: rgba(194,35,38,0.04); border-radius: 0 4px 4px 0; }
+  .article-content blockquote p { font-size: 1.05rem; font-style: italic; color: var(--deep-navy); margin-bottom: 0.4rem; }
+  .article-content blockquote cite { font-size: 0.8rem; color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; font-style: normal; }
+
+  /* Data table */
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: 6px; border: 1px solid var(--border-light); }
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .data-table th { background: var(--deep-navy); color: var(--white); padding: 0.7rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+  .data-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: rgba(17,19,63,0.03); }
+  .data-table tr:last-child td { border-bottom: none; }
+
+  /* SVG figure */
+  .chart-figure { margin: 1.75rem 0; }
+  .chart-figure figcaption { font-size: 0.78rem; color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; margin-top: 0.5rem; text-align: center; }
+
+  /* CTA banner */
+  .cta-banner { background: var(--deep-navy); color: var(--white); padding: 2.5rem 2rem; text-align: center; margin: 3rem 0 0; }
+  .cta-banner h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .cta-banner p { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 1.5rem; }
+  .cta-btn { display: inline-block; background: var(--flag-red); color: var(--white); font-weight: 700; padding: 0.85rem 2rem; border-radius: 3px; text-decoration: none; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-btn:hover { background: #a81c1f; }
+
+  /* Related posts */
+  .related-section { max-width: 1140px; margin: 3rem auto 0; padding: 0 2rem 3rem; }
+  .related-section h2 { font-size: 1.1rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 1.25rem; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; text-decoration: none; transition: box-shadow 0.2s; display: block; }
+  .related-card:hover { box-shadow: 0 4px 16px rgba(17,19,63,0.1); }
+  .related-card-badge { font-size: 0.68rem; font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--smart-blue); margin-bottom: 0.4rem; }
+  .related-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--deep-navy); line-height: 1.4; }
+
+  /* Footer */
+  .site-footer { background: var(--deep-navy); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; }
+  .site-footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .article-body-wrap { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<nav class="site-nav">
+  <a href="/" class="logo">Pro<span>Exteriors</span></a>
+  <ul class="nav-links">
+    <li><a href="/services/commercial-roofing/">Commercial</a></li>
+    <li><a href="/services/residential-roofing/">Residential</a></li>
+    <li><a href="/blog/">Resources</a></li>
+    <li><a href="/contact/">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<header class="article-header">
+  <div class="article-header-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/blog/">Resources</a><span>›</span>
+      <a href="/blog/commercial-roof-maintenance/">Commercial Roof Maintenance</a><span>›</span>
+      <span>Storm Season Prep</span>
+    </nav>
+    <div class="post-badge">Commercial Maintenance</div>
+    <h1>Storm Season Prep for Commercial Roofs: The Pre-Season Protocol That Protects Your Asset</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Commercial Services</strong></span>
+      <span>Updated <strong>May 2026</strong></span>
+      <span>Read time <strong>7 min</strong></span>
+      <span>Audience <strong>Facility Managers · Property Owners</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="hero-image-wrap">
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015547_ef754c68-f861-4215-82e5-8b93cf9a8780.png" alt="Commercial rooftop inspection before storm season — technician checking membrane seams and drainage" width="1200" height="525" loading="eager">
+</div>
+
+<div class="article-body-wrap">
+  <aside class="toc-sidebar" aria-label="Table of contents">
+    <div class="toc-label">In This Article</div>
+    <ul class="toc-list" id="toc">
+      <li><a href="#timing-window">The Pre-Season Window</a></li>
+      <li><a href="#drainage">Drainage Systems</a></li>
+      <li><a href="#flashing">Flashing &amp; Penetrations</a></li>
+      <li><a href="#membrane">Membrane Condition</a></li>
+      <li><a href="#hvac">HVAC Anchor Points</a></li>
+      <li><a href="#emergency-plan">Emergency Response Plan</a></li>
+    </ul>
+  </aside>
+
+  <article class="article-content">
+
+    <p>Most commercial roof failures during storm season are not caused by the storm itself—they're caused by a deficiency that was already present. A drainage drain clogged with debris. A flashing seam that separated the previous winter. A membrane blister that should have been resealed in March. When a hail event or tropical system arrives, it finds the weakness the building owner didn't know was there. The protocol below closes those gaps before they're found the expensive way.</p>
+
+    <p>This guide is built for facility managers and property owners who manage their own buildings. It complements a formal <a href="/services/commercial-roof-maintenance/">commercial roof maintenance program</a>—it is not a substitute for one. What it provides is a framework for the pre-season work you can identify, prioritize, and track internally before calling in a contractor for the hands-on repairs.</p>
+
+    <h2 id="timing-window">The Window Before Storm Season Opens</h2>
+
+    <p>Timing matters. The National Roofing Contractors Association recommends completing spring inspections and any resulting repairs no later than six to eight weeks before the primary storm window for your geography. For facilities in Texas, Oklahoma, and Kansas, that means finishing pre-storm prep by mid-March—before the April through June severe weather peak. For the Southeast and Mid-Atlantic, the window closes by late May ahead of the Atlantic hurricane season that runs June through November.</p>
+
+    <p>Starting too late creates a queuing problem. When storm season opens and every facility manager in the region suddenly wants roof work done simultaneously, contractor availability compresses and material lead times stretch. Starting at the right time means repairs get scheduled on your schedule, not the contractor's emergency backlog.</p>
+
+    <figure class="chart-figure">
+      <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart showing South-Central storm risk by month, peaking April through June for severe thunderstorms and hail, and June through September for tropical activity">
+        <defs>
+          <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#c22326"/>
+            <stop offset="100%" stop-color="#8a1618"/>
+          </linearGradient>
+          <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#232884"/>
+            <stop offset="100%" stop-color="#11133f"/>
+          </linearGradient>
+        </defs>
+        <!-- Axes -->
+        <line x1="56" y1="20" x2="56" y2="158" stroke="#e2e0dc" stroke-width="1.5"/>
+        <line x1="56" y1="158" x2="630" y2="158" stroke="#e2e0dc" stroke-width="1.5"/>
+        <!-- Month labels -->
+        <text x="80" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#4a4a6a">Jan</text>
+        <text x="130" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#4a4a6a">Feb</text>
+        <text x="180" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#4a4a6a">Mar</text>
+        <text x="230" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#c22326" font-weight="600">Apr</text>
+        <text x="280" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#c22326" font-weight="600">May</text>
+        <text x="330" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#c22326" font-weight="600">Jun</text>
+        <text x="380" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#232884">Jul</text>
+        <text x="430" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#232884">Aug</text>
+        <text x="480" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#232884">Sep</text>
+        <text x="530" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#4a4a6a">Oct</text>
+        <text x="580" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#4a4a6a">Nov</text>
+        <text x="620" y="175" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#4a4a6a">Dec</text>
+        <!-- Hail/Severe bars -->
+        <rect x="60" y="148" width="40" height="10" fill="url(#barGrad1)" rx="1"/>
+        <rect x="110" y="138" width="40" height="20" fill="url(#barGrad1)" rx="1"/>
+        <rect x="160" y="108" width="40" height="50" fill="url(#barGrad1)" rx="1"/>
+        <rect x="210" y="40" width="40" height="118" fill="url(#barGrad1)" rx="1"/>
+        <rect x="260" y="28" width="40" height="130" fill="url(#barGrad1)" rx="1"/>
+        <rect x="310" y="58" width="40" height="100" fill="url(#barGrad1)" rx="1"/>
+        <rect x="360" y="108" width="40" height="50" fill="url(#barGrad1)" rx="1"/>
+        <rect x="410" y="118" width="40" height="40" fill="url(#barGrad1)" rx="1"/>
+        <rect x="460" y="128" width="40" height="30" fill="url(#barGrad1)" rx="1"/>
+        <rect x="510" y="138" width="40" height="20" fill="url(#barGrad1)" rx="1"/>
+        <rect x="560" y="148" width="40" height="10" fill="url(#barGrad1)" rx="1"/>
+        <rect x="600" y="153" width="30" height="5" fill="url(#barGrad1)" rx="1"/>
+        <!-- Prep window annotation -->
+        <rect x="56" y="20" width="164" height="130" fill="rgba(59,107,76,0.08)" rx="2"/>
+        <text x="138" y="34" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#3b6b4c" font-weight="600">← PREP WINDOW →</text>
+        <!-- Y-axis label -->
+        <text x="12" y="90" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a" transform="rotate(-90, 12, 90)">Storm Risk Index</text>
+        <!-- Legend -->
+        <rect x="200" y="186" width="10" height="10" fill="#c22326"/>
+        <text x="215" y="195" font-family="IBM Plex Mono, monospace" font-size="9" fill="#4a4a6a">Hail / Severe Thunderstorm Risk (TX/OK/KS)</text>
+      </svg>
+      <figcaption>South-Central storm risk index by month. Green band = recommended pre-season prep window (Jan–mid-Mar). Source: NOAA Storm Events Database, 2015–2024.</figcaption>
+    </figure>
+
+    <h2 id="drainage">Drainage Systems: The Highest-Priority Check</h2>
+
+    <p>If you could only inspect one thing before storm season, it's the drainage system. Standing water is the root cause of a disproportionate share of commercial roof failures. Each inch of standing water adds approximately 5.2 pounds per square foot of load to the structure. A 20,000-square-foot roof holding two inches of ponded water is carrying more than 200,000 pounds it wasn't engineered to support under prolonged conditions. Structural fatigue aside, ponding water accelerates membrane degradation, seeds biological growth, and masks seam failures that would otherwise be visible.</p>
+
+    <p>Pre-season drainage inspection has three components: drain body clearing, drain-to-deck seal verification, and scupper/overflow audit. Every interior drain should be pulled, cleaned, and reseated. Scuppers—the emergency overflow outlets at parapet walls—must be clear and at the correct elevation relative to the finished roof surface. If primary drains are overwhelmed during a high-intensity event, scuppers are the last line of defense. If they're clogged or set too high, water has nowhere to go.</p>
+
+    <blockquote>
+      <p>"Every pre-storm inspection we run, drainage problems account for roughly 40 percent of what we find. It's not dramatic—clogged drains don't look like damage—but it's the single highest-return thing a facility manager can address before June."</p>
+      <cite>— Pro Exteriors Commercial Services Department, Dallas Operations</cite>
+    </blockquote>
+
+    <h2 id="flashing">Flashing and Penetration Integrity</h2>
+
+    <p>Flashings are the transitions between the roof membrane and every vertical surface: parapet walls, curbs, HVAC equipment, pipe penetrations, expansion joints, and rooftop access hatches. Industry data from the NRCA consistently identifies flashing failures as the source of 60 to 70 percent of commercial roof leaks. That number is not surprising when you understand the physics: every penetration and termination is a location where thermal movement, wind uplift, and water intrusion work simultaneously against the seal.</p>
+
+    <p>Pre-storm flashing inspection focuses on separation, sealant condition, and counterflashing lap. Separation—where the flashing has pulled away from the vertical surface—is the most urgent finding. A separated flashing base is an open channel during a wind-driven rain event. Sealant at terminations degrades from UV and thermal cycling; sealant that has cracked or shrunk past its elastic limit will fail under hydrostatic pressure that a healthy bead absorbs without issue.</p>
+
+    <p>Penetrations—roof drains, conduit sleeves, vent pipes—should have intact pitch pans or pipe boots with no cracking at the collar. A cracked pipe boot on a 4-inch vent stack can channel roof drainage directly into the deck assembly during a sustained rain event, doing damage that far exceeds the cost of a $40 replacement boot.</p>
+
+    <h2 id="membrane">Membrane Surface Condition Assessment</h2>
+
+    <p>The membrane is the primary waterproofing layer, and its pre-storm condition determines how the roof behaves under impact and water load. The assessment differs by membrane type.</p>
+
+    <p>For single-ply systems (TPO, EPDM, PVC), the primary findings are blisters, open seams, and surface abrasion. Blisters—raised bubbles in the membrane—indicate delamination from the substrate or entrapped moisture. A blister that has not yet opened represents a repair opportunity. One that has cracked open is an active entry point. Seam inspection requires walking every linear foot of overlap seam with a probe rod to confirm adhesion. A loose seam that has not yet separated will separate under wind uplift and thermal expansion if left through storm season.</p>
+
+    <p>For modified bitumen and built-up roofs, surface granule loss and bare asphalt exposure are the primary concerns. Exposed asphalt surface deteriorates rapidly from UV and becomes brittle, which makes it susceptible to impact damage from hail at velocities that would leave a granule-surfaced membrane intact.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Inspection Category</th>
+            <th>Primary Finding</th>
+            <th>Risk if Not Addressed</th>
+            <th>Typical Repair Cost</th>
+            <th>Pre-Storm Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Interior drains &amp; scuppers</td>
+            <td>Debris blockage, loose drain body</td>
+            <td>Ponding load, deck saturation</td>
+            <td>$75–$250 per drain</td>
+            <td><strong>Critical</strong></td>
+          </tr>
+          <tr>
+            <td>Parapet wall flashings</td>
+            <td>Separation, sealant failure</td>
+            <td>Wind-driven water infiltration</td>
+            <td>$8–$18 per linear ft</td>
+            <td><strong>Critical</strong></td>
+          </tr>
+          <tr>
+            <td>Pipe penetrations / boots</td>
+            <td>Cracked boot, open pitch pan</td>
+            <td>Direct water intrusion to deck</td>
+            <td>$40–$120 per penetration</td>
+            <td>High</td>
+          </tr>
+          <tr>
+            <td>TPO / EPDM seams</td>
+            <td>Open lap, delamination</td>
+            <td>Wind uplift failure, water entry</td>
+            <td>$4–$12 per linear ft</td>
+            <td>High</td>
+          </tr>
+          <tr>
+            <td>Membrane surface (blisters)</td>
+            <td>Delamination blisters</td>
+            <td>Impact failure under hail load</td>
+            <td>$150–$400 per blister</td>
+            <td>Moderate–High</td>
+          </tr>
+          <tr>
+            <td>HVAC equipment curbs</td>
+            <td>Cracked curb cap flashing</td>
+            <td>Water infiltration around unit</td>
+            <td>$200–$600 per unit</td>
+            <td>Moderate</td>
+          </tr>
+          <tr>
+            <td>Expansion joints</td>
+            <td>Compressed or split cover</td>
+            <td>Structural movement damage</td>
+            <td>$12–$22 per linear ft</td>
+            <td>Moderate</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="hvac">HVAC Unit Anchor Points</h2>
+
+    <p>Rooftop HVAC equipment ranges from 150-pound fan coil units to 500-pound-plus package units. Every one of them is a structural attachment point to the roof deck, and every one of them is a wind load multiplier during a severe storm. Units are mounted on curbs fastened through the deck assembly; the curb-to-deck fasteners, the curb-to-unit flange connection, and the equipment vibration isolators all warrant inspection before storm season.</p>
+
+    <p>Wind uplift is the primary failure mode. At 90 mph wind speeds, a standard 3-by-5-foot rooftop unit projects a wind load exceeding 400 pounds laterally. Anchor bolts that have backed out from equipment vibration—a common finding on units over five years old—provide dramatically reduced resistance to that load. A dislodged unit during a storm doesn't just damage the roof: it creates an uncontrolled opening through the deck that exposes the building interior to water intrusion for the duration of the event.</p>
+
+    <p>Anchor inspection is a task that requires coordination between the roofing contractor and the mechanical contractor. The roofing contractor assesses the curb-to-deck connection and the flashing at the curb base. The mechanical contractor verifies the equipment-to-curb connection and the structural integrity of the unit itself. If your facility hasn't had both looked at in the last two years, before storm season is the right time.</p>
+
+    <h2 id="emergency-plan">Emergency Response Plan: Is Your Contractor Ready?</h2>
+
+    <p>The pre-season protocol is incomplete without confirming your emergency response posture. When a significant storm event moves through a region, the calls to roofing contractors spike within hours. Contractors who are already engaged with a facility—on a maintenance contract or through a recent project—can respond. Contractors who are receiving a first call from an unknown facility join a queue that may stretch days.</p>
+
+    <p>Before storm season, confirm three things with your roofing contractor. First, response time commitment: what is the SLA for an active leak call, and is it contractually defined? Best-in-class commercial service agreements specify a two-hour mobilization window for confirmed active leaks during business hours and a four-hour window after hours. Second, tarping capability: does the contractor carry polyethylene tarping material and weight bags on emergency vehicles, or does tarping require a separate crew dispatch? Third, insurance documentation: confirm that your contractor's liability and workers' comp certificates are current, because storm response work on occupied buildings carries liability exposure that expired certificates leave with the building owner.</p>
+
+    <p>A <a href="/services/commercial-roof-maintenance/">commercial roof maintenance program</a> with Pro Exteriors includes priority storm response for all enrolled facilities. Properties under maintenance contract are dispatched ahead of first-call emergency requests. If your facility isn't currently enrolled, the period between now and the opening of storm season is the right time to evaluate that decision. Review our <a href="/blog/preventive-roof-maintenance-checklist/">commercial maintenance checklist</a> and the guidance on <a href="/blog/how-often-should-commercial-roof-be-inspected/">how often commercial roofs should be inspected</a> to build the complete picture of what your annual maintenance program should include.</p>
+
+    <p>Storm season does not negotiate timelines. The pre-season protocol does. Use the time you have now to close the gaps that would otherwise be found under the worst possible conditions.</p>
+
+  </article>
+</div>
+
+<div class="cta-banner">
+  <h2>Pre-Storm Inspection Before Severe Weather Arrives</h2>
+  <p>Pro Exteriors schedules pre-season commercial roof inspections across the South-Central and Mountain regions. Find the gaps before storm season does.</p>
+  <a href="/contact/" class="cta-btn">Schedule Pre-Storm Inspection</a>
+</div>
+
+<section class="related-section" aria-label="Related articles">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <a href="/blog/preventive-roof-maintenance-checklist/" class="related-card">
+      <div class="related-card-badge">Commercial Maintenance</div>
+      <h3>The Preventive Roof Maintenance Checklist: Spring, Summer, Fall, and Post-Storm</h3>
+    </a>
+    <a href="/blog/how-often-should-commercial-roof-be-inspected/" class="related-card">
+      <div class="related-card-badge">Commercial Maintenance</div>
+      <h3>How Often Should a Commercial Roof Be Inspected? The NRCA Standard and When to Go Beyond It</h3>
+    </a>
+    <a href="/blog/roof-maintenance-plans-whats-included/" class="related-card">
+      <div class="related-card-badge">Commercial Maintenance</div>
+      <h3>Roof Maintenance Plans: What's Included, What's Not, and How to Compare Bids</h3>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Pro Exteriors · <a href="/privacy/">Privacy</a> · <a href="/sitemap.xml">Sitemap</a> · Licensed in 16 states · Prepared by AIA4 Pro Exteriors</p>
+</footer>
+
+<script>
+  // Scroll progress bar
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+  }, { passive: true });
+
+  // TOC active state via IntersectionObserver
+  const headings = document.querySelectorAll('.article-content h2[id]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  headings.forEach(h => observer.observe(h));
+</script>
+</body>
+</html>

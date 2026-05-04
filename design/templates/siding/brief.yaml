@@ -1,0 +1,99 @@
+# Residential Siding Installation — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 on 2026-05-03
+# GBP category confirmed; cross-sell with roofing on storm-damage jobs
+
+slug: siding
+template: residential-service
+location: null
+target_keyword: "siding installation"
+secondary_keywords:
+  - "residential siding contractor"
+  - "fiber cement siding"
+  - "vinyl siding installation"
+  - "siding replacement"
+  - "home siding contractor"
+  - "storm damage siding repair"
+audience: residential-homeowner
+intent: mixed                          # Planned upgrade + storm-driven replacement
+hypothesis: |
+  Siding installation (12,100 vol, LOW comp, $21.79 CPC) is a defensible
+  cross-sell with roofing — storm events that damage a roof often damage
+  the siding too. Pro Exteriors as the storm-damage one-stop contractor
+  (roof + gutters + siding) is a positioning story no competitor has claimed.
+  A page that leads with the storm-damage cross-sell and backs it with
+  material depth (fiber-cement vs vinyl vs engineered wood) will:
+    (a) rank in the top 5 for "siding installation" in served states
+        within 6 months; AND
+    (b) contribute ≥10% increase in combined siding+roof job revenue
+        within 6 months, measurable in CRM by tracking dual-service
+        quotes that originated from the siding page.
+
+seo_copy:
+  metadata:
+    title: "Siding Installation & Replacement — Pro Exteriors | TX, CO, KS, MO & GA"
+    meta_description: "Pro Exteriors installs fiber-cement, vinyl & engineered wood siding across 5 states. Bundle siding with your roof project for one crew, one visit. Free assessment."
+    canonical: "https://proexteriorsus.com/residential/siding"
+  body_path: null
+  html_path: null
+
+figma:
+  reuse_template: residential-pillar
+  section_plan:
+    - id: hero
+      component: ServiceHero
+      notes: "H1 = 'Residential Siding Installation by Pro Exteriors'. Primary CTA: 'Get a Free Siding Assessment'. Secondary: 'Bundle with Your Roof Project'."
+    - id: trust_strip
+      component: inline
+      notes: "Storm Damage Specialists | Roof + Siding Bundle | 5 States | [REPRESENTATIVE] rating | Licensed & Insured"
+    - id: service_overview
+      component: SplitIntro
+      notes: "Left: the storm-damage one-stop story — roof and siding on the same job, same insurance claim. Right: material quality credentials."
+    - id: materials_grid
+      component: BenefitsGrid
+      notes: "3 cards: Fiber-Cement Siding / Vinyl Siding / Engineered Wood Siding. Each: durability, best-for, maintenance level, cost tier."
+    - id: local_experts_proof
+      component: StatBand + Testimonial
+      notes: "Storm-belt coverage positioning. Siding jobs completed [REPRESENTATIVE]. Testimonial [REPRESENTATIVE]."
+    - id: process
+      component: QualityProcess
+      notes: "4 steps: Free Assessment & Measurement → Material Selection → Scheduled Installation → Final Inspection & Cleanup."
+    - id: case_studies
+      component: CaseStudyCard × 3
+      notes: "Storm damage siding replacements. Paired with roof work where possible. All [REPRESENTATIVE]."
+    - id: bundle_band
+      component: SplitIntro
+      notes: "Roof + siding bundle: one crew, one project, one insurance claim. Link to /residential/roof-replacement."
+    - id: faq
+      component: FAQ
+      notes: "(1) Can I replace siding and roofing at the same time? (2) What is the most durable siding material for hail-prone areas? (3) Does homeowners insurance cover storm-damaged siding? (4) How long does siding installation take?"
+    - id: final_cta
+      component: CTABanner
+      notes: "Primary: 'Schedule Your Free Siding Assessment'. Secondary: 'Bundle with a Roof Replacement'."
+
+output:
+  page: "src/pages/residential/siding/index.astro"
+  assets: "src/assets/residential/siding/"
+
+silo:
+  role: T2-money-page
+  parent: "/residential"
+  parent_links_to_this_via: "fiber-cement and vinyl siding"
+  inbound_anchor_from_parent: descriptive
+  cross_links_to:
+    - "/residential/roof-replacement"
+    - "/residential/storm-damage-repair"
+    - "/residential/seamless-gutters"
+
+flags:
+  - id: hail-resistant-siding-claim
+    severity: warning
+    message: |
+      Fiber-cement and some engineered wood are marketed as hail-resistant.
+      Do NOT claim specific impact-resistance ratings (Class 3, Class 4)
+      without Chris confirming the specific products Pro Exteriors installs.
+      Use directional language: "more durable than vinyl in hail-prone areas."
+
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

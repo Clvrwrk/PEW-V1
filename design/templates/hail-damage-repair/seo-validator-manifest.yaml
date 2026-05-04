@@ -1,0 +1,100 @@
+# aia4-seo-validator manifest — Hail Damage Repair
+# Phase 1 · 2026-05-03
+
+target_keyword:
+  keyword: "hail damage roofing"
+  search_volume: 8100
+  cpc_usd: 20.76
+  competition: LOW
+  read: |
+    8,100 national volume at LOW competition. Pro Exteriors operates in the US hail
+    belt (TX/CO/KS/MO) where local multiplier is likely 1.5–2×. Mixed intent:
+    immediate post-storm transactional ("book inspection now") and research
+    ("how do I know if I have damage?"). Page must serve both — damage guide anchors
+    the research segment; inspection CTA converts both. "Hail resistant shingles"
+    secondary is a natural in-session upsell.
+
+primary_secondaries:
+  - keyword: "hail damage roof repair"
+    search_volume: 6600
+    cpc_usd: 18.40
+    competition: LOW
+    read: "Near-exact. H1 must include 'hail damage roof repair' or 'hail damage roofing'."
+  - keyword: "hail damage roof inspection"
+    search_volume: 2900
+    cpc_usd: 14.60
+    competition: LOW
+    read: "Inspection intent — anchors free-inspection CTA and process step 2."
+  - keyword: "how to tell if hail damaged roof"
+    search_volume: 3600
+    cpc_usd: 6.20
+    competition: LOW
+    read: "Research intent — anchors damage guide section. Use as implicit H2."
+  - keyword: "hail resistant shingles"
+    search_volume: 5400
+    cpc_usd: 8.80
+    competition: LOW
+    read: "Upsell keyword. Seed in asphalt damage card with link to /residential/asphalt-shingles."
+  - keyword: "roof hail damage insurance"
+    search_volume: 2400
+    cpc_usd: 12.30
+    competition: LOW
+    read: "Insurance integration — anchors insurance band section."
+
+lsi_keywords:
+  damage_indicators:
+    - { kw: "missing granules roof", vol: 1900 }
+    - { kw: "hail dents gutters", vol: 1300 }
+    - { kw: "bruised shingles hail", vol: 720 }
+    - { kw: "cracked shingles hail", vol: 1100 }
+    - { kw: "hail impact marks roof", vol: 590 }
+  materials:
+    - { kw: "hail damage asphalt shingles", vol: 2900 }
+    - { kw: "hail damage metal roof", vol: 1900 }
+    - { kw: "class 4 impact resistant shingles", vol: 2400 }
+  geographic_moats:
+    - TX, CO, KS, MO (hail belt — 3–4× each), GA (2×)
+    - hail belt: 3–5×
+
+term_frequency_targets:
+  "hail damage":
+    target_range: "16–24"
+    placement: "Title (1), H1 (1), meta (2), first 100 words (2), headings (4–5), body (6–10)"
+  "hail damage roofing":
+    target_range: "5–8"
+  "roof repair":
+    target_range: "8–12"
+  "hail resistant":
+    target_range: "3–5"
+  "inspection":
+    target_range: "8–12"
+  "insurance":
+    target_range: "6–10"
+  "granule":
+    target_range: "4–6"
+  "Class 4":
+    target_range: "2–4"
+  "hail belt":
+    target_range: "3–5"
+  geographic_moats: "TX/CO/KS/MO 3–4× each, GA 2×"
+
+insurance_copy_gate:
+  - gate: "no-unconfirmed-insurance-discount"
+    rule: |
+      Do NOT claim that Class 4 impact-resistant shingles result in insurance premium
+      discounts unless Chris confirms this is factual in Pro Exteriors' served states.
+      The claim varies by carrier and state. Permitted: 'some insurance carriers offer
+      premium discounts for Class 4 shingles — check with your carrier.' Blocked:
+      'Class 4 shingles lower your insurance premium' (unqualified claim).
+
+schema_types_required:
+  - type: RoofingContractor
+  - type: Service
+    notes: "serviceType: Hail Damage Roof Repair"
+  - type: BreadcrumbList
+  - type: FAQPage
+
+status: pass
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

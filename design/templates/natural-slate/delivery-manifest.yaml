@@ -1,0 +1,83 @@
+# Delivery manifest — /residential/natural-slate
+# Phase 6 of 6 — AIA4 PageBuilder · 2026-05-03
+
+slug: natural-slate
+url: /residential/natural-slate
+title: "Natural Slate Roofing — Pro Exteriors | Expert Installation & Replacement"
+target_keyword: "slate roof installation"
+keyword_volume: 1600
+keyword_cpc_usd: 10.30
+keyword_competition: LOW
+template: residential-service (standard hero — permanence/craftsmanship tone; NOT emergency variant)
+silo_role: T2-money-page — premium ceiling of the residential silo; highest job value, lowest volume, fastest-ranking opportunity
+silo_parent: /residential
+
+hypothesis:
+  a: "Top-5 organic for 'slate roof installation' in TX/CO/KS/MO/GA geos within 6 months (LOW competition; achievable)"
+  b: "≥8 qualified slate inquiries per month within 90 days post-launch (soft metric — slate is very low volume, extreme job value: $40K–$100K+)"
+  note: |
+    Volume is modest (1,600/mo) but conversion math is outsized — a single natural slate
+    installation has more revenue impact than multiple standard residential replacements.
+    LOW competition means ranking is achievable quickly. Page earns organic rank via depth
+    and technical correctness, earns conversion via structural assessment CTA which doubles
+    as the lead pre-qualifier. Homeowners who can't support slate are identified at
+    assessment, not after estimate — this protects the sales team's time.
+
+files:
+  seo_validator:   design/templates/natural-slate/seo-validator-manifest.yaml
+  page_link:       design/templates/natural-slate/page-link-manifest.yaml
+  copy:            design/templates/natural-slate/copy.yaml
+  assembled_page:  src/pages/residential/natural-slate/index.astro
+
+hard_gates:
+  performance:    pending-localhost-verification
+  accessibility:  structural-pass-pending-browser-verification
+  measurement:    pass-(5 CTAs instrumented with data-event-* attributes)
+  trust:          blocked-pending-source-material
+  schema:         pass-pending-rich-results-test (RoofingContractor + Service + BreadcrumbList + FAQPage)
+  forms:          pending (/contact?intent=slate-assessment end-to-end test required)
+
+ship_blockers:
+  - "Hero background image [REPRESENTATIVE] — natural slate installation action shot (custom home or historic restoration preferred)"
+  - "Service overview image [REPRESENTATIVE] — Vermont slate tiles on historic home"
+  - "Investment band image [REPRESENTATIVE] — close-up Vermont hard slate installation"
+  - "Testimonial — real customer (natural slate installation or restoration, any served state) + signed release"
+  - "All 3 case studies — real slate projects + signed releases (historic restoration or custom new construction preferred)"
+  - "Slate installations stat [REPRESENTATIVE] — confirm count with Pro Exteriors"
+  - "Google rating [REPRESENTATIVE] — pull from live GBP profile"
+  - "CRITICAL: Confirm with Chris that Pro Exteriors installs synthetic slate before ship. If they do NOT offer synthetic slate, remove the Synthetic Slate card from slate_types_grid and update references in service_overview body and FAQ answer 2."
+  - "Localhost Lighthouse run — mobile ≥95 Performance required"
+  - "Phone number in copy (none on this page — assessment form only; verify /contact?intent=slate-assessment routes correctly)"
+
+internal_links:
+  out_placed: 3
+  out_detail:
+    - up:    "/residential (near-match: 'residential roofing specialists' in stat-band body text)"
+    - across: "/residential/tile-clay-roofing (anchor: 'clay and tile roofing' — investment_band)"
+    - across: "/residential/roof-replacement (anchor: 'roof replacement' — investment_band + final CTA secondary 'Compare All Roofing Materials')"
+  in_live:
+    - "/residential/tile-clay-roofing — 'natural slate roofing' anchor, confirmed live via cost_value section (built Task 10)"
+  in_needed:
+    - "/residential parent — 'natural slate installation' anchor, needs wiring"
+    - "/residential/roof-replacement — 'natural slate roofing' anchor, wire in materials comparison section post-launch"
+
+structural_notes:
+  - "structural_weight_gate: PASSES — CRITICAL gate. Three substantial placements:"
+  - "  Placement 1 (service_overview): Full paragraph explaining 14–18 lbs/sq ft vs. asphalt 2–4 lbs/sq ft. Assessment named as non-optional."
+  - "  Placement 2 (process step 1): Structural Feasibility Assessment is the leading, featured step. Includes explicit 'natural slate is not viable here, and here's why' language. Step 1 card has accent border to visually distinguish it."
+  - "  Placement 3 (FAQ answer 2): Detailed explanation of structural variables (rafter size, span, decking), weight comparison, and synthetic slate fallback for homes that don't qualify."
+  - "  Three independent substantive placements. Gate passes."
+  - "synthetic_slate_gate: INFO — Flag active. Synthetic slate card present in slate-types grid with explicit [REPRESENTATIVE] flag note. Ship blocker written. Do NOT remove the card before confirming with Chris — if they do offer synthetic slate, the card is a legitimate conversion path for homeowners who structurally can't support natural slate. If they do NOT offer it, cut the card and update the two body references."
+  - "tone_gate: PASSES — Permanence/craftsmanship framing throughout. No urgency language. Hero subhead is philosophical ('investment calculus is different when the material outlasts the mortgage'), not imperative. No 'act now' or time-pressure CTAs."
+  - "hero_cta: 'Is My Home a Candidate?' anchors to id='structural' (process section) — the most relevant structural-gate entry point. No background image slot loaded (CSS gradient hero only until representative image is sourced)."
+  - "investment_band: image slot is on the left (split-intro--reverse), copy on right. Both cross-links (tile-clay-roofing and roof-replacement) placed in final paragraph — natural flow from 'want permanence at lower price' → tile-clay → 'full comparison' → roof-replacement."
+  - "schema: RoofingContractor + Service (serviceType: 'Natural Slate Roof Installation') + BreadcrumbList + FAQPage — all 4 types present per seo-validator-manifest requirement."
+  - "5 CTAs total: hero-primary (assessment), hero-secondary (anchor to #structural), overview-cta (assessment), final-cta-primary (assessment), final-cta-secondary (compare materials). All carry data-event-* instrumentation."
+  - "3 outbound links is the right ceiling per page-link-manifest note: 'natural slate is the premium ceiling — the page doesn't need to distribute link equity widely.'"
+
+status: structurally-complete
+launch_readiness: blocked-pending-source-material-and-synthetic-slate-confirmation
+
+provenance:
+  produced_by: aia4-pagebuilder Phase 6 (inline orchestration)
+  produced_at: 2026-05-03

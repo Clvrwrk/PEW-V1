@@ -1,0 +1,81 @@
+# Delivery manifest — /residential/roof-replacement
+# Phase 6 of 6 — AIA4 PageBuilder · 2026-05-03
+
+slug: roof-replacement
+url: /residential/roof-replacement
+title: "Residential Roof Replacement"
+target_keyword: "roof replacement"
+keyword_volume: 49500
+keyword_cpc_usd: 28.79
+keyword_competition: LOW
+template: residential-service (inherits asphalt-shingles canonical template)
+silo_role: T2-money-page — material-selection hub for the residential silo
+silo_parent: /residential
+
+hypothesis:
+  a: "Top-5 organic for 'roof replacement' in TX/CO/KS/MO/GA geos within 6 months"
+  b: "≥30% form-completion on 'Schedule Your Replacement Assessment' CTA within 90 days"
+  note: |
+    Highest CPC in the residential silo ($28.79). LOW competition at 49,500 monthly volume
+    is the primary ranking opportunity on the site. Hypothesis b is set higher than the
+    asphalt-shingles baseline (25%) because this page captures already-decided buyers, not
+    research-phase traffic — the conversion bar is higher and the intent signal is cleaner.
+
+files:
+  brief:           design/templates/roof-replacement/brief.yaml
+  seo_validator:   design/templates/roof-replacement/seo-validator-manifest.yaml
+  page_link:       design/templates/roof-replacement/page-link-manifest.yaml
+  copy:            design/templates/roof-replacement/copy.yaml
+  assembled_page:  src/pages/residential/roof-replacement/index.astro
+
+hard_gates:
+  performance:    pending-localhost-verification
+  accessibility:  structural-pass-pending-browser-verification
+  measurement:    pass-(5 CTAs instrumented with data-event-* attributes; 1 secondary is internal nav link, not phone — unique to this page)
+  trust:          blocked-pending-source-material
+  schema:         pass-pending-rich-results-test
+  forms:          pending
+
+ship_blockers:
+  - "All image slots [REPRESENTATIVE] — hero-bg, service-overview-right, asphalt card, metal card, tile card, slate card, testimonial-project, case-tx, case-co, case-ga"
+  - "Testimonial — real customer + signed release"
+  - "All 3 case studies — real projects + signed releases (TX asphalt hail, CO metal upgrade, GA/KS/MO full replacement)"
+  - "Cost ranges [REPRESENTATIVE] — all 4 material tiers need Pro Exteriors ranges before FAQ cost answer ships"
+  - "Financing lender [REPRESENTATIVE] — confirm lender name before final CTA ships"
+  - "Roofs-replaced stat [REPRESENTATIVE] — 2,500+ needs Pro Exteriors confirmation"
+  - "Phone number [REPRESENTATIVE] — needed for any secondary instrumentation (none on this page at launch; confirm before Phase 2 if phone is added)"
+  - "Localhost Lighthouse run — mobile ≥95 Performance required per hard gate"
+
+internal_links:
+  out_placed: 9
+  out_detail:
+    - up:    "/residential (near-match: 'residential roofing contractor')"
+    - down:  "/residential/asphalt-shingles (live — materials grid asphalt card)"
+    - down:  "/residential/metal-roofing (live — materials grid metal card)"
+    - down:  "/residential/tile-clay-roofing (live — materials grid tile card)"
+    - down:  "/residential/natural-slate (live — materials grid slate card)"
+    - across: "/residential/insurance-claim-assistance (planned-M3 — FAQ answer 4 + final CTA secondary)"
+    - blog:  "/blog/5-signs-replacement (live — service overview)"
+    - blog:  "/blog/how-much-does-a-roof-replacement-cost (live — FAQ answer 3)"
+    - blog:  "/blog/best-time-of-year-to-replace-your-roof (live — FAQ answer 1)"
+  in_live:
+    - "/residential links to /residential/roof-replacement via 'complete residential roof replacement guide'"
+    - "/residential/asphalt-shingles FAQ links to /residential/roof-replacement via 'complete roof replacement'"
+    - "/residential/metal-roofing links to /residential/roof-replacement (live)"
+  in_planned:
+    - "/residential/hail-damage-repair → planned-Q2"
+    - "/blog/5-signs-replacement → needs-update (anchor: 'schedule a roof replacement assessment')"
+
+structural_notes:
+  - "Service overview uses ordered list of 5 signals (not SplitIntro prose) — unique to this page"
+  - "Materials grid is 2×2 (md:grid-cols-2) with horizontal card layout — 4 materials, not 3"
+  - "Final CTA secondary is internal nav link to /residential/insurance-claim-assistance — NOT phone"
+  - "No manufacturers band (asphalt-shingles additive section not present on this page)"
+  - "No Button component import — all CTAs are inline anchor elements"
+
+status: structurally-complete
+launch_readiness: blocked-pending-source-material
+
+provenance:
+  produced_by: aia4-pagebuilder Phase 6 (inline orchestration)
+  produced_at: 2026-05-03

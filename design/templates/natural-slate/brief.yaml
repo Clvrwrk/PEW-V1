@@ -1,0 +1,112 @@
+# Natural Slate Roofing — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 on 2026-05-03
+# Premium segment; "slate roof installation" (1,600 vol, $10.30 CPC, LOW) beats head-term CPC
+
+slug: natural-slate
+template: residential-service
+location: null
+target_keyword: "slate roof installation"
+secondary_keywords:
+  - "natural slate roofing"
+  - "slate roof replacement"
+  - "real slate roofing"
+  - "natural slate roofing contractor"
+  - "slate roofing cost"
+audience: residential-homeowner
+intent: solution-evaluation            # Highest-value, longest research cycle in the silo; custom/historic homes
+hypothesis: |
+  Natural slate is the premium ceiling of the residential roofing market —
+  100–150 year lifespan, specialist installation, and job values that can
+  exceed $100K on large custom homes. Volume is modest (1,600/mo for the
+  transactional term) but LOW competition means ranking is achievable fast,
+  and each conversion has outsized revenue impact. A page that leads with
+  longevity + craftsmanship (not price) and pre-qualifies with structural
+  requirements will:
+    (a) rank in the top 3 for "slate roof installation" in served states
+        within 90 days — LOW competition with sparse existing pages; AND
+    (b) generate qualified slate inquiries with pre-screened structural
+        awareness, reducing non-viable leads and improving close rate.
+
+seo_copy:
+  metadata:
+    title: "Natural Slate Roofing — Pro Exteriors | Expert Installation & Replacement"
+    meta_description: "Pro Exteriors installs and restores natural slate roofs — a 100-year investment — across TX, CO, KS, MO & GA. Specialist crews. Free structural assessment."
+    canonical: "https://proexteriorsus.com/residential/natural-slate"
+  body_path: null
+  html_path: null
+
+figma:
+  reuse_template: residential-pillar
+  section_plan:
+    - id: hero
+      component: ServiceHero
+      notes: "H1 = 'Natural Slate Roofing by Pro Exteriors'. Tone: craftsmanship and permanence, not urgency. Primary CTA: 'Request a Slate Roof Assessment'. Secondary: 'Is My Home a Candidate?'."
+    - id: trust_strip
+      component: inline
+      notes: "100–150 Year Lifespan | Specialist Crews | Historic Home Expertise | 5-State Coverage | [REPRESENTATIVE] rating"
+    - id: service_overview
+      component: SplitIntro
+      notes: "Left: why slate is different — a 100-year decision, not a 25-year one. Right: structural requirements intro (sets expectations honestly)."
+    - id: slate_types_grid
+      component: BenefitsGrid
+      notes: "3 cards: Hard Slate (Vermont/Pennsylvania, 125-150 yr) / Soft Slate (60-125 yr) / Synthetic Slate alternative (for homes that can't support natural weight). Each: origin, lifespan, weight."
+    - id: local_experts_proof
+      component: StatBand + Testimonial
+      notes: "Specialty credential positioning. Slate installations completed [REPRESENTATIVE]. Testimonial [REPRESENTATIVE]."
+    - id: process
+      component: QualityProcess
+      notes: "4 steps: Structural Feasibility Assessment → Slate Selection & Sourcing → Specialist Installation → Inspection & Warranty."
+    - id: case_studies
+      component: CaseStudyCard × 3
+      notes: "Historic home restorations and custom new builds. All [REPRESENTATIVE]."
+    - id: investment_band
+      component: SplitIntro
+      notes: "Investment framing: cost per year over 150 years vs asphalt. Not cheap — but the last roof they'll ever need. Financing available for qualified projects."
+    - id: faq
+      component: FAQ
+      notes: "(1) Is natural slate the most expensive roofing material? (2) How do I know if my home can support slate? (3) Can slate roofing be repaired (or does it have to be fully replaced)? (4) Is slate roofing available in my area?"
+    - id: final_cta
+      component: CTABanner
+      notes: "Primary: 'Request Your Slate Roof Feasibility Assessment'. Secondary: 'Compare All Roofing Materials' → /residential/roof-replacement."
+
+output:
+  page: "src/pages/residential/natural-slate/index.astro"
+  assets: "src/assets/residential/natural-slate/"
+
+silo:
+  role: T2-money-page
+  parent: "/residential"
+  parent_links_to_this_via: "natural slate installation"
+  inbound_anchor_from_parent: descriptive
+  cross_links_to:
+    - "/residential/tile-clay-roofing"
+    - "/residential/roof-replacement"
+
+flags:
+  - id: structural-weight-critical
+    severity: critical
+    message: |
+      Natural slate is one of the heaviest roofing materials (14–18 lbs/sq ft).
+      Page MUST be honest about structural requirements — not every home can
+      support slate without reinforcement. The feasibility-assessment CTA is
+      deliberate: it screens out non-viable prospects before they get deep into
+      the conversion funnel. Do not downplay this.
+  - id: synthetic-slate-positioning
+    severity: info
+    message: |
+      The materials grid includes synthetic slate as a legitimate option for
+      homes that can't support natural weight. This is honest positioning and
+      may be a conversion path for homeowners who love the look but can't
+      support the load. Confirm with Chris that Pro Exteriors actually installs
+      synthetic slate products before this ships.
+  - id: sourcing-natural-slate
+    severity: info
+    message: |
+      Natural slate is quarried (Vermont, Pennsylvania, Spain, Wales). If Pro
+      Exteriors has preferred suppliers or specific slate varieties they install,
+      naming them adds sourced authority. Flag for Chris to provide if available.
+
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Insurance Claims Work for Commercial Roof Repair | Pro Exteriors</title>
+<meta name="description" content="From filing to payout: a commercial property owner's guide to navigating the insurance claim process for roof damage — without leaving money on the table.">
+<link rel="canonical" href="https://proexteriors.com/blog/how-insurance-claims-work-roof-repair/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep-navy:#11133f; --deep-navy-dark:#041534; --deep-navy-nav:#0f172a;
+  --deep-navy-cta:#1b2a4a; --flag-red:#c22326; --flag-red-hover:#9b1c1f;
+  --hunter-green:#3b6b4c; --golden-orange:#c28412; --golden-orange-bg:#f5e6c4;
+  --smart-blue:#232884; --bg-warm:#fbf9f6; --bg-stone:#f5f3f0; --bg-white:#ffffff;
+  --text-primary:#041534; --text-secondary:#506071; --text-muted:#8392b7;
+  --border:#c5c6cf; --font-body:'Archivo',sans-serif; --font-mono:'IBM Plex Mono',monospace;
+  --space-md:16px; --space-lg:24px; --space-xl:32px; --space-2xl:48px;
+  --space-3xl:64px; --space-4xl:96px; --nav-h:80px
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--bg-warm);color:var(--text-primary);line-height:1.7}
+a{color:var(--flag-red);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto;display:block}
+.nav{position:sticky;top:0;z-index:100;background:var(--deep-navy-nav);height:var(--nav-h);display:flex;align-items:center;padding:0 var(--space-xl)}
+.nav-inner{max-width:1200px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{color:#fff;font-weight:700;font-size:1.25rem;letter-spacing:-.02em}
+.nav-logo span{color:var(--flag-red)}
+.nav-cta{background:var(--flag-red);color:#fff;padding:10px 22px;border-radius:6px;font-weight:600;font-size:.9rem;transition:background .2s}
+.nav-cta:hover{background:var(--flag-red-hover);text-decoration:none}
+.progress-bar{position:fixed;top:var(--nav-h);left:0;height:3px;background:var(--flag-red);width:0%;z-index:99;transition:width .1s linear}
+.article-header{max-width:820px;margin:0 auto;padding:var(--space-3xl) var(--space-xl) var(--space-xl)}
+.breadcrumb{font-size:.8rem;color:var(--text-muted);font-family:var(--font-mono);margin-bottom:var(--space-md)}
+.breadcrumb a{color:var(--text-muted)}
+.breadcrumb a:hover{color:var(--flag-red)}
+.article-badge{display:inline-block;background:var(--golden-orange-bg);color:var(--golden-orange);font-size:.75rem;font-weight:600;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:4px;margin-bottom:var(--space-md)}
+.article-title{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;line-height:1.2;color:var(--deep-navy-dark);margin-bottom:var(--space-lg)}
+.article-meta{display:flex;gap:var(--space-lg);font-size:.85rem;color:var(--text-secondary);font-family:var(--font-mono)}
+.article-hero{max-width:1200px;margin:0 auto var(--space-2xl);padding:0 var(--space-xl)}
+.article-hero img{width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:12px}
+.content-grid{max-width:1200px;margin:0 auto;padding:0 var(--space-xl) var(--space-4xl);display:grid;grid-template-columns:240px 1fr;gap:var(--space-3xl);align-items:start}
+.sidebar{position:sticky;top:calc(var(--nav-h) + 24px)}
+.toc{background:var(--bg-white);border:1px solid var(--border);border-radius:10px;padding:var(--space-lg)}
+.toc-title{font-size:.75rem;font-weight:700;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:var(--space-md)}
+.toc-list{list-style:none}
+.toc-item{margin-bottom:8px}
+.toc-link{font-size:.85rem;color:var(--text-secondary);transition:color .2s;line-height:1.4;display:block;padding:3px 0 3px 10px;border-left:2px solid transparent}
+.toc-link:hover,.toc-link.active{color:var(--flag-red);border-left-color:var(--flag-red);text-decoration:none}
+.article-body h2{font-size:1.5rem;font-weight:700;color:var(--deep-navy-dark);margin:var(--space-3xl) 0 var(--space-lg);line-height:1.3}
+.article-body p{margin-bottom:var(--space-lg);color:var(--text-secondary);font-size:1.0625rem;line-height:1.75}
+.article-body ul,.article-body ol{margin:0 0 var(--space-lg) var(--space-xl);color:var(--text-secondary)}
+.article-body li{margin-bottom:8px;font-size:1.0625rem;line-height:1.7}
+.article-body strong{color:var(--text-primary);font-weight:600}
+.article-body blockquote{border-left:4px solid var(--flag-red);background:var(--bg-stone);padding:var(--space-lg) var(--space-xl);margin:var(--space-2xl) 0;border-radius:0 8px 8px 0}
+.article-body blockquote p{color:var(--deep-navy);font-size:1.1rem;font-style:italic;margin-bottom:0;line-height:1.6}
+.article-body blockquote cite{display:block;margin-top:8px;font-size:.85rem;font-family:var(--font-mono);color:var(--text-muted);font-style:normal}
+.table-wrap{overflow-x:auto;margin:var(--space-2xl) 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.data-table th{background:var(--deep-navy);color:#fff;padding:12px 16px;text-align:left;font-weight:600;font-family:var(--font-mono);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+.data-table td{padding:11px 16px;border-bottom:1px solid var(--border);color:var(--text-secondary);vertical-align:top}
+.data-table tr:nth-child(even) td{background:var(--bg-stone)}
+.data-table tr:last-child td{border-bottom:none}
+.data-table .red{color:var(--flag-red);font-weight:600}
+.data-table .green{color:var(--hunter-green);font-weight:600}
+.chart-wrap{background:var(--bg-white);border:1px solid var(--border);border-radius:10px;padding:var(--space-xl);margin:var(--space-2xl) 0}
+.chart-title{font-size:.8rem;font-family:var(--font-mono);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:var(--space-lg)}
+.cta-banner{background:var(--deep-navy-cta);border-radius:12px;padding:var(--space-2xl);margin:var(--space-3xl) 0;text-align:center}
+.cta-banner h3{color:#fff;font-size:1.5rem;font-weight:700;margin-bottom:12px}
+.cta-banner p{color:#8fa7c0;margin-bottom:var(--space-xl);font-size:1rem}
+.cta-btn{display:inline-block;background:var(--flag-red);color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;transition:background .2s}
+.cta-btn:hover{background:var(--flag-red-hover);text-decoration:none}
+.related-section{max-width:1200px;margin:0 auto;padding:0 var(--space-xl) var(--space-4xl)}
+.related-section h2{font-size:1.35rem;font-weight:700;color:var(--deep-navy-dark);margin-bottom:var(--space-xl)}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg)}
+.related-card{background:var(--bg-white);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:box-shadow .2s}
+.related-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.1)}
+.related-card img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.related-card-body{padding:var(--space-lg)}
+.related-card-body h3{font-size:1rem;font-weight:600;color:var(--deep-navy-dark);line-height:1.4;margin-bottom:8px}
+.related-card-body a{font-size:.85rem;color:var(--flag-red);font-weight:600}
+footer{background:var(--deep-navy-nav);color:#8392b7;text-align:center;padding:var(--space-2xl);font-size:.85rem;font-family:var(--font-mono)}
+footer a{color:#8392b7}
+@media(max-width:768px){
+  .content-grid{grid-template-columns:1fr}
+  .sidebar{display:none}
+  .related-grid{grid-template-columns:1fr}
+  .article-meta{flex-wrap:wrap;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Pro<span>Exteriors</span></a>
+    <a href="/services/commercial-roof-repair/" class="nav-cta">Get Expert Claim Guidance</a>
+  </div>
+</nav>
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="article-header">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <a href="/blog/">Blog</a> / <a href="/blog/commercial-roof-repair/">Commercial Roof Repair</a> / Insurance Claims
+  </nav>
+  <span class="article-badge">Commercial Roofing</span>
+  <h1 class="article-title">How Insurance Claims Work for Commercial Roof Repair</h1>
+  <div class="article-meta">
+    <span>Updated May 2026</span>
+    <span>8 min read</span>
+    <span>Commercial · Insurance &amp; Finance</span>
+  </div>
+</header>
+
+<div class="article-hero">
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015541_07bb7086-0085-48a2-b4e4-bc7f1197bd4c.png" alt="Property owner reviewing commercial roof insurance claim documentation with contractor" width="1200" height="525" loading="eager">
+</div>
+
+<div class="content-grid">
+  <aside class="sidebar">
+    <nav class="toc" aria-label="Table of contents">
+      <p class="toc-title">In This Article</p>
+      <ul class="toc-list">
+        <li class="toc-item"><a href="#what-covers" class="toc-link">What Policies Actually Cover</a></li>
+        <li class="toc-item"><a href="#document" class="toc-link">Documenting Before the Adjuster</a></li>
+        <li class="toc-item"><a href="#adjuster" class="toc-link">Working with the Adjuster</a></li>
+        <li class="toc-item"><a href="#supplemental" class="toc-link">Supplemental Claims</a></li>
+        <li class="toc-item"><a href="#acv-rcv" class="toc-link">ACV vs. RCV Policies</a></li>
+        <li class="toc-item"><a href="#public-adjuster" class="toc-link">When to Use a Public Adjuster</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <article class="article-body">
+
+    <p>Most commercial property owners know they have roof insurance. Very few understand what it actually covers, how the claim process works, or what the difference between their policy type and the one their neighbor holds means for the check they receive after a storm. The gap between the coverage you think you have and the payment you actually receive is where most of the money gets lost.</p>
+
+    <p>This guide covers the complete commercial roof insurance claim process from the moment damage occurs to final payout — including the steps most property owners skip that cost them thousands in recoverable losses.</p>
+
+    <h2 id="what-covers">What Commercial Roof Policies Actually Cover</h2>
+
+    <p>Commercial property insurance covers sudden and accidental physical damage. It does not cover wear and tear, gradual deterioration, or damage caused by failure to maintain the roof in good condition. This distinction — sudden versus gradual — is the most common source of claim disputes and denials.</p>
+
+    <p>Coverage typically applies to damage caused by:</p>
+    <ul>
+      <li><strong>Hail:</strong> Impact damage to membrane, metal flashing, and insulation from hailstones</li>
+      <li><strong>Wind:</strong> Membrane lifting, seam separation, and material displacement from sustained high winds or tornado/derecho events</li>
+      <li><strong>Falling objects:</strong> Tree limbs, equipment impact, or structural collapse from adjacent structures</li>
+      <li><strong>Fire:</strong> Damage from a covered fire event</li>
+      <li><strong>Weight of ice, snow, or sleet:</strong> In regions where winter loading is a covered peril</li>
+    </ul>
+
+    <p>Coverage explicitly excludes: aging, oxidation, normal thermal cycling degradation, damage caused by inadequate design or installation, and loss resulting from failure to maintain the building. If a roof that has been leaking for three years finally fails catastrophically, the insurer will argue that the failure is the result of deferred maintenance rather than a sudden event — and they will often be right.</p>
+
+    <h2 id="document">How to Document Damage Before the Adjuster Arrives</h2>
+
+    <p>Insurance adjusters are skilled at identifying pre-existing conditions and using them to reduce or deny claim payments. Your documentation, collected before the adjuster's visit, is your counterweight. The goal is to establish a clear before-and-after record that ties damage to the specific weather event you are claiming.</p>
+
+    <p><strong>What to document immediately after discovering damage:</strong></p>
+    <ol>
+      <li>Timestamped photographs of all visible damage — exterior roof surface, interior ceiling areas, any damaged contents or equipment</li>
+      <li>Weather service records for the date and location of the event (National Weather Service has free archived storm data by location and date)</li>
+      <li>A written description of when you discovered the damage and what conditions existed before the storm</li>
+      <li>Maintenance records showing the roof was in serviceable condition before the event — inspection reports, prior repair invoices, maintenance contracts</li>
+    </ol>
+
+    <blockquote>
+      <p>"The adjusters we work with respect property owners who come prepared. When you walk into that meeting with photos, weather data, maintenance records, and a contractor's preliminary scope, the conversation is very different than when you just show them the damage and wait for a number. Documentation is your leverage in this process."</p>
+      <cite>— Pro Exteriors Claims Support Team</cite>
+    </blockquote>
+
+    <h2 id="adjuster">Working with the Insurance Adjuster</h2>
+
+    <p>The insurance adjuster works for the insurance company, not for you. This does not mean they are adversarial — most adjusters are professionals doing their job — but it does mean their incentive is to pay the minimum amount that accurately reflects the covered loss. Your incentive is to ensure the full scope of covered damage is identified and included in the claim.</p>
+
+    <p>Having your roofing contractor present during the adjuster's inspection is standard practice and highly recommended. An experienced commercial roofing contractor can identify damage that a generalist adjuster might miss — bruise marks on single-ply membranes that indicate hail impact without visible tears, flashing failures directly attributable to wind movement, or insulation saturation that the adjuster cannot see from the surface. Damage that isn't in the adjuster's initial report is damage you cannot claim without a dispute process.</p>
+
+    <div class="chart-wrap">
+      <p class="chart-title">Commercial Roof Insurance Claim Timeline — From Event to Payout</p>
+      <svg viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Process diagram showing steps from storm event to final insurance payout">
+        <!-- Steps -->
+        <rect x="10" y="60" width="80" height="50" rx="6" fill="#11133f"/>
+        <text x="50" y="80" font-size="9" fill="#fff" font-family="IBM Plex Mono,monospace" text-anchor="middle">Storm</text>
+        <text x="50" y="92" font-size="9" fill="#fff" font-family="IBM Plex Mono,monospace" text-anchor="middle">Event</text>
+        <text x="50" y="125" font-size="9" fill="#8392b7" font-family="IBM Plex Mono,monospace" text-anchor="middle">Day 0</text>
+
+        <rect x="110" y="60" width="80" height="50" rx="6" fill="#232884"/>
+        <text x="150" y="80" font-size="9" fill="#fff" font-family="IBM Plex Mono,monospace" text-anchor="middle">Document</text>
+        <text x="150" y="92" font-size="9" fill="#fff" font-family="IBM Plex Mono,monospace" text-anchor="middle">&amp; File</text>
+        <text x="150" y="125" font-size="9" fill="#8392b7" font-family="IBM Plex Mono,monospace" text-anchor="middle">Day 1–3</text>
+
+        <rect x="210" y="60" width="80" height="50" rx="6" fill="#232884"/>
+        <text x="250" y="80" font-size="9" fill="#fff" font-family="IBM Plex Mono,monospace" text-anchor="middle">Adjuster</text>
+        <text x="250" y="92" font-size="9" fill="#fff" font-family="IBM Plex Mono,monospace" text-anchor="middle">Inspection</text>
+        <text x="250" y="125" font-size="9" fill="#8392b7" font-family="IBM Plex Mono,monospace" text-anchor="middle">Day 7–14</text>
+
+        <rect x="310" y="60" width="80" height="50" rx="6" fill="#c28412"/>
+        <text x="350" y="80" font-size="9" fill="#fff" font-family="IBM Plex Mono,monospace" text-anchor="middle">Scope</text>
+        <text x="350" y="92" font-size="9" fill="#fff" font-family="IBM Plex Mono,monospace" text-anchor="middle">Review</text>
+        <text x="350" y="125" font-size="9" fill="#8392b7" font-family="IBM Plex Mono,monospace" text-anchor="middle">Day 14–21</text>
+
+        <rect x="410" y="60" width="80" height="50" rx="6" fill="#3b6b4c"/>
+        <text x="450" y="80" font-size="9" fill="#fff" font-family="IBM Plex Mono,monospace" text-anchor="middle">Initial</text>
+        <text x="450" y="92" font-size="9" fill="#fff" font-family="IBM Plex Mono,monospace" text-anchor="middle">Payment</text>
+        <text x="450" y="125" font-size="9" fill="#8392b7" font-family="IBM Plex Mono,monospace" text-anchor="middle">Day 21–45</text>
+
+        <!-- Arrows -->
+        <polygon points="98,85 106,80 106,90" fill="#c5c6cf"/>
+        <line x1="90" y1="85" x2="106" y2="85" stroke="#c5c6cf" stroke-width="1.5"/>
+        <polygon points="198,85 206,80 206,90" fill="#c5c6cf"/>
+        <line x1="190" y1="85" x2="206" y2="85" stroke="#c5c6cf" stroke-width="1.5"/>
+        <polygon points="298,85 306,80 306,90" fill="#c5c6cf"/>
+        <line x1="290" y1="85" x2="306" y2="85" stroke="#c5c6cf" stroke-width="1.5"/>
+        <polygon points="398,85 406,80 406,90" fill="#c5c6cf"/>
+        <line x1="390" y1="85" x2="406" y2="85" stroke="#c5c6cf" stroke-width="1.5"/>
+
+        <!-- Supplemental note -->
+        <text x="280" y="165" font-size="10" fill="#c22326" font-family="IBM Plex Mono,monospace" text-anchor="middle" font-weight="bold">Supplemental claim possible after initial payout if scope was incomplete</text>
+        <text x="280" y="180" font-size="10" fill="#8392b7" font-family="IBM Plex Mono,monospace" text-anchor="middle">RCV policies: final payment after repair completion (depreciation holdback released)</text>
+      </svg>
+    </div>
+
+    <h2 id="supplemental">Supplemental Claims: Getting the Full Scope Covered</h2>
+
+    <p>Initial adjuster estimates routinely undercount the full scope of covered damage — particularly on complex commercial roofs where multiple systems, substrates, and interior components are affected. A supplemental claim is the formal process for adding missed damage items to an existing claim after the initial adjustment.</p>
+
+    <p>Supplemental claims are appropriate when:</p>
+    <ul>
+      <li>The roofing contractor identifies damage during repair that was not included in the adjuster's scope</li>
+      <li>Interior damage to insulation, decking, or building contents was not inventoried in the initial inspection</li>
+      <li>Code upgrade requirements (code compliance items required by the local building department on re-roof permits) were not included in the initial estimate</li>
+      <li>Material prices have changed significantly between the claim filing date and the repair execution date</li>
+    </ul>
+
+    <p>Supplemental claims must be filed before the claim is closed, and most policies have a closing timeframe. Know your policy's deadline — it is often 12 to 24 months post-event, and supplemental claims submitted after that window may be denied regardless of merit. The <a href="/blog/roof-repair-vs-replacement-decision-guide/">roof repair vs replacement decision</a> you make has direct impact on what supplemental items are available to claim — replacement scopes tend to surface more covered items than spot repairs.</p>
+
+    <h2 id="acv-rcv">Choosing Between ACV and RCV Policies</h2>
+
+    <p>Actual Cash Value (ACV) and Replacement Cost Value (RCV) are the two fundamental policy structures for commercial property insurance, and the difference between them is substantial.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Policy Type</th>
+            <th>How Payout Is Calculated</th>
+            <th>Depreciation</th>
+            <th>Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ACV (Actual Cash Value)</strong></td>
+            <td>Replacement cost minus depreciation at time of loss</td>
+            <td>Applied — older roofs receive significantly reduced payouts</td>
+            <td class="red">Lower premium but significant out-of-pocket exposure on older buildings</td>
+          </tr>
+          <tr>
+            <td><strong>RCV (Replacement Cost Value)</strong></td>
+            <td>Full cost to replace with like kind and quality</td>
+            <td>Withheld as "holdback" until repair is complete, then released</td>
+            <td class="green">Higher premium; full recovery minus deductible after repair completion</td>
+          </tr>
+          <tr>
+            <td><strong>Functional Replacement Cost</strong></td>
+            <td>Cost to replace with materials of similar function (not necessarily identical)</td>
+            <td>Limited depreciation applied</td>
+            <td>Hybrid — common on older specialty systems where like-for-like is impractical</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>For a 20-year-old EPDM roof with a 25-year design life, an ACV policy might pay $2–$3 per square foot on a roof that costs $8–$10 per square foot to replace — leaving the property owner responsible for $5–$7 per square foot out of pocket on a claim event. On a 50,000-square-foot building, that is a $250,000–$350,000 gap between the insurance payment and the actual replacement cost. RCV policies cost more in annual premium but eliminate this gap.</p>
+
+    <h2 id="public-adjuster">When to Bring in a Public Adjuster</h2>
+
+    <p>A public adjuster is an independent claims professional who works exclusively for the policyholder — not the insurance company. They are licensed in most states and typically work on a contingency basis, earning a percentage (often 10–15%) of the total claim settlement. They are not appropriate for every claim, but they are worth considering when:</p>
+
+    <ul>
+      <li>The insurance company's initial estimate is significantly below your contractor's independent scope</li>
+      <li>The insurer has denied a portion of the claim and you believe the denial is incorrect</li>
+      <li>The claim involves complex interior damage, code upgrade items, or business interruption losses that require specialized valuation</li>
+      <li>You have an RCV policy and the initial holdback release process is being delayed or disputed</li>
+    </ul>
+
+    <p>For <a href="/services/commercial-roof-repair/">commercial roof repair</a> claims that are straightforward — clear storm damage on a well-maintained roof with a cooperative adjuster — a public adjuster adds cost without proportionate benefit. For complex or disputed claims, they often recover far more than their fee costs. The calculation is straightforward: if a public adjuster can add $50,000 to a $200,000 claim at 10% contingency, their fee is $5,000 and your net gain is $45,000.</p>
+
+    <div class="cta-banner">
+      <h3>Get Expert Claim Guidance</h3>
+      <p>Pro Exteriors works alongside property owners throughout the commercial roof insurance claim process — documentation, adjuster meetings, scope verification, and supplemental claim support.</p>
+      <a href="/services/commercial-roof-repair/" class="cta-btn">Get Expert Claim Guidance</a>
+    </div>
+
+  </article>
+</div>
+
+<section class="related-section">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <div class="related-card">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015541_07bb7086-0085-48a2-b4e4-bc7f1197bd4c.png" alt="Roof repair vs replacement decision framework" width="400" height="225" loading="lazy">
+      <div class="related-card-body">
+        <h3>Roof Repair vs. Replacement Decision Guide</h3>
+        <a href="/blog/roof-repair-vs-replacement-decision-guide/">Read Article →</a>
+      </div>
+    </div>
+    <div class="related-card">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015541_07bb7086-0085-48a2-b4e4-bc7f1197bd4c.png" alt="Common causes of commercial roof damage" width="400" height="225" loading="lazy">
+      <div class="related-card-body">
+        <h3>7 Common Causes of Commercial Roof Damage</h3>
+        <a href="/blog/common-causes-commercial-roof-damage/">Read Article →</a>
+      </div>
+    </div>
+    <div class="related-card">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015541_07bb7086-0085-48a2-b4e4-bc7f1197bd4c.png" alt="Emergency commercial roof leak response" width="400" height="225" loading="lazy">
+      <div class="related-card-body">
+        <h3>Emergency Commercial Roof Leak Response</h3>
+        <a href="/blog/emergency-commercial-roof-leak-response/">Read Article →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Pro Exteriors &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/sitemap/">Sitemap</a> &middot; Prepared by AIA4 Pro Exteriors</p>
+</footer>
+
+<script>
+const progressBar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (scrollTop / docHeight * 100) + '%';
+}, { passive: true });
+const tocLinks = document.querySelectorAll('.toc-link');
+const sections = document.querySelectorAll('.article-body h2[id]');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      tocLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

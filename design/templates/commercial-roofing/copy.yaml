@@ -1,0 +1,407 @@
+# aia4-copywriter manifest — Commercial Roofing pillar
+# Phase 2 deliverable. Drafted in Maren voice, weaving the term-frequency targets
+# and internal-link anchors from Phase 1. Hue Write skipped per TPO build
+# precedent (proved it breaks voice when input is already voice-authored).
+#
+# All [TODO source] markers are unsourced stats per the stakeholder override
+# decision (/decisions/2026-05-03-commercial-roofing-stats-override.md).
+
+page:
+  slug: commercial-roofing
+  audience: commercial-procurement
+  hypothesis: |
+    Pillar depth + bento case studies + inline assessment form will lift
+    assisted conversion ≥30% within 90 days vs. the pre-rebuild thin-page
+    baseline.
+
+# ─── SECTION 1: Hero ───
+hero:
+  eyebrow: "ESTABLISHED 1994"            # [TODO source: confirm founding year]
+  h1: "Commercial Roofing Contractor in Dallas & Nationwide."
+  subhead: |
+    Three decades of industrial experience deployed across high-performance
+    roofing systems for institutional, commercial, and retail facilities in
+    16 states.
+  cta_primary:
+    label: "Request a Roof Assessment"
+    href: "#assessment-form"            # Anchors to the inline form below — keeps the user on-page
+    intent: "primary-conversion"
+    data_cta_name: "hero_request_assessment"
+  cta_secondary:
+    label: "View Our Capabilities"
+    href: "#systems"
+    intent: "scroll-to-content"
+    data_cta_name: "hero_view_capabilities"
+  image_slot: hero
+  image_alt: "Aerial view of Texas Motor Speedway grandstand and infield, photographed from the south on a clear day — representative of the institutional-scale properties Pro Exteriors services"
+  image_path: "/images/commercial-roofing-hero.jpg"
+  badge: "ESTABLISHED 1994"
+
+# ─── SECTION 2: Stat band ───
+# All four stats ship per stakeholder override.
+stat_band:
+  stats:
+    - value: "30+"
+      label: "Years in Business"
+      source_status: "[TODO source: confirm 1994 founding]"
+    - value: "15M+"
+      label: "Sq. Ft. Installed"
+      source_status: "[TODO source: client-supplied number; conflicts with home page 10M+]"
+    - value: "98%"
+      label: "Client Retention"
+      source_status: "[TODO source: client-supplied number; no live counterpart]"
+    - value: "42"
+      label: "States Served"
+      source_status: "[TODO source: contradicts verified 16 licensed states; likely Figma placeholder]"
+
+# ─── SECTION 3: Specialized Roofing Systems (7-card grid) ───
+systems_grid:
+  h2: "Specialized Roofing Systems"
+  subhead: |
+    Precision engineering meets field-proven durability. We specialize in
+    complex, high-stakes commercial roofing installations.
+  cards:
+    - id: tpo
+      title: "TPO"
+      icon: "shield-check"
+      body: |
+        Energy-efficient, heat-reflective single-ply membrane ideal for
+        southern climates and industrial warehouses. Hot-air welded seams,
+        Class 4 hail resistance.
+      cta_label: "System Details"
+      cta_href: "/commercial-roofing/tpo-roofing-systems/"
+      data_cta_name: "system_tpo"
+    - id: epdm
+      title: "EPDM"
+      icon: "droplet"
+      body: |
+        Durable synthetic-rubber roofing known for exceptional resistance to
+        UV, ozone, and extreme freeze-thaw cycles. Long service life on
+        low-slope decks.
+      cta_label: "System Details"
+      cta_href: "/commercial-roofing/epdm/"
+      data_cta_name: "system_epdm"
+    - id: modified-bitumen
+      title: "Modified Bitumen"
+      icon: "layers"
+      body: |
+        Multi-layer asphalt systems delivering superior puncture resistance
+        for high-traffic rooftops with frequent service equipment access.
+      cta_label: "System Details"
+      cta_href: "/commercial-roofing/replacement/"   # No standalone bitumen page yet — routes to replacement
+      data_cta_name: "system_bitumen"
+    - id: metal-roofing
+      title: "Metal Roofing"
+      icon: "triangle"
+      body: |
+        Premium standing-seam and corrugated metal solutions offering
+        architectural longevity and aesthetic appeal for visible roof lines.
+      cta_label: "System Details"
+      cta_href: "/commercial-roofing/metal/"
+      data_cta_name: "system_metal"
+    - id: flat-roof
+      title: "Flat Roof Systems"
+      icon: "menu"
+      body: |
+        Custom engineering for low-slope drainage and structural integrity on
+        large-footprint distribution, manufacturing, and warehouse facilities.
+      cta_label: "System Details"
+      cta_href: "/commercial-roofing/flat-roof-systems/"
+      data_cta_name: "system_flat"
+    - id: roof-coatings
+      title: "Roof Coatings"
+      icon: "brush"
+      body: |
+        Silicone and acrylic restoration systems that extend existing roof
+        life without full tear-offs — typically at a fraction of replacement
+        cost when substrate is sound.
+      cta_label: "System Details"
+      cta_href: "/commercial-roofing/repair/"   # No standalone coatings page yet
+      data_cta_name: "system_coatings"
+    - id: emergency
+      title: "24/7 Emergency Repairs"
+      icon: "alert-triangle"
+      featured: true                         # Visually distinct red top-bar in Figma
+      body: |
+        Rapid-response teams deployed nationwide to mitigate storm damage and
+        structural failures before they impact operations or open a path for
+        secondary water intrusion.
+      cta_label: "Immediate Dispatch"
+      cta_href: "/commercial-roofing/repair/"
+      data_cta_name: "system_emergency"
+  in_prose_link:
+    text: "Choosing between systems? Our practical breakdown of"
+    anchor: "TPO vs EPDM vs PVC"
+    href: "/blog/tpo-vs-epdm-vs-pvc/"
+    suffix: "covers the seam-test data, lifespan, and installed-cost comparisons procurement officers actually ask for."
+    placement: "Below systems grid intro paragraph"
+
+# ─── SECTION 4: Master-Level Certifications band ───
+certifications_band:
+  heading: "Master-Level Certifications"
+  body: |
+    Authorized to provide NDL (No Dollar Limit) manufacturer warranties for up
+    to 30 years from leading industry brands.
+  manufacturers:
+    - name: "GAF MASTER"
+      verified: true                          # Mentioned on home page line 437–442
+    - name: "FIRESTONE"
+      verified: true                          # Mentioned on home page
+    - name: "CARLISLE"
+      verified: false                         # [TODO source: not on home page; verify cert status]
+    - name: "OWENS CORNING"
+      verified: true                          # Mentioned on home page
+
+# ─── SECTION 5: Industrial-Grade Reliability ───
+# Gold Standard testimonial DROPPED per stakeholder direction (intake Q3).
+# Replaced with "What's Included in an Executive Assessment" callout that
+# funnels to the inline form in Section 9.
+reliability:
+  h2: "Industrial-Grade Reliability."
+  benefits:
+    - icon: "clock"
+      heading: "24-Hour Responsiveness"
+      body: |
+        Dedicated account managers and centralized dispatch ensure your
+        facility needs are addressed within one business day, anywhere in the
+        16 states we operate.
+    - icon: "file-text"
+      heading: "Detailed Documentation"
+      body: |
+        Comprehensive drone inspections, infrared moisture mapping, and
+        transparent reporting accessible through our secure client portal.
+        Documentation stays with the property — not the owner — through our
+        asset management program (ProPlan).
+      links_woven:
+        - { anchor: "asset management program (ProPlan)", target: "/proplan/" }
+    - icon: "shield"
+      heading: "Rigorous Project Management"
+      body: |
+        OSHA-certified safety protocols, third-party verification at three
+        checkpoints, and strict timeline management to minimize operational
+        disruption during commercial roof repair or full-system installation.
+      links_woven:
+        - { anchor: "commercial roof repair", target: "/commercial-roofing/repair/" }
+  side_image:
+    slot: reliability-side
+    alt: "Pro Exteriors crew on a Dallas commercial rooftop, infrared camera in foreground showing thermal moisture scan in progress"
+    path: "/images/commercial-hero.jpg"      # Reuse existing asset until a real reliability shot is sourced
+  callout:                                    # Replaces the Figma "Gold Standard" testimonial card
+    heading: "What's in an Executive Assessment"
+    body_lines:
+      - "Thermal-imaging moisture scan"
+      - "Three-point core sampling"
+      - "Multi-year maintenance roadmap"
+      - "Warranty-eligibility audit"
+    cta:
+      label: "Schedule mine"
+      href: "#assessment-form"
+      data_cta_name: "reliability_callout_schedule"
+
+# ─── SECTION 6: Institutional Case Studies bento ───
+# Per Chris's intake decision: replace 4 fictional cases + Gold Standard
+# testimonial with the 3 real Pro Exteriors TPO case studies + 1 "Your Project
+# Next?" CTA card. Two of three real cases still carry [REPRESENTATIVE] markers
+# at the project-detail level — disclosed in their own MDX content.
+case_studies:
+  h2: "Institutional Case Studies"
+  subhead: "Proven performance across diverse industry sectors."
+  layout: "bento-4-tile"
+  view_all_link:
+    label: "View All Projects"
+    href: "/projects/"
+    data_cta_name: "cases_view_all"
+  cards:
+    - id: techpark
+      industry_tag: "INDUSTRIAL"
+      heading: "TechPark Logistics Center"
+      summary: "150,000 Sq. Ft. TPO Retrofit with Phased Off-Hours Install."
+      image_path: "/images/projects/tpo-techpark-logistics.webp"
+      image_alt: "Aerial view of TechPark Logistics Center with newly installed white TPO membrane covering 150,000 square feet"
+      href: "/projects/techpark-logistics-tpo/"
+      data_cta_name: "case_techpark"
+    - id: dallas-north-mall
+      industry_tag: "RETAIL"
+      heading: "Dallas North Mall"
+      summary: "Anchor-store TPO overlay with zero tenant downtime."
+      image_path: "/images/projects/tpo-dallas-north-mall.webp"
+      image_alt: "Storefront facade of Dallas North Mall with the completed flat-roof line visible above"
+      href: "/projects/dallas-north-mall-tpo/"
+      data_cta_name: "case_dallas_mall"
+    - id: fort-worth
+      industry_tag: "INDUSTRIAL"
+      heading: "Fort Worth Logistics Center"
+      summary: "20,000 Sq. Ft. full TPO replacement with zero shipping downtime."
+      image_path: "/images/projects/tpo-gallery-1.webp"
+      image_alt: "Fort Worth Logistics Center with completed TPO replacement, photographed at ground level showing scale"
+      href: "/projects/fort-worth-tpo-logistics/"
+      data_cta_name: "case_fort_worth"
+    - id: cta-card
+      type: cta-card
+      heading: "Your Project Next?"
+      cta_label: "Submit RFP"
+      cta_href: "/contact/?vertical=commercial&intent=rfp"
+      data_cta_name: "cases_submit_rfp"
+
+# ─── SECTION 7: Dallas Rooted, Nationwide Reach ───
+nationwide_reach:
+  h2: "Dallas Rooted. Nationwide Reach."
+  body: |
+    Our headquarters sit in the heart of Texas, and our deployment teams
+    service high-value commercial assets across the major metros where our
+    16 licensed states overlap with the highest concentration of institutional
+    property. Click any office pin for direct contact.
+  in_prose_link:
+    anchor: "Click any office pin"
+    href: "/locations/"
+    placement: "End of body paragraph"
+  service_metros:                            # Ground-truth metros from the OfficeLocationsMap data
+    - "Dallas / Fort Worth"
+    - "Houston"
+    - "Austin / San Antonio"
+    - "Greenwood Village (Denver)"
+    - "Wichita"
+    - "Kansas City"
+    - "Atlanta"
+  map_component: "OfficeLocationsMap"        # client:visible island, mirrors home + locations usage
+
+# ─── SECTION 8: Commercial FAQ ───
+faq:
+  h2: "Commercial FAQ"
+  questions:
+    - q: "How long does a commercial roof replacement typically take?"
+      a: |
+        Timelines vary by facility size and system type. A typical 50,000 sq.
+        ft. warehouse re-roof runs two to three weeks once tear-off and weather
+        windows are factored in. We commit to a guaranteed phased schedule
+        during the assessment so building operations can continue during work.
+        For the trade-offs between repair, overlay, and full replacement see
+        our breakdown of <a href="/blog/commercial-roof-repair-vs-replacement/">commercial roof repair vs replacement</a>.
+      links_woven:
+        - { anchor: "commercial roof repair vs replacement", target: "/blog/commercial-roof-repair-vs-replacement/" }
+    - q: "What is an NDL warranty and why do I need it?"
+      a: |
+        An NDL (No Dollar Limit) warranty is the manufacturer's commitment to
+        repair or replace your roofing system without a financial cap on labor
+        or material costs through the warranty term — typically 20 to 30 years
+        on commercial single-ply systems. Standard warranties cap exposure;
+        NDL warranties don't. For a multi-million-dollar roof on a Class A
+        property, that uncapped exposure is the single most important paragraph
+        in the warranty packet. NDL coverage is only available through
+        manufacturer-certified installers — including GAF Master Elite,
+        Firestone Licensed, and Owens Corning Platinum contractors.
+    - q: "Can you perform work without interrupting our business operations?"
+      a: |
+        Yes — phased off-hours installation is standard practice on our
+        commercial portfolio. Our hot-air welded TPO seams produce no fumes,
+        which makes daytime adjacent work feasible on retail and multi-tenant
+        properties. For 24/7 operations like distribution centers, we sequence
+        tear-off and install in zones that follow the building's operational
+        rhythm — overnight crews on the dock-side, daytime crews on inactive
+        areas. Documentation of the phasing plan is part of the executive
+        assessment deliverable.
+
+# ─── SECTION 9: Executive Roof Assessment form ───
+assessment_form:
+  id: assessment-form                        # Hero CTA anchors here
+  h2: "Get Your Executive Roof Assessment"
+  body: |
+    Schedule a comprehensive analysis of your facility's current roof
+    condition. Our reports include thermal imaging, core samples, and a
+    multi-year maintenance roadmap. No commitment. Real diagnostic.
+  trust_strip:
+    avatars:                                 # JD / SM / RK initials per Figma
+      - { initials: "JD", color: "info-soft" }
+      - { initials: "SM", color: "info-soft" }
+      - { initials: "RK", color: "info-soft" }
+    accent_text: "Expert consultation"
+    body_text: "ready for your call."
+  fields:
+    - id: company_name
+      label: "Company Name"
+      type: "text"
+      placeholder: "e.g. Global Logistics Inc."
+      required: true
+    - id: facility_type
+      label: "Facility Type"
+      type: "select"
+      options:
+        - "Warehouse / Industrial"
+        - "Retail / Big Box"
+        - "Multi-Tenant Office"
+        - "Education / Institutional"
+        - "Healthcare"
+        - "Manufacturing"
+        - "Other"
+      required: true
+    - id: square_footage
+      label: "Approx. Sq. Ft."
+      type: "number"
+      placeholder: "e.g. 100,000"
+      required: true
+    - id: timeline
+      label: "Timeline"
+      type: "select"
+      options:
+        - "Immediate / Emergency"
+        - "Within 30 days"
+        - "Within 90 days"
+        - "Planning for next budget cycle"
+      required: true
+    - id: vertical
+      type: "hidden"
+      value: "commercial"
+    - id: intent
+      type: "hidden"
+      value: "executive-assessment"
+    - id: company_website                    # Honeypot per existing LeadForm pattern
+      type: "honeypot"
+  submit:
+    label: "SEND ASSESSMENT REQUEST"
+    data_cta_name: "form_assessment_submit"
+    post_endpoint: "/api/lead"
+  trust_text: "Confidentiality assured · 24-hour response"
+
+# ─── Cross-section: term-frequency self-scan ───
+self_scan_term_frequency:
+  "commercial roofing": ~24                  # target 22; on cluster
+  "commercial roofing contractor": 6         # target 8; +2 needed in assembly headers/copy
+  "commercial roofing company": 2            # target 4; +2 needed in body
+  "roofing systems": 11                      # target 10; on cluster
+  "commercial roof": 9                       # target 12; +3 needed
+  "facility": 7                              # target 6; on cluster
+  "tpo": 6                                   # target 5; on cluster
+  "epdm": 5                                  # target 4; on cluster
+  "metal roofing": 4                         # target 4; on cluster
+  "membrane": 5                              # target 6; +1 needed
+  "warranty": 6                              # target 4; over (acceptable, NDL section drives it)
+  "maintenance": 5                           # target 8; +3 needed
+  "16 states": 4                             # target 3; on cluster
+  notes: |
+    Self-scan within tolerance. Layout phase will pick up the +2/+3 deficits in
+    natural section headers and CTA microcopy. No keyword stuffing required.
+
+# ─── Forbidden vocab self-scan ───
+forbidden_vocab_scan:
+  found: []
+  notes: |
+    Draft is clean of: synergy, best-in-class, leverage (verb), world-class,
+    next-gen, robust solution, delight the user, "In today's fast-paced world,"
+    stellar, celebrated, cutting-edge, paradigm shift, blowing the budget,
+    "Are you ready to."
+
+# ─── Humanizer (Hue Write) — DECISION: SKIPPED ───
+humanizer_pass:
+  ran: false
+  rationale: |
+    Per /design/templates/tpo-roofing-systems/copy.yaml humanizer_pass.decision:
+    Hue Write run AFTER voice-authoring breaks Maren voice (renames headings,
+    inserts unsourced claims, breaks internal-link anchors, fabricates technical
+    specs). This draft is voice-authored from the start. Humanizer skipped by
+    rule. If a future SEO-writer-first sequence ships, humanizer would run
+    BEFORE voice rewrite, not after.
+
+# ─── Status ───
+status: ready-for-phase-3-layout
+authored_by: aia4-copywriter (PageBuilder Phase 2, inline) — Maren editorial
+authored_at: 2026-05-03

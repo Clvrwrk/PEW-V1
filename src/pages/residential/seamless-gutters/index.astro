@@ -1,0 +1,471 @@
+---
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import FAQ from '../../../components/molecules/FAQ.astro';
+import Icon from '../../../components/atoms/Icon.astro';
+
+const title = "Seamless Gutter Installation & Replacement — Pro Exteriors | 5 States";
+const description = "Pro Exteriors installs seamless gutters built to handle hail-belt storms across TX, CO, KS, MO & GA. Aluminum, copper & steel options. Combine with your roof project for one easy install.";
+const canonicalPath = "/residential/seamless-gutters";
+
+const roofingContractorSchema = {
+  "@type": "RoofingContractor",
+  "name": "Pro Exteriors",
+  "url": "https://proexteriorsus.com",
+  "telephone": "[REPRESENTATIVE]",
+  "areaServed": ["Texas","Colorado","Kansas","Missouri","Georgia"].map(n => ({ "@type": "State", "name": n }))
+};
+
+const serviceSchema = {
+  "@type": "Service",
+  "name": "Seamless Gutter Installation",
+  "serviceType": "Seamless Gutter Installation",
+  "provider": { "@type": "RoofingContractor", "name": "Pro Exteriors" },
+  "areaServed": ["Texas","Colorado","Kansas","Missouri","Georgia"].map(n => ({ "@type": "State", "name": n })),
+  "description": "Pro Exteriors installs custom-fabricated seamless gutters in aluminum, copper, and steel across Texas, Colorado, Kansas, Missouri, and Georgia. Storm-damage bundle available with roof replacement."
+};
+
+const jsonLd = [roofingContractorSchema, serviceSchema];
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Residential Roofing", href: "/residential" },
+  { label: "Seamless Gutter Installation", href: "/residential/seamless-gutters" }
+];
+
+const materials = [
+  {
+    id: "aluminum",
+    icon: "layers",
+    title: "Aluminum Seamless Gutters",
+    body: "The standard for residential installations across all five states we serve. Lightweight, rust-resistant, and available in a full range of colors to match your fascia or trim. Handles standard rainfall loads reliably and is the most cost-effective option for whole-home gutter replacement on storm-damage insurance claims.",
+    badge: "Most Common"
+  },
+  {
+    id: "copper",
+    icon: "sparkles",
+    title: "Copper Seamless Gutters",
+    body: "The premium choice for homes where the gutter is part of the exterior design statement. Copper develops a natural patina over time, is exceptionally durable, and requires no painting or surface maintenance. Specified on custom-build and historic renovation projects where aluminum is the wrong aesthetic answer.",
+    badge: "Premium Option"
+  },
+  {
+    id: "steel",
+    icon: "shield",
+    title: "Steel Seamless Gutters",
+    body: "For properties with heavy snow load, significant debris exposure, or commercial-grade durability requirements in a residential application. Heavier than aluminum but significantly stronger. Galvanized or stainless variants depending on the corrosion exposure of the site.",
+    badge: "Heavy-Duty"
+  }
+];
+
+const processSteps = [
+  {
+    number: 1,
+    icon: "ruler",
+    title: "Free Measurement and Assessment",
+    body: "A Pro Exteriors technician measures every gutter run, checks your fascia and soffit condition, evaluates slope requirements, and confirms downspout placement before any material is ordered or fabricated. The estimate is based on your specific home — not a square-footage guess."
+  },
+  {
+    number: 2,
+    icon: "layers",
+    title: "Material Selection",
+    body: "Aluminum, copper, or steel. Color options for aluminum. K-style or half-round profile depending on your home's architectural style and the volume of water each run needs to handle. We walk you through the options that make sense for your application and budget."
+  },
+  {
+    number: 3,
+    icon: "settings",
+    title: "Custom Fabrication On-Site",
+    body: "The roll-forming machine arrives with the installation crew. Your gutters are manufactured to the exact length of each run at your property. No joints. No waste. The fabrication happens the morning of installation — not in a warehouse three weeks earlier."
+  },
+  {
+    number: 4,
+    icon: "check-circle",
+    title: "Installation and Slope Verification",
+    body: "Gutters are fastened to the fascia, downspouts are positioned to carry water away from the foundation, and slope is verified in each run before the crew leaves. Proper slope — the difference between a system that drains and one that sags and pools — is checked with a level, not eyeballed."
+  }
+];
+
+const faqItems = [
+  {
+    question: "What is the difference between seamless and sectional gutters?",
+    answer: "Sectional gutters come in pre-cut lengths — typically 10 or 20 feet — that are joined together during installation. Each joint is sealed with caulk or a gasket, and every joint is a potential failure point as the caulk ages and the sections expand and contract seasonally. Seamless gutters are fabricated in a continuous run from a coil of metal using a roll-forming machine that comes to your property. There are no mid-run joints — the only connections are at corners and at the downspout. This eliminates the most common source of residential gutter leaks."
+  },
+  {
+    question: "How long do seamless gutters last?",
+    answer: "Aluminum seamless gutters typically last 20–30 years under normal residential conditions. Copper can last 50 years or more and is frequently specified on historic renovation projects where permanence matters. Steel occupies the middle ground — more durable than aluminum in high-debris or heavy-snow environments, with a comparable lifespan when properly maintained. Lifespan depends on maintenance (gutters should be cleaned at least twice a year in storm-prone areas), the severity of local weather events, and whether the fascia board underneath the gutter is kept in good condition."
+  },
+  {
+    question: "Can I get gutters and roofing done at the same time?",
+    answer: "Yes, and we recommend it. When a storm event damages both the roof and the gutters — which is the typical pattern in hail belt events — handling both on the same job scope eliminates duplicate mobilization costs, simplifies the insurance claim, and ensures the gutter system integrates properly with the new roofline. The sequencing is roof first, gutters second on the same project — so the gutter fascia attachment goes on the finished soffit, not on a temporary surface. Ask about the combined scope when you book your assessment."
+  },
+  {
+    question: "Does insurance cover gutter damage from storms?",
+    answer: "In most standard homeowner policies, yes — gutter damage caused by a covered storm event (hail, wind, falling debris) is included in the claim settlement. The key is documentation: gutter damage needs to be documented at the same time as the roof damage and included in the same adjuster inspection. If you've already filed a roof claim and didn't include the gutters, a supplement can often be added before the claim closes. If you're dealing with active storm damage, we document both systems on the initial inspection."
+  }
+];
+---
+
+<!-- Conversion hypothesis: top-5 organic "seamless gutter installation" + ≥15% avg job value increase via roof+gutter combined quotes within 90 days -->
+
+<BaseLayout {title} {description} {canonicalPath} {jsonLd}>
+
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- ═══ HERO ═══ -->
+  <section style="position: relative; min-height: 580px; background: linear-gradient(135deg, var(--color-surface-dark, #0f172a) 0%, var(--color-surface-mid, #1e293b) 60%, #0a1a2e 100%); display: flex; align-items: center; padding: 80px 24px;">
+    <div style="max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+
+      <!-- Left: Copy -->
+      <div>
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 16px;">
+          SEAMLESS GUTTER INSTALLATION — TX · CO · KS · MO · GA
+        </p>
+        <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; color: #ffffff; margin-bottom: 20px; letter-spacing: -0.02em;">
+          Seamless Gutter Installation by Pro Exteriors
+        </h1>
+        <p style="font-size: 1.125rem; line-height: 1.65; color: rgba(255,255,255,0.8); margin-bottom: 36px; max-width: 520px;">
+          Custom-fabricated on-site. No seams, no leak points. Bundle with your roof project and make it one job.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <a href="/contact?intent=gutter-estimate&source=seamless-gutters-hero"
+             style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: var(--color-accent, #f97316); color: #ffffff; font-size: 1rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-decoration: none; min-height: 48px;"
+             data-event-action="cta-click"
+             data-event-label="hero-primary"
+             data-event-category="seamless-gutters">
+            Get a Free Gutter Estimate
+          </a>
+          <a href="#bundle"
+             style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: rgba(255,255,255,0.1); color: #ffffff; font-size: 1rem; font-weight: 600; padding: 14px 28px; border-radius: 6px; text-decoration: none; min-height: 48px; border: 1px solid rgba(255,255,255,0.2);"
+             data-event-action="cta-click"
+             data-event-label="hero-secondary"
+             data-event-category="seamless-gutters">
+            Bundle with Your Roof Project
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Image slot -->
+      <div style="aspect-ratio: 4/3; background-color: rgba(255,255,255,0.06); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <em style="color: rgba(255,255,255,0.3); font-style: normal; font-size: 0.875rem;" title="Not yet sourced">[REPRESENTATIVE — Gutter installation photo]</em>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ TRUST STRIP ═══ -->
+  <div style="background-color: var(--color-surface-dark, #0f172a); border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 8px 32px; align-items: center; justify-content: center;">
+      {[
+        { icon: "droplets", label: "Seamless Construction" },
+        { icon: "map-pin", label: "TX · CO · KS · MO · GA" },
+        { icon: "layers", label: "Roof + Gutter Bundle" },
+        { icon: "shield", label: "Licensed & Insured" },
+        { icon: "star", label: "[REPRESENTATIVE] Google Rating" }
+      ].map(item => (
+        <div style="display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.85); font-size: 0.875rem; font-weight: 500; white-space: nowrap;">
+          <Icon name={item.icon} size={16} color="var(--color-accent, #f97316)" aria-hidden="true" />
+          {item.label === "[REPRESENTATIVE] Google Rating"
+            ? <><em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE]</em>{" Google Rating"}</>
+            : item.label}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ═══ SERVICE OVERVIEW ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface, #ffffff);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+
+      <!-- Left: Copy -->
+      <div>
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          WHY SEAMLESS
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); margin-bottom: 24px; letter-spacing: -0.02em;">
+          No Seams Means No Leak Points. Custom-Fabricated for Your Home on the Day of Installation.
+        </h2>
+        <div style="font-size: 1rem; line-height: 1.75; color: var(--color-text-secondary, #475569);">
+          <p style="margin-bottom: 20px;">
+            Sectional gutters — the kind sold at home improvement stores and installed in
+            pre-cut lengths — have joints every 10 feet. Each joint is a potential leak
+            point. Over time, caulk fails, fasteners loosen, and the sections pull apart.
+            The result is water draining directly against your fascia board and into
+            your foundation.
+          </p>
+          <p style="margin-bottom: 20px;">
+            Seamless gutters are different in one fundamental way: they are fabricated in
+            a single continuous run from the corner of your home to the downspout.
+            A Pro Exteriors technician brings a roll-forming machine to your job site
+            and produces the exact length required for each gutter run on the spot.
+            No pre-cut sections. No joints. No seam-based failure points.
+          </p>
+          <p>
+            The system is available in aluminum (the standard choice for most residential
+            applications), copper (for premium homes where gutter appearance is part of
+            the exterior design), and steel (for properties where load or durability
+            requirements exceed what aluminum handles). Every installation includes proper
+            slope verification — the difference between a gutter that drains and one that
+            pools and sags.
+          </p>
+        </div>
+        <div style="margin-top: 32px;">
+          <a href="/contact?intent=gutter-estimate&source=seamless-gutters-overview"
+             style="display: inline-flex; align-items: center; gap: 8px; background-color: var(--color-accent, #f97316); color: #ffffff; font-size: 0.9375rem; font-weight: 700; padding: 13px 24px; border-radius: 6px; text-decoration: none;"
+             data-event-action="cta-click"
+             data-event-label="overview-cta"
+             data-event-category="seamless-gutters">
+            Get a Free Gutter Estimate
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Image slot -->
+      <div style="aspect-ratio: 4/3; background-color: var(--color-surface-subtle, #f8fafc); border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-border, #e2e8f0);">
+        <em style="color: var(--color-text-muted, #94a3b8); font-style: normal; font-size: 0.875rem;" title="Not yet sourced">[REPRESENTATIVE — Roll-forming machine on-site photo]</em>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ MATERIALS GRID ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface-subtle, #f8fafc);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          MATERIAL OPTIONS
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); letter-spacing: -0.02em;">
+          Three Gutter Materials. One Right Choice for Your Home.
+        </h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        {materials.map(mat => (
+          <div style="background-color: var(--color-surface, #ffffff); border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 32px; position: relative;">
+            <div style="position: absolute; top: 16px; right: 16px; background-color: var(--color-accent, #f97316); color: #ffffff; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px;">
+              {mat.badge}
+            </div>
+            <div style="width: 48px; height: 48px; background-color: rgba(249,115,22,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+              <Icon name={mat.icon} size={24} color="var(--color-accent, #f97316)" aria-hidden="true" />
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--color-surface-dark, #0f172a); margin-bottom: 12px; line-height: 1.3;">
+              {mat.title}
+            </h3>
+            <p style="font-size: 0.9375rem; line-height: 1.65; color: var(--color-text-secondary, #475569);">
+              {mat.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STAT BAND + TESTIMONIAL ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface-dark, #0f172a);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+
+      <!-- Stats row -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 72px; text-align: center;">
+        {[
+          { value: "15+", label: "Years in Business" },
+          { value: "5", label: "States Served" },
+          { value: "[REPRESENTATIVE]", label: "Gutter Projects Completed" }
+        ].map(stat => (
+          <div>
+            <p style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; color: var(--color-accent, #f97316); line-height: 1; margin-bottom: 8px;">
+              {stat.value.includes("[") ? <em style="font-style: normal;" title="Not yet sourced">{stat.value}</em> : stat.value}
+            </p>
+            <p style="font-size: 0.9375rem; color: rgba(255,255,255,0.7); font-weight: 500;">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Testimonial + proof body -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+        <div>
+          <p style="font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.75); margin-bottom: 24px;">
+            Pro Exteriors operates as a licensed residential roofing and exterior contractor
+            across Texas, Colorado, Kansas, Missouri, and Georgia. Our crews handle gutter
+            installation alongside roofing work on the same property — which matters when
+            a storm event damages both systems and a homeowner needs a single contractor
+            managing the full insurance claim scope, not separate crews with separate
+            schedules and separate invoices.
+          </p>
+        </div>
+        <div style="background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 32px;">
+          <div style="display: flex; gap: 4px; margin-bottom: 16px;" aria-label="5 out of 5 stars">
+            {[1,2,3,4,5].map(() => (
+              <Icon name="star" size={18} color="#f59e0b" aria-hidden="true" />
+            ))}
+          </div>
+          <blockquote style="font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.85); font-style: italic; margin-bottom: 20px;">
+            <em title="Not yet sourced">[REPRESENTATIVE — Real customer testimonial on gutter or roof+gutter project. Signed release required before ship.]</em>
+          </blockquote>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <em style="font-style: normal; color: rgba(255,255,255,0.4); font-size: 0.75rem;" title="Not yet sourced">IMG</em>
+            </div>
+            <div>
+              <p style="font-weight: 600; color: #ffffff; font-size: 0.875rem;">
+                <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE — Customer Name, City, State]</em>
+              </p>
+              <p style="font-size: 0.8125rem; color: rgba(255,255,255,0.5);">Verified Customer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ PROCESS ═══ -->
+  <section id="process" style="padding: 96px 24px; background-color: var(--color-surface, #ffffff);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          HOW IT WORKS
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); letter-spacing: -0.02em;">
+          Four Steps from Your Call to Gutters Installed.
+        </h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+        {processSteps.map(step => (
+          <div style="position: relative; padding: 32px; background-color: var(--color-surface-subtle, #f8fafc); border-radius: 8px; border: 1px solid var(--color-border, #e2e8f0);">
+            <div style="font-size: 3rem; font-weight: 800; color: rgba(249,115,22,0.15); line-height: 1; margin-bottom: 16px; letter-spacing: -0.04em;">
+              {step.number.toString().padStart(2, '0')}
+            </div>
+            <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--color-surface-dark, #0f172a); margin-bottom: 12px; line-height: 1.3;">
+              {step.title}
+            </h3>
+            <p style="font-size: 0.9375rem; line-height: 1.65; color: var(--color-text-secondary, #475569);">
+              {step.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CASE STUDIES ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface-subtle, #f8fafc);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          PROJECT EXAMPLES
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); letter-spacing: -0.02em;">
+          Seamless Gutter Work from the Field.
+        </h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        {["cs-1","cs-2","cs-3"].map((id, i) => (
+          <div style="background-color: var(--color-surface, #ffffff); border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; overflow: hidden;">
+            <div style="aspect-ratio: 16/9; background-color: var(--color-surface-subtle, #f8fafc); display: flex; align-items: center; justify-content: center;">
+              <em style="color: var(--color-text-muted, #94a3b8); font-style: normal; font-size: 0.8125rem;" title="Not yet sourced">[REPRESENTATIVE — Project photo {i+1}]</em>
+            </div>
+            <div style="padding: 24px;">
+              <p style="font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 8px;">
+                <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE]</em>
+              </p>
+              <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--color-surface-dark, #0f172a); margin-bottom: 8px; line-height: 1.3;">
+                <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE — Project title, city, state]</em>
+              </h3>
+              <p style="font-size: 0.875rem; color: var(--color-text-secondary, #475569); line-height: 1.6;">
+                <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE — Gutter scope and outcome]</em>
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BUNDLE BAND ═══ -->
+  <section id="bundle" style="padding: 96px 24px; background-color: var(--color-surface, #ffffff);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+
+      <!-- Left: Image slot -->
+      <div style="aspect-ratio: 4/3; background-color: var(--color-surface-subtle, #f8fafc); border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-border, #e2e8f0);">
+        <em style="color: var(--color-text-muted, #94a3b8); font-style: normal; font-size: 0.875rem;" title="Not yet sourced">[REPRESENTATIVE — Roof + gutter combined project photo]</em>
+      </div>
+
+      <!-- Right: Copy -->
+      <div>
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          ROOF + GUTTER BUNDLE
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); margin-bottom: 24px; letter-spacing: -0.02em;">
+          One Storm. One Crew. One Insurance Claim.
+        </h2>
+        <div style="font-size: 1rem; line-height: 1.75; color: var(--color-text-secondary, #475569);">
+          <p style="margin-bottom: 20px;">
+            When a hail storm or high-wind event damages a roof, it almost always damages
+            the gutters at the same time. Most homeowners handle these as separate projects —
+            a roofing contractor first, a gutter contractor later. That means two mobilization
+            fees, two inspection visits, two insurance line items, and two scheduling windows.
+          </p>
+          <p style="margin-bottom: 20px;">
+            Pro Exteriors handles both on the same job. Our crews install seamless gutters as
+            part of the same project scope as the <a href="/residential/roof-replacement" style="color: var(--color-accent, #f97316); text-decoration: underline;">roof
+            replacement</a>, billed on the same contract and documented in the same insurance
+            claim. The savings in logistics alone are measurable, and the roof-to-gutter
+            integration is cleaner when both systems are installed by the same crew in sequence.
+          </p>
+          <p>
+            If you're working through a <a href="/residential/storm-damage-repair" style="color: var(--color-accent, #f97316); text-decoration: underline;">storm damage
+            repair</a> or full replacement, ask about adding gutter replacement to the scope
+            when you book your assessment. The marginal cost to add gutters to an active roof
+            job is significantly less than scheduling it as a separate project.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface-subtle, #f8fafc);">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          FREQUENTLY ASKED
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); letter-spacing: -0.02em;">
+          Seamless Gutter Questions, Answered.
+        </h2>
+      </div>
+      <FAQ items={faqItems} />
+    </div>
+  </section>
+
+  <!-- ═══ FINAL CTA ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface-dark, #0f172a);">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 16px;">
+        SEAMLESS GUTTERS
+      </p>
+      <h2 style="font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; line-height: 1.15; color: #ffffff; margin-bottom: 20px; letter-spacing: -0.02em;">
+        One Estimate. Custom-Fabricated On-Site. No Seams.
+      </h2>
+      <p style="font-size: 1.125rem; line-height: 1.65; color: rgba(255,255,255,0.75); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Seamless gutter installation across Texas, Colorado, Kansas, Missouri, and Georgia. Combine with your roof project and make it one job.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+        <a href="/contact?intent=gutter-estimate&source=seamless-gutters-final-cta"
+           style="display: inline-flex; align-items: center; justify-content: center; background-color: var(--color-accent, #f97316); color: #ffffff; font-size: 1rem; font-weight: 700; padding: 16px 32px; border-radius: 6px; text-decoration: none; min-height: 52px;"
+           data-event-action="cta-click"
+           data-event-label="final-cta-primary"
+           data-event-category="seamless-gutters">
+          Schedule Your Free Gutter Estimate
+        </a>
+        <a href="/residential/roof-replacement"
+           style="display: inline-flex; align-items: center; justify-content: center; background-color: rgba(255,255,255,0.1); color: #ffffff; font-size: 1rem; font-weight: 600; padding: 16px 32px; border-radius: 6px; text-decoration: none; min-height: 52px; border: 1px solid rgba(255,255,255,0.2);"
+           data-event-action="cta-click"
+           data-event-label="final-cta-secondary"
+           data-event-category="seamless-gutters">
+          Bundle with a Roof Project
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

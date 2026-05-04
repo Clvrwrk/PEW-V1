@@ -1,0 +1,4083 @@
+{
+  "_meta": {
+    "produced_by": "aia4-seo-validator inline (PageBuilder Phase 1)",
+    "produced_at": "2026-05-03",
+    "location_code": 2840,
+    "language_code": "en"
+  },
+  "calls": [
+    {
+      "file": "20260503-162336-keyword-volume.json",
+      "tasks": [
+        {
+          "id": "05031923-6946-0367-0000-a8816585792e",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0291 sec.",
+          "cost": 0.075,
+          "result_count": 3,
+          "path": [
+            "v3",
+            "keywords_data",
+            "google_ads",
+            "search_volume",
+            "live"
+          ],
+          "data": {
+            "api": "keywords_data",
+            "function": "search_volume",
+            "se": "google_ads",
+            "keywords": [
+              "residential roofing contractor",
+              "residential roofing",
+              "residential roofing company"
+            ],
+            "location_code": 2840,
+            "language_code": "en"
+          },
+          "result": [
+            {
+              "keyword": "residential roofing contractor",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "LOW",
+              "competition_index": 5,
+              "search_volume": 880,
+              "low_top_of_page_bid": 25.25,
+              "high_top_of_page_bid": 73.13,
+              "cpc": 8.18,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 1600
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 720
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 1600
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 320
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 210
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 480
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 1000
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 880
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 720
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 590
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 880
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 2400
+                }
+              ]
+            },
+            {
+              "keyword": "residential roofing",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "LOW",
+              "competition_index": 13,
+              "search_volume": 12100,
+              "low_top_of_page_bid": 9.38,
+              "high_top_of_page_bid": 46.22,
+              "cpc": 22.69,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 5400
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 6600
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 22200
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 27100
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 5400
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 12100
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 18100
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 8100
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 9900
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 12100
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 14800
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 14800
+                }
+              ]
+            },
+            {
+              "keyword": "residential roofing company",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "LOW",
+              "competition_index": 9,
+              "search_volume": 2900,
+              "low_top_of_page_bid": 17.07,
+              "high_top_of_page_bid": 64.82,
+              "cpc": 20.79,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 4400
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 1900
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 1300
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 1300
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 880
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 2900
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 6600
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 2900
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 3600
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 2400
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 2400
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 4400
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "20260503-162344-serp.json",
+      "tasks": [
+        {
+          "id": "05031923-6946-0121-0000-b1eec82fa50b",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "2.7122 sec.",
+          "cost": 0.0035,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "serp",
+            "google",
+            "organic",
+            "live",
+            "regular"
+          ],
+          "data": {
+            "api": "serp",
+            "function": "live",
+            "se": "google",
+            "se_type": "organic",
+            "keyword": "residential roofing contractor",
+            "location_code": 2840,
+            "language_code": "en",
+            "device": "desktop",
+            "depth": 20,
+            "os": "windows"
+          },
+          "result": [
+            {
+              "keyword": "residential roofing contractor",
+              "type": "organic",
+              "se_domain": "google.com",
+              "location_code": 2840,
+              "language_code": "en",
+              "check_url": "https://www.google.com/search?q=residential%20roofing%20contractor&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+              "datetime": "2026-05-03 16:23:47 +00:00",
+              "spell": null,
+              "refinement_chips": {
+                "type": "refinement_chips",
+                "xpath": "/html[1]/body[1]/div[3]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+                "items": [
+                  {
+                    "type": "refinement_chips_element",
+                    "title": "Online estimates",
+                    "url": "https://www.google.com/search?sca_esv=2fb6cbf2bacf2019&hl=en&gl=US&q=online+estimates+residential+roofing+contractor&uds=ALYpb_ncDc7jTlmw6Mmq7NjuX5c-1yvOx4LihN-6b21TzLc35AC-HvOhGwhBFTAnRk6qp2ArztLRVEc_rzrwL2k_gNTblXlAjB_JCLlwXKXnSZwv8tHMmG57a4lajxVOsIGV8wuhxXYh2IQdAqtBAW14UtOOvHEIzBjdYSNOmHlb21Pj6UOipeVCiwHmTkufVoLOT8invES4HxLMx-qqGfMhfLLiLeoP2ip6YfvxYJw_q9AIvLFJ6IxSliV7Vfwmr_oytP17o9CENvBIbbEJjD2Pkt33D68xYQ&sa=X&ved=2ahUKEwje18Pnw52UAxX6tysGHcDyHIUQxKsJKAB6BAgYEAE&ictx=0",
+                    "domain": "www.google.com",
+                    "options": null
+                  },
+                  {
+                    "type": "refinement_chips_element",
+                    "title": "Open now",
+                    "url": "https://www.google.com/search?sca_esv=2fb6cbf2bacf2019&hl=en&gl=US&q=residential+roofing+contractor+open+now&uds=ALYpb_ncDc7jTlmw6Mmq7NjuX5c-f3I6s-N9WQDx9o4Bf49bxPi1nV08r3OVY9KFReZqRLHypM2Fad-qGcccJA9Bqo4Cf9ZaQRZ1tKuJ4iLGxuqsPzxudgsn2JAdMwTIrPgysCjkaA6qzuE1h4ElVwcJll04J4FXz4vLWp4yXA-Xuwko4F21H6Vi3DJTrNrsvr4kX0yca28MojaoA0gUk_MqyLuVFd5FfA&sa=X&ved=2ahUKEwje18Pnw52UAxX6tysGHcDyHIUQxKsJKAF6BAgXEAE&ictx=0",
+                    "domain": "www.google.com",
+                    "options": null
+                  },
+                  {
+                    "type": "refinement_chips_element",
+                    "title": "Top rated",
+                    "url": "https://www.google.com/search?sca_esv=2fb6cbf2bacf2019&hl=en&gl=US&q=top+rated+residential+roofing+contractor&uds=ALYpb_ncDc7jTlmw6Mmq7NjuX5c-NijEMlFFWme71OG0IjXPTvxpzq5lte1DSmH5TCRFMMlwxgfar07JgRLtujmCLvo3V4EV3CEahnPG6J3jr9rldK6TGK4FI-4aE3zHTDAXyn3PB7sttYYWzelBygPf66MyNoUahsp0fJwR1WybR4V-KS72xLNwoP9csi6N6Fe84ddYj0_ExzGmsfyNntbGcOnVXVFxug&sa=X&ved=2ahUKEwje18Pnw52UAxX6tysGHcDyHIUQxKsJKAJ6BAgZEAE&ictx=0",
+                    "domain": "www.google.com",
+                    "options": null
+                  }
+                ]
+              },
+              "item_types": [
+                "local_pack",
+                "organic",
+                "people_also_ask",
+                "related_searches"
+              ],
+              "se_results_count": 18500000,
+              "pages_count": 2,
+              "items_count": 19,
+              "items": [
+                {
+                  "type": "organic",
+                  "rank_group": 1,
+                  "rank_absolute": 4,
+                  "page": 1,
+                  "domain": "www.gaf.com",
+                  "title": "Find a residential roofing contractor near you",
+                  "description": "Call 877-423-7663 now to get matched with contractors certified by GAF for your project. Available in the U.S. only. 877-423-7663\u00a0... Read more",
+                  "url": "https://www.gaf.com/en-us/roofing-contractors/residential",
+                  "breadcrumb": "https://www.gaf.com \u203a en-us \u203a residential"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 2,
+                  "rank_absolute": 5,
+                  "page": 1,
+                  "domain": "www.bbb.org",
+                  "title": "Roofing Contractors Near Me",
+                  "description": "BBB can help you find BBB Accredited roofing contractors near you. Compare contractors and read the signs that you may need a new roof below this list. Read more",
+                  "url": "https://www.bbb.org/near-me/roofing-contractors",
+                  "breadcrumb": "https://www.bbb.org \u203a near-me \u203a roofing-contractors"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 3,
+                  "rank_absolute": 6,
+                  "page": 1,
+                  "domain": "www.nrca.net",
+                  "title": "National Roofing Contractors Association Home - NRCA",
+                  "description": "NRCA provides a vast technical library and guidance regarding building codes and standards, correct roof system installation and design assistance. Read more",
+                  "url": "https://www.nrca.net/",
+                  "breadcrumb": "https://www.nrca.net"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 4,
+                  "rank_absolute": 8,
+                  "page": 1,
+                  "domain": "www.owenscorning.com",
+                  "title": "Independent Roofing Contractors Near Me",
+                  "description": "Find independent roofing contractors in the Owens Corning Roofing Contractor Network near , , and request a quote for your roof replacement or repair.",
+                  "url": "https://www.owenscorning.com/en-us/roofing/contractors",
+                  "breadcrumb": "https://www.owenscorning.com \u203a en-us \u203a contractors"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 5,
+                  "rank_absolute": 9,
+                  "page": 1,
+                  "domain": "bakerroofing.com",
+                  "title": "Baker Roofing Company: The Nation's Top Roofing Contractor",
+                  "description": "Baker Roofing Company, recognized as one of the nation's top commercial and residential roofing contractors.",
+                  "url": "https://bakerroofing.com/",
+                  "breadcrumb": "https://bakerroofing.com"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 6,
+                  "rank_absolute": 10,
+                  "page": 1,
+                  "domain": "www.certainteed.com",
+                  "title": "CertainTeed: Let's Build for Tomorrow. Today",
+                  "description": "CertainTeed is North America's leading brand of exterior and interior products, including roofing, siding, trim, insulation, gypsum, and ceilings.",
+                  "url": "https://www.certainteed.com/",
+                  "breadcrumb": "https://www.certainteed.com"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 7,
+                  "rank_absolute": 11,
+                  "page": 1,
+                  "domain": "www.reddit.com",
+                  "title": "Roofing Contractors going door to door looking for ...",
+                  "description": "Roofing Contractors going door to door looking for residents to use their homeowners insurance for making hail damage claims and magically getting a new roof. Read more",
+                  "url": "https://www.reddit.com/r/AnnArbor/comments/1c699gb/roofing_contractors_going_door_to_door_looking/",
+                  "breadcrumb": "100+ comments  \u00b7  2 years ago"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 8,
+                  "rank_absolute": 12,
+                  "page": 1,
+                  "domain": "www.quora.com",
+                  "title": "What does a residential roofing contractor do?",
+                  "description": "A residential roofing contractor installs, repairs and maintains the roofs of homes and other residential buildings.",
+                  "url": "https://www.quora.com/What-does-a-residential-roofing-contractor-do",
+                  "breadcrumb": "1 answer  \u00b7  4 years ago"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 9,
+                  "rank_absolute": 13,
+                  "page": 1,
+                  "domain": "www.roofingcontractor.com",
+                  "title": "Roofing Contractor Dies After Fall From Massachusetts Home",
+                  "description": "3 hours ago \u2014 Johnny Fabbo Rosario, 38, died after falling through a roof panel during his shift atop an industrial facility near Mobile, Ala., in January. Read more",
+                  "url": "https://www.roofingcontractor.com/articles/102175-roofing-contractor-dies-after-fall-from-massachusetts-home",
+                  "breadcrumb": "https://www.roofingcontractor.com \u203a articles \u203a 102175-..."
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 10,
+                  "rank_absolute": 15,
+                  "page": 2,
+                  "domain": "www.youtube.com",
+                  "title": "8 Type Of Roofers (Guide for Home Owners)",
+                  "description": null,
+                  "url": "https://www.youtube.com/watch?v=C9yCfeHShVk",
+                  "breadcrumb": "6.6K+ views  \u00b7  1 year ago"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 11,
+                  "rank_absolute": 16,
+                  "page": 2,
+                  "domain": "linearroofing.com",
+                  "title": "Linear Roofing General Contractors - Get a Free Quote Today",
+                  "description": "We specialize in roof replacement, repair, and maintenance for apartment complexes, condominiums, assisted living facilities, and more. Read more",
+                  "url": "https://linearroofing.com/",
+                  "breadcrumb": "https://linearroofing.com"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 12,
+                  "rank_absolute": 17,
+                  "page": 2,
+                  "domain": "whitecastleroofing.com",
+                  "title": "White Castle Roofing: The Best Midwest Roofing Contractor",
+                  "description": "We are a full service midwest roofing contractor offering residential, commercial, metal, and roof asset management products and services. Get started today.",
+                  "url": "https://whitecastleroofing.com/",
+                  "breadcrumb": "https://whitecastleroofing.com"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 13,
+                  "rank_absolute": 18,
+                  "page": 2,
+                  "domain": "www.diamondcertified.org",
+                  "title": "Top Rated Roofing Contractors for Harris County, TX",
+                  "description": "Texas Roofing & Leak Repair provides roofing services for residential and commercial clients in the Greater Houston area. Read more",
+                  "url": "https://www.diamondcertified.org/roofing/tx/harris-county/",
+                  "breadcrumb": "https://www.diamondcertified.org \u203a harris county"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 14,
+                  "rank_absolute": 19,
+                  "page": 2,
+                  "domain": "www.youtube.com",
+                  "title": "How To Choose A Roofer | THE COMPLETE GUIDE!",
+                  "description": null,
+                  "url": "https://www.youtube.com/watch?v=Lr6oi81_AFk",
+                  "breadcrumb": "5.3K+ views  \u00b7  1 year ago"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 15,
+                  "rank_absolute": 20,
+                  "page": 2,
+                  "domain": "farharoofing.com",
+                  "title": "Farha Roofing | Roofing Contractor | Commercial and ...",
+                  "description": "3 days ago \u2014 Farha provides top quality residential roofing repair and replacement, using quality materials and our experienced team to get your job done\u00a0... Read more",
+                  "url": "https://farharoofing.com/",
+                  "breadcrumb": "https://farharoofing.com"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 16,
+                  "rank_absolute": 21,
+                  "page": 2,
+                  "domain": "generalroof.com",
+                  "title": "General Roofing Company",
+                  "description": "Since 1924, General Roofing Company has been installing and repairing residential, commercial and industrial roofs in the Greater East Bay Area. Read more",
+                  "url": "https://generalroof.com/",
+                  "breadcrumb": "https://generalroof.com"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 17,
+                  "rank_absolute": 22,
+                  "page": 2,
+                  "domain": "roofingbymidsouth.com",
+                  "title": "Residential Roofing in Nashville",
+                  "description": "MidSouth Construction is a residential roofing company based in Nashville that offers a diverse range of services, all designed to keep your family and\u00a0... Read more",
+                  "url": "https://roofingbymidsouth.com/residential-roofing-company/",
+                  "breadcrumb": "https://roofingbymidsouth.com \u203a residential-roofing-co..."
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 18,
+                  "rank_absolute": 23,
+                  "page": 2,
+                  "domain": "www.gaf.com",
+                  "title": "GAF Roofing: North America's Leading Roofing Manufacturer",
+                  "description": "As North America's largest roofing manufacturer, GAF is an industry leader that produces quality, innovative roofing materials. Read more",
+                  "url": "https://www.gaf.com/",
+                  "breadcrumb": "https://www.gaf.com"
+                },
+                {
+                  "type": "organic",
+                  "rank_group": 19,
+                  "rank_absolute": 24,
+                  "page": 2,
+                  "domain": "jimmersonroofing.com",
+                  "title": "Jimmerson Roofing: Local Residential, Commercial Roofing ...",
+                  "description": "We are a local, family owned and operated, licensed and insured roofing company in Lansing, MI. We have more than 70 years of experience providing quality\u00a0... Read more",
+                  "url": "https://jimmersonroofing.com/",
+                  "breadcrumb": "https://jimmersonroofing.com"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "20260503-162351-related-keywords.json",
+      "tasks": [
+        {
+          "id": "05031923-6946-0387-0000-14f525234ec8",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0423 sec.",
+          "cost": 0.0109,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "related_keywords",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "related_keywords",
+            "se_type": "google",
+            "keyword": "residential roofing contractor",
+            "location_code": 2840,
+            "language_code": "en",
+            "limit": 100
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "seed_keyword": "residential roofing contractor",
+              "seed_keyword_data": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 9,
+              "items_count": 9,
+              "items": [
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "affordable roofers near me",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-18 16:26:29 +00:00",
+                      "competition": 0.63,
+                      "competition_level": "MEDIUM",
+                      "cpc": 29.21,
+                      "search_volume": 3600,
+                      "low_top_of_page_bid": 10.72,
+                      "high_top_of_page_bid": 52.88,
+                      "categories": [
+                        10004,
+                        10004,
+                        10282,
+                        10282,
+                        11140,
+                        11285,
+                        11285
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 2900
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 2900
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 2900
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 2400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 1900
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 2900
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 4400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 2900
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 2900
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 3600
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 3600
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 5400
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 0,
+                        "quarterly": 0,
+                        "yearly": -56
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": 16,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=affordable%20roofers%20near%20me&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "local_pack",
+                        "people_also_ask",
+                        "organic",
+                        "people_also_search",
+                        "related_searches"
+                      ],
+                      "se_results_count": 3870000,
+                      "last_updated_time": "2026-03-13 19:29:21 +00:00",
+                      "previous_updated_time": "2026-01-20 02:56:58 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 147.8,
+                      "dofollow": 96.8,
+                      "referring_pages": 116.3,
+                      "referring_domains": 38.6,
+                      "referring_main_domains": 36.3,
+                      "rank": 111.2,
+                      "main_domain_rank": 565.9,
+                      "last_updated_time": "2026-03-13 17:29:21 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-29 05:55:38 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "roofers near me with free estimates",
+                    "best affordable roofers near me",
+                    "top 10 roofers near me",
+                    "independent roofers near me",
+                    "roofing contractors near me within 20 mi",
+                    "reputable roofing contractors near me",
+                    "bad roofing contractors near me",
+                    "handyman roofers near me"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "residential roofing contractors near me",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-13 20:41:25 +00:00",
+                      "competition": 0.24,
+                      "competition_level": "LOW",
+                      "cpc": 20.21,
+                      "search_volume": 1900,
+                      "low_top_of_page_bid": 10.01,
+                      "high_top_of_page_bid": 64.96,
+                      "categories": [
+                        10004,
+                        10282,
+                        11141
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 1300
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 1300
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 880
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 480
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 1000
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 1300
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 1900
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 1300
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 1300
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 1600
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 1900
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 8100
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 0,
+                        "quarterly": 48,
+                        "yearly": -96
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": 52,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=residential%20roofing%20contractors%20near%20me&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "local_pack",
+                        "organic",
+                        "people_also_ask",
+                        "people_also_search",
+                        "related_searches"
+                      ],
+                      "se_results_count": 56300000,
+                      "last_updated_time": "2026-03-12 22:15:15 +00:00",
+                      "previous_updated_time": "2026-01-19 11:58:25 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 43659.9,
+                      "dofollow": 42532.8,
+                      "referring_pages": 42972.4,
+                      "referring_domains": 358.4,
+                      "referring_main_domains": 336.8,
+                      "rank": 283.4,
+                      "main_domain_rank": 487,
+                      "last_updated_time": "2026-03-12 20:15:17 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-28 21:46:11 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "residential roofing contractors near california",
+                    "residential roofing contractors near texas",
+                    "affordable residential roofing contractors near me",
+                    "best residential roofing contractors near me",
+                    "independent residential roofing contractors near me",
+                    "bad roofing contractors",
+                    "roofing contractors near me within 20 mi",
+                    "roofers near me with free estimates"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "roofers near me with free estimates",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-12 13:59:32 +00:00",
+                      "competition": 1,
+                      "competition_level": "HIGH",
+                      "cpc": 25.37,
+                      "search_volume": 1000,
+                      "low_top_of_page_bid": 11.87,
+                      "high_top_of_page_bid": 57.47,
+                      "categories": [
+                        10004,
+                        10282,
+                        11141
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 1300
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 720
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 590
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 390
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 590
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 880
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 1000
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 1300
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 1300
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 1300
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 1600
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 1900
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 81,
+                        "quarterly": 120,
+                        "yearly": -46
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": 35,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=roofers%20near%20me%20with%20free%20estimates&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "local_pack",
+                        "people_also_ask",
+                        "organic",
+                        "people_also_search",
+                        "related_searches"
+                      ],
+                      "se_results_count": 1870000,
+                      "last_updated_time": "2026-03-15 22:48:49 +00:00",
+                      "previous_updated_time": "2026-01-20 23:37:52 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 452,
+                      "dofollow": 387,
+                      "referring_pages": 433.7,
+                      "referring_domains": 58.3,
+                      "referring_main_domains": 55,
+                      "rank": 201.1,
+                      "main_domain_rank": 416.8,
+                      "last_updated_time": "2026-03-15 20:48:50 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-29 20:00:00 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "residential roofers near me with free estimates",
+                    "best roofers near me with free estimates",
+                    "affordable roofers near me",
+                    "top 10 roofers near me",
+                    "reputable roofing contractors near me",
+                    "independent roofers near me",
+                    "bad roofing contractors near me",
+                    "roofing contractors near me within 20 mi"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "residential roofing contractor",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-13 15:01:29 +00:00",
+                      "competition": 0.05,
+                      "competition_level": "LOW",
+                      "cpc": 8.18,
+                      "search_volume": 880,
+                      "low_top_of_page_bid": 25.25,
+                      "high_top_of_page_bid": 73.13,
+                      "categories": [
+                        10004,
+                        10282,
+                        11141
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 1600
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 720
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 1600
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 320
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 210
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 480
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 1000
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 880
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 720
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 590
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 880
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 2400
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 122,
+                        "quarterly": 0,
+                        "yearly": 0
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": "residential roofing contractors",
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": 66,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=residential%20roofing%20contractor&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "local_pack",
+                        "people_also_ask",
+                        "organic",
+                        "related_searches",
+                        "images"
+                      ],
+                      "se_results_count": 17200000,
+                      "last_updated_time": "2026-03-16 10:56:16 +00:00",
+                      "previous_updated_time": "2026-01-21 06:16:30 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 48382.6,
+                      "dofollow": 45663.6,
+                      "referring_pages": 47286.1,
+                      "referring_domains": 646.6,
+                      "referring_main_domains": 604.1,
+                      "rank": 349.9,
+                      "main_domain_rank": 515.6,
+                      "last_updated_time": "2026-03-16 08:56:16 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-29 19:27:19 +00:00"
+                    }
+                  },
+                  "depth": 0,
+                  "related_keywords": [
+                    "residential roofing contractors near me",
+                    "bad roofing contractors",
+                    "reputable roofing contractors near me",
+                    "affordable roofers near me",
+                    "general contractor roof repair",
+                    "roofing contractors near me within 20 mi",
+                    "bad roofing contractors near me",
+                    "roofers near me with free estimates"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "bad roofing contractors",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-09 18:34:51 +00:00",
+                      "competition": 0.7,
+                      "competition_level": "HIGH",
+                      "cpc": 19.33,
+                      "search_volume": 480,
+                      "low_top_of_page_bid": 3.68,
+                      "high_top_of_page_bid": 13.58,
+                      "categories": [
+                        10004,
+                        10004,
+                        10282,
+                        10282,
+                        11140,
+                        11141,
+                        11285
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 70
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 70
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 140
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 70
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 110
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 320
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 480
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 590
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 590
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 720
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 880
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 1000
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 0,
+                        "quarterly": -50,
+                        "yearly": -93
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": "keyword_metrics",
+                      "keyword_difficulty": 0,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=bad%20roofing%20contractors&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "local_pack",
+                        "people_also_ask",
+                        "organic",
+                        "related_searches"
+                      ],
+                      "se_results_count": 16200000,
+                      "last_updated_time": "2026-03-18 13:16:50 +00:00",
+                      "previous_updated_time": "2026-01-22 07:55:47 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 21.6,
+                      "dofollow": 17.7,
+                      "referring_pages": 20.1,
+                      "referring_domains": 11.9,
+                      "referring_main_domains": 11.6,
+                      "rank": 27,
+                      "main_domain_rank": 482.4,
+                      "last_updated_time": "2026-03-18 11:16:54 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-29 03:52:51 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "bad roofing contractors near california",
+                    "bad roofing contractors near texas",
+                    "bad roofing contractors near me",
+                    "bad roofing contractors 2022",
+                    "bad roofing contractors reddit",
+                    "bad roofing contractors florida",
+                    "top rated bad roofing contractors",
+                    "reputable roofing contractors near me"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "reputable roofing contractors near me",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-11 22:45:59 +00:00",
+                      "competition": 0.47,
+                      "competition_level": "MEDIUM",
+                      "cpc": 13.03,
+                      "search_volume": 390,
+                      "low_top_of_page_bid": 8.45,
+                      "high_top_of_page_bid": 45.25,
+                      "categories": [
+                        10004,
+                        10282,
+                        11141
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 320
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 170
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 170
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 170
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 210
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 390
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 480
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 590
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 480
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 480
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 720
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 720
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 88,
+                        "quarterly": 88,
+                        "yearly": -64
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": null,
+                      "keyword_difficulty": 36,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=reputable%20roofing%20contractors%20near%20me&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "local_pack",
+                        "people_also_ask",
+                        "organic",
+                        "people_also_search",
+                        "related_searches"
+                      ],
+                      "se_results_count": 40000000,
+                      "last_updated_time": "2026-03-31 23:37:49 +00:00",
+                      "previous_updated_time": "2026-02-10 22:14:03 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 936.5,
+                      "dofollow": 864.4,
+                      "referring_pages": 881.4,
+                      "referring_domains": 76.1,
+                      "referring_main_domains": 71.3,
+                      "rank": 202.8,
+                      "main_domain_rank": 565.1,
+                      "last_updated_time": "2026-03-31 20:37:50 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-29 19:20:44 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "reputable roofing contractors near california",
+                    "reputable roofing contractors near texas",
+                    "reputable roofing contractors near me reviews",
+                    "bad roofing contractors",
+                    "bad roofing contractors near me",
+                    "roofing contractors near me within 20 mi",
+                    "reputable roofing contractors near me hiring",
+                    "affordable roofers near me"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "bad roofing contractors near me",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-14 23:31:04 +00:00",
+                      "competition": 0.89,
+                      "competition_level": "HIGH",
+                      "cpc": 18.49,
+                      "search_volume": 140,
+                      "low_top_of_page_bid": 5.3,
+                      "high_top_of_page_bid": 24.57,
+                      "categories": [
+                        10004,
+                        10282,
+                        11141
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 260
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 90
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 90
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 70
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 110
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 140
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 140
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 110
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 90
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 110
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 170
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 170
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 189,
+                        "quarterly": 189,
+                        "yearly": 86
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": null,
+                      "keyword_difficulty": 13,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=bad%20roofing%20contractors%20near%20me&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "ai_overview",
+                        "local_pack",
+                        "people_also_ask",
+                        "organic",
+                        "related_searches"
+                      ],
+                      "se_results_count": 14400000,
+                      "last_updated_time": "2026-05-02 13:11:57 +00:00",
+                      "previous_updated_time": "2026-03-07 11:25:52 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 860.1,
+                      "dofollow": 648.3,
+                      "referring_pages": 793.7,
+                      "referring_domains": 94.5,
+                      "referring_main_domains": 88.3,
+                      "rank": 103.3,
+                      "main_domain_rank": 602.3,
+                      "last_updated_time": "2026-05-02 10:11:57 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-29 06:46:07 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "bad roofing contractors near california",
+                    "bad roofing contractors near texas",
+                    "bad roofing contractors near me reviews",
+                    "affordable bad roofing contractors near me",
+                    "reputable roofing contractors near me",
+                    "cheap bad roofing contractors near me",
+                    "best bad roofing contractors near me",
+                    "roofing companies near parkersburg wv"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "roofing contractors near me within 20 mi",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-11 10:21:15 +00:00",
+                      "competition": 0.89,
+                      "competition_level": "HIGH",
+                      "cpc": 18.21,
+                      "search_volume": 40,
+                      "low_top_of_page_bid": 6.63,
+                      "high_top_of_page_bid": 32.39,
+                      "categories": [
+                        10004,
+                        10282,
+                        11140,
+                        11285
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 140
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 90
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 50
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 40
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 40
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 40
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 30
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 50
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 20
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 0
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 0
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 0
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 56,
+                        "quarterly": 180,
+                        "yearly": null
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": null,
+                      "keyword_difficulty": 51,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=roofing%20contractors%20near%20me%20within%2020%20mi&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "ai_overview",
+                        "organic",
+                        "people_also_ask",
+                        "people_also_search",
+                        "related_searches"
+                      ],
+                      "se_results_count": 5530000,
+                      "last_updated_time": "2026-03-28 09:53:45 +00:00",
+                      "previous_updated_time": null
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 2486.9,
+                      "dofollow": 2042,
+                      "referring_pages": 2182.6,
+                      "referring_domains": 211.9,
+                      "referring_main_domains": 197.7,
+                      "rank": 244.1,
+                      "main_domain_rank": 548.3,
+                      "last_updated_time": "2026-03-28 07:53:46 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "navigational",
+                      "foreign_intent": [
+                        "commercial"
+                      ],
+                      "last_updated_time": "2025-10-28 14:36:11 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "residential roofing contractors near me within 20 mi",
+                    "best roofing contractors near me within 20 mi",
+                    "affordable roofers near me",
+                    "bad roofing contractors near me",
+                    "reputable roofing contractors near me",
+                    "roofers near me with free estimates",
+                    "roofer near me within 5 mi",
+                    "top 10 roofers near me"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "general contractor roof repair",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-19 15:19:31 +00:00",
+                      "competition": 0.71,
+                      "competition_level": "HIGH",
+                      "cpc": null,
+                      "search_volume": 20,
+                      "low_top_of_page_bid": null,
+                      "high_top_of_page_bid": null,
+                      "categories": [
+                        10004,
+                        10282,
+                        11141
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 20
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 30
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 30
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 30
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 30
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 0,
+                        "quarterly": 0,
+                        "yearly": -50
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": null,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": null,
+                    "avg_backlinks_info": null,
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "navigational",
+                      "foreign_intent": [
+                        "commercial"
+                      ],
+                      "last_updated_time": "2025-04-10 19:22:22 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "20260503-162356-related-keywords.json",
+      "tasks": [
+        {
+          "id": "05031923-6946-0387-0000-48f6812952b8",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0399 sec.",
+          "cost": 0.0109,
+          "result_count": 1,
+          "path": [
+            "v3",
+            "dataforseo_labs",
+            "google",
+            "related_keywords",
+            "live"
+          ],
+          "data": {
+            "api": "dataforseo_labs",
+            "function": "related_keywords",
+            "se_type": "google",
+            "keyword": "residential roofing",
+            "location_code": 2840,
+            "language_code": "en",
+            "limit": 100
+          },
+          "result": [
+            {
+              "se_type": "google",
+              "seed_keyword": "residential roofing",
+              "seed_keyword_data": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "total_count": 9,
+              "items_count": 9,
+              "items": [
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "residential roofing",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-18 10:16:50 +00:00",
+                      "competition": 0.13,
+                      "competition_level": "LOW",
+                      "cpc": 22.69,
+                      "search_volume": 12100,
+                      "low_top_of_page_bid": 9.38,
+                      "high_top_of_page_bid": 46.22,
+                      "categories": [
+                        10004,
+                        10282,
+                        11140,
+                        11285
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 5400
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 6600
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 22200
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 27100
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 5400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 12100
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 18100
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 8100
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 9900
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 12100
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 14800
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 14800
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": -18,
+                        "quarterly": -76,
+                        "yearly": -76
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": 77,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=residential%20roofing&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "local_pack",
+                        "organic",
+                        "images",
+                        "people_also_ask",
+                        "people_also_search",
+                        "related_searches"
+                      ],
+                      "se_results_count": 235000000,
+                      "last_updated_time": "2026-03-12 09:38:37 +00:00",
+                      "previous_updated_time": "2026-01-19 06:08:02 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 42735.9,
+                      "dofollow": 41731.9,
+                      "referring_pages": 42191.8,
+                      "referring_domains": 326,
+                      "referring_main_domains": 310.4,
+                      "rank": 387.5,
+                      "main_domain_rank": 495.7,
+                      "last_updated_time": "2026-03-12 07:38:37 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-29 21:56:12 +00:00"
+                    }
+                  },
+                  "depth": 0,
+                  "related_keywords": [
+                    "residential roofing materials",
+                    "residential roofing prices",
+                    "roofing home depot",
+                    "certainteed shingles home depot",
+                    "precio de roofing en home depot",
+                    "roofing materials list with pictures",
+                    "gaf roofing materials",
+                    "roofing shingles prices"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "roofing shingles prices",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-13 16:59:26 +00:00",
+                      "competition": 0.98,
+                      "competition_level": "HIGH",
+                      "cpc": 3.85,
+                      "search_volume": 5400,
+                      "low_top_of_page_bid": 1.07,
+                      "high_top_of_page_bid": 7.98,
+                      "categories": [
+                        10004,
+                        10282,
+                        11285
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 6600
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 3600
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 3600
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 2900
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 3600
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 5400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 5400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 5400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 5400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 5400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 6600
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 8100
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 83,
+                        "quarterly": 83,
+                        "yearly": -19
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": "shingles roof price",
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": 17,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=roofing%20shingles%20prices&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "popular_products",
+                        "people_also_ask",
+                        "organic",
+                        "related_searches",
+                        "images"
+                      ],
+                      "se_results_count": 4710000,
+                      "last_updated_time": "2026-01-12 02:50:55 +00:00",
+                      "previous_updated_time": "2025-11-16 22:58:47 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 14.7,
+                      "dofollow": 10.4,
+                      "referring_pages": 13.9,
+                      "referring_domains": 9.9,
+                      "referring_main_domains": 9.7,
+                      "rank": 85,
+                      "main_domain_rank": 458.5,
+                      "last_updated_time": "2026-01-12 00:52:30 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": [
+                        "transactional"
+                      ],
+                      "last_updated_time": "2026-04-29 19:42:14 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "roofing shingles clearance",
+                    "roofing shingles prices per square foot",
+                    "roofing shingles prices near me",
+                    "home depot roofing shingles prices",
+                    "roofing shingles for sale",
+                    "roofing shingles prices per sq ft",
+                    "roof shingles home depot",
+                    "roof shingles near me"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "roofing home depot",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-18 23:26:20 +00:00",
+                      "competition": 0.99,
+                      "competition_level": "HIGH",
+                      "cpc": 2.77,
+                      "search_volume": 2400,
+                      "low_top_of_page_bid": 0.44,
+                      "high_top_of_page_bid": 13.95,
+                      "categories": [
+                        10004,
+                        10282,
+                        11140,
+                        11285
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 1900
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 1300
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 1600
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 1300
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 1900
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 2400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 2400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 2400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 2400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 2400
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 2900
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 2900
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 46,
+                        "quarterly": 19,
+                        "yearly": -34
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": "home depot roofing",
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": 27,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=roofing%20home%20depot&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "organic",
+                        "popular_products",
+                        "people_also_ask",
+                        "related_searches",
+                        "images"
+                      ],
+                      "se_results_count": 45000000,
+                      "last_updated_time": "2026-03-03 15:52:39 +00:00",
+                      "previous_updated_time": "2025-04-15 22:16:02 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 354.8,
+                      "dofollow": 346.2,
+                      "referring_pages": 353.8,
+                      "referring_domains": 16.2,
+                      "referring_main_domains": 16.2,
+                      "rank": 130.2,
+                      "main_domain_rank": 574,
+                      "last_updated_time": "2026-03-03 13:52:40 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "navigational",
+                      "foreign_intent": [
+                        "commercial",
+                        "transactional"
+                      ],
+                      "last_updated_time": "2026-04-29 19:33:47 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "metal roofing home depot",
+                    "roofing home depot price",
+                    "mobile home roofing home depot",
+                    "wood roofing home depot",
+                    "home depot shingles price",
+                    "roofing shingles home depot",
+                    "roofing shingles prices",
+                    "home depot roofing shingles clearance"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "gaf roofing materials",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-08 07:46:33 +00:00",
+                      "competition": 0.74,
+                      "competition_level": "HIGH",
+                      "cpc": 3.21,
+                      "search_volume": 480,
+                      "low_top_of_page_bid": 0.88,
+                      "high_top_of_page_bid": 6.9,
+                      "categories": [
+                        10004,
+                        10004,
+                        10282,
+                        10282,
+                        11140,
+                        11285,
+                        11285
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 480
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 480
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 390
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 390
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 390
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 480
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 480
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 590
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 590
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 590
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 720
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 590
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 0,
+                        "quarterly": 23,
+                        "yearly": 0
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": "gaf roofing material",
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": 41,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=gaf%20roofing%20materials&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "organic",
+                        "people_also_ask",
+                        "popular_products",
+                        "video",
+                        "related_searches",
+                        "images"
+                      ],
+                      "se_results_count": 1430000,
+                      "last_updated_time": "2026-03-18 09:22:52 +00:00",
+                      "previous_updated_time": "2026-01-30 14:33:40 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 41537.5,
+                      "dofollow": 40703.2,
+                      "referring_pages": 40999.7,
+                      "referring_domains": 186.3,
+                      "referring_main_domains": 177.3,
+                      "rank": 211.9,
+                      "main_domain_rank": 583.4,
+                      "last_updated_time": "2026-03-18 07:22:53 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "navigational",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-27 19:58:00 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "gaf roofing materials catalog",
+                    "gaf roofing system installation",
+                    "gaf roofing materials warranty",
+                    "gaf roofing locations",
+                    "gaf roofing materials near me",
+                    "gaf lifetime roofing system",
+                    "gaf materials corporation",
+                    "modern roofing materials"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "precio de roofing en home depot",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-11 15:00:54 +00:00",
+                      "competition": 0.89,
+                      "competition_level": "HIGH",
+                      "cpc": 3.32,
+                      "search_volume": 260,
+                      "low_top_of_page_bid": 1.39,
+                      "high_top_of_page_bid": 5.6,
+                      "categories": [
+                        10004,
+                        10282,
+                        11285
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 110
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 70
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 90
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 90
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 170
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 260
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 390
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 390
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 320
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 320
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 390
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 390
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 57,
+                        "quarterly": 22,
+                        "yearly": -77
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": null,
+                      "keyword_difficulty": 9,
+                      "detected_language": "es",
+                      "is_another_language": true
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=precio%20de%20roofing%20en%20home%20depot&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "popular_products",
+                        "organic",
+                        "people_also_ask",
+                        "ai_overview",
+                        "images",
+                        "related_searches"
+                      ],
+                      "se_results_count": 2050000,
+                      "last_updated_time": "2026-03-19 04:55:29 +00:00",
+                      "previous_updated_time": "2026-01-31 04:50:25 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 341.9,
+                      "dofollow": 337.7,
+                      "referring_pages": 341.3,
+                      "referring_domains": 9.9,
+                      "referring_main_domains": 9.9,
+                      "rank": 89.1,
+                      "main_domain_rank": 591.4,
+                      "last_updated_time": "2026-03-19 02:55:33 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-28 21:40:48 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "precio de roofing en home depot price",
+                    "home depot shingles price",
+                    "precio de roofing en home depot shingles",
+                    "precio de roofing en home depot colors",
+                    "home depot roofing shingles",
+                    "roofing shingles prices",
+                    "roofing shingles clearance",
+                    "home depot 30 year shingles price",
+                    "home depot roofing materials pricing"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "certainteed shingles home depot",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-16 06:36:50 +00:00",
+                      "competition": 0.48,
+                      "competition_level": "MEDIUM",
+                      "cpc": 0.36,
+                      "search_volume": 170,
+                      "low_top_of_page_bid": 0.14,
+                      "high_top_of_page_bid": 7.58,
+                      "categories": [
+                        10008
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 140
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 70
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 90
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 90
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 170
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 170
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 170
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 170
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 210
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 210
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 260
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 260
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 100,
+                        "quarterly": 56,
+                        "yearly": -33
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": "home depot certainteed shingles",
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": 12,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=certainteed%20shingles%20home%20depot&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "organic",
+                        "people_also_ask",
+                        "popular_products",
+                        "images",
+                        "related_searches"
+                      ],
+                      "se_results_count": 60400,
+                      "last_updated_time": "2026-05-01 04:41:37 +00:00",
+                      "previous_updated_time": "2026-03-06 18:10:23 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 93.1,
+                      "dofollow": 79.1,
+                      "referring_pages": 86.3,
+                      "referring_domains": 27.7,
+                      "referring_main_domains": 26.9,
+                      "rank": 100.8,
+                      "main_domain_rank": 597.2,
+                      "last_updated_time": "2026-05-01 01:45:49 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "navigational",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-30 03:15:24 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "certainteed shingles home depot price",
+                    "certainteed shingles home depot colors",
+                    "certainteed shingles home depot cost",
+                    "certainteed landmark shingles",
+                    "certainteed shingles near me",
+                    "certainteed home depot",
+                    "lowe's certainteed shingles",
+                    "certainteed shingles colors"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "residential roofing materials",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-16 20:16:28 +00:00",
+                      "competition": 0.62,
+                      "competition_level": "MEDIUM",
+                      "cpc": 7.61,
+                      "search_volume": 110,
+                      "low_top_of_page_bid": 1.1,
+                      "high_top_of_page_bid": 6.63,
+                      "categories": [
+                        10004,
+                        10004,
+                        10282,
+                        10282,
+                        11140,
+                        11285,
+                        11285
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 140
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 50
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 50
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 30
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 30
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 50
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 260
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 210
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 90
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 140
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 140
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 170
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 180,
+                        "quarterly": 180,
+                        "yearly": 27
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": 77,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=residential%20roofing%20materials&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "ai_overview",
+                        "organic",
+                        "popular_products",
+                        "people_also_ask",
+                        "local_pack",
+                        "images",
+                        "people_also_search",
+                        "related_searches"
+                      ],
+                      "se_results_count": 39200000,
+                      "last_updated_time": "2025-09-24 17:20:58 +00:00",
+                      "previous_updated_time": "2024-11-10 12:35:09 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 3132,
+                      "dofollow": 2669.1,
+                      "referring_pages": 2805.7,
+                      "referring_domains": 300.8,
+                      "referring_main_domains": 287.4,
+                      "rank": 278.4,
+                      "main_domain_rank": 475,
+                      "last_updated_time": "2025-09-24 14:20:58 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": [
+                        "transactional"
+                      ],
+                      "last_updated_time": "2026-04-29 20:00:20 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "residential roofing materials catalog",
+                    "residential roofing materials near me",
+                    "best residential roofing materials",
+                    "modern roofing materials",
+                    "types of roof materials with pictures",
+                    "residential roofing materials cost",
+                    "roofing materials list",
+                    "what are the top 5 roofing materials?"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "roofing materials list with pictures",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-18 13:40:59 +00:00",
+                      "competition": 0.38,
+                      "competition_level": "MEDIUM",
+                      "cpc": 3.33,
+                      "search_volume": 110,
+                      "low_top_of_page_bid": 0.7,
+                      "high_top_of_page_bid": 5.41,
+                      "categories": [
+                        10004,
+                        10004,
+                        10282,
+                        10282,
+                        11140,
+                        11285,
+                        11285
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 140
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 90
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 90
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 110
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 110
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 140
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 110
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 110
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 110
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 140
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 170
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 170
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": 56,
+                        "quarterly": 56,
+                        "yearly": -33
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": "text_processing",
+                      "keyword_difficulty": 28,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": {
+                      "se_type": "google",
+                      "check_url": "https://www.google.com/search?q=roofing%20materials%20list%20with%20pictures&hl=en&gl=US&ie=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+                      "serp_item_types": [
+                        "images",
+                        "people_also_ask",
+                        "organic",
+                        "related_searches"
+                      ],
+                      "se_results_count": 44300000,
+                      "last_updated_time": "2026-05-03 03:06:49 +00:00",
+                      "previous_updated_time": "2026-03-21 01:45:29 +00:00"
+                    },
+                    "avg_backlinks_info": {
+                      "se_type": "google",
+                      "backlinks": 722.8,
+                      "dofollow": 616.5,
+                      "referring_pages": 653,
+                      "referring_domains": 154.5,
+                      "referring_main_domains": 151,
+                      "rank": 177.7,
+                      "main_domain_rank": 530.5,
+                      "last_updated_time": "2026-05-03 00:06:49 +00:00"
+                    },
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "informational",
+                      "foreign_intent": null,
+                      "last_updated_time": "2026-04-28 21:44:00 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": [
+                    "roofing materials list pdf",
+                    "steel roofing materials list with pictures",
+                    "wood roofing materials list with pictures",
+                    "gaf roofing materials",
+                    "modern roofing materials",
+                    "metal roofing materials list",
+                    "roofing material list template",
+                    "materials used for roofing sheets"
+                  ]
+                },
+                {
+                  "se_type": "google",
+                  "keyword_data": {
+                    "se_type": "google",
+                    "keyword": "residential roofing prices",
+                    "location_code": 2840,
+                    "language_code": "en",
+                    "keyword_info": {
+                      "se_type": "google",
+                      "last_updated_time": "2026-04-12 03:19:59 +00:00",
+                      "competition": 0.23,
+                      "competition_level": "LOW",
+                      "cpc": 16.26,
+                      "search_volume": 10,
+                      "low_top_of_page_bid": 2.4,
+                      "high_top_of_page_bid": 10.96,
+                      "categories": [
+                        10004,
+                        10004,
+                        10282,
+                        10282,
+                        11140,
+                        11285,
+                        11285
+                      ],
+                      "monthly_searches": [
+                        {
+                          "year": 2026,
+                          "month": 3,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2026,
+                          "month": 2,
+                          "search_volume": 0
+                        },
+                        {
+                          "year": 2026,
+                          "month": 1,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2025,
+                          "month": 12,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2025,
+                          "month": 11,
+                          "search_volume": 0
+                        },
+                        {
+                          "year": 2025,
+                          "month": 10,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2025,
+                          "month": 9,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2025,
+                          "month": 8,
+                          "search_volume": 10
+                        },
+                        {
+                          "year": 2025,
+                          "month": 7,
+                          "search_volume": 0
+                        },
+                        {
+                          "year": 2025,
+                          "month": 6,
+                          "search_volume": 0
+                        },
+                        {
+                          "year": 2025,
+                          "month": 5,
+                          "search_volume": 0
+                        },
+                        {
+                          "year": 2025,
+                          "month": 4,
+                          "search_volume": 10
+                        }
+                      ],
+                      "search_volume_trend": {
+                        "monthly": null,
+                        "quarterly": 0,
+                        "yearly": 0
+                      }
+                    },
+                    "keyword_info_normalized_with_bing": null,
+                    "keyword_info_normalized_with_clickstream": null,
+                    "clickstream_keyword_info": null,
+                    "keyword_properties": {
+                      "se_type": "google",
+                      "core_keyword": null,
+                      "synonym_clustering_algorithm": null,
+                      "keyword_difficulty": null,
+                      "detected_language": "en",
+                      "is_another_language": false
+                    },
+                    "serp_info": null,
+                    "avg_backlinks_info": null,
+                    "search_intent_info": {
+                      "se_type": "google",
+                      "main_intent": "commercial",
+                      "foreign_intent": [
+                        "informational"
+                      ],
+                      "last_updated_time": "2026-04-29 20:10:04 +00:00"
+                    }
+                  },
+                  "depth": 1,
+                  "related_keywords": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "20260503-162403-keyword-volume.json",
+      "tasks": [
+        {
+          "id": "05031924-6946-0367-0000-a1ac59bdd312",
+          "status_code": 20000,
+          "status_message": "Ok.",
+          "time": "0.0327 sec.",
+          "cost": 0.075,
+          "result_count": 11,
+          "path": [
+            "v3",
+            "keywords_data",
+            "google_ads",
+            "search_volume",
+            "live"
+          ],
+          "data": {
+            "api": "keywords_data",
+            "function": "search_volume",
+            "se": "google_ads",
+            "keywords": [
+              "storm damage repair",
+              "hail damage repair",
+              "roof replacement",
+              "tarp installation",
+              "emergency roof repair",
+              "insurance claim roof",
+              "roof inspection",
+              "asphalt shingles",
+              "metal roofing",
+              "GAF Master Elite",
+              "Owens Corning roofing"
+            ],
+            "location_code": 2840,
+            "language_code": "en"
+          },
+          "result": [
+            {
+              "keyword": "storm damage repair",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "LOW",
+              "competition_index": 4,
+              "search_volume": 3600,
+              "low_top_of_page_bid": 10.24,
+              "high_top_of_page_bid": 48.45,
+              "cpc": 9.54,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 2400
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 2400
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 2900
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 4400
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 3600
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 4400
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 9900
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 2900
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 2900
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 2400
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 1000
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 3600
+                }
+              ]
+            },
+            {
+              "keyword": "hail damage repair",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "MEDIUM",
+              "competition_index": 41,
+              "search_volume": 6600,
+              "low_top_of_page_bid": 2.46,
+              "high_top_of_page_bid": 18.51,
+              "cpc": 10.99,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 4400
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 1900
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 2400
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 2400
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 3600
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 4400
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 8100
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 8100
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 9900
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 12100
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 12100
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 9900
+                }
+              ]
+            },
+            {
+              "keyword": "roof replacement",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "LOW",
+              "competition_index": 25,
+              "search_volume": 49500,
+              "low_top_of_page_bid": 14,
+              "high_top_of_page_bid": 61.75,
+              "cpc": 28.79,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 22200
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 33100
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 33100
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 18100
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 33100
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 49500
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 74000
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 40500
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 40500
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 90500
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 74000
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 90500
+                }
+              ]
+            },
+            {
+              "keyword": "tarp installation",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "MEDIUM",
+              "competition_index": 42,
+              "search_volume": 90,
+              "low_top_of_page_bid": null,
+              "high_top_of_page_bid": null,
+              "cpc": 0.83,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 70
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 70
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 70
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 50
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 70
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 50
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 70
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 90
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 110
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 90
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 110
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 90
+                }
+              ]
+            },
+            {
+              "keyword": "emergency roof repair",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "LOW",
+              "competition_index": 22,
+              "search_volume": 5400,
+              "low_top_of_page_bid": 14.31,
+              "high_top_of_page_bid": 60.53,
+              "cpc": 46.14,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 6600
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 4400
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 6600
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 4400
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 3600
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 4400
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 6600
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 5400
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 4400
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 8100
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 8100
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 9900
+                }
+              ]
+            },
+            {
+              "keyword": "insurance claim roof",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "LOW",
+              "competition_index": 14,
+              "search_volume": 1600,
+              "low_top_of_page_bid": 3.83,
+              "high_top_of_page_bid": 21.14,
+              "cpc": 10.52,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 1600
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 590
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 880
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 590
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 590
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 1000
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 3600
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 1300
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 1000
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 1900
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 2900
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 3600
+                }
+              ]
+            },
+            {
+              "keyword": "roof inspection",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "LOW",
+              "competition_index": 20,
+              "search_volume": 40500,
+              "low_top_of_page_bid": 13.31,
+              "high_top_of_page_bid": 62.19,
+              "cpc": 29.78,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 40500
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 33100
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 27100
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 49500
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 33100
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 40500
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 49500
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 40500
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 33100
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 40500
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 40500
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 40500
+                }
+              ]
+            },
+            {
+              "keyword": "asphalt shingles",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "MEDIUM",
+              "competition_index": 49,
+              "search_volume": 49500,
+              "low_top_of_page_bid": 0.84,
+              "high_top_of_page_bid": 10.59,
+              "cpc": 2.54,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 49500
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 40500
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 40500
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 33100
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 40500
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 60500
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 60500
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 49500
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 74000
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 60500
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 33100
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 33100
+                }
+              ]
+            },
+            {
+              "keyword": "metal roofing",
+              "spell": null,
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "HIGH",
+              "competition_index": 98,
+              "search_volume": 110000,
+              "low_top_of_page_bid": 3.18,
+              "high_top_of_page_bid": 16.36,
+              "cpc": 7.89,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 110000
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 74000
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 74000
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 74000
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 90500
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 110000
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 135000
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 110000
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 110000
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 135000
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 135000
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 135000
+                }
+              ]
+            },
+            {
+              "keyword": "GAF Master Elite",
+              "spell": "gaf master elite",
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "MEDIUM",
+              "competition_index": 37,
+              "search_volume": 880,
+              "low_top_of_page_bid": 3.95,
+              "high_top_of_page_bid": 22.11,
+              "cpc": 10.17,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 1000
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 720
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 720
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 590
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 590
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 880
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 1000
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 1000
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 1300
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 1000
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 1000
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 1600
+                }
+              ]
+            },
+            {
+              "keyword": "Owens Corning roofing",
+              "spell": "owens corning roofing",
+              "location_code": 2840,
+              "language_code": "en",
+              "search_partners": false,
+              "competition": "HIGH",
+              "competition_index": 86,
+              "search_volume": 22200,
+              "low_top_of_page_bid": 0.44,
+              "high_top_of_page_bid": 9.48,
+              "cpc": 3.19,
+              "monthly_searches": [
+                {
+                  "year": 2026,
+                  "month": 3,
+                  "search_volume": 27100
+                },
+                {
+                  "year": 2026,
+                  "month": 2,
+                  "search_volume": 14800
+                },
+                {
+                  "year": 2026,
+                  "month": 1,
+                  "search_volume": 14800
+                },
+                {
+                  "year": 2025,
+                  "month": 12,
+                  "search_volume": 12100
+                },
+                {
+                  "year": 2025,
+                  "month": 11,
+                  "search_volume": 14800
+                },
+                {
+                  "year": 2025,
+                  "month": 10,
+                  "search_volume": 27100
+                },
+                {
+                  "year": 2025,
+                  "month": 9,
+                  "search_volume": 27100
+                },
+                {
+                  "year": 2025,
+                  "month": 8,
+                  "search_volume": 27100
+                },
+                {
+                  "year": 2025,
+                  "month": 7,
+                  "search_volume": 27100
+                },
+                {
+                  "year": 2025,
+                  "month": 6,
+                  "search_volume": 27100
+                },
+                {
+                  "year": 2025,
+                  "month": 5,
+                  "search_volume": 27100
+                },
+                {
+                  "year": 2025,
+                  "month": 4,
+                  "search_volume": 27100
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

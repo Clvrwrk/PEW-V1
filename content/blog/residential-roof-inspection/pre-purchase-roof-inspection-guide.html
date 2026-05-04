@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pre-Purchase Roof Inspection Guide for Homebuyers | Pro Exteriors</title>
+  <meta name="description" content="What to look for—and ask about—in a pre-purchase roof inspection before you close. Real cost estimates, red flags, and negotiation leverage from Pro Exteriors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep-navy:#11133f;
+      --flag-red:#c22326;
+      --hunter-green:#3b6b4c;
+      --golden-orange:#c28412;
+      --smart-blue:#232884;
+      --bg-warm:#fbf9f6;
+      --text-body:#1a1a2e;
+      --text-muted:#5a5a7a;
+      --border-light:#e2e0da;
+      --font-body:'Archivo',sans-serif;
+      --font-mono:'IBM Plex Mono',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);background:var(--bg-warm);color:var(--text-body);font-size:17px;line-height:1.7}
+    a{color:var(--smart-blue);text-decoration:underline;text-underline-offset:3px}
+    a:hover{color:var(--flag-red)}
+
+    /* Progress bar */
+    #progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--flag-red);width:0%;z-index:1000;transition:width .1s linear}
+
+    /* Nav */
+    .site-nav{position:sticky;top:0;background:var(--deep-navy);z-index:900;padding:0 24px}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav-logo{font-size:1.1rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:.02em}
+    .nav-logo span{color:var(--flag-red)}
+    .nav-links{display:flex;gap:24px;list-style:none}
+    .nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{background:var(--flag-red);color:#fff !important;padding:8px 16px;border-radius:4px}
+    .nav-cta:hover{background:#a01c1e;color:#fff !important}
+
+    /* Article header */
+    .article-header{background:var(--deep-navy);color:#fff;padding:48px 24px 40px}
+    .header-inner{max-width:1200px;margin:0 auto}
+    .breadcrumb{font-size:.8rem;color:rgba(255,255,255,.55);margin-bottom:16px;font-family:var(--font-mono)}
+    .breadcrumb a{color:rgba(255,255,255,.55);text-decoration:none}
+    .breadcrumb a:hover{color:#fff}
+    .article-badge{display:inline-block;background:var(--flag-red);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:3px;margin-bottom:16px;font-family:var(--font-mono)}
+    .article-title{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;line-height:1.2;max-width:820px;margin-bottom:16px}
+    .article-meta{font-size:.82rem;color:rgba(255,255,255,.55);display:flex;gap:16px;font-family:var(--font-mono)}
+    .article-meta span::before{content:'· '}
+    .article-meta span:first-child::before{content:''}
+
+    /* Hero */
+    .article-hero{max-width:1200px;margin:0 auto;padding:0 24px}
+    .article-hero img{width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:0 0 8px 8px;display:block}
+
+    /* Content grid */
+    .content-grid{max-width:1200px;margin:48px auto;padding:0 24px;display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start}
+    @media(max-width:768px){.content-grid{grid-template-columns:1fr}.sidebar{display:none}}
+
+    /* Sidebar TOC */
+    .sidebar{position:sticky;top:72px}
+    .toc{background:#fff;border:1px solid var(--border-light);border-radius:8px;padding:20px;font-size:.82rem}
+    .toc-title{font-weight:700;color:var(--deep-navy);margin-bottom:12px;font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+    .toc ul{list-style:none}
+    .toc li{margin-bottom:6px}
+    .toc-link{color:var(--text-muted);text-decoration:none;line-height:1.4;display:block;padding:2px 0;transition:color .2s}
+    .toc-link:hover,.toc-link.active{color:var(--smart-blue)}
+    .toc-link.active{font-weight:600;border-left:2px solid var(--flag-red);padding-left:8px;margin-left:-8px}
+
+    /* Article body */
+    .article-body h2{font-size:1.35rem;font-weight:700;color:var(--deep-navy);margin:40px 0 16px;padding-top:8px}
+    .article-body h3{font-size:1.05rem;font-weight:700;color:var(--deep-navy);margin:28px 0 10px}
+    .article-body p{margin-bottom:18px;color:var(--text-body)}
+    .article-body ul,.article-body ol{margin:0 0 18px 24px}
+    .article-body li{margin-bottom:8px}
+    .article-body strong{color:var(--deep-navy)}
+
+    blockquote{border-left:4px solid var(--flag-red);margin:32px 0;padding:20px 24px;background:#fff;border-radius:0 8px 8px 0}
+    blockquote p{font-size:1.05rem;font-style:italic;color:var(--text-body);margin-bottom:10px}
+    blockquote cite{font-size:.8rem;color:var(--text-muted);font-family:var(--font-mono);font-style:normal}
+
+    /* Data tables */
+    .table-wrap{overflow-x:auto;margin:28px 0}
+    .data-table{width:100%;border-collapse:collapse;font-size:.88rem}
+    .data-table th{background:var(--deep-navy);color:#fff;padding:11px 14px;text-align:left;font-weight:600;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em}
+    .data-table td{padding:10px 14px;border-bottom:1px solid var(--border-light);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:rgba(17,19,63,.03)}
+    .data-table tr:last-child td{border-bottom:none}
+
+    /* SVG charts */
+    .chart-wrap{margin:28px 0;background:#fff;border:1px solid var(--border-light);border-radius:8px;padding:20px}
+    .chart-label{font-size:.75rem;font-family:var(--font-mono);fill:var(--text-muted)}
+    .chart-title-text{font-size:.85rem;font-family:'Archivo',sans-serif;font-weight:700;fill:var(--deep-navy)}
+
+    /* CTA banner */
+    .cta-banner{background:var(--deep-navy);color:#fff;padding:48px 24px;text-align:center;margin:56px 0 0}
+    .cta-banner h2{font-size:1.6rem;font-weight:700;margin-bottom:12px}
+    .cta-banner p{color:rgba(255,255,255,.75);max-width:560px;margin:0 auto 28px}
+    .btn-primary{display:inline-block;background:var(--flag-red);color:#fff;text-decoration:none;padding:14px 32px;border-radius:5px;font-weight:700;font-size:1rem;transition:background .2s}
+    .btn-primary:hover{background:#a01c1e;color:#fff}
+    .btn-secondary{display:inline-block;background:transparent;color:#fff;text-decoration:none;padding:14px 32px;border-radius:5px;font-weight:600;font-size:1rem;border:2px solid rgba(255,255,255,.4);margin-left:12px;transition:border-color .2s}
+    .btn-secondary:hover{border-color:#fff;color:#fff}
+
+    /* Related articles */
+    .related-section{max-width:1200px;margin:56px auto;padding:0 24px}
+    .related-section h2{font-size:1.2rem;font-weight:700;color:var(--deep-navy);margin-bottom:24px}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+    .related-card{background:#fff;border:1px solid var(--border-light);border-radius:8px;padding:20px;text-decoration:none;color:inherit;display:block;transition:box-shadow .2s}
+    .related-card:hover{box-shadow:0 4px 16px rgba(17,19,63,.1);color:inherit}
+    .related-card .badge{font-size:.7rem;font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--flag-red);margin-bottom:8px}
+    .related-card h3{font-size:.95rem;font-weight:700;color:var(--deep-navy);margin-bottom:8px;line-height:1.3}
+    .related-card p{font-size:.82rem;color:var(--text-muted)}
+
+    /* Footer */
+    .site-footer{background:var(--deep-navy);color:rgba(255,255,255,.55);text-align:center;padding:32px 24px;font-size:.82rem;font-family:var(--font-mono)}
+
+    /* Checklist items */
+    .checklist{list-style:none;margin:0 0 18px 0}
+    .checklist li{padding:8px 0 8px 28px;position:relative;border-bottom:1px solid var(--border-light)}
+    .checklist li:last-child{border-bottom:none}
+    .checklist li::before{content:'✓';position:absolute;left:0;color:var(--hunter-green);font-weight:700}
+
+    /* Alert box */
+    .alert-box{background:rgba(194,131,18,.08);border:1px solid var(--golden-orange);border-radius:6px;padding:16px 20px;margin:24px 0}
+    .alert-box p{margin:0;font-size:.9rem}
+    .alert-box strong{color:var(--golden-orange)}
+  </style>
+</head>
+<body>
+
+<div id="progress-bar" role="progressbar" aria-label="Reading progress"></div>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Pro<span>Exteriors</span></a>
+    <ul class="nav-links">
+      <li><a href="/services/commercial-roofing/">Commercial</a></li>
+      <li><a href="/services/residential-roofing/">Residential</a></li>
+      <li><a href="/blog/">Resources</a></li>
+      <li><a href="/contact/" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="header-inner">
+    <p class="breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/blog/">Resources</a> &rsaquo;
+      <a href="/services/residential-roof-inspection/">Residential Roof Inspection</a>
+    </p>
+    <span class="article-badge">Residential Roofing</span>
+    <h1 class="article-title">Pre-Purchase Roof Inspection Guide for Homebuyers: What to Ask, What to Negotiate</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Team</strong></span>
+      <span>May 2026</span>
+      <span>~6 min read</span>
+    </div>
+  </div>
+</header>
+
+<div class="article-hero">
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015704_6aa7c86b-bc2d-4ae4-a9c0-e6728c022a3a.png" alt="Roofing inspector on residential roof examining shingles and flashing" loading="eager" />
+</div>
+
+<div class="content-grid">
+  <aside class="sidebar">
+    <nav class="toc" aria-label="Table of contents">
+      <p class="toc-title">In This Article</p>
+      <ul>
+        <li><a href="#why-the-general-inspection-isnt-enough" class="toc-link">Why the General Inspection Isn't Enough</a></li>
+        <li><a href="#what-a-roofing-specialist-checks" class="toc-link">What a Roofing Specialist Checks</a></li>
+        <li><a href="#roof-age-and-remaining-life" class="toc-link">Roof Age and Remaining Life</a></li>
+        <li><a href="#the-cost-table-repair-vs-replace" class="toc-link">The Cost Table: Repair vs. Replace</a></li>
+        <li><a href="#what-to-ask-the-seller" class="toc-link">What to Ask the Seller</a></li>
+        <li><a href="#negotiation-strategies" class="toc-link">Negotiation Strategies</a></li>
+        <li><a href="#insurance-implications-for-buyers" class="toc-link">Insurance Implications for Buyers</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <article class="article-body">
+    <p>When you're buying a home, the general home inspection covers everything from the HVAC to the electrical panel in a single morning. The inspector walks the roof from the attic hatch, maybe climbs up for a quick look, and notes "visible wear" if anything looks obviously wrong. That's the standard. It is also, for a component that costs $15,000–$30,000 to replace, dramatically insufficient.</p>
+
+    <p>A dedicated pre-purchase roof inspection is a separate engagement with a licensed roofing contractor. It typically costs $200–$450 and takes 45–90 minutes. What it produces — a written assessment of the roof's remaining life, a scope of any needed repairs, and a replacement timeline — is your single most powerful negotiating tool in the transaction. Understanding what that inspection should cover, and how to use its findings, is what this guide is about.</p>
+
+    <h2 id="why-the-general-inspection-isnt-enough">Why the General Home Inspection Isn't Enough</h2>
+
+    <p>General home inspectors are trained to identify visible defects across dozens of systems. Roofing is one line item among many. Most general inspectors do not perform full-surface shingle inspections, do not evaluate flashing workmanship against manufacturer specifications, and do not carry the liability to assess remaining useful life. What they produce is a visual overview, not a condition assessment.</p>
+
+    <p>In practice, this means a general inspection report might note "asphalt shingles with moderate granule loss, further evaluation recommended" and leave you no better informed about whether you're looking at $800 in spot repairs or a $22,000 full replacement in 18 months. A roofing specialist closes that gap — they can identify whether granule loss is cosmetic weathering, hail impact, or age-related failure across the entire roof surface, and give you a defensible cost number attached to each finding.</p>
+
+    <p>The other limitation of general inspections: they typically do not include attic inspection for signs of deck damage, moisture infiltration, or inadequate ventilation — all of which shorten roof life and can cause structural damage independently of the roofing system itself.</p>
+
+    <h2 id="what-a-roofing-specialist-checks">What a Roofing Specialist Checks</h2>
+
+    <p>A thorough pre-purchase inspection by a licensed roofing contractor covers the following areas. If an inspector you hire is skipping sections, ask why before accepting the report.</p>
+
+    <ul>
+      <li><strong>Full-surface shingle condition:</strong> Granule loss, cracking, cupping, clawing, blistering, and missing shingles — across the entire roof surface, not just the portions visible from the ground or a quick peak-line walk.</li>
+      <li><strong>Flashing inspection:</strong> Chimney flashing, step flashing at walls, valley flashing, and skylight flashing. Flashing failures account for the majority of residential leak events and are frequently improperly installed, over-caulked to hide problems, or missing entirely.</li>
+      <li><strong>Pipe boots and penetration seals:</strong> Every plumbing vent, exhaust vent, and electrical conduit penetration is a potential leak point. Rubber pipe boots crack on typical sun exposure within 10–15 years and are often not replaced during re-roofs.</li>
+      <li><strong>Ridge cap and ridge vent:</strong> Ridge cap deterioration and inadequate ridge ventilation are common findings that affect both water integrity and attic thermal performance.</li>
+      <li><strong>Gutters and drainage integration:</strong> Gutters improperly pitched, clogged, or pulling away from fascia create water backup that can infiltrate under eave courses or rot fascia boards.</li>
+      <li><strong>Attic inspection:</strong> Looking for staining, daylight, mold presence, and ventilation adequacy. Deck condition — particularly whether prior leaks have compromised the OSB or plywood substrate — is visible from the attic and invisible from above.</li>
+      <li><strong>Prior repair assessment:</strong> Evidence of past repairs (mismatched shingles, over-caulked flashings, tar patches) signals both the history of problems and the quality of past workmanship.</li>
+    </ul>
+
+    <h2 id="roof-age-and-remaining-life">Roof Age and Remaining Life</h2>
+
+    <p>One of the first questions your specialist should answer is how old the roof is and how much useful life remains. Texas permit records and HOA documentation sometimes provide installation dates; absent documentation, an experienced contractor can estimate age within 3–5 years from shingle condition and granule loss patterns. Expected lifespans vary significantly by material:</p>
+
+    <div class="chart-wrap">
+      <svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roofing material expected lifespan comparison chart">
+        <defs>
+          <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#11133f;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#232884;stop-opacity:1"/>
+          </linearGradient>
+          <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#3b6b4c;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#4a8a60;stop-opacity:1"/>
+          </linearGradient>
+          <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#c28412;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#e09a16;stop-opacity:1"/>
+          </linearGradient>
+        </defs>
+        <text x="320" y="24" text-anchor="middle" class="chart-title-text" font-family="Archivo, sans-serif" font-size="14" font-weight="700" fill="#11133f">Expected Lifespan by Roofing Material (Years)</text>
+        <!-- Y labels -->
+        <text x="165" y="50" class="chart-label" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5a5a7a" text-anchor="end">3-Tab Asphalt</text>
+        <text x="165" y="100" class="chart-label" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5a5a7a" text-anchor="end">Architectural Asphalt</text>
+        <text x="165" y="150" class="chart-label" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5a5a7a" text-anchor="end">Impact-Resistant Asphalt</text>
+        <text x="165" y="200" class="chart-label" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5a5a7a" text-anchor="end">Metal Standing Seam</text>
+        <text x="165" y="250" class="chart-label" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5a5a7a" text-anchor="end">Tile / Slate</text>
+        <!-- Bars (scale: 60 years = 440px wide, origin at 170) -->
+        <!-- 3-Tab: 15-20 avg 17.5 → 128px -->
+        <rect x="170" y="38" width="128" height="22" fill="url(#navyGrad)" rx="3"/>
+        <text x="303" y="53" font-family="IBM Plex Mono, monospace" font-size="11" fill="#11133f">15–20 yrs</text>
+        <!-- Architectural: 25-30 avg 27.5 → 202px -->
+        <rect x="170" y="88" width="202" height="22" fill="url(#navyGrad)" rx="3"/>
+        <text x="377" y="103" font-family="IBM Plex Mono, monospace" font-size="11" fill="#11133f">25–30 yrs</text>
+        <!-- IR Asphalt: 30-40 avg 35 → 257px -->
+        <rect x="170" y="138" width="257" height="22" fill="url(#greenGrad)" rx="3"/>
+        <text x="432" y="153" font-family="IBM Plex Mono, monospace" font-size="11" fill="#3b6b4c">30–40 yrs</text>
+        <!-- Metal: 40-70 avg 55 → 403px -->
+        <rect x="170" y="188" width="403" height="22" fill="url(#greenGrad)" rx="3"/>
+        <text x="578" y="203" font-family="IBM Plex Mono, monospace" font-size="11" fill="#3b6b4c">40–70 yrs</text>
+        <!-- Tile: 50-100 avg 75 → 440px (cap at max) -->
+        <rect x="170" y="238" width="440" height="22" fill="url(#orangeGrad)" rx="3"/>
+        <text x="615" y="253" font-family="IBM Plex Mono, monospace" font-size="11" fill="#c28412">50–100 yrs</text>
+      </svg>
+    </div>
+
+    <p>Remaining useful life is the more actionable figure for a buyer. A 12-year-old architectural asphalt roof might have 15 good years left — or 3, depending on installation quality, maintenance history, and hail impact. The specialist's job is to assess condition, not just age, and give you a defensible estimate of the replacement horizon.</p>
+
+    <p>As a practical rule: if the inspector estimates fewer than 5 years of remaining life, treat the roof as a capital cost you're absorbing at close and negotiate accordingly. If they estimate 5–10 years, negotiate for a seller credit or escrow contribution. Beyond 10 years remaining, the roof is generally not a major negotiating point unless specific defects are identified.</p>
+
+    <h2 id="the-cost-table-repair-vs-replace">The Cost Table: Repair vs. Replace</h2>
+
+    <p>Your inspection report should include a scope of findings and associated cost estimates. Here is a reference for how to interpret the numbers you'll see:</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Finding Type</th>
+            <th>Typical Cost Range</th>
+            <th>Repair or Replace?</th>
+            <th>Negotiation Posture</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pipe boot replacement (1–3 boots)</td>
+            <td>$250–$600</td>
+            <td>Repair</td>
+            <td>Minor credit or seller handles pre-close</td>
+          </tr>
+          <tr>
+            <td>Spot flashing repair (chimney, wall)</td>
+            <td>$300–$900</td>
+            <td>Repair</td>
+            <td>Minor credit or seller handles pre-close</td>
+          </tr>
+          <tr>
+            <td>Missing / blown shingles (&lt;10 SQ)</td>
+            <td>$400–$1,200</td>
+            <td>Repair</td>
+            <td>Seller credit at close</td>
+          </tr>
+          <tr>
+            <td>Hail damage (insurance claimable)</td>
+            <td>$0 out-of-pocket if insured</td>
+            <td>Replace (insurance)</td>
+            <td>Require seller to file prior to close or assign claim</td>
+          </tr>
+          <tr>
+            <td>Age-worn roof, 3–8 yrs remaining</td>
+            <td>$12,000–$22,000 (replacement)</td>
+            <td>Replace</td>
+            <td>Negotiate replacement or significant price reduction</td>
+          </tr>
+          <tr>
+            <td>Deck damage / rotted OSB</td>
+            <td>$1,500–$5,000 (add-on to replacement)</td>
+            <td>Replace</td>
+            <td>Factor into full replacement ask</td>
+          </tr>
+          <tr>
+            <td>Full replacement needed now</td>
+            <td>$15,000–$30,000</td>
+            <td>Replace</td>
+            <td>Replacement credit, price reduction, or walk</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="what-to-ask-the-seller">What to Ask the Seller</h2>
+
+    <p>Before you ever schedule the specialist, request the following from the seller's agent or disclosure documents. What you receive — and what gets declined — tells you a great deal about the roof's history:</p>
+
+    <ul>
+      <li><strong>When was the roof last replaced?</strong> Ask for a permit or contractor invoice. A seller who says "around 2015" without documentation is guessing, and the roof may be older.</li>
+      <li><strong>Has there ever been a storm damage insurance claim on this property?</strong> Insurance claims attach to the property address and can affect your future premiums. Your inspector should look for evidence of prior hail damage that was repaired or that was never addressed.</li>
+      <li><strong>Are there any known active leaks or prior water intrusion?</strong> Disclosure laws in Texas require sellers to note known material defects. Staining in the attic tells you whether the disclosure was honest.</li>
+      <li><strong>Is there any existing roofing warranty?</strong> Manufacturer material warranties and contractor workmanship warranties are sometimes transferable. If a 50-year material warranty is in place and transferable, that changes the calculus.</li>
+    </ul>
+
+    <blockquote>
+      <p>"The question I never get tired of asking at a pre-purchase inspection is: 'What does the attic look like?' The seller often doesn't know. The answer is almost always in there — staining patterns, deck condition, ventilation — and it tells the story the shingles are hiding."</p>
+      <cite>— Pro Exteriors Residential Inspection Lead, Dallas–Fort Worth TX</cite>
+    </blockquote>
+
+    <h2 id="negotiation-strategies">Negotiation Strategies That Hold Up</h2>
+
+    <p>An inspection report from a licensed roofing contractor is a documented, quantified finding — not an opinion. That makes it negotiating leverage with teeth. Here are the approaches that produce results:</p>
+
+    <h3>Seller Credit at Close</h3>
+    <p>The most common outcome for moderate findings (repairs under $3,000). Rather than requiring the seller to execute the work pre-close — which creates scheduling headaches and gives you no control over contractor selection — you negotiate a dollar credit applied at closing. You choose the contractor and own the work after you move in. Most sellers prefer credits to managing contractors during a listing.</p>
+
+    <h3>Require Pre-Close Remediation for Active Leaks</h3>
+    <p>If the inspection finds an active leak or exposed deck, require the seller to remediate before close — not a credit, actual repair. You do not want to inherit a leak in progress. Require documentation of the repair (contractor invoice + photos) before releasing your contingency.</p>
+
+    <h3>Price Reduction for Full Replacement</h3>
+    <p>When the inspection calls for a full replacement in the near term, a seller credit may not be sufficient if your lender restricts seller credits as a percentage of purchase price. In these cases, a negotiated price reduction is cleaner. Bring your inspection report and a replacement estimate (two contractor quotes) to the negotiation.</p>
+
+    <h3>Assign the Insurance Claim</h3>
+    <p>If hail damage is found and the seller has homeowner's insurance, the claim can sometimes be assigned to you as the buyer. More commonly, the seller files the claim prior to close and the settlement proceeds are credited or escrowed. Talk to your real estate attorney about how to structure this — it varies by state and insurer.</p>
+
+    <h3>Walk</h3>
+    <p>If the roof requires immediate replacement, the seller won't negotiate, and the home price doesn't reflect the cost of a new roof — walking is a legitimate outcome. A $25,000 capital liability you didn't price in is a material defect in the deal, not a minor inconvenience.</p>
+
+    <h2 id="insurance-implications-for-buyers">Insurance Implications for Buyers</h2>
+
+    <p>Many homebuyers don't realize that the roof's age and condition directly affect what homeowner's insurance they can obtain and at what premium. Insurers in Texas increasingly decline to bind new policies on roofs older than 15–20 years, or they bind at higher premiums with named-storm exclusions. An aging roof that your inspector says has 8 years of remaining life might generate an uninsurability finding from your insurer at the same time.</p>
+
+    <div class="alert-box">
+      <p><strong>Buyer's checklist before close:</strong> Before your inspection contingency deadline, confirm with your insurance agent whether the roof's age and condition will affect policy binding. If your insurer requires replacement as a condition of coverage, that finding becomes part of your negotiation — and should have been surfaced during your inspection.</p>
+    </div>
+
+    <p>Impact-resistant (IR) shingles carry a UL 2218 Class 4 rating and qualify for insurance premium discounts in hail-prone states including Texas, Colorado, and Kansas — typically 15–30% off the wind/hail portion of the premium. If the home you're buying has an aging 3-tab or standard architectural roof, a replacement with Class 4 shingles may net premium savings that partially offset the replacement cost. Ask your roofing contractor to include a Class 4 option in any replacement estimate.</p>
+
+    <p>Pre-purchase roof inspections are not glamorous due diligence, but they are among the highest-return items in your inspection budget. The $300 you spend on a specialist can either validate a purchase decision or surface a five-figure liability before you're contractually bound. In a market where deferred maintenance is common and disclosure requirements have limits, the inspection is the only way to know what you're actually buying.</p>
+
+    <p>Pro Exteriors provides <a href="/services/residential-roof-inspection/">pre-purchase roof inspections</a> across Dallas–Fort Worth, Houston, Kansas City, Wichita, and Denver. Our written reports include condition assessment, remaining life estimate, repair scope, and replacement cost benchmarks — everything you need to negotiate with confidence.</p>
+  </article>
+</div>
+
+<div class="cta-banner">
+  <h2>Buying a Home? Get a Specialist Inspection Before You Close.</h2>
+  <p>Written condition report, remaining life estimate, and repair scope — delivered before your contingency deadline.</p>
+  <a href="/contact/" class="btn-primary">Schedule a Pre-Purchase Inspection</a>
+  <a href="/services/residential-roof-inspection/" class="btn-secondary">Learn About Our Inspections</a>
+</div>
+
+<section class="related-section">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <a href="/blog/residential-roof-inspection/what-to-expect-free-roof-inspection/" class="related-card">
+      <p class="badge">Inspection</p>
+      <h3>What to Expect from a Free Roof Inspection</h3>
+      <p>How to tell a legitimate assessment from a storm-chaser sales pitch.</p>
+    </a>
+    <a href="/blog/residential-roof-inspection/red-flags-in-roof-inspection-report/" class="related-card">
+      <p class="badge">Inspection</p>
+      <h3>Red Flags in a Roof Inspection Report</h3>
+      <p>The findings that mean real risk — and the ones you can ignore.</p>
+    </a>
+    <a href="/blog/residential-roof-repair/should-you-repair-or-replace-your-roof/" class="related-card">
+      <p class="badge">Roof Repair</p>
+      <h3>Should You Repair or Replace Your Roof?</h3>
+      <p>The framework contractors use — applied to your specific situation.</p>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Pro Exteriors. Serving Dallas–Fort Worth, Houston, Kansas City, Wichita &amp; Denver.</p>
+</footer>
+
+<script>
+  // Progress bar
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const max = document.body.scrollHeight - window.innerHeight;
+    bar.style.width = (window.scrollY / max * 100) + '%';
+  }, { passive: true });
+
+  // TOC active state
+  const headings = document.querySelectorAll('.article-body h2[id]');
+  const links = document.querySelectorAll('.toc-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc-link[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  headings.forEach(h => observer.observe(h));
+</script>
+</body>
+</html>

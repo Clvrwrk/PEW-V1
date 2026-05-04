@@ -1,0 +1,76 @@
+# Delivery manifest — /residential/tile-clay-roofing
+# Phase 6 of 6 — AIA4 PageBuilder · 2026-05-03
+
+slug: tile-clay-roofing
+url: /residential/tile-clay-roofing
+title: "Clay and Tile Roof Installation"
+target_keyword: "clay tile roofing"
+keyword_volume: 12100
+keyword_cpc_usd: 5.98
+keyword_competition: LOW
+template: residential-service (standard hero — not emergency variant; solution-evaluation intent)
+silo_role: T2-money-page — premium upgrade hub, high job value, research-to-conversion funnel
+silo_parent: /residential
+
+hypothesis:
+  a: "Top-5 organic for 'clay tile roofing' in TX/CO/KS/MO/GA geos within 6 months"
+  b: "≥15 qualified tile inquiries per month within 90 days post-launch (soft metric — tile is low-volume specialty, high job value)"
+  note: |
+    Informational intent dominates the head term (low CPC). The page earns organic
+    rank via depth and earns conversion by moving researching homeowners to the
+    free structural assessment CTA. Structural assessment pre-qualifies leads —
+    homeowners who aren't viable tile candidates are identified early, reducing
+    non-converting consultations.
+
+files:
+  brief:           design/templates/tile-clay-roofing/brief.yaml
+  seo_validator:   design/templates/tile-clay-roofing/seo-validator-manifest.yaml
+  page_link:       design/templates/tile-clay-roofing/page-link-manifest.yaml
+  copy:            design/templates/tile-clay-roofing/copy.yaml
+  assembled_page:  src/pages/residential/tile-clay-roofing/index.astro
+
+hard_gates:
+  performance:    pending-localhost-verification
+  accessibility:  structural-pass-pending-browser-verification
+  measurement:    pass-(4 CTAs instrumented with data-event-* attributes)
+  trust:          blocked-pending-source-material
+  schema:         pass-pending-rich-results-test (RoofingContractor + Service + BreadcrumbList + FAQPage)
+  forms:          pending (/contact?intent=tile-assessment end-to-end test required)
+
+ship_blockers:
+  - "Hero background image [REPRESENTATIVE] — clay tile installation action shot"
+  - "Service overview image [REPRESENTATIVE] — Spanish S-tile installation"
+  - "Cost/value section image [REPRESENTATIVE] — in-progress or completed tile project"
+  - "Testimonial — real customer (clay or tile roofing project, any served state) + signed release"
+  - "All 3 case studies — real tile projects + signed releases (TX Spanish-tile, CO/custom homes)"
+  - "Tile installations stat [REPRESENTATIVE] — confirm count with Pro Exteriors"
+  - "Google rating [REPRESENTATIVE] — pull from live GBP profile"
+  - "Localhost Lighthouse run — mobile ≥95 Performance required"
+
+internal_links:
+  out_placed: 4
+  out_detail:
+    - up:    "/residential (near-match: 'residential roofing specialists' in local_experts_proof)"
+    - across: "/residential/natural-slate (live — cost_value section)"
+    - across: "/residential/roof-replacement (live — cost_value section + FAQ answer 4 + final CTA secondary)"
+    - across: "/residential/asphalt-shingles (implicit reference in cost comparison body text — no explicit link; per-year comparison context)"
+  in_live: []
+  in_needed:
+    - "/residential parent — 'tile and clay roofing options' anchor, needs wiring"
+    - "/residential/natural-slate — 'clay and tile roofing' anchor, reciprocal wire when natural-slate ships"
+    - "/residential/roof-replacement — 'tile and clay roofing' anchor, wire post-launch"
+
+structural_notes:
+  - "structural_weight_gate: PASSES — structural assessment requirement stated in service overview, process step 1, and FAQ answer 1 (3 placements)."
+  - "hail_brittleness_gate: PASSES — FAQ answer 3 honestly addresses clay brittleness and recommends concrete tile or impact-resistant asphalt for highest-hail-frequency zones."
+  - "No asphalt-shingles page link explicitly placed in body — per-year comparison references asphalt without requiring a cross-link (the comparison point is general)."
+  - "cost_value section has dual link placement: /residential/natural-slate AND /residential/roof-replacement — both appropriate to the 'compare premium options' context."
+  - "tile-types section has id='tile-types' — hero secondary CTA anchors to it."
+  - "4 CTAs: hero-primary, hero-secondary (anchor scroll), overview-cta, final-cta-primary, final-cta-secondary."
+
+status: structurally-complete
+launch_readiness: blocked-pending-source-material
+
+provenance:
+  produced_by: aia4-pagebuilder Phase 6 (inline orchestration)
+  produced_at: 2026-05-03

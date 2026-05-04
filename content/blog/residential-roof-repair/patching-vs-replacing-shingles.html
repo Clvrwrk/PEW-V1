@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patching vs. Replacing Shingles: When Each Option Makes Sense | Pro Exteriors</title>
+  <meta name="description" content="Shingle patching costs less upfront but isn't always the right answer. Learn when patching works, when it wastes money, and what contractors look for." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--deep-navy:#11133f;--flag-red:#c22326;--hunter-green:#3b6b4c;--golden-orange:#c28412;--smart-blue:#232884;--bg-warm:#fbf9f6;--text-primary:#1a1a2e;--text-muted:#5a5a7a;--border-light:#e4e2dd;--white:#ffffff;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Archivo',sans-serif;background:var(--bg-warm);color:var(--text-primary);line-height:1.7;font-size:1rem;}
+    #progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--flag-red);width:0%;z-index:1000;transition:width 0.1s linear;}
+    nav.site-nav{position:sticky;top:0;z-index:900;background:var(--deep-navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
+    .nav-logo{font-size:1.25rem;font-weight:700;color:var(--white);text-decoration:none;}
+    .nav-logo span{color:var(--flag-red);}
+    .nav-links{display:flex;gap:1.5rem;list-style:none;}
+    .nav-links a{color:rgba(255,255,255,0.82);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--white);}
+    .article-header{background:var(--deep-navy);color:var(--white);padding:3rem 2rem 2.5rem;text-align:center;}
+    .breadcrumb{font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:1rem;font-family:'IBM Plex Mono',monospace;}
+    .breadcrumb a{color:rgba(255,255,255,0.55);text-decoration:none;}
+    .article-badge{display:inline-block;background:var(--flag-red);color:var(--white);font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:2px;margin-bottom:1.25rem;font-family:'IBM Plex Mono',monospace;}
+    .article-title{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;line-height:1.2;max-width:780px;margin:0 auto 1.25rem;}
+    .article-meta{display:flex;gap:1.5rem;justify-content:center;font-size:0.82rem;color:rgba(255,255,255,0.6);flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;}
+    .article-hero{width:100%;aspect-ratio:16/7;overflow:hidden;background:var(--deep-navy);}
+    .article-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+    .content-grid{max-width:1160px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:240px 1fr;gap:3rem;align-items:start;}
+    .sidebar{position:sticky;top:72px;}
+    .toc{background:var(--white);border:1px solid var(--border-light);border-radius:6px;padding:1.25rem;}
+    .toc-title{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);font-family:'IBM Plex Mono',monospace;margin-bottom:0.75rem;}
+    .toc ul{list-style:none;}
+    .toc li{margin-bottom:0.35rem;}
+    .toc-link{font-size:0.82rem;color:var(--text-muted);text-decoration:none;display:block;padding:0.2rem 0 0.2rem 0.5rem;border-left:2px solid transparent;transition:all 0.2s;line-height:1.4;}
+    .toc-link:hover,.toc-link.active{color:var(--deep-navy);border-left-color:var(--flag-red);}
+    .article-body h2{font-size:1.5rem;font-weight:700;color:var(--deep-navy);margin:2.5rem 0 1rem;padding-top:0.5rem;}
+    .article-body h3{font-size:1.1rem;font-weight:600;color:var(--deep-navy);margin:1.75rem 0 0.6rem;}
+    .article-body p{margin-bottom:1.1rem;}
+    .article-body ul,.article-body ol{margin:0.75rem 0 1.1rem 1.4rem;}
+    .article-body li{margin-bottom:0.4rem;}
+    .article-body strong{font-weight:600;}
+    blockquote{border-left:4px solid var(--flag-red);background:var(--white);padding:1.25rem 1.5rem;margin:2rem 0;border-radius:0 6px 6px 0;}
+    blockquote p{font-size:1.05rem;font-style:italic;margin-bottom:0.5rem;}
+    blockquote cite{font-size:0.82rem;color:var(--text-muted);font-style:normal;font-family:'IBM Plex Mono',monospace;}
+    figure{margin:2rem 0;}
+    figcaption{font-size:0.78rem;color:var(--text-muted);text-align:center;margin-top:0.5rem;font-family:'IBM Plex Mono',monospace;}
+    .data-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9rem;background:var(--white);border-radius:6px;overflow:hidden;border:1px solid var(--border-light);}
+    .data-table th{background:var(--deep-navy);color:var(--white);font-weight:600;padding:0.75rem 1rem;text-align:left;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.05em;font-family:'IBM Plex Mono',monospace;}
+    .data-table td{padding:0.7rem 1rem;border-bottom:1px solid var(--border-light);vertical-align:top;}
+    .data-table tr:nth-child(even) td{background:#f7f5f2;}
+    .data-table tr:last-child td{border-bottom:none;}
+    .cta-banner{background:var(--deep-navy);color:var(--white);padding:3rem 2rem;text-align:center;margin:3rem 0 0;}
+    .cta-banner h2{font-size:1.75rem;font-weight:700;margin-bottom:0.75rem;}
+    .cta-banner p{color:rgba(255,255,255,0.75);max-width:500px;margin:0 auto 1.75rem;}
+    .btn-primary{display:inline-block;background:var(--flag-red);color:var(--white);font-weight:700;padding:0.875rem 2rem;border-radius:4px;text-decoration:none;font-size:1rem;transition:background 0.2s;}
+    .btn-primary:hover{background:#a81d20;}
+    .related-section{max-width:1160px;margin:0 auto;padding:2rem 2rem 3rem;}
+    .related-section h2{font-size:1.25rem;font-weight:700;color:var(--deep-navy);margin-bottom:1.5rem;}
+    .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+    .related-card{background:var(--white);border:1px solid var(--border-light);border-radius:6px;padding:1.25rem;text-decoration:none;color:inherit;transition:border-color 0.2s;}
+    .related-card:hover{border-color:var(--flag-red);}
+    .related-card .badge{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--flag-red);font-family:'IBM Plex Mono',monospace;margin-bottom:0.4rem;}
+    .related-card h3{font-size:0.95rem;font-weight:600;color:var(--deep-navy);line-height:1.35;}
+    site-footer{background:var(--deep-navy);color:rgba(255,255,255,0.6);text-align:center;padding:2rem;font-size:0.82rem;display:block;}
+    @media(max-width:768px){.content-grid{grid-template-columns:1fr;}.sidebar{display:none;}.related-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="/" class="nav-logo">Pro<span>Exteriors</span></a>
+    <ul class="nav-links">
+      <li><a href="/services/commercial/">Commercial</a></li>
+      <li><a href="/services/residential/">Residential</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/blog/">Resources</a></li>
+      <li><a href="/contact/">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <header class="article-header">
+    <p class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog/">Resources</a> &rsaquo; <a href="/services/residential-roof-repair/">Residential Roof Repair</a></p>
+    <span class="article-badge">Residential Repair</span>
+    <h1 class="article-title">Patching vs. Replacing Shingles: When Each Option Actually Makes Sense</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Team</strong></span>
+      <span>May 2026</span>
+      <span>~6 min read</span>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015701_b01a0532-4b93-4654-9b0c-a94cd9107b6c.png" alt="Patching vs. Replacing Shingles: When Each Option Actually Makes Sense" loading="eager" />
+  </div>
+
+  <div class="content-grid">
+    <aside class="sidebar">
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-title">In This Article</p>
+        <ul>
+          <li><a href="#what-patching-actually-means" class="toc-link">What Patching Actually Means</a></li>
+          <li><a href="#when-patching-works" class="toc-link">When Patching Works</a></li>
+          <li><a href="#when-patching-fails" class="toc-link">When Patching Fails</a></li>
+          <li><a href="#the-match-problem" class="toc-link">The Match Problem</a></li>
+          <li><a href="#cost-comparison" class="toc-link">Cost Comparison</a></li>
+          <li><a href="#what-contractors-evaluate" class="toc-link">What Contractors Evaluate</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="article-body">
+
+      <p>The question of patching versus replacing shingles sounds simple — replace what's damaged, leave what isn't — but the execution is more nuanced than the premise. Patching done correctly on the right roof extends service life at a fraction of replacement cost. Patching done on the wrong roof is money spent to defer an inevitable replacement while the underlying problems compound. The distinction comes down to six variables that a competent inspector evaluates on every repair assessment.</p>
+
+      <h2 id="what-patching-actually-means">What Patching Actually Means</h2>
+
+      <p>Shingle patching involves removing damaged or missing shingles from a localized area and installing new shingles in their place. A proper patch job is not simply nailing new shingles over damaged ones — it requires removing the damaged shingles, inspecting the underlayment and deck beneath, repairing any sub-surface damage, and installing new shingles integrated correctly with the surrounding field.</p>
+
+      <p>The integration requirement matters: new shingles must be woven in with surrounding courses so that lapping is maintained and water cannot track horizontally under the patch perimeter. Improperly integrated patches — where new shingles are simply slid under the bottom edge of overlapping shingles without full integration — are among the most common sources of persistent leaks after a "repair" job.</p>
+
+      <p>The process for a correctly executed patch:</p>
+      <ol>
+        <li>Remove damaged shingles in the affected area plus at least one shingle course above the highest point of damage</li>
+        <li>Inspect the exposed underlayment for damage, saturation, or tears</li>
+        <li>Inspect the exposed deck for soft spots, delamination, or rot</li>
+        <li>Repair underlayment and deck as needed</li>
+        <li>Install new shingles starting from the lowest course and weaving each row with the existing surrounding shingles</li>
+        <li>Seal exposed nail heads and any flashing intersections at the patch perimeter</li>
+      </ol>
+
+      <h2 id="when-patching-works">When Patching Works</h2>
+
+      <p>Patching is the right answer when four conditions are met simultaneously: the damaged area is genuinely localized, the surrounding field shingles have meaningful remaining service life, the underlayment and deck beneath the damaged area are sound, and the cause of failure is external and discrete (impact, isolated installation defect, wildlife damage) rather than systemic (age, chronic moisture, poor original installation).</p>
+
+      <p>The most patch-friendly scenarios:</p>
+      <ul>
+        <li><strong>Wind blow-off on a young roof:</strong> A 5-year-old roof that lost a section of shingles to a straight-line wind event, with surrounding shingles intact and properly sealed, is an ideal patch candidate.</li>
+        <li><strong>Tree branch puncture on a mid-life roof:</strong> A falling branch punches through 20 square feet of shingles. The deck beneath is intact. Surrounding shingles show normal mid-life condition. Patch scope is entirely appropriate.</li>
+        <li><strong>Isolated manufacturing defect:</strong> A batch of shingles from a particular lot shows premature cracking in one section. Manufacturer warranty covers replacement of the defective lot; surrounding shingles from different production batches are intact.</li>
+        <li><strong>Flashing failure without field damage:</strong> A chimney flashing failure allowed water behind the step flashing and wet one course of shingles at the wall junction. Replacing the affected course and re-flashing the chimney is a repair, not a replacement project.</li>
+      </ul>
+
+      <h2 id="when-patching-fails">When Patching Fails</h2>
+
+      <p>Patching fails — delivers poor value for the money spent — in three categories of situations.</p>
+
+      <h3>Systemic age-related deterioration</h3>
+      <p>An 18-year-old roof with cracked, brittle, granule-depleted shingles throughout the field is not a patch candidate regardless of where the active leak is originating. Replacing 30 shingles around the failure point leaves 3,000 deteriorated shingles on the rest of the roof. The new patch material is installed correctly; the surrounding field fails within the next 1–3 rain events. The patch didn't extend the roof's life — it deferred the inevitable replacement by a few months while costing $600–$1,500 in unnecessary labor.</p>
+
+      <h3>Unknown or unresolved root cause</h3>
+      <p>Patching a leak without identifying its source is one of the most common ways residential roof repairs fail. Water enters through a cracked pipe boot, travels laterally 6 feet through the insulation, and manifests as a ceiling stain in an unrelated location. A contractor who replaces the shingles above the stain without inspecting the actual penetrations has addressed the symptom, not the problem. The leak continues; the homeowner believes the repair failed; another contractor is called.</p>
+
+      <h3>Second-layer roof systems</h3>
+      <p>Many homes have a second layer of shingles installed over the original — a common practice that's allowed under IRC code for one additional layer. Patching a second-layer roof requires removing the top layer in the affected area, which disturbs the first layer beneath it. When the first layer is brittle with age (as it often is if a second layer was added as an alternative to full tear-off), the repair becomes significantly more complex, and the cost-benefit case for a patch weakens considerably.</p>
+
+      <blockquote>
+        <p>"If I can lift any three shingles in the field without cracking them, I'll tell the homeowner we have patch options worth considering. If three random shingles crack when I flex them — even gently — I won't recommend a patch on this roof. The labor to integrate new shingles into brittle surroundings is just going to create more failures at the integration points."</p>
+        <cite>— Pro Exteriors Residential Repair Lead, Richardson TX</cite>
+      </blockquote>
+
+      <h2 id="the-match-problem">The Match Problem</h2>
+
+      <p>Patching creates a visible aesthetics problem on most roofs: shingle colors don't match. Asphalt shingles weather to a distinctly different color over the first 3–5 years of exposure, and new shingles installed into an aged field will be noticeably different in color for 2–4 years. On a roof where the active damage is visible from the street, this matters to some homeowners more than others. On a rear or non-street-facing slope, it typically doesn't.</p>
+
+      <p>Contractor strategies for minimizing match issues:</p>
+      <ul>
+        <li>Source the same manufacturer, product line, and color designation as the existing shingles — then accept that aging will still create a difference</li>
+        <li>Use remaining shingles from the original installation (if the homeowner kept extras, which is always worth doing) for the most critical visible areas</li>
+        <li>Relocate some of the new shingles to less-visible areas and use salvaged original shingles in the most visible patch area — a technique that works well when the homeowner has stock</li>
+      </ul>
+
+      <p>Manufacturer product lines are discontinued and reformulated over time. Finding an exact color match for a 12-year-old shingle product from a specific manufacturer is sometimes impossible regardless of effort. This is a real limitation of patching and should be communicated to homeowners before they decide between patch and replacement.</p>
+
+      <h2 id="cost-comparison">Cost Comparison</h2>
+
+      <table class="data-table" aria-label="Patching versus replacement cost comparison by scenario">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Patch Cost</th>
+            <th>Replacement Cost</th>
+            <th>Right Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>5 missing shingles, 7-year roof, excellent surrounding condition</td>
+            <td>$350–$550</td>
+            <td>$12,000–$18,000</td>
+            <td>Patch — no question</td>
+          </tr>
+          <tr>
+            <td>40 sq ft of impact damage, 12-year roof, sound field</td>
+            <td>$600–$900</td>
+            <td>$12,000–$18,000</td>
+            <td>Patch, inspect surrounding field carefully</td>
+          </tr>
+          <tr>
+            <td>150 sq ft of age-related failure, 17-year roof, widespread granule loss</td>
+            <td>$1,200–$1,800</td>
+            <td>$12,000–$18,000</td>
+            <td>Replace — patch buys 2–3 years at best</td>
+          </tr>
+          <tr>
+            <td>Active leak, unknown source, 15-year roof</td>
+            <td>$400–$800 (if source found)</td>
+            <td>$12,000–$18,000</td>
+            <td>Investigate first; patch or replace based on findings</td>
+          </tr>
+          <tr>
+            <td>Second-layer system, 20-year original, active leak</td>
+            <td>$800–$1,500 (complex patch)</td>
+            <td>$14,000–$22,000 (full tear-off required)</td>
+            <td>Replace — two-layer system is at end of life</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="what-contractors-evaluate">What Contractors Evaluate on a Repair Assessment</h2>
+
+      <p>A credible repair assessment answers five questions before recommending patch or replacement:</p>
+
+      <ol>
+        <li><strong>What is the actual source of the failure?</strong> Not where the stain is, but where water is entering. These are frequently different locations. The source must be identified before any repair scope is meaningful.</li>
+        <li><strong>What is the condition of the deck and underlayment beneath the affected area?</strong> Saturated underlayment that's been wet repeatedly has reduced bonding capacity for new shingles. Soft or delaminated decking needs attention before re-shingling.</li>
+        <li><strong>What is the condition of the surrounding field at the repair perimeter?</strong> Can new shingles be integrated without cracking adjacent brittle shingles? The flex test is the most reliable field assessment.</li>
+        <li><strong>Is the failure isolated or a symptom of systemic deterioration?</strong> Walking the entire roof and documenting granule loss distribution, cracking patterns, and flashing conditions answers this.</li>
+        <li><strong>What is the remaining useful life of the repaired roof if the patch is successful?</strong> A patch that buys 8–10 years is worth executing. A patch that buys 18–24 months on a roof that needs replacement regardless is generally not.</li>
+      </ol>
+
+      <p>A contractor who recommends a patch without walking the entire roof and inspecting the sub-surface condition in the affected area has not completed a repair assessment — they've completed a leak response. Those are different things with different outcomes.</p>
+
+    </article>
+  </div>
+
+  <div class="cta-banner">
+    <h2>Get a Straight Answer on Patch or Replace</h2>
+    <p>Pro Exteriors walks the whole roof, not just the leak area — and gives you an honest assessment with documented photos before recommending any scope.</p>
+    <a href="/contact/" class="btn-primary">Schedule a Repair Assessment</a>
+  </div>
+
+  <section class="related-section">
+    <h2>Related Resources</h2>
+    <div class="related-grid">
+      <a href="/blog/most-common-residential-roof-problems/" class="related-card">
+        <div class="badge">Residential Repair</div>
+        <h3>Most Common Residential Roof Problems: Causes and What to Do</h3>
+      </a>
+      <a href="/blog/roof-repair-costs-by-type/" class="related-card">
+        <div class="badge">Residential Repair</div>
+        <h3>Roof Repair Costs by Type: What You'll Actually Pay in 2026</h3>
+      </a>
+      <a href="/blog/should-you-repair-or-replace-your-roof/" class="related-card">
+        <div class="badge">Residential Repair</div>
+        <h3>Should You Repair or Replace Your Roof? The Decision Framework</h3>
+      </a>
+    </div>
+  </section>
+
+  <site-footer>
+    <p>&copy; 2026 Pro Exteriors &mdash; Prepared by AIA4 Pro Exteriors &mdash; Maren Castellan-Reyes, Senior Director, Website &amp; Application Experience</p>
+  </site-footer>
+
+  <script>
+    const bar=document.getElementById('progress-bar');
+    window.addEventListener('scroll',()=>{const s=window.scrollY,m=document.body.scrollHeight-window.innerHeight;bar.style.width=(s/m*100)+'%';},{passive:true});
+    const sections=document.querySelectorAll('article h2[id]');
+    const links=document.querySelectorAll('.toc-link');
+    const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.toc-link[href="#${e.target.id}"]`);if(a)a.classList.add('active');}});},{rootMargin:'-20% 0px -70% 0px'});
+    sections.forEach(s=>observer.observe(s));
+  </script>
+</body>
+</html>

@@ -9,7 +9,7 @@ import SiteLogo from '../atoms/SiteLogo.astro';
  * so we don't repeat that word in every child.
  */
 const commercialOverview = '/commercial-roofing/';
-const residentialOverview = '/residential-roofing/';
+const residentialOverview = '/residential/';
 
 const commercialServices = [
   { label: 'TPO Roofing Systems', href: '/commercial-roofing/tpo-roofing-systems/' },
@@ -20,13 +20,23 @@ const commercialServices = [
   { label: 'Repair',              href: '/commercial-roofing/repair/' },
 ];
 
+/**
+ * Residential nav — updated 2026-05-03 to point at the new /residential/ silo.
+ * Ordered by buyer intent: emergency/transactional first, material pages second.
+ * Natural Slate, Tile & Clay, Gutters, and Siding are accessible via the hub
+ * (/residential/) rather than the dropdown — nav stays scannable at 8 items.
+ * "Inspection" and "Emergency" placeholders from the old /residential-roofing/
+ * structure have been removed; those intents are covered by the entries below.
+ */
 const residentialServices = [
-  { label: 'Replacement',     href: '/residential-roofing/replacement/' },
-  { label: 'Storm Damage',    href: '/residential-roofing/storm-damage/' },
-  { label: 'Asphalt Shingles', href: '/residential-roofing/asphalt-shingles/' },
-  { label: 'Metal',           href: '/residential-roofing/metal/' },
-  { label: 'Inspection',      href: '/residential-roofing/inspection/' },
-  { label: 'Emergency',       href: '/residential-roofing/emergency/' },
+  { label: 'Roof Replacement',      href: '/residential/roof-replacement' },
+  { label: 'Storm Damage Repair',   href: '/residential/storm-damage-repair' },
+  { label: 'Hail Damage Repair',    href: '/residential/hail-damage-repair' },
+  { label: 'Insurance Claim Help',  href: '/residential/insurance-claim-assistance' },
+  { label: 'Emergency Tarping',     href: '/residential/tarp-installation' },
+  { label: 'Asphalt Shingles',      href: '/residential/asphalt-shingles' },
+  { label: 'Metal Roofing',         href: '/residential/metal-roofing' },
+  { label: 'Tile & Clay',           href: '/residential/tile-clay-roofing' },
 ];
 ---
 

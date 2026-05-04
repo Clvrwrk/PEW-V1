@@ -1,0 +1,75 @@
+# aia4-page-link manifest — Hail Damage Repair
+# Phase 1 · 2026-05-03 · Kyle Roof reverse-silo
+
+silo_role: T2-money-page
+silo_parent: "/residential"
+silo_topic: "hail damage roof repair — hail belt expertise hub for the residential silo"
+
+internal_links_out:
+
+  # UP to parent
+  - anchor: "residential roofing contractors"
+    target: "/residential"
+    anchor_type: near-match
+    placement_hint: "Service overview / proof section"
+
+  # ACROSS to storm cluster siblings
+  - anchor: "storm damage roof repair"
+    target: "/residential/storm-damage-repair"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "Damage guide or FAQ answer 1 (urgency)"
+
+  - anchor: "insurance claim assistance"
+    target: "/residential/insurance-claim-assistance"
+    anchor_type: descriptive
+    target_status: live
+    placement_hint: "Insurance band + final CTA secondary + FAQ answer 4"
+
+  # ACROSS to asphalt-shingles (Class 4 upsell path)
+  - anchor: "Class 4 impact-resistant asphalt shingles"
+    target: "/residential/asphalt-shingles"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "Asphalt damage card — Class 4 upsell paragraph"
+
+  # ACROSS to roof-replacement (severe hail → full replacement)
+  - anchor: "full roof replacement"
+    target: "/residential/roof-replacement"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "Process step 4 or FAQ answer 2 (replace vs. repair)"
+
+  # DOWN to blog (planned — omit until live)
+  - anchor: "how soon to inspect after hail"
+    target: "/blog/hail-damage-roof-insurance-claim"
+    anchor_type: near-match
+    target_status: planned-content-phase
+    note: "Omit until blog post is live"
+
+internal_links_in_required:
+  - from: "/residential"
+    anchor: "hail damage assessment and repair"
+    status: needs-wiring
+
+  - from: "/residential/storm-damage-repair"
+    anchor: "hail damage repair"
+    status: live    # wired in storm-damage-repair damage types hail card
+
+  - from: "/residential/insurance-claim-assistance"
+    anchor: "hail damage repair"
+    status: omitted    # blog link deferred; add when hail page is live
+
+  - from: "/residential/asphalt-shingles"
+    anchor: "hail damage assessment"
+    status: planned    # wiring opportunity post-launch
+
+notes:
+  - "storm-damage-repair already links here via the damage types hail card — reciprocal link confirmed."
+  - "Blog supporters planned-content-phase — omit from assembled page."
+  - "/residential parent needs 'hail damage assessment and repair' anchor wired."
+
+status: success
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wind Damage vs. Hail Damage on Roofs: How to Tell the Difference | Pro Exteriors</title>
+  <meta name="description" content="Wind damage and hail damage look different on a roof — and that difference matters for your insurance claim. Learn how to identify each type with precision." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep-navy: #11133f;
+      --flag-red: #c22326;
+      --hunter-green: #3b6b4c;
+      --golden-orange: #c28412;
+      --smart-blue: #232884;
+      --bg-warm: #fbf9f6;
+      --text-primary: #1a1a2e;
+      --text-muted: #5a5a7a;
+      --border-light: #e4e2dd;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Archivo', sans-serif; background: var(--bg-warm); color: var(--text-primary); line-height: 1.7; font-size: 1rem; }
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--flag-red); width: 0%; z-index: 1000; transition: width 0.1s linear; }
+    nav.site-nav { position: sticky; top: 0; z-index: 900; background: var(--deep-navy); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-logo { font-size: 1.25rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-logo span { color: var(--flag-red); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .article-header { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; }
+    .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+    .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .breadcrumb a:hover { color: rgba(255,255,255,0.9); }
+    .article-badge { display: inline-block; background: var(--flag-red); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 2px; margin-bottom: 1.25rem; font-family: 'IBM Plex Mono', monospace; }
+    .article-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 780px; margin: 0 auto 1.25rem; }
+    .article-meta { display: flex; gap: 1.5rem; justify-content: center; font-size: 0.82rem; color: rgba(255,255,255,0.6); flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; }
+    .article-hero { width: 100%; aspect-ratio: 16/7; overflow: hidden; background: var(--deep-navy); }
+    .article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .content-grid { max-width: 1160px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+    .sidebar { position: sticky; top: 72px; }
+    .toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; }
+    .toc-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-family: 'IBM Plex Mono', monospace; margin-bottom: 0.75rem; }
+    .toc ul { list-style: none; }
+    .toc li { margin-bottom: 0.35rem; }
+    .toc-link { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; display: block; padding: 0.2rem 0; border-left: 2px solid transparent; padding-left: 0.5rem; transition: all 0.2s; line-height: 1.4; }
+    .toc-link:hover, .toc-link.active { color: var(--deep-navy); border-left-color: var(--flag-red); }
+    .article-body h2 { font-size: 1.5rem; font-weight: 700; color: var(--deep-navy); margin: 2.5rem 0 1rem; padding-top: 0.5rem; line-height: 1.25; }
+    .article-body h3 { font-size: 1.1rem; font-weight: 600; color: var(--deep-navy); margin: 1.75rem 0 0.6rem; }
+    .article-body p { margin-bottom: 1.1rem; color: var(--text-primary); }
+    .article-body ul, .article-body ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+    .article-body li { margin-bottom: 0.4rem; }
+    .article-body strong { font-weight: 600; }
+    blockquote { border-left: 4px solid var(--flag-red); background: var(--white); padding: 1.25rem 1.5rem; margin: 2rem 0; border-radius: 0 6px 6px 0; }
+    blockquote p { font-size: 1.05rem; font-style: italic; color: var(--text-primary); margin-bottom: 0.5rem; }
+    blockquote cite { font-size: 0.82rem; color: var(--text-muted); font-style: normal; font-family: 'IBM Plex Mono', monospace; }
+    figure { margin: 2rem 0; }
+    figcaption { font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem; font-family: 'IBM Plex Mono', monospace; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; background: var(--white); border-radius: 6px; overflow: hidden; border: 1px solid var(--border-light); }
+    .data-table th { background: var(--deep-navy); color: var(--white); font-weight: 600; padding: 0.75rem 1rem; text-align: left; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'IBM Plex Mono', monospace; }
+    .data-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .data-table tr:nth-child(even) td { background: #f7f5f2; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .cta-banner { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem; text-align: center; margin: 3rem 0 0; }
+    .cta-banner h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .cta-banner p { color: rgba(255,255,255,0.75); max-width: 500px; margin: 0 auto 1.75rem; }
+    .btn-primary { display: inline-block; background: var(--flag-red); color: var(--white); font-weight: 700; padding: 0.875rem 2rem; border-radius: 4px; text-decoration: none; font-size: 1rem; transition: background 0.2s; }
+    .btn-primary:hover { background: #a81d20; }
+    .related-section { max-width: 1160px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+    .related-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 1.5rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s; }
+    .related-card:hover { border-color: var(--flag-red); }
+    .related-card .badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--flag-red); font-family: 'IBM Plex Mono', monospace; margin-bottom: 0.4rem; }
+    .related-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--deep-navy); line-height: 1.35; }
+    site-footer { background: var(--deep-navy); color: rgba(255,255,255,0.6); text-align: center; padding: 2rem; font-size: 0.82rem; display: block; }
+    @media (max-width: 768px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .related-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="/" class="nav-logo">Pro<span>Exteriors</span></a>
+    <ul class="nav-links">
+      <li><a href="/services/commercial/">Commercial</a></li>
+      <li><a href="/services/residential/">Residential</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/blog/">Resources</a></li>
+      <li><a href="/contact/">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <header class="article-header">
+    <p class="breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/blog/">Resources</a> &rsaquo;
+      <a href="/services/storm-damage-restoration/">Storm Damage Restoration</a>
+    </p>
+    <span class="article-badge">Storm Damage</span>
+    <h1 class="article-title">Wind Damage vs. Hail Damage on Your Roof: How to Tell the Difference</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Team</strong></span>
+      <span>May 2026</span>
+      <span>~6 min read</span>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015658_959f9d0f-a022-4b36-b356-79901934e35d.png" alt="Wind Damage vs. Hail Damage on Your Roof: How to Tell the Difference" loading="eager" />
+  </div>
+
+  <div class="content-grid">
+    <aside class="sidebar">
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-title">In This Article</p>
+        <ul>
+          <li><a href="#why-the-distinction-matters" class="toc-link">Why the Distinction Matters</a></li>
+          <li><a href="#identifying-hail-damage" class="toc-link">Identifying Hail Damage</a></li>
+          <li><a href="#identifying-wind-damage" class="toc-link">Identifying Wind Damage</a></li>
+          <li><a href="#side-by-side-comparison" class="toc-link">Side-by-Side Comparison</a></li>
+          <li><a href="#when-you-have-both" class="toc-link">When You Have Both</a></li>
+          <li><a href="#corroborating-evidence" class="toc-link">Corroborating Evidence</a></li>
+          <li><a href="#what-to-document" class="toc-link">What to Document</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="article-body">
+
+      <p>After a severe storm, the first question most homeowners ask is "did my roof get damaged?" The question insurance adjusters are actually answering is different: "what caused the damage, and does that cause fall under a covered peril?" The distinction between wind damage and hail damage matters because it affects how your claim is categorized, how damage patterns are documented, and — in some policies — which deductible applies.</p>
+
+      <p>Understanding what each damage type looks like before an adjuster arrives puts you in a position to intelligently document your own property and have a substantive conversation with the professional who will determine your claim's outcome.</p>
+
+      <h2 id="why-the-distinction-matters">Why the Distinction Matters</h2>
+
+      <p>Both wind and hail are covered perils under standard HO-3 homeowner's policies. However, an increasing number of policies in Texas, Colorado, Kansas, and Missouri have separated the two into distinct coverage structures with distinct deductibles. A policy might carry a $2,000 AOP deductible for non-weather claims, a flat $5,000 deductible for hail events specifically, and a separate 1% deductible for wind events. On a $350,000 home, that wind deductible is $3,500. Getting the damage classification right matters to your out-of-pocket cost.</p>
+
+      <p>There's also a documentation precision issue: an adjuster who misclassifies primarily hail damage as wind damage (or vice versa) may write an incomplete scope that misses damage components specific to one mechanism. Knowing what each type looks like helps you ensure the adjuster's report is complete.</p>
+
+      <h2 id="identifying-hail-damage">Identifying Hail Damage</h2>
+
+      <p>Hail damage on asphalt shingles has a specific signature. The impacts are circular or near-circular, typically with a dark center where granules have been dislodged and the underlying fiberglass mat or felt substrate is exposed or bruised. Around that center, granules may be displaced but present, creating a "halo" effect. The impacts are distributed across the field of the shingle in a pattern consistent with falling projectiles — they appear throughout the roof surface, not concentrated at edges or flashings.</p>
+
+      <h3>Key hail damage indicators on asphalt shingles</h3>
+      <ul>
+        <li><strong>Granule displacement in circular patterns:</strong> The most definitive field indicator. Granules that protect the asphalt from UV degradation are knocked loose at the point of impact.</li>
+        <li><strong>Bruising of the mat:</strong> On older or lower-quality shingles, hail impacts can bruise or crack the fiberglass mat beneath the asphalt coating. Bruising is confirmed by flexing the shingle — a bruised area will feel soft or spongy rather than rigid.</li>
+        <li><strong>Uniform distribution across all roof faces:</strong> Wind direction during a hail event affects which slopes receive more impact, but all exposed faces will typically show some damage from a significant event.</li>
+        <li><strong>Impact damage on soft metals:</strong> Aluminum gutters, downspouts, AC condenser fins, window screen frames, and lead flashing around penetrations will show dents consistent with the hail size. A series of round dimples on a gutter is strong corroborating evidence of an actual hail event.</li>
+        <li><strong>Consistent impact size:</strong> Real hail events produce impacts within a fairly consistent size range — individual hail stones are approximately uniform in diameter. Impact patterns with wildly inconsistent sizes suggest the damage may have other causes.</li>
+      </ul>
+
+      <h3>Hail damage indicators on metal roofing</h3>
+      <p>Metal roofing responds differently. On standing seam panels, hail damage may not be visible at normal observation distance — you need close inspection under raking light to see the small dimples or dents that indicate impact. Exposed fastener metal and corrugated panels show hail impact more readily. Class 4 impact-rated metal roofing (tested to UL 2218 Class 4 standards) is designed to withstand 2-inch steel ball impact at 90 mph without cracking or fracturing — but it will still dent. Whether that dent is a structural failure is a separate question from whether the hail event occurred.</p>
+
+      <h2 id="identifying-wind-damage">Identifying Wind Damage</h2>
+
+      <p>Wind damage has a fundamentally different mechanism from hail: wind applies lateral force and uplift pressure to roof surfaces rather than vertical impact. Wind damage therefore appears in different locations and in different patterns than hail damage.</p>
+
+      <h3>Key wind damage indicators on asphalt shingles</h3>
+      <ul>
+        <li><strong>Lifted, curled, or buckled shingles:</strong> Wind gets beneath the shingle tab and lifts it, breaking the factory seal strip bond. When wind subsides, the shingle may return to approximate position but the seal strip is compromised — future wind events will lift it again more easily.</li>
+        <li><strong>Missing shingles:</strong> Complete shingle tabs or full shingles blown off the roof. More common at ridges, hip ends, and rake edges where wind uplift pressures are highest per ASCE 7 loading standards.</li>
+        <li><strong>Damage concentrated at edges and ridges:</strong> Unlike hail, which distributes across the field, wind damage concentrates at aerodynamic vulnerability points — eave edges, gable ends, ridge caps, and hip corners.</li>
+        <li><strong>Creasing or fracturing along the nail line:</strong> High wind uplift can crack shingles along the line of nail fastening, creating a horizontal fracture across the tab. This is distinct from hail impact bruising.</li>
+        <li><strong>Granule loss at fold/crease points:</strong> Repeated flexing from wind causes granule loss along crease points, not circular impact patterns.</li>
+      </ul>
+
+      <blockquote>
+        <p>"The clearest indicator of wind vs. hail I can give a homeowner is this: if the damage looks like someone threw rocks at the roof from above, think hail. If it looks like something tried to peel the roof off from below, think wind. The location matters too — wind damage tends to start at corners and edges, hail goes everywhere."</p>
+        <cite>— Pro Exteriors Residential Inspection Lead, Kansas City MO</cite>
+      </blockquote>
+
+      <h2 id="side-by-side-comparison">Side-by-Side Comparison</h2>
+
+      <figure aria-label="Visual comparison of hail damage characteristics versus wind damage characteristics">
+        <svg viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two-column comparison showing hail damage indicators on the left and wind damage indicators on the right">
+          <defs>
+            <linearGradient id="gradNavyWH" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#232884"/>
+              <stop offset="100%" stop-color="#11133f"/>
+            </linearGradient>
+            <linearGradient id="gradGreenWH" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#4d8a62"/>
+              <stop offset="100%" stop-color="#3b6b4c"/>
+            </linearGradient>
+          </defs>
+          <rect width="620" height="300" fill="#ffffff" rx="6"/>
+          <text x="310" y="26" font-family="Archivo, sans-serif" font-size="13" font-weight="700" fill="#11133f" text-anchor="middle">Hail Damage vs. Wind Damage: Field Identification</text>
+          <!-- Hail column header -->
+          <rect x="30" y="38" width="270" height="28" fill="url(#gradNavyWH)" rx="4"/>
+          <text x="165" y="57" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="700" fill="white" text-anchor="middle">HAIL DAMAGE</text>
+          <!-- Wind column header -->
+          <rect x="320" y="38" width="270" height="28" fill="url(#gradGreenWH)" rx="4"/>
+          <text x="455" y="57" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="700" fill="white" text-anchor="middle">WIND DAMAGE</text>
+          <!-- Divider -->
+          <line x1="305" y1="38" x2="305" y2="285" stroke="#e4e2dd" stroke-width="1.5"/>
+          <!-- Hail items -->
+          <circle cx="46" cy="88" r="5" fill="#232884"/>
+          <text x="58" y="93" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Circular granule displacement</text>
+          <circle cx="46" cy="115" r="5" fill="#232884"/>
+          <text x="58" y="120" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Bruised / soft mat beneath impact</text>
+          <circle cx="46" cy="142" r="5" fill="#232884"/>
+          <text x="58" y="147" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Uniform field distribution</text>
+          <circle cx="46" cy="169" r="5" fill="#232884"/>
+          <text x="58" y="174" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Dents on gutters / AC fins / screens</text>
+          <circle cx="46" cy="196" r="5" fill="#232884"/>
+          <text x="58" y="201" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Consistent impact size across roof</text>
+          <circle cx="46" cy="223" r="5" fill="#232884"/>
+          <text x="58" y="228" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Damage on all exposed slopes</text>
+          <circle cx="46" cy="250" r="5" fill="#232884"/>
+          <text x="58" y="255" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Impacts follow storm direction pattern</text>
+          <!-- Wind items -->
+          <circle cx="336" cy="88" r="5" fill="#3b6b4c"/>
+          <text x="348" y="93" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Lifted, curled, or buckled tabs</text>
+          <circle cx="336" cy="115" r="5" fill="#3b6b4c"/>
+          <text x="348" y="120" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Missing shingles / blown-off sections</text>
+          <circle cx="336" cy="142" r="5" fill="#3b6b4c"/>
+          <text x="348" y="147" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Damage at edges, ridges, hip ends</text>
+          <circle cx="336" cy="169" r="5" fill="#3b6b4c"/>
+          <text x="348" y="174" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Crease fractures along nail line</text>
+          <circle cx="336" cy="196" r="5" fill="#3b6b4c"/>
+          <text x="348" y="201" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Broken seal strip adhesion</text>
+          <circle cx="336" cy="223" r="5" fill="#3b6b4c"/>
+          <text x="348" y="228" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Granule loss at fold / crease points</text>
+          <circle cx="336" cy="250" r="5" fill="#3b6b4c"/>
+          <text x="348" y="255" font-family="Archivo, sans-serif" font-size="11" fill="#11133f">Wind-direction bias in damage pattern</text>
+        </svg>
+        <figcaption>Field identification guide for hail vs. wind damage on asphalt shingle roofs. Both types are covered perils under standard HO-3 policies.</figcaption>
+      </figure>
+
+      <table class="data-table" aria-label="Hail vs wind damage comparison by roofing material">
+        <thead>
+          <tr>
+            <th>Roofing Material</th>
+            <th>Hail Damage Signature</th>
+            <th>Wind Damage Signature</th>
+            <th>Inspection Method</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Architectural asphalt shingles</td>
+            <td>Circular granule displacement, bruised mat, impact dents on tabs</td>
+            <td>Lifted/missing tabs, seal failure, crease fractures at nail line</td>
+            <td>Walk slopes in raking light; flex suspicious areas</td>
+          </tr>
+          <tr>
+            <td>3-tab asphalt shingles</td>
+            <td>Impact bruising shows readily; more brittle than architectural</td>
+            <td>Tab blow-off at seal strip line; very susceptible at eaves</td>
+            <td>Same as architectural; check gutters for granule accumulation</td>
+          </tr>
+          <tr>
+            <td>Standing seam metal</td>
+            <td>Small dents visible under raking light; no granule loss</td>
+            <td>Seam disengagement, fastener clip pull-out, panel deformation</td>
+            <td>Raking light inspection; check panel-to-clip connections</td>
+          </tr>
+          <tr>
+            <td>Metal shingles</td>
+            <td>Dents, dings, or cracking on Class 3 or lower products</td>
+            <td>Panel disengagement at locking seams</td>
+            <td>Close-range inspection; UL 2218 Class 4 products rarely crack</td>
+          </tr>
+          <tr>
+            <td>TPO / EPDM membrane (flat)</td>
+            <td>Punctures or cracking from large hail (&gt;2.5 in.); impact marks</td>
+            <td>Edge termination failure, perimeter uplift, seam separation</td>
+            <td>Walk entire field; inspect perimeter termination bars</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="when-you-have-both">When You Have Both</h2>
+
+      <p>Large severe weather systems — the kind that produce the multi-billion-dollar storm events that have become annual occurrences in the Southern Plains — frequently produce both significant hail and significant wind at the same location. Supercell thunderstorms generating large hail (2 inches and above) often also produce straight-line winds of 60–80 mph and occasionally embedded tornadoes. When both occur, your roof may show both damage signatures simultaneously.</p>
+
+      <p>In these combined-event scenarios, adjusters are required to document both damage types and write scope that addresses both. If your adjuster's report only addresses one type when you believe both are present, request a reinspection with that specific concern noted. A competent adjuster will not object to revisiting the inspection when the homeowner has specific, documented concerns about scope completeness.</p>
+
+      <h2 id="corroborating-evidence">Corroborating Evidence</h2>
+
+      <p>The strongest claims are the ones where the roof damage is corroborated by independent evidence of the event's severity. The most useful corroborating evidence for storm damage claims:</p>
+
+      <ul>
+        <li><strong>NOAA storm reports:</strong> NOAA's Storm Events Database records hail events by county with hail size documented from storm spotter reports. Your adjuster will reference this; you should too.</li>
+        <li><strong>Soft metal impacts:</strong> The aluminum AC condenser fins, gutter downspouts, and window screens that are on every home are essentially independent hailometers. Their dent patterns don't lie and can't be faked by wear and tear.</li>
+        <li><strong>Neighbor damage:</strong> Neighboring homes with similar roof age and materials showing the same damage pattern provides strong evidence that the damage is event-driven rather than maintenance-driven.</li>
+        <li><strong>Ground-level hail documentation:</strong> Photographs of hail stones on the ground immediately after an event, with a reference object (coin, ruler) for size scale, are valuable early evidence that is perishable — it melts.</li>
+      </ul>
+
+      <h2 id="what-to-document">What to Document Before the Adjuster Arrives</h2>
+
+      <p>The photographic record you build immediately after the storm is your primary protection against a scope dispute. Document:</p>
+
+      <ol>
+        <li>The date, time, and weather conditions at time of documentation</li>
+        <li>Any hail on the ground (with size reference object and timestamp)</li>
+        <li>Soft metal surfaces — gutters, downspouts, AC fins, screens — showing impact</li>
+        <li>Ground-level views of visible missing shingles or damaged sections</li>
+        <li>Any visible damage from a safely accessible perspective (do not get on a wet or unsafe roof)</li>
+        <li>Damage to other property (vehicles, fencing, outdoor furniture) that corroborates the storm event</li>
+      </ol>
+
+      <p>Do not get on the roof during or immediately after a storm. The documentation value does not outweigh the fall risk on a wet, potentially structurally compromised surface. Ground-level and accessible-overhang photography is sufficient for the initial record. A licensed contractor can provide roof-level documentation as part of a pre-claim inspection.</p>
+
+    </article>
+  </div>
+
+  <div class="cta-banner">
+    <h2>Not Sure What You're Looking At?</h2>
+    <p>Pro Exteriors provides professional storm damage inspections with detailed photo documentation across DFW, Denver, Wichita, and Kansas City.</p>
+    <a href="/contact/" class="btn-primary">Schedule a Storm Inspection</a>
+  </div>
+
+  <section class="related-section">
+    <h2>Related Resources</h2>
+    <div class="related-grid">
+      <a href="/blog/hail-damage-how-to-identify/" class="related-card">
+        <div class="badge">Storm Damage</div>
+        <h3>Hail Damage on a Roof: How to Identify It Before Your Adjuster Arrives</h3>
+      </a>
+      <a href="/blog/filing-roof-insurance-claim/" class="related-card">
+        <div class="badge">Storm Damage</div>
+        <h3>How to File a Roof Insurance Claim: The Complete Step-by-Step Guide</h3>
+      </a>
+      <a href="/blog/working-with-adjusters-after-storm/" class="related-card">
+        <div class="badge">Storm Damage</div>
+        <h3>Working with Adjusters After a Storm: What to Say, What to Show</h3>
+      </a>
+    </div>
+  </section>
+
+  <site-footer>
+    <p>&copy; 2026 Pro Exteriors &mdash; Prepared by AIA4 Pro Exteriors &mdash; Maren Castellan-Reyes, Senior Director, Website &amp; Application Experience</p>
+  </site-footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const max = document.body.scrollHeight - window.innerHeight;
+      bar.style.width = (scrolled / max * 100) + '%';
+    }, { passive: true });
+    const sections = document.querySelectorAll('article h2[id]');
+    const links = document.querySelectorAll('.toc-link');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>

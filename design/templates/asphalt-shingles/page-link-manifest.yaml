@@ -1,0 +1,114 @@
+# aia4-page-link manifest — Asphalt Shingle Roofing service page
+# Produced inline by PageBuilder Phase 1 on 2026-05-03
+# Methodology: Kyle Roof reverse-silo
+# This is a T2 money page — it links UP to the T1 pillar hub (/residential)
+# and ACROSS to sibling T2 pages and DOWN to live blog supporters.
+
+silo_role: T2-money-page
+tier: T2
+silo_parent: "/residential"
+silo_topic: "asphalt shingle installation, replacement, and material selection"
+
+# ─── Internal links OUT ───
+
+internal_links_out:
+
+  # UP-link to T1 parent hub — Kyle Roof rule: T2 money page links UP with near-match anchor
+  - anchor: "residential roofing contractor"
+    target: "/residential"
+    target_status: live
+    anchor_type: near-match
+    placement_hint: "First or second body paragraph (opening section or service overview)"
+    rationale: "Near-match UP-link passes equity to the pillar hub. Anchor is the pillar's primary keyword."
+
+  # ACROSS-links to sibling T2 pages (planned — provisional anchors, same pattern as residential pillar)
+  - anchor: "complete residential roof replacement"
+    target: "/residential/roof-replacement"
+    target_status: planned-M3
+    anchor_type: near-match
+    placement_hint: "Materials grid or FAQ: 'when to replace vs. repair' context"
+    rationale: "Asphalt shingles is often the chosen material for a full replacement — natural cross-link."
+
+  - anchor: "hail-resistant roofing options"
+    target: "/residential/hail-damage-repair"
+    target_status: planned-Q2
+    anchor_type: descriptive
+    placement_hint: "Hail-resistance paragraph in materials section or FAQ"
+    rationale: "Class 4 impact-resistant shingles are an upgrade path after hail damage."
+
+  - anchor: "storm damage repair and inspection"
+    target: "/residential/storm-damage-repair"
+    target_status: planned-Q2
+    anchor_type: descriptive
+    placement_hint: "Hail-resistance or warranty section"
+    rationale: "Natural cross-sell — if hail damaged the shingles, Pro Exteriors handles the whole job."
+
+  # DOWN-links to live blog supporters (reverse-silo: money page pushes equity to supporters)
+  - anchor: "architectural vs. 3-tab shingle comparison"
+    target: "/blog/architectural-vs-3-tab-shingles"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Materials grid card (architectural shingles) — body sentence 'read our full comparison'"
+    rationale: "Blog supporter is specifically about this comparison — ideal anchor placement in the materials section."
+
+  - anchor: "how much a roof replacement actually costs"
+    target: "/blog/how-much-does-a-roof-replacement-cost"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "FAQ answer to 'what does asphalt shingle roofing cost?'"
+    rationale: "Cost is a top-intent secondary keyword. The blog post handles depth; FAQ links out."
+
+  - anchor: "five signs your roof needs replacing"
+    target: "/blog/5-signs-replacement"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Service overview or FAQ: 'when to repair vs replace'"
+    rationale: "Pre-qualifies the homeowner's decision — ideal match for 'asphalt shingles replacement' intent."
+
+  - anchor: "best time of year to schedule your new roof"
+    target: "/blog/best-time-of-year-to-replace-your-roof"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Process section or FAQ"
+    rationale: "Timing is a real question — the blog post handles it without duplicating this page."
+
+# ─── Internal links IN required (from other pages to this one) ───
+# These are already wired or will be wired when the target pages ship.
+
+internal_links_in_required:
+  - from: "/residential"
+    anchor: "asphalt shingle roofing systems"
+    anchor_type: near-match
+    status: live                       # Confirmed in residential page-link-manifest.yaml
+    note: "Already wired in the residential pillar page."
+
+  - from: "/residential/roof-replacement"
+    anchor: "asphalt shingles"
+    anchor_type: near-match
+    status: planned-M3
+    note: "Roof replacement page links to each material option — wire when that page ships."
+
+  - from: "/residential/hail-damage-repair"
+    anchor: "Class 4 impact-resistant asphalt shingles"
+    anchor_type: near-match
+    status: planned-Q2
+    note: "Hail damage page references shingle upgrade options — wire when that page ships."
+
+  - from: "/blog/architectural-vs-3-tab-shingles"
+    anchor: "professional asphalt shingle installation"
+    anchor_type: near-match
+    status: needs-update
+    note: "Blog post should have a CTA or contextual link to this service page. Flag for content team."
+
+# ─── Cross-pillar link ───
+  - from: "/commercial-roofing"
+    anchor: null
+    status: not-required
+    note: "No commercial-to-asphalt-shingles cross-link needed — entirely different audience and material."
+
+# ─── Status ───
+status: success
+next_action: handoff
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline orchestration)
+  produced_at: 2026-05-03

@@ -1,0 +1,686 @@
+---
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import FAQ from '../../../components/molecules/FAQ.astro';
+import Icon from '../../../components/atoms/Icon.astro';
+
+const title = "Storm Damage Roof Repair — Pro Exteriors Emergency Response | TX, CO, KS, MO, GA";
+const description = "Storm hit your roof? Pro Exteriors provides emergency tarping, storm damage inspection & repair across 5 states. Licensed, insured. Available when storms happen.";
+const canonicalPath = "/residential/storm-damage-repair";
+
+const roofingContractorSchema = {
+  "@type": "RoofingContractor",
+  "name": "Pro Exteriors",
+  "url": "https://proexteriorsus.com",
+  "telephone": "[REPRESENTATIVE]",
+  "areaServed": ["Texas","Colorado","Kansas","Missouri","Georgia"].map(n => ({ "@type": "State", "name": n }))
+};
+
+const serviceSchema = {
+  "@type": "Service",
+  "name": "Storm Damage Roof Repair",
+  "serviceType": "Storm Damage Roof Repair",
+  "provider": { "@type": "RoofingContractor", "name": "Pro Exteriors" },
+  "areaServed": ["Texas","Colorado","Kansas","Missouri","Georgia"].map(n => ({ "@type": "State", "name": n })),
+  "description": "Pro Exteriors provides emergency storm damage roof repair, emergency tarping, damage assessment, and insurance claim coordination across Texas, Colorado, Kansas, Missouri, and Georgia."
+};
+
+const jsonLd = [roofingContractorSchema, serviceSchema];
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Residential Roofing", href: "/residential" },
+  { label: "Storm Damage Repair", href: "/residential/storm-damage-repair" }
+];
+
+const immediateSteps = [
+  {
+    number: 1,
+    title: "Document Everything",
+    body: "Take photos of every piece of visible damage from ground level — don't get on the roof yourself. Photograph the yard debris, the gutters, any interior ceiling or wall staining. Timestamp every photo. This documentation is the foundation of your insurance claim."
+  },
+  {
+    number: 2,
+    title: "Stop the Water with a Temporary Tarp",
+    bodyHtml: `If there's active water intrusion, interior damage compounds every hour. Emergency tarping protects your structure and your insurance claim. We offer <a href="/residential/tarp-installation" style="color: var(--color-accent, #f97316); font-weight: 600; text-decoration: underline;">emergency roof tarping</a> as a standalone service — it is not contingent on you committing to a repair or replacement.`
+  },
+  {
+    number: 3,
+    title: "Get a Professional Damage Assessment",
+    body: "Your insurance carrier will send an adjuster. Having a contractor's independent damage report — with photos and written findings — before that visit is not optional if you want the full scope documented. We conduct free storm damage assessments within 24–48 hours of contact."
+  }
+];
+
+const damageTypes = [
+  {
+    id: "wind-damage",
+    icon: "wind",
+    title: "Wind Damage",
+    urgency: "Moderate — Water Intrusion Risk",
+    urgencyColor: "#d97706",
+    bodyHtml: "Missing shingles, lifted tabs, blown ridge cap, and torn flashing are the most common wind damage patterns we see in Texas, Kansas, and Missouri. Each is an active water intrusion point. Wind damage repairs restore the weather envelope before secondary damage — decking rot, interior mold, insulation degradation — compounds the repair cost."
+  },
+  {
+    id: "hail-damage",
+    icon: "cloud-rain",
+    title: "Hail Damage",
+    urgency: "High — Insurance Claim Window Applies",
+    urgencyColor: "#dc2626",
+    bodyHtml: `Hail damage is the leading claim driver in Texas, Colorado, and Kansas. Impact bruises, granule loss, and cracked shingles are often invisible from ground level but detectable immediately on a professional inspection. Most insurance policies have a claim filing window after a hail event — don't wait weeks to call. See our <a href="/residential/hail-damage-repair" style="color: var(--color-accent, #f97316); font-weight: 600; text-decoration: underline;">hail damage repair</a> page for a dedicated breakdown.`
+  },
+  {
+    id: "tree-impact",
+    icon: "tree",
+    title: "Tree & Debris Impact",
+    urgency: "Critical — Structural Assessment Required",
+    urgencyColor: "#991b1b",
+    body: "A direct tree impact can breach the decking and require structural repair beyond shingle replacement. Emergency tarping is always the first step. Once the site is safe and dry, we assess decking integrity, rafter condition, and the full shingle field before scoping the repair. Do not attempt to remove a large tree from your roof without professional equipment — secondary damage is common."
+  }
+];
+
+const processSteps = [
+  {
+    number: 1,
+    title: "Emergency Tarping",
+    body: "When there's active water intrusion, tarping happens first. We secure heavy-duty tarp over the breach, seal the perimeter, and stop the clock on interior damage. Tarping is a standalone service — it is not contingent on committing to a repair with us.",
+    icon: "shield"
+  },
+  {
+    number: 2,
+    title: "Free Damage Assessment & Documentation",
+    body: "Our crew inspects the full shingle field, ridge, flashing, gutters, fascia, and decking — and produces a written damage report with timestamped photos. This report goes to you and, if you choose, to your insurance adjuster.",
+    icon: "search"
+  },
+  {
+    number: 3,
+    title: "Insurance Claim Coordination",
+    bodyHtml: `We coordinate your adjuster inspection, attend the visit, review the carrier's estimate, and file supplement requests when the scope is undervalued. See our dedicated <a href="/residential/insurance-claim-assistance" style="color: var(--color-accent, #f97316); font-weight: 600; text-decoration: underline;">insurance claim assistance</a> page for a full process breakdown.`,
+    icon: "file-text"
+  },
+  {
+    number: 4,
+    title: "Permanent Repair or Full Replacement",
+    bodyHtml: `Isolated damage gets a targeted repair. Widespread field damage — common after major hail events — may make a <a href="/residential/roof-replacement" style="color: var(--color-accent, #f97316); font-weight: 600; text-decoration: underline;">full roof replacement</a> the better economic decision. We put that recommendation in writing with the reasoning before we ask you to sign anything.`,
+    icon: "wrench"
+  }
+];
+
+const caseStudies = [
+  {
+    state: "Texas",
+    title: "[REPRESENTATIVE — TX Project: Hail Damage, Full Field Inspection, DFW or Houston Area]",
+    description: "[REPRESENTATIVE — NOT YET SOURCED: Real storm repair project from Texas.]",
+    alt: "Completed hail damage roof repair in Texas by Pro Exteriors",
+    tag: "Hail Damage Repair"
+  },
+  {
+    state: "Colorado",
+    title: "[REPRESENTATIVE — CO Project: Hail Storm Repair, Denver Metro or Front Range]",
+    description: "[REPRESENTATIVE — NOT YET SOURCED: Real storm repair project from Colorado.]",
+    alt: "Completed hail damage roof repair in Colorado by Pro Exteriors",
+    tag: "Hail Damage + Insurance Claim"
+  },
+  {
+    state: "Kansas",
+    title: "[REPRESENTATIVE — KS/MO Project: Wind Damage Repair]",
+    description: "[REPRESENTATIVE — NOT YET SOURCED: Real wind storm repair project from Kansas or Missouri.]",
+    alt: "Completed wind damage roof repair by Pro Exteriors",
+    tag: "Wind Damage Repair"
+  }
+];
+
+const faqItems = [
+  {
+    question: "How quickly can Pro Exteriors respond after a storm?",
+    answer: `We conduct free storm damage assessments within 24–48 hours of contact in all five states we serve. Emergency tarping, when needed to stop active water intrusion, is scheduled as quickly as same-day or next-day depending on crew availability and weather conditions at the site.
+
+High-volume storm events — a hail corridor that hits thousands of homes in a single day — compress our scheduling. In those situations, we prioritize by severity of damage and active water intrusion risk. Call or request an inspection online and we will tell you the current response window honestly.`
+  },
+  {
+    question: "Will you work directly with my insurance adjuster?",
+    answer: `Yes. We coordinate the adjuster inspection schedule, attend the inspection, and review the carrier's estimate against our scope of work. When the adjuster's estimate is incomplete or undervalues the damage, we prepare a supplement request and file it with your carrier.
+
+See our <a href="/residential/insurance-claim-assistance" class="underline hover:no-underline">insurance claim assistance</a> page for the full process breakdown. The short version: we handle our side of the claim process; you handle the policy and the deductible.`
+  },
+  {
+    question: "What if I already have a temporary tarp — do I still need an inspection?",
+    answer: `Yes. A tarp stops water intrusion; it does not document the damage beneath it. Your insurance carrier needs a professional damage report — not a tarp receipt — to process the claim accurately. The inspection also catches damage the tarp doesn't cover: perimeter flashing, gutters, fascia, soffit, and any decking compromise that won't be visible until the shingles are removed.
+
+If you need <a href="/residential/tarp-installation" class="underline hover:no-underline">emergency roof tarping</a> as a standalone service before the inspection, we offer that separately.`
+  },
+  {
+    question: "What counts as storm damage for an insurance claim?",
+    answer: `Most homeowner policies cover direct physical loss from wind, hail, lightning, and falling objects (tree limbs). What qualifies depends on your specific policy language, your carrier, and the evidence of causation.
+
+What we document at the inspection: hail impact bruising and granule loss, missing or lifted shingles, torn or displaced flashing, cracked ridge cap, gutter dents, and any structural damage from falling objects. This documentation is what your adjuster uses to determine covered scope — which is why having a contractor's independent report before the adjuster arrives matters. We attend the adjuster inspection with that report in hand.`
+  }
+];
+---
+
+<BaseLayout {title} {description} {canonicalPath} {jsonLd}>
+
+  <!-- ═══════════════════════════════════════════
+       STICKY MOBILE CALL BAR
+       Renders only on mobile (hidden via media query).
+       Phone number is primary action on damaged-property day.
+  ═══════════════════════════════════════════ -->
+  <div
+    id="sticky-call-bar"
+    style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background-color: var(--color-accent, #f97316); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 -2px 8px rgba(0,0,0,0.2);"
+    aria-label="Emergency contact bar"
+  >
+    <p style="color: #ffffff; font-size: 0.875rem; font-weight: 600; margin: 0; flex: 1;">
+      Storm damage? Call now.
+    </p>
+    <a
+      href="tel:[REPRESENTATIVE]"
+      style="display: inline-flex; align-items: center; gap: 6px; background-color: #ffffff; color: var(--color-accent, #f97316); font-size: 1rem; font-weight: 800; padding: 10px 20px; border-radius: 6px; text-decoration: none; white-space: nowrap; min-height: 48px;"
+      data-event-action="phone-click"
+      data-event-label="sticky-bar"
+      data-event-category="storm-damage-repair"
+    >
+      <Icon name="phone" size={18} aria-hidden="true" />
+      <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE]</em>
+    </a>
+  </div>
+
+  <!-- Push page content above sticky bar on mobile -->
+  <div style="padding-bottom: 72px;" class="sticky-bar-spacer" aria-hidden="true"></div>
+
+  <style>
+    @media (min-width: 768px) {
+      #sticky-call-bar { display: none !important; }
+      .sticky-bar-spacer { display: none !important; }
+    }
+  </style>
+
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════
+       HERO — CSS GRADIENT ONLY (no background image)
+       LCP target = H1 text. Performance gate: <1.0s on 4G.
+  ═══════════════════════════════════════════ -->
+  <section
+    style="min-height: 640px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #1a2a1a 100%); display: flex; align-items: center; position: relative; overflow: hidden;"
+    aria-label="Storm Damage Roof Repair hero"
+  >
+    <!-- Subtle texture overlay — CSS only, zero HTTP requests -->
+    <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 1px, transparent 1px, transparent 8px); z-index: 0;" aria-hidden="true"></div>
+
+    <div style="position: relative; z-index: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 80px 24px;">
+
+      <!-- Emergency eyebrow -->
+      <div style="display: inline-flex; align-items: center; gap: 8px; background-color: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); border-radius: 4px; padding: 6px 12px; margin-bottom: 20px;">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #ef4444; display: inline-block;" aria-hidden="true"></span>
+        <span style="color: #fca5a5; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">
+          EMERGENCY RESPONSE — TX · CO · KS · MO · GA
+        </span>
+      </div>
+
+      <h1 style="color: #ffffff; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; max-width: 760px; margin-bottom: 20px;">
+        Storm Damage Roof Repair by Pro Exteriors
+      </h1>
+
+      <p style="color: rgba(255,255,255,0.85); font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.6; max-width: 580px; margin-bottom: 36px;">
+        Hail, wind, tree impact. We document the damage, stop the water, and get your roof back to code. Emergency inspections across five states.
+      </p>
+
+      <!-- Hero CTAs + phone -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 32px;">
+        <a
+          href="/contact?intent=emergency-inspection&source=storm-damage-hero"
+          style="display: inline-flex; align-items: center; gap: 8px; background-color: #ef4444; color: #ffffff; font-size: 1.0625rem; font-weight: 700; padding: 18px 32px; border-radius: 6px; text-decoration: none; min-height: 56px;"
+          data-event-action="emergency-inspection"
+          data-event-label="hero-primary"
+          data-event-category="storm-damage-repair"
+        >
+          <Icon name="zap" size={20} aria-hidden="true" />
+          Request Emergency Inspection
+        </a>
+        <a
+          href="#immediate-steps"
+          style="display: inline-flex; align-items: center; gap: 8px; color: #ffffff; font-size: 1rem; font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,0.4); padding-bottom: 2px; min-height: 44px;"
+          data-event-action="cta-click"
+          data-event-label="hero-secondary"
+          data-event-category="storm-damage-repair"
+        >
+          See What We Do First
+        </a>
+      </div>
+
+      <!-- Phone number in hero — desktop-visible -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <Icon name="phone" size={20} color="var(--color-accent, #f97316)" aria-hidden="true" />
+        <a
+          href="tel:[REPRESENTATIVE]"
+          style="color: #ffffff; font-size: 1.25rem; font-weight: 800; text-decoration: none; letter-spacing: 0.02em;"
+          data-event-action="phone-click"
+          data-event-label="hero-phone"
+          data-event-category="storm-damage-repair"
+        >
+          <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE]</em>
+        </a>
+        <span style="color: rgba(255,255,255,0.5); font-size: 0.875rem;">Available when storms happen</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TRUST STRIP
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-mid, #1e293b); padding: 20px 24px;" aria-label="Trust indicators">
+    <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; list-style: none; margin: 0 auto; padding: 0; max-width: 1200px;">
+      {[
+        { icon: "zap", label: "Emergency Response" },
+        { icon: "shield", label: "Storm Damage Specialists" },
+        { icon: "map-pin", label: "5-State Coverage" },
+        { icon: "file-text", label: "Insurance Claim Coordination" },
+        { icon: "star", label: "[REPRESENTATIVE] Google Rating" }
+      ].map(item => (
+        <li style="display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.85); font-size: 0.875rem; font-weight: 600; white-space: nowrap;">
+          <Icon name={item.icon} size={18} color="var(--color-accent, #f97316)" aria-hidden="true" />
+          {item.label}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       IMMEDIATE STEPS (SplitIntro)
+  ═══════════════════════════════════════════ -->
+  <section id="immediate-steps" style="background-color: var(--color-surface-light, #ffffff); padding: 80px 24px;" aria-labelledby="steps-heading">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 56px; align-items: start;">
+
+      <!-- Steps column -->
+      <div>
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          RIGHT NOW
+        </p>
+        <h2 id="steps-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2; margin-bottom: 32px;">
+          Storm Just Hit. Here's What to Do Before You Call Anyone.
+        </h2>
+
+        <ol style="list-style: none; margin: 0 0 40px; padding: 0; display: flex; flex-direction: column; gap: 28px;">
+          {immediateSteps.map(step => (
+            <li style="display: flex; gap: 20px; align-items: flex-start;">
+              <div
+                style="flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background-color: var(--color-accent, #f97316); display: flex; align-items: center; justify-content: center; font-size: 1.0625rem; font-weight: 800; color: #ffffff;"
+                aria-hidden="true"
+              >
+                {step.number}
+              </div>
+              <div>
+                <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--color-text-primary, #0f172a); margin-bottom: 6px;">
+                  {step.title}
+                </h3>
+                {step.bodyHtml
+                  ? <p style="font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-secondary, #475569); margin: 0;" set:html={step.bodyHtml} />
+                  : <p style="font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-secondary, #475569); margin: 0;">{step.body}</p>
+                }
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <!-- Contact block -->
+        <div style="background-color: var(--color-surface-subtle, #f8fafc); border-radius: 8px; padding: 28px; border-left: 4px solid #ef4444;">
+          <p style="font-size: 1rem; font-weight: 700; color: var(--color-text-primary, #0f172a); margin-bottom: 16px;">
+            Ready to move? Call or request an inspection online.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+            <a
+              href="/contact?intent=emergency-inspection&source=storm-damage-steps"
+              style="display: inline-flex; align-items: center; gap: 8px; background-color: #ef4444; color: #ffffff; font-size: 0.9375rem; font-weight: 700; padding: 14px 24px; border-radius: 6px; text-decoration: none; min-height: 48px;"
+              data-event-action="emergency-inspection"
+              data-event-label="steps-cta"
+              data-event-category="storm-damage-repair"
+            >
+              Request Emergency Inspection
+            </a>
+            <a
+              href="tel:[REPRESENTATIVE]"
+              style="display: inline-flex; align-items: center; gap: 8px; color: var(--color-accent, #f97316); font-size: 1.0625rem; font-weight: 800; text-decoration: none; min-height: 48px;"
+              data-event-action="phone-click"
+              data-event-label="steps-phone"
+              data-event-category="storm-damage-repair"
+            >
+              <Icon name="phone" size={18} aria-hidden="true" />
+              <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE]</em>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image column -->
+      <div style="background-color: var(--color-surface-subtle, #f1f5f9); border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; max-width: 560px; width: 100%;">
+        <img
+          src="[REPRESENTATIVE — NOT YET SOURCED]"
+          alt="Pro Exteriors crew member documenting hail damage on a residential roof with a camera"
+          width="560"
+          height="420"
+          loading="lazy"
+          style="width: 100%; height: 100%; object-fit: cover;"
+          title="Not yet sourced"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       DAMAGE TYPES GRID (BenefitsGrid — 3 cards)
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-subtle, #f8fafc); padding: 80px 24px;" aria-labelledby="damage-heading">
+    <div style="max-width: 1200px; margin: 0 auto;">
+
+      <div style="text-align: center; margin-bottom: 48px;">
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          WHAT WE REPAIR
+        </p>
+        <h2 id="damage-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2; margin-bottom: 16px;">
+          Three Types of Storm Damage. One Call.
+        </h2>
+        <p style="font-size: 1.125rem; color: var(--color-text-secondary, #475569); max-width: 560px; margin: 0 auto; line-height: 1.6;">
+          Pro Exteriors residential roofing contractors handle all three in the states we serve.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;">
+        {damageTypes.map(card => (
+          <div style="background-color: #ffffff; border-radius: 8px; padding: 32px 28px; border-top: 4px solid var(--color-accent, #f97316); box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+            <div style="width: 48px; height: 48px; border-radius: 8px; background-color: rgba(249,115,22,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;" aria-hidden="true">
+              <Icon name={card.icon} size={24} color="var(--color-accent, #f97316)" />
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--color-text-primary, #0f172a); margin-bottom: 8px;">
+              {card.title}
+            </h3>
+            <p style={`font-size: 0.8125rem; font-weight: 700; color: ${card.urgencyColor}; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;`}>
+              {card.urgency}
+            </p>
+            {card.bodyHtml
+              ? <p style="font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-secondary, #475569); margin: 0;" set:html={card.bodyHtml} />
+              : <p style="font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-secondary, #475569); margin: 0;">{card.body}</p>
+            }
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       LOCAL EXPERTS PROOF (StatBand + Testimonial)
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-dark, #0f172a); padding: 80px 24px;" aria-labelledby="proof-heading">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start;">
+
+      <div>
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          THE NUMBERS
+        </p>
+        <h2 id="proof-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 20px;">
+          Five Hail-Belt States. Our Own Crews. No Storm Chasers.
+        </h2>
+        <p style="font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.75); margin-bottom: 36px;">
+          Pro Exteriors has been handling storm damage repairs across Texas, Colorado, Kansas, Missouri, and Georgia since 2011. We are not a storm-chaser operation that arrives after a major hail event and leaves when the insurance money runs out. Our crews are based in our five states. The same project manager who scopes the storm repair oversees the installation and signs off on the final walkthrough. Our <a href="/residential" style="color: var(--color-accent, #f97316); text-decoration: underline;">residential roofing contractors</a> know the local adjuster relationships, the carrier preferences in each market, and the code requirements that vary by municipality.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+          {[
+            { value: "15+", label: "Years in Business", rep: false },
+            { value: "5", label: "States Served", rep: false },
+            { value: "[REPRESENTATIVE]", label: "Storm Claims Managed", rep: true }
+          ].map(stat => (
+            <div>
+              <p style="font-size: 2.5rem; font-weight: 800; color: var(--color-accent, #f97316); line-height: 1; margin-bottom: 4px;">
+                {stat.rep
+                  ? <em style="font-style: italic; font-size: 1.25rem; color: rgba(255,255,255,0.5);" title="Not yet sourced">{stat.value}</em>
+                  : stat.value
+                }
+              </p>
+              <p style="font-size: 0.875rem; color: rgba(255,255,255,0.6); margin: 0;">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style="background-color: rgba(255,255,255,0.05); border-radius: 8px; padding: 36px; border-left: 4px solid var(--color-accent, #f97316);">
+        <div style="display: flex; gap: 4px; margin-bottom: 20px;" aria-label="5 out of 5 stars">
+          {Array.from({ length: 5 }).map(() => (
+            <Icon name="star" size={20} color="var(--color-accent, #f97316)" aria-hidden="true" />
+          ))}
+        </div>
+        <blockquote style="margin: 0 0 20px;">
+          <p style="font-size: 1.0625rem; line-height: 1.7; color: rgba(255,255,255,0.85); font-style: italic;">
+            <em title="Not yet sourced">[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial, storm damage repair, any served state. Signed release required before ship.]</em>
+          </p>
+        </blockquote>
+        <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem; margin: 0;">
+          <em title="Not yet sourced">[REPRESENTATIVE — Customer Name, City, State, Year]</em>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       REPAIR PROCESS (QualityProcess — 4 steps)
+  ═══════════════════════════════════════════ -->
+  <section id="process" style="background-color: var(--color-surface-subtle, #f8fafc); padding: 80px 24px;" aria-labelledby="process-heading">
+    <div style="max-width: 1200px; margin: 0 auto;">
+
+      <div style="text-align: center; margin-bottom: 56px;">
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          OUR PROCESS
+        </p>
+        <h2 id="process-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2; margin-bottom: 16px;">
+          Emergency Tarp to Permanent Repair — Four Steps.
+        </h2>
+        <p style="font-size: 1.125rem; color: var(--color-text-secondary, #475569); max-width: 580px; margin: 0 auto; line-height: 1.6;">
+          From the moment you call to the final walkthrough. No vague timelines, no subcontracted crews.
+        </p>
+      </div>
+
+      <ol style="list-style: none; margin: 0 0 48px; padding: 0; display: grid; grid-template-columns: 1fr; gap: 32px; max-width: 800px; margin-inline: auto;">
+        {processSteps.map(step => (
+          <li style="display: flex; gap: 24px; align-items: flex-start;">
+            <div
+              style="flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; background-color: var(--color-accent, #f97316); display: flex; align-items: center; justify-content: center; font-size: 1.125rem; font-weight: 800; color: #ffffff;"
+              aria-hidden="true"
+            >
+              {step.number}
+            </div>
+            <div>
+              <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--color-text-primary, #0f172a); margin-bottom: 8px;">
+                {step.title}
+              </h3>
+              {step.bodyHtml
+                ? <p style="font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-secondary, #475569); margin: 0;" set:html={step.bodyHtml} />
+                : <p style="font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-secondary, #475569); margin: 0;">{step.body}</p>
+              }
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div style="text-align: center;">
+        <a
+          href="/contact?intent=emergency-inspection&source=storm-damage-process"
+          style="display: inline-flex; align-items: center; gap: 8px; background-color: #ef4444; color: #ffffff; font-size: 1rem; font-weight: 700; padding: 16px 32px; border-radius: 6px; text-decoration: none; min-height: 48px;"
+          data-event-action="emergency-inspection"
+          data-event-label="process-cta"
+          data-event-category="storm-damage-repair"
+        >
+          Request Your Emergency Inspection
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CASE STUDIES
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-light, #ffffff); padding: 80px 24px;" aria-labelledby="cases-heading">
+    <div style="max-width: 1200px; margin: 0 auto;">
+
+      <div style="text-align: center; margin-bottom: 48px;">
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          RECENT STORM REPAIRS
+        </p>
+        <h2 id="cases-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2;">
+          Hail, Wind, and Tree Impact — Across Five States
+        </h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 40px;">
+        {caseStudies.map(cs => (
+          <article style="background-color: var(--color-surface-subtle, #f8fafc); border-radius: 8px; overflow: hidden;">
+            <div style="aspect-ratio: 16/9; background-color: #e2e8f0; overflow: hidden;">
+              <img
+                src="[REPRESENTATIVE — NOT YET SOURCED]"
+                alt={cs.alt}
+                width="400"
+                height="225"
+                loading="lazy"
+                style="width: 100%; height: 100%; object-fit: cover;"
+                title="Not yet sourced"
+              />
+            </div>
+            <div style="padding: 24px;">
+              <p style="font-size: 0.75rem; font-weight: 700; color: var(--color-accent, #f97316); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
+                {cs.state} · {cs.tag}
+              </p>
+              <h3 style="font-size: 1rem; font-weight: 700; color: var(--color-text-primary, #0f172a); margin-bottom: 10px; line-height: 1.4;">
+                <em title="Not yet sourced">{cs.title}</em>
+              </h3>
+              <p style="font-size: 0.875rem; line-height: 1.6; color: var(--color-text-secondary, #475569); margin: 0;">
+                <em title="Not yet sourced">{cs.description}</em>
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div style="text-align: center;">
+        <a href="/projects" style="font-size: 0.9375rem; font-weight: 600; color: var(--color-accent, #f97316); text-decoration: underline;">
+          See All Projects
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       INSURANCE BAND (SplitIntro)
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-subtle, #f8fafc); padding: 80px 24px;" aria-labelledby="insurance-heading">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center;">
+
+      <div style="background-color: #e2e8f0; border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; max-width: 480px; width: 100%;">
+        <img
+          src="[REPRESENTATIVE — NOT YET SOURCED]"
+          alt="Pro Exteriors project manager and homeowner reviewing storm damage insurance estimate"
+          width="480"
+          height="360"
+          loading="lazy"
+          style="width: 100%; height: 100%; object-fit: cover;"
+          title="Not yet sourced"
+        />
+      </div>
+
+      <div>
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          STORM DAMAGE AND YOUR INSURANCE CLAIM
+        </p>
+        <h2 id="insurance-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2; margin-bottom: 20px;">
+          Your Claim Is Part of the Job. We Handle Our Side of It.
+        </h2>
+        <div style="font-size: 1rem; line-height: 1.75; color: var(--color-text-secondary, #475569);">
+          <p style="margin-bottom: 16px;">
+            Storm damage repairs and insurance claims run on parallel tracks. Most homeowners manage the claim process — adjuster scheduling, estimate review, supplement filing — while also managing a damaged property and a family. That's a second job they didn't sign up for.
+          </p>
+          <p style="margin-bottom: 16px;">
+            Pro Exteriors coordinates the adjuster inspection, reviews the carrier's estimate for completeness, and files supplement requests when scope is missing. We do not act as your public adjuster — that is a separate licensed role. What we do is make sure the contractor's scope is documented completely so your carrier pays for the full repair.
+          </p>
+          <p>
+            For a complete breakdown of what the insurance claim process looks like from our side, see our <a href="/residential/insurance-claim-assistance" style="color: var(--color-accent, #f97316); font-weight: 600; text-decoration: underline;">insurance claim assistance</a> page.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-light, #ffffff); padding: 80px 24px;" aria-labelledby="faq-heading">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+          FREQUENTLY ASKED
+        </p>
+        <h2 id="faq-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2;">
+          Storm Damage Repair Questions, Answered.
+        </h2>
+      </div>
+      <FAQ items={faqItems} schemaType="FAQPage" />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FINAL CTA BANNER — Emergency treatment
+  ═══════════════════════════════════════════ -->
+  <section
+    style="background-color: #7f1d1d; padding: 96px 24px; text-align: center;"
+    aria-label="Emergency final call to action"
+  >
+    <div style="max-width: 700px; margin: 0 auto;">
+      <p style="color: #fca5a5; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;">
+        EMERGENCY RESPONSE
+      </p>
+      <h2 style="font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; color: #ffffff; line-height: 1.15; margin-bottom: 20px;">
+        Every Hour of Active Water Intrusion Compounds the Damage.
+      </h2>
+      <p style="font-size: 1.125rem; color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: 40px;">
+        Free damage assessment. Emergency tarping available. Insurance claim coordination included. Our own crews across five states.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; align-items: center; margin-bottom: 24px;">
+        <a
+          href="/contact?intent=emergency-inspection&source=storm-damage-final-cta"
+          style="display: inline-flex; align-items: center; gap: 8px; background-color: #ef4444; color: #ffffff; font-size: 1rem; font-weight: 700; padding: 18px 36px; border-radius: 6px; text-decoration: none; min-height: 56px;"
+          data-event-action="emergency-inspection"
+          data-event-label="final-cta-primary"
+          data-event-category="storm-damage-repair"
+        >
+          <Icon name="zap" size={20} aria-hidden="true" />
+          Request Your Emergency Roof Inspection
+        </a>
+        <a
+          href="/residential/insurance-claim-assistance"
+          style="display: inline-flex; align-items: center; gap: 8px; color: #ffffff; font-size: 1rem; font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,0.4); padding-bottom: 2px; min-height: 44px;"
+          data-event-action="cta-click"
+          data-event-label="final-cta-secondary"
+          data-event-category="storm-damage-repair"
+        >
+          Learn About Insurance Claims
+        </a>
+      </div>
+
+      <a
+        href="tel:[REPRESENTATIVE]"
+        style="display: inline-flex; align-items: center; gap: 10px; color: #ffffff; font-size: 1.5rem; font-weight: 800; text-decoration: none;"
+        data-event-action="phone-click"
+        data-event-label="final-cta-phone"
+        data-event-category="storm-damage-repair"
+      >
+        <Icon name="phone" size={24} aria-hidden="true" />
+        <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE]</em>
+      </a>
+
+    </div>
+  </section>
+
+</BaseLayout>

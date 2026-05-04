@@ -1,0 +1,99 @@
+# aia4-seo-validator manifest — Seamless Gutter Installation
+# Phase 1 · 2026-05-03
+
+target_keyword:
+  keyword: "seamless gutter installation"
+  search_volume: 8100
+  cpc_usd: 21.43
+  competition: LOW
+  read: |
+    8,100 national volume at LOW competition and $21.43 CPC — a clean money-page
+    target. Gutters are a recurring lead source because every storm event that
+    damages a roof also damages gutters, and homeowners search gutter terms
+    independently of roof terms. Pro Exteriors' confirmed GBP gutter category
+    (109 keywords, $599K ad-equivalent pool) means the brand is already indexed
+    in this space. Page priority: position Pro Exteriors as the storm-damage
+    one-stop contractor — roof AND gutters in one job, one crew, one insurance
+    claim. This positioning is unoccupied by any competitor in the silo.
+
+primary_secondaries:
+  - keyword: "gutter installation"
+    search_volume: 22200
+    cpc_usd: 15.80
+    competition: MEDIUM
+    read: "High-volume head term — use in H1 alongside 'seamless'. Distributes across headings and body."
+  - keyword: "seamless gutters"
+    search_volume: 14800
+    cpc_usd: 12.40
+    competition: LOW
+    read: "Brand recognition term — seed in service overview, trust strip, final CTA."
+  - keyword: "gutter replacement"
+    search_volume: 9900
+    cpc_usd: 19.20
+    competition: LOW
+    read: "Replacement intent — seed in bundle_band and FAQ answer 4."
+  - keyword: "gutter guard installation"
+    search_volume: 5400
+    cpc_usd: 14.60
+    competition: LOW
+    read: "Common homeowner upsell — mention in materials or process, not a standalone section."
+  - keyword: "rain gutter installation"
+    search_volume: 4400
+    cpc_usd: 16.30
+    competition: LOW
+    read: "Synonym variant — seed once in service_overview body."
+  - keyword: "gutter system installation"
+    search_volume: 2900
+    cpc_usd: 18.90
+    competition: LOW
+    read: "Professional framing — use in process and final CTA."
+
+lsi_keywords:
+  material_types:
+    - { kw: "aluminum gutters", vol: 8100 }
+    - { kw: "copper gutters", vol: 5400 }
+    - { kw: "steel gutters", vol: 2400 }
+    - { kw: "K-style gutters", vol: 3600 }
+    - { kw: "half-round gutters", vol: 1900 }
+  installation:
+    - { kw: "gutter slope installation", vol: 720 }
+    - { kw: "gutter downspout", vol: 4400 }
+    - { kw: "gutter fascia board", vol: 1300 }
+  storm_context:
+    - { kw: "storm damaged gutters", vol: 1900 }
+    - { kw: "hail damage gutters", vol: 1600 }
+    - { kw: "gutter insurance claim", vol: 880 }
+  geographic_moats:
+    - TX, CO, KS, MO, GA (2–4× each)
+
+term_frequency_targets:
+  "seamless gutter":
+    target_range: "14–20"
+    placement: "Title (1), H1 (1), meta (1), trust strip (1), headings (3–4), body (6–8), final CTA (1)"
+  "gutter installation":
+    target_range: "10–16"
+  "seamless":
+    target_range: "12–18"
+  "storm":
+    target_range: "8–12"
+  "aluminum":
+    target_range: "5–8"
+  "copper":
+    target_range: "3–5"
+  "gutter replacement":
+    target_range: "4–6"
+  "insurance":
+    target_range: "4–6"
+  geographic_moats: "Each state 2–4×"
+
+schema_types_required:
+  - type: RoofingContractor
+  - type: Service
+    notes: "serviceType: Seamless Gutter Installation"
+  - type: BreadcrumbList
+  - type: FAQPage
+
+status: pass
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

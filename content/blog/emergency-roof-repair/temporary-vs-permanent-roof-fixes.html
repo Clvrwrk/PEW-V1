@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temporary vs. Permanent Roof Fixes: What's Actually the Difference? | Pro Exteriors</title>
+  <meta name="description" content="Learn when a temporary roof repair is appropriate, when it crosses into permanent repair territory, and how that distinction affects your insurance claim." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep-navy: #11133f;
+      --flag-red: #c22326;
+      --hunter-green: #3b6b4c;
+      --golden-orange: #c28412;
+      --smart-blue: #232884;
+      --bg-warm: #fbf9f6;
+      --text-primary: #1a1a2e;
+      --text-muted: #5a5a7a;
+      --border-light: #e4e2dd;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Archivo', sans-serif; background: var(--bg-warm); color: var(--text-primary); line-height: 1.7; font-size: 1rem; }
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--flag-red); width: 0%; z-index: 1000; transition: width 0.1s linear; }
+    nav.site-nav { position: sticky; top: 0; z-index: 900; background: var(--deep-navy); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-logo { font-size: 1.25rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-logo span { color: var(--flag-red); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .article-header { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; }
+    .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+    .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .breadcrumb a:hover { color: rgba(255,255,255,0.9); }
+    .article-badge { display: inline-block; background: var(--flag-red); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 2px; margin-bottom: 1.25rem; font-family: 'IBM Plex Mono', monospace; }
+    .article-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 780px; margin: 0 auto 1.25rem; }
+    .article-meta { display: flex; gap: 1.5rem; justify-content: center; font-size: 0.82rem; color: rgba(255,255,255,0.6); flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; }
+    .article-hero { width: 100%; aspect-ratio: 16/7; overflow: hidden; background: var(--deep-navy); }
+    .article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .content-grid { max-width: 1160px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+    .sidebar { position: sticky; top: 72px; }
+    .toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; }
+    .toc-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-family: 'IBM Plex Mono', monospace; margin-bottom: 0.75rem; }
+    .toc ul { list-style: none; }
+    .toc li { margin-bottom: 0.35rem; }
+    .toc-link { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; display: block; padding: 0.2rem 0; border-left: 2px solid transparent; padding-left: 0.5rem; transition: all 0.2s; line-height: 1.4; }
+    .toc-link:hover, .toc-link.active { color: var(--deep-navy); border-left-color: var(--flag-red); }
+    .article-body h2 { font-size: 1.5rem; font-weight: 700; color: var(--deep-navy); margin: 2.5rem 0 1rem; padding-top: 0.5rem; line-height: 1.25; }
+    .article-body h3 { font-size: 1.1rem; font-weight: 600; color: var(--deep-navy); margin: 1.75rem 0 0.6rem; }
+    .article-body p { margin-bottom: 1.1rem; color: var(--text-primary); }
+    .article-body ul, .article-body ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+    .article-body li { margin-bottom: 0.4rem; }
+    .article-body strong { font-weight: 600; }
+    blockquote { border-left: 4px solid var(--flag-red); background: var(--white); padding: 1.25rem 1.5rem; margin: 2rem 0; border-radius: 0 6px 6px 0; }
+    blockquote p { font-size: 1.05rem; font-style: italic; color: var(--text-primary); margin-bottom: 0.5rem; }
+    blockquote cite { font-size: 0.82rem; color: var(--text-muted); font-style: normal; font-family: 'IBM Plex Mono', monospace; }
+    figure { margin: 2rem 0; }
+    figcaption { font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem; font-family: 'IBM Plex Mono', monospace; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; background: var(--white); border-radius: 6px; overflow: hidden; border: 1px solid var(--border-light); }
+    .data-table th { background: var(--deep-navy); color: var(--white); font-weight: 600; padding: 0.75rem 1rem; text-align: left; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'IBM Plex Mono', monospace; }
+    .data-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .data-table tr:nth-child(even) td { background: #f7f5f2; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .cta-banner { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem; text-align: center; margin: 3rem 0 0; }
+    .cta-banner h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .cta-banner p { color: rgba(255,255,255,0.75); max-width: 500px; margin: 0 auto 1.75rem; }
+    .btn-primary { display: inline-block; background: var(--flag-red); color: var(--white); font-weight: 700; padding: 0.875rem 2rem; border-radius: 4px; text-decoration: none; font-size: 1rem; transition: background 0.2s; }
+    .btn-primary:hover { background: #a81d20; }
+    .related-section { max-width: 1160px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+    .related-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 1.5rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s; }
+    .related-card:hover { border-color: var(--flag-red); }
+    .related-card .badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--flag-red); font-family: 'IBM Plex Mono', monospace; margin-bottom: 0.4rem; }
+    .related-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--deep-navy); line-height: 1.35; }
+    site-footer { background: var(--deep-navy); color: rgba(255,255,255,0.6); text-align: center; padding: 2rem; font-size: 0.82rem; display: block; }
+    @media (max-width: 768px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .related-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="/" class="nav-logo">Pro<span>Exteriors</span></a>
+    <ul class="nav-links">
+      <li><a href="/services/commercial/">Commercial</a></li>
+      <li><a href="/services/residential/">Residential</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/blog/">Resources</a></li>
+      <li><a href="/contact/">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <header class="article-header">
+    <p class="breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/blog/">Resources</a> &rsaquo;
+      <a href="/services/emergency-roof-repair/">Emergency Roof Repair</a>
+    </p>
+    <span class="article-badge">Emergency Roof Repair</span>
+    <h1 class="article-title">Temporary vs. Permanent Roof Fixes: What's Actually the Difference?</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Team</strong></span>
+      <span>May 2026</span>
+      <span>~6 min read</span>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015607_71713d7a-5d70-47a9-84ae-55c97b1c5a1b.png" alt="Temporary vs. Permanent Roof Fixes: What's Actually the Difference?" loading="eager" />
+  </div>
+
+  <div class="content-grid">
+    <aside class="sidebar">
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-title">In This Article</p>
+        <ul>
+          <li><a href="#why-the-distinction-matters" class="toc-link">Why the Distinction Matters</a></li>
+          <li><a href="#what-qualifies-as-a-temporary-fix" class="toc-link">What Qualifies as a Temporary Fix</a></li>
+          <li><a href="#what-qualifies-as-a-permanent-repair" class="toc-link">What Qualifies as a Permanent Repair</a></li>
+          <li><a href="#the-insurance-claim-timeline" class="toc-link">The Insurance Claim Timeline</a></li>
+          <li><a href="#when-temporary-becomes-dangerous" class="toc-link">When Temporary Becomes Dangerous</a></li>
+          <li><a href="#common-gray-area-scenarios" class="toc-link">Common Gray-Area Scenarios</a></li>
+          <li><a href="#the-cost-difference" class="toc-link">The Cost Difference</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="article-body">
+
+      <p>The line between a temporary and permanent roof repair isn't just a technical distinction — it's a legal and insurance distinction with real money attached to it. Homeowners who blur this line by accident sometimes find themselves in a difficult spot with their insurer: the adjuster didn't inspect before the "temporary" repair was completed, and now the underlying damage is covered up and undocumented. Getting clear on what each category means before you're in an emergency protects both your property and your claim.</p>
+
+      <h2 id="why-the-distinction-matters">Why the Distinction Matters</h2>
+
+      <p>Every homeowner's insurance policy that covers storm or impact damage includes a clause requiring the insured to take reasonable steps to <em>mitigate further damage</em> after a covered event. That obligation is the legal basis for emergency tarping and temporary repairs — you are required to prevent additional loss from occurring after the initial damage event. Failing to mitigate can give your insurer grounds to deny coverage for water damage that occurred after the initial storm but before repairs were made.</p>
+
+      <p>Here's the tension: that same policy also requires the insurer to inspect the damage before permanent repair begins. If you repair the roof before the adjuster sees it, you've potentially destroyed the evidence needed to substantiate your claim. The temporary/permanent distinction exists precisely to thread this needle: stop the bleeding immediately (temporary), let the adjuster document everything (inspection), then proceed to permanent repair (permanent).</p>
+
+      <h2 id="what-qualifies-as-a-temporary-fix">What Qualifies as a Temporary Fix</h2>
+
+      <p>A temporary fix shares four characteristics: it's intended to last days to months (not years), it does not permanently alter the roof system, it preserves the adjuster's ability to inspect underlying damage, and it can be removed without damaging existing undamaged materials.</p>
+
+      <p>Common temporary repairs include:</p>
+      <ul>
+        <li><strong>Emergency tarping:</strong> Reinforced polyethylene or woven poly tarp secured over the damage area with 2×4 lumber anchors. The gold standard of temporary protection. Does not alter the existing roof system.</li>
+        <li><strong>Roofing cement spot repair:</strong> A controlled application of roofing cement (also called mastic or tar) over a small failure point — a separated flashing, a cracked pipe boot, a puncture from impact. The key word is controlled: a spot application over a specific failure, not a coating over the entire affected area.</li>
+        <li><strong>Peel-and-stick membrane patch:</strong> Self-adhering modified bitumen patches placed over localized areas of missing or severely damaged shingles. These can hold for 30–90 days and remain accessible to an adjuster who needs to see what's beneath.</li>
+        <li><strong>Tuck and secure of lifted shingles:</strong> Re-sealing lifted or wind-displaced shingles with roofing adhesive without removing them. Preserves evidence of the wind event for adjuster documentation.</li>
+      </ul>
+
+      <h2 id="what-qualifies-as-a-permanent-repair">What Qualifies as a Permanent Repair</h2>
+
+      <p>A permanent repair is intended to restore the roof system to its full design service life and becomes part of the structure's permanent record. It permanently alters or replaces materials, and it may conceal the damage that caused the failure. Permanent repairs cannot be meaningfully reversed to show an adjuster the original damage state.</p>
+
+      <p>Permanent repairs include:</p>
+      <ul>
+        <li>Full shingle replacement of the affected section or entire slope</li>
+        <li>Deck repair or replacement (removal of damaged decking and installation of new OSB or plywood)</li>
+        <li>Flashing replacement at penetrations, valleys, or wall terminations</li>
+        <li>Full underlayment replacement over any section</li>
+        <li>Membrane replacement on flat or low-slope commercial sections</li>
+        <li>Ridge cap replacement</li>
+      </ul>
+
+      <p>A common contractor scenario to watch for: the crew dispatched for "emergency tarping" begins pulling damaged shingles to apply a peel-and-stick patch and replaces the shingles afterward. This has crossed into permanent repair territory, and if your insurer hasn't inspected yet, you have a problem. Get the scope of any emergency work in writing before it begins.</p>
+
+      <blockquote>
+        <p>"The question I get most often after a storm call is: can you just fix it now? And my answer is always: we can stop it from getting worse right now, but we cannot restore it right now — not if you want your insurance to cover it. Fixing it means the adjuster can't see what happened. Stopping it from getting worse means we document, tarp, and wait."</p>
+        <cite>— Pro Exteriors Emergency Response Crew Leader, Euless TX</cite>
+      </blockquote>
+
+      <h2 id="the-insurance-claim-timeline">The Insurance Claim Timeline</h2>
+
+      <figure aria-label="Timeline showing the proper sequence of temporary fix, adjuster inspection, and permanent repair">
+        <svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Horizontal timeline with four phases: Damage Event, Emergency Temporary Fix, Adjuster Inspection, then Permanent Repair">
+          <defs>
+            <linearGradient id="gradNavyTime" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#232884"/>
+              <stop offset="100%" stop-color="#11133f"/>
+            </linearGradient>
+          </defs>
+          <rect width="620" height="200" fill="#ffffff" rx="6"/>
+          <text x="310" y="28" font-family="Archivo, sans-serif" font-size="13" font-weight="700" fill="#11133f" text-anchor="middle">The Correct Emergency Repair Sequence</text>
+          <!-- Timeline line -->
+          <line x1="60" y1="100" x2="560" y2="100" stroke="#e4e2dd" stroke-width="3"/>
+          <!-- Phase 1: Damage -->
+          <circle cx="80" cy="100" r="16" fill="#c22326"/>
+          <text x="80" y="105" font-family="IBM Plex Mono, monospace" font-size="10" fill="white" text-anchor="middle">01</text>
+          <text x="80" y="130" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Damage</text>
+          <text x="80" y="143" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Event occurs</text>
+          <text x="80" y="156" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Document now</text>
+          <!-- Arrow 1 -->
+          <line x1="100" y1="100" x2="195" y2="100" stroke="#c28412" stroke-width="2" stroke-dasharray="5,3"/>
+          <polygon points="195,95 205,100 195,105" fill="#c28412"/>
+          <!-- Phase 2: Temp fix -->
+          <circle cx="220" cy="100" r="16" fill="#c28412"/>
+          <text x="220" y="105" font-family="IBM Plex Mono, monospace" font-size="10" fill="white" text-anchor="middle">02</text>
+          <text x="220" y="130" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Temporary</text>
+          <text x="220" y="143" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Tarp + spot fixes</text>
+          <text x="220" y="156" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Hours to days</text>
+          <!-- Arrow 2 -->
+          <line x1="240" y1="100" x2="335" y2="100" stroke="#3b6b4c" stroke-width="2" stroke-dasharray="5,3"/>
+          <polygon points="335,95 345,100 335,105" fill="#3b6b4c"/>
+          <!-- Phase 3: Adjuster -->
+          <circle cx="360" cy="100" r="16" fill="#3b6b4c"/>
+          <text x="360" y="105" font-family="IBM Plex Mono, monospace" font-size="10" fill="white" text-anchor="middle">03</text>
+          <text x="360" y="130" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Adjuster</text>
+          <text x="360" y="143" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Inspection + scope</text>
+          <text x="360" y="156" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Days to weeks</text>
+          <!-- Arrow 3 -->
+          <line x1="380" y1="100" x2="475" y2="100" stroke="#11133f" stroke-width="2" stroke-dasharray="5,3"/>
+          <polygon points="475,95 485,100 475,105" fill="#11133f"/>
+          <!-- Phase 4: Permanent -->
+          <circle cx="500" cy="100" r="16" fill="#11133f"/>
+          <text x="500" y="105" font-family="IBM Plex Mono, monospace" font-size="10" fill="white" text-anchor="middle">04</text>
+          <text x="500" y="130" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Permanent</text>
+          <text x="500" y="143" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Full repair/replace</text>
+          <text x="500" y="156" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Days to weeks</text>
+          <!-- Label on dashed area -->
+          <text x="220" y="72" font-family="IBM Plex Mono, monospace" font-size="9" fill="#c22326" text-anchor="middle">DO NOT</text>
+          <text x="220" y="82" font-family="IBM Plex Mono, monospace" font-size="9" fill="#c22326" text-anchor="middle">skip to step 4</text>
+        </svg>
+        <figcaption>The correct emergency repair sequence. Skipping from Step 2 to Step 4 before adjuster inspection can compromise or invalidate your claim.</figcaption>
+      </figure>
+
+      <p>In practice, most adjusters can inspect within 3–14 days after a storm event. During major storm events affecting large geographic areas — a widespread hail outbreak across the DFW metroplex, for example — adjuster workloads can push inspection timelines to 3–6 weeks. During that window, a properly installed temporary fix must hold. This is why material quality on temporary repairs matters.</p>
+
+      <h2 id="when-temporary-becomes-dangerous">When Temporary Becomes Dangerous</h2>
+
+      <p>Temporary repairs that outlive their intended service life create their own hazards. The main failure modes:</p>
+
+      <p><strong>Tarp failure and interior water damage accumulation:</strong> A standard blue poly tarp placed after a storm in October may be expected to hold for 2–3 weeks. If the permanent repair is delayed to February due to contractor backlog, that tarp may fail in a January rain — and the second round of interior water damage occurs outside the original claim window, complicating coverage.</p>
+
+      <p><strong>Ice damming from inadequate temp repairs:</strong> In northern markets (Denver, Kansas City), water that infiltrates under a degraded temporary fix can freeze in the decking and flashing systems, causing secondary damage that wasn't part of the original claim.</p>
+
+      <p><strong>Mold development under tarps:</strong> Tarps trap moisture in the substrate beneath them. If a tarp remains in place longer than 60–90 days without the area being dried out and inspected, mold growth in the decking is a real risk — and mold remediation is a separate, often non-covered expense.</p>
+
+      <h2 id="common-gray-area-scenarios">Common Gray-Area Scenarios</h2>
+
+      <table class="data-table" aria-label="Common gray-area scenarios and whether they are temporary or permanent repairs">
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Classification</th>
+            <th>Why</th>
+            <th>Insurance Implication</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tarp over damaged section</td>
+            <td>Temporary</td>
+            <td>Removable, non-destructive, damage preserved beneath</td>
+            <td>Covered as mitigation expense; include in claim</td>
+          </tr>
+          <tr>
+            <td>Peel-and-stick patch over 3 missing shingles</td>
+            <td>Temporary (if shingles not replaced)</td>
+            <td>Damage visible beneath patch; adjuster can still inspect</td>
+            <td>Document before patching; include in claim</td>
+          </tr>
+          <tr>
+            <td>Re-nailing and sealing lifted shingles</td>
+            <td>Temporary / gray area</td>
+            <td>Restores function but alters the failure evidence</td>
+            <td>Photograph the lifted state before re-sealing</td>
+          </tr>
+          <tr>
+            <td>Replacing 10 shingles over damaged section</td>
+            <td>Permanent</td>
+            <td>Conceals deck damage; adjuster cannot inspect underlying condition</td>
+            <td>Do not complete before adjuster inspection</td>
+          </tr>
+          <tr>
+            <td>Flashing re-seal with roofing cement</td>
+            <td>Temporary</td>
+            <td>Surface application; underlying flashing condition still assessable</td>
+            <td>Note on claim; not a substitute for flashing replacement</td>
+          </tr>
+          <tr>
+            <td>Replacing damaged pipe boot</td>
+            <td>Permanent</td>
+            <td>Removes and replaces a roof penetration component permanently</td>
+            <td>Photograph old boot before removal; adjuster should see if related to claim</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="the-cost-difference">The Cost Difference</h2>
+
+      <p>The cost gap between a temporary and permanent repair is substantial — and it's the reason some contractors blur the line. Emergency tarping a storm-damaged section costs $300–$800. Replacing the damaged section of shingles, underlayment, and any damaged decking costs $800–$4,000+ depending on scope. The permanent repair scope often triggers insurance coverage that far exceeds the cost of the temporary measure.</p>
+
+      <p>Unscrupulous contractors sometimes use emergency-service situations to lock in permanent repair work before an adjuster has inspected — bypassing the adjuster and leaving homeowners with a completed repair that their insurer refuses to pay because the damage evidence was destroyed. The protection against this is simple: nothing permanent begins until you have a claim number and an adjuster has scheduled an inspection.</p>
+
+      <p>Pro Exteriors documents every emergency response with timestamped photographs of the damage state prior to any work, provides a written scope of temporary measures undertaken, and communicates directly with your adjuster about the inspection schedule before beginning any permanent repair scope.</p>
+
+    </article>
+  </div>
+
+  <div class="cta-banner">
+    <h2>Roof Damage? Let's Stop It Before It Spreads.</h2>
+    <p>Pro Exteriors provides emergency response across DFW, Denver, Kansas City, and Wichita. We document everything for your adjuster.</p>
+    <a href="/contact/" class="btn-primary">Request Emergency Response</a>
+  </div>
+
+  <section class="related-section">
+    <h2>Related Resources</h2>
+    <div class="related-grid">
+      <a href="/blog/what-to-do-when-roof-leaks/" class="related-card">
+        <div class="badge">Emergency Repair</div>
+        <h3>What to Do When Your Roof Leaks: A Step-by-Step Guide</h3>
+      </a>
+      <a href="/blog/emergency-tarping-costs/" class="related-card">
+        <div class="badge">Emergency Repair</div>
+        <h3>Emergency Roof Tarping Costs: What You'll Actually Pay in 2026</h3>
+      </a>
+      <a href="/blog/will-insurance-cover-emergency-roof-repair/" class="related-card">
+        <div class="badge">Emergency Repair</div>
+        <h3>Will Insurance Cover Emergency Roof Repair? What Your Policy Says</h3>
+      </a>
+    </div>
+  </section>
+
+  <site-footer>
+    <p>&copy; 2026 Pro Exteriors &mdash; Prepared by AIA4 Pro Exteriors &mdash; Maren Castellan-Reyes, Senior Director, Website &amp; Application Experience</p>
+  </site-footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const max = document.body.scrollHeight - window.innerHeight;
+      bar.style.width = (scrolled / max * 100) + '%';
+    }, { passive: true });
+    const sections = document.querySelectorAll('article h2[id]');
+    const links = document.querySelectorAll('.toc-link');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>

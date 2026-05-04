@@ -1,0 +1,132 @@
+# Residential Roofing Contractor — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 intake on 2026-05-03
+# Pending confirmation by Chris Hussey
+#
+# This file is the stable artifact every specialist reads. PageBuilder does not
+# re-run intake on retries — the brief is locked once written. Update only via
+# explicit user request.
+
+# ─── Always required ───
+slug: residential
+template: pillar
+location: null                     # National pillar; geo neutralized per Phase 0 decision
+target_keyword: "residential roofing contractor"
+secondary_keywords:
+  - residential roofing
+  - residential roofing company
+audience: residential-homeowner
+intent: mixed                      # solution-aware + transactional (dual hero CTAs reflect this)
+hypothesis: |
+  Splitting the hero into two intent paths (Emergency Roof Repair vs. Plan Your
+  New Roof) routes urgent storm-damage traffic and planned-replacement traffic
+  into separate qualifying flows, and a sourced multi-state proof block
+  (15+ years, 2,500+ homes, real testimonials, real project galleries from
+  TX/CO/KS/MO/GA) overcomes residential contractor skepticism. Together they:
+    (a) lift /residential → free-inspection-form completion ≥30% within 90 days
+        vs. the current thin-page baseline, AND
+    (b) move organic ranking for "residential roofing contractor" into the top
+        5 organic results in served-state geos within 6 months.
+  This is a dual-metric hypothesis — both gates must hit for the build to be
+  considered successful at the 6-month review.
+
+# ─── SEO copy bundle ───
+seo_copy:
+  metadata:
+    title: "Residential Roofing: Roof Replacement, Tarp Installation & Storm Damage Repair"
+    meta_description: |
+      Pro Exteriors offers expert residential roofing services, including roof
+      replacement, tarp installation, and storm damage repair. With a focus on
+      quality and durability, our teams provide tailored solutions to protect
+      your home from unpredictable weather. Based in TX, CO, KS, MO, and GA, we
+      ensure your roof withstands the elements with long-term benefits. Whether
+      you're dealing with a recent storm or planning an upgrade, trust our
+      experienced professionals to deliver practical roofing solutions that
+      enhance your home's value and comfort. Contact us today for personalized
+      service and lasting performance.
+    canonical: "https://proexteriorsus.com/residential"
+  body_path: "uploads/Residentail Roofing Contractor.html"
+  body_path_docx: "uploads/Residentail Roofing Contractor.docx"
+  html_path: "uploads/Residentail Roofing Contractor.html"
+
+# ─── Figma reference (no existing residential template covers this layout yet) ───
+figma:
+  file_key: n8EC2AgOcubGyfEq7YJoiW
+  node_id: "9-4674"
+  page_url: "https://www.figma.com/design/n8EC2AgOcubGyfEq7YJoiW/Pro-Exteriors---Design-Build?node-id=9-4674&m=dev"
+  page_image_path: "design/templates/residential/source/figma-page-render.png"   # to be saved from inline upload
+  code_path: "design/templates/residential/source/figma-code-dump.html"          # to be saved from chat
+  blueprint_cache: "design/figma-cache/9-4674-residential-structure.md"          # to be created in Phase 1
+
+# ─── Output paths ───
+output:
+  content: "src/content/pillars/residential.mdx"
+  page_template: "src/pages/residential/index.astro"
+  components: "src/components/templates/residential-pillar/"   # NEW — first residential-pillar template
+  assets: "src/assets/pillars/residential/"
+  schema_block: "src/lib/schema/pillars/residential.ts"
+
+# ─── Localhost preview ───
+preview:
+  command: "npm run dev"
+  url: "http://localhost:4321/residential"
+  publish_to_repo: false   # Chris reviews locally before any commit
+
+# ─── Build flags raised at intake ───
+flags:
+  - id: figma-geo-mismatch
+    severity: critical
+    message: |
+      The Figma design is anchored to DFW / North Texas (hero "Residential
+      Roofing DFW", proof block "DFW Metroplex", case studies all Plano /
+      Southlake / McKinney TX, footer "DFW Service Center"). Phase 0 decision
+      (Chris, 2026-05-03): NEUTRALIZE all DFW language and rebuild as the
+      national residential pillar. Layout skill must preserve structural
+      composition (hero split, dual CTAs, services grid, proof block, process
+      strip, case study triptych, financing band, FAQ, final CTA, footer) but
+      replace ALL DFW-specific copy and imagery with multi-state framing.
+      Copywriter is the source of truth for new strings; layout is forbidden
+      from carrying through any literal DFW string from the Figma code dump.
+  - id: case-study-images-cross-market
+    severity: warning
+    message: |
+      Case study triptych currently shows Plano TX / Southlake TX / McKinney TX.
+      Per Phase 0 geo decision, replace with one representative project from
+      each region (TX, CO, KS, MO, GA — pick the three strongest). image-gen
+      must check /brand-assets/client/_INVENTORY.md for real photos before
+      generating; gaps get [REPRESENTATIVE — NOT YET SOURCED] markers.
+  - id: thin-secondary-keywords
+    severity: warning
+    message: |
+      Only 2 secondary keywords ("residential roofing", "residential roofing
+      company"). aia4-seo-validator Phase 1 will backfill LSI breadth from
+      DataForSEO related-keywords (storm damage repair, roof replacement,
+      tarp installation, asphalt shingles, GAF Master Elite, hail damage,
+      insurance claims) — the SEO writer body already touches most of these.
+  - id: storm-hail-content-gap
+    severity: info
+    message: |
+      Per memory: storm/hail is under-represented in current Pro Exteriors
+      content. The Phase 0 hypothesis dual-track hero deliberately surfaces
+      Emergency Roof Repair as a top-level CTA. seo-validator should weight
+      term-frequency targets toward storm/hail/insurance terms to close this
+      gap, since this page becomes the entry point for that category.
+  - id: first-of-template
+    severity: info
+    message: |
+      First residential-pillar template. Layout components built here become
+      the reusable base for sub-services (storm damage, roof replacement,
+      tarp installation, gutters, siding, etc.) and any future residential
+      neighborhood pages.
+  - id: combined-hypothesis
+    severity: info
+    message: |
+      Dual-metric hypothesis = stricter QC. aia4-page-qc must verify both
+      conversion-tracking wiring (form events on BOTH hero CTAs separately)
+      AND keyword-ranking schema completeness for "residential roofing
+      contractor" + the two secondaries.
+
+# ─── Provenance ───
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

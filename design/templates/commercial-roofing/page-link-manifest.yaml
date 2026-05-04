@@ -1,0 +1,149 @@
+# aia4-page-link manifest — Commercial Roofing pillar
+# Phase 1 deliverable. Reverse-silo internal link strategy per Kyle Roof methodology.
+# Pillar sits at the TOP of the commercial vertical; links DOWN to children.
+# Children link UP to this pillar via their own page-link manifests.
+
+silo_role: pillar-page                # Top of vertical
+tier: T1                              # Pillar tier
+parent: home                          # Single up-link to /
+
+# ─── Internal links OUT (this page links to these targets) ───
+# Anchor text optimized for downstream pages' target keywords.
+# Placement matters: in-prose links carry more equity than nav/footer.
+internal_links_out:
+
+  # ── Sub-service pages (DOWN — pillar to T2 service pages) ──
+  - anchor: "TPO roofing systems"
+    target: "/commercial-roofing/tpo-roofing-systems/"
+    placement: "Specialized Roofing Systems grid — TPO card"
+    intent: "service-detail"
+  - anchor: "EPDM systems"
+    target: "/commercial-roofing/epdm/"
+    placement: "Specialized Roofing Systems grid — EPDM card"
+    intent: "service-detail"
+  - anchor: "metal roofing"
+    target: "/commercial-roofing/metal/"
+    placement: "Specialized Roofing Systems grid — Metal card"
+    intent: "service-detail"
+  - anchor: "flat roof systems"
+    target: "/commercial-roofing/flat-roof-systems/"
+    placement: "Specialized Roofing Systems grid — Flat Roof card"
+    intent: "service-detail"
+  - anchor: "commercial roof repair"
+    target: "/commercial-roofing/repair/"
+    placement: "Industrial-Grade Reliability section + 24/7 Emergency Repair card CTA"
+    intent: "service-detail"
+  - anchor: "commercial roof replacement"
+    target: "/commercial-roofing/replacement/"
+    placement: "Specialized Roofing Systems grid + In-prose link from Industrial-Grade Reliability"
+    intent: "service-detail"
+
+  # ── Case studies (DOWN — pillar to T2/T3 proof pages) ──
+  - anchor: "TechPark Logistics Center"
+    target: "/projects/techpark-logistics-tpo/"
+    placement: "Institutional Case Studies bento — Case 1 (industrial)"
+    intent: "proof"
+  - anchor: "Dallas North Mall"
+    target: "/projects/dallas-north-mall-tpo/"
+    placement: "Institutional Case Studies bento — Case 2 (retail)"
+    intent: "proof"
+  - anchor: "Fort Worth Logistics Center"
+    target: "/projects/fort-worth-tpo-logistics/"
+    placement: "Institutional Case Studies bento — Case 3 (industrial)"
+    intent: "proof"
+  - anchor: "View All Projects"
+    target: "/projects/"
+    placement: "Bento header right-side link"
+    intent: "category-listing"
+
+  # ── Pillar adjacencies (LATERAL — DOWN to ProPlan + UP to nothing) ──
+  - anchor: "asset management program (ProPlan)"
+    target: "/proplan/"
+    placement: "Industrial-Grade Reliability section — Detailed Documentation copy"
+    intent: "secondary-vertical"
+  - anchor: "TPO vs EPDM vs PVC comparison"
+    target: "/blog/tpo-vs-epdm-vs-pvc/"
+    placement: "In-prose, after the Specialized Roofing Systems grid intro"
+    intent: "blog-deep-dive"
+  - anchor: "commercial roof repair vs replacement"
+    target: "/blog/commercial-roof-repair-vs-replacement/"
+    placement: "In-prose, in the FAQ for 'How long does a commercial roof replacement take?'"
+    intent: "blog-deep-dive"
+
+  # ── Locations (DOWN — pillar to office pages via the OfficeLocationsMap island) ──
+  - anchor: "Click any office pin"
+    target: "/locations/"
+    placement: "Dallas Rooted Nationwide Reach section — map intro paragraph"
+    intent: "locations-listing"
+
+  # ── Contact / Conversion (LATERAL — pillar to conversion endpoints) ──
+  - anchor: "Request a Roof Assessment"
+    target: "/contact/?vertical=commercial"
+    placement: "Hero primary CTA"
+    intent: "primary-conversion-secondary-path"
+    notes: "Inline form is the primary conversion mechanism; this CTA is the fallback path for users who don't scroll to the form."
+
+# ─── Internal links IN required (these pages must link back UP to this pillar) ───
+# Required for reverse-silo equity flow. Track in the QC pass.
+internal_links_in_required:
+  - from: "/commercial-roofing/tpo-roofing-systems/"
+    anchor_recommended: "commercial roofing pillar"
+    placement_recommended: "Breadcrumb + 'Other Commercial Solutions' related section"
+    status: "exists (breadcrumb)"
+  - from: "/commercial-roofing/epdm/"
+    anchor_recommended: "commercial roofing services"
+    placement_recommended: "Breadcrumb + related solutions"
+    status: "to-verify-on-build"
+  - from: "/commercial-roofing/metal/"
+    anchor_recommended: "commercial roofing"
+    placement_recommended: "Breadcrumb"
+    status: "to-verify-on-build"
+  - from: "/commercial-roofing/flat-roof-systems/"
+    anchor_recommended: "commercial roofing systems"
+    placement_recommended: "Breadcrumb + related solutions"
+    status: "to-verify-on-build"
+  - from: "/commercial-roofing/repair/"
+    anchor_recommended: "commercial roofing"
+    placement_recommended: "Breadcrumb"
+    status: "to-verify-on-build"
+  - from: "/commercial-roofing/replacement/"
+    anchor_recommended: "commercial roofing services"
+    placement_recommended: "Breadcrumb"
+    status: "to-verify-on-build"
+  - from: "/projects/techpark-logistics-tpo/"
+    anchor_recommended: "commercial roofing"
+    placement_recommended: "Project metadata / category breadcrumb"
+    status: "to-verify-on-build"
+  - from: "/projects/dallas-north-mall-tpo/"
+    anchor_recommended: "commercial roofing"
+    placement_recommended: "Project metadata / category breadcrumb"
+    status: "to-verify-on-build"
+  - from: "/projects/fort-worth-tpo-logistics/"
+    anchor_recommended: "commercial roofing"
+    placement_recommended: "Project metadata / category breadcrumb"
+    status: "to-verify-on-build"
+  - from: "/" (home)
+    anchor_recommended: "Commercial Solutions / Commercial Procurement"
+    placement_recommended: "Hero CTA + audience-split-card commercial side"
+    status: "exists (verified in src/pages/index.astro lines 67–73, 142–148)"
+
+# ─── External links — none required by SEO; mention only if quoted source ───
+external_links_planned: []            # Sourcing approach for stats overrides external link emission
+
+# ─── Anchor diversity check ───
+anchor_diversity:
+  exact_match_count: 4                # "commercial roofing", "commercial roof repair", etc.
+  partial_match_count: 8              # service variants
+  branded_count: 3                    # TechPark, Dallas North Mall, Fort Worth Logistics
+  generic_count: 1                    # "Click any office pin"
+  total_internal_anchors: 16
+  notes: |
+    Healthy distribution per Kyle Roof anchor methodology — exact + partial
+    dominate (12/16 = 75%) without crossing into over-optimization territory.
+    Branded case-study anchors carry navigational equity. Generic anchor count
+    held to 1 deliberately.
+
+# ─── Status ───
+status: ready-for-phase-2
+authored_by: aia4-page-link (PageBuilder Phase 1, inline) — Maren editorial
+authored_at: 2026-05-03

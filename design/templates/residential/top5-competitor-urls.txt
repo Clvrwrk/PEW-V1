@@ -1,0 +1,10 @@
+# Top 5 contractor competitors for "residential roofing contractor" (US, 2026-05-03)
+# Filtered out aggregators (GAF directory, BBB, NRCA, Owens Corning directory) since they
+# rank as directories, not as money pages we compete against on intent.
+# Order matches SERP rank position.
+#
+https://bakerroofing.com/                                            # rank 9
+https://linearroofing.com/                                           # rank 16
+https://whitecastleroofing.com/                                      # rank 17
+https://roofingbymidsouth.com/residential-roofing-company/           # rank 22 — most relevant; same money-page intent
+https://jimmersonroofing.com/                                        # rank 24

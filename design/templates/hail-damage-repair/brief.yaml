@@ -1,0 +1,107 @@
+# Hail Damage Roof Repair — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 on 2026-05-03
+# 8,100 vol, LOW comp, $20.76 CPC — Pro Exteriors' geographic heartland is the hail belt
+
+slug: hail-damage-repair
+template: residential-service
+location: null
+target_keyword: "hail damage roofing"
+secondary_keywords:
+  - "hail damage roof repair"
+  - "hail damage roof inspection"
+  - "hail damage assessment"
+  - "roof hail damage insurance"
+  - "how to tell if hail damaged roof"
+  - "hail resistant shingles"
+audience: residential-homeowner
+intent: mixed                          # Immediate post-storm (transactional) + research (how do I know if I have damage?)
+hypothesis: |
+  Pro Exteriors operates in TX, CO, KS, MO — the core US hail belt. Hail
+  damage roofing gets 8,100 national monthly searches at LOW competition
+  and $20.76 CPC; local multiplier in the hail belt is likely 1.5–2×.
+  A dedicated page with a clear visual guide to hail damage indicators +
+  insurance integration will:
+    (a) rank in the top 5 for "hail damage roofing" across served states
+        within 6 months; AND
+    (b) convert ≥35% of form submissions from homeowners who've had recent
+        hail events, because the page removes the principal objection ("I
+        can't tell if I have damage") with an inspection-as-the-answer CTA.
+
+seo_copy:
+  metadata:
+    title: "Hail Damage Roof Repair — Pro Exteriors | TX, CO, KS, MO & GA Hail Belt Experts"
+    meta_description: "Spotted dents, missing granules, or cracked shingles after a storm? Pro Exteriors inspects, documents & repairs hail damage across the US hail belt. Free assessment."
+    canonical: "https://proexteriorsus.com/residential/hail-damage-repair"
+  body_path: null
+  html_path: null
+
+figma:
+  reuse_template: residential-pillar
+  section_plan:
+    - id: hero
+      component: ServiceHero
+      notes: "H1 = 'Hail Damage Roof Repair by Pro Exteriors'. Subhead references the hail belt. Primary CTA: 'Get Your Free Hail Damage Inspection'. Secondary: 'See the Warning Signs'."
+    - id: trust_strip
+      component: inline
+      notes: "Hail Belt Specialists | TX·CO·KS·MO | Insurance Claim Help | [REPRESENTATIVE] rating | Free Inspection"
+    - id: damage_guide
+      component: SplitIntro
+      notes: "Left: 'How to tell if hail damaged your roof' — 5 visual indicators (granule loss, dented gutters, cracked shingles, bruising on asphalt, soft spots). Right: 'When in doubt, have it inspected' CTA."
+    - id: damage_types_grid
+      component: BenefitsGrid
+      notes: "3 cards: Asphalt Shingle Hail Damage / Metal Roof Hail Damage / Tile & Slate Hail Damage. Each: what it looks like, how we assess, repair vs. replace decision."
+    - id: local_experts_proof
+      component: StatBand + Testimonial
+      notes: "Hail-belt expertise positioning. Stat: hail damage repairs completed [REPRESENTATIVE]. Testimonial [REPRESENTATIVE]."
+    - id: process
+      component: QualityProcess
+      notes: "4 steps: Hail Event → Free Inspection & Documentation → Insurance Coordination → Repair or Full Replacement."
+    - id: case_studies
+      component: CaseStudyCard × 3
+      notes: "Hail events from different states — TX hail / CO hail / KS hail. Before-and-after framing. All [REPRESENTATIVE]."
+    - id: insurance_band
+      component: SplitIntro
+      notes: "Hail damage is typically covered. Brief insurance overview. Link to /residential/insurance-claim-assistance."
+    - id: faq
+      component: FAQ
+      notes: "(1) How soon after a hail storm should I get an inspection? (2) What does hail damage look like on different roofing materials? (3) Is hail damage covered by homeowners insurance? (4) Does Pro Exteriors file the insurance claim?"
+    - id: final_cta
+      component: CTABanner
+      notes: "Primary: 'Schedule Your Free Hail Damage Inspection'. Secondary: 'Learn About the Claims Process' → /residential/insurance-claim-assistance."
+
+output:
+  page: "src/pages/residential/hail-damage-repair/index.astro"
+  assets: "src/assets/residential/hail-damage-repair/"
+
+silo:
+  role: T2-money-page
+  parent: "/residential"
+  parent_links_to_this_via: "hail damage assessment and repair"
+  inbound_anchor_from_parent: descriptive
+  cross_links_to:
+    - "/residential/storm-damage-repair"
+    - "/residential/insurance-claim-assistance"
+    - "/residential/asphalt-shingles"
+
+flags:
+  - id: hail-belt-geographic-moat
+    severity: info
+    message: |
+      TX/CO/KS/MO are disproportionately high hail-frequency states. Page should
+      mention each state naturally in the proof block and case studies. This is
+      the same geo-moat strategy as the residential pillar — seed each state 2–4×
+      in context, not in a list.
+  - id: hail-resistant-shingles-upsell
+    severity: info
+    message: |
+      "Hail resistant shingles" (secondary keyword) is a natural upsell for
+      homeowners who've already had hail damage and want to upgrade. Copywriter
+      should mention Class 4 impact-resistant shingles in the asphalt damage
+      section and link to /residential/asphalt-shingles. Do NOT claim Pro
+      Exteriors offers insurance discounts for Class 4 shingles unless Chris
+      confirms this is factual in their served states.
+
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

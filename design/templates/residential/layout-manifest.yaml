@@ -1,0 +1,217 @@
+# aia4-layout manifest — Residential Roofing Contractor pillar
+# Phase 3 deliverable. Composition into existing Astro molecule components,
+# rendered as a custom one-of-a-kind page (the residential silo hub).
+
+approach: composition-as-custom-page
+rationale: |
+  The Astro project already has the molecule components needed for every section
+  in copy.yaml (ServiceHero, SplitIntro, BenefitsGrid, StructureTypes,
+  QualityProcess, ProjectGallery, CaseStudyCard, CTABanner, FAQ, Testimonial,
+  StatBand, Card, ServiceTile, Breadcrumb, plus atoms Button/Icon/Badge/Stat).
+  The existing `pillars` content-collection schema is intentionally thin
+  (seo + name + vertical + intro string) — appropriate for the existing
+  insights-style /blog/residential-roofing/ pillar, but too sparse for a
+  magazine-quality silo hub with 11 distinct sections.
+  Therefore /residential ships as a custom page at `src/pages/residential/index.astro`
+  that imports the molecules directly and consumes copy.yaml as a structured
+  object. This is the same pattern the homepage uses (src/pages/index.astro).
+  The existing thin pillar at /blog/residential-roofing/ stays in place for now;
+  the consolidation/301 to /residential is a separate /decisions/ entry post-launch.
+
+deliverables:
+  primary:
+    path: src/pages/residential/index.astro
+    type: astro-page
+    description: |
+      Single-file Astro page consuming copy.yaml structurally and composing the
+      eleven sections via existing molecules. Wires analytics events on every
+      CTA per the dual-track hypothesis. Includes JSON-LD schema block per
+      seo-validator-manifest.yaml. Phase 4 (Assembly) writes this file.
+
+  redirect_decision:
+    path: design/templates/residential/decisions.md
+    type: markdown
+    description: |
+      Decision log entry: what to do about the existing thin pillar at
+      /blog/residential-roofing/. Recommendation: 301 to /residential after
+      launch verification (a /residential rank stabilizes); preserve the
+      existing pillar's H1 in an `aria-label` on the new page's H2 to retain
+      topical relevance during the redirect window.
+
+  no_new_components_required: true
+  reasoning: |
+    Every section maps to an existing molecule. Greenfield component authoring
+    is forbidden when an existing molecule serves — see CLAUDE.md tech defaults
+    (boring tech that ships, no greenfield without justification).
+
+# ─── Section → component → copy.yaml-key mapping ───
+section_mapping:
+  - copy_section: hero
+    astro_component: ServiceHero  # or HeroSection — pick whichever takes dual CTAs
+    component_props:
+      h1: "{{ copy.hero.h1 }}"
+      eyebrow: "{{ copy.hero.eyebrow }}"
+      subhead: "{{ copy.hero.subhead }}"
+      cta_primary: "{{ copy.hero.cta_primary }}"
+      cta_secondary: "{{ copy.hero.cta_secondary }}"
+      background: "{{ copy.hero.background }}"
+    notes: |
+      ServiceHero needs to support a dual-CTA pattern — verify the existing
+      component takes both `ctaPrimary` and `ctaSecondary` props. If it
+      doesn't, extend the component (small, additive change) rather than
+      forking. Alternative: HeroSection.astro may already support dual CTAs.
+
+  - copy_section: trust_strip
+    astro_component: "Inline section in index.astro using <ul> + atoms/Badge or atoms/Icon"
+    component_props:
+      items: "{{ copy.trust_strip.items }}"
+    notes: |
+      No dedicated TrustStrip molecule exists. Inline section. Keep the
+      [REPRESENTATIVE] marker on the rating badge visible until Phase 5 page-qc
+      removes it after Chris confirms the GBP figure.
+
+  - copy_section: dual_feature_cards
+    astro_component: "Inline 2-up grid using molecules/Card with overlay treatment"
+    component_props:
+      cards: "[copy.dual_feature_cards.card_emergency, copy.dual_feature_cards.card_premium]"
+    notes: |
+      Card component takes image + overlay + heading + body + CTA. May need a
+      `--variant=feature-card-overlay` style addition. The two cards stack
+      side-by-side at desktop and 1-up at mobile.
+
+  - copy_section: service_grid
+    astro_component: BenefitsGrid    # already 3-col × 2-row pattern
+    component_props:
+      heading: "{{ copy.service_grid.h2 }}"
+      subtitle: "{{ copy.service_grid.subhead }}"
+      items: "{{ copy.service_grid.cards | map: id, h3, body, image_slot, link }}"
+    notes: |
+      BenefitsGrid expects {icon, title, description}. Map service-grid cards
+      to that shape: icon = image_slot (rendered as picture), title = h3,
+      description = body. Internal link rendered as inline anchor inside
+      description.
+
+  - copy_section: local_experts_proof
+    astro_component: "Two-column section: left = SplitIntro/StatBand, right = molecules/Testimonial"
+    component_props:
+      left:
+        heading: "{{ copy.local_experts_proof.left_column.h2 }}"
+        body: "{{ copy.local_experts_proof.left_column.body }}"
+        stats: "{{ copy.local_experts_proof.left_column.stats }}"  # via StatBand
+      right: "{{ copy.local_experts_proof.right_column }}"          # via Testimonial
+    notes: |
+      Use StatBand for the 15+ / 2,500+ stats. Use Testimonial for the right-
+      column quote card. [REPRESENTATIVE] markers stay visible until Phase 5
+      page-qc clears them.
+
+  - copy_section: seamless_process
+    astro_component: QualityProcess
+    component_props:
+      heading: "{{ copy.seamless_process.h2 }}"
+      subtitle: "{{ copy.seamless_process.subhead }}"
+      steps: "{{ copy.seamless_process.steps }}"
+    notes: |
+      QualityProcess + ProcessStep handle the 4-step horizontal connector
+      pattern. Add the bottom-right CTA as a separate Button atom inside the
+      same section wrapper.
+
+  - copy_section: case_studies
+    astro_component: "Section wrapping 3 × CaseStudyCard"
+    component_props:
+      heading: "{{ copy.case_studies.h2 }}"
+      subtitle: "{{ copy.case_studies.subhead }}"
+      view_all_link: "{{ copy.case_studies.view_all_link }}"
+      cards: "{{ copy.case_studies.cards }}"
+    notes: |
+      CaseStudyCard already exists. Three side-by-side at desktop, 1-up at
+      mobile. Each card carries the [REPRESENTATIVE] marker until real
+      project content arrives.
+
+  - copy_section: financing_band
+    astro_component: SplitIntro     # existing two-column-image-left pattern
+    component_props:
+      heading: "{{ copy.financing_band.right_column.h2 }}"
+      body: "{{ copy.financing_band.right_column.body }}"
+      bullets: "{{ copy.financing_band.right_column.bullets }}"
+      cta: "{{ copy.financing_band.right_column.cta }}"
+      image: "{{ copy.financing_band.image_slot }}"
+    notes: "SplitIntro already supports image-left + content-right with bullets and a primary CTA."
+
+  - copy_section: faq
+    astro_component: FAQ
+    component_props:
+      heading: "{{ copy.faq.h2 }}"
+      subtitle: "{{ copy.faq.subhead }}"
+      items: "{{ copy.faq.items | map: question (q), answer (a) }}"
+    notes: |
+      FAQ component supports schema_type="FAQPage" — the JSON-LD block in
+      Phase 4 reuses this set so we don't duplicate. Accordion items render
+      from copy.yaml.
+
+  - copy_section: final_cta
+    astro_component: CTABanner
+    component_props:
+      heading: "{{ copy.final_cta.h2 }}"
+      subtitle: "{{ copy.final_cta.subhead }}"
+      cta_primary: "{{ copy.final_cta.cta_primary }}"
+      cta_secondary: "{{ copy.final_cta.cta_secondary }}"
+      background_image: "{{ copy.final_cta.background_image_slot }}"
+    notes: |
+      CTABanner may currently support only one CTA. If so, extend to support
+      cta_secondary (small additive change). Background image renders at 10%
+      opacity per copy.yaml treatment spec. [REPRESENTATIVE] phone number
+      marker stays visible until Phase 5 page-qc clears it.
+
+# ─── Brand-token mapping (per /tech/DESIGN.md canon) ───
+# Layout MUST use semantic role tokens, NEVER raw Tailwind color literals from
+# the Figma code dump. Decisions in /decisions/2026-05-03-brand-token-canon.md.
+brand_tokens:
+  surface_dark:               "var(--color-surface-dark)"        # was figma blue-950
+  surface_neutral:            "var(--color-surface-neutral)"     # was figma stone-50/stone-100
+  surface_band_neutral_alt:   "var(--color-surface-band-alt)"    # was figma gray-200
+  text_primary:               "var(--color-text-primary)"        # was figma slate-900
+  text_secondary:             "var(--color-text-secondary)"      # was figma slate-600
+  text_muted:                 "var(--color-text-muted)"          # was figma slate-400
+  text_inverse:               "var(--color-text-inverse)"        # was figma white on dark
+  accent_emergency:           "var(--color-accent-emergency)"    # was figma red-700
+  accent_success:             "var(--color-accent-success)"      # was figma emerald-600
+  border_subtle:              "var(--color-border-subtle)"       # was figma stone-200 / slate-700
+  rule: "If the Figma dump shows `bg-blue-950`, the layout writes `bg-[var(--color-surface-dark)]` or the equivalent Tailwind config token alias — never the literal."
+
+# ─── Accessibility & responsive ───
+a11y:
+  contrast_targets:
+    body_text_on_white: "≥7:1 (AAA — exceeds WCAG 2.2 AA 4.5:1 floor)"
+    text_on_dark_navy: "≥7:1 white text on var(--color-surface-dark)"
+    cta_text: "≥7:1 white text on var(--color-accent-emergency) — verify"
+  tap_targets: "All buttons + accordion headers ≥48×48px (exceeds CLAUDE.md 44×44 floor)"
+  keyboard_nav: "Skip-link to <main> required; all interactive elements focusable; FAQ accordion uses semantic <details>/<summary> or proper aria-expanded"
+  alt_text: "Every image slot has alt text in copy.yaml — Phase 4 assembly carries it through verbatim"
+
+responsive:
+  breakpoints:
+    mobile:    "<640px:  hero subhead drops to 18px; service grid → 1-up; case studies → 1-up; CTAs stack"
+    tablet:    "640–1023: service grid → 2-up; case studies → 2-up; CTAs side-by-side"
+    desktop:   "≥1024px: full Figma layout"
+  hero_minimum_visible_at_mobile: "h1 + subhead + both CTAs in the first viewport"
+
+# ─── Status ───
+status: success
+warnings_count: 3
+critical_count: 0
+warnings:
+  - "ServiceHero / HeroSection may need dual-CTA support — verify existing prop API. If missing, add `ctaSecondary?` (additive, non-breaking)."
+  - "CTABanner may need dual-CTA support — same pattern."
+  - "No greenfield components written. If Phase 4 assembly hits a layout that no existing molecule covers cleanly, route back to layout for a small additive component."
+next_action: handoff           # handoff to Phase 4 (Assembly — PageBuilder writes index.astro)
+provenance:
+  produced_by: aia4-pagebuilder Phase 3 (inline orchestration)
+  produced_at: 2026-05-03
+  data_sources:
+    - design/templates/residential/copy.yaml
+    - design/templates/residential/source/figma-page-render-NOTES.md
+    - design/templates/residential/source/figma-code-dump.html
+    - src/components/molecules/ (directory scan — every existing molecule verified)
+    - src/content/config.ts (schema check — pillars schema too thin, use src/pages/residential/index.astro)
+    - tech/DESIGN.md + decisions/2026-05-03-brand-token-canon.md
+    - design/templates/tpo-roofing-systems/layout-manifest.yaml (precedent shape)

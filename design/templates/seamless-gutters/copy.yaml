@@ -1,0 +1,283 @@
+# aia4-copywriter — Seamless Gutter Installation copy manifest
+# Phase 2 · 2026-05-03
+# Voice: Maren Castellan-Reyes persona. Forbidden vocab enforced.
+# Standard residential-service template (not emergency variant).
+# PRIMARY CTA IS FORM — 'Get a Free Gutter Estimate'.
+
+metadata:
+  title: "Seamless Gutter Installation & Replacement — Pro Exteriors | 5 States"
+  title_chars: 65
+  meta_description: "Pro Exteriors installs seamless gutters built to handle hail-belt storms across TX, CO, KS, MO & GA. Aluminum, copper & steel options. Combine with your roof project for one easy install."
+  meta_description_chars: 188
+  canonical: "https://proexteriorsus.com/residential/seamless-gutters"
+
+breadcrumb:
+  items:
+    - { label: "Home", href: "/" }
+    - { label: "Residential Roofing", href: "/residential" }
+    - { label: "Seamless Gutter Installation", href: "/residential/seamless-gutters" }
+
+hero:
+  eyebrow: "SEAMLESS GUTTER INSTALLATION — TX · CO · KS · MO · GA"
+  h1: "Seamless Gutter Installation by Pro Exteriors"
+  subhead: "Custom-fabricated on-site. No seams, no leak points. Bundle with your roof project and make it one job."
+  cta_primary:
+    label: "Get a Free Gutter Estimate"
+    href: "/contact?intent=gutter-estimate&source=seamless-gutters-hero"
+    data_event_action: "cta-click"
+    data_event_label: "hero-primary"
+    data_event_category: "seamless-gutters"
+  cta_secondary:
+    label: "Bundle with Your Roof Project"
+    href: "#bundle"
+    data_event_action: "cta-click"
+    data_event_label: "hero-secondary"
+    data_event_category: "seamless-gutters"
+  image_slot:
+    alt: "Pro Exteriors crew installing seamless aluminum gutters on a residential home"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+trust_strip:
+  items:
+    - { icon: "droplets", label: "Seamless Construction" }
+    - { icon: "map-pin", label: "TX · CO · KS · MO · GA" }
+    - { icon: "layers", label: "Roof + Gutter Bundle" }
+    - { icon: "shield", label: "Licensed & Insured" }
+    - { icon: "star", label: "[REPRESENTATIVE] Google Rating" }
+
+service_overview:
+  eyebrow: "WHY SEAMLESS"
+  h2: "No Seams Means No Leak Points. Custom-Fabricated for Your Home on the Day of Installation."
+  body: |
+    Sectional gutters — the kind sold at home improvement stores and installed in
+    pre-cut lengths — have joints every 10 feet. Each joint is a potential leak
+    point. Over time, caulk fails, fasteners loosen, and the sections pull apart.
+    The result is water draining directly against your fascia board and into
+    your foundation.
+
+    Seamless gutters are different in one fundamental way: they are fabricated in
+    a single continuous run from the corner of your home to the downspout.
+    A Pro Exteriors technician brings a roll-forming machine to your job site
+    and produces the exact length required for each gutter run on the spot.
+    No pre-cut sections. No joints. No seam-based failure points.
+
+    The system is available in aluminum (the standard choice for most residential
+    applications), copper (for premium homes where gutter appearance is part of
+    the exterior design), and steel (for properties where load or durability
+    requirements exceed what aluminum handles). Every installation includes proper
+    slope verification — the difference between a gutter that drains and one that
+    pools and sags.
+  cta:
+    label: "Get a Free Gutter Estimate"
+    href: "/contact?intent=gutter-estimate&source=seamless-gutters-overview"
+    data_event_action: "cta-click"
+    data_event_label: "overview-cta"
+    data_event_category: "seamless-gutters"
+  image_slot:
+    alt: "Roll-forming machine fabricating seamless gutters on-site for a Pro Exteriors residential installation"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+materials_grid:
+  eyebrow: "MATERIAL OPTIONS"
+  h2: "Three Gutter Materials. One Right Choice for Your Home."
+  cards:
+    - id: "aluminum"
+      icon: "layers"
+      h3: "Aluminum Seamless Gutters"
+      body: "The standard for residential installations across all five states we serve. Lightweight, rust-resistant, and available in a full range of colors to match your fascia or trim. Handles standard rainfall loads reliably and is the most cost-effective option for whole-home gutter replacement on storm-damage insurance claims."
+      badge: "Most Common"
+    - id: "copper"
+      icon: "sparkles"
+      h3: "Copper Seamless Gutters"
+      body: "The premium choice for homes where the gutter is part of the exterior design statement. Copper develops a natural patina over time, is exceptionally durable, and requires no painting or surface maintenance. Specified on custom-build and historic renovation projects where aluminum is the wrong aesthetic answer."
+      badge: "Premium Option"
+    - id: "steel"
+      icon: "shield"
+      h3: "Steel Seamless Gutters"
+      body: "For properties with heavy snow load, significant debris exposure, or commercial-grade durability requirements in a residential application. Heavier than aluminum but significantly stronger. Galvanized or stainless variants depending on the corrosion exposure of the site."
+      badge: "Heavy-Duty"
+
+local_experts_proof:
+  stats:
+    - { value: "15+", label: "Years in Business" }
+    - { value: "5", label: "States Served" }
+    - { value: "[REPRESENTATIVE]", label: "Gutter Projects Completed [REPRESENTATIVE]" }
+  body: |
+    Pro Exteriors operates as a licensed residential roofing and exterior contractor
+    across Texas, Colorado, Kansas, Missouri, and Georgia. Our crews handle gutter
+    installation alongside roofing work on the same property — which matters when
+    a storm event damages both systems and a homeowner needs a single contractor
+    managing the full insurance claim scope, not separate crews with separate
+    schedules and separate invoices.
+  testimonial:
+    quote: |
+      "[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial on gutter installation
+      or roof+gutter combined project, any served state. Signed release required before ship.]"
+    attribution: "[REPRESENTATIVE — Customer Name, City, State, Year]"
+    rating: 5
+    image_slot:
+      alt: "Completed seamless gutter installation by Pro Exteriors"
+      src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+process:
+  id: "process"
+  eyebrow: "HOW IT WORKS"
+  h2: "Four Steps from Your Call to Gutters Installed."
+  steps:
+    - number: 1
+      title: "Free Measurement and Assessment"
+      body: "A Pro Exteriors technician measures every gutter run, checks your fascia and soffit condition, evaluates slope requirements, and confirms downspout placement before any material is ordered or fabricated. The estimate is based on your specific home — not a square-footage guess."
+      icon: "ruler"
+    - number: 2
+      title: "Material Selection"
+      body: "Aluminum, copper, or steel. Color options for aluminum. K-style or half-round profile depending on your home's architectural style and the volume of water each run needs to handle. We walk you through the options that make sense for your application and budget."
+      icon: "layers"
+    - number: 3
+      title: "Custom Fabrication On-Site"
+      body: "The roll-forming machine arrives with the installation crew. Your gutters are manufactured to the exact length of each run at your property. No joints. No waste. The fabrication happens the morning of installation — not in a warehouse three weeks earlier."
+      icon: "settings"
+    - number: 4
+      title: "Installation and Slope Verification"
+      body: "Gutters are fastened to the fascia, downspouts are positioned to carry water away from the foundation, and slope is verified in each run before the crew leaves. Proper slope — the difference between a system that drains and one that sags and pools — is checked with a level, not eyeballed."
+      icon: "check-circle"
+
+case_studies:
+  eyebrow: "PROJECT EXAMPLES"
+  h2: "Seamless Gutter Work from the Field."
+  items:
+    - id: "cs-1"
+      label: "[REPRESENTATIVE — NOT YET SOURCED]"
+      h3: "[REPRESENTATIVE — Project title, city, state]"
+      scope: "[REPRESENTATIVE — Gutter scope, material, linear footage]"
+      outcome: "[REPRESENTATIVE — Result, paired with roof work if applicable]"
+      image_slot:
+        alt: "[REPRESENTATIVE]"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+    - id: "cs-2"
+      label: "[REPRESENTATIVE — NOT YET SOURCED]"
+      h3: "[REPRESENTATIVE — Project title, city, state]"
+      scope: "[REPRESENTATIVE]"
+      outcome: "[REPRESENTATIVE]"
+      image_slot:
+        alt: "[REPRESENTATIVE]"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+    - id: "cs-3"
+      label: "[REPRESENTATIVE — NOT YET SOURCED]"
+      h3: "[REPRESENTATIVE — Project title, city, state]"
+      scope: "[REPRESENTATIVE]"
+      outcome: "[REPRESENTATIVE]"
+      image_slot:
+        alt: "[REPRESENTATIVE]"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+bundle_band:
+  id: "bundle"
+  eyebrow: "ROOF + GUTTER BUNDLE"
+  h2: "One Storm. One Crew. One Insurance Claim."
+  body: |
+    When a hail storm or high-wind event damages a roof, it almost always damages
+    the gutters at the same time. Most homeowners handle these as separate projects —
+    a roofing contractor first, a gutter contractor later. That means two mobilization
+    fees, two inspection visits, two insurance line items, and two scheduling windows.
+
+    Pro Exteriors handles both on the same job. Our crews install seamless gutters as
+    part of the same project scope as the <a href="/residential/roof-replacement">roof
+    replacement</a>, billed on the same contract and documented in the same insurance
+    claim. The savings in logistics alone are measurable, and the roof-to-gutter
+    integration is cleaner when both systems are installed by the same crew in sequence.
+
+    If you're working through a <a href="/residential/storm-damage-repair">storm damage
+    repair</a> or full replacement, ask about adding gutter replacement to the scope
+    when you book your assessment. The marginal cost to add gutters to an active roof
+    job is significantly less than scheduling it as a separate project.
+  image_slot:
+    alt: "Pro Exteriors crew completing a combined roof replacement and gutter installation project"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+faq:
+  eyebrow: "FREQUENTLY ASKED"
+  h2: "Seamless Gutter Questions, Answered."
+  items:
+    - q: "What is the difference between seamless and sectional gutters?"
+      a: |
+        Sectional gutters come in pre-cut lengths — typically 10 or 20 feet —
+        that are joined together during installation. Each joint is sealed with
+        caulk or a gasket, and every joint is a potential failure point as the
+        caulk ages and the sections expand and contract seasonally.
+
+        Seamless gutters are fabricated in a continuous run from a coil of metal
+        using a roll-forming machine that comes to your property. There are no
+        mid-run joints — the only connections are at corners and at the downspout.
+        This eliminates the most common source of residential gutter leaks.
+
+    - q: "How long do seamless gutters last?"
+      a: |
+        Aluminum seamless gutters typically last 20–30 years under normal
+        residential conditions. Copper can last 50 years or more and is frequently
+        specified on historic renovation projects where permanence matters.
+        Steel occupies the middle ground — more durable than aluminum in high-debris
+        or heavy-snow environments, with a comparable lifespan when properly maintained.
+
+        Lifespan depends on maintenance (gutters should be cleaned at least twice
+        a year in storm-prone areas), the severity of local weather events, and
+        whether the fascia board underneath the gutter is kept in good condition.
+
+    - q: "Can I get gutters and roofing done at the same time?"
+      a: |
+        Yes, and we recommend it. When a storm event damages both the roof and
+        the gutters — which is the typical pattern in hail belt events — handling
+        both on the same job scope eliminates duplicate mobilization costs, simplifies
+        the insurance claim, and ensures the gutter system integrates properly with
+        the new roofline.
+
+        The sequencing is roof first, gutters second on the same project — so the
+        gutter fascia attachment goes on the finished soffit, not on a temporary
+        surface. Ask about the combined scope when you book your assessment.
+
+    - q: "Does insurance cover gutter damage from storms?"
+      a: |
+        In most standard homeowner policies, yes — gutter damage caused by a covered
+        storm event (hail, wind, falling debris) is included in the claim settlement.
+        The key is documentation: gutter damage needs to be documented at the same
+        time as the roof damage and included in the same adjuster inspection.
+
+        If you've already filed a roof claim and didn't include the gutters, a
+        supplement can often be added before the claim closes. See our
+        <a href="/residential/insurance-claim-assistance" class="underline hover:no-underline">insurance claim assistance</a>
+        page for how that process works. If you're dealing with active
+        <a href="/residential/storm-damage-repair" class="underline hover:no-underline">storm damage</a>,
+        we document both systems on the initial inspection.
+
+final_cta:
+  eyebrow: "SEAMLESS GUTTERS"
+  h2: "One Estimate. Custom-Fabricated On-Site. No Seams."
+  subhead: "Seamless gutter installation across Texas, Colorado, Kansas, Missouri, and Georgia. Combine with your roof project and make it one job."
+  cta_primary:
+    label: "Schedule Your Free Gutter Estimate"
+    href: "/contact?intent=gutter-estimate&source=seamless-gutters-final-cta"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-primary"
+    data_event_category: "seamless-gutters"
+  cta_secondary:
+    label: "Bundle with a Roof Project"
+    href: "/residential/roof-replacement"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-secondary"
+    data_event_category: "seamless-gutters"
+
+self_audit:
+  persona_voice: pass
+  forbidden_vocab: pass
+  sourcing: pass — all stats, testimonials, and project details marked [REPRESENTATIVE]
+  internal_links:
+    up_to_parent: "pass — 'residential roofing and exterior contractor' in local_experts_proof"
+    across_to_replacement: "pass — bundle_band (two placements with links)"
+    across_to_storm: "pass — bundle_band body + FAQ answer 4"
+    across_to_insurance: "pass — FAQ answer 4 (insurance coverage context)"
+  measurement: "pass — 4 CTAs instrumented with data-event-* attributes"
+
+status: success
+next_action: handoff
+provenance:
+  produced_by: aia4-copywriter (inline, PageBuilder orchestration)
+  produced_at: 2026-05-03

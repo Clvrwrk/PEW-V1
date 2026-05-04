@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Red Flags in a Roof Inspection Report | Pro Exteriors</title>
+  <meta name="description" content="How to read a roof inspection report — the findings that signal real structural risk, the common exaggerations, and what a legitimate report actually looks like." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep-navy:#11133f;
+      --flag-red:#c22326;
+      --hunter-green:#3b6b4c;
+      --golden-orange:#c28412;
+      --smart-blue:#232884;
+      --bg-warm:#fbf9f6;
+      --text-body:#1a1a2e;
+      --text-muted:#5a5a7a;
+      --border-light:#e2e0da;
+      --font-body:'Archivo',sans-serif;
+      --font-mono:'IBM Plex Mono',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);background:var(--bg-warm);color:var(--text-body);font-size:17px;line-height:1.7}
+    a{color:var(--smart-blue);text-decoration:underline;text-underline-offset:3px}
+    a:hover{color:var(--flag-red)}
+    #progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--flag-red);width:0%;z-index:1000;transition:width .1s linear}
+    .site-nav{position:sticky;top:0;background:var(--deep-navy);z-index:900;padding:0 24px}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav-logo{font-size:1.1rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:.02em}
+    .nav-logo span{color:var(--flag-red)}
+    .nav-links{display:flex;gap:24px;list-style:none}
+    .nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{background:var(--flag-red);color:#fff !important;padding:8px 16px;border-radius:4px}
+    .nav-cta:hover{background:#a01c1e;color:#fff !important}
+    .article-header{background:var(--deep-navy);color:#fff;padding:48px 24px 40px}
+    .header-inner{max-width:1200px;margin:0 auto}
+    .breadcrumb{font-size:.8rem;color:rgba(255,255,255,.55);margin-bottom:16px;font-family:var(--font-mono)}
+    .breadcrumb a{color:rgba(255,255,255,.55);text-decoration:none}
+    .breadcrumb a:hover{color:#fff}
+    .article-badge{display:inline-block;background:var(--flag-red);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:3px;margin-bottom:16px;font-family:var(--font-mono)}
+    .article-title{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;line-height:1.2;max-width:820px;margin-bottom:16px}
+    .article-meta{font-size:.82rem;color:rgba(255,255,255,.55);display:flex;gap:16px;font-family:var(--font-mono)}
+    .article-meta span::before{content:'· '}
+    .article-meta span:first-child::before{content:''}
+    .article-hero{max-width:1200px;margin:0 auto;padding:0 24px}
+    .article-hero img{width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:0 0 8px 8px;display:block}
+    .content-grid{max-width:1200px;margin:48px auto;padding:0 24px;display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start}
+    @media(max-width:768px){.content-grid{grid-template-columns:1fr}.sidebar{display:none}}
+    .sidebar{position:sticky;top:72px}
+    .toc{background:#fff;border:1px solid var(--border-light);border-radius:8px;padding:20px;font-size:.82rem}
+    .toc-title{font-weight:700;color:var(--deep-navy);margin-bottom:12px;font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+    .toc ul{list-style:none}
+    .toc li{margin-bottom:6px}
+    .toc-link{color:var(--text-muted);text-decoration:none;line-height:1.4;display:block;padding:2px 0;transition:color .2s}
+    .toc-link:hover,.toc-link.active{color:var(--smart-blue)}
+    .toc-link.active{font-weight:600;border-left:2px solid var(--flag-red);padding-left:8px;margin-left:-8px}
+    .article-body h2{font-size:1.35rem;font-weight:700;color:var(--deep-navy);margin:40px 0 16px;padding-top:8px}
+    .article-body h3{font-size:1.05rem;font-weight:700;color:var(--deep-navy);margin:28px 0 10px}
+    .article-body p{margin-bottom:18px;color:var(--text-body)}
+    .article-body ul,.article-body ol{margin:0 0 18px 24px}
+    .article-body li{margin-bottom:8px}
+    .article-body strong{color:var(--deep-navy)}
+    blockquote{border-left:4px solid var(--flag-red);margin:32px 0;padding:20px 24px;background:#fff;border-radius:0 8px 8px 0}
+    blockquote p{font-size:1.05rem;font-style:italic;color:var(--text-body);margin-bottom:10px}
+    blockquote cite{font-size:.8rem;color:var(--text-muted);font-family:var(--font-mono);font-style:normal}
+    .table-wrap{overflow-x:auto;margin:28px 0}
+    .data-table{width:100%;border-collapse:collapse;font-size:.88rem}
+    .data-table th{background:var(--deep-navy);color:#fff;padding:11px 14px;text-align:left;font-weight:600;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em}
+    .data-table td{padding:10px 14px;border-bottom:1px solid var(--border-light);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:rgba(17,19,63,.03)}
+    .data-table tr:last-child td{border-bottom:none}
+    .chart-wrap{margin:28px 0;background:#fff;border:1px solid var(--border-light);border-radius:8px;padding:20px}
+    .cta-banner{background:var(--deep-navy);color:#fff;padding:48px 24px;text-align:center;margin:56px 0 0}
+    .cta-banner h2{font-size:1.6rem;font-weight:700;margin-bottom:12px}
+    .cta-banner p{color:rgba(255,255,255,.75);max-width:560px;margin:0 auto 28px}
+    .btn-primary{display:inline-block;background:var(--flag-red);color:#fff;text-decoration:none;padding:14px 32px;border-radius:5px;font-weight:700;font-size:1rem;transition:background .2s}
+    .btn-primary:hover{background:#a01c1e;color:#fff}
+    .btn-secondary{display:inline-block;background:transparent;color:#fff;text-decoration:none;padding:14px 32px;border-radius:5px;font-weight:600;font-size:1rem;border:2px solid rgba(255,255,255,.4);margin-left:12px;transition:border-color .2s}
+    .btn-secondary:hover{border-color:#fff;color:#fff}
+    .related-section{max-width:1200px;margin:56px auto;padding:0 24px}
+    .related-section h2{font-size:1.2rem;font-weight:700;color:var(--deep-navy);margin-bottom:24px}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+    .related-card{background:#fff;border:1px solid var(--border-light);border-radius:8px;padding:20px;text-decoration:none;color:inherit;display:block;transition:box-shadow .2s}
+    .related-card:hover{box-shadow:0 4px 16px rgba(17,19,63,.1);color:inherit}
+    .related-card .badge{font-size:.7rem;font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--flag-red);margin-bottom:8px}
+    .related-card h3{font-size:.95rem;font-weight:700;color:var(--deep-navy);margin-bottom:8px;line-height:1.3}
+    .related-card p{font-size:.82rem;color:var(--text-muted)}
+    .site-footer{background:var(--deep-navy);color:rgba(255,255,255,.55);text-align:center;padding:32px 24px;font-size:.82rem;font-family:var(--font-mono)}
+
+    /* Risk level cards */
+    .risk-card{border-radius:8px;padding:18px 22px;margin:12px 0}
+    .risk-card.high{background:rgba(194,35,38,.06);border-left:4px solid var(--flag-red)}
+    .risk-card.medium{background:rgba(194,131,18,.06);border-left:4px solid var(--golden-orange)}
+    .risk-card.low{background:rgba(59,107,76,.06);border-left:4px solid var(--hunter-green)}
+    .risk-label{font-size:.72rem;font-family:var(--font-mono);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+    .risk-card.high .risk-label{color:var(--flag-red)}
+    .risk-card.medium .risk-label{color:var(--golden-orange)}
+    .risk-card.low .risk-label{color:var(--hunter-green)}
+    .risk-card h3{font-size:.97rem;font-weight:700;color:var(--deep-navy);margin-bottom:6px}
+    .risk-card p{font-size:.88rem;color:var(--text-body);margin:0}
+  </style>
+</head>
+<body>
+
+<div id="progress-bar" role="progressbar" aria-label="Reading progress"></div>
+
+<nav class="site-nav" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Pro<span>Exteriors</span></a>
+    <ul class="nav-links">
+      <li><a href="/services/commercial-roofing/">Commercial</a></li>
+      <li><a href="/services/residential-roofing/">Residential</a></li>
+      <li><a href="/blog/">Resources</a></li>
+      <li><a href="/contact/" class="nav-cta">Get a Quote</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="header-inner">
+    <p class="breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/blog/">Resources</a> &rsaquo;
+      <a href="/services/residential-roof-inspection/">Residential Roof Inspection</a>
+    </p>
+    <span class="article-badge">Residential Roofing</span>
+    <h1 class="article-title">Red Flags in a Roof Inspection Report: What Signals Real Risk vs. What You Can Ignore</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Team</strong></span>
+      <span>May 2026</span>
+      <span>~6 min read</span>
+    </div>
+  </div>
+</header>
+
+<div class="article-hero">
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015704_6aa7c86b-bc2d-4ae4-a9c0-e6728c022a3a.png" alt="Roofer examining inspection report on clipboard at a residential property" loading="eager" />
+</div>
+
+<div class="content-grid">
+  <aside class="sidebar">
+    <nav class="toc" aria-label="Table of contents">
+      <p class="toc-title">In This Article</p>
+      <ul>
+        <li><a href="#what-a-legitimate-report-looks-like" class="toc-link">What a Legitimate Report Looks Like</a></li>
+        <li><a href="#high-risk-findings" class="toc-link">High-Risk Findings</a></li>
+        <li><a href="#medium-risk-findings" class="toc-link">Medium-Risk Findings</a></li>
+        <li><a href="#low-risk-findings" class="toc-link">Low-Risk Findings</a></li>
+        <li><a href="#findings-classification-table" class="toc-link">Findings Classification Table</a></li>
+        <li><a href="#red-flags-in-the-report-itself" class="toc-link">Red Flags In the Report Itself</a></li>
+        <li><a href="#when-to-get-a-second-opinion" class="toc-link">When to Get a Second Opinion</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <article class="article-body">
+    <p>A roof inspection report lands in your inbox and it's dense with findings, photos, and language that ranges from measured to alarming. The challenge most homeowners face isn't understanding that something is wrong — it's calibrating how wrong, and what to actually do about it. A three-page report that lists "granule loss," "flashing deterioration," and "aged caulking" could describe a roof that needs $400 in maintenance or one that needs an $18,000 replacement. The terminology often sounds the same.</p>
+
+    <p>This guide decodes the findings categories you're most likely to encounter, separates genuine structural risk from cosmetic observations, and explains what a well-constructed inspection report should include. It also covers the red flags that indicate the report itself may be unreliable — because a bad inspection is worse than no inspection.</p>
+
+    <h2 id="what-a-legitimate-report-looks-like">What a Legitimate Report Looks Like</h2>
+
+    <p>Before you can evaluate findings, you need to know whether the document you received constitutes a real inspection report. A legitimate report from a licensed roofing contractor should include all of the following elements:</p>
+
+    <ul>
+      <li><strong>Inspector credentials:</strong> Name, license number, and company. In Texas, roofing contractors are licensed through the Texas Department of Licensing and Regulation (TDLR). Any report that omits licensing information is not a verifiable professional document.</li>
+      <li><strong>Inspection date and property address.</strong></li>
+      <li><strong>Method of inspection:</strong> Walk-on, drone visual, drone thermal, or attic inspection — stated explicitly with notes on any areas not inspected and why.</li>
+      <li><strong>Findings organized by component:</strong> Shingles, flashings, penetrations (pipe boots, HVAC, skylights), gutters, ridge/valley, and attic — each addressed separately with a condition rating.</li>
+      <li><strong>Photographic evidence:</strong> Photos tied to specific findings, not a generic photo gallery. Each finding should have an associated image with location notes.</li>
+      <li><strong>Condition rating or remaining life estimate:</strong> A finding without a severity rating is an observation, not an assessment. Ratings don't need to be complex — good/fair/poor, or a 1–5 scale — but they need to exist.</li>
+      <li><strong>Recommended action and timeframe:</strong> "Monitor," "repair within 90 days," "immediate attention required," or "budget for replacement." The report should tell you what to do, not just what was found.</li>
+      <li><strong>Cost estimate or cost range (optional but valuable):</strong> A reputable contractor will often include estimated repair costs. Some intentionally leave this to a separate quote document — that's acceptable as long as the report is clear about scope.</li>
+    </ul>
+
+    <!-- Report quality SVG -->
+    <div class="chart-wrap">
+      <svg viewBox="0 0 640 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="What a roof inspection report should include — completeness scale">
+        <text x="320" y="22" text-anchor="middle" font-family="Archivo, sans-serif" font-size="14" font-weight="700" fill="#11133f">Report Completeness — What You Should Expect to Receive</text>
+        <!-- Scale from incomplete to complete -->
+        <defs>
+          <linearGradient id="reportGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#c22326;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#c28412;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#3b6b4c;stop-opacity:1"/>
+          </linearGradient>
+        </defs>
+        <rect x="60" y="60" width="520" height="24" fill="url(#reportGrad)" rx="4"/>
+        <!-- Markers -->
+        <line x1="200" y1="54" x2="200" y2="94" stroke="#fff" stroke-width="2"/>
+        <line x1="380" y1="54" x2="380" y2="94" stroke="#fff" stroke-width="2"/>
+        <!-- Labels above -->
+        <text x="130" y="50" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#c22326" font-weight="700">AVOID</text>
+        <text x="290" y="50" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#c28412" font-weight="700">INCOMPLETE</text>
+        <text x="480" y="50" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#3b6b4c" font-weight="700">COMPLETE</text>
+        <!-- Labels below -->
+        <text x="130" y="106" text-anchor="middle" font-family="Archivo, sans-serif" font-size="10" fill="#c22326">No license / no photos</text>
+        <text x="130" y="118" text-anchor="middle" font-family="Archivo, sans-serif" font-size="10" fill="#c22326">No severity ratings</text>
+        <text x="290" y="106" text-anchor="middle" font-family="Archivo, sans-serif" font-size="10" fill="#c28412">Photos present, no ratings</text>
+        <text x="290" y="118" text-anchor="middle" font-family="Archivo, sans-serif" font-size="10" fill="#c28412">or no action guidance</text>
+        <text x="480" y="106" text-anchor="middle" font-family="Archivo, sans-serif" font-size="10" fill="#3b6b4c">All components covered,</text>
+        <text x="480" y="118" text-anchor="middle" font-family="Archivo, sans-serif" font-size="10" fill="#3b6b4c">rated, and actioned</text>
+        <!-- Bottom note -->
+        <text x="320" y="155" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#5a5a7a">A report that only describes what was found without rating severity or recommending action is not an assessment — it's a list.</text>
+      </svg>
+    </div>
+
+    <h2 id="high-risk-findings">High-Risk Findings: Act Immediately</h2>
+
+    <p>These findings represent active or imminent failure — conditions where water is entering or will enter the home without immediate intervention. If any of these appear in your report, do not wait for the next inspection cycle.</p>
+
+    <div class="risk-card high">
+      <p class="risk-label">High Risk — Immediate Action</p>
+      <h3>Open Flashing Gaps</h3>
+      <p>Any gap between flashing and the surface it's meant to seal — chimney, wall, skylight, or valley — is an open water entry point. The report should identify the specific location and linear footage. This is not a maintenance item; it requires repair before the next rain event.</p>
+    </div>
+
+    <div class="risk-card high">
+      <p class="risk-label">High Risk — Immediate Action</p>
+      <h3>Missing Shingles</h3>
+      <p>Anywhere the underlayment or deck is exposed to weather, wind-driven rain will infiltrate within hours of a rainfall. The report should note count and location. If a storm produced this condition, your insurance carrier needs to be contacted simultaneously with scheduling the repair.</p>
+    </div>
+
+    <div class="risk-card high">
+      <p class="risk-label">High Risk — Immediate Action</p>
+      <h3>Active Attic Moisture or Deck Staining</h3>
+      <p>Water staining on rafters that appears fresh (darker color at edges, soft wood) indicates an ongoing leak. The report should identify probable source location. Staining that is dry, uniform in color, and shows no softening of the wood is historic — document and monitor, but not an emergency.</p>
+    </div>
+
+    <div class="risk-card high">
+      <p class="risk-label">High Risk — Immediate Action</p>
+      <h3>Visible Deck Sagging or Soft Spots</h3>
+      <p>Any visible depression or wave in the roof plane from the exterior, or any soft spots identified during walk-on inspection, indicates decking failure. This is a structural issue, not a surface issue — it requires full investigation and typically full deck replacement in the affected area as part of any re-roof scope.</p>
+    </div>
+
+    <h2 id="medium-risk-findings">Medium-Risk Findings: Schedule Repair Within 60–90 Days</h2>
+
+    <p>These findings are not emergencies, but they're not cosmetic either. Left unaddressed through another storm season or another year, they predictably escalate into high-risk conditions.</p>
+
+    <div class="risk-card medium">
+      <p class="risk-label">Medium Risk — Schedule Repair</p>
+      <h3>Cracked or Deteriorated Pipe Boots</h3>
+      <p>Rubber pipe boots are the most common residential leak source that homeowners don't know about until they have a ceiling stain. UV and thermal cycling crack the rubber collar within 10–15 years. The repair is simple and inexpensive ($150–$250 per boot). The consequence of not repairing — a slow leak that runs behind the interior wall — is expensive. Schedule this one.</p>
+    </div>
+
+    <div class="risk-card medium">
+      <p class="risk-label">Medium Risk — Schedule Repair</p>
+      <h3>Significant Granule Loss (&gt;15–20% of surface)</h3>
+      <p>Granule loss exposes the underlying asphalt mat to UV radiation, which accelerates deterioration and shortens remaining shingle life. A finding of localized granule loss (a storm impact zone) needs insurance documentation. Widespread granule loss across the field is an age indicator — it means the shingle's protective layer is depleted and replacement planning should begin within 1–3 years.</p>
+    </div>
+
+    <div class="risk-card medium">
+      <p class="risk-label">Medium Risk — Monitor Closely</p>
+      <h3>Curling or Cupping Shingles</h3>
+      <p>Shingles that are curling (tabs lifting at edges) or cupping (center bowing upward) are losing their bond to the underlying course and to each other. Wind uplift resistance drops significantly. The threshold for "repair now vs. budget for replacement" depends on how much of the surface is affected — a repair contractor should walk you through percentage-of-field assessment before you decide.</p>
+    </div>
+
+    <div class="risk-card medium">
+      <p class="risk-label">Medium Risk — Monitor</p>
+      <h3>Improper Attic Ventilation</h3>
+      <p>A finding of inadequate ridge or soffit ventilation affects shingle longevity from the underside — heat buildup in the attic accelerates adhesive breakdown and causes shingles to age faster. It's also a contributing factor to ice dams in northern climates. This isn't a leak risk on its own, but it shortens the life of everything above it. Evaluate before the next significant weather season.</p>
+    </div>
+
+    <h2 id="low-risk-findings">Low-Risk Findings: Monitor or Ignore</h2>
+
+    <p>These findings are real observations but do not represent structural or water intrusion risk in the short to medium term. A report that presents these as urgent repair items without the higher-risk categories above is a report you should be skeptical of.</p>
+
+    <div class="risk-card low">
+      <p class="risk-label">Low Risk — No Action Required</p>
+      <h3>Algae Streaking (Dark Staining)</h3>
+      <p>Black or dark gray streaking on shingles is Gloeocapsa magma algae, thriving in humid conditions. It is not structural, does not indicate granule loss, and does not shorten shingle life on its own. Algae-resistant shingles (copper-granule products) prevent recurrence; zinc strip treatment addresses existing growth. This is a cosmetic finding, and any report that recommends replacement primarily on this basis should raise questions.</p>
+    </div>
+
+    <div class="risk-card low">
+      <p class="risk-label">Low Risk — Routine Maintenance</p>
+      <h3>Dried or Shrinking Caulk Around Penetrations</h3>
+      <p>Exposed caulk around HVAC units, flashing edges, or accessories degrades over time. Replacement caulk — using a roofing-grade product, not hardware-store silicone — is a routine maintenance item that a qualified handyman can address. It is not a roofing system failure. Over-caulking to cover a genuine flashing gap is a different issue entirely (see red flags below).</p>
+    </div>
+
+    <div class="risk-card low">
+      <p class="risk-label">Low Risk — Cosmetic</p>
+      <h3>Minor Moss Growth on North-Facing Slopes</h3>
+      <p>Moss traps moisture against the shingle surface, which can contribute to granule erosion over years. It is not an emergency. Treatment with zinc sulfate solution or copper-based products arrests growth effectively. Replacement is not warranted for moss alone unless accompanied by significant granule loss or structural deterioration beneath.</p>
+    </div>
+
+    <h2 id="findings-classification-table">Findings Classification Table</h2>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Finding</th>
+            <th>Risk Level</th>
+            <th>Typical Action</th>
+            <th>Approximate Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Missing shingles</td>
+            <td style="color:var(--flag-red);font-weight:700">High</td>
+            <td>Repair within 24–48 hrs</td>
+            <td>$300–$800</td>
+          </tr>
+          <tr>
+            <td>Open flashing gap</td>
+            <td style="color:var(--flag-red);font-weight:700">High</td>
+            <td>Repair before next rain</td>
+            <td>$300–$900</td>
+          </tr>
+          <tr>
+            <td>Active attic moisture</td>
+            <td style="color:var(--flag-red);font-weight:700">High</td>
+            <td>Source investigation same week</td>
+            <td>$400–$2,000+</td>
+          </tr>
+          <tr>
+            <td>Deck sagging</td>
+            <td style="color:var(--flag-red);font-weight:700">High</td>
+            <td>Full contractor assessment</td>
+            <td>$1,500–$5,000 per section</td>
+          </tr>
+          <tr>
+            <td>Cracked pipe boots</td>
+            <td style="color:var(--golden-orange);font-weight:700">Medium</td>
+            <td>Schedule within 60 days</td>
+            <td>$150–$250 per boot</td>
+          </tr>
+          <tr>
+            <td>Significant granule loss</td>
+            <td style="color:var(--golden-orange);font-weight:700">Medium</td>
+            <td>Assess remaining life; plan replacement</td>
+            <td>$12,000–$22,000 (replacement)</td>
+          </tr>
+          <tr>
+            <td>Widespread curling shingles</td>
+            <td style="color:var(--golden-orange);font-weight:700">Medium</td>
+            <td>Partial or full replacement assessment</td>
+            <td>$4,000–$22,000</td>
+          </tr>
+          <tr>
+            <td>Inadequate ventilation</td>
+            <td style="color:var(--golden-orange);font-weight:700">Medium</td>
+            <td>Evaluate and correct before winter</td>
+            <td>$600–$2,000</td>
+          </tr>
+          <tr>
+            <td>Algae streaking</td>
+            <td style="color:var(--hunter-green);font-weight:700">Low</td>
+            <td>Treat or ignore</td>
+            <td>$200–$500 treatment</td>
+          </tr>
+          <tr>
+            <td>Dried caulk at penetrations</td>
+            <td style="color:var(--hunter-green);font-weight:700">Low</td>
+            <td>Routine maintenance</td>
+            <td>$100–$300 DIY or handyman</td>
+          </tr>
+          <tr>
+            <td>Moss on north slope</td>
+            <td style="color:var(--hunter-green);font-weight:700">Low</td>
+            <td>Chemical treatment</td>
+            <td>$200–$600</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="red-flags-in-the-report-itself">Red Flags in the Report Itself</h2>
+
+    <p>Beyond the findings, the report document itself can reveal whether the inspection was legitimate or whether you're holding a sales document disguised as a technical assessment. Watch for:</p>
+
+    <h3>Every Finding Is Listed as "Urgent" or "Requires Replacement"</h3>
+    <p>Legitimate inspection findings span a severity spectrum. A report where every item is coded urgent, or where the recommended action for every finding is full replacement, has been written by someone who is primarily a salesperson. The purpose of an inspection is to differentiate — to tell you which problems are real, which are developing, and which are cosmetic. A report that cannot make those distinctions is not an inspection.</p>
+
+    <h3>Over-Caulking Called "Repairs"</h3>
+    <p>A report that documents prior over-caulking as evidence of "previous repairs" — implying adequate past maintenance — is actually flagging a red flag. Over-caulking is the technique of covering a genuine flashing gap with caulk because the caulk is cheaper than properly reflashing. It fails within 2–5 years. A finding of over-caulked chimney flashing or step flashing is a medium-risk finding requiring real flashing work, not a maintenance check-the-box.</p>
+
+    <h3>No Photos Tied to Specific Findings</h3>
+    <p>A report with a photo gallery and a separate findings list — where photos are not cross-referenced to findings by location — cannot be verified. Anyone can photograph a roof and list findings without proving they're from the same property. Each finding should have a photo with a location note.</p>
+
+    <h3>Findings Without Severity Ratings or Action Recommendations</h3>
+    <p>If the report lists "granule loss observed" without noting percentage of surface affected, severity rating, or recommended next step, it hasn't done the work of an inspection. Observations without interpretation are observations — they shift the burden of analysis back to the homeowner, who presumably hired a specialist so they wouldn't have to carry that burden.</p>
+
+    <blockquote>
+      <p>"The worst inspection reports I see are the ones that list the same level of urgency for a cracked pipe boot and for missing shingles. One of those is a $200 fix. The other needs to happen before tomorrow's storm. If a report can't tell those apart, it's not protecting the homeowner — it's setting them up to either panic-spend or ignore something they shouldn't."</p>
+      <cite>— Pro Exteriors Residential Inspection Lead, Dallas–Fort Worth TX</cite>
+    </blockquote>
+
+    <h2 id="when-to-get-a-second-opinion">When to Get a Second Opinion</h2>
+
+    <p>A second inspection is warranted — and worth the cost — in any of the following situations:</p>
+
+    <ul>
+      <li>The first report recommends full replacement, and the roof is less than 15 years old with no known storm event. Age-related replacement at 12–14 years for architectural asphalt is unusual unless there's documented history of improper installation or severe ventilation failure. Get a second contractor on the roof before authorizing a $20,000 replacement.</li>
+      <li>The inspector is affiliated with a contractor who is also bidding on the replacement. This is legal and common, but creates a conflict of interest. An independent inspection from a contractor who does not perform the replacement is worth the extra $300 for significant scopes.</li>
+      <li>An insurance adjuster's report significantly underestimates visible damage after a known storm event. Carry your contractor's inspection report to the adjuster meeting — a documented second professional opinion supports a supplement claim.</li>
+      <li>You received a door-knock from an unknown contractor immediately after a hail storm, they did a "free" inspection, and the report recommends immediate full replacement. This is the storm-chaser pattern. Call Pro Exteriors or another local licensed contractor with a verifiable track record before you sign anything.</li>
+    </ul>
+
+    <p>Pro Exteriors provides written <a href="/services/residential-roof-inspection/">residential roof inspections</a> across Dallas–Fort Worth, Houston, Kansas City, Wichita, and Denver — including second-opinion inspections when you're not sure whether to trust a report you've already received. Our reports include severity-rated findings, photographic evidence by location, and explicit recommendations with timelines. No finding is labeled "urgent" unless it actually is.</p>
+  </article>
+</div>
+
+<div class="cta-banner">
+  <h2>Not Sure Whether to Trust Your Inspection Report?</h2>
+  <p>We'll give you a second opinion — severity-rated findings, real photos, and a straight answer on what actually needs to happen.</p>
+  <a href="/contact/" class="btn-primary">Request a Second Opinion Inspection</a>
+  <a href="/services/residential-roof-inspection/" class="btn-secondary">Our Inspection Process</a>
+</div>
+
+<section class="related-section">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <a href="/blog/residential-roof-inspection/what-to-expect-free-roof-inspection/" class="related-card">
+      <p class="badge">Inspection</p>
+      <h3>What to Expect from a Free Roof Inspection</h3>
+      <p>How to separate a real assessment from a sales pitch in hard hat clothing.</p>
+    </a>
+    <a href="/blog/residential-roof-inspection/annual-roof-inspection-checklist/" class="related-card">
+      <p class="badge">Inspection</p>
+      <h3>Annual Roof Inspection Checklist</h3>
+      <p>What you can assess yourself — before you call a contractor.</p>
+    </a>
+    <a href="/blog/residential-roof-repair/should-you-repair-or-replace-your-roof/" class="related-card">
+      <p class="badge">Roof Repair</p>
+      <h3>Should You Repair or Replace Your Roof?</h3>
+      <p>The framework contractors use to make this call — and how to apply it to your situation.</p>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Pro Exteriors. Serving Dallas–Fort Worth, Houston, Kansas City, Wichita &amp; Denver.</p>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const max = document.body.scrollHeight - window.innerHeight;
+    bar.style.width = (window.scrollY / max * 100) + '%';
+  }, { passive: true });
+  const headings = document.querySelectorAll('.article-body h2[id]');
+  const links = document.querySelectorAll('.toc-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc-link[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  headings.forEach(h => observer.observe(h));
+</script>
+</body>
+</html>

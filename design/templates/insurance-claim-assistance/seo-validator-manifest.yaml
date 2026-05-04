@@ -1,0 +1,115 @@
+# aia4-seo-validator manifest — Insurance Claim Assistance
+# Phase 1 · 2026-05-03
+
+target_keyword:
+  keyword: "insurance claim roof damage"
+  search_volume: 1900
+  cpc_usd: 9.40
+  competition: LOW
+  read: |
+    Low volume, but the intent is the highest-urgency in the residential silo —
+    homeowners actively dealing with storm damage and navigating the insurance process.
+    Competitors virtually ignore this cluster (brief: mean ~0.6 mentions per page).
+    A dedicated, expert page owns this territory by default. Conversion hypothesis
+    (≥35% form-completion) is the highest in the silo precisely because the searcher
+    has already decided they have damage; the decision is which contractor to trust
+    with the process. Page should lead with credibility and process transparency, not
+    a sales pitch.
+
+primary_secondaries:
+  - keyword: "roof insurance claim"
+    search_volume: 4400
+    cpc_usd: 12.80
+    competition: LOW
+    read: "Highest-volume term in the cluster. H1 and meta must include this."
+  - keyword: "storm damage roof insurance"
+    search_volume: 2900
+    cpc_usd: 8.10
+    competition: LOW
+    read: "Storm-trigger variant — seed in service overview and FAQ."
+  - keyword: "hail damage insurance claim"
+    search_volume: 2400
+    cpc_usd: 7.50
+    competition: LOW
+    read: "Hail-specific — seed in FAQ and case studies section."
+  - keyword: "roof claim process"
+    search_volume: 1300
+    cpc_usd: 5.20
+    competition: LOW
+    read: "Process intent — anchors the QualityProcess step section."
+  - keyword: "insurance claim roofing contractor"
+    search_volume: 880
+    cpc_usd: 14.60
+    competition: LOW
+    read: "High commercial intent — highest CPC in cluster. Seed in trust strip and FAQ."
+
+lsi_keywords:
+  process:
+    - { kw: "adjuster inspection", vol: 720 }
+    - { kw: "supplement claim roofing", vol: 590 }
+    - { kw: "roof estimate insurance", vol: 1100 }
+    - { kw: "insurance claim denial roof", vol: 480 }
+    - { kw: "roof replacement insurance covered", vol: 2100 }
+  damage_types:
+    - { kw: "hail damage roof", vol: 40500 }
+    - { kw: "storm damage roofing", vol: 8100 }
+    - { kw: "wind damage roof", vol: 5400 }
+  trust:
+    - { kw: "roofing contractor insurance work", vol: 390 }
+    - { kw: "free roof inspection storm damage", vol: 1600 }
+  geographic_moats:
+    - TX, CO, KS, MO, GA (2–4× each)
+
+term_frequency_targets:
+  "insurance claim":
+    target_range: "8–14"
+    placement: "Title (1), H1 (1), meta (1), first 100 words (1), headings (2–3), body (3–5)"
+  "roof insurance claim":
+    target_range: "5–8"
+  "storm damage":
+    target_range: "10–16"
+  "hail damage":
+    target_range: "5–8"
+  adjuster:
+    target_range: "8–12"
+  inspection:
+    target_range: "5–8"
+  claim:
+    target_range: "20–30"
+  replacement:
+    target_range: "6–10"
+  documentation:
+    target_range: "4–7"
+  supplement:
+    target_range: "3–5"
+    note: "Specialist term — seeds topical depth, use naturally"
+  geographic_moats: "Each state 2–4×"
+
+legal_copy_gates:
+  - gate: "no-public-adjuster-claim"
+    rule: |
+      NEVER write copy implying Pro Exteriors files the insurance claim, negotiates the
+      settlement, or acts as a licensed public adjuster. Permitted: 'we coordinate with
+      your adjuster,' 'we attend the adjuster inspection,' 'we document damage,' 'we help
+      you understand the estimate,' 'we file supplement requests directly with your carrier.'
+      Blocked: 'we file your claim,' 'we negotiate your payout,' 'we work to maximize your
+      settlement,' 'let us handle everything with your insurance company.'
+  - gate: "no-deductible-absorption"
+    rule: |
+      NEVER promise or imply Pro Exteriors absorbs, waives, or offsets the homeowner's
+      deductible. Illegal in TX, CO, and multiple other states. Financing via a third-party
+      lender that covers the deductible is permissible IF Pro Exteriors confirms they offer
+      this and who the lender is. Until confirmed, all deductible language must be:
+      'your deductible is your responsibility' or omit deductible entirely.
+
+schema_types_required:
+  - type: RoofingContractor
+  - type: Service
+    notes: "serviceType: Roof Insurance Claim Assistance"
+  - type: BreadcrumbList
+  - type: FAQPage
+
+status: pass
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Read a Roof Inspection Report: A Facility Manager's Guide | Pro Exteriors</title>
+<meta name="description" content="A practical guide to understanding commercial roof inspection reports—condition ratings, priority classifications, moisture maps, cost estimates, and how to use findings to build a capital budget case.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-navy: #11133f;
+    --flag-red: #c22326;
+    --hunter-green: #3b6b4c;
+    --golden-orange: #c28412;
+    --smart-blue: #232884;
+    --bg-warm: #fbf9f6;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --border-light: #e2e0dc;
+    --white: #ffffff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Archivo', sans-serif; background: var(--bg-warm); color: var(--text-primary); line-height: 1.7; font-size: 1rem; }
+  #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--flag-red); z-index: 1000; transition: width 0.1s linear; }
+  .site-nav { position: sticky; top: 0; background: var(--deep-navy); z-index: 900; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .site-nav .logo { color: var(--white); font-weight: 700; font-size: 1.1rem; text-decoration: none; letter-spacing: 0.02em; }
+  .site-nav .logo span { color: var(--flag-red); }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--white); }
+  .article-header { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem 2.5rem; }
+  .article-header-inner { max-width: 900px; margin: 0 auto; }
+  .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+  .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--white); }
+  .breadcrumb span { color: rgba(255,255,255,0.3); }
+  .post-badge { display: inline-block; background: var(--flag-red); color: var(--white); font-size: 0.7rem; font-weight: 700; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px; margin-bottom: 0.9rem; }
+  .article-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin-bottom: 1rem; }
+  .article-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); font-family: 'IBM Plex Mono', monospace; }
+  .article-meta strong { color: rgba(255,255,255,0.9); }
+  .hero-image-wrap { width: 100%; max-width: 1200px; margin: 0 auto; aspect-ratio: 16/7; overflow: hidden; }
+  .hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .article-body-wrap { max-width: 1140px; margin: 0 auto; padding: 2.5rem 2rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+  .toc-sidebar { position: sticky; top: 76px; }
+  .toc-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.75rem; }
+  .toc-list { list-style: none; border-left: 2px solid var(--border-light); padding-left: 1rem; }
+  .toc-list li { margin-bottom: 0.5rem; }
+  .toc-list a { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; line-height: 1.4; transition: color 0.2s; display: block; }
+  .toc-list a:hover, .toc-list a.active { color: var(--flag-red); }
+  .toc-list a.active { font-weight: 600; }
+  .article-content h2 { font-size: 1.45rem; font-weight: 700; color: var(--deep-navy); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 2px solid var(--border-light); line-height: 1.3; }
+  .article-content p { margin-bottom: 1.1rem; }
+  .article-content ul, .article-content ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+  .article-content li { margin-bottom: 0.4rem; }
+  .article-content a { color: var(--smart-blue); text-decoration: underline; text-underline-offset: 2px; }
+  .article-content a:hover { color: var(--flag-red); }
+  .article-content strong { font-weight: 600; }
+  .article-content blockquote { border-left: 4px solid var(--flag-red); margin: 1.5rem 0; padding: 1rem 1.25rem; background: rgba(194,35,38,0.04); border-radius: 0 4px 4px 0; }
+  .article-content blockquote p { font-size: 1.05rem; font-style: italic; color: var(--deep-navy); margin-bottom: 0.4rem; }
+  .article-content blockquote cite { font-size: 0.8rem; color: var(--text-secondary); font-family: 'IBM Plex Mono', monospace; font-style: normal; }
+  .table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: 6px; border: 1px solid var(--border-light); }
+  .data-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .data-table th { background: var(--deep-navy); color: var(--white); padding: 0.7rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+  .data-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: rgba(17,19,63,0.03); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .cta-banner { background: var(--deep-navy); color: var(--white); padding: 2.5rem 2rem; text-align: center; margin: 3rem 0 0; }
+  .cta-banner h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .cta-banner p { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 1.5rem; }
+  .cta-btn { display: inline-block; background: var(--flag-red); color: var(--white); font-weight: 700; padding: 0.85rem 2rem; border-radius: 3px; text-decoration: none; font-size: 0.95rem; transition: background 0.2s; }
+  .cta-btn:hover { background: #a81c1f; }
+  .related-section { max-width: 1140px; margin: 3rem auto 0; padding: 0 2rem 3rem; }
+  .related-section h2 { font-size: 1.1rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 1.25rem; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.05em; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; text-decoration: none; transition: box-shadow 0.2s; display: block; }
+  .related-card:hover { box-shadow: 0 4px 16px rgba(17,19,63,0.1); }
+  .related-card-badge { font-size: 0.68rem; font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; color: var(--smart-blue); margin-bottom: 0.4rem; }
+  .related-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--deep-navy); line-height: 1.4; }
+  .site-footer { background: var(--deep-navy); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem 2rem; font-size: 0.8rem; font-family: 'IBM Plex Mono', monospace; }
+  .site-footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  @media (max-width: 768px) {
+    .article-body-wrap { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<nav class="site-nav">
+  <a href="/" class="logo">Pro<span>Exteriors</span></a>
+  <ul class="nav-links">
+    <li><a href="/services/commercial-roofing/">Commercial</a></li>
+    <li><a href="/services/residential-roofing/">Residential</a></li>
+    <li><a href="/blog/">Resources</a></li>
+    <li><a href="/contact/">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<header class="article-header">
+  <div class="article-header-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/blog/">Resources</a><span>›</span>
+      <a href="/blog/commercial-roof-inspection/">Commercial Roof Inspection</a><span>›</span>
+      <span>Reading an Inspection Report</span>
+    </nav>
+    <div class="post-badge">Commercial Inspection</div>
+    <h1>How to Read a Roof Inspection Report: A Facility Manager's Field Guide</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Inspection Services</strong></span>
+      <span>Updated <strong>May 2026</strong></span>
+      <span>Read time <strong>7 min</strong></span>
+      <span>Audience <strong>Facility Managers · Property Directors · CFOs</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="hero-image-wrap">
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015550_b68186ff-43cb-4860-8f56-b3abab09c55f.png" alt="Facility manager reviewing commercial roof inspection report with annotated roof diagram" width="1200" height="525" loading="eager">
+</div>
+
+<div class="article-body-wrap">
+  <aside class="toc-sidebar" aria-label="Table of contents">
+    <div class="toc-label">In This Article</div>
+    <ul class="toc-list" id="toc">
+      <li><a href="#report-structure">Report Structure</a></li>
+      <li><a href="#condition-ratings">Condition Ratings</a></li>
+      <li><a href="#priority-classifications">Priority Classifications</a></li>
+      <li><a href="#moisture-map">The Moisture Map</a></li>
+      <li><a href="#cost-estimates">Cost Estimates</a></li>
+      <li><a href="#budget-planning">Using Findings for Budgets</a></li>
+    </ul>
+  </aside>
+
+  <article class="article-content">
+
+    <p>A roof inspection report arrives as a PDF. It may run 8 pages or 80. It contains photographs, diagrams, numbered findings, condition ratings you've never seen defined, and cost estimates you have no basis to evaluate without context. Most facility managers read the executive summary, glance at the photos, look at the total repair cost, and stop. That's understandable. It's also why deferred maintenance decisions get made on incomplete information.</p>
+
+    <p>This guide translates the report into terms that support decisions. It covers what each section contains, how to interpret the rating scales most contractors use, what the moisture map means and what it costs, how to read cost estimates without a construction background, and how to convert findings into a capital budget argument your CFO will accept.</p>
+
+    <h2 id="report-structure">Report Structure and What Each Section Means</h2>
+
+    <p>A complete commercial roof inspection report has a defined structure, though terminology varies by firm. The sections below represent best practice. If your report is missing a section, ask for it—a reputable inspector should be able to provide the missing content or explain why it was excluded from scope.</p>
+
+    <p>The <strong>cover sheet</strong> records basic identification: property address, inspection date, inspector name and certification, roof system description (membrane type, manufacturer, installation date), and the purpose of the inspection. This is where warranty status should appear if the inspector verified it.</p>
+
+    <p>The <strong>executive summary</strong> is the most actionable section and the one that should be read first. A well-written executive summary gives you: overall roof condition rating, remaining useful life estimate, the three to five most critical findings requiring attention within 90 days, and a summary of total repair cost estimates broken into immediate and deferred categories.</p>
+
+    <p>The <strong>detailed finding log</strong> is the body of the report. Each finding should have a unique identifier, a photograph, a location reference keyed to the roof diagram, a description of the deficiency, a severity rating, and a repair recommendation with cost estimate. This is the section you reference when reviewing repair bids from contractors—every line item on a bid should trace back to a finding in the log.</p>
+
+    <p>The <strong>roof diagram</strong> is a plan-view map of the roof surface with finding locations marked. A roof diagram without finding location markers is useless for scoping repairs. If your report contains photographs without a roof diagram, ask for one before authorizing any repair work.</p>
+
+    <h2 id="condition-ratings">Condition Ratings Explained</h2>
+
+    <p>No universal condition rating standard exists across the roofing industry, which is a persistent problem. Most qualified commercial inspectors use a 1–5 or 1–10 numerical scale, or a simplified color-band system (Green/Yellow/Red). The table below maps the most common scales to practical meaning.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Numerical (1–10)</th>
+            <th>Color Band</th>
+            <th>Practical Meaning</th>
+            <th>Typical Action</th>
+            <th>Replacement Horizon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>8–10</td>
+            <td>Green</td>
+            <td>Condition is good; minor maintenance items only</td>
+            <td>Routine maintenance, document findings</td>
+            <td>10+ years</td>
+          </tr>
+          <tr>
+            <td>6–7</td>
+            <td>Yellow-Green</td>
+            <td>Some deficiencies; no immediate failure risk</td>
+            <td>Schedule repairs within 6 months</td>
+            <td>6–10 years</td>
+          </tr>
+          <tr>
+            <td>4–5</td>
+            <td>Yellow</td>
+            <td>Moderate deficiencies; active risk of leak escalation</td>
+            <td>Prioritize repairs within 90 days</td>
+            <td>3–6 years</td>
+          </tr>
+          <tr>
+            <td>2–3</td>
+            <td>Red-Yellow</td>
+            <td>Significant deficiencies; moisture infiltration likely</td>
+            <td>Immediate repairs; evaluate replacement timeline</td>
+            <td>1–3 years</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Red</td>
+            <td>Failed or near-failed; active leaks or structural risk</td>
+            <td>Emergency response; replacement planning required</td>
+            <td>&lt;1 year</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Ask your inspector what rating scale they use and request the definitions in writing. A "4 out of 10" from one firm is not the same as a "4 out of 5" from another. Reports that don't define their scale require clarification before findings can be acted on.</p>
+
+    <h2 id="priority-classifications">Priority Classifications: What Urgent Actually Means</h2>
+
+    <p>A good finding log classifies each deficiency by urgency, separate from condition severity. The three-tier system most firms use maps to timeline: immediate (action required within 30 days), near-term (action within 90–180 days), and deferred (addressable in the next budget cycle, typically 12 months).</p>
+
+    <p>Immediate findings share a common characteristic: they are either actively allowing water entry now, or they are in a pre-failure state where a single weather event could convert a manageable repair into a significant leak claim. An open seam at a flashing base in a region with summer thunderstorms is an immediate finding. A granule-depleted field area on a modified bitumen roof approaching end-of-life is a near-term finding—it doesn't need action this week, but it needs action this season.</p>
+
+    <blockquote>
+      <p>"The question I always ask is: what happens to this finding in the next major rain event? If the answer is 'it gets worse fast,' it's immediate. If the answer is 'it holds for now but becomes urgent by fall,' it's near-term. That mental model is simpler than any rating scale."</p>
+      <cite>— Pro Exteriors Commercial Inspection Lead, Dallas</cite>
+    </blockquote>
+
+    <p>Be cautious of reports that classify most findings as "immediate." Either the roof is genuinely in crisis—in which case the report should say so plainly in the executive summary—or the classifications are inflated to justify a larger repair scope. A legitimate inspector on a well-maintained 12-year-old roof should have two or three immediate items, five to ten near-term items, and a handful of deferred maintenance items. If every finding on a well-maintained roof is rated urgent, ask for the reasoning behind each classification.</p>
+
+    <h2 id="moisture-map">The Moisture Map: Reading Wet Insulation Findings</h2>
+
+    <p>If your inspection included infrared thermography or nuclear moisture scanning, the report will contain a moisture map—a plan-view diagram of the roof with wet insulation areas shaded or highlighted. This is the most financially consequential section of the report for any roof over 10 years old. For a full explanation of how moisture detection works, see our guide on <a href="/blog/infrared-vs-visual-roof-inspections/">infrared vs. visual roof inspections</a>.</p>
+
+    <p>The moisture map shows the percentage and location of wet insulation. Two numbers matter: the total wet area as a percentage of roof surface, and the distribution (concentrated in one area versus scattered throughout the field). Concentrated wet areas indicate a localized entry point that may be repairable; distributed moisture throughout the field suggests a pattern of deficiency that is not localized and points toward replacement rather than repair.</p>
+
+    <p>The financial rule of thumb: when wet insulation exceeds 25 percent of the roof area, the economics of repair versus replacement typically favor replacement. Insulation replacement adds $1.80 to $3.50 per square foot to the cost of any re-roofing project; beyond the 25 percent threshold, the cost of retaining the remaining wet insulation and the disruption of doing it in phases often makes full replacement the more cost-effective decision on a net present value basis.</p>
+
+    <h2 id="cost-estimates">Cost Estimates and What They Include</h2>
+
+    <p>Report cost estimates are typically unit-price-based and represent the inspector's best estimate for standard repair conditions. They are not binding bids. They are starting points for evaluating contractor proposals and identifying outliers. When a contractor's bid for a specific repair runs 3× the report estimate, that gap requires an explanation—either the report estimate was low, or the contractor is pricing opportunistically against a building owner who doesn't know the market.</p>
+
+    <p>Verify what the estimates include. Standard commercial repair pricing should include labor, materials, and warranty. It should not include extras for confined space access, overnight work, off-hours access for occupied sensitive facilities, or specialty lifts for high-parapet roofs—those are legitimate line items, but they need to be explicit and justified. An estimate that doesn't specify scope assumptions leaves room for scope creep that turns a $5,000 repair into a $12,000 project after the crew is on the roof.</p>
+
+    <h2 id="budget-planning">Using the Report for Capital Budget Planning</h2>
+
+    <p>The inspection report is the primary input for a roof capital budget submission. Translated into budget terms, it provides three numbers: the immediate repair cost (the minimum spend to prevent failure escalation in the next 12 months), the total repair cost to restore the roof to good condition (the 3- to 5-year capital requirement), and the replacement cost with a timeline (the single largest capital event the asset will require, with a projected trigger date).</p>
+
+    <p>A CFO-ready roof budget argument presents all three numbers with the inspection report as supporting documentation, and shows the cost of deferring the immediate repairs: for every year of deferral on a near-failure finding, the remediation cost typically increases by a factor of 3 to 10 as water infiltration expands from the original deficiency into adjacent insulation, deck, and interior finishes.</p>
+
+    <p>If you need to build that argument from a report that doesn't present findings in budget-ready format, request a follow-up call with the inspector to translate the findings into the three-number framework. A qualified commercial inspector should be able to provide that translation—it's part of the service value a documented inspection delivers. To understand the full inspection process that generates these reports, see <a href="/blog/what-happens-during-roof-inspection/">what happens during a commercial roof inspection</a>.</p>
+
+  </article>
+</div>
+
+<div class="cta-banner">
+  <h2>Get a Documented Inspection Report You Can Act On</h2>
+  <p>Pro Exteriors provides commercial roof inspection reports with photo logs, moisture maps, prioritized repair lists, cost estimates, and a findings review call with the inspector.</p>
+  <a href="/contact/" class="cta-btn">Request Inspection</a>
+</div>
+
+<section class="related-section" aria-label="Related articles">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <a href="/blog/what-happens-during-roof-inspection/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>What Happens During a Commercial Roof Inspection: A Step-by-Step Walkthrough</h3>
+    </a>
+    <a href="/blog/infrared-vs-visual-roof-inspections/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>Infrared vs. Visual Roof Inspections: When Each Method Is the Right Tool</h3>
+    </a>
+    <a href="/blog/roof-inspection-before-property-purchase/" class="related-card">
+      <div class="related-card-badge">Commercial Inspection</div>
+      <h3>Roof Inspection Before Commercial Property Purchase: What Buyers Miss</h3>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>© 2026 Pro Exteriors · <a href="/privacy/">Privacy</a> · <a href="/sitemap.xml">Sitemap</a> · Licensed in 16 states · Prepared by AIA4 Pro Exteriors</p>
+</footer>
+
+<script>
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+  }, { passive: true });
+  const headings = document.querySelectorAll('.article-content h2[id]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  headings.forEach(h => observer.observe(h));
+</script>
+</body>
+</html>

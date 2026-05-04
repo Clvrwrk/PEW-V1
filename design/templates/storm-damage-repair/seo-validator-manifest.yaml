@@ -1,0 +1,99 @@
+# aia4-seo-validator manifest — Storm Damage Repair
+# Phase 1 · 2026-05-03
+
+target_keyword:
+  keyword: "storm damage roofing"
+  search_volume: 4400
+  cpc_usd: 44.87
+  competition: LOW
+  read: |
+    Highest CPC in the residential silo at $44.87. Transactional emergency intent —
+    homeowner has active damage and is looking for a contractor today, not researching.
+    LOW competition at 4,400 volume is the clearest fast-ranking opportunity on the
+    site. Page must load fast, lead with action (call, tarp, inspect), and reduce
+    perceived wait time. Every section exists to move the homeowner toward contact —
+    not to educate them about roofing.
+
+primary_secondaries:
+  - keyword: "storm damage roof repair"
+    search_volume: 3600
+    cpc_usd: 31.20
+    competition: LOW
+    read: "Near-exact variant. H1, meta, and first 100 words."
+  - keyword: "emergency roof repair"
+    search_volume: 8100
+    cpc_usd: 18.40
+    competition: MEDIUM
+    read: "Broader emergency term — use in trust strip and FAQ. MEDIUM comp means we seed it but don't force it into H1."
+  - keyword: "storm damage roofing contractor"
+    search_volume: 880
+    cpc_usd: 38.60
+    competition: LOW
+    read: "Highest commercial intent modifier — seed in service overview and schema serviceType."
+  - keyword: "wind damage roof repair"
+    search_volume: 2900
+    cpc_usd: 22.10
+    competition: LOW
+    read: "Wind-specific variant — anchors Wind Damage card in damage types grid."
+  - keyword: "roof repair after storm"
+    search_volume: 1600
+    cpc_usd: 14.80
+    competition: LOW
+    read: "Long-tail variant — seed in body copy and FAQ."
+
+lsi_keywords:
+  damage_types:
+    - { kw: "hail damage roof repair", vol: 12100 }
+    - { kw: "tree on roof repair", vol: 2400 }
+    - { kw: "wind damaged roof", vol: 3600 }
+    - { kw: "missing shingles after storm", vol: 1900 }
+  urgency:
+    - { kw: "emergency tarp roof", vol: 1300 }
+    - { kw: "emergency roof inspection", vol: 1900 }
+    - { kw: "temporary roof tarp", vol: 2400 }
+  insurance:
+    - { kw: "storm damage insurance claim", vol: 2900 }
+    - { kw: "roof damage insurance claim", vol: 1600 }
+  geographic_moats:
+    - TX, CO, KS, MO, GA (2–4× each)
+
+term_frequency_targets:
+  "storm damage":
+    target_range: "14–20"
+    placement: "Title (1), H1 (1), meta (2), first 100 words (2), headings (3–4), body (5–8)"
+  "storm damage roofing":
+    target_range: "5–8"
+  "roof repair":
+    target_range: "10–16"
+  "wind damage":
+    target_range: "5–8"
+  "hail damage":
+    target_range: "6–10"
+  "emergency":
+    target_range: "8–14"
+  "inspection":
+    target_range: "8–12"
+  "tarp":
+    target_range: "4–7"
+  "insurance":
+    target_range: "6–10"
+  geographic_moats: "Each state 2–4×"
+
+performance_gate:
+  lcp_target: "<1.0s on 4G mobile"
+  lcp_element: "H1 text + primary CTA button — NOT an image"
+  hero_background: "CSS gradient or flat color only — no background-image that could delay LCP"
+  images_below_fold: "ALL loading=lazy + explicit width/height"
+  video: "PROHIBITED in hero or above fold"
+
+schema_types_required:
+  - type: RoofingContractor
+  - type: Service
+    notes: "serviceType: Storm Damage Roof Repair"
+  - type: BreadcrumbList
+  - type: FAQPage
+
+status: pass
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

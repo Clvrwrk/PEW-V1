@@ -1,0 +1,461 @@
+---
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import FAQ from '../../../components/molecules/FAQ.astro';
+import Icon from '../../../components/atoms/Icon.astro';
+
+const title = "Emergency Roof Tarp Installation — Pro Exteriors | Storm Damage Response";
+const description = "Roof damaged in a storm? Pro Exteriors installs emergency tarps across TX, CO, KS, MO & GA to stop the leak and protect your home until permanent repairs begin.";
+const canonicalPath = "/residential/tarp-installation";
+
+const roofingContractorSchema = {
+  "@type": "RoofingContractor",
+  "name": "Pro Exteriors",
+  "url": "https://proexteriorsus.com",
+  "telephone": "[REPRESENTATIVE]",
+  "areaServed": ["Texas","Colorado","Kansas","Missouri","Georgia"].map(n => ({ "@type": "State", "name": n }))
+};
+
+const serviceSchema = {
+  "@type": "Service",
+  "name": "Emergency Roof Tarp Installation",
+  "serviceType": "Emergency Roof Tarp Installation",
+  "provider": { "@type": "RoofingContractor", "name": "Pro Exteriors" },
+  "areaServed": ["Texas","Colorado","Kansas","Missouri","Georgia"].map(n => ({ "@type": "State", "name": n })),
+  "description": "Pro Exteriors provides emergency roof tarp installation across Texas, Colorado, Kansas, Missouri, and Georgia to stop active water intrusion after storm damage until permanent repairs can be completed."
+};
+
+const jsonLd = [roofingContractorSchema, serviceSchema];
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Residential Roofing", href: "/residential" },
+  { label: "Tarp Installation", href: "/residential/tarp-installation" }
+];
+
+const whatToExpect = [
+  {
+    icon: "search",
+    title: "We Assess the Damage",
+    body: "Before the tarp goes down, we identify the breach point and inspect the surrounding structure. A tarp placed without knowing where the water is entering is a tarp that may not cover the right area."
+  },
+  {
+    icon: "shield",
+    title: "We Install the Tarp Correctly",
+    body: "Heavy-duty tarp, secured to the roof structure and perimeter-sealed to prevent wind displacement. Temporary protection until permanent repairs can be scheduled — no specific lifespan guarantee, since that depends on your specific weather conditions and roof geometry."
+  },
+  {
+    icon: "file-text",
+    title: "We Document Everything for Insurance",
+    body: "Timestamped photos of the damage, the breach location, and the installed tarp. This documentation is the first entry in your insurance claim file and establishes the causation record your adjuster will rely on."
+  }
+];
+
+const processSteps = [
+  {
+    number: 1,
+    title: "You Call or Submit Online",
+    body: "Call us directly for the fastest response. If you can't get through or prefer to submit a request, our online form routes to the same emergency queue. We confirm a response window when we pick up.",
+    icon: "phone"
+  },
+  {
+    number: 2,
+    title: "We Arrive and Assess",
+    body: "Our crew arrives, identifies the breach point and any related structural concerns, and documents the damage with photos before the tarp goes on. No guessing. No covering the wrong area.",
+    icon: "search"
+  },
+  {
+    number: 3,
+    title: "Tarp Installed",
+    body: "Heavy-duty tarp secured over the breach and surrounding area. Perimeter-sealed against wind. The installation is designed to hold until permanent repairs can be scheduled — not to substitute for permanent repairs.",
+    icon: "shield"
+  },
+  {
+    number: 4,
+    title: "Documentation Provided for Insurance",
+    body: "You receive a written and photographic record of the breach, the damage extent, and the tarp installation. This documentation is your insurance claim foundation.",
+    icon: "file-text"
+  }
+];
+
+const faqItems = [
+  {
+    question: "How long will the tarp stay in place?",
+    answer: `A correctly installed heavy-duty roof tarp provides temporary weather protection until permanent repairs can be scheduled and completed. We do not make specific duration claims because tarp longevity depends on your weather conditions, wind exposure, and roof geometry. The goal is to get your permanent repair on the schedule as quickly as possible — not to live indefinitely under a tarp.
+
+For most projects, permanent repair or replacement can be scheduled within one to three weeks of the tarp installation, depending on material lead times, permit issuance (where required), and insurance claim processing.`
+  },
+  {
+    question: "Will tarping prevent all water damage?",
+    answer: "A tarp stops active water intrusion through the breach it covers. It does not reverse damage that has already occurred, and it does not protect areas that were not covered. After we install the tarp, we will tell you what areas of the roof it covers and what, if any, exposure points remain. If you are seeing water inside the home from a location that doesn't match the breach we covered, the water may be traveling — running along a rafter or down a wall cavity from a secondary breach point. Interior water damage should be documented immediately with your own photos for insurance purposes."
+  },
+  {
+    question: "Does insurance cover emergency tarping?",
+    answer: `In most standard homeowner policies, yes — emergency tarping is considered a reasonable mitigation action to limit further damage after a covered storm event. Most carriers will include tarping costs in the claim settlement when the underlying damage is covered.
+
+We document the tarp installation with the same photographic and written record we use for permanent repair insurance claims. That documentation goes to you and, if you choose, to your insurance adjuster. See our <a href="/residential/insurance-claim-assistance" class="underline hover:no-underline">insurance claim assistance</a> page for the full process breakdown.`
+  },
+  {
+    question: "How soon can Pro Exteriors arrive after I call?",
+    answer: "We aim to have a crew on-site within 24–48 hours of contact in standard conditions. In high-volume storm events that affect thousands of homes in a short window — a major hail corridor, a tornado touchdowns pattern — response windows extend. We triage by severity of active intrusion and tell you the current response window honestly when you call. The fastest path to getting on our schedule is a phone call. Our online form is a fallback for when the line is busy."
+  }
+];
+---
+
+<BaseLayout {title} {description} {canonicalPath} {jsonLd}>
+
+  <!-- ═══════════════════════════════════════════
+       STICKY MOBILE CALL BAR (same pattern as storm-damage)
+  ═══════════════════════════════════════════ -->
+  <div
+    id="sticky-call-bar"
+    style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background-color: #ef4444; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 -2px 8px rgba(0,0,0,0.3);"
+    aria-label="Emergency call bar"
+  >
+    <p style="color: #ffffff; font-size: 0.875rem; font-weight: 700; margin: 0; flex: 1;">Active leak? Call now.</p>
+    <a
+      href="tel:[REPRESENTATIVE]"
+      style="display: inline-flex; align-items: center; gap: 6px; background-color: #ffffff; color: #ef4444; font-size: 1rem; font-weight: 800; padding: 10px 20px; border-radius: 6px; text-decoration: none; white-space: nowrap; min-height: 48px;"
+      data-event-action="phone-click"
+      data-event-label="sticky-bar"
+      data-event-category="tarp-installation"
+    >
+      <Icon name="phone" size={18} aria-hidden="true" />
+      <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE]</em>
+    </a>
+  </div>
+  <div style="padding-bottom: 72px;" class="sticky-bar-spacer" aria-hidden="true"></div>
+  <style>
+    @media (min-width: 768px) {
+      #sticky-call-bar { display: none !important; }
+      .sticky-bar-spacer { display: none !important; }
+    }
+  </style>
+
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════
+       HERO — CSS gradient, PHONE IS PRIMARY CTA
+       LCP target <1.0s. No background image.
+  ═══════════════════════════════════════════ -->
+  <section
+    style="min-height: 560px; background: linear-gradient(135deg, #450a0a 0%, #7f1d1d 50%, #0f172a 100%); display: flex; align-items: center; position: relative;"
+    aria-label="Emergency Roof Tarp Installation hero"
+  >
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 72px 24px;">
+
+      <!-- Emergency eyebrow -->
+      <div style="display: inline-flex; align-items: center; gap: 8px; background-color: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.5); border-radius: 4px; padding: 6px 12px; margin-bottom: 20px;">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #ef4444;" aria-hidden="true"></span>
+        <span style="color: #fca5a5; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">
+          EMERGENCY RESPONSE — TX · CO · KS · MO · GA
+        </span>
+      </div>
+
+      <h1 style="color: #ffffff; font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; line-height: 1.1; max-width: 680px; margin-bottom: 16px;">
+        Emergency Roof Tarp Installation by Pro Exteriors
+      </h1>
+      <p style="color: rgba(255,255,255,0.85); font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.5; max-width: 520px; margin-bottom: 36px;">
+        Active leak. We stop it. Call now — or submit a request online if you can't get through.
+      </p>
+
+      <!-- Phone as primary CTA — largest element -->
+      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 480px;">
+        <a
+          href="tel:[REPRESENTATIVE]"
+          style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; background-color: #ef4444; color: #ffffff; font-size: 1.5rem; font-weight: 800; padding: 20px 32px; border-radius: 6px; text-decoration: none; min-height: 64px; letter-spacing: 0.02em;"
+          data-event-action="phone-click"
+          data-event-label="hero-phone-primary"
+          data-event-category="tarp-installation"
+        >
+          <Icon name="phone" size={28} aria-hidden="true" />
+          <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE]</em>
+        </a>
+        <a
+          href="/contact?intent=emergency-tarp&source=tarp-installation-hero"
+          style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: rgba(255,255,255,0.12); color: #ffffff; font-size: 1rem; font-weight: 600; padding: 14px 28px; border-radius: 6px; text-decoration: none; min-height: 48px; border: 1px solid rgba(255,255,255,0.25);"
+          data-event-action="emergency-tarp"
+          data-event-label="hero-form"
+          data-event-category="tarp-installation"
+        >
+          Submit a Request Online
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TRUST STRIP
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-mid, #1e293b); padding: 20px 24px;" aria-label="Trust indicators">
+    <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; list-style: none; margin: 0 auto; padding: 0; max-width: 1200px;">
+      {[
+        { icon: "zap", label: "Emergency Response" },
+        { icon: "shield", label: "Licensed & Insured" },
+        { icon: "map-pin", label: "TX · CO · KS · MO · GA" },
+        { icon: "clock", label: "Stops Leaks Fast" },
+        { icon: "star", label: "[REPRESENTATIVE] Google Rating" }
+      ].map(item => (
+        <li style="display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.85); font-size: 0.875rem; font-weight: 600; white-space: nowrap;">
+          <Icon name={item.icon} size={18} color="#ef4444" aria-hidden="true" />
+          {item.label}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       WHAT TARPING DOES (SplitIntro)
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-light, #ffffff); padding: 80px 24px;" aria-labelledby="overview-heading">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 56px; align-items: start;">
+
+      <div>
+        <p style="color: #ef4444; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">WHY TARPING MATTERS</p>
+        <h2 id="overview-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2; margin-bottom: 20px;">
+          A Tarp Stops the Clock on Interior Damage. Every Hour Without One Costs More.
+        </h2>
+        <div style="font-size: 1rem; line-height: 1.75; color: var(--color-text-secondary, #475569);">
+          <p style="margin-bottom: 16px;">
+            Active water intrusion through a damaged roof is not a "fix it next week" problem. Water travels. From the breach point, it moves through insulation, into ceiling joists, down into wall cavities, and eventually onto floors and into subfloor assemblies. Secondary damage from a delayed tarp — mold growth, structural rot, damaged electrical, ruined finishes — routinely exceeds the original roof repair cost by a significant margin.
+          </p>
+          <p style="margin-bottom: 16px;">
+            Emergency tarping provides temporary weather protection from the roof breach until permanent repairs can be planned and scheduled. It also documents the breach location for your insurance claim — a professional tarp installation with photos is far better insurance documentation than a homeowner-applied tarp or no tarp at all.
+          </p>
+          <p>
+            This service is available as a standalone — it is not contingent on committing to a permanent repair with Pro Exteriors.
+          </p>
+        </div>
+        <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+          <a
+            href="tel:[REPRESENTATIVE]"
+            style="display: inline-flex; align-items: center; gap: 8px; background-color: #ef4444; color: #ffffff; font-size: 1.125rem; font-weight: 800; padding: 16px 28px; border-radius: 6px; text-decoration: none; min-height: 56px;"
+            data-event-action="phone-click"
+            data-event-label="overview-phone"
+            data-event-category="tarp-installation"
+          >
+            <Icon name="phone" size={20} aria-hidden="true" />
+            <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE]</em>
+          </a>
+          <a
+            href="/contact?intent=emergency-tarp&source=tarp-installation-overview"
+            style="display: inline-flex; align-items: center; gap: 8px; color: var(--color-text-primary, #0f172a); font-size: 0.9375rem; font-weight: 600; text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 2px; min-height: 44px;"
+            data-event-action="emergency-tarp"
+            data-event-label="overview-cta"
+            data-event-category="tarp-installation"
+          >
+            Submit Online
+          </a>
+        </div>
+      </div>
+
+      <div style="background-color: #e2e8f0; border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; max-width: 520px; width: 100%;">
+        <img
+          src="[REPRESENTATIVE — NOT YET SOURCED]"
+          alt="Pro Exteriors crew member securing emergency roof tarp after storm damage"
+          width="520"
+          height="390"
+          loading="lazy"
+          style="width: 100%; height: 100%; object-fit: cover;"
+          title="Not yet sourced"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       WHAT TO EXPECT (BenefitsGrid — 3 cards)
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-subtle, #f8fafc); padding: 80px 24px;" aria-labelledby="expect-heading">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <p style="color: #ef4444; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">WHAT TO EXPECT</p>
+        <h2 id="expect-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2;">
+          Three Things We Do on Every Tarp Call.
+        </h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px;">
+        {whatToExpect.map(card => (
+          <div style="background-color: #ffffff; border-radius: 8px; padding: 32px 28px; border-top: 4px solid #ef4444; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+            <div style="width: 48px; height: 48px; border-radius: 8px; background-color: rgba(239,68,68,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;" aria-hidden="true">
+              <Icon name={card.icon} size={24} color="#ef4444" />
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--color-text-primary, #0f172a); margin-bottom: 12px;">{card.title}</h3>
+            <p style="font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-secondary, #475569); margin: 0;">{card.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROCESS (QualityProcess — 4 steps)
+  ═══════════════════════════════════════════ -->
+  <section id="process" style="background-color: var(--color-surface-light, #ffffff); padding: 80px 24px;" aria-labelledby="process-heading">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <p style="color: #ef4444; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">OUR PROCESS</p>
+        <h2 id="process-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2; margin-bottom: 16px;">
+          From Your Call to Tarp Installed — Four Steps.
+        </h2>
+      </div>
+      <ol style="list-style: none; margin: 0 0 48px; padding: 0; display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 760px; margin-inline: auto;">
+        {processSteps.map(step => (
+          <li style="display: flex; gap: 20px; align-items: flex-start;">
+            <div style="flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background-color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 1.0625rem; font-weight: 800; color: #ffffff;" aria-hidden="true">
+              {step.number}
+            </div>
+            <div>
+              <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--color-text-primary, #0f172a); margin-bottom: 6px;">{step.title}</h3>
+              <p style="font-size: 0.9375rem; line-height: 1.7; color: var(--color-text-secondary, #475569); margin: 0;">{step.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       LOCAL EXPERTS PROOF (StatBand + Testimonial)
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-dark, #0f172a); padding: 80px 24px;" aria-labelledby="proof-heading">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start;">
+      <div>
+        <h2 id="proof-heading" style="font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 16px;">
+          Pro Exteriors crews are based in the states we serve.
+        </h2>
+        <p style="font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.75); margin-bottom: 32px;">
+          Pro Exteriors operates across all five states we serve with crews based locally — not dispatched from a national call center. Our residential roofing contractor crews in Texas, Colorado, Kansas, Missouri, and Georgia handle storm response calls across all weather seasons in markets we know.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+          {[
+            { value: "15+", label: "Years in Business", rep: false },
+            { value: "5", label: "States Served", rep: false },
+            { value: "[REPRESENTATIVE]", label: "Storm Responses Completed", rep: true }
+          ].map(stat => (
+            <div>
+              <p style="font-size: 2.5rem; font-weight: 800; color: #ef4444; line-height: 1; margin-bottom: 4px;">
+                {stat.rep
+                  ? <em style="font-style: italic; font-size: 1.25rem; color: rgba(255,255,255,0.5);" title="Not yet sourced">{stat.value}</em>
+                  : stat.value
+                }
+              </p>
+              <p style="font-size: 0.875rem; color: rgba(255,255,255,0.6); margin: 0;">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style="background-color: rgba(255,255,255,0.05); border-radius: 8px; padding: 32px; border-left: 4px solid #ef4444;">
+        <div style="display: flex; gap: 4px; margin-bottom: 16px;" aria-label="5 out of 5 stars">
+          {Array.from({ length: 5 }).map(() => (
+            <Icon name="star" size={20} color="#f97316" aria-hidden="true" />
+          ))}
+        </div>
+        <blockquote style="margin: 0 0 16px;">
+          <p style="font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.85); font-style: italic;">
+            <em title="Not yet sourced">[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial, emergency tarp or storm response, any served state. Signed release required before ship.]</em>
+          </p>
+        </blockquote>
+        <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem; margin: 0;">
+          <em title="Not yet sourced">[REPRESENTATIVE — Customer Name, City, State, Year]</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       NEXT STEPS BAND (after the tarp)
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-subtle, #f8fafc); padding: 80px 24px;" aria-labelledby="nextsteps-heading">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center;">
+
+      <div style="background-color: #e2e8f0; border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; max-width: 480px; width: 100%;">
+        <img
+          src="[REPRESENTATIVE — NOT YET SOURCED]"
+          alt="Pro Exteriors crew beginning permanent roof repair after emergency tarp removal"
+          width="480"
+          height="360"
+          loading="lazy"
+          style="width: 100%; height: 100%; object-fit: cover;"
+          title="Not yet sourced"
+        />
+      </div>
+
+      <div>
+        <p style="color: var(--color-accent, #f97316); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">AFTER THE TARP</p>
+        <h2 id="nextsteps-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2; margin-bottom: 20px;">
+          Tarping Stops the Damage. These Are Your Permanent Repair Options.
+        </h2>
+        <div style="font-size: 1rem; line-height: 1.75; color: var(--color-text-secondary, #475569);">
+          <p style="margin-bottom: 16px;">
+            Emergency tarping is the first step, not the last. Once the active leak is stopped, the path forward depends on the extent of the damage.
+          </p>
+          <p style="margin-bottom: 16px;">
+            Isolated damage from a tree impact or a localized storm breach may be addressable with a targeted <a href="/residential/storm-damage-repair" style="color: var(--color-accent, #f97316); font-weight: 600; text-decoration: underline;">storm damage repair</a>. Widespread hail field damage or a roof more than 20 years old may make a <a href="/residential/roof-replacement" style="color: var(--color-accent, #f97316); font-weight: 600; text-decoration: underline;">permanent roof replacement</a> the more economic choice. And if the event was hail-driven, <a href="/residential/hail-damage-repair" style="color: var(--color-accent, #f97316); font-weight: 600; text-decoration: underline;">hail damage assessment</a> should happen before any permanent repair is scoped.
+          </p>
+          <p>
+            Either way, <a href="/residential/insurance-claim-assistance" style="color: var(--color-accent, #f97316); font-weight: 600; text-decoration: underline;">insurance claim coordination</a> is included in every permanent repair we do — from the adjuster inspection to the supplement filing.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════ -->
+  <section style="background-color: var(--color-surface-light, #ffffff); padding: 80px 24px;" aria-labelledby="faq-heading">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <p style="color: #ef4444; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">FREQUENTLY ASKED</p>
+        <h2 id="faq-heading" style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-text-primary, #0f172a); line-height: 1.2;">
+          Emergency Roof Tarp Questions, Answered.
+        </h2>
+      </div>
+      <FAQ items={faqItems} schemaType="FAQPage" />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FINAL CTA — PHONE PRIMARY
+  ═══════════════════════════════════════════ -->
+  <section
+    style="background-color: #450a0a; padding: 96px 24px; text-align: center;"
+    aria-label="Emergency final call to action"
+  >
+    <div style="max-width: 600px; margin: 0 auto;">
+      <p style="color: #fca5a5; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;">EMERGENCY RESPONSE</p>
+      <h2 style="font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; color: #ffffff; line-height: 1.15; margin-bottom: 16px;">
+        Active Leak. We Stop It.
+      </h2>
+      <p style="font-size: 1.125rem; color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: 40px;">
+        Emergency tarping across Texas, Colorado, Kansas, Missouri, and Georgia. Licensed crews. No subcontractors.
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 16px; align-items: center;">
+        <a
+          href="tel:[REPRESENTATIVE]"
+          style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; background-color: #ef4444; color: #ffffff; font-size: 1.5rem; font-weight: 800; padding: 20px 40px; border-radius: 6px; text-decoration: none; min-height: 64px; width: 100%; max-width: 400px;"
+          data-event-action="phone-click"
+          data-event-label="final-cta-phone"
+          data-event-category="tarp-installation"
+        >
+          <Icon name="phone" size={28} aria-hidden="true" />
+          <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE]</em>
+        </a>
+        <a
+          href="/contact?intent=emergency-tarp&source=tarp-installation-final-cta"
+          style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; color: rgba(255,255,255,0.8); font-size: 1rem; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; min-height: 44px;"
+          data-event-action="emergency-tarp"
+          data-event-label="final-cta-form"
+          data-event-category="tarp-installation"
+        >
+          Submit a Request Online
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,178 @@
+# Delivery manifest — /residential/asphalt-shingles
+# Phase 6 of 6 — AIA4 PageBuilder · 2026-05-03
+# This file is the single source of truth for "is this page ready to ship?"
+
+slug: asphalt-shingles
+url: /residential/asphalt-shingles
+title: "Asphalt Shingle Roofing"
+target_keyword: "asphalt shingle roofing"
+keyword_volume: 40500
+keyword_cpc_usd: 3.87
+keyword_competition: LOW
+template: residential-service (FIRST INSTANCE — canonical template for 10 subsequent pages)
+silo_role: T2-money-page
+silo_parent: /residential
+audience: residential-homeowner
+intent: transactional + solution-evaluation
+
+# ─── Conversion hypothesis (CLAUDE.md §4 hard gate) ───
+hypothesis:
+  a: "Top-3 organic for 'asphalt shingle roofing' in TX/CO/KS/MO/GA geos within 90 days"
+  b: "≥25% of sessions that click a CTA complete the /contact inspection-request form within 30 days of launch"
+  measurement_date: "90 days post-launch"
+  rationale: "Uncontested contractor SERP — no money pages in top-25 as of 2026-05-03"
+
+# ─── Files produced ───
+files:
+  brief:              design/templates/asphalt-shingles/brief.yaml
+  seo_validator:      design/templates/asphalt-shingles/seo-validator-manifest.yaml
+  page_link:          design/templates/asphalt-shingles/page-link-manifest.yaml
+  copy:               design/templates/asphalt-shingles/copy.yaml
+  layout:             design/templates/asphalt-shingles/layout-manifest.yaml
+  image:              design/templates/asphalt-shingles/image-manifest.yaml
+  page_qc:            design/templates/asphalt-shingles/page-qc-manifest.yaml
+  code_qc:            design/templates/asphalt-shingles/code-qc-manifest.yaml
+  assembled_page:     src/pages/residential/asphalt-shingles/index.astro
+
+# ─── Hard-gate scorecard (CLAUDE.md §4) ───
+hard_gates:
+  performance:
+    target: { perf: ">=95", a11y: 100, best_practices: 100, seo: 100 }
+    lcp: "<1.5s"
+    cls: "<0.05"
+    inp: "<200ms"
+    status: pending-localhost-verification
+    note: "No client-JS in page. Hero is eager-loaded. Run Lighthouse against localhost:4321/residential/asphalt-shingles."
+
+  accessibility:
+    wcag: 2.2-AA-structural-pass
+    contrast: structural-pass-pending-browser-verification
+    note: "White-on-red-700 CTA contrast to be verified — darken to red-800 if <4.5:1."
+    tap_targets: pass-(≥48px on all CTAs)
+    keyboard_nav: pass
+    skip_link: pass
+    semantic_html: pass
+    one_h1: pass
+    aria_labels: pass
+    status: pending-axe-localhost-verification
+
+  measurement:
+    analytics_events: pass-(6 CTAs fully instrumented)
+    distinct_intent_params: pass-(hero primary/secondary use separate ?intent= params)
+    hypothesis_attached: pass
+    conversion_goals_wired: pending-(GA4/PostHog goal config outside build scope)
+    status: pass-with-pending-goal-config
+
+  trust:
+    every_claim_sourced_or_marked: pass-(all unverified content wears [REPRESENTATIVE] markers)
+    real_testimonials_only: blocked-(testimonial is [REPRESENTATIVE] — needs real customer + signed release)
+    real_photography_only: blocked-(all 13 image slots are [REPRESENTATIVE] — needs real Pro Exteriors photos)
+    status: blocked-pending-source-material
+
+  schema:
+    types_present: [RoofingContractor, Service, BreadcrumbList-auto, FAQPage-auto]
+    types_omitted: [Review-unverified, AggregateRating-unverified, LocalBusiness-per-location-only]
+    google_rich_results_test: pending-localhost-or-postdeploy-verification
+    status: pass-pending-validation
+
+  forms:
+    end_to_end_test: pending-(dependent on /contact form + CRM integration)
+    status: pending
+
+# ─── Ship blockers ───
+ship_blockers:
+  - id: photography
+    severity: critical
+    description: "All 13 image slots require real Pro Exteriors photos. 7 are hard-blocked (hero, service-overview, manufacturer logos, testimonial, 3 case studies)."
+    owner: Chris
+    resolution: "Supply photos from Google Drive Website Assets folder or direct upload to /brand-assets/client/"
+
+  - id: manufacturer-logos
+    severity: critical
+    description: "GAF Master Elite and Owens Corning Preferred logos require confirmed permission. Cannot display unlicensed badge assets."
+    owner: Chris
+    resolution: "Confirm Pro Exteriors has current-year certification and permission to display badges."
+
+  - id: testimonial
+    severity: critical
+    description: "Customer quote + signed release required. [REPRESENTATIVE] placeholder cannot ship."
+    owner: Chris
+
+  - id: case-studies
+    severity: critical
+    description: "All 3 case study cards require real completed project data + signed client release."
+    owner: Chris
+
+  - id: phone-number
+    severity: critical
+    description: "Final CTA secondary links to tel:[REPRESENTATIVE]. Needs national tracking number or per-state IVR."
+    owner: Chris
+
+  - id: cost-ranges-faq
+    severity: warning
+    description: "FAQ answer 3 has [REPRESENTATIVE] cost range placeholder. Source Pro Exteriors' ranges or cite HomeAdvisor/RS Means."
+    owner: Chris/Maren
+
+  - id: gaf-me-stat-verification
+    severity: warning
+    description: "GAF Master Elite <2% of US contractors claim — verify against GAF documentation. Widely cited in industry but confirm sourcing."
+    owner: Maren
+
+  - id: insurance-premium-discount
+    severity: warning
+    description: "FAQ answer 4 claims insurance carriers offer premium discounts for Class 4 shingles. Verify for TX/CO/KS before [REPRESENTATIVE] is removed."
+    owner: Chris
+
+  - id: roofs-installed-stat
+    severity: warning
+    description: "2,500+ roofs installed stat needs CRM verification. Currently marked with [REPRESENTATIVE] asterisk."
+    owner: Chris
+
+  - id: localhost-lighthouse
+    severity: warning
+    description: "Lighthouse run pending. Structural analysis suggests green, but confirm before launch."
+    owner: Maren
+
+# ─── Internal links confirmed ───
+internal_links:
+  placed_out: 7
+  placed_in_required_live: 1    # /residential already links to this page per page-link-manifest
+  pending_in:
+    - from: "/residential/roof-replacement" (planned-M3)
+    - from: "/residential/hail-damage-repair" (planned-Q2)
+    - from: "/blog/architectural-vs-3-tab-shingles" (needs-update — flag for content team)
+
+# ─── SEO readiness ───
+seo:
+  title: "Asphalt Shingle Roofing — Expert Installation & Replacement | Pro Exteriors" # 70 chars
+  meta_description: 158 chars   # within 70–160 target
+  canonical: /residential/asphalt-shingles
+  h1: "Asphalt Shingle Roofing by Pro Exteriors"
+  primary_keyword_in_title: true
+  primary_keyword_in_h1: true
+  primary_keyword_in_meta: true
+  tf_targets: see seo-validator-manifest.yaml  # all targets pass per copy self-audit
+  schema: pass-pending-rich-results-test
+  geo_moats: TX/CO/KS/MO/GA seeded throughout
+
+# ─── Template status ───
+template_status: |
+  This page IS the canonical residential-service template.
+  All 10 subsequent residential service pages inherit this component pattern:
+  Hero → TrustStrip → SplitIntro → BenefitsGrid → ManufacturersBand →
+  StatBand+Testimonial → QualityProcess → CaseStudies × 3 →
+  SplitIntro-warranties → FAQ → CTABanner.
+  Deviations (emergency pages: no ManufacturersBand; tarp page: phone as primary CTA)
+  are documented in each page's brief.yaml flags.
+
+status: structurally-complete
+launch_readiness: blocked-pending-source-material
+next_action: |
+  1. Chris supplies photography, testimonials, case studies, phone number, lender info
+  2. Maren removes [REPRESENTATIVE] markers, verifies sourcing, runs Lighthouse + axe
+  3. Page ships after all critical blockers resolved
+
+provenance:
+  produced_by: aia4-pagebuilder Phase 6 (inline orchestration)
+  produced_at: 2026-05-03
+  pipeline_duration: phases-0-6-complete

@@ -1,0 +1,107 @@
+# aia4-seo-validator manifest — Residential Siding Installation
+# Phase 1 · 2026-05-03
+
+target_keyword:
+  keyword: "siding installation"
+  search_volume: 12100
+  cpc_usd: 21.79
+  competition: LOW
+  read: |
+    12,100 national volume at LOW competition and $21.79 CPC. Strong conversion
+    signal — homeowners searching "siding installation" have already decided on
+    new siding and are evaluating contractors. The storm-damage cross-sell angle
+    (siding + roofing on the same job) is unoccupied territory in this category —
+    competitors treat siding as a standalone trade, not as a storm-recovery
+    package. Pro Exteriors' roofing credentialing transfers authority to siding
+    in a way pure siding contractors can't match.
+
+primary_secondaries:
+  - keyword: "residential siding contractor"
+    search_volume: 5400
+    cpc_usd: 24.10
+    competition: LOW
+    read: "Contractor-intent term — use in service_overview and process sections."
+  - keyword: "fiber cement siding"
+    search_volume: 8100
+    cpc_usd: 14.20
+    competition: LOW
+    read: "Material-specific term — anchors fiber cement card in materials grid. High research intent."
+  - keyword: "vinyl siding installation"
+    search_volume: 9900
+    cpc_usd: 12.80
+    competition: LOW
+    read: "Highest secondary volume — vinyl is the most common entry point. Seed in materials grid and hero."
+  - keyword: "siding replacement"
+    search_volume: 8100
+    cpc_usd: 18.40
+    competition: LOW
+    read: "Replacement intent — storm damage most common trigger. Seed in bundle_band and overview."
+  - keyword: "storm damage siding repair"
+    search_volume: 2400
+    cpc_usd: 26.80
+    competition: LOW
+    read: "Highest CPC secondary — storm-trigger buyers at transactional intent. Use in eyebrow + trust strip."
+  - keyword: "home siding contractor"
+    search_volume: 4400
+    cpc_usd: 20.10
+    competition: LOW
+    read: "Contractor qualifier — use in local_experts_proof."
+
+lsi_keywords:
+  material_types:
+    - { kw: "fiber cement siding cost", vol: 3600 }
+    - { kw: "hardie board siding", vol: 12100 }
+    - { kw: "engineered wood siding", vol: 2400 }
+    - { kw: "vinyl siding cost", vol: 9900 }
+    - { kw: "LP SmartSide", vol: 1900 }
+  installation:
+    - { kw: "siding installation cost", vol: 8100 }
+    - { kw: "house siding replacement cost", vol: 5400 }
+    - { kw: "siding installation contractor", vol: 3600 }
+  storm_context:
+    - { kw: "hail damage siding", vol: 3600 }
+    - { kw: "wind damage siding", vol: 1900 }
+    - { kw: "insurance claim siding", vol: 1300 }
+  geographic_moats:
+    - TX, CO, KS, MO, GA (2–4× each)
+
+term_frequency_targets:
+  "siding installation":
+    target_range: "12–18"
+    placement: "Title (1), H1 (1), meta (1), headings (3–4), body (6–8)"
+  "siding":
+    target_range: "30–45"
+  "fiber cement":
+    target_range: "8–12"
+  "vinyl":
+    target_range: "6–10"
+  "storm damage":
+    target_range: "8–12"
+  "siding replacement":
+    target_range: "5–8"
+  "insurance":
+    target_range: "4–6"
+  "contractor":
+    target_range: "6–10"
+  geographic_moats: "Each state 2–4×"
+
+hail_resistant_copy_gate:
+  - gate: "no-unconfirmed-impact-resistance-ratings"
+    rule: |
+      Do NOT claim specific impact resistance ratings (Class 3, Class 4) for any
+      siding product without Chris confirming the specific products Pro Exteriors
+      installs. Permitted: 'more durable than vinyl in hail-prone areas' or
+      'fiber cement holds up better to hail impact than standard vinyl.'
+      Blocked: 'Class 4 impact-resistant siding' (unqualified product claim).
+
+schema_types_required:
+  - type: RoofingContractor
+  - type: Service
+    notes: "serviceType: Residential Siding Installation"
+  - type: BreadcrumbList
+  - type: FAQPage
+
+status: pass
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

@@ -1,0 +1,139 @@
+# aia4-seo-validator manifest — Commercial Roofing pillar
+# Phase 1 deliverable. Drives copywriter term-frequency targets and assembly schema.
+
+target_keyword:
+  primary: "commercial roofing contractor"
+  estimated_metrics:                    # DataForSEO would source live; ranges from competitor-keyword export
+    monthly_search_volume_us: "8,100–14,800"
+    keyword_difficulty: "high (national-vertical competition; local intent dominant)"
+    cpc_us: "$18–$42"                   # commercial roofing CPC is one of the highest in any trade vertical
+  intent: "solution-evaluation, mostly local; some procurement/RFQ"
+  notes: |
+    The same query is asked by (a) facility managers shortlisting contractors,
+    (b) procurement officers writing RFQs, and (c) homeowners who don't realize
+    they need "residential" instead. Page voice and hero copy must immediately
+    qualify audience B2B in the first 5 seconds — Figma hero ("Commercial
+    Roofing Contractor in Dallas & Nationwide") accomplishes this; we keep it.
+
+secondary_keywords:
+  - keyword: "commercial roofing"
+    role: head term — broadest cluster
+  - keyword: "commercial roofing company"
+    role: variant of primary, likely highest local volume
+  - keyword: "commercial roofing systems"
+    role: solutions-aware variant
+  - keyword: "commercial roofing services"
+    role: services-aware variant
+  - keyword: "commercial roofing solutions"
+    role: solutions/RFQ-language variant
+
+term_frequency_targets:
+  # On-page TF guidance for ~2,800-word pillar. Targets are min counts to
+  # signal the cluster without keyword stuffing. Copywriter validates self-scan.
+  "commercial roofing":              22  # primary head term
+  "commercial roofing contractor":   8   # exact-match primary
+  "commercial roofing company":      4   # variant
+  "roofing systems":                 10
+  "commercial roof":                 12  # singular form
+  "commercial property":             6
+  "facility":                        6
+  "tpo":                             5   # link bait to /tpo-roofing-systems
+  "epdm":                            4
+  "modified bitumen":                3
+  "metal roofing":                   4
+  "membrane":                        6
+  "warranty":                        4
+  "maintenance":                     8
+  "inspection":                      5
+  "repair":                          4
+  "replacement":                     4
+  "16 states":                       3   # geographic anchor
+  "dallas":                          5   # HQ anchor
+
+lsi_keywords:
+  - "thermoplastic polyolefin"
+  - "single-ply membrane"
+  - "low-slope roof"
+  - "built-up roofing"
+  - "BUR"
+  - "roof restoration"
+  - "tear-off"
+  - "overlay"
+  - "NDL warranty"
+  - "manufacturer-certified installer"
+  - "GAF Master Elite"
+  - "Firestone licensed"
+  - "Carlisle authorized"
+  - "Owens Corning Platinum"
+  - "OSHA-certified"
+  - "thermal moisture scan"
+  - "infrared inspection"
+  - "core sample"
+  - "drone roof inspection"
+  - "preventative maintenance program"
+  - "facility manager"
+  - "property portfolio"
+  - "asset management"
+  - "industrial roof"
+  - "warehouse roof"
+  - "multi-state portfolio"
+
+schema_types_required:
+  # Validated against Google Rich Results test format and CLAUDE.md §4 hard gate
+  - type: BreadcrumbList
+    rationale: Standard navigational signal; pillar sits one level under home
+    location: SchemaJsonLd block in BaseLayout via jsonLd prop
+  - type: Service
+    rationale: Primary ServiceArea + serviceType signal for the commercial roofing service offered nationally
+    location: SchemaJsonLd block in BaseLayout via jsonLd prop
+    serviceType: "Commercial Roofing Contractor Services"
+    areaServed: "United States (16 licensed states)"
+  - type: FAQPage
+    rationale: Eligible for rich-result snippet; pillar has 3-question accordion
+    location: SchemaJsonLd block in BaseLayout via jsonLd prop
+  - type: RoofingContractor
+    rationale: LocalBusiness-typed schema for the contractor entity itself; required by CLAUDE.md §4
+    location: Inherited from organizationSchema() emitted by home layout — no duplicate emit needed on this page
+    notes: |
+      Pro Exteriors' RoofingContractor schema is centrally defined and shared
+      across pages via the organizationSchema() helper. This page does NOT
+      re-emit it — that would create duplicate schema and potentially conflict
+      with the home page's emission.
+
+schema_recommended_optional:
+  - type: AggregateRating
+    rationale: Eligible if real customer review counts are sourced (not for this build — dropped per stats override decision)
+    status: deferred-pending-real-review-data
+
+competitor_pages_analyzed:
+  # National + Texas competitor sample — pulled from /discovery/Competitor-Domain-Keywords_Combined.xlsx
+  # for "commercial roofing contractor" SERP. Full URL list in /discovery/.
+  - name: National competitor 1 (Tecta America)
+    pattern: "Long thin landing → audience-split tiles → state directory → 6 FAQs"
+    notable_strengths: "Service-area depth, real case studies"
+    notable_gaps: "No inline assessment form; no manufacturer cert band"
+  - name: National competitor 2 (CentiMark)
+    pattern: "Hero with phone → 4-stat band → systems grid → testimonial → CTA banner"
+    notable_strengths: "Stat band visible above fold"
+    notable_gaps: "No real photography; stock images dominant"
+  - name: Texas competitor 1 (Lon Smith Roofing)
+    pattern: "Image hero → service tiles → testimonial carousel → contact form footer"
+    notable_strengths: "Local trust signals (BBB, GAF Master)"
+    notable_gaps: "No segmentation between commercial and residential journeys"
+  - name: Texas competitor 2 (Roofing Sterling)
+    pattern: "Bullet-point benefits → form-first hero → no case studies"
+    notable_strengths: "Form-first capture"
+    notable_gaps: "Thin content, no schema, no internal silo"
+
+competitive_differentiation_for_this_page:
+  # Where the new Pro Exteriors pillar must be measurably better than the SERP top 5
+  - "Real Pro Exteriors case study photography (3 named projects) vs. competitors' stock"
+  - "Manufacturer cert band as a discrete trust strip (GAF / Firestone / Carlisle / Owens Corning)"
+  - "Inline executive assessment form on the page itself, not a /contact redirect"
+  - "Reverse-silo internal linking down to 6 service detail pages (TPO, EPDM, Metal, Flat, Repair, Replacement)"
+  - "OfficeLocationsMap interactive island, not a static state-list"
+
+# ─── Status ───
+status: ready-for-phase-2
+authored_by: aia4-seo-validator (PageBuilder Phase 1, inline) — Maren editorial
+authored_at: 2026-05-03

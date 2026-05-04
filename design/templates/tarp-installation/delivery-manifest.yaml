@@ -1,0 +1,83 @@
+# Delivery manifest — /residential/tarp-installation
+# Phase 6 of 6 — AIA4 PageBuilder · 2026-05-03
+
+slug: tarp-installation
+url: /residential/tarp-installation
+title: "Emergency Roof Tarp Installation"
+target_keyword: "emergency roof tarp"
+keyword_volume: 880
+keyword_cpc_usd: 35.95
+keyword_competition: MEDIUM
+template: residential-service (emergency variant — CSS gradient hero, sticky mobile call bar, phone as primary CTA)
+silo_role: T2-money-page — emergency entry point, highest-intent traffic in residential silo
+silo_parent: /residential
+
+hypothesis:
+  a: "Top-5 organic for 'emergency roof tarp' in TX/CO/KS/MO/GA geos within 6 months"
+  b: "≥50% phone-call or form-submit conversion rate within 90 days post-launch"
+  note: |
+    This is the highest-conversion hypothesis in the residential silo — every visitor
+    has an active emergency. The phone CTA is primary (largest element in hero) because
+    the searcher intent is immediate action, not research. Form is an explicit fallback
+    for when the phone line is busy. No case studies section — the page is intentionally
+    lean to keep the user moving toward conversion. Conversion rate target is higher than
+    any other residential page because of the emergency intent match.
+
+files:
+  brief:           design/templates/tarp-installation/brief.yaml
+  seo_validator:   design/templates/tarp-installation/seo-validator-manifest.yaml
+  page_link:       design/templates/tarp-installation/page-link-manifest.yaml
+  copy:            design/templates/tarp-installation/copy.yaml
+  assembled_page:  src/pages/residential/tarp-installation/index.astro
+
+hard_gates:
+  performance:    pending-localhost-verification (LCP <1.0s — hero is CSS gradient, no image, phone button is LCP element)
+  accessibility:  structural-pass-pending-browser-verification (phone link 64px min-height, tap targets ≥44px)
+  measurement:    pass-(4 phone click events + 2 form CTAs instrumented with data-event-* attributes)
+  trust:          blocked-pending-source-material (phone number, testimonial, crew stats all [REPRESENTATIVE])
+  schema:         pass-pending-rich-results-test (RoofingContractor + Service + BreadcrumbList + FAQPage)
+  forms:          pending (form fallback routes to /contact?intent=emergency-tarp — end-to-end test required)
+
+ship_blockers:
+  - "Phone number [REPRESENTATIVE] — 4 placements: hero primary CTA, overview contact block, process step 1, final CTA. Must be verified with Pro Exteriors before ship."
+  - "Hero section: CSS gradient only — no background image needed. LCP target <1.0s confirmed structurally."
+  - "Pro Exteriors crew tarp photo [REPRESENTATIVE] — what_tarping_does split-intro image slot"
+  - "Completed tarp installation photo [REPRESENTATIVE] — local_experts_proof section"
+  - "Testimonial — real customer (emergency tarp or storm response, any served state) + signed release required"
+  - "Storm responses stat [REPRESENTATIVE] in local_experts_proof — confirm count with Pro Exteriors"
+  - "Google rating [REPRESENTATIVE] — trust strip. Pull from live GBP profile."
+  - "Localhost Lighthouse run — mobile ≥95 Performance, LCP <1.0s strictly required"
+  - "Form end-to-end test: /contact?intent=emergency-tarp routes correctly to emergency queue"
+
+internal_links:
+  out_placed: 4
+  out_detail:
+    - up:    "/residential (near-match: 'residential roofing contractor crews' in local_experts_proof)"
+    - across: "/residential/storm-damage-repair (live — next_steps_band 'targeted storm damage repair' + FAQ answer 2 context)"
+    - across: "/residential/roof-replacement (live — next_steps_band 'permanent roof replacement')"
+    - across: "/residential/hail-damage-repair (live — next_steps_band 'hail damage assessment')"
+    - across: "/residential/insurance-claim-assistance (live — next_steps_band 'insurance claim coordination' + FAQ answer 3)"
+  in_live:
+    - "/residential/storm-damage-repair links here (emergency tarp — immediate steps step 2 + FAQ answer 3) — confirmed"
+  in_needed:
+    - "/residential parent — 'emergency roof tarping' anchor, status: needs-wiring"
+    - "/residential/hail-damage-repair — wire 'emergency roof tarping' anchor when hail page ships"
+
+structural_notes:
+  - "Phone is PRIMARY CTA — tel: link is the largest element in hero (font-size: 1.5rem, min-height: 64px, background #ef4444)"
+  - "Form is EXPLICIT FALLBACK — ghost-style secondary button in hero, labeled 'Submit a Request Online'"
+  - "CSS gradient hero only — background: linear-gradient(135deg, #450a0a 0%, #7f1d1d 50%, #0f172a 100%). Zero background-image HTTP request. LCP element is H1 text + phone button."
+  - "Sticky mobile call bar — position: fixed bottom: 0, background #ef4444, hidden at md+ via media query. Same pattern as storm-damage-repair."
+  - "No case studies section — intentional. Page is lean by design to maximize phone/form conversion."
+  - "Trust strip uses emergency red (#ef4444) not standard orange accent."
+  - "Final CTA background: background-color: #450a0a (darkest red in page gradient)"
+  - "tarp_longevity gate: no specific duration claims anywhere. All phrasing: 'temporary protection until permanent repairs can be scheduled.'"
+  - "4 CTAs total: hero-phone, hero-form-fallback, overview-contact-block (phone + form), final-cta-phone + final-cta-form"
+  - "6 analytics events: phone-click (hero, overview, process-step-1, final-cta) + emergency-tarp form (hero-fallback, final-cta-fallback)"
+
+status: structurally-complete
+launch_readiness: blocked-pending-source-material
+
+provenance:
+  produced_by: aia4-pagebuilder Phase 6 (inline orchestration)
+  produced_at: 2026-05-03

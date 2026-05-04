@@ -1,0 +1,186 @@
+# Delivery manifest — /residential pillar
+# Phase 6 of 6 — produced by PageBuilder on 2026-05-03
+# This file is the single source of truth for "is this page ready to ship?"
+
+slug: residential
+title: "Residential Roofing Contractor"
+target_keyword: "residential roofing contractor"
+template: pillar
+audience: residential-homeowner
+intent: mixed (solution-aware + transactional)
+
+# ─── Hard-gate scorecard (CLAUDE.md §4) ───
+hard_gates:
+  performance:
+    lighthouse_mobile_targets: { perf: ">=95", a11y: 100, best_practices: 100, seo: 100 }
+    lcp: "<1.5s"
+    cls: "<0.05"
+    inp: "<200ms"
+    status: pending-localhost-verification
+    note: "Page structurally optimized — eager hero, lazy everything else, no client JS in this page. Run Lighthouse against http://localhost:4321/residential before launch."
+  accessibility:
+    wcag: 2.2-AA-structural-pass
+    contrast_floor_4_5_1_body: pass
+    contrast_floor_3_1_large: pass
+    tap_targets_44px: pass-(48px+ throughout)
+    keyboard_nav: pass
+    skip_link: pass
+    semantic_html_one_h1: pass
+    aria_where_needed: pass
+    status: pending-axe-localhost-verification
+  measurement:
+    analytics_events_defined: pass-(every CTA carries data-event-* attributes)
+    dual_cta_distinct_events: pass-(separate ?intent= params on every CTA)
+    conversion_goals_wired: pending-(GA4/PostHog goal config required outside this build)
+    hypothesis_attached: pass
+    status: pass-with-pending-goal-config
+  trust:
+    every_claim_sourced_or_marked: pass-(7 [REPRESENTATIVE] markers honestly visible)
+    real_testimonials_only: blocked-(testimonial wears [REPRESENTATIVE] marker pending real customer)
+    real_photography_only: blocked-(all 14 image slots [REPRESENTATIVE] pending real Pro Exteriors photos)
+    status: blocked-pending-source-material
+  schema:
+    types_required: [RoofingContractor, BreadcrumbList, FAQPage, Review]
+    types_omitted_by_design: [LocalBusiness (per-location only), AggregateRating (gated on rating source)]
+    schema_dom_text_match: pass
+    google_rich_results_test: pending-localhost-verification
+    status: pass
+  forms:
+    end_to_end_test: pending-(form routing depends on the existing /contact form + CRM integration; not in this build's scope)
+    status: pending
+  voice_and_brand:
+    persona_voice_check: pass-(Maren voice held throughout per qc-report.md)
+    forbidden_vocab_scan: pass-(0 hits across CLAUDE.md §2 + copywriter SKILL.md deny-list)
+    status: pass
+
+overall_ship_status: blocked-on-source-material
+overall_ship_blocker_count: 10
+overall_ship_blockers_summary: |
+  Build is structurally complete. Production launch is blocked by ten
+  [REPRESENTATIVE] markers requiring source material from Chris (rating,
+  founding year, homes-protected count, testimonial, 3 case studies,
+  phone number, 14 image slots, footer addresses) plus three
+  pending-localhost-verification items (Lighthouse run, axe-core scan,
+  Google Rich Results Test). None require code changes.
+
+# ─── 2026-05-03 PM update — punch list pass 1 results ───
+punch_list_pass_1:
+  date: 2026-05-03
+  resolved:
+    - { item: "Component contracts verified", detail: "Button/Badge/Icon/FAQ/Breadcrumb signatures audited; mismatches fixed in src/pages/residential/index.astro (FAQ items→faqs, Badge→inline span for danger/neutral, Button variant=dark→primary, Icon tool→wrench, Breadcrumb href:null→string)." }
+    - { item: "Schema duplication removed", detail: "FAQ + Breadcrumb molecules auto-render their own schemas — manual blocks dropped from page jsonLd to prevent doubled JSON-LD." }
+    - { item: "FAQ molecule extended", detail: "FAQ.astro now uses set:html for answer rendering (preserves reverse-silo internal links from page-link-manifest); schema.text strips HTML for Google compliance." }
+    - { item: "Title + description shortened", detail: "Title 80→58 chars, description 553→154 chars — both inside BaseLayout's enforced limits." }
+    - { item: "JSON-LD structurally validated", detail: "RoofingContractor (5 states + 6 service offers) and Review (5/5, attributed) both pass structural checks. AggregateRating + LocalBusiness correctly omitted." }
+    - { item: "Office-footprint mismatch documented", detail: "/decisions/2026-05-03-office-footprint-reconciliation.md surfaces the global-footer DFW-only issue and recommends Option A (build real office pages first, then update footer)." }
+    - { item: "Hue Write humanization attempted and rejected", detail: "Output hallucinated specifics ($10K deductible, 3-person crews), drifted voice, added markdown formatting. Manual draft ships." }
+  still_pending_verification:
+    - { item: "npm build / astro check", reason: "Mounted node_modules has corrupted dset/ subfolder (mount is read-only-ish — can't fix from this environment). Chris runs `rm -rf node_modules && npm install` locally." }
+    - { item: "Lighthouse mobile run", reason: "Needs dev server up; environment-side check." }
+    - { item: "axe-core / Wave a11y scan", reason: "Browser-side; environment-side check." }
+    - { item: "Google Rich Results Test", reason: "Needs deployed URL or paste-and-validate; environment-side check." }
+    - { item: "End-to-end form test on /contact?intent=emergency and =inspection", reason: "Form integration outside this build's scope." }
+  still_pending_chris:
+    - { item: "GBP rating + review count", est: "5 min", note: "Chris chose to keep [REPRESENTATIVE] marker visible until he gets to it" }
+    - { item: "Completed-project count from CRM", est: "10 min" }
+    - { item: "One real customer testimonial + signed release", est: "30–60 min" }
+    - { item: "Three real completed projects (TX/CO/KS or substitutes)", est: "60–120 min" }
+    - { item: "Per-state IVR phone number", est: "depends on whether IVR exists or needs setup", note: "Chris chose per-state IVR routing strategy 2026-05-03; needs the actual number" }
+    - { item: "Real Pro Exteriors photos uploaded to /brand-assets/client/", est: "60+ min" }
+  resolved_in_pass_1:
+    - { item: "Pro Exteriors founding year", resolution: "2011 per src/lib/schema/AboutPage.ts foundingDate (15 years as of 2026 — '15+ YEARS IN BUSINESS' stat now sourced)", date: "2026-05-03" }
+    - { item: "Office-footprint reconciliation decision", resolution: "Option B chosen — Footer.astro updated to 5 metros (DFW HQ, Denver, Wichita, KC, Atlanta). Five footer links 404 until /locations/* pages ship in M2/M3. See /decisions/2026-05-03-office-footprint-reconciliation.md for full trade-off acceptance.", date: "2026-05-03" }
+    - { item: "Phone routing strategy (not the number itself)", resolution: "Per-state IVR. Page wired with data-event-routing='per-state-ivr' attribute and aria-label noting IVR routing. Number itself remains [REPRESENTATIVE].", date: "2026-05-03" }
+  follow_up_added:
+    - { item: "Review src/pages/404.astro and add productive routing to /contact?intent=inspection&source=footer-404 and /service-area", reason: "Five footer links now 404 per Option B decision; 404 page should soft-land users", priority: "before launch" }
+
+# ─── Artifacts ───
+artifacts:
+  brief:                "design/templates/residential/brief.yaml"
+  seo_validator:        "design/templates/residential/seo-validator-manifest.yaml"
+  seo_audit:            "design/templates/residential/seo-validator-audit.md"
+  page_link:            "design/templates/residential/page-link-manifest.yaml"
+  copy:                 "design/templates/residential/copy.yaml"
+  layout_manifest:      "design/templates/residential/layout-manifest.yaml"
+  image_manifest:       "design/templates/residential/image-manifest.yaml"
+  page:                 "src/pages/residential/index.astro"
+  qc_report:            "design/templates/residential/qc-report.md"
+  raw_data:
+    dataforseo:         "design/templates/residential/dataforseo-raw.json"
+    term_frequency:     "design/templates/residential/term-frequency-raw.json"
+    competitor_html:    "design/templates/residential/competitor-html/"
+  source:
+    figma_code_dump:    "design/templates/residential/source/figma-code-dump.html"
+    figma_render_notes: "design/templates/residential/source/figma-page-render-NOTES.md"
+    seo_writer_html:    "uploads/Residentail Roofing Contractor.html"
+    seo_writer_docx:    "uploads/Residentail Roofing Contractor.docx"
+
+# ─── Pre-launch punch list (Chris owns) ───
+pre_launch_punch_list:
+  source_material:
+    - { item: "Pull Google Business Profile rating + review count", est_minutes: 5, dependency_for: "trust strip + AggregateRating schema" }
+    - { item: "Confirm Pro Exteriors founding year", est_minutes: 2, dependency_for: "footer brand blurb + Local Experts framing" }
+    - { item: "Confirm completed-project count from CRM (homes-protected stat)", est_minutes: 10, dependency_for: "Local Experts proof block" }
+    - { item: "Source one real customer testimonial with signed release (any served-state)", est_minutes: "30–60", dependency_for: "Local Experts testimonial card + Review schema" }
+    - { item: "Source three real completed projects (TX/CO/KS or substitutes)", est_minutes: "60–120", dependency_for: "Case Studies section" }
+    - { item: "Confirm phone routing strategy (national tracking number vs per-state IVR)", est_minutes: 15, dependency_for: "Final CTA secondary" }
+    - { item: "Upload real Pro Exteriors photos to /brand-assets/client/photography/ + projects/, update _INVENTORY.md", est_minutes: "60+", dependency_for: "All 14 image slots" }
+    - { item: "Confirm footer office list (5 states + Atlanta)", est_minutes: 10, dependency_for: "footer service-center block" }
+  technical_verification:
+    - { item: "npm run dev → load /residential → run Lighthouse mobile", est_minutes: 5, gate: "Lighthouse ≥95/100/100/100" }
+    - { item: "Run axe DevTools + Wave against /residential", est_minutes: 10, gate: "WCAG 2.2 AA full pass" }
+    - { item: "Run Google Rich Results Test against /residential", est_minutes: 5, gate: "All 4 schema types validate cleanly" }
+    - { item: "Verify Button variant=dark, Badge variant=danger/neutral, Icon names exist in atoms", est_minutes: 10, gate: "Build doesn't error on missing variants" }
+    - { item: "End-to-end form test on both /contact?intent=emergency and /contact?intent=inspection", est_minutes: 15, gate: "Lead routes to CRM + analytics fires distinct events" }
+  optional_polish:
+    - { item: "Run copy through tech/scripts/huewrite.py --tone professional", est_minutes: 10, gate: "Voice unchanged + forbidden-vocab re-scan clean" }
+  estimated_total_pre_launch_time: "5–8 hours"
+
+# ─── Post-launch backlog (M2/M3/Q2/Q3 build calendar) ───
+post_launch_backlog:
+  reverse_silo_inbound_links:
+    note: "11 of 19 required inbound links to /residential are blocked because the destination service pages don't exist yet. Per page-link-manifest.yaml's `internal_links_in_required` block, these get wired as the supporting pages ship."
+    items:
+      - { from: "/residential/asphalt-shingles",          when: "M3 (June/July 2026)" }
+      - { from: "/residential/metal-roofing",             when: "M3" }
+      - { from: "/residential/seamless-gutters",          when: "Q2" }
+      - { from: "/residential/siding",                    when: "Q2" }
+      - { from: "/residential/tarp-installation",         when: "Q2" }
+      - { from: "/residential/storm-damage-repair",       when: "Q2" }
+      - { from: "/residential/hail-damage-repair",        when: "Q2" }
+      - { from: "/residential/insurance-claim-assistance",when: "M3" }
+      - { from: "/residential/roof-replacement",          when: "M3" }
+      - { from: "/residential/tile-clay-roofing",         when: "Q3" }
+      - { from: "/residential/natural-slate",             when: "Q3" }
+  decision_log_entries_needed:
+    - { id: "2026-05-XX-residential-pillar-redirect", topic: "301 plan for /blog/residential-roofing → /residential after rank stabilizes" }
+    - { id: "2026-05-XX-office-page-reconciliation", topic: "src/content/offices/ files (dallas-hq, frisco, fort-worth, arlington, southlake, edmond) need reconciliation against the actual office-locations memory (Richardson, Euless, Greenwood Village, Wichita, KCMO + Atlanta satellite)" }
+    - { id: "2026-05-XX-pillars-collection-extension", topic: "Decide whether to extend the pillars content-collection schema to include magazine-section fields, OR keep the residential pillar as a custom src/pages/residential/index.astro page" }
+  measurement_followup_at_review_dates:
+    - "30-day review: form-completion lift trend vs baseline + Search Console position trend for target keyword"
+    - "90-day review: confirm/refute the +30% form-completion gate of the conversion hypothesis"
+    - "6-month review: confirm/refute the top-5 organic gate of the conversion hypothesis"
+
+# ─── Pipeline run log ───
+pipeline_run:
+  start: 2026-05-03 (intake from Chris with Figma + SEO copy + Tailwind dump + meta)
+  phase_0_intake_lock: 2026-05-03 — 4 batched questions resolved Phase 0 strategic gaps; brief.yaml locked
+  phase_1_seo_validator: 2026-05-03 — DataForSEO US 2840, 5 contractor competitors tokenized, 11 TF gaps surfaced
+  phase_1_page_link: 2026-05-03 — 24 outbound links mapped, 19 required inbound (8 live, 11 blocked on service-page builds)
+  intake_followup_questions: 2 batched questions (H1 emphasis + ratings claim) resolved Phase 1 strategic gaps
+  phase_2_copywriter: 2026-05-03 — copy.yaml drafted, self-audited (10 pass / 3 controlled trade-offs), 0 forbidden-vocab hits, Hue Write deferred
+  phase_3_layout: 2026-05-03 — composition-as-custom-page, no greenfield components, semantic-token mapping documented
+  phase_3_image_gen: 2026-05-03 — all 14 slots [REPRESENTATIVE] (brand-asset mirror empty + Higgsfield credentials missing + CLAUDE.md §9 forbids generated rooftop photos)
+  phase_4_assembly: 2026-05-03 — src/pages/residential/index.astro written; 4 JSON-LD blocks; analytics events on every CTA; hypothesis comment block at top of file
+  phase_5_qc: 2026-05-03 — page-qc pass; code-qc structural pass with pending-localhost-verification on Lighthouse / axe / Rich Results
+  phase_6_delivery: 2026-05-03 — this manifest
+
+# ─── Authorship ───
+provenance:
+  built_by: aia4-pagebuilder (inline orchestration — Agent dispatcher unavailable in this run)
+  agent_dispatch_note: "Subagent dispatcher rejected Phase 1 specialist prompts on length 3× in a row; the entire build ran inline as PageBuilder per the orchestration model failure-mode handling. All deliverables match the precedent shapes from design/templates/tpo-roofing-systems/."
+  built_at: 2026-05-03
+  built_for: Chris Hussey
+  client: Pro Exteriors
+  engagement: AIA4 Pro Exteriors
+  director: Maren Castellan-Reyes, Senior Director — Website & Application Experience

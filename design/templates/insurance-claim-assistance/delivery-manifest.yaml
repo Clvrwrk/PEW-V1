@@ -1,0 +1,79 @@
+# Delivery manifest — /residential/insurance-claim-assistance
+# Phase 6 of 6 — AIA4 PageBuilder · 2026-05-03
+
+slug: insurance-claim-assistance
+url: /residential/insurance-claim-assistance
+title: "Roof Insurance Claim Assistance"
+target_keyword: "insurance claim roof damage"
+keyword_volume: 1900
+keyword_cpc_usd: 9.40
+keyword_competition: LOW
+template: residential-service (inherits asphalt-shingles canonical template)
+silo_role: T2-money-page — storm cluster anchor, insurance claim process hub
+silo_parent: /residential
+
+hypothesis:
+  a: "Top-5 organic for 'insurance claim roof damage' / 'roof insurance claim' cluster within 6 months — near-zero competition"
+  b: "≥35% form-completion on 'Get Your Free Damage Assessment' CTA within 90 days"
+  note: |
+    Highest conversion hypothesis in the residential silo. Searchers entering the insurance
+    claim cluster have already confirmed they have storm damage — intent is solution-finding,
+    not awareness. The page wins by demonstrating process credibility and legal accuracy,
+    not by volume of features listed.
+
+files:
+  brief:           design/templates/insurance-claim-assistance/brief.yaml
+  seo_validator:   design/templates/insurance-claim-assistance/seo-validator-manifest.yaml
+  page_link:       design/templates/insurance-claim-assistance/page-link-manifest.yaml
+  copy:            design/templates/insurance-claim-assistance/copy.yaml
+  assembled_page:  src/pages/residential/insurance-claim-assistance/index.astro
+
+hard_gates:
+  performance:    pending-localhost-verification
+  accessibility:  structural-pass-pending-browser-verification
+  measurement:    pass-(5 CTAs instrumented with data-event-* attributes)
+  trust:          blocked-pending-source-material
+  schema:         pass-pending-rich-results-test
+  forms:          pending
+  legal_review:   REQUIRED — Chris must review copy before ship (see copy.yaml legal_review_required)
+
+ship_blockers:
+  - "LEGAL REVIEW: Chris must sign off on insurance claim advocacy language before this page ships — see copy.yaml legal_review_required block"
+  - "All image slots [REPRESENTATIVE] — hero-bg, service-overview-right, testimonial-project, case-tx, case-co, case-ks"
+  - "Testimonial — real customer (storm claim, any served state) + signed release"
+  - "All 3 case studies — real storm/hail claim projects + signed releases"
+  - "Storm claims handled stat [REPRESENTATIVE] — needs Pro Exteriors confirmation"
+  - "Google rating [REPRESENTATIVE] — trust strip"
+  - "Financing lender [REPRESENTATIVE] — not mentioned on this page; no blocker unless added"
+  - "Localhost Lighthouse run — mobile ≥95 Performance required"
+  - "Deductible financing: if Pro Exteriors offers third-party deductible financing, confirm lender and update FAQ answer 3 accordingly"
+
+internal_links:
+  out_placed: 3
+  out_detail:
+    - up:    "/residential (near-match: 'residential roofing contractors')"
+    - across: "/residential/roof-replacement (live — FAQ answer 4)"
+    - across: "/residential/storm-damage-repair (planned-Q2 — FAQ answer 4 + final CTA secondary)"
+  not_placed:
+    - "/residential/hail-damage-repair — omitted, not yet live; add when Q2 ships"
+    - "Blog supporters — both planned-content-phase; omitted to avoid broken links"
+  in_live:
+    - "/residential/roof-replacement links here via FAQ answer 4 + final CTA secondary (live)"
+  in_needed:
+    - "/residential parent — needs 'insurance claim assistance for roof damage' anchor wired"
+    - "/residential/storm-damage-repair → planned-Q2"
+    - "/residential/hail-damage-repair → planned-Q2"
+
+structural_notes:
+  - "QualityProcess is 5 steps (not 4) — unique to this page"
+  - "No manufacturers band, no materials grid — storm/claim page has distinct section mix"
+  - "What We Handle (BenefitsGrid) replaces warranties_financing section"
+  - "Final CTA secondary is internal nav link to /residential/storm-damage-repair (not phone) — same pattern as roof-replacement"
+  - "Legal gates are structural to the copy — public adjuster language scoped to 'coordinate, attend, document, review, supplement-file' only; deductible absorption explicitly prohibited in FAQ answer 3"
+
+status: structurally-complete
+launch_readiness: blocked-pending-source-material-and-legal-review
+
+provenance:
+  produced_by: aia4-pagebuilder Phase 6 (inline orchestration)
+  produced_at: 2026-05-03

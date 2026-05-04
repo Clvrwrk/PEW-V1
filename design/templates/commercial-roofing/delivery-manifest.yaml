@@ -1,0 +1,228 @@
+# Delivery Manifest — Commercial Roofing Pillar
+# Final artifact from PageBuilder Phase 6.
+# This is the single source of truth for "is this page ready to ship?"
+
+slug: commercial-roofing
+status: ready-to-ship-pending-local-build-verify
+build_date: 2026-05-03
+build_revisions:
+  - 2026-05-03 round-1 — initial build
+  - 2026-05-03 round-2 — Chris's 6 revisions (see round-2-changelog.md)
+  - 2026-05-03 round-3 — bento balance + reliability conversion-led rebuild + aia4-layout SKILL.md update (see round-3-changelog.md)
+build_owner: "Maren Castellan-Reyes"
+hypothesis: |
+  Replacing the prior thin commercial-roofing landing with the full Figma
+  pillar (industrial hero + 4 stats + 7-system grid + manufacturer cert band +
+  3 reliability proof points + executive-assessment callout + 3-real-case
+  bento + nationwide reach map + 3-FAQ accordion + inline executive
+  assessment form) will lift assisted conversion (form fill OR phone CTA OR
+  /contact CTA) by ≥30% within 90 days vs. the pre-rebuild baseline.
+
+# ─── Hard gates (CLAUDE.md §4) ───
+hard_gates:
+  voice_consistency:                          pass
+  forbidden_vocab_clean:                      pass
+  every_claim_sourced_or_marked:              override         # See /decisions/
+  testimonials_real:                          pass             # Gold Standard testimonial dropped per stakeholder direction
+  schema_validated:                           pass             # BreadcrumbList + Service + FAQPage
+  conversion_hypothesis_attached:             pass
+  conversion_instrumentation_wired:           pass             # data-cta-name on every CTA, GTM events on form
+  wcag_2_2_AA:                                pass             # all surface pairs verified ≥4.5:1
+  semantic_html:                              pass             # one h1, ordered hierarchy, landmarks, skip-link
+  tap_targets_44x44:                          pass             # all CTAs ≥48×48
+  keyboard_focus_visible:                     pass             # focus:ring on every interactive
+  lighthouse_mobile:
+    performance:                              expected-pass    # full run pending dep fix
+    accessibility:                            expected-pass
+    best_practices:                           expected-pass
+    seo:                                      expected-pass
+
+# ─── Override decisions ───
+overrides:
+  - dimension: every_claim_sourced_or_marked
+    decision_log: /decisions/2026-05-03-commercial-roofing-stats-override.md
+    summary: |
+      Four stats ship without sources by Chris's call (30+ years, 15M+ sq ft,
+      98% retention, 42 states). Three contradict the home page. HTML comments
+      mark each location with [TODO source] for the next pass. Carlisle
+      certification status also flagged.
+    blast_radius: "Brand-consistency risk if a procurement officer compares the home stat band (16 states, 25+ yrs, 10M+ sq ft) against this pillar (42, 30+, 15M+) in the same session."
+    reversal_cost: low
+
+# ─── Launch blockers ───
+launch_blockers:
+  - id: hero-binary
+    severity: resolved-round-2
+    description: |
+      RESOLVED 2026-05-03 round-2: Chris confirmed the speedway image IS
+      /public/images/commercial-hero.webp (already on disk). Page now uses
+      <picture> with .webp source + .jpg fallback. No remaining blocker.
+  - id: dep-corruption-build-verify
+    severity: warning
+    description: |
+      Cowork sandbox node_modules is broadly corrupt (pre-existing). `astro
+      build` and `astro check` cannot run end-to-end here. Page must be
+      rebuilt locally on Chris's machine to confirm Lighthouse numbers.
+      Code is verified syntactically and structurally.
+    resolution_owner: Chris (run `rm -rf node_modules package-lock.json && npm install && npm run dev`)
+    estimated_effort: 5 minutes
+
+# ─── Artifacts ───
+artifacts:
+  page:                  src/pages/commercial-roofing/index.astro
+  brief:                 design/templates/commercial-roofing/brief.yaml
+  seo_validator:         design/templates/commercial-roofing/seo-validator-manifest.yaml
+  page_link:             design/templates/commercial-roofing/page-link-manifest.yaml
+  copy_manifest:         design/templates/commercial-roofing/copy.yaml
+  qc_report:             design/templates/commercial-roofing/qc-report.md
+  delivery_manifest:     design/templates/commercial-roofing/delivery-manifest.yaml
+  round_2_changelog:     design/templates/commercial-roofing/round-2-changelog.md
+  round_3_changelog:     design/templates/commercial-roofing/round-3-changelog.md
+  decision_log:          decisions/2026-05-03-commercial-roofing-stats-override.md
+  paa_source:            tech/scripts/output/dataforseo/20260503-163400-serp-advanced.json
+  layout_skill_updated:  _aia4-skills/aia4-layout/SKILL.md
+
+# ─── Sourcing inventory ───
+sources_used:
+  - type: client-provided-content
+    files:
+      - uploads/Commercial Roofing Contractor.docx
+      - uploads/Commercial Roofing Contractor.html
+    role: SEO writer's source draft — extracted, restructured, voice-rewritten
+  - type: figma-design-reference
+    file_key: n8EC2AgOcubGyfEq7YJoiW
+    node_id: "9:4673"
+    role: Visual structure + section composition
+  - type: existing-codebase-patterns
+    refs:
+      - src/pages/index.astro (home page — OfficeLocationsMap pattern, audience-split, stat band)
+      - src/pages/locations/index.astro (OfficeLocationsMap pattern)
+      - design/templates/tpo-roofing-systems/copy.yaml (precedent for copy-manifest shape)
+      - tech/DESIGN.md (brand canon — used for tone/role decisions, not yet for raw tokens since site still uses tokens.css)
+  - type: existing-content-collections
+    refs:
+      - src/content/caseStudies/techpark-logistics-tpo.mdx
+      - src/content/caseStudies/dallas-north-mall-tpo.mdx
+      - src/content/caseStudies/fort-worth-tpo.mdx
+  - type: project-memory
+    refs:
+      - "16 licensed states fact (project_pro_exteriors_offices.md)"
+      - "Property First / Layer Cake thesis (memory) — informed reliability section's 'documentation stays with the property — not the owner' framing"
+
+# ─── Conversion instrumentation registry ───
+# Every CTA tagged. GA4 / GTM consumers can filter on data-cta-name.
+analytics_events:
+  - data_cta_name: hero_request_assessment
+    location: hero
+    intent: primary-conversion
+    target: "#assessment-form"
+  - data_cta_name: hero_view_capabilities
+    location: hero
+    intent: scroll-to-content
+    target: "#systems"
+  - data_cta_name: prose_tpo_vs_epdm
+    location: systems-grid header prose
+    intent: blog-deep-dive
+    target: /blog/tpo-vs-epdm-vs-pvc/
+  - data_cta_name: system_tpo
+    location: systems-grid card 1
+  - data_cta_name: system_epdm
+    location: systems-grid card 2
+  - data_cta_name: system_bitumen
+    location: systems-grid card 3
+  - data_cta_name: system_metal
+    location: systems-grid card 4
+  - data_cta_name: system_flat
+    location: systems-grid card 5
+  - data_cta_name: system_coatings
+    location: systems-grid card 6
+  - data_cta_name: system_emergency
+    location: systems-grid card 7 (featured)
+  - data_cta_name: reliability_cta_schedule        # round-3 rename (was reliability_callout_schedule)
+    location: industrial-grade-reliability conversion banner (full-width flag-red, round-3)
+    intent: scroll-to-form
+    target: "#assessment-form"
+  - data_cta_name: case_techpark
+    location: institutional-case-studies bento
+    target: /projects/techpark-logistics-tpo/
+  - data_cta_name: case_dallas_mall
+    location: institutional-case-studies bento
+    target: /projects/dallas-north-mall-tpo/
+  - data_cta_name: case_fort_worth
+    location: institutional-case-studies bento
+    target: /projects/fort-worth-tpo-logistics/
+  - data_cta_name: cases_submit_rfp
+    location: institutional-case-studies CTA card (primary)
+    intent: secondary-conversion
+    target: "/contact/?vertical=commercial&intent=rfp"
+  - data_cta_name: cases_request_assessment
+    location: institutional-case-studies CTA card (secondary, round-2 addition)
+    intent: scroll-to-form
+    target: "#assessment-form"
+  - data_cta_name: cases_view_all
+    location: below institutional-case-studies bento
+    target: /projects/
+  - data_cta_name: prose_locations
+    location: dallas-rooted body prose
+    target: /locations/
+  - data_cta_name: form_assessment_submit
+    location: executive-assessment form
+    intent: primary-conversion
+    target: /api/lead (POST) → /thank-you/ on success
+
+# Form-specific GTM events (fired by inline script):
+form_events:
+  - event: form_submit_attempt
+    payload: { formId: "executive-assessment", vertical: "commercial" }
+  - event: form_submit_success
+    payload: { formId: "executive-assessment", vertical: "commercial" }
+
+# ─── Internal link audit ───
+# All 16 outbound internal anchors verified to resolve to existing routes.
+# See page-link-manifest.yaml for full inventory.
+internal_links_validated: 16/16
+internal_links_in_required: 10
+  # Home page already links here (verified). Sub-service breadcrumbs
+  # to be verified on next sub-service rebuild — see qc-report.md.
+
+# ─── Schema graph ───
+schema_emitted:
+  - "@type": BreadcrumbList
+    via: breadcrumbSchema() helper + Breadcrumb molecule (Google de-dupes)
+  - "@type": Service
+    via: serviceSchema()
+    serviceType: "Commercial Roofing Contractor Services"
+    description_length: 175 chars
+    areaServed: { "@type": "Country", "name": "US" }
+  - "@type": FAQPage
+    via: faqPageSchema(faqs)
+    mainEntity_count: 3
+schema_inherited:
+  - "@type": RoofingContractor
+    via: organizationSchema() at home — not re-emitted to avoid duplication
+
+# ─── What this page does NOT include and why ───
+intentional_omissions:
+  - "Gold Standard testimonial card from Figma — dropped per Chris's intake decision (no real attributable quote)"
+  - "Manufacturer logo images — using bold typography per Figma brand-friendly fallback until logo SVGs are sourced"
+  - "AggregateRating schema — deferred until real review data is sourced (per stats override decision logic)"
+  - "Re-emission of RoofingContractor schema — already emitted by home/organizationSchema() helper"
+  - "Re-write of /src/content/pillars/commercial-roofing.mdx — that file's canonicalPath is /blog/commercial-roofing/, a separate URL"
+
+# ─── Next actions ───
+next_actions:
+  - owner: Chris
+    action: Upload Texas Motor Speedway image binary to /public/images/commercial-roofing-hero.jpg
+    blocking: launch
+  - owner: Chris
+    action: Run `rm -rf node_modules package-lock.json && npm install && npm run dev` to local-preview the rebuild
+    blocking: lighthouse-verification
+  - owner: Maren (next session)
+    action: Verify breadcrumb/related-section uplinks on the 6 sub-service pages point back here with the recommended anchor text
+    blocking: reverse-silo-equity
+  - owner: Maren (next session, when client data lands)
+    action: Reconcile stat band across home + commercial pillar in a single PR; supersede /decisions/2026-05-03-commercial-roofing-stats-override.md
+    blocking: brand-consistency
+
+authored_by: aia4-pagebuilder Phase 6 — Maren Castellan-Reyes
+authored_at: 2026-05-03

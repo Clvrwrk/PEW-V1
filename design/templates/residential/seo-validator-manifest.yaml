@@ -1,0 +1,417 @@
+# aia4-seo-validator manifest — Residential Roofing Contractor pillar
+# Produced inline by PageBuilder Phase 1 on 2026-05-03
+# Methodology: Kyle Roof on-page (term-frequency vs. SERP, LSI breadth, schema-as-signal)
+# Source data: design/templates/residential/dataforseo-raw.json + term-frequency-raw.json
+
+target_keyword:
+  keyword: "residential roofing contractor"
+  search_volume: 880
+  cpc_usd: 8.18
+  competition: LOW
+  source: DataForSEO Google Ads search_volume/live (US 2840, 2026-05-03)
+  read: |
+    Modest-volume, LOW-competition longer-tail. The interesting strategic note
+    is that the user-chosen primary is the LOWEST-volume term in the brief by
+    a wide margin: "residential roofing" is 12,100 (14×) and "residential
+    roofing company" is 2,900 (3×) — both also LOW competition with much
+    higher CPCs ($22.69 / $20.79 vs. $8.18). The high CPC of the secondaries
+    means stronger commercial intent. Keep "residential roofing contractor" as
+    the slug-anchoring keyword for title/H1/canonical (cleaner SERP intent
+    match), but treat "residential roofing" as the volume-driver in body
+    frequency and as the H2-level keyword. See `flags.primary_lower_volume_than_secondaries`.
+
+primary_secondaries:
+  - keyword: "residential roofing"
+    search_volume: 12100
+    cpc_usd: 22.69
+    competition: LOW
+    read: "Volume monster, LOW competition, very high CPC. Will drive most organic traffic to this page. Use as H2 keyword and as the highest-frequency body term among the three."
+  - keyword: "residential roofing company"
+    search_volume: 2900
+    cpc_usd: 20.79
+    competition: LOW
+    read: "Strong supporting term. Roofing-by-Mid-South ranks #22 specifically because they nailed this term (11 mentions vs. cluster mean 2.2). Treat as a credibility/branded-anchor variant — use 3–5× in body."
+
+# ─── LSI keywords (DataForSEO related-keywords; small seed set, supplemented manually) ───
+lsi_keywords:
+  high_intent_residential:
+    - { kw: "affordable roofers near me", vol: 3600 }
+    - { kw: "residential roofing contractors near me", vol: 1900 }
+    - { kw: "roofers near me with free estimates", vol: 1000 }
+    - { kw: "reputable roofing contractors near me", vol: 390 }
+    - { kw: "roofing shingles prices", vol: 5400 }
+    - { kw: "residential roofing materials", vol: 110 }
+    - { kw: "residential roofing prices", vol: 10 }
+  storm_emergency_cluster:
+    - { kw: "hail damage repair", vol: 6600, comp: MEDIUM, cpc: 10.99 }
+    - { kw: "emergency roof repair", vol: 5400, comp: LOW, cpc: 46.14, note: "$46 CPC = strongest commercial intent on page" }
+    - { kw: "storm damage repair", vol: 3600, comp: LOW, cpc: 9.54 }
+    - { kw: "insurance claim roof", vol: 1600, comp: LOW, cpc: 10.52 }
+    - { kw: "tarp installation", vol: 90, comp: MEDIUM, cpc: 0.83 }
+  service_specifics:
+    - { kw: "roof replacement", vol: 49500, comp: LOW, cpc: 28.79 }
+    - { kw: "roof inspection", vol: 40500, comp: LOW, cpc: 29.78 }
+    - { kw: "asphalt shingles", vol: 49500, comp: MEDIUM }
+    - { kw: "metal roofing", vol: 110000, comp: HIGH }
+  brand_credentials:
+    - { kw: "GAF Master Elite", vol: 880, comp: MEDIUM, cpc: 10.17 }
+    - { kw: "Owens Corning roofing", vol: 22200, comp: HIGH }
+  geographic_moats:
+    - { kw: "TX | Texas", note: "State-level moat — competitors don't claim multi-state" }
+    - { kw: "CO | Colorado", note: "State-level moat" }
+    - { kw: "KS | Kansas", note: "State-level moat" }
+    - { kw: "MO | Missouri", note: "State-level moat" }
+    - { kw: "GA | Georgia", note: "State-level moat" }
+  read: |
+    DataForSEO `related-keywords` returned only 9 results for the target seed
+    and 9 for "residential roofing" (sparse). LSI list above is hand-augmented
+    with the storm/emergency, service-specific, and brand-credential clusters
+    that the brief flags require. Coverage target: page hits ≥70% of these LSI
+    terms at least once (Kyle Roof breadth-over-density rule).
+
+# ─── Term-frequency targets (Kyle Roof: aim for the SERP cluster, not a guru's checklist) ───
+# Method: 5 contractor competitors fetched and tokenized. Mid-South (rank 22) and
+# White Castle (rank 17) carry highest interpretive weight — Mid-South because it's the
+# closest intent match (residential-roofing-company landing page), White Castle because
+# its 2,029 visible words is closest to our 2,400-word pillar.
+# Cluster means: see term-frequency-raw.json `cluster_means_for_a_2400_word_pillar`.
+
+term_frequency_targets:
+  "residential roofing contractor":
+    cluster_mean: 1.0
+    target_range: "5–8"
+    deliberate_overshoot: true
+    read: |
+      Cluster is sparse on the exact-match (only Mid-South hits it >1×). The exact-
+      match keyword MUST appear in title (1×), meta description (1×), H1 (1×), the
+      first 100 words of body (1×), and ≥3× more in body. This is a deliberate
+      overshoot of the cluster — Kyle Roof rule: outranking a sparse cluster requires
+      hitting the exact-match harder than the cluster does. Draft body is at 2 — needs
+      Phase 2 boost to 5–8.
+
+  "residential roofing":
+    cluster_mean: 8.0
+    target_range: "16–22"
+    read: |
+      Mid-South is the cluster anchor at 29 mentions. Draft is at 18 — already in
+      range. Don't drop in Phase 2; if anything, push to 20.
+
+  "residential roofing company":
+    cluster_mean: 2.2
+    target_range: "3–5"
+    read: |
+      Mid-South dominates this term (11 mentions) because they explicitly target
+      "residential roofing company" as their primary. We're not — we're targeting
+      "contractor". Hit 3–5 to stay competitive on the secondary without competing
+      with our own primary anchor. Draft is at 0 — Phase 2 must add.
+
+  contractor:
+    cluster_mean: 7.6
+    target_range: "10–16"
+    read: "Draft at 13 — on target. Don't drop."
+
+  residential:
+    cluster_mean: 11.0
+    target_range: "18–28"
+    read: "Draft at 19 — on target."
+
+  roofing:
+    cluster_mean: 40.8
+    target_range: "55–75"
+    read: "Draft at 70 — perfectly on cluster ceiling. Hold."
+
+  roof:
+    cluster_mean: 67.2
+    target_range: "85–115"
+    read: "Draft at 107 — on target."
+
+  storm:
+    cluster_mean: 5.4
+    target_range: "12–20"
+    deliberate_overshoot: true
+    read: |
+      Per the storm-hail-content-gap brief flag, this page becomes the entry point
+      for the under-represented storm category. Draft is at 17 — perfect. Cluster
+      mean is 5.4; we deliberately go ~3× cluster.
+
+  hail:
+    cluster_mean: 1.0
+    target_range: "5–9"
+    deliberate_overshoot: true
+    read: |
+      Cluster barely mentions hail (mean 1.0). Draft is at 0 — CRITICAL miss.
+      "Hail damage repair" is a 6,600-volume keyword with $10.99 CPC. Phase 2 MUST
+      expand the storm/insurance section to introduce hail naturally 5–9 times.
+
+  inspection:
+    cluster_mean: 2.4
+    target_range: "10–14"
+    read: |
+      Draft at 12 — on target. The 21-point inspection in the Figma "Free Inspection"
+      step block keeps this naturally in range.
+
+  warranty:
+    cluster_mean: 1.4
+    target_range: "5–8"
+    read: |
+      Draft at 4 — slightly under. The transferable-warranty section in the SEO
+      writer body covers this — Phase 2 should not drop those mentions, ideally
+      add 1–2 more.
+
+  gaf:
+    cluster_mean: 1.2
+    target_range: "3–6"
+    read: "Draft at 3 — on target. GAF Master Elite credentialing supports this."
+
+  "owens corning":
+    cluster_mean: 0.2
+    target_range: "1–2"
+    read: |
+      Draft at 0. The Figma trust strip surfaces 'CERTIFIED OWENS CORNING' — Phase 2
+      must mention Owens Corning 1–2× in body to honor the credential.
+
+  "master elite":
+    cluster_mean: 0.0
+    target_range: "1–2"
+    read: |
+      Cluster doesn't mention it. Pro Exteriors carries it (per Figma trust strip);
+      mention 1–2× as authority signal. Draft at 0.
+
+  asphalt:
+    cluster_mean: 1.0
+    target_range: "5–10"
+    read: "Service-grid-driven. Draft at 1 — Phase 2 expansion of the Asphalt Shingles card will lift this."
+
+  metal:
+    cluster_mean: 3.4
+    target_range: "5–10"
+    read: "Service-grid-driven. Draft at 0 — Phase 2 must hit when expanding the Metal Roofing card and any standing-seam testimonial."
+
+  shingle:
+    cluster_mean: 4.2
+    target_range: "8–14"
+    read: "Draft at 9 — on target."
+
+  insurance:
+    cluster_mean: 0.6
+    target_range: "5–10"
+    deliberate_overshoot: true
+    read: |
+      Cluster hardly mentions insurance — wide-open positioning territory.
+      "Insurance claim roof" is a 1,600-volume keyword. Draft is at 1 — Phase 2 must
+      build insurance handling into the storm-emergency narrative naturally.
+
+  deductible:
+    cluster_mean: 0.0
+    target_range: "1–3"
+    read: |
+      Cluster doesn't mention. Figma surfaces 'Insurance Deductible Assistance'
+      in the financing band — Phase 2 must echo it 1–3× in body.
+
+  tarp:
+    cluster_mean: 0.0
+    target_range: "8–14"
+    deliberate_overshoot: true
+    read: "Pro Exteriors-specific service. Draft is at 11 — perfect, hold."
+
+  geographic_moats_TX_CO_KS_MO_GA:
+    cluster_mean: ~0
+    target_range: "Each state name 2–4× plus 'five states' phrasing 2–3×"
+    read: |
+      Per the Phase 0 figma-geo-mismatch decision, this page is the national
+      pillar — drop ALL DFW language and lean into multi-state moats. Draft mentions
+      none of TX/CO/KS/MO/GA. Phase 2 must seed each state name 2–4× across the
+      hero, proof block, case study triptych, footer-area copy, and FAQ.
+
+  homeowner:
+    cluster_mean: ~0
+    target_range: "10–18"
+    read: "Audience-anchoring term. Draft at 14 — on target."
+
+# ─── Schema types required ───
+schema_types_required:
+  - type: RoofingContractor
+    required: true
+    placement: "Page-level JSON-LD block"
+    read: |
+      Primary entity type for this page. Map to Pro Exteriors corporate entity.
+      Include `@id`, `name`, `url`, `logo`, `image`, `telephone`, `priceRange`,
+      `aggregateRating`, `areaServed` (state list), `hasOfferCatalog` (links to
+      sub-services). For a national pillar, areaServed is the 5-state set, not
+      a single AdministrativeArea.
+
+  - type: Service
+    required: true
+    placement: "Each of the 6 service cards (Asphalt, Metal, Tile & Clay, Slate, Gutters, Siding) gets its own Service schema item, all linked back to the parent RoofingContractor"
+    read: |
+      Per Kyle Roof: schema is a quiet ranking lever. 6 distinct Service blocks
+      with `serviceType`, `provider`, `areaServed`, and `offers` give the page
+      richer SERP treatment than competitors who use generic content.
+
+  - type: BreadcrumbList
+    required: true
+    placement: "Top of page, immediately after main schema"
+    read: "Standard. Home > Residential."
+
+  - type: FAQPage
+    required: true
+    placement: "Wraps the 4 FAQ accordion items"
+    read: |
+      All 4 FAQs already exist in the SEO writer body. Schema-mark each Question +
+      acceptedAnswer. Google rewards FAQ schema with expanded SERP slots — this is
+      a 'free' visibility win.
+
+  - type: Review
+    required: true
+    placement: "Wraps the Michael S. testimonial in the Local Experts block"
+    read: |
+      Real testimonial from a real customer is a hard gate per CLAUDE.md §4.
+      Schema must include `reviewRating`, `author`, `reviewBody`, `itemReviewed`.
+
+  - type: LocalBusiness
+    required: false
+    placement: "DO NOT add to this page"
+    read: |
+      LocalBusiness blocks belong on each per-location landing page (Richardson TX,
+      Euless TX, Greenwood Village CO, Wichita KS, Kansas City MO, Atlanta GA),
+      NOT on this national pillar. Adding LocalBusiness here would dilute the
+      national-entity signal RoofingContractor is establishing. Flag this for the
+      assembly phase: Phase 4 must include `RoofingContractor` only, not
+      `LocalBusiness`. Per-location pages will get their own LocalBusiness blocks
+      in their own builds.
+
+  - type: AggregateRating
+    required: true
+    placement: "Inside the RoofingContractor block"
+    read: |
+      Figma trust strip claims '4.9/5 (240+ Reviews)'. Per CLAUDE.md every claim
+      has a receipt — Phase 2 page-qc must verify the 4.9/240+ figure with Chris
+      before this AggregateRating ships, OR mark the figure as
+      [REPRESENTATIVE — NOT YET SOURCED] and remove from schema until verified.
+
+# ─── Competitor SERP analyzed ───
+competitor_pages_analyzed:
+  - { rank: 4,  url: "https://www.gaf.com/en-us/roofing-contractors/residential", category: "directory_aggregator", note: "Excluded from TF analysis — directory site, not money page." }
+  - { rank: 5,  url: "https://www.bbb.org/near-me/roofing-contractors", category: "directory_aggregator", note: "Excluded." }
+  - { rank: 6,  url: "https://www.nrca.net/", category: "trade_association", note: "Excluded." }
+  - { rank: 8,  url: "https://www.owenscorning.com/en-us/roofing/contractors", category: "directory_aggregator", note: "Excluded." }
+  - { rank: 9,  url: "https://bakerroofing.com/", category: "contractor", visible_words: 828, included_in_TF: true }
+  - { rank: 10, url: "https://www.certainteed.com/", category: "manufacturer", note: "Excluded — manufacturer page." }
+  - { rank: 11, url: "https://www.reddit.com/r/AnnArbor/comments/1c699gb/...", category: "ugc", note: "Excluded — Reddit." }
+  - { rank: 12, url: "https://www.quora.com/...", category: "ugc", note: "Excluded — Quora." }
+  - { rank: 13, url: "https://www.roofingcontractor.com/articles/102175-...", category: "industry_news", note: "Excluded." }
+  - { rank: 15, url: "https://www.youtube.com/watch?v=C9yCfeHShVk", category: "video", note: "Excluded." }
+  - { rank: 16, url: "https://linearroofing.com/", category: "contractor", visible_words: 1272, included_in_TF: true }
+  - { rank: 17, url: "https://whitecastleroofing.com/", category: "contractor", visible_words: 2029, included_in_TF: true, note: "Closest competitor by word-count to our pillar." }
+  - { rank: 22, url: "https://roofingbymidsouth.com/residential-roofing-company/", category: "contractor", visible_words: 2156, included_in_TF: true, note: "Most relevant competitor — same money-page intent, hits 'residential roofing' 29×." }
+  - { rank: 24, url: "https://jimmersonroofing.com/", category: "contractor", visible_words: 479, included_in_TF: true, note: "Thin homepage; useful as cluster floor only." }
+
+# ─── Draft scoring (against the SEO writer's HTML upload) ───
+draft_score:
+  source_file: "uploads/Residentail Roofing Contractor.html"
+  visible_words: 2424
+  per_target_status:
+    "residential roofing contractor": fail        # 2 vs target 5–8 — Phase 2 must add 3–6
+    "residential roofing":           pass        # 18 vs target 16–22 — on target
+    "residential roofing company":   fail        # 0 vs target 3–5 — Phase 2 must add
+    contractor:                      pass        # 13 vs target 10–16
+    residential:                     pass        # 19 vs target 18–28
+    roofing:                         pass        # 70 vs target 55–75
+    roof:                            pass        # 107 vs target 85–115
+    storm:                           pass        # 17 vs target 12–20
+    hail:                            fail        # 0 vs target 5–9 — CRITICAL gap
+    inspection:                      pass        # 12 vs target 10–14
+    warranty:                        warning     # 4 vs target 5–8
+    gaf:                             pass        # 3 vs target 3–6
+    "owens corning":                 fail        # 0 vs target 1–2
+    "master elite":                  fail        # 0 vs target 1–2
+    asphalt:                         warning     # 1 vs target 5–10 — service-grid expansion lifts
+    metal:                           fail        # 0 vs target 5–10 — service-grid + case study lifts
+    shingle:                         pass        # 9 vs target 8–14
+    insurance:                       fail        # 1 vs target 5–10 — storm-narrative expansion
+    deductible:                      fail        # 0 vs target 1–3
+    tarp:                            pass        # 11 vs target 8–14
+    state_moats:                     fail        # 0 each — Phase 2 must seed all five state names
+    homeowner:                       pass        # 14 vs target 10–18
+  overall_pass_rate: "10 pass / 2 warning / 11 fail"
+  read: |
+    The SEO writer's draft is solid raw material — pillar depth, on-cluster on the
+    big terms (roof/roofing/contractor/residential), strong storm/tarp coverage.
+    But it has 11 critical gaps that map cleanly onto the brief flags:
+      1. Zero state-name mentions (Phase 0 geo-neutralization decision must be carried into copy).
+      2. Zero hail mentions despite being THE entry-point page for the storm category.
+      3. Zero "residential roofing company" or "Master Elite" or "Owens Corning" mentions.
+      4. Insurance + deductible underweighted relative to commercial intent.
+      5. Service-card terms (asphalt/metal) underweighted because the draft narrates
+         the residential category abstractly rather than expanding the 6 service tiles.
+    Phase 2 (copywriter) is briefed to fix all 11 — none of these requires a strategic
+    pivot, just expansion of existing sections in the copy manifest.
+
+# ─── Flags ───
+flags:
+  - id: primary_lower_volume_than_secondaries
+    severity: warning
+    message: |
+      "Residential roofing contractor" (880 vol) is 14× lower volume than
+      "residential roofing" (12,100 vol) and 3× lower than "residential roofing
+      company" (2,900 vol). All three are LOW competition. Both secondaries also
+      carry much higher CPCs ($22.69 / $20.79 vs. $8.18) → stronger commercial
+      intent. The user picked the contractor variant as primary; we're honoring
+      that for slug/H1/canonical (cleaner intent match for a contractor money
+      page) but aggregating the page's body frequency around "residential
+      roofing" as the volume driver. PageBuilder may want to surface this to
+      Chris before Phase 2 — he might prefer to swap H1 emphasis or add a
+      sub-headline that picks up the higher-volume secondary explicitly.
+
+  - id: sparse_lsi_seed
+    severity: info
+    message: |
+      DataForSEO related-keywords returned only 9 items for the target seed and
+      9 for "residential roofing" — much thinner than the TPO build (60+ items).
+      Hand-augmented with brief-driven terms (storm/hail/insurance, services,
+      credentials, geo-moats). LSI breadth target: page hits ≥70% of the
+      hand-augmented list at least once. Phase 5 page-qc must verify breadth.
+
+  - id: aggregator_dominated_serp
+    severity: warning
+    message: |
+      Top 8 organic results are mostly aggregators/directories (GAF, BBB, NRCA,
+      Owens Corning) rather than contractor money pages. First contractor
+      result is at rank 9. This means SERP TF cluster is statistically thin —
+      only 5 contractor pages to average against, one of which (Jimmerson, 479
+      words) is a cluster outlier. Treat the targets as directional, not
+      gospel; lean toward Mid-South + White Castle behavior since they're the
+      closest intent + word-count matches.
+
+  - id: ratings_claim_unsourced
+    severity: critical
+    message: |
+      Figma trust strip claims "Google 4.9/5 (240+ Reviews)". Per CLAUDE.md §4
+      every claim has a receipt. Phase 2 must mark this as
+      [REPRESENTATIVE — NOT YET SOURCED] until Chris confirms the actual figure
+      from Pro Exteriors' Google Business Profile. AggregateRating schema
+      cannot ship with unverified numbers — that's a Google penalty risk AND a
+      hard-gate fail.
+
+  - id: mid_south_targets_residential_roofing_company_specifically
+    severity: info
+    message: |
+      Mid-South Roofing (rank 22) ranks specifically because their page targets
+      "residential roofing company" head-on (11 mentions, vs. cluster mean 2.2).
+      This validates that the secondary keyword is winnable through TF discipline
+      alone. Phase 2 must hit 3–5 mentions to stay competitive without competing
+      against our own primary.
+
+# ─── Status ───
+status: warning
+warnings_count: 5
+critical_count: 1
+next_action: handoff           # handoff to Phase 2 (copywriter)
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline orchestration)
+  produced_at: 2026-05-03
+  data_sources:
+    - design/templates/residential/dataforseo-raw.json
+    - design/templates/residential/term-frequency-raw.json
+    - design/templates/residential/competitor-html/*.html
+    - uploads/Residentail Roofing Contractor.html

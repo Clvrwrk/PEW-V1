@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What to Expect from a Free Roof Inspection — and How to Spot a Sales Pitch Disguised as One | Pro Exteriors</title>
+  <meta name="description" content="Free roof inspections are standard in the industry. Here is what a legitimate inspection covers, what the report should contain, and the red flags that tell you it is a sales call in disguise." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --deep-navy:        #11133f;
+      --deep-navy-dark:   #041534;
+      --deep-navy-nav:    #0f172a;
+      --deep-navy-cta:    #1b2a4a;
+      --flag-red:         #c22326;
+      --flag-red-hover:   #9b1c1f;
+      --hunter-green:     #3b6b4c;
+      --golden-orange:    #c28412;
+      --golden-orange-bg: #f5e6c4;
+      --smart-blue:       #232884;
+      --bg-warm:          #fbf9f6;
+      --bg-stone:         #f5f3f0;
+      --bg-white:         #ffffff;
+      --text-primary:     #041534;
+      --text-secondary:   #506071;
+      --text-muted:       #8392b7;
+      --border:           #c5c6cf;
+      --font-body:        'Archivo', sans-serif;
+      --font-mono:        'IBM Plex Mono', monospace;
+      --space-md:   16px;
+      --space-lg:   24px;
+      --space-xl:   32px;
+      --space-2xl:  48px;
+      --space-3xl:  64px;
+      --space-4xl:  96px;
+      --nav-h:      80px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--bg-warm); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; }
+
+    /* PROGRESS BAR */
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--flag-red); width: 0%; z-index: 200; transition: width 0.1s linear; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); background: var(--deep-navy-nav); display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-2xl); z-index: 100; }
+    .nav-logo { font-family: var(--font-body); font-weight: 800; font-size: 1.2rem; color: #fff; text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--flag-red); }
+    .nav-cta { background: var(--flag-red); color: #fff; font-size: 0.875rem; font-weight: 700; padding: 10px 20px; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--flag-red-hover, #9b1c1f); }
+
+    /* ARTICLE HEADER */
+    .article-header { padding: calc(var(--nav-h) + var(--space-3xl)) var(--space-2xl) var(--space-2xl); max-width: 1100px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin-bottom: var(--space-md); font-family: var(--font-mono); }
+    .breadcrumb a { color: var(--smart-blue); text-decoration: none; }
+    .article-badge { display: inline-block; background: #3b6b4c; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: var(--space-md); }
+    .article-title { font-size: clamp(1.75rem, 3vw, 2.75rem); font-weight: 800; line-height: 1.15; color: var(--deep-navy); margin-bottom: var(--space-lg); letter-spacing: -0.02em; }
+    .article-meta { display: flex; align-items: center; gap: var(--space-lg); flex-wrap: wrap; font-size: 0.875rem; color: var(--text-secondary); padding-bottom: var(--space-lg); border-bottom: 1px solid var(--border); }
+    .article-meta strong { color: var(--text-primary); }
+
+    /* HERO IMAGE */
+    .article-hero { max-width: 1100px; margin: 0 auto var(--space-2xl); padding: 0 var(--space-2xl); }
+    .article-hero img { width: 100%; aspect-ratio: 16/7; object-fit: cover; border-radius: 12px; display: block; }
+
+    /* CONTENT GRID */
+    .content-grid { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-2xl) var(--space-4xl); display: grid; grid-template-columns: 240px 1fr; gap: var(--space-3xl); align-items: start; }
+    @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+    /* SIDEBAR */
+    .sidebar { position: sticky; top: calc(var(--nav-h) + var(--space-lg)); }
+    .toc { background: var(--bg-white); border: 1px solid var(--border); border-radius: 10px; padding: var(--space-lg); }
+    .toc-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: var(--space-md); }
+    .toc ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .toc-link { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; line-height: 1.35; display: block; padding: 4px 8px; border-radius: 4px; border-left: 2px solid transparent; transition: all 0.2s; }
+    .toc-link:hover, .toc-link.active { color: var(--smart-blue); border-left-color: var(--smart-blue); background: rgba(35,40,132,0.05); }
+
+    /* ARTICLE BODY */
+    .article-body { min-width: 0; }
+    .article-body h2 { font-size: 1.55rem; font-weight: 800; color: var(--deep-navy); margin: var(--space-3xl) 0 var(--space-lg); letter-spacing: -0.02em; line-height: 1.2; padding-top: var(--space-md); border-top: 2px solid var(--border); }
+    .article-body h2:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+    .article-body h3 { font-size: 1.15rem; font-weight: 700; color: var(--deep-navy); margin: var(--space-xl) 0 var(--space-md); }
+    .article-body p { font-size: 1.0625rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: var(--space-lg); }
+    .article-body ul, .article-body ol { margin: 0 0 var(--space-lg) var(--space-xl); display: flex; flex-direction: column; gap: 8px; }
+    .article-body li { font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary); }
+    .article-body strong { color: var(--text-primary); font-weight: 600; }
+    .article-body a { color: var(--smart-blue); text-decoration: underline; }
+    .article-body blockquote { border-left: 4px solid var(--golden-orange); background: var(--golden-orange-bg); padding: var(--space-lg) var(--space-xl); border-radius: 0 8px 8px 0; margin: var(--space-xl) 0; font-size: 1.1rem; font-style: italic; color: var(--text-primary); }
+    .article-body table { width: 100%; border-collapse: collapse; margin: var(--space-xl) 0; font-size: 0.9rem; }
+    .article-body th { background: var(--deep-navy); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+    .article-body td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+    .article-body tr:nth-child(even) td { background: var(--bg-stone); }
+
+    /* CTA BANNER */
+    .cta-banner { background: var(--deep-navy-cta); border-radius: 12px; padding: var(--space-3xl); text-align: center; margin: var(--space-3xl) 0; }
+    .cta-banner h2 { font-size: 1.75rem; font-weight: 800; color: #fff; margin-bottom: var(--space-md); }
+    .cta-banner p { color: #94a3b8; font-size: 1rem; margin-bottom: var(--space-xl); }
+    .cta-banner a { display: inline-block; background: var(--flag-red); color: #fff; font-weight: 700; font-size: 1rem; padding: 14px 32px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .cta-banner a:hover { background: #9b1c1f; }
+
+    /* RELATED */
+    .related-section { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-2xl) var(--space-4xl); }
+    .related-section h2 { font-size: 1.5rem; font-weight: 800; color: var(--deep-navy); margin-bottom: var(--space-2xl); }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+    @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+    .related-card { border-radius: 10px; overflow: hidden; background: var(--bg-white); border: 1px solid var(--border); }
+    .related-card-img { aspect-ratio: 16/9; background-size: cover; background-position: center; }
+    .related-card-body { padding: var(--space-lg); }
+    .related-card-category { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--golden-orange); margin-bottom: 6px; font-family: var(--font-mono); }
+    .related-card-title { font-size: 1rem; font-weight: 700; line-height: 1.35; }
+    .related-card-title a { color: var(--deep-navy); text-decoration: none; }
+    .related-card-title a:hover { color: var(--smart-blue); }
+
+    /* FOOTER */
+    footer { background: var(--deep-navy-nav); color: #94a3b8; padding: var(--space-3xl) var(--space-2xl); text-align: center; font-size: 0.875rem; }
+    footer a { color: #cbd5e1; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <nav class="nav">
+    <a class="nav-logo" href="/"><span>Pro</span> Exteriors</a>
+    <a class="nav-cta" href="/contact/">Get a Quote</a>
+  </nav>
+
+  <header class="article-header">
+    <p class="breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/blog/">Resources</a> &rsaquo;
+      <a href="/services/residential-roof-inspection/">Residential Roof Inspection</a>
+    </p>
+    <span class="article-badge">Residential Roofing</span>
+    <h1 class="article-title">What to Expect from a Free Roof Inspection — and How to Spot a Sales Pitch Disguised as One</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Team</strong></span>
+      <span>May 2026</span>
+      <span>~5 min read</span>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015704_6aa7c86b-bc2d-4ae4-a9c0-e6728c022a3a.png" alt="What to Expect from a Free Roof Inspection — and How to Spot a Sales Pitch Disguised as One" loading="eager" />
+  </div>
+
+  <div class="content-grid">
+    <aside class="sidebar">
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-title">In This Article</p>
+        <ul>
+          <li><a href="#what-a-thorough-roof-inspection-actually-covers" class="toc-link">What a Thorough Roof Inspection Actually Covers</a></li>
+<li><a href="#what-the-report-should-include" class="toc-link">What the Report Should Include</a></li>
+<li><a href="#red-flags-signs-the-inspector-is-selling-not-assessing" class="toc-link">Red Flags: Signs the Inspector Is Selling, Not Assessing</a></li>
+<li><a href="#questions-to-ask-before-the-inspector-gets-on-your-roof" class="toc-link">Questions to Ask Before the Inspector Gets on Your Roof</a></li>
+<li><a href="#free-vs-paid-inspections-is-there-a-difference" class="toc-link">Free vs. Paid Inspections: Is There a Difference?</a></li>
+<li><a href="#what-happens-after-the-inspection" class="toc-link">What Happens After the Inspection</a></li>
+
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="article-body">
+      ```html
+<p>A free roof inspection is a legitimate tool for homeowners to understand the condition of their roof without financial commitment. It's also a sales opportunity, which means the two purposes can conflict. Your job is to know the difference.</p>
+
+<p>The roofing industry operates on thin margins and relies on lead generation. A free inspection is an efficient way to identify homes that need work. This isn't deceptive by default—transparency about what you're getting matters more. A competent inspector will deliver accurate findings whether repair work follows or not. A poor one will inflate problems or manufacture urgency.</p>
+
+<p>This guide explains what constitutes a legitimate <a href="/services/residential-roof-inspection/">residential roof inspection</a>, what documentation you should receive, and how to identify inspectors who prioritize diagnosis over sales.</p>
+
+<h2 id="what-a-thorough-roof-inspection-actually-covers">What a Thorough Roof Inspection Actually Covers</h2>
+
+<p>A complete roof inspection examines three categories: structure, surface condition, and drainage systems. An inspector who skips any of these is incomplete, regardless of how detailed their sales pitch becomes.</p>
+
+<p><strong>Structural assessment</strong> includes:</p>
+<ul>
+<li>Roof framing and decking integrity (checked from the attic when accessible)</li>
+<li>Signs of sagging, rot, or water damage to support systems</li>
+<li>Ventilation adequacy and condition</li>
+<li>Insulation presence and R-value assessment</li>
+</ul>
+
+<p><strong>Surface condition evaluation</strong> covers:</p>
+<ul>
+<li>Shingle or membrane wear, granule loss, curling, or missing sections</li>
+<li>Flashing around chimneys, vents, skylights, and valleys</li>
+<li>Sealant and caulk degradation</li>
+<li>Visible damage from weather events, foot traffic, or debris</li>
+<li>Age estimation based on material type and visible deterioration</li>
+</ul>
+
+<p><strong>Drainage systems</strong> should include:</p>
+<ul>
+<li>Gutter and downspout condition and proper slope</li>
+<li>Evidence of standing water or pooling</li>
+<li>Debris accumulation and maintenance needs</li>
+<li>Fascia and soffit integrity</li>
+</ul>
+
+<p>An inspector should spend 45 minutes to 2 hours on a residential property. Anything significantly shorter suggests a cursory walkthrough rather than a diagnostic evaluation.</p>
+
+<h2 id="what-the-report-should-include">What the Report Should Include</h2>
+
+<p>Documentation separates a professional inspection from a sales consultation. Demand a written report. Verbal findings are not sufficient for decision-making.</p>
+
+<p>A credible inspection report contains:</p>
+
+<table border="1" cellpadding="10" cellspacing="0" style="width:100%; border-collapse:collapse;">
+<tr style="background-color:#f5f5f5;">
+<th>Report Element</th>
+<th>What It Should Show</th>
+</tr>
+<tr>
+<td><strong>Property identification</strong></td>
+<td>Address, inspection date, inspector name and credentials, roof age if determinable</td>
+</tr>
+<tr>
+<td><strong>Roof measurements</strong></td>
+<td>Square footage, pitch, number of layers, material type</td>
+</tr>
+<tr>
+<td><strong>Condition findings</strong></td>
+<td>Specific observations by area (e.g., "north slope: 30% granule loss, east valley: open seam at 12 feet")</td>
+</tr>
+<tr>
+<td><strong>Photos</strong></td>
+<td>Dated images of problem areas, not just overview shots</td>
+</tr>
+<tr>
+<td><strong>Priority assessment</strong></td>
+<td>Clear distinction between immediate repairs, maintenance items, and future monitoring</td>
+</tr>
+<tr>
+<td><strong>Recommendations</strong></td>
+<td>Specific actions with estimated timelines (e.g., "reseal flashing within 6 months" vs. "full replacement within 2 years")</td>
+</tr>
+<tr>
+<td><strong>Limitations</strong></td>
+<td>Honest note of what couldn't be assessed (e.g., "interior damage not visible without attic access")</td>
+</tr>
+</table>
+
+<p>The report should use neutral language. Phrases like "minor wear consistent with roof age" differ meaningfully from "roof is failing." The first describes observation. The second implies urgency and often precedes an estimate for work you don't yet need.</p>
+
+<p>Request a copy before the inspector leaves your property. If they hesitate or want to email it later, that's a signal they may revise it based on whether you agree to their estimate.</p>
+
+<h2 id="red-flags-signs-the-inspector-is-selling-not-assessing">Red Flags: Signs the Inspector Is Selling, Not Assessing</h2>
+
+<p>Several behaviors indicate the inspector prioritizes closing a sale over providing accurate diagnosis:</p>
+
+<ul>
+<li><strong>Pressure to decide immediately.</strong> A legitimate inspector provides findings and lets you process them. Phrases like "this won't last another season" or "if we don't get up there this week" are sales tactics, not engineering assessments.</li>
+
+<li><strong>Vague or circular recommendations.</strong> "Your roof needs attention" is not actionable. "The southeast corner has three missing shingles and two open seams; repair cost is approximately $400 and can wait until spring" is.</li>
+
+<li><strong>Inflated scope creep.</strong> The inspection was for the roof. If the inspector suddenly identifies foundation issues, HVAC problems, or electrical concerns without expertise in those areas, they're expanding the sales pipeline rather than staying in their lane.</li>
+
+<li><strong>Comparison to other homes.</strong> "Most roofs your age need replacement" is statistical manipulation. Your roof's condition depends on your roof, not averages. Disregard this framing.</li>
+
+<li><strong>Reluctance to distinguish between repair and replacement.</strong> Some inspectors default to replacement estimates because the revenue is higher. A skilled inspector can often recommend targeted repairs that extend roof life 5–10 years, which is the honest call when appropriate.</li>
+
+<li><strong>No mention of maintenance as an alternative.</strong> If an inspector never suggests gutter cleaning, flashing resealing, or other preventive measures, they're not considering your actual needs—only their service menu.</li>
+</ul>
+
+<blockquote style="border-left: 4px solid #333; padding-left: 16px; margin: 20px 0; font-style: italic;">
+An inspector who tells you what you need to hear, not what you want to hear, has earned credibility. This distinction is measurable: their report will acknowledge both problems and areas that are performing acceptably.
+</blockquote>
+
+<h2 id="questions-to-ask-before-the-inspector-gets-on-your-roof">Questions to Ask Before the Inspector Gets on Your Roof</h2>
+
+<p>Vet the inspector before they arrive. These questions reveal their approach:</p>
+
+<ol>
+<li><strong>"How long have you been inspecting roofs, and what certifications do you hold?"</strong> Look for credentials like NRCA (National Roofing Contractors Association) membership, state licensing where required, or third-party inspector certifications. Experience matters; someone with 10+ years has seen more failure patterns than someone with two years.</li>
+
+<li><strong>"Will I receive a written report with photos, and when?"</strong> The
+
+      <div class="cta-banner">
+        <h2>Ready to Talk to an Expert?</h2>
+        <p>Pro Exteriors serves commercial and residential clients across Texas, Colorado, Kansas, and Missouri.</p>
+        <a href="/services/residential-roof-inspection/">Schedule Your Free Roof Inspection</a>
+      </div>
+    </article>
+  </div>
+
+  <section class="related-section">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+      
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015604_d718a3a0-3029-4e59-9dc2-3ee0d2f08a0b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Residential Roof Inspection</p>
+              <h3 class="related-card-title"><a href="/blog/pre-purchase-roof-inspection-guide/">Pre-Purchase Roof Inspection Guide</a></h3>
+            </div>
+          </article>
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015604_d718a3a0-3029-4e59-9dc2-3ee0d2f08a0b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Residential Roof Inspection</p>
+              <h3 class="related-card-title"><a href="/blog/annual-roof-inspection-checklist/">Annual Roof Inspection Checklist</a></h3>
+            </div>
+          </article>
+          <article class="related-card">
+            <div class="related-card-img" style="background-image: url('https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015604_d718a3a0-3029-4e59-9dc2-3ee0d2f08a0b.png')"></div>
+            <div class="related-card-body">
+              <p class="related-card-category">Residential Roof Inspection</p>
+              <h3 class="related-card-title"><a href="/blog/red-flags-in-roof-inspection-report/">Red Flags in a Roof Inspection Report</a></h3>
+            </div>
+          </article>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pro Exteriors. All rights reserved. |
+      <a href="/privacy-policy/">Privacy Policy</a> |
+      <a href="/terms/">Terms of Service</a>
+    </p>
+    <p style="margin-top: 8px;">Richardson, TX · Euless, TX · Denver, CO · Wichita, KS · Kansas City, MO</p>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
+      bar.style.width = Math.min(scrolled * 100, 100) + '%';
+    });
+
+    // ToC active section
+    const links = document.querySelectorAll('.toc-link');
+    const headings = document.querySelectorAll('.article-body h2');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+    headings.forEach(h => observer.observe(h));
+  </script>
+</body>
+</html>

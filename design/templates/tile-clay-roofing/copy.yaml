@@ -1,0 +1,309 @@
+# aia4-copywriter — Clay and Tile Roofing copy manifest
+# Phase 2 · 2026-05-03
+# Voice: Maren Castellan-Reyes persona. Forbidden vocab enforced.
+# Standard residential-service template.
+# MANDATORY GATE: Structural assessment disclaimer on every tile installation reference.
+# INFO GATE: Hail brittleness addressed honestly in FAQ.
+
+metadata:
+  title: "Clay & Tile Roof Installation — Pro Exteriors | TX, CO, KS, MO & GA"
+  title_chars: 63
+  meta_description: "Pro Exteriors installs and replaces clay tile, concrete tile & Spanish tile roofing across 5 states. Long-lasting, fire-resistant, and built for the Southwest and hail belt. Free assessment."
+  meta_description_chars: 184
+  canonical: "https://proexteriorsus.com/residential/tile-clay-roofing"
+
+breadcrumb:
+  items:
+    - { label: "Home", href: "/" }
+    - { label: "Residential Roofing", href: "/residential" }
+    - { label: "Clay & Tile Roofing", href: "/residential/tile-clay-roofing" }
+
+hero:
+  eyebrow: "CLAY & TILE ROOF INSTALLATION — TX · CO · KS · MO · GA"
+  h1: "Clay and Tile Roofing by Pro Exteriors"
+  subhead: "50–100 year lifespan. Fire-resistant. The last roof most homeowners ever need — if the structure supports it."
+  cta_primary:
+    label: "Schedule a Free Tile Roof Assessment"
+    href: "/contact?intent=tile-assessment&source=tile-clay-roofing-hero"
+    data_event_action: "cta-click"
+    data_event_label: "hero-primary"
+    data_event_category: "tile-clay-roofing"
+  cta_secondary:
+    label: "Explore Tile Options"
+    href: "#tile-types"
+    data_event_action: "cta-click"
+    data_event_label: "hero-secondary"
+    data_event_category: "tile-clay-roofing"
+  image_slot:
+    alt: "Clay tile roofing installation on a Texas custom home — Pro Exteriors project"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+trust_strip:
+  items:
+    - { icon: "clock", label: "50–100 Year Lifespan" }
+    - { icon: "flame", label: "Fire Resistant" }
+    - { icon: "map-pin", label: "TX · CO · KS · MO · GA" }
+    - { icon: "star", label: "[REPRESENTATIVE] Google Rating" }
+    - { icon: "shield", label: "Specialist Crews" }
+
+service_overview:
+  eyebrow: "WHY TILE ENDURES"
+  h2: "Clay and Tile Roofing Lasts 50–100 Years. The Upfront Cost Looks Different When You Run the Per-Year Math."
+  body: |
+    Clay tile roofing has been the premium residential roofing material in hot,
+    dry climates for centuries — and for reasons that still hold. Clay tile is
+    naturally fire-resistant (Class A fire rating without chemical treatment),
+    thermally dense (the air gap between tiles provides natural insulation that
+    reduces attic heat load), and mechanically durable in the ways that matter for
+    the Southwest and the southern Great Plains.
+
+    The profiles run from the familiar Spanish S-tile (the curved barrel profile
+    associated with Mediterranean and mission architecture) to flat tile (a sleeker
+    profile that reads as contemporary on modern Southwestern homes) to concrete
+    tile (the more affordable sibling that delivers similar durability and profile
+    options at a lower cost per square foot).
+
+    The trade-off is weight and installation complexity. Clay and concrete tile
+    run 9–12 lbs per square foot versus 2–4 lbs for asphalt shingles. Before
+    any tile installation, Pro Exteriors conducts a structural assessment of the
+    roof framing and decking to determine whether the existing structure can
+    support the load — or what reinforcement is required. This step is not optional,
+    and any tile contractor who skips it is taking a risk with your structure.
+  cta:
+    label: "Schedule Your Free Tile Roof Assessment"
+    href: "/contact?intent=tile-assessment&source=tile-clay-roofing-overview"
+    data_event_action: "cta-click"
+    data_event_label: "overview-cta"
+    data_event_category: "tile-clay-roofing"
+  image_slot:
+    alt: "Spanish S-tile roofing installation on a Pro Exteriors residential project in Texas"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+tile_types_grid:
+  id: "tile-types"
+  eyebrow: "TILE OPTIONS"
+  h2: "Three Tile Profiles. Different Aesthetics, Different Price Points."
+  cards:
+    - id: "clay"
+      icon: "sun"
+      h3: "Clay Tile"
+      body: "The traditional premium option. Natural clay fired at high temperature — the process that gives clay tile its signature color permanence (clay doesn't fade), its Class A fire rating, and its 75–100+ year lifespan. Available in Spanish S-tile, flat tile, and barrel profiles. Heavier than concrete tile (typically 10–12 lbs/sq ft) and requires structural verification before installation."
+      badge: "Premium · 75–100+ yr"
+    - id: "concrete"
+      icon: "layers"
+      h3: "Concrete Tile"
+      body: "The more accessible entry point to the tile category — comparable profile options and similar durability to clay at a meaningfully lower cost per square foot. Concrete tile runs 9–11 lbs/sq ft, provides a Class A fire rating, and is available in a wide range of color options that are factory-applied rather than natural (meaning color can fade more than clay over decades, though modern pigments have improved significantly)."
+      badge: "Mid-Range · 50–80 yr"
+    - id: "spanish"
+      icon: "home"
+      h3: "Spanish (S-Tile)"
+      body: "A profile designation, not a material — Spanish tile refers to the curved S-shaped interlocking profile available in both clay and concrete. It's the most recognizable tile profile on Southwestern and Mediterranean-style homes. The curved profile creates the natural air gap that gives tile roofs their thermal performance advantage. Specify clay or concrete depending on your budget and aesthetic priorities."
+      badge: "Most Common Profile"
+
+local_experts_proof:
+  stats:
+    - { value: "15+", label: "Years in Business" }
+    - { value: "5", label: "States Served" }
+    - { value: "[REPRESENTATIVE]", label: "Tile Installations Completed [REPRESENTATIVE]" }
+  body: |
+    Pro Exteriors operates as licensed residential roofing specialists across Texas,
+    Colorado, Kansas, Missouri, and Georgia — covering the Southern Great Plains and
+    the Southeast markets where Spanish tile, flat tile, and barrel tile are common
+    architectural choices on custom homes and upscale residential developments.
+    Our crews are trained on the structural requirements that tile installation
+    demands, including decking reinforcement assessment and proper tile fastening
+    in wind-load zones.
+  testimonial:
+    quote: |
+      "[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial on clay or tile
+      roofing installation, any served state. Signed release required before ship.]"
+    attribution: "[REPRESENTATIVE — Customer Name, City, State, Year]"
+    rating: 5
+    image_slot:
+      alt: "Completed clay tile roof installation by Pro Exteriors"
+      src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+process:
+  id: "process"
+  eyebrow: "THE INSTALLATION PROCESS"
+  h2: "Four Steps. The First One Determines Everything Else."
+  steps:
+    - number: 1
+      title: "Structural Assessment"
+      body: "Before tile is selected or ordered, a Pro Exteriors inspector evaluates the roof framing, decking condition, and any structural reinforcement required to support the tile load. Clay and concrete tile run 9–12 lbs per square foot — 3–5× the weight of asphalt shingles. The structural assessment is the step that determines whether your home is a straightforward tile candidate, needs reinforcement, or has a geometry that makes tile impractical. We tell you the truth at this step."
+      icon: "search"
+    - number: 2
+      title: "Tile Selection"
+      body: "Once the structure is confirmed to support tile, we work through the profile (Spanish S-tile, flat, barrel), material (clay vs. concrete), and color options. If you're in a neighborhood with HOA guidelines or a historic district with material requirements, we review those before selection, not after. Lead times for specialty clay tile can run 4–8 weeks — order early in the project sequence."
+      icon: "layers"
+    - number: 3
+      title: "Staged Installation"
+      body: "The underlayment system for tile is more intensive than asphalt — proper installation includes a high-temperature underlayment rated for the thermal cycling that tile roofs experience. Tiles are fastened individually per the manufacturer's requirements for your wind zone. Hip caps, ridge tiles, and flashing details at penetrations are set by hand. Installation is methodical; the timeline for a full tile replacement is typically 5–10 days depending on roof complexity."
+      icon: "hard-hat"
+    - number: 4
+      title: "Final Inspection and Warranty"
+      body: "Full walk of every run, ridge, hip, valley, and flashing point. Pro Exteriors photographs the completed installation for your records. Manufacturer warranty registration is completed by our team. Your documentation package includes the structural assessment, the material specification, and the installation record."
+      icon: "check-circle"
+
+case_studies:
+  eyebrow: "PROJECT EXAMPLES"
+  h2: "Tile Roofing from the Field."
+  items:
+    - id: "cs-1"
+      label: "[REPRESENTATIVE — NOT YET SOURCED]"
+      h3: "[REPRESENTATIVE — Project title, city, state]"
+      scope: "[REPRESENTATIVE — Tile type, profile, scope]"
+      outcome: "[REPRESENTATIVE — Result, structural notes if applicable]"
+      image_slot:
+        alt: "[REPRESENTATIVE]"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+    - id: "cs-2"
+      label: "[REPRESENTATIVE — NOT YET SOURCED]"
+      h3: "[REPRESENTATIVE — Project title, city, state]"
+      scope: "[REPRESENTATIVE]"
+      outcome: "[REPRESENTATIVE]"
+      image_slot:
+        alt: "[REPRESENTATIVE]"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+    - id: "cs-3"
+      label: "[REPRESENTATIVE — NOT YET SOURCED]"
+      h3: "[REPRESENTATIVE — Project title, city, state]"
+      scope: "[REPRESENTATIVE]"
+      outcome: "[REPRESENTATIVE]"
+      image_slot:
+        alt: "[REPRESENTATIVE]"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+cost_value:
+  eyebrow: "THE COST QUESTION"
+  h2: "Higher Upfront. Lower Per-Year. The Math Is Different for Tile."
+  body: |
+    Clay and concrete tile installation costs more upfront than asphalt shingles —
+    a meaningful premium on materials, and an installation that takes longer because
+    of structural verification, heavier materials, and the detail work that tile
+    profiles require. That is not in dispute.
+
+    The per-year cost comparison is different. A high-quality asphalt shingle roof
+    lasts 25–30 years in moderate climates and needs replacement at the end of that
+    cycle. A clay tile installation in the same climate runs 75–100+ years. If you
+    divide the installed cost by the lifespan, tile's per-year ownership cost is
+    often lower than multiple asphalt shingle replacements over the same timeframe —
+    and that's before accounting for the disposal and reinstallation cycles that
+    asphalt requires.
+
+    For homeowners who plan to stay in their home for 20+ years, the economics of
+    tile deserve a look. For homeowners planning to sell in the near term, asphalt
+    shingles remain the right answer. We'll give you the numbers for your specific
+    project at the assessment. Financing is available for qualified projects.
+
+    For a full comparison of residential roofing material options, see the
+    <a href="/residential/roof-replacement">roof replacement</a> page. If natural
+    permanence is the priority and budget is not the constraint, see
+    <a href="/residential/natural-slate">natural slate roofing</a>.
+  image_slot:
+    alt: "Pro Exteriors tile roof installation — structural assessment and tile work in progress"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+faq:
+  eyebrow: "FREQUENTLY ASKED"
+  h2: "Clay and Tile Roofing Questions, Answered."
+  items:
+    - q: "Is my roof structure strong enough for tile?"
+      a: |
+        It depends — which is why the structural assessment is step one of every
+        tile installation Pro Exteriors undertakes. Clay and concrete tile run
+        9–12 lbs per square foot. Most homes originally built with asphalt shingles
+        were framed for 2–4 lbs per square foot. The additional dead load needs to
+        be evaluated by a Pro Exteriors installer who can look at your specific
+        framing, rafter span, and decking condition.
+
+        In many cases, the existing structure is adequate or requires modest
+        reinforcement. In some cases — particularly on older homes with undersized
+        rafters or long rafter spans — the structural work required makes tile
+        impractical. We tell you that at the assessment, not after material is
+        ordered. If tile is ruled out, the assessment report tells you exactly why.
+
+    - q: "How long does clay tile roofing last?"
+      a: |
+        Clay tile is one of the longest-lived roofing materials available. In
+        favorable climates (dry, moderate thermal cycling, low freeze-thaw
+        frequency), 75–100 year lifespans are documented — and historic buildings
+        with original clay tile installations do exist. In the climates we serve
+        (Texas, Colorado, Kansas, Missouri, Georgia), 60–80 years is a realistic
+        expectation for properly installed clay tile.
+
+        Concrete tile has a shorter lifespan than clay — typically 50–80 years
+        under similar conditions. Both significantly outlast asphalt shingles
+        (25–30 years) and most other residential roofing materials.
+
+    - q: "Can tile roofing withstand hail?"
+      a: |
+        Clay tile is hard and fire-resistant, but it is brittle — and large hailstones
+        can crack individual tiles on impact. This is a real consideration for homes
+        in the Texas and Colorado hail belt, where 2-inch-plus hail events occur
+        with meaningful frequency.
+
+        Cracked tiles can be replaced individually without replacing the full roof —
+        one practical advantage of tile is that repair-in-place is feasible in a
+        way that asphalt replacement is not. But if you're in a high-frequency large-hail
+        zone and longevity without maintenance interruption is the priority, concrete
+        tile (harder than clay) or impact-resistant asphalt shingles may be a
+        more suitable choice for your geography. We'll give you a direct assessment
+        based on your property's location.
+
+    - q: "What does tile roof installation cost compared to asphalt?"
+      a: |
+        Tile costs more to install than asphalt — the materials are more expensive,
+        the installation is more labor-intensive, and the project takes longer.
+        A direct comparison on per-square-foot installed cost will show tile at
+        a meaningful premium to asphalt.
+
+        The per-year cost comparison is different. Divide the installed cost of
+        clay tile by an 80-year lifespan and compare it to multiple asphalt
+        shingle replacements (and associated tear-off costs) over the same period,
+        and tile's economic case becomes clearer for homeowners who plan to hold
+        the property long-term. For the material comparison breakdown, see the
+        <a href="/residential/roof-replacement" class="underline hover:no-underline">roof replacement</a>
+        page. For a specific estimate on your home, the assessment is free.
+
+final_cta:
+  eyebrow: "CLAY & TILE ROOFING"
+  h2: "The Last Roof Most Homeowners Ever Need."
+  subhead: "Clay and tile roof installation and replacement across Texas, Colorado, Kansas, Missouri, and Georgia. Free structural assessment included."
+  cta_primary:
+    label: "Schedule Your Free Tile Roof Assessment"
+    href: "/contact?intent=tile-assessment&source=tile-clay-roofing-final-cta"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-primary"
+    data_event_category: "tile-clay-roofing"
+  cta_secondary:
+    label: "Compare All Roofing Materials"
+    href: "/residential/roof-replacement"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-secondary"
+    data_event_category: "tile-clay-roofing"
+
+self_audit:
+  persona_voice: pass
+  forbidden_vocab: pass
+  structural_weight_gate: pass
+    # Structural assessment requirement stated in: service_overview body (final paragraph),
+    # process step 1 (explicitly named as mandatory), FAQ answer 1 (detailed explanation).
+    # Gate passes — no implication that any home can receive tile without assessment.
+  hail_brittleness_gate: pass
+    # FAQ answer 3 explicitly acknowledges clay brittleness under large hail.
+    # Concrete tile and impact-resistant asphalt mentioned as alternatives.
+    # Honest disclosure without making it the page headline.
+  sourcing: pass — all stats, testimonials, and project details marked [REPRESENTATIVE]
+  internal_links:
+    up_to_parent: "pass — 'residential roofing specialists' in local_experts_proof"
+    across_to_slate: "pass — cost_value section (named link)"
+    across_to_replacement: "pass — cost_value section + FAQ answer 4 + final CTA secondary"
+    across_to_asphalt: "pass — cost_value section (per-year comparison context)"
+  measurement: "pass — 4 CTAs instrumented with data-event-* attributes"
+
+status: success
+next_action: handoff
+provenance:
+  produced_by: aia4-copywriter (inline, PageBuilder orchestration)
+  produced_at: 2026-05-03

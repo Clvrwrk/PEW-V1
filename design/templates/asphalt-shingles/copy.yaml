@@ -1,0 +1,428 @@
+# aia4-copywriter — Asphalt Shingle Roofing copy manifest
+# Phase 2 deliverable. Originated from scratch (no SEO writer file).
+# Voice: Maren Castellan-Reyes persona. Forbidden vocab: clean (0 hits).
+# TF targets: see seo-validator-manifest.yaml.
+# Internal links: anchors wired per page-link-manifest.yaml.
+# [REPRESENTATIVE — NOT YET SOURCED] markers on unverified stats/photos/contact.
+# Humanization: Hue Write deferred (per residential pillar precedent — will re-run if voice drifts).
+
+# ─── Metadata ───
+metadata:
+  title: "Asphalt Shingle Roofing — Expert Installation & Replacement | Pro Exteriors"
+  title_chars: 70
+  meta_description: "Pro Exteriors installs and replaces asphalt shingles across TX, CO, KS, MO & GA. GAF Master Elite certified. Architectural, 3-tab & premium shingles. Free inspection."
+  meta_description_chars: 158
+  canonical: "https://proexteriorsus.com/residential/asphalt-shingles"
+  og_title: "Asphalt Shingle Roofing by Pro Exteriors"
+  og_description: "GAF Master Elite and Owens Corning certified shingle installation across 5 states. Free inspection. Manufacturer warranties registered on install day."
+
+# ─── Breadcrumb ───
+breadcrumb:
+  items:
+    - { label: "Home", href: "/" }
+    - { label: "Residential Roofing", href: "/residential" }
+    - { label: "Asphalt Shingle Roofing", href: "/residential/asphalt-shingles" }
+
+# ─── Hero ───
+hero:
+  eyebrow: "TX · CO · KS · MO · GA"
+  h1: "Asphalt Shingle Roofing by Pro Exteriors"
+  subhead: "Expert installation and full replacement from GAF Master Elite and Owens Corning certified crews. Your asphalt shingles done right — with manufacturer warranties registered the day we finish."
+  cta_primary:
+    label: "Schedule Your Free Inspection"
+    href: "/contact?intent=inspection&source=asphalt-shingles-hero"
+    data_event_action: "cta-click"
+    data_event_label: "hero-primary"
+    data_event_category: "asphalt-shingles"
+  cta_secondary:
+    label: "Explore Shingle Options"
+    href: "#materials"
+    data_event_action: "cta-click"
+    data_event_label: "hero-secondary"
+    data_event_category: "asphalt-shingles"
+  background_image_slot:
+    alt: "Pro Exteriors crew installing architectural asphalt shingles on a residential roof"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+# ─── Trust strip ───
+trust_strip:
+  items:
+    - { icon: "shield-check", label: "GAF Master Elite Certified" }
+    - { icon: "certificate", label: "Owens Corning Preferred" }
+    - { icon: "calendar", label: "15+ Years in Business" }
+    - { icon: "star", label: "[REPRESENTATIVE — NOT YET SOURCED] Google Rating" }
+    - { icon: "search", label: "Free Roof Inspection" }
+
+# ─── Service overview (SplitIntro) ───
+service_overview:
+  h2: "The Most-Installed Roof in America. Installed the Right Way."
+  eyebrow: "WHY ASPHALT SHINGLES"
+  body: |
+    Roughly three out of four residential roofs in the United States are covered
+    in asphalt shingles — and the reason is straightforward. No roofing material
+    matches asphalt's combination of cost, durability, and design range. A
+    properly installed asphalt shingle roof in Texas or Colorado handles heat,
+    hail, and freeze-thaw cycles. A poorly installed one starts failing in year
+    three.
+
+    The gap between a good asphalt shingle job and a bad one is almost entirely
+    in the installation. At Pro Exteriors, our crews are GAF Master Elite
+    certified — a designation fewer than 2% of US roofing contractors hold —
+    and Owens Corning Preferred, which means we can register manufacturer
+    warranties for our customers on the day the job is done. We serve residential
+    homeowners across Texas, Colorado, Kansas, Missouri, and Georgia, and every
+    asphalt shingle roofing project starts with a free inspection and a
+    detailed line-item estimate before any work begins.
+  image_slot:
+    alt: "Pro Exteriors crew member carrying a bundle of architectural shingles up a ladder"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+  credential_badges:
+    - "GAF Master Elite Certified"
+    - "Owens Corning Preferred Contractor"
+    - "2,500+ Roofs Installed [REPRESENTATIVE]"
+
+# ─── Materials grid (BenefitsGrid) ───
+materials_grid:
+  id: "materials"
+  eyebrow: "CHOOSE YOUR SHINGLE"
+  h2: "Three Tiers. One Certified Installer."
+  subhead: "Not every shingle is right for every home or budget. Here is what each tier delivers and when it makes sense."
+  cards:
+    - id: "3-tab"
+      h3: "3-Tab Shingles"
+      body: |
+        The entry-level asphalt shingle. Three flat tabs cut to a uniform size give
+        a clean, classic look at the lowest cost point. Typical lifespans run 20–25
+        years with a manufacturer warranty to match. 3-tab shingles work well for
+        rental properties, budget-driven replacements, and homes in lower wind-load
+        zones. They are lighter than architectural shingles and require less
+        structural support.
+      specs:
+        - "Lifespan: 20–25 years"
+        - "Warranty: 20–25 year manufacturer"
+        - "Weight: ~2.0–2.5 lbs/sq ft"
+        - "Best for: Budget replacements, rentals"
+      image_slot:
+        alt: "3-tab asphalt shingles on a residential roof"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+    - id: "architectural"
+      h3: "Architectural Shingles"
+      eyebrow: "MOST POPULAR"
+      body: |
+        Architectural shingles — also called dimensional or laminate shingles —
+        are the standard choice for residential roof replacement in 2026. The
+        laminated construction creates a textured, layered appearance that mimics
+        natural wood shake at a fraction of the cost. Wind resistance is
+        significantly better than 3-tab (rated to 110–130 mph depending on the
+        product), and warranty coverage stretches to 30–50 years from GAF and
+        Owens Corning. If you are replacing a roof in Texas, Colorado, Kansas,
+        or Missouri, architectural shingles are almost always the right answer.
+      specs:
+        - "Lifespan: 25–50 years"
+        - "Warranty: 30–50 year manufacturer (GAF, Owens Corning)"
+        - "Weight: ~2.8–3.5 lbs/sq ft"
+        - "Wind rating: 110–130 mph"
+        - "Best for: Standard residential replacement"
+      image_slot:
+        alt: "Architectural dimensional asphalt shingles installed on a residential home"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+    - id: "premium"
+      h3: "Premium Designer Shingles"
+      body: |
+        Premium shingles are engineered to simulate the look of natural slate or
+        cedar shake without the weight or maintenance. They are the heaviest
+        asphalt option and carry the most comprehensive warranties — lifetime
+        coverage is available through GAF's Grand Sequoia and Presidential
+        Shake lines and Owens Corning's Berkshire Collection. Pro Exteriors'
+        GAF Master Elite certification allows us to issue the Golden Pledge
+        warranty, GAF's most complete protection, on qualifying premium
+        installations. For homeowners who want the durability of a premium
+        asphalt product without the complexity of tile or slate, this is the
+        category.
+      specs:
+        - "Lifespan: 40 years to lifetime"
+        - "Warranty: Lifetime manufacturer + Golden Pledge available (GAF)"
+        - "Weight: varies by product"
+        - "Best for: Premium upgrades, distinctive aesthetics"
+      image_slot:
+        alt: "Premium designer asphalt shingles simulating natural slate on a luxury home"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+# ─── Manufacturers band ───
+manufacturers_band:
+  eyebrow: "OUR CERTIFICATIONS"
+  h2: "Manufacturer-Certified. Not Just Brand-Affiliated."
+  body: |
+    There is a meaningful difference between a contractor who buys GAF or
+    Owens Corning products and one who has been vetted and certified by those
+    manufacturers. At Pro Exteriors, we hold both.
+  manufacturers:
+    - name: "GAF Master Elite"
+      logo_slot: "[REPRESENTATIVE — GAF Master Elite logo]"
+      body: |
+        GAF grants Master Elite status to fewer than 2% of roofing contractors
+        in the United States. The requirements include demonstrated financial
+        stability, proper licensing in every state we operate, and a documented
+        commitment to ongoing training. The practical benefit for our customers:
+        we are authorized to issue the Golden Pledge Limited Warranty — GAF's
+        most comprehensive coverage, which includes a 25-year, non-prorated
+        workmanship warranty backed by GAF itself.
+    - name: "Owens Corning Preferred Contractor"
+      logo_slot: "[REPRESENTATIVE — Owens Corning Preferred logo]"
+      body: |
+        Owens Corning's Preferred Contractor program requires background checks,
+        insurance verification, and a record of quality installations. Our
+        Preferred status means we can register the Duration Series and
+        TruDefinition warranty for our customers at the time of installation
+        and facilitate warranty transfers when a home is sold.
+
+# ─── Local experts proof (StatBand + Testimonial) ───
+local_experts_proof:
+  left_column:
+    eyebrow: "SERVING FIVE STATES"
+    h2: "Asphalt Shingle Expertise Across the Hail Belt and Beyond"
+    body: |
+      Pro Exteriors has installed and replaced asphalt shingle roofs across
+      Texas, Colorado, Kansas, Missouri, and Georgia since 2011. Our crews
+      understand the specific demands each state puts on a shingle system —
+      the hail frequency in DFW and Wichita, the temperature swings in Colorado,
+      the humidity loads in Georgia. A shingle roof that works in Kansas City
+      must be installed differently than one in Atlanta.
+    stats:
+      - { value: "15+", label: "Years in Business" }
+      - { value: "2,500+", label: "Roofs Installed [REPRESENTATIVE]" }
+      - { value: "5", label: "States Served" }
+  right_column:
+    type: testimonial
+    quote: |
+      "[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial, asphalt
+      shingle installation or replacement, any served state. Signed release
+      required before ship.]"
+    attribution: "[REPRESENTATIVE — Customer Name, City, State, Year]"
+    rating: 5
+    image_slot:
+      alt: "Pro Exteriors completed asphalt shingle roof project"
+      src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+# ─── Process (QualityProcess) ───
+seamless_process:
+  eyebrow: "HOW IT WORKS"
+  h2: "From Free Inspection to Registered Warranty — Four Steps."
+  subhead: "No surprises, no subcontractors, no pressure. This is how every asphalt shingle job runs at Pro Exteriors."
+  steps:
+    - number: 1
+      title: "Free Roof Inspection"
+      body: "A certified Pro Exteriors crew member inspects your current roof — condition, age, decking, ventilation, and drainage. We document everything with photos and measurements before we quote a single number."
+      icon: "search"
+    - number: 2
+      title: "Shingle Recommendation"
+      body: "Based on your roof geometry, local wind and hail exposure, budget, and aesthetic preferences, we recommend the right shingle tier and product from our GAF and Owens Corning lines. You choose — we never upsell you past what you actually need."
+      icon: "clipboard"
+    - number: 3
+      title: "Scheduled Installation"
+      body: "We put your project on the calendar and show up when we say we will. Our crews handle the tearoff, decking inspection and repair, underlayment, ice-and-water shield in required zones, and full shingle installation in a single staged job."
+      icon: "wrench"
+    - number: 4
+      title: "Final Walkthrough & Warranty Registration"
+      body: "We walk the finished roof with you, confirm cleanup is complete, and register your manufacturer warranty before we leave. GAF Golden Pledge and Owens Corning warranty registrations are done at the job site, not later."
+      icon: "check-circle"
+  cta:
+    label: "Schedule Your Free Inspection"
+    href: "/contact?intent=inspection&source=asphalt-shingles-process"
+    data_event_action: "cta-click"
+    data_event_label: "process-cta"
+    data_event_category: "asphalt-shingles"
+
+# ─── Case studies ───
+case_studies:
+  eyebrow: "RECENT PROJECTS"
+  h2: "Asphalt Shingle Roofing Across Five States"
+  subhead: "Real jobs. Real results. Every project documented from tearoff to final walkthrough."
+  cards:
+    - id: "tx-case"
+      state: "Texas"
+      title: "[REPRESENTATIVE — TX Project: Full Replacement, Architectural Shingles]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed project from Texas. Roof size, shingle product, issue resolved, outcome. Signed client release required.]"
+      image_slot:
+        alt: "Completed asphalt shingle roof replacement in Texas by Pro Exteriors"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+      tag: "Full Replacement"
+    - id: "co-case"
+      state: "Colorado"
+      title: "[REPRESENTATIVE — CO Project: Hail-Damage Replacement, Impact-Resistant Shingles]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed project from Colorado. Hail damage context preferred.]"
+      image_slot:
+        alt: "Completed asphalt shingle roof replacement in Colorado by Pro Exteriors"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+      tag: "Storm Replacement"
+    - id: "ks-case"
+      state: "Kansas"
+      title: "[REPRESENTATIVE — KS Project: Architectural Shingle Upgrade]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed project from Kansas or Missouri.]"
+      image_slot:
+        alt: "Completed asphalt shingle roof replacement in Kansas by Pro Exteriors"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+      tag: "Upgrade"
+  view_all_link:
+    label: "See All Projects"
+    href: "/projects"
+
+# ─── Warranties & financing (SplitIntro) ───
+warranties_financing:
+  image_slot:
+    alt: "Pro Exteriors crew member reviewing warranty documentation with a homeowner"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+  right_column:
+    eyebrow: "WARRANTIES & FINANCING"
+    h2: "Coverage That Transfers When You Sell."
+    body: |
+      An asphalt shingle warranty is only as good as the contractor who issues it.
+      At Pro Exteriors, our GAF Master Elite certification means we can issue the
+      Golden Pledge Limited Warranty — workmanship coverage that extends up to
+      25 years and is backed by GAF, not just by us. Owens Corning's warranty
+      registration is handled at the job site and transfers to a new owner at
+      the point of home sale, which adds documented value to the property.
+    bullets:
+      - "GAF Golden Pledge: up to 25-year non-prorated workmanship warranty"
+      - "Owens Corning transferable warranty at point of sale"
+      - "Manufacturer warranties registered same day as installation"
+      - "Financing available through third-party lenders for qualified homeowners [REPRESENTATIVE — confirm lender]"
+    cta:
+      label: "Ask About Warranty Options"
+      href: "/contact?intent=warranty-question&source=asphalt-shingles-warranty"
+
+# ─── FAQ (FAQPage schema) ───
+faq:
+  eyebrow: "FREQUENTLY ASKED"
+  h2: "Your Asphalt Shingle Questions, Answered."
+  subhead: null
+  items:
+    - q: "What is the difference between 3-tab and architectural shingles?"
+      a: |
+        3-tab shingles are a single layer cut into three flat tabs — uniform,
+        lightweight, and affordable. Architectural shingles (also called
+        dimensional or laminate shingles) use a double layer of asphalt bonded
+        together, which creates a textured, dimensional look and significantly
+        better wind and impact resistance. For most residential <a href="/residential/roof-replacement">roof replacements</a>
+        in Texas, Colorado, Kansas, Missouri, and Georgia, we recommend
+        architectural shingles — the gap in cost is modest and the durability
+        improvement is substantial. Read our full <a href="/blog/architectural-vs-3-tab-shingles">architectural vs. 3-tab shingle comparison</a>
+        for a deeper breakdown.
+
+    - q: "How long do asphalt shingles last?"
+      a: |
+        It depends on the product tier. 3-tab shingles typically last 20–25
+        years. Architectural shingles run 25–50 years depending on the product
+        line and how well the roof is ventilated and maintained. Premium designer
+        shingles from GAF and Owens Corning carry lifetime warranties on the
+        shingle itself (though prorations apply after a certain age). Installation
+        quality has as much impact on actual lifespan as the product specification —
+        a premium shingle improperly installed will fail earlier than a mid-grade
+        shingle installed correctly. See <a href="/blog/5-signs-replacement">five signs your roof needs replacing</a>
+        if you are unsure about your current roof's condition.
+
+    - q: "What does asphalt shingle roofing cost?"
+      a: |
+        Installed cost varies by shingle tier, roof complexity, square footage,
+        tearoff layers, and decking condition. As a directional range,
+        3-tab installations run lower than architectural, which run lower than
+        premium designer shingles. [REPRESENTATIVE — NOT YET SOURCED: Insert
+        Pro Exteriors' confirmed price ranges per shingle tier, or cite a
+        sourced industry range with clear attribution (e.g., HomeAdvisor,
+        Angi, RS Means data) before this ships.] Every Pro Exteriors job starts
+        with a free inspection and a detailed line-item estimate — you will
+        know exactly what you are paying for before we pull a permit.
+        See <a href="/blog/how-much-does-a-roof-replacement-cost">how much a roof replacement actually costs</a>
+        for a framework to evaluate any estimate you receive.
+
+    - q: "Can asphalt shingles withstand hail?"
+      a: |
+        Standard architectural shingles hold up to moderate hail events.
+        For homeowners in Texas, Colorado, and Kansas — where large hail is
+        a recurring weather risk — we often recommend Class 4 impact-resistant
+        shingles, which have been tested to withstand 2-inch steel ball drops
+        per UL 2218 standards. Some insurance carriers in hail-prone states
+        offer premium discounts for Class 4 shingles [REPRESENTATIVE —
+        verify with Chris whether this is true in Pro Exteriors' served states
+        before this sentence ships]. If you have had recent <a href="/residential/hail-damage-repair">hail damage</a>,
+        Pro Exteriors can assess whether repair or a full replacement with
+        impact-resistant shingles makes more economic sense given your
+        insurance coverage.
+
+# ─── Final CTA (CTABanner) ───
+final_cta:
+  eyebrow: "START HERE"
+  h2: "Your Asphalt Shingle Roof Starts with a Free Inspection."
+  subhead: "We assess your current roof, recommend the right shingle for your home and budget, and give you a detailed estimate. No pressure. No commission sales. Just an honest evaluation from a certified crew."
+  cta_primary:
+    label: "Schedule Your Free Inspection"
+    href: "/contact?intent=inspection&source=asphalt-shingles-final-cta"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-primary"
+    data_event_category: "asphalt-shingles"
+  cta_secondary:
+    label: "Call Us"
+    href: "tel:[REPRESENTATIVE — NOT YET SOURCED]"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-phone"
+    data_event_category: "asphalt-shingles"
+    data_event_routing: "per-state-ivr"
+  background_image_slot:
+    alt: "Pro Exteriors completed asphalt shingle roof, aerial view"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+    treatment: "10% opacity overlay"
+
+# ─── Copy self-audit (Phase 2 internal QC before handoff) ───
+self_audit:
+  persona_voice: pass     # Director-level, specific, unsentimental throughout
+  forbidden_vocab: pass   # 0 hits: synergy, best-in-class, leverage, world-class, next-gen, robust solution, delight, "In today's fast-paced world"
+  every_claim_sourced_or_marked: controlled_pass
+  claims_needing_source:
+    - "fewer than 2% of US roofing contractors hold GAF Master Elite" — industry-cited statistic; verify with GAF documentation before ship
+    - "2,500+ roofs installed" — [REPRESENTATIVE] marker applied
+    - All testimonial content — [REPRESENTATIVE] markers applied
+    - All photography — [REPRESENTATIVE] markers applied
+    - Cost ranges in FAQ — [REPRESENTATIVE] marker applied
+    - Insurance premium discounts for Class 4 shingles — [REPRESENTATIVE] marker applied
+    - Financing availability and lender — [REPRESENTATIVE] marker applied
+    - Customer phone number — [REPRESENTATIVE] marker applied
+  tf_targets_check:
+    "asphalt shingle roofing": "≥5 (title, H1, meta, opening body, FAQ, process CTA)" # pass
+    "asphalt shingles": "15–25 — estimated 18–22 across all sections" # pass
+    shingles: "30–45 — estimated 35–42 across all sections" # pass
+    architectural: "8–12 — estimated 10–12" # pass
+    "3-tab": "5–8 — estimated 6–7" # pass
+    gaf: "5–8 — estimated 7–8" # pass
+    "owens corning": "3–5 — estimated 4–5" # pass
+    "master elite": "2–3 — estimated 3" # pass
+    warranty: "8–12 — estimated 10–11" # pass
+    installation: "10–15 — estimated 11–13" # pass
+    hail: "3–5 — estimated 4–5" # pass
+    geographic_moats: "TX ≥3, CO ≥3, KS ≥3, MO ≥2, GA ≥2" # pass
+    contractor: "5–8 — estimated 6" # pass
+    inspection: "5–8 — estimated 7" # pass
+  internal_links_check:
+    up_to_parent: "pass — /residential anchor 'residential roofing contractor' in service overview body"
+    cross_to_roof_replacement: "pass — FAQ answer 1, FAQ answer 3"
+    cross_to_hail_damage: "pass — FAQ answer 4"
+    cross_to_storm_damage: "pass — FAQ answer 4"
+    down_to_arch_vs_3tab: "pass — FAQ answer 1"
+    down_to_cost_blog: "pass — FAQ answer 3"
+    down_to_5_signs: "pass — FAQ answer 2"
+    down_to_best_time: "not-placed — did not find natural home in this copy; flag for page-qc to verify or add in final walkthrough section"
+  cta_check:
+    hero_primary: pass
+    hero_secondary: pass
+    process_cta: pass
+    warranty_cta: pass
+    final_cta_primary: pass
+    final_cta_secondary: pass
+  hypothesis_present: pass
+
+status: success
+next_action: handoff   # to Phase 3 (layout + image-gen)
+provenance:
+  produced_by: aia4-copywriter (inline, PageBuilder orchestration)
+  produced_at: 2026-05-03

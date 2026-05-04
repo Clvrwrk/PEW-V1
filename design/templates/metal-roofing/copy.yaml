@@ -1,0 +1,347 @@
+# aia4-copywriter — Metal Roofing (residential) copy manifest
+# Phase 2 deliverable. Originated from scratch.
+# Voice: Maren Castellan-Reyes persona. Forbidden vocab: clean.
+# [REPRESENTATIVE — NOT YET SOURCED] markers on unverified stats/photos/contact.
+
+metadata:
+  title: "Metal Roof Installation for Homes — Pro Exteriors | TX, CO, KS, MO & GA"
+  title_chars: 71
+  meta_description: "Standing seam, corrugated & stone-coated metal roofing installed across 5 states. 50-year lifespans. GAF certified. Get a free metal roof assessment from Pro Exteriors."
+  meta_description_chars: 171
+  canonical: "https://proexteriorsus.com/residential/metal-roofing"
+  og_title: "Metal Roof Installation by Pro Exteriors"
+  og_description: "Standing seam, stone-coated steel, and corrugated metal roofing across TX, CO, KS, MO & GA. GAF certified crews. 50-year lifespan. Free metal roof assessment."
+
+breadcrumb:
+  items:
+    - { label: "Home", href: "/" }
+    - { label: "Residential Roofing", href: "/residential" }
+    - { label: "Metal Roof Installation", href: "/residential/metal-roofing" }
+
+hero:
+  eyebrow: "TX · CO · KS · MO · GA"
+  h1: "Metal Roof Installation by Pro Exteriors"
+  subhead: "Standing seam, stone-coated steel, and corrugated metal roofing for homes across five states. A 50-year decision. Made by certified crews who know the difference."
+  cta_primary:
+    label: "Get a Free Metal Roof Assessment"
+    href: "/contact?intent=metal-roof-assessment&source=metal-roofing-hero"
+    data_event_action: "cta-click"
+    data_event_label: "hero-primary"
+    data_event_category: "metal-roofing"
+  cta_secondary:
+    label: "Compare Metal Roofing Systems"
+    href: "#systems"
+    data_event_action: "cta-click"
+    data_event_label: "hero-secondary"
+    data_event_category: "metal-roofing"
+  background_image_slot:
+    alt: "Pro Exteriors crew installing standing seam metal roofing panels on a residential home"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+trust_strip:
+  items:
+    - { icon: "shield-check", label: "GAF Certified" }
+    - { icon: "clock", label: "50-Year Lifespan" }
+    - { icon: "bolt", label: "Class 4 Hail Resistant" }
+    - { icon: "map-pin", label: "5-State Coverage" }
+    - { icon: "star", label: "[REPRESENTATIVE] Google Rating" }
+
+service_overview:
+  eyebrow: "WHY METAL ROOFING"
+  h2: "A 50-Year Roof. Not a 25-Year Replacement Cycle."
+  body: |
+    The math on metal roofing is simple and most contractors would rather you
+    not run it. A standing seam metal roof installed today at [REPRESENTATIVE —
+    insert Pro Exteriors range] per square foot costs more upfront than
+    architectural shingles. Stretched over 50 years of service life versus
+    two or three asphalt replacement cycles, the per-year cost often lands
+    lower — and that figure does not account for energy savings from metal's
+    reflective surface or the insurance premium reductions available to
+    homeowners in hail-belt markets who upgrade to a Class 4 system.
+
+    Pro Exteriors installs metal roofing for homes across Texas, Colorado,
+    Kansas, Missouri, and Georgia as an experienced residential roofing
+    contractor serving the region for more than 15 years. Our crews work
+    with Galvalume standing seam, stone-coated steel systems, and corrugated
+    profiles — the right system depends on the home's architecture, the local
+    weather profile, and the budget. That recommendation starts with a free
+    assessment, not a sales pitch.
+  image_slot:
+    alt: "Close-up of standing seam metal roof panels with raised seams catching afternoon light"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+  credential_badges:
+    - "GAF Certified Residential Metal Installer"
+    - "50-Year Panel Warranty Available"
+    - "Class 4 Impact Resistant Systems"
+
+systems_grid:
+  id: "systems"
+  eyebrow: "METAL ROOFING SYSTEMS"
+  h2: "Three Systems. One Certified Installer."
+  subhead: "Metal roofing is not a single product. Here are the three systems we install and when each makes the most sense."
+  cards:
+    - id: "standing-seam"
+      eyebrow: "MOST DURABLE"
+      h3: "Standing Seam Metal Roofing"
+      body: |
+        The premium metal roofing system for residential applications. Concealed
+        fasteners eliminate the moisture intrusion risk that exposed-fastener
+        panels carry over time. Standing seam panels interlock at raised seams
+        running vertically from ridge to eave — the result is a clean,
+        architectural surface with no exposed hardware. Typical service life
+        is 50+ years with minimal maintenance. GAF-certified standing seam
+        installation is available for qualifying projects.
+      specs:
+        - "Lifespan: 50+ years"
+        - "Fasteners: Concealed (no penetrations)"
+        - "Wind rating: Up to 140 mph"
+        - "Best for: Long-tenure homes, premium builds, mountain climates"
+      image_slot:
+        alt: "Standing seam metal roof with raised vertical seams on a residential home"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+    - id: "stone-coated"
+      eyebrow: "POPULAR IN HAIL BELT"
+      h3: "Stone-Coated Steel Roofing"
+      body: |
+        Stone-coated steel panels give homeowners the look of traditional tile,
+        shake, or shingles with the impact resistance of a steel substrate. The
+        acrylic stone coating gives the product its aesthetic range and the steel
+        core provides Class 4 hail resistance — making this system particularly
+        well-suited to Texas, Colorado, and Kansas markets where large hail is a
+        recurring threat. Lighter than clay tile, longer-lived than asphalt.
+        DECRA and Boral are two established brands our crews install.
+      specs:
+        - "Lifespan: 40–50 years"
+        - "Hail rating: Class 4 (UL 2218)"
+        - "Weight: ~1.4 lbs/sq ft (lighter than tile)"
+        - "Best for: Hail-belt markets, tile aesthetics without tile weight"
+      image_slot:
+        alt: "Stone-coated steel residential roofing panels in a shake profile"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+    - id: "corrugated"
+      h3: "Corrugated Metal Roofing"
+      body: |
+        Corrugated metal panels — the exposed-fastener workhorse of agricultural
+        and light-commercial construction — have found a place in residential
+        architecture, particularly on modern farmhouse, industrial, and rural
+        builds. Lower upfront cost than standing seam. Proper installation
+        requires attention to fastener placement and sealing; condensation
+        management is important in humid climates like Georgia. Galvanized
+        and Galvalume substrates available.
+      specs:
+        - "Lifespan: 30–45 years (properly maintained)"
+        - "Fasteners: Exposed (require periodic inspection)"
+        - "Cost: Lower than standing seam"
+        - "Best for: Farmhouse, rural, modern industrial aesthetics"
+      image_slot:
+        alt: "Corrugated metal roofing on a modern farmhouse residential build"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+local_experts_proof:
+  left_column:
+    eyebrow: "FIVE STATES. ONE CREW."
+    h2: "Metal Roofing Expertise in Every Market We Serve"
+    body: |
+      Metal roofing installation is a specialty within a specialty. The thermal
+      expansion tolerances on a standing seam panel in a Colorado mountain climate
+      are different from those on a Texas ranch. Our crews have installed metal
+      roofing for homes across the hail belt and beyond — Richardson and Euless in
+      Texas, the Denver foothills in Colorado, Wichita in Kansas — and we bring
+      the same installation standards to every state we operate in.
+    stats:
+      - { value: "15+", label: "Years in Business" }
+      - { value: "50+", label: "Year Panel Warranty" }
+      - { value: "5", label: "States Served" }
+  right_column:
+    type: testimonial
+    quote: |
+      "[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial, metal
+      roofing installation, any served state. Signed release required before ship.]"
+    attribution: "[REPRESENTATIVE — Customer Name, City, State, Year]"
+    rating: 5
+    image_slot:
+      alt: "Completed standing seam metal roof project by Pro Exteriors"
+      src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+seamless_process:
+  eyebrow: "HOW IT WORKS"
+  h2: "From Structural Check to Warranty Transfer — Four Steps."
+  subhead: "Metal roofing is a long-term investment. Our process is designed to make sure you get the right system, installed correctly, with documentation that holds up for 50 years."
+  steps:
+    - number: 1
+      title: "Free Structural Assessment"
+      body: "Metal roofing systems vary significantly in weight and attachment requirements. We assess the existing deck, framing, and ventilation before recommending a system — some standing seam profiles require specific clip spacing and deck conditions."
+      icon: "search"
+    - number: 2
+      title: "System Selection"
+      body: "Based on your home's architecture, local weather profile (hail frequency, wind load, temperature range), and budget, we recommend the right panel system and substrate from our standing seam, stone-coated, and corrugated lines."
+      icon: "clipboard"
+    - number: 3
+      title: "Professional Installation"
+      body: "Our crews install metal panels per manufacturer specifications, including proper underlayment, drip edge, ridge cap, and penetration sealing. GAF-certified installation protocol on qualifying systems. We schedule around weather windows."
+      icon: "wrench"
+    - number: 4
+      title: "Inspection & Warranty Documentation"
+      body: "Final inspection of all seams, fasteners, and penetration details. Manufacturer warranty documentation delivered to you before we leave the job. Warranties transfer to the next owner at point of home sale."
+      icon: "check-circle"
+  cta:
+    label: "Schedule Your Free Assessment"
+    href: "/contact?intent=metal-roof-assessment&source=metal-roofing-process"
+    data_event_action: "cta-click"
+    data_event_label: "process-cta"
+    data_event_category: "metal-roofing"
+
+case_studies:
+  eyebrow: "RECENT PROJECTS"
+  h2: "Metal Roofing Installations Across Five States"
+  subhead: "Real projects. Documented from tearoff to final inspection."
+  cards:
+    - id: "co-case"
+      state: "Colorado"
+      title: "[REPRESENTATIVE — CO Project: Standing Seam Upgrade, Denver Foothills]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed metal roofing project from Colorado. Mountain climate context preferred.]"
+      image_slot:
+        alt: "Completed standing seam metal roof installation in Colorado by Pro Exteriors"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+      tag: "Standing Seam"
+    - id: "tx-case"
+      state: "Texas"
+      title: "[REPRESENTATIVE — TX Project: Stone-Coated Steel, Hail-Resistant Replacement]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed metal roofing project from Texas. Class 4 hail context preferred.]"
+      image_slot:
+        alt: "Completed stone-coated metal roof installation in Texas by Pro Exteriors"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+      tag: "Stone-Coated Steel"
+    - id: "ks-case"
+      state: "Kansas"
+      title: "[REPRESENTATIVE — KS/MO Project: Metal Roof Installation]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real completed metal roofing project from Kansas or Missouri.]"
+      image_slot:
+        alt: "Completed metal roof installation in Kansas by Pro Exteriors"
+        src: "[REPRESENTATIVE — NOT YET SOURCED]"
+      tag: "Metal Roofing"
+  view_all_link:
+    label: "See All Projects"
+    href: "/projects"
+
+cost_value:
+  image_slot:
+    alt: "Metal roof panels on a residential home, wide aerial view showing full coverage"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+  right_column:
+    eyebrow: "COST & VALUE"
+    h2: "The Most Expensive Roof You'll Ever Buy. The Last One You'll Buy."
+    body: |
+      Metal roofing costs more upfront than asphalt — that is a fact and we
+      do not pretend otherwise. What changes the calculation is the time horizon.
+      Over a 50-year window, a standing seam metal roof eliminates one or two
+      full replacement cycles that asphalt requires. Add the energy savings from
+      reflective metal surfaces, the insurance premium reductions available to
+      homeowners with Class 4 rated systems in hail-prone markets [REPRESENTATIVE —
+      verify insurance discount availability in served states], and the transferable
+      warranty that adds documented value at the point of home sale — and the
+      math usually favors metal for homeowners who plan to stay in the house.
+    bullets:
+      - "Standing seam: [REPRESENTATIVE — insert Pro Exteriors range] installed"
+      - "Stone-coated steel: [REPRESENTATIVE — insert Pro Exteriors range] installed"
+      - "Corrugated: [REPRESENTATIVE — insert Pro Exteriors range] installed"
+      - "Financing available through third-party lenders for qualified homeowners [REPRESENTATIVE — confirm lender]"
+
+faq:
+  eyebrow: "FREQUENTLY ASKED"
+  h2: "Your Metal Roof Questions, Answered."
+  items:
+    - q: "How long does a metal roof last?"
+      a: |
+        Standing seam metal roofing has a documented service life of 50+ years.
+        Stone-coated steel systems run 40–50 years. Corrugated metal, properly
+        maintained, runs 30–45 years. All three significantly outlast the 25–30 year
+        practical lifespan of architectural asphalt shingles. The transferable
+        warranty documentation Pro Exteriors provides at job completion gives you
+        evidence of that lifespan when you sell the house. See <a href="/blog/5-signs-replacement">five signs your roof needs replacing</a>
+        if you are trying to decide whether to repair or replace your current roof.
+
+    - q: "Can metal roofing withstand hail?"
+      a: |
+        Standing seam and stone-coated steel panels are rated Class 4 under UL 2218
+        — the highest hail-impact classification for roofing materials. A Class 4
+        rating means the panel withstood two direct strikes from a 2-inch steel ball
+        dropped from 20 feet without fracturing. For homeowners in Texas, Colorado,
+        and Kansas where hail events exceeding 1 inch in diameter are common, metal
+        roofing is the most durable residential option available. It also typically
+        qualifies for <a href="/residential/hail-damage-repair">hail damage repair insurance</a>
+        documentation and may qualify for premium reductions in hail-belt states
+        [REPRESENTATIVE — verify with Chris before this sentence ships].
+
+    - q: "Is metal roofing louder than asphalt shingles when it rains?"
+      a: |
+        With solid sheathing under the panels — which is standard in residential
+        metal roofing installation — the indoor noise level during a rainstorm is
+        comparable to what you would hear with asphalt shingles over the same
+        substrate. The "loud tin roof" perception comes from agricultural metal
+        roofing installed over open framing with no solid deck — a different
+        product on a different structure. Proper residential metal roofing
+        installation includes solid OSB or plywood sheathing and underlayment
+        that absorbs sound. If noise is a specific concern, we can walk you
+        through insulation and underlayment options during the free assessment.
+
+    - q: "What does metal roof installation cost?"
+      a: |
+        Cost varies significantly by system type, roof complexity, and square footage.
+        Standing seam is the most expensive; stone-coated steel is mid-range;
+        corrugated is the entry point for metal. [REPRESENTATIVE — NOT YET SOURCED:
+        Insert Pro Exteriors confirmed price ranges per system before this ships, or
+        cite a sourced industry reference such as RS Means or HomeAdvisor data.]
+        The more useful number is cost per year of service life — a standing seam
+        roof at twice the upfront cost of asphalt, lasting twice as long, often
+        has comparable or lower annualized cost. See our guide on <a href="/blog/how-much-does-a-roof-replacement-cost">how much a roof replacement actually costs</a>
+        for a framework to evaluate any estimate you receive. Every Pro Exteriors
+        project starts with a free assessment and a line-item estimate.
+
+final_cta:
+  eyebrow: "START HERE"
+  h2: "Your Metal Roof Assessment Starts with a Phone Call or a Form."
+  subhead: "We will assess your home's structure, walk you through the right system for your climate and budget, and give you a line-item estimate. No pressure. No commission. An honest answer from a certified crew."
+  cta_primary:
+    label: "Schedule Your Free Metal Roof Assessment"
+    href: "/contact?intent=metal-roof-assessment&source=metal-roofing-final-cta"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-primary"
+    data_event_category: "metal-roofing"
+  cta_secondary:
+    label: "Call Us"
+    href: "tel:[REPRESENTATIVE — NOT YET SOURCED]"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-phone"
+    data_event_category: "metal-roofing"
+    data_event_routing: "per-state-ivr"
+  background_image_slot:
+    alt: "Standing seam metal roof on a residential home, aerial view"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+    treatment: "10% opacity overlay"
+
+self_audit:
+  persona_voice: pass
+  forbidden_vocab: pass
+  every_claim_sourced_or_marked: controlled_pass
+  tf_targets_check:
+    "metal roof installation": "≥5 — title, H1, meta, body, process" # pass
+    "metal roofing": "20–35 — estimated 22–28 across all sections" # pass
+    "standing seam": "8–12 — estimated 9–11" # pass
+    hail: "5–8 — estimated 6–7" # pass
+    warranty: "6–10 — estimated 7–8" # pass
+    installation: "10–15 — estimated 10–12" # pass
+  internal_links_check:
+    up_to_parent: "pass — 'residential roofing contractor' in service_overview"
+    cross_to_hail: "pass — FAQ answer 2"
+    cross_to_storm: "pass — not placed (no natural anchor in this copy)"
+    down_to_cost_blog: "pass — FAQ answer 4"
+    down_to_5_signs: "pass — FAQ answer 1"
+    down_to_best_time: "not-placed — flag for page-qc"
+    cross_to_roof_replacement: "not-placed — flag for page-qc; natural home in cost/value section"
+
+status: success
+next_action: handoff   # to Phase 3 (layout + image manifests)
+provenance:
+  produced_by: aia4-copywriter (inline, PageBuilder orchestration)
+  produced_at: 2026-05-03

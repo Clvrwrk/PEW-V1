@@ -1,0 +1,58 @@
+# aia4-page-link manifest — Clay and Tile Roofing
+# Phase 1 · 2026-05-03 · Kyle Roof reverse-silo
+
+silo_role: T2-money-page
+silo_parent: "/residential"
+silo_topic: "clay and tile roofing — premium upgrade segment, high job value, solution-evaluation intent"
+
+internal_links_out:
+
+  # UP to parent
+  - anchor: "residential roofing specialists"
+    target: "/residential"
+    anchor_type: near-match
+    placement_hint: "local_experts_proof — 'licensed residential roofing specialists'"
+
+  # ACROSS — premium segment sibling
+  - anchor: "natural slate roofing"
+    target: "/residential/natural-slate"
+    anchor_type: near-match
+    target_status: live     # will be live by production
+    placement_hint: "cost_value section or FAQ answer 4 (cost comparison — mention slate as the other premium option)"
+
+  # ACROSS — replacement path
+  - anchor: "full roof replacement"
+    target: "/residential/roof-replacement"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "final CTA secondary ('Compare All Roofing Materials') + cost_value section"
+
+  # ACROSS — asphalt comparison (per-year cost comparison)
+  - anchor: "asphalt shingle roofing"
+    target: "/residential/asphalt-shingles"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "cost_value section — per-year cost of tile vs asphalt"
+
+internal_links_in_required:
+  - from: "/residential"
+    anchor: "tile and clay roofing options"
+    status: needs-wiring
+
+  - from: "/residential/natural-slate"
+    anchor: "clay and tile roofing"
+    status: needs-wiring   # reciprocal link from natural-slate page
+
+  - from: "/residential/roof-replacement"
+    anchor: "tile and clay roofing"
+    status: needs-wiring   # wire in materials comparison section post-launch
+
+notes:
+  - "Four outbound links. Tile is a premium specialty — keep link profile focused on the buyer journey (assessment → comparison → replacement decision)."
+  - "Tile and natural-slate are natural cluster siblings — they share the premium segment and should link to each other."
+  - "Blog supporter links omitted — content phase."
+
+status: success
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

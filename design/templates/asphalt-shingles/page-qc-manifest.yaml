@@ -1,0 +1,101 @@
+# aia4-page-qc manifest — Asphalt Shingle Roofing service page
+# Phase 5 deliverable. Voice, sourcing, depth, hypothesis, alt-text.
+
+checks:
+
+  persona_voice:
+    status: pass
+    notes: |
+      Director-level throughout. No hedging. No forbidden vocab (synergy,
+      best-in-class, leverage-as-verb, world-class, next-gen, robust solution,
+      delight, "In today's fast-paced world"). Copy is specific and unsentimental
+      — lifespan numbers, wind ratings, contractor percentage thresholds.
+
+  hypothesis_present:
+    status: pass
+    notes: |
+      Two gates in index.astro header comment:
+        (a) Top-3 organic for "asphalt shingle roofing" in served-state geos within 90 days
+        (b) ≥25% of sessions that click a CTA complete the inspection-request form within 30 days
+      Both measurable, both time-bound.
+
+  internal_links:
+    status: conditional-pass
+    placed:
+      - { anchor: "residential roofing contractor", target: "/residential", section: "service_overview" }
+      - { anchor: "roof replacements", target: "/residential/roof-replacement", section: "faq-1" }
+      - { anchor: "architectural vs. 3-tab shingle comparison", target: "/blog/architectural-vs-3-tab-shingles", section: "faq-1" }
+      - { anchor: "five signs your roof needs replacing", target: "/blog/5-signs-replacement", section: "faq-2" }
+      - { anchor: "how much a roof replacement actually costs", target: "/blog/how-much-does-a-roof-replacement-cost", section: "faq-3" }
+      - { anchor: "hail damage", target: "/residential/hail-damage-repair", section: "faq-4" }
+      - { anchor: "storm damage repair and inspection", target: "/residential/storm-damage-repair", section: "faq-4" }
+    not_placed:
+      - anchor: "best time of year to replace your roof"
+        target: "/blog/best-time-of-year-to-replace-your-roof"
+        recommendation: |
+          INTENTIONAL DEFERRAL — no natural home in the asphalt-shingles copy
+          without forcing it. Acceptable: add a single sentence in the process
+          section step 1 or step 3 body if the content team wants to wire it.
+          Not ship-blocking.
+
+  alt_text:
+    status: pass
+    notes: "All 13 image slots carry descriptive alt text from copy.yaml, carried through verbatim in index.astro. Hero background image and final-CTA background use alt='' (decorative) — correct per WCAG 2.2."
+
+  sourcing:
+    status: conditional-pass
+    notes: |
+      No unsourced claims shipped without [REPRESENTATIVE] markers.
+      Specific items marked:
+        — GAF Master Elite <2% claim: industry-cited; verify against GAF documentation
+        — 2,500+ roofs installed: [REPRESENTATIVE] asterisk in stat band
+        — All testimonials, project photos, case study content: [REPRESENTATIVE]
+        — Cost ranges in FAQ: [REPRESENTATIVE] with instruction to source before ship
+        — Insurance premium discount claim: [REPRESENTATIVE] with verify flag
+        — Phone number: [REPRESENTATIVE]
+        — Financing lender: [REPRESENTATIVE]
+      All markers are visible on-page, not hidden in comments.
+
+  representative_markers_visible:
+    status: pass
+    notes: "Markers render as italic text with title='Not yet sourced' attribute, matching residential pillar precedent."
+
+  faq_link_not_placed:
+    id: "best-time-of-year blog link"
+    status: deferred
+    recommendation: "Wire to process step 1 or process step 3 if content team agrees."
+
+  depth_check:
+    status: pass
+    notes: |
+      Page covers: material tier selection (3-tab / architectural / premium),
+      manufacturer credentials (GAF ME / OC Preferred), warranty mechanics
+      (Golden Pledge detail, transfer at sale), hail resistance and Class 4
+      upgrade path, installation process (4 steps), multi-state geographic
+      context, cost framing, and FAQ. Depth exceeds every current SERP competitor
+      for this keyword (no contractor money page in top-25 as of 2026-05-03).
+
+  cta_analytics:
+    status: pass
+    checks:
+      - { cta: "hero-primary",   event: "data-event-action=cta-click / label=hero-primary / category=asphalt-shingles", status: pass }
+      - { cta: "hero-secondary", event: "data-event-action=cta-click / label=hero-secondary / category=asphalt-shingles", status: pass }
+      - { cta: "process-cta",    event: "data-event-action=cta-click / label=process-cta / category=asphalt-shingles", status: pass }
+      - { cta: "warranty-cta",   event: "data-event-action=cta-click / label=warranty-cta / category=asphalt-shingles", status: pass }
+      - { cta: "final-cta-primary", event: "data-event-action=cta-click / label=final-cta-primary / category=asphalt-shingles", status: pass }
+      - { cta: "final-cta-phone",   event: "data-event-action=cta-click / label=final-cta-phone / data-event-routing=per-state-ivr", status: pass }
+
+status: pass-with-open-items
+open_items:
+  - "/blog/best-time-of-year-to-replace-your-roof link not placed — deferred, not ship-blocking"
+  - "GAF ME <2% claim — verify against GAF documentation before removing [REPRESENTATIVE]"
+  - "Cost ranges in FAQ — needs Pro Exteriors confirmed ranges or sourced citation"
+  - "Insurance premium discount — needs verification"
+  - "All image slots — real Pro Exteriors photos required before full launch"
+  - "Testimonial + case studies — real content + signed releases required"
+  - "Phone number — needs IVR or national tracking number"
+
+next_action: handoff    # to code-qc
+provenance:
+  produced_by: aia4-page-qc (inline, PageBuilder orchestration)
+  produced_at: 2026-05-03

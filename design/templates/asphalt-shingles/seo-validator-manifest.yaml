@@ -1,0 +1,211 @@
+# aia4-seo-validator manifest — Asphalt Shingle Roofing service page
+# Produced inline by PageBuilder Phase 1 on 2026-05-03
+# Methodology: Kyle Roof on-page (TF vs SERP cluster, LSI breadth, schema-as-signal)
+# Data: DataForSEO batch pull 20260504-012953 + related-keywords 20260504-013643
+
+target_keyword:
+  keyword: "asphalt shingle roofing"
+  search_volume: 40500
+  cpc_usd: 3.87
+  competition: LOW
+  source: DataForSEO Google Ads search_volume/live (US 2840, 2026-05-03)
+  read: |
+    Strong volume, LOW competition. CPC ($3.87) is lower than the transactional
+    variants because this keyword captures both information-seekers and buyers.
+    The real conversion anchor is "shingle roofing contractor" ($30.92 CPC,
+    LOW comp, 590 vol) — that term must appear in the H1 area and early body.
+    "Asphalt shingles" (49,500 vol) is the volume driver in body frequency.
+
+primary_secondaries:
+  - keyword: "asphalt shingles"
+    search_volume: 49500
+    cpc_usd: 2.54
+    competition: MEDIUM
+    read: "Volume monster. Use as highest-frequency body term throughout. MEDIUM comp at head level but negligible at service-page level."
+  - keyword: "asphalt shingles installation"
+    search_volume: 4400
+    cpc_usd: 8.24
+    competition: LOW
+    read: "Transactional variant — appears in meta description and near hero."
+  - keyword: "shingle roof replacement"
+    search_volume: 2900
+    cpc_usd: 21.47
+    competition: MEDIUM
+    read: "High-CPC secondary that bridges the replacement funnel. Use in the replacement context of body copy."
+  - keyword: "shingle roofing contractor"
+    search_volume: 590
+    cpc_usd: 30.92
+    competition: LOW
+    read: "Highest-CPC contractor term on the page. Deliberately include in opening paragraph and process section."
+
+lsi_keywords:
+  material_types:
+    - { kw: "architectural shingles", vol: 33100, note: "HIGH comp — informational; use in materials section" }
+    - { kw: "3 tab shingles", vol: 22200, note: "HIGH comp — informational; materials comparison" }
+    - { kw: "dimensional shingles", vol: 3600, note: "Synonym for architectural; use interchangeably" }
+    - { kw: "premium shingles", vol: 1300, note: "Third material tier; LOW comp" }
+  manufacturer_brands:
+    - { kw: "GAF shingles", vol: 22200, note: "HIGH comp — GAF is a ranking manufacturer. Pro Exteriors credentials open this." }
+    - { kw: "Owens Corning shingles", vol: 22200, note: "Same as GAF — brand authority through certified-installer positioning" }
+    - { kw: "GAF Master Elite", vol: 880, cpc: 10.17, note: "Key credential. Use 2-3× in trust signals and manufacturers band." }
+  cost_research:
+    - { kw: "asphalt shingle cost", vol: 12100, note: "High informational intent; address in FAQ" }
+    - { kw: "asphalt shingle roofing cost", vol: 12100, note: "Related-keywords result — confirms cost is a top question" }
+  installation_transactional:
+    - { kw: "roof shingles installation", vol: 2400, cpc: 10.28, note: "LOW comp; use in process section" }
+    - { kw: "asphalt roof installation", vol: 720, cpc: 9.36, note: "LOW comp; direct process reference" }
+  storm_hail:
+    - { kw: "hail damage roofing", vol: 8100, note: "Cross-content; natural mention in hail-resistance section" }
+    - { kw: "impact resistant shingles", vol: null, note: "Add as LSI — Class 4 positioning for hail belt" }
+  geographic_moats:
+    - { kw: "TX | Texas", note: "State moat — seed 2-4× naturally" }
+    - { kw: "CO | Colorado", note: "State moat" }
+    - { kw: "KS | Kansas", note: "State moat" }
+    - { kw: "MO | Missouri", note: "State moat" }
+    - { kw: "GA | Georgia", note: "State moat" }
+  read: |
+    DataForSEO related-keywords returned only 8 items for this seed — sparse.
+    This is consistent with the pattern on the residential pillar (also sparse).
+    LSI list manually augmented with material types, brand credentials,
+    cost/installation intent, storm cluster, and geographic moats.
+    LSI breadth target: page hits ≥70% of this list at least once.
+
+# ─── SERP analysis ───
+serp_read: |
+  Top 25 SERP for "asphalt shingle roofing" (2026-05-03):
+  Manufacturers: GAF (rank 3), CertainTeed (rank 4), Owens Corning (rank 8)
+  Retailers: Home Depot (rank 2), Menards (rank 9), ABC Supply (rank 11, 19)
+  Informational: Wikipedia (rank 10), ARMA (rank 12), Angi (rank 24)
+  Cost guides: Modernize (rank 20)
+  No contractor money pages in top 25.
+
+  STRATEGIC IMPLICATION: There is no contractor SERP cluster to benchmark TF
+  against — this keyword is effectively uncontested for contractor money pages.
+  Pro Exteriors entering this SERP with a well-structured contractor service page
+  (matching the transactional intent with "free inspection" + credentials) can
+  rank within 90 days because the SERP lacks exactly that content type.
+
+  TF targets below use manufacturer content patterns (what Google considers
+  authoritative for this topic) + contractor-specific additions (inspection,
+  contractor, multi-state) that are absent from manufacturer pages.
+
+# ─── Term-frequency targets ───
+term_frequency_targets:
+  "asphalt shingle roofing":
+    target_range: "5–8"
+    placement: "Title (1), H1 (1), meta (1), first 100 words (1), ≥2 more in body"
+    read: "Exact-match primary. Sparse SERP means no cluster to beat — target the conversion intent, not the cluster average."
+
+  "asphalt shingles":
+    target_range: "15–25"
+    read: "Volume driver at 49,500. Highest-frequency body term. Natural in materials section, process, FAQs."
+
+  shingles:
+    target_range: "30–45"
+    read: "Core stem. Every section mentions shingles naturally."
+
+  roofing:
+    target_range: "20–35"
+    read: "Core category term."
+
+  roof:
+    target_range: "20–30"
+    read: "Noun form alongside 'roofing'."
+
+  architectural:
+    target_range: "8–12"
+    read: "33,100-volume informational secondary. Materials section drives this naturally."
+
+  "3-tab":
+    target_range: "5–8"
+    read: "22,200-volume comparison term. Materials comparison section."
+
+  dimensional:
+    target_range: "3–5"
+    read: "Synonym for architectural — use interchangeably to avoid over-repetition."
+
+  gaf:
+    target_range: "5–8"
+    read: "Manufacturer credential anchor. Trust strip, manufacturers band, warranty section."
+
+  "owens corning":
+    target_range: "3–5"
+    read: "Second manufacturer credential."
+
+  "master elite":
+    target_range: "2–3"
+    read: "Key Pro Exteriors credential — only 2% of contractors hold this."
+
+  warranty:
+    target_range: "8–12"
+    read: "Major differentiator. Manufacturer warranties + workmanship warranty + transfer."
+
+  installation:
+    target_range: "10–15"
+    read: "Core service term. Process section drives this."
+
+  replacement:
+    target_range: "6–10"
+    read: "Captures 'shingle roof replacement' secondary."
+
+  contractor:
+    target_range: "5–8"
+    read: "Positions the page as a contractor page vs manufacturer page — essential for conversion."
+
+  inspection:
+    target_range: "5–8"
+    read: "CTA and process anchor."
+
+  hail:
+    target_range: "3–5"
+    read: "Hail-belt geographic positioning. FAQ + materials section."
+
+  geographic_state_moats:
+    target_range: "Each state 2–4×; 'five states' phrasing 1–2×"
+    read: "Same geo-moat strategy as the residential pillar."
+
+# ─── Schema types required ───
+schema_types_required:
+  - type: RoofingContractor
+    required: true
+    placement: "Page-level JSON-LD. Maps Pro Exteriors entity. hasOfferCatalog includes asphalt shingle service."
+  - type: Service
+    required: true
+    placement: "Specific block for asphalt shingle roofing service. serviceType, provider, areaServed (5 states)."
+  - type: BreadcrumbList
+    required: true
+    placement: "Home > Residential Roofing > Asphalt Shingle Roofing"
+  - type: FAQPage
+    required: true
+    placement: "Wraps all 4 FAQ items."
+
+# ─── Flags ───
+flags:
+  - id: no-contractor-serp-competition
+    severity: info
+    message: |
+      Uncontested territory for a contractor money page on this keyword.
+      Rank within 90 days is realistic with correct on-page structure.
+      Do not try to compete with manufacturer content — different intent.
+      Focus on the contractor-specific intent: who should install, why
+      Pro Exteriors, what the process looks like, what the warranties are.
+  - id: gaf-master-elite-verification
+    severity: warning
+    message: |
+      GAF Master Elite is a verified Pro Exteriors credential (appears on
+      Figma trust strip for the residential pillar). Confirm Chris has not
+      changed credentialing status before this ships. Master Elite allows
+      issuance of the Golden Pledge warranty — this is a major differentiator.
+  - id: cost-claims-source
+    severity: warning
+    message: |
+      "Asphalt shingle cost" is a 12,100-volume keyword. FAQ addresses it.
+      Any cost ranges MUST be marked [REPRESENTATIVE — NOT YET SOURCED]
+      until Chris confirms Pro Exteriors' actual pricing. Industry ranges
+      ($3.50–$6.50/sq ft installed) can be cited with source attribution.
+
+status: pass
+next_action: handoff
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline orchestration)
+  produced_at: 2026-05-03

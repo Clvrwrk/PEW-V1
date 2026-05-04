@@ -1,0 +1,90 @@
+# aia4-page-link manifest — Residential Roof Replacement
+# Phase 1 · 2026-05-03 · Kyle Roof reverse-silo
+
+silo_role: T2-money-page
+silo_parent: "/residential"
+silo_topic: "roof replacement — material selection hub for the residential silo"
+
+internal_links_out:
+
+  - anchor: "residential roofing contractor"
+    target: "/residential"
+    anchor_type: near-match
+    placement_hint: "Service overview first paragraph"
+
+  # DOWN to material service pages (this page is the material-selection hub)
+  - anchor: "asphalt shingle roofing"
+    target: "/residential/asphalt-shingles"
+    target_status: live
+    anchor_type: near-match
+    placement_hint: "Materials grid — asphalt card or service overview"
+
+  - anchor: "standing seam metal roofing"
+    target: "/residential/metal-roofing"
+    target_status: live
+    anchor_type: near-match
+    placement_hint: "Materials grid — metal card"
+
+  - anchor: "tile and clay roofing"
+    target: "/residential/tile-clay-roofing"
+    target_status: live
+    anchor_type: near-match
+    placement_hint: "Materials grid — tile card"
+
+  - anchor: "natural slate installation"
+    target: "/residential/natural-slate"
+    target_status: live
+    anchor_type: near-match
+    placement_hint: "Materials grid — slate card"
+
+  # ACROSS to insurance claim page (many replacements are storm-driven)
+  - anchor: "insurance claim assistance"
+    target: "/residential/insurance-claim-assistance"
+    target_status: planned-M3
+    anchor_type: descriptive
+    placement_hint: "FAQ answer 4 (insurance) and final CTA secondary"
+
+  # DOWN to blog supporters
+  - anchor: "five signs your roof needs replacing"
+    target: "/blog/5-signs-replacement"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Service overview — repair vs. replace section"
+
+  - anchor: "how much a roof replacement actually costs"
+    target: "/blog/how-much-does-a-roof-replacement-cost"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "FAQ answer 3 (cost)"
+
+  - anchor: "best time of year to schedule your new roof"
+    target: "/blog/best-time-of-year-to-replace-your-roof"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Process section or FAQ"
+
+internal_links_in_required:
+  - from: "/residential"
+    anchor: "complete residential roof replacement guide"
+    status: live
+
+  - from: "/residential/asphalt-shingles"
+    anchor: "complete roof replacement"
+    status: live    # wired in asphalt-shingles FAQ
+
+  - from: "/residential/metal-roofing"
+    anchor: "complete roof replacement"
+    status: live
+
+  - from: "/residential/hail-damage-repair"
+    anchor: "full roof replacement"
+    status: planned-Q2
+
+  - from: "/blog/5-signs-replacement"
+    anchor: "schedule a roof replacement assessment"
+    status: needs-update
+
+status: success
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

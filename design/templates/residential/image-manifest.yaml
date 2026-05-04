@@ -1,0 +1,215 @@
+# aia4-image-gen manifest — Residential Roofing Contractor pillar
+# Phase 3 deliverable. Image slots from copy.yaml mapped to source recommendations.
+#
+# CRITICAL CONTEXT: /brand-assets/client/_INVENTORY.md shows the client mirror is
+# essentially empty — the only file is `Outlook-2cqf4gde.jpg` (173 bytes, email
+# residue). Per CLAUDE.md §9: "every image is real Pro Exteriors work or it
+# doesn't ship." That rule blocks generated AI photos for residential rooftop
+# work. Therefore EVERY image slot below is marked [REPRESENTATIVE — NOT YET
+# SOURCED] and the page-qc Phase 5 will block ship until Chris provides real
+# Pro Exteriors photos via the brand-asset upload workflow.
+#
+# Higgsfield credentials are NOT configured in .env (only OPENROUTER_API_KEY,
+# HUEWRITE_API_KEY, FAL_KEY). Even if we wanted to generate, we couldn't use
+# Nano Banana Pro / GPT-Image-2 / Cinema Studio. Fal/Flux is available but
+# isn't appropriate for residential rooftop photography per the §9 rule.
+
+page:
+  slug: residential
+  total_image_slots: 14
+  real_assets_available: 0
+  placeholder_required: true
+
+# ─── Image slots, in DOM order ───
+slots:
+
+  - id: hero-residential
+    section: hero
+    role: "full-bleed hero background, dark-treated for legibility of overlay text"
+    dimensions: "1920×1080 minimum (full-bleed at 16:9), retina @2x preferred"
+    priority: critical
+    real_asset: null
+    placeholder: "/src/assets/placeholders/hero-residential.jpg"
+    placeholder_treatment: "Solid dark navy plate with the [REPRESENTATIVE — NOT YET SOURCED] badge in the top-right corner. No stock substitute."
+    alt: "Two-story residential home at dusk with porch light on, exterior in good condition — representative of the homes Pro Exteriors protects across TX, CO, KS, MO, and GA"
+    real_asset_brief: |
+      Need a real, professionally-shot photograph of a Pro Exteriors-completed
+      residential project at golden hour or twilight. Two-story home preferred.
+      Roofline must be clearly visible. Avoid identifiable street signs or
+      addresses. Use one of the higher-end TX or CO completed projects.
+
+  - id: feature-emergency
+    section: dual_feature_cards.card_emergency
+    role: "card image with left-darkening gradient, emergency/urgency mood"
+    dimensions: "584×492"
+    priority: critical
+    real_asset: null
+    placeholder: "/src/assets/placeholders/feature-emergency.jpg"
+    alt: "Real Pro Exteriors crew installing a blue tarp on a storm-damaged residential roof — gritty, in-progress, not staged"
+    real_asset_brief: |
+      Real on-job photo of a Pro Exteriors crew tarping a hail-damaged residential
+      roof. Crew member visible (with safety harness). Blue tarp visible. Wet/dark
+      sky preferred (storm-aftermath mood). NO stock; NO obvious smile-and-pose.
+
+  - id: feature-premium
+    section: dual_feature_cards.card_premium
+    role: "card image with left-darkening gradient, completed-project mood"
+    dimensions: "584×492"
+    priority: critical
+    real_asset: null
+    placeholder: "/src/assets/placeholders/feature-premium.jpg"
+    alt: "Real Pro Exteriors completed residential project — modern home exterior with new architectural shingles, sun on the roof line"
+    real_asset_brief: |
+      Hero shot of a completed Pro Exteriors residential project. Architectural
+      shingles preferred (it's the volume material). Daytime, golden-hour ideal.
+      Frame must show the roofline cleanly. One of the upscale TX or CO finished
+      projects works best here.
+
+  - id: service-asphalt
+    section: service_grid.cards[asphalt-shingles]
+    role: "service card image"
+    dimensions: "286×192"
+    priority: high
+    real_asset: null
+    placeholder: "/src/assets/placeholders/service-asphalt.jpg"
+    alt: "Close-up of properly installed architectural asphalt shingles on a residential roof, showing exposure pattern and ridge cap detail"
+    real_asset_brief: "Tight detail shot of asphalt shingle installation on a Pro Exteriors job. Ridge cap visible. Color-coordinated."
+
+  - id: service-metal
+    section: service_grid.cards[metal-roofing]
+    role: "service card image"
+    dimensions: "286×192"
+    priority: high
+    real_asset: null
+    placeholder: "/src/assets/placeholders/service-metal.jpg"
+    alt: "Standing-seam metal roof on a residential home, raised rib detail catching afternoon light"
+    real_asset_brief: "Standing-seam metal residential roof, raised rib detail, on a Pro Exteriors job."
+
+  - id: service-tile
+    section: service_grid.cards[tile-clay]
+    role: "service card image"
+    dimensions: "286×192"
+    priority: medium
+    real_asset: null
+    placeholder: "/src/assets/placeholders/service-tile.jpg"
+    alt: "Spanish clay tile residential roof with detailed flashing at the ridge"
+    real_asset_brief: "Spanish or Mediterranean tile roof on a Pro Exteriors job. Ridge flashing detail visible."
+
+  - id: service-slate
+    section: service_grid.cards[natural-slate]
+    role: "service card image"
+    dimensions: "286×192"
+    priority: medium
+    real_asset: null
+    placeholder: "/src/assets/placeholders/service-slate.jpg"
+    alt: "Natural slate residential roof, varied gray tones, in late-day sunlight"
+    real_asset_brief: "Natural slate residential roof on a Pro Exteriors job. Varied tones (Vermont/Spanish typical)."
+
+  - id: service-gutters
+    section: service_grid.cards[gutters]
+    role: "service card image"
+    dimensions: "286×192"
+    priority: high
+    real_asset: null
+    placeholder: "/src/assets/placeholders/service-gutters.jpg"
+    alt: "Newly installed seamless aluminum gutter on a residential home, downspout detail visible"
+    real_asset_brief: "Seamless aluminum gutter detail with downspout corner on a completed Pro Exteriors job."
+
+  - id: service-siding
+    section: service_grid.cards[siding]
+    role: "service card image"
+    dimensions: "286×192"
+    priority: medium
+    real_asset: null
+    placeholder: "/src/assets/placeholders/service-siding.jpg"
+    alt: "Fiber-cement siding installation on a residential exterior, board-and-batten profile detail"
+    real_asset_brief: "Fiber-cement siding detail on a Pro Exteriors job. Board-and-batten profile preferred."
+
+  - id: testimonial-michael-s
+    section: local_experts_proof.right_column.attribution
+    role: "small avatar (48×48) for testimonial card"
+    dimensions: "96×96 (will render at 48×48 @2x)"
+    priority: critical
+    real_asset: null
+    placeholder: "/src/assets/placeholders/testimonial-avatar-generic.jpg"
+    alt: "Pro Exteriors residential customer Michael S."
+    real_asset_brief: |
+      Real photo of the actual customer with signed photo release, OR substitute
+      with a real customer who has provided one. Per CLAUDE.md hard gate:
+      every testimonial is real. No stock avatars.
+
+  - id: case-tx
+    section: case_studies.cards[case-tx-storm]
+    role: "case study card image"
+    dimensions: "384×384"
+    priority: critical
+    real_asset: null
+    placeholder: "/src/assets/placeholders/case-tx.jpg"
+    alt: "Completed residential roof restoration on a Texas suburban home, after a hail storm — two-story brick exterior with new architectural shingles"
+    real_asset_brief: "Real completed Pro Exteriors TX residential project. Storm-restoration narrative preferred. Brick exterior preferred (regional vernacular)."
+
+  - id: case-co
+    section: case_studies.cards[case-co-metal]
+    role: "case study card image"
+    dimensions: "384×384"
+    priority: critical
+    real_asset: null
+    placeholder: "/src/assets/placeholders/case-co.jpg"
+    alt: "Standing-seam metal residential roof on a Colorado mountain-foothills home, late afternoon"
+    real_asset_brief: "Real completed Pro Exteriors CO residential project. Standing-seam metal preferred. Foothills/mountain backdrop ideal."
+
+  - id: case-ks
+    section: case_studies.cards[case-ks-hail]
+    role: "case study card image"
+    dimensions: "384×384"
+    priority: critical
+    real_asset: null
+    placeholder: "/src/assets/placeholders/case-ks.jpg"
+    alt: "Class 4 impact-rated architectural shingle residential roof on a Wichita Kansas home, completed after hail damage"
+    real_asset_brief: "Real completed Pro Exteriors KS residential project — hail-damage replacement narrative. If KS unavailable, substitute MO or GA but note in the manifest so the case-study eyebrow updates to match."
+
+  - id: financing-blueprint
+    section: financing_band.image_slot
+    role: "side image — overhead shot of estimate document on desk"
+    dimensions: "514×514"
+    priority: medium
+    real_asset: null
+    placeholder: "/src/assets/placeholders/financing-blueprint.jpg"
+    alt: "Pro Exteriors estimate document on a desk next to a roofing material sample and pen — representative of the line-item estimate process"
+    real_asset_brief: |
+      Overhead photo of a real Pro Exteriors estimate or proposal document
+      (anonymized — redact any customer identifiers) on a desk next to a
+      shingle sample and a pen. Documentary feel, no stock business photos.
+
+  - id: final-cta-background
+    section: final_cta.background_image_slot
+    role: "ghosted background at 10% opacity"
+    dimensions: "1920×600 minimum"
+    priority: low
+    real_asset: null
+    placeholder: "/src/assets/placeholders/final-cta-background.jpg"
+    alt: "Wide-angle residential rooftop view at golden hour, atmospheric, low-emphasis"
+    real_asset_brief: "Wide rooftop photo from a Pro Exteriors completed project. Will be heavily darkened in final treatment."
+
+# ─── Status ───
+status: warning
+warnings_count: 14
+critical_count: 8
+warnings:
+  - "All 14 image slots require real Pro Exteriors photos. Brand-asset mirror is empty."
+  - "8 slots are critical-priority (hero, both feature cards, testimonial avatar, all 3 case studies, financing) — page cannot ship without these."
+  - "6 slots are high or medium priority (5 service-grid cards + final-CTA background) — page can ship with placeholders carrying the [REPRESENTATIVE] badge if Chris explicitly accepts."
+next_action: escalate-to-user
+escalation_reason: |
+  The image-gen specialist requires either (a) real Pro Exteriors photos
+  uploaded to /brand-assets/client/photography/ and /brand-assets/client/projects/
+  with the inventory updated, OR (b) explicit Chris approval to ship the page
+  with [REPRESENTATIVE — NOT YET SOURCED] placeholder treatments visible. Per
+  CLAUDE.md §9, generated AI photos are forbidden for residential rooftop work.
+provenance:
+  produced_by: aia4-pagebuilder Phase 3 (inline orchestration)
+  produced_at: 2026-05-03
+  data_sources:
+    - design/templates/residential/copy.yaml
+    - brand-assets/client/_INVENTORY.md
+    - .env (credential availability check)

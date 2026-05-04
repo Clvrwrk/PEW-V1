@@ -1,0 +1,108 @@
+# Tile and Clay Roofing — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 on 2026-05-03
+# 12,100 vol on "clay tile roofing" but low CPC ($5.98) — informational intent; use "tile roof installation" as conversion anchor
+
+slug: tile-clay-roofing
+template: residential-service
+location: null
+target_keyword: "clay tile roofing"
+secondary_keywords:
+  - "tile roof installation"
+  - "concrete tile roofing"
+  - "Spanish tile roofing"
+  - "clay tile roof replacement"
+  - "tile roofing contractor"
+  - "tile roof repair"
+audience: residential-homeowner
+intent: solution-evaluation            # Premium upgrade segment — longer research cycle, higher job value
+hypothesis: |
+  "Clay tile roofing" earns 12,100 monthly searches at LOW competition and
+  $5.98 CPC — informational intent means searchers are researching before
+  buying. Pairing the volume-driver keyword (clay tile roofing, 12,100) with
+  the transactional anchor (tile roof installation, 1,300 vol, $17.52 CPC)
+  captures both phases of the buyer journey. Tile and clay projects have
+  higher average job values and attract a different homeowner profile (custom
+  homes, historic renovations, Southwestern aesthetics) — positioning Pro
+  Exteriors in this premium segment expands the customer mix.
+    (a) Rank in the top 5 for "clay tile roofing" in served states within
+        6 months; AND
+    (b) generate ≥15 qualified tile/clay inquiries per month within 90 days
+        as a soft metric (tile is a low-volume specialty — absolute numbers
+        are small but job values are high).
+
+seo_copy:
+  metadata:
+    title: "Clay & Tile Roof Installation — Pro Exteriors | TX, CO, KS, MO & GA"
+    meta_description: "Pro Exteriors installs and replaces clay tile, concrete tile & Spanish tile roofing across 5 states. Long-lasting, fire-resistant, and built for the Southwest and hail belt. Free assessment."
+    canonical: "https://proexteriorsus.com/residential/tile-clay-roofing"
+  body_path: null
+  html_path: null
+
+figma:
+  reuse_template: residential-pillar
+  section_plan:
+    - id: hero
+      component: ServiceHero
+      notes: "H1 = 'Clay and Tile Roofing by Pro Exteriors'. Primary CTA: 'Schedule a Free Tile Roof Assessment'. Secondary: 'Explore Tile Options'."
+    - id: trust_strip
+      component: inline
+      notes: "50–100 Year Lifespan | Fire Resistant | 5-State Coverage | [REPRESENTATIVE] rating | Specialist Crews"
+    - id: service_overview
+      component: SplitIntro
+      notes: "Left: why tile endures — fire resistance, longevity, thermal mass. Right: aesthetic range (Spanish S-tile, flat tile, barrel tile)."
+    - id: tile_types_grid
+      component: BenefitsGrid
+      notes: "3 cards: Clay Tile / Concrete Tile / Spanish (S-Tile). Each: appearance, weight requirements, lifespan, cost tier, regions it suits."
+    - id: local_experts_proof
+      component: StatBand + Testimonial
+      notes: "Specialty roofing credentials. Tile installations completed [REPRESENTATIVE]. Testimonial [REPRESENTATIVE]."
+    - id: process
+      component: QualityProcess
+      notes: "4 steps: Structural Assessment (tile is heavy — decking check) → Tile Selection → Staged Installation → Final Inspection & Warranty."
+    - id: case_studies
+      component: CaseStudyCard × 3
+      notes: "Tile projects — TX Spanish-tile home / CO mountain modern / custom home. All [REPRESENTATIVE]."
+    - id: cost_value
+      component: SplitIntro
+      notes: "Higher upfront cost, 50–100 year lifespan — per-year cost comparison vs asphalt. Financing available."
+    - id: faq
+      component: FAQ
+      notes: "(1) Is my roof structure strong enough for tile? (2) How long does clay tile roofing last? (3) Can tile roofing withstand hail? (4) What does tile roof installation cost compared to asphalt?"
+    - id: final_cta
+      component: CTABanner
+      notes: "Primary: 'Schedule Your Free Tile Roof Assessment'. Secondary: 'Compare All Roofing Materials' → /residential/roof-replacement."
+
+output:
+  page: "src/pages/residential/tile-clay-roofing/index.astro"
+  assets: "src/assets/residential/tile-clay-roofing/"
+
+silo:
+  role: T2-money-page
+  parent: "/residential"
+  parent_links_to_this_via: "tile and clay roofing options"
+  inbound_anchor_from_parent: descriptive
+  cross_links_to:
+    - "/residential/roof-replacement"
+    - "/residential/natural-slate"
+
+flags:
+  - id: structural-weight-disclaimer
+    severity: warning
+    message: |
+      Clay and concrete tile are significantly heavier than asphalt (9–12 lbs/sq ft
+      vs 2–4 lbs/sq ft). Page MUST mention that a structural assessment is required
+      before installation to determine if the existing decking can support the load.
+      Do NOT imply any home can get tile without this check.
+  - id: hail-resistance-nuance
+    severity: info
+    message: |
+      Clay tile is brittle and can crack under large hail. This is a real
+      objection in the hail belt. FAQ should address this honestly: tile is
+      not ideal for the highest-hail-frequency areas; the structural
+      assessment and geographic context matter. Don't obscure a legitimate
+      product limitation.
+
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

@@ -1,0 +1,63 @@
+# aia4-page-link manifest — Tarp Installation
+# Phase 1 · 2026-05-03 · Kyle Roof reverse-silo
+
+silo_role: T2-money-page
+silo_parent: "/residential"
+silo_topic: "emergency roof tarp installation — immediate storm response entry point"
+
+internal_links_out:
+
+  # UP to parent
+  - anchor: "residential roofing contractor"
+    target: "/residential"
+    anchor_type: near-match
+    placement_hint: "Next-steps band or FAQ context"
+
+  # ACROSS to storm cluster (permanent repair path)
+  - anchor: "storm damage roof repair"
+    target: "/residential/storm-damage-repair"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "Next-steps band — 'after the tarp' section"
+
+  - anchor: "insurance claim assistance"
+    target: "/residential/insurance-claim-assistance"
+    anchor_type: descriptive
+    target_status: live
+    placement_hint: "Next-steps band + FAQ answer 3 (insurance coverage)"
+
+  # ACROSS to hail (if tarp event follows hail)
+  - anchor: "hail damage repair"
+    target: "/residential/hail-damage-repair"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "Next-steps band (hail-specific context)"
+
+  # ACROSS to roof-replacement (worst-case path)
+  - anchor: "permanent roof replacement"
+    target: "/residential/roof-replacement"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "Next-steps band or FAQ answer 1 (after tarp — what next)"
+
+internal_links_in_required:
+  - from: "/residential"
+    anchor: "emergency roof tarping"
+    status: needs-wiring
+
+  - from: "/residential/storm-damage-repair"
+    anchor: "emergency roof tarping"
+    status: live    # wired in storm-damage-repair immediate steps step 2 + FAQ answer 3
+
+  - from: "/residential/hail-damage-repair"
+    anchor: "emergency roof tarping"
+    status: planned    # add when hail page ships to production
+
+notes:
+  - "storm-damage-repair already links here via two placements — reciprocal link confirmed."
+  - "This page is the entry point for active emergencies; internal links OUT are all permanent-repair paths (next-steps band). Keep the page lean — do not add excessive cross-links that slow the page or distract from the phone CTA."
+
+status: success
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

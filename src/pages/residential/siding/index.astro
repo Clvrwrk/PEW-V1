@@ -1,0 +1,457 @@
+---
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import FAQ from '../../../components/molecules/FAQ.astro';
+import Icon from '../../../components/atoms/Icon.astro';
+
+const title = "Siding Installation & Replacement — Pro Exteriors | TX, CO, KS, MO & GA";
+const description = "Pro Exteriors installs fiber-cement, vinyl & engineered wood siding across 5 states. Bundle siding with your roof project for one crew, one visit. Free assessment.";
+const canonicalPath = "/residential/siding";
+
+const roofingContractorSchema = {
+  "@type": "RoofingContractor",
+  "name": "Pro Exteriors",
+  "url": "https://proexteriorsus.com",
+  "telephone": "[REPRESENTATIVE]",
+  "areaServed": ["Texas","Colorado","Kansas","Missouri","Georgia"].map(n => ({ "@type": "State", "name": n }))
+};
+
+const serviceSchema = {
+  "@type": "Service",
+  "name": "Residential Siding Installation",
+  "serviceType": "Residential Siding Installation",
+  "provider": { "@type": "RoofingContractor", "name": "Pro Exteriors" },
+  "areaServed": ["Texas","Colorado","Kansas","Missouri","Georgia"].map(n => ({ "@type": "State", "name": n })),
+  "description": "Pro Exteriors installs fiber-cement, vinyl, and engineered wood siding for residential properties across Texas, Colorado, Kansas, Missouri, and Georgia. Storm damage and planned upgrades. Bundle with roof replacement for one crew, one claim."
+};
+
+const jsonLd = [roofingContractorSchema, serviceSchema];
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Residential Roofing", href: "/residential" },
+  { label: "Siding Installation", href: "/residential/siding" }
+];
+
+const materials = [
+  {
+    id: "fiber-cement",
+    icon: "shield",
+    title: "Fiber-Cement Siding",
+    body: "The most durable residential siding option for homes in hail-prone areas. Fiber cement — HardiePlank is the most widely specified brand — is significantly harder than vinyl and holds up better to impact damage from hail and wind-driven debris. It's paintable, available in a broad range of profiles, and resists moisture, rot, and pests. Higher material cost than vinyl; lower long-term maintenance cost.",
+    badge: "Best for Hail Zones"
+  },
+  {
+    id: "vinyl",
+    icon: "home",
+    title: "Vinyl Siding",
+    body: "The standard replacement material for most residential storm-damage claims and planned upgrades. Lower upfront cost than fiber cement, available in a wide color range, and requires no painting. In moderate-hail areas, vinyl performs well. In high-frequency hail zones, fiber cement is the more durable choice — we'll tell you which applies to your property.",
+    badge: "Most Common"
+  },
+  {
+    id: "engineered-wood",
+    icon: "tree",
+    title: "Engineered Wood Siding",
+    body: "For homeowners who want a wood-grain appearance without the maintenance of real wood siding. Engineered wood products (LP SmartSide is the most widely installed) are manufactured with resins that resist moisture and pests better than natural wood. Available in lap, panel, and trim profiles. A middle-ground option between vinyl's affordability and fiber cement's durability.",
+    badge: "Wood Look"
+  }
+];
+
+const processSteps = [
+  {
+    number: 1,
+    icon: "ruler",
+    title: "Free Assessment and Measurement",
+    body: "A Pro Exteriors estimator measures the full exterior, identifies any substrate damage (sheathing, housewrap, or moisture barrier issues that need remediation before new siding goes on), and documents the condition with photos for the insurance file if applicable."
+  },
+  {
+    number: 2,
+    icon: "layers",
+    title: "Material Selection",
+    body: "Fiber cement, vinyl, or engineered wood — with profile, color, and trim selections. If you're filing an insurance claim, we'll advise on which material matches your existing profile for adjuster approval. If this is a planned upgrade, we'll give you a direct comparison of the options that fit your budget and your climate."
+  },
+  {
+    number: 3,
+    icon: "hard-hat",
+    title: "Scheduled Installation",
+    body: "Crew arrives on schedule. Old siding removed and disposed. Substrate condition verified — if sheathing or housewrap needs replacement, that gets addressed before new siding goes on. Siding installed per manufacturer specs, including proper overlap, fastener pattern, and trim integration."
+  },
+  {
+    number: 4,
+    icon: "check-circle",
+    title: "Final Inspection and Cleanup",
+    body: "Full perimeter walk with the homeowner. Every panel, every corner, every trim piece. Site cleared of all debris and materials. If this was part of a combined roof+siding project, both systems are inspected before sign-off. Documentation provided for warranty registration."
+  }
+];
+
+const faqItems = [
+  {
+    question: "Can I replace siding and roofing at the same time?",
+    answer: "Yes, and in most storm-damage scenarios it's the right call. When wind or hail damages both the roof and the siding, documenting and replacing both systems on the same job scope has three practical advantages: one mobilization fee instead of two, a single insurance claim covering both line items, and a consistent installation timeline without a gap between the roofing and siding crews. The sequencing is always roofing first, siding second — so the new roofline is established before the siding trim and flashing work is completed at the eaves."
+  },
+  {
+    question: "What is the most durable siding material for hail-prone areas?",
+    answer: "For homes in active hail zones — parts of Texas, Colorado, Kansas, and Missouri — fiber-cement siding (HardiePlank and similar products) is more durable than standard vinyl. Fiber cement is significantly harder and holds up better to impact from hailstones and wind-driven debris than vinyl, which can dent or crack under large hail. That said, not every property needs fiber cement — if you're in an area with moderate hail frequency and the insurance replacement is covering vinyl, that may be the right economic choice. We'll give you a direct assessment during the estimate visit."
+  },
+  {
+    question: "Does homeowners insurance cover storm-damaged siding?",
+    answer: "In most standard homeowner policies, yes — siding damage caused by a covered storm event (hail, wind, tornado) is included in the claim settlement. The key is that the damage needs to be documented before the claim closes. If your adjuster has already been out for the roof and didn't inspect the siding, a supplement can often be filed before settlement. We document siding condition alongside roofing at every storm-damage assessment — nothing gets left off the initial inspection."
+  },
+  {
+    question: "How long does siding installation take?",
+    answer: "A whole-home siding replacement on a standard residential property typically runs 2–5 days depending on the square footage, the material selected (fiber cement takes longer to install than vinyl), and whether substrate repairs are needed. A partial replacement — one elevation, or storm-damaged sections only — is typically 1–2 days. When combined with a roof replacement, the combined project runs 4–8 days depending on scope. We give you a specific timeline at the estimate visit, not a range."
+  }
+];
+---
+
+<!-- Conversion hypothesis: top-5 organic "siding installation" + ≥10% combined siding+roof revenue increase within 6 months via dual-service quotes from this page -->
+
+<BaseLayout {title} {description} {canonicalPath} {jsonLd}>
+
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- ═══ HERO ═══ -->
+  <section style="position: relative; min-height: 580px; background: linear-gradient(135deg, var(--color-surface-dark, #0f172a) 0%, var(--color-surface-mid, #1e293b) 60%, #0d1f1a 100%); display: flex; align-items: center; padding: 80px 24px;">
+    <div style="max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+
+      <div>
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 16px;">
+          SIDING INSTALLATION & REPLACEMENT — TX · CO · KS · MO · GA
+        </p>
+        <h1 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; color: #ffffff; margin-bottom: 20px; letter-spacing: -0.02em;">
+          Residential Siding Installation by Pro Exteriors
+        </h1>
+        <p style="font-size: 1.125rem; line-height: 1.65; color: rgba(255,255,255,0.8); margin-bottom: 36px; max-width: 520px;">
+          Storm damage to the siding? We handle it on the same job as the roof. Or start from scratch — free assessment either way.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <a href="/contact?intent=siding-assessment&source=siding-hero"
+             style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: var(--color-accent, #f97316); color: #ffffff; font-size: 1rem; font-weight: 700; padding: 14px 28px; border-radius: 6px; text-decoration: none; min-height: 48px;"
+             data-event-action="cta-click"
+             data-event-label="hero-primary"
+             data-event-category="siding">
+            Get a Free Siding Assessment
+          </a>
+          <a href="#bundle"
+             style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: rgba(255,255,255,0.1); color: #ffffff; font-size: 1rem; font-weight: 600; padding: 14px 28px; border-radius: 6px; text-decoration: none; min-height: 48px; border: 1px solid rgba(255,255,255,0.2);"
+             data-event-action="cta-click"
+             data-event-label="hero-secondary"
+             data-event-category="siding">
+            Bundle with Your Roof Project
+          </a>
+        </div>
+      </div>
+
+      <div style="aspect-ratio: 4/3; background-color: rgba(255,255,255,0.06); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <em style="color: rgba(255,255,255,0.3); font-style: normal; font-size: 0.875rem;" title="Not yet sourced">[REPRESENTATIVE — Siding installation photo]</em>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ TRUST STRIP ═══ -->
+  <div style="background-color: var(--color-surface-dark, #0f172a); border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 8px 32px; align-items: center; justify-content: center;">
+      {[
+        { icon: "wind", label: "Storm Damage Specialists" },
+        { icon: "layers", label: "Roof + Siding Bundle" },
+        { icon: "map-pin", label: "TX · CO · KS · MO · GA" },
+        { icon: "shield", label: "Licensed & Insured" },
+        { icon: "star", label: "[REPRESENTATIVE] Google Rating" }
+      ].map(item => (
+        <div style="display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.85); font-size: 0.875rem; font-weight: 500; white-space: nowrap;">
+          <Icon name={item.icon} size={16} color="var(--color-accent, #f97316)" aria-hidden="true" />
+          {item.label.includes("[") ? <em style="font-style: normal;" title="Not yet sourced">{item.label}</em> : item.label}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ═══ SERVICE OVERVIEW ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface, #ffffff);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+
+      <div>
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          ONE CONTRACTOR, FULL EXTERIOR
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); margin-bottom: 24px; letter-spacing: -0.02em;">
+          Storm Events Don't Pick Favorites. Wind and Hail Hit the Roof and the Siding at the Same Time.
+        </h2>
+        <div style="font-size: 1rem; line-height: 1.75; color: var(--color-text-secondary, #475569);">
+          <p style="margin-bottom: 20px;">
+            When a hail storm or high-wind event damages a home, the siding and the roof
+            absorb the same event. Most homeowners separate the trades — roofing contractor
+            first, siding contractor later — because that's how the industry is typically
+            organized. The result is two mobilizations, two insurance line items, two
+            inspection visits, and two scheduling windows.
+          </p>
+          <p style="margin-bottom: 20px;">
+            Pro Exteriors handles both. As a licensed residential exterior contractor
+            across Texas, Colorado, Kansas, Missouri, and Georgia, we scope and install
+            siding replacements alongside roof work on the same job — or as a standalone
+            project for homeowners upgrading a home that wasn't storm-damaged.
+          </p>
+          <p>
+            The material options are fiber cement (the most durable option in hail-prone
+            areas — holds up to impact better than standard vinyl and doesn't require
+            repainting as frequently), vinyl (the standard cost-effective choice for most
+            planned upgrades and insurance replacements), and engineered wood (for
+            homeowners who want a wood-look appearance without the maintenance of real wood).
+            We'll walk through which material makes sense for your project during the free assessment.
+          </p>
+        </div>
+        <div style="margin-top: 32px;">
+          <a href="/contact?intent=siding-assessment&source=siding-overview"
+             style="display: inline-flex; align-items: center; gap: 8px; background-color: var(--color-accent, #f97316); color: #ffffff; font-size: 0.9375rem; font-weight: 700; padding: 13px 24px; border-radius: 6px; text-decoration: none;"
+             data-event-action="cta-click"
+             data-event-label="overview-cta"
+             data-event-category="siding">
+            Get a Free Siding Assessment
+          </a>
+        </div>
+      </div>
+
+      <div style="aspect-ratio: 4/3; background-color: var(--color-surface-subtle, #f8fafc); border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-border, #e2e8f0);">
+        <em style="color: var(--color-text-muted, #94a3b8); font-style: normal; font-size: 0.875rem;" title="Not yet sourced">[REPRESENTATIVE — Completed fiber-cement siding project photo]</em>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ MATERIALS GRID ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface-subtle, #f8fafc);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          SIDING MATERIALS
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); letter-spacing: -0.02em;">
+          Three Materials. Different Applications.
+        </h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        {materials.map(mat => (
+          <div style="background-color: var(--color-surface, #ffffff); border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; padding: 32px; position: relative;">
+            <div style="position: absolute; top: 16px; right: 16px; background-color: var(--color-accent, #f97316); color: #ffffff; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px;">
+              {mat.badge}
+            </div>
+            <div style="width: 48px; height: 48px; background-color: rgba(249,115,22,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+              <Icon name={mat.icon} size={24} color="var(--color-accent, #f97316)" aria-hidden="true" />
+            </div>
+            <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--color-surface-dark, #0f172a); margin-bottom: 12px; line-height: 1.3;">
+              {mat.title}
+            </h3>
+            <p style="font-size: 0.9375rem; line-height: 1.65; color: var(--color-text-secondary, #475569);">
+              {mat.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STAT BAND + TESTIMONIAL ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface-dark, #0f172a);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 72px; text-align: center;">
+        {[
+          { value: "15+", label: "Years in Business" },
+          { value: "5", label: "States Served" },
+          { value: "[REPRESENTATIVE]", label: "Siding Projects Completed" }
+        ].map(stat => (
+          <div>
+            <p style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; color: var(--color-accent, #f97316); line-height: 1; margin-bottom: 8px;">
+              {stat.value.includes("[") ? <em style="font-style: normal;" title="Not yet sourced">{stat.value}</em> : stat.value}
+            </p>
+            <p style="font-size: 0.9375rem; color: rgba(255,255,255,0.7); font-weight: 500;">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+        <div>
+          <p style="font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.75);">
+            Pro Exteriors operates as a licensed residential exterior contractor across all
+            five states we serve. Our crews handle siding installation alongside roofing work
+            in Texas, Colorado, Kansas, Missouri, and Georgia — which matters when a storm
+            event damages both systems and a homeowner needs one contractor managing the
+            full project scope through a single insurance claim.
+          </p>
+        </div>
+        <div style="background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 32px;">
+          <div style="display: flex; gap: 4px; margin-bottom: 16px;" aria-label="5 out of 5 stars">
+            {[1,2,3,4,5].map(() => (
+              <Icon name="star" size={18} color="#f59e0b" aria-hidden="true" />
+            ))}
+          </div>
+          <blockquote style="font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,0.85); font-style: italic; margin-bottom: 20px;">
+            <em title="Not yet sourced">[REPRESENTATIVE — Real customer testimonial on siding or siding+roof project. Signed release required before ship.]</em>
+          </blockquote>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;">
+              <em style="font-style: normal; color: rgba(255,255,255,0.4); font-size: 0.75rem;" title="Not yet sourced">IMG</em>
+            </div>
+            <div>
+              <p style="font-weight: 600; color: #ffffff; font-size: 0.875rem;">
+                <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE — Customer Name, City, State]</em>
+              </p>
+              <p style="font-size: 0.8125rem; color: rgba(255,255,255,0.5);">Verified Customer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROCESS ═══ -->
+  <section id="process" style="padding: 96px 24px; background-color: var(--color-surface, #ffffff);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          HOW WE WORK
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); letter-spacing: -0.02em;">
+          Four Steps from Assessment to Finished Exterior.
+        </h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+        {processSteps.map(step => (
+          <div style="position: relative; padding: 32px; background-color: var(--color-surface-subtle, #f8fafc); border-radius: 8px; border: 1px solid var(--color-border, #e2e8f0);">
+            <div style="font-size: 3rem; font-weight: 800; color: rgba(249,115,22,0.15); line-height: 1; margin-bottom: 16px;">
+              {step.number.toString().padStart(2, '0')}
+            </div>
+            <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--color-surface-dark, #0f172a); margin-bottom: 12px; line-height: 1.3;">
+              {step.title}
+            </h3>
+            <p style="font-size: 0.9375rem; line-height: 1.65; color: var(--color-text-secondary, #475569);">
+              {step.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CASE STUDIES ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface-subtle, #f8fafc);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          PROJECT EXAMPLES
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); letter-spacing: -0.02em;">
+          Siding Work from the Field.
+        </h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        {["cs-1","cs-2","cs-3"].map((id, i) => (
+          <div style="background-color: var(--color-surface, #ffffff); border: 1px solid var(--color-border, #e2e8f0); border-radius: 8px; overflow: hidden;">
+            <div style="aspect-ratio: 16/9; background-color: var(--color-surface-subtle, #f8fafc); display: flex; align-items: center; justify-content: center;">
+              <em style="color: var(--color-text-muted, #94a3b8); font-style: normal; font-size: 0.8125rem;" title="Not yet sourced">[REPRESENTATIVE — Siding project photo {i+1}]</em>
+            </div>
+            <div style="padding: 24px;">
+              <p style="font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 8px;">
+                <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE]</em>
+              </p>
+              <h3 style="font-size: 1.0625rem; font-weight: 700; color: var(--color-surface-dark, #0f172a); margin-bottom: 8px; line-height: 1.3;">
+                <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE — Project title, city, state]</em>
+              </h3>
+              <p style="font-size: 0.875rem; color: var(--color-text-secondary, #475569); line-height: 1.6;">
+                <em style="font-style: normal;" title="Not yet sourced">[REPRESENTATIVE — Siding scope and outcome]</em>
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BUNDLE BAND ═══ -->
+  <section id="bundle" style="padding: 96px 24px; background-color: var(--color-surface, #ffffff);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+
+      <div style="aspect-ratio: 4/3; background-color: var(--color-surface-subtle, #f8fafc); border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-border, #e2e8f0);">
+        <em style="color: var(--color-text-muted, #94a3b8); font-style: normal; font-size: 0.875rem;" title="Not yet sourced">[REPRESENTATIVE — Roof + siding combined project photo]</em>
+      </div>
+
+      <div>
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          FULL EXTERIOR BUNDLE
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); margin-bottom: 24px; letter-spacing: -0.02em;">
+          Roof. Gutters. Siding. One Crew. One Claim.
+        </h2>
+        <div style="font-size: 1rem; line-height: 1.75; color: var(--color-text-secondary, #475569);">
+          <p style="margin-bottom: 20px;">
+            Storm events don't respect trade boundaries. Wind and hail that blow through
+            a neighborhood damage roofs, gutters, and siding in the same 20-minute window —
+            and insurance adjusters want documentation of all three systems at the same time.
+            Separating the trades means separate claim supplements, separate mobilization costs,
+            and a homeowner coordinating three different contractor schedules.
+          </p>
+          <p style="margin-bottom: 20px;">
+            Pro Exteriors handles the full exterior on a single project scope. A
+            <a href="/residential/roof-replacement" style="color: var(--color-accent, #f97316); text-decoration: underline;">roof replacement</a>,
+            seamless gutter installation, and siding replacement — one contract, one insurance
+            claim, one crew pulling the full scope. If you're working through a
+            <a href="/residential/storm-damage-repair" style="color: var(--color-accent, #f97316); text-decoration: underline;">storm damage claim</a>,
+            we document all three systems during the initial inspection so nothing gets missed.
+          </p>
+          <p>
+            If you're adding gutters to the siding project, see our
+            <a href="/residential/seamless-gutters" style="color: var(--color-accent, #f97316); text-decoration: underline;">seamless gutter installation</a>
+            page for what that scope includes.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface-subtle, #f8fafc);">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 12px;">
+          FREQUENTLY ASKED
+        </p>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; line-height: 1.2; color: var(--color-surface-dark, #0f172a); letter-spacing: -0.02em;">
+          Siding Installation Questions, Answered.
+        </h2>
+      </div>
+      <FAQ items={faqItems} />
+    </div>
+  </section>
+
+  <!-- ═══ FINAL CTA ═══ -->
+  <section style="padding: 96px 24px; background-color: var(--color-surface-dark, #0f172a);">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent, #f97316); margin-bottom: 16px;">
+        SIDING INSTALLATION
+      </p>
+      <h2 style="font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; line-height: 1.15; color: #ffffff; margin-bottom: 20px; letter-spacing: -0.02em;">
+        Storm Damage or Planned Upgrade. Free Assessment Either Way.
+      </h2>
+      <p style="font-size: 1.125rem; line-height: 1.65; color: rgba(255,255,255,0.75); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Siding installation and replacement across Texas, Colorado, Kansas, Missouri, and Georgia. Bundle with your roof project for one crew, one claim.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+        <a href="/contact?intent=siding-assessment&source=siding-final-cta"
+           style="display: inline-flex; align-items: center; justify-content: center; background-color: var(--color-accent, #f97316); color: #ffffff; font-size: 1rem; font-weight: 700; padding: 16px 32px; border-radius: 6px; text-decoration: none; min-height: 52px;"
+           data-event-action="cta-click"
+           data-event-label="final-cta-primary"
+           data-event-category="siding">
+          Schedule Your Free Siding Assessment
+        </a>
+        <a href="/residential/roof-replacement"
+           style="display: inline-flex; align-items: center; justify-content: center; background-color: rgba(255,255,255,0.1); color: #ffffff; font-size: 1rem; font-weight: 600; padding: 16px 32px; border-radius: 6px; text-decoration: none; min-height: 52px; border: 1px solid rgba(255,255,255,0.2);"
+           data-event-action="cta-click"
+           data-event-label="final-cta-secondary"
+           data-event-category="siding">
+          Bundle with a Roof Replacement
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

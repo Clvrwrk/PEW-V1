@@ -1,0 +1,80 @@
+# aia4-seo-validator manifest — Residential Roof Replacement
+# Phase 1 · 2026-05-03
+
+target_keyword:
+  keyword: "roof replacement"
+  search_volume: 49500
+  cpc_usd: 28.79
+  competition: LOW
+  read: |
+    Highest CPC in the residential silo. $28.79 signals the clearest transactional
+    intent — homeowners who have decided to replace, not just research. LOW comp
+    despite high volume is unusual and represents the primary ranking opportunity
+    on this site. Page must lead with "free inspection + transparent estimate" as
+    the conversion mechanism, not just service description.
+
+primary_secondaries:
+  - keyword: "residential roof replacement"
+    search_volume: 8100
+    cpc_usd: 22.40
+    competition: LOW
+    read: "Residential modifier — appears in H1 and meta description."
+  - keyword: "roof replacement cost"
+    search_volume: 33100
+    cpc_usd: 8.50
+    competition: LOW
+    read: "Cost is the #1 research question. Must appear in FAQ and cost section."
+  - keyword: "new roof installation"
+    search_volume: 5400
+    cpc_usd: 15.30
+    competition: LOW
+    read: "Synonym — use interchangeably with 'roof replacement' in body."
+  - keyword: "when to replace a roof"
+    search_volume: 6600
+    cpc_usd: 4.20
+    competition: LOW
+    read: "Captures research-phase searchers. 'Repair vs. replace' section anchors this."
+
+lsi_keywords:
+  decision:
+    - { kw: "repair or replace roof", vol: 3600 }
+    - { kw: "roof replacement process", vol: 1300 }
+    - { kw: "how long does roof replacement take", vol: 2900 }
+  materials:
+    - { kw: "asphalt shingles", vol: 49500 }
+    - { kw: "metal roofing", vol: 110000 }
+    - { kw: "tile roofing", vol: 12100 }
+    - { kw: "slate roofing", vol: 9900 }
+  geographic_moats:
+    - TX, CO, KS, MO, GA (2–4× each)
+
+term_frequency_targets:
+  "roof replacement":
+    target_range: "10–16"
+    placement: "Title (1), H1 (1), meta (1), first 100 words (1), section headings (2–3), body (4–6)"
+  "residential roof replacement":
+    target_range: "4–6"
+  replacement:
+    target_range: "20–30"
+  roofing:
+    target_range: "15–25"
+  installation:
+    target_range: "8–12"
+  inspection:
+    target_range: "5–8"
+  warranty:
+    target_range: "5–8"
+  material_names: "Each of asphalt/metal/tile/slate 3–5×"
+  geographic_moats: "Each state 2–4×"
+
+schema_types_required:
+  - type: RoofingContractor
+  - type: Service
+    notes: "serviceType: Residential Roof Replacement"
+  - type: BreadcrumbList
+  - type: FAQPage
+
+status: pass
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

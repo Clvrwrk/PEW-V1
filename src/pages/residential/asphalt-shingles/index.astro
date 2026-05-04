@@ -1,0 +1,672 @@
+---
+/* ═══════════════════════════════════════════════════════════════════════════
+   /residential/asphalt-shingles — T2 money page
+   ───────────────────────────────────────────────────────────────────────────
+   Build pipeline: AIA4 PageBuilder · Phase 0–6 · 2026-05-03
+   Brief:        design/templates/asphalt-shingles/brief.yaml
+   Copy:         design/templates/asphalt-shingles/copy.yaml
+   Schema:       design/templates/asphalt-shingles/seo-validator-manifest.yaml
+   Links:        design/templates/asphalt-shingles/page-link-manifest.yaml
+   Layout plan:  design/templates/asphalt-shingles/layout-manifest.yaml
+   Image plan:   design/templates/asphalt-shingles/image-manifest.yaml
+
+   ━ Conversion hypothesis (CLAUDE.md §4 hard gate) ━━━━━━━━━━━━━━━━━━━━━━━━━
+   No contractor money pages in top-25 SERP for "asphalt shingle roofing"
+   (2026-05-03). Page leads with GAF Master Elite credential + free inspection
+   CTA against uncontested intent. Target:
+     (a) Top-3 organic for "asphalt shingle roofing" in TX/CO/KS/MO/GA geos
+         within 90 days (LOW competition, no contractor SERP cluster to beat); AND
+     (b) ≥25% of /residential/asphalt-shingles sessions that click a CTA
+         complete the /contact inspection-request form within 30 days of launch.
+   Both gates measured at 90-day review.
+
+   ━ SHIP-BLOCKING [REPRESENTATIVE] markers (Phase 5 page-qc clears) ━━━━━━━━
+   • Hero image — need real Pro Exteriors asphalt-shingle project photo
+   • GAF Master Elite logo — need permission confirmation from Pro Exteriors
+   • Owens Corning Preferred logo — same
+   • Trust-strip rating — need actual GBP figure
+   • Testimonial — need real customer quote + signed release
+   • All 3 case studies — need real completed projects with signed releases
+   • Phone number in final CTA — need national tracking number or IVR
+   • "2,500+ Roofs Installed" stat — verify against CRM
+   • Cost ranges in FAQ — need Pro Exteriors confirmed ranges or sourced citation
+   • Insurance premium discount claim in FAQ — verify before ship
+
+   ━ Analytics (CLAUDE.md §4 hard gate) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Every CTA carries data-event-* attributes. Phase 5 code-qc verifies:
+     1. Hero primary + secondary fire distinct events (separate ?intent= params)
+     2. Process CTA fires with source=asphalt-shingles-process
+     3. Warranty CTA fires with source=asphalt-shingles-warranty
+     4. Final CTA primary fires with source=asphalt-shingles-final-cta
+     5. Final CTA phone fires data-event-routing="per-state-ivr"
+   ─────────────────────────────────────────────────────────────────────────────
+   TEMPLATE NOTE: This is the canonical residential-service page template.
+   Pages that inherit this pattern: metal-roofing, roof-replacement,
+   insurance-claim-assistance, storm-damage-repair, hail-damage-repair,
+   tarp-installation, seamless-gutters, siding, tile-clay-roofing, natural-slate.
+═══════════════════════════════════════════════════════════════════════════ */
+
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import FAQ from '../../../components/molecules/FAQ.astro';
+import Icon from '../../../components/atoms/Icon.astro';
+import Button from '../../../components/atoms/Button.astro';
+
+/* ── Page metadata ─────────────────────────────────────────────────────────
+   Title: 70 chars · Description: 158 chars (within 70–160 target)
+────────────────────────────────────────────────────────────────────────── */
+const title       = "Asphalt Shingle Roofing — Expert Installation & Replacement | Pro Exteriors";
+const description = "Pro Exteriors installs and replaces asphalt shingles across TX, CO, KS, MO & GA. GAF Master Elite certified. Architectural, 3-tab & premium shingles. Free inspection.";
+const canonicalPath = "/residential/asphalt-shingles";
+
+/* ── JSON-LD schema (per seo-validator-manifest.yaml) ────────────────────
+   Types: RoofingContractor, Service, BreadcrumbList (auto), FAQPage (auto).
+   Review/AggregateRating: OMITTED until sourced.
+─────────────────────────────────────────────────────────────────────────── */
+const roofingContractorSchema = {
+  "@context": "https://schema.org",
+  "@type": "RoofingContractor",
+  "@id": "https://proexteriorsus.com/#roofing-contractor",
+  "name": "Pro Exteriors",
+  "url": "https://proexteriorsus.com",
+  "logo": "https://proexteriorsus.com/images/pro-exteriors-logo.svg",
+  "areaServed": [
+    { "@type": "State", "name": "Texas" },
+    { "@type": "State", "name": "Colorado" },
+    { "@type": "State", "name": "Kansas" },
+    { "@type": "State", "name": "Missouri" },
+    { "@type": "State", "name": "Georgia" }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Asphalt Shingle Roofing — Installation and Replacement",
+  "provider": { "@id": "https://proexteriorsus.com/#roofing-contractor" },
+  "areaServed": [
+    { "@type": "State", "name": "Texas" },
+    { "@type": "State", "name": "Colorado" },
+    { "@type": "State", "name": "Kansas" },
+    { "@type": "State", "name": "Missouri" },
+    { "@type": "State", "name": "Georgia" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Asphalt Shingle Roofing Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "3-Tab Shingle Installation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Architectural Shingle Installation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium Designer Shingle Installation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Asphalt Shingle Roof Replacement" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GAF Golden Pledge Warranty Installation" } }
+    ]
+  }
+};
+
+// BreadcrumbList auto-rendered by Breadcrumb.astro — not duplicated here.
+// FAQPage auto-rendered by FAQ.astro — not duplicated here.
+
+const jsonLd = [roofingContractorSchema, serviceSchema];
+
+/* ── Materials grid data ─────────────────────────────────────────────────── */
+const materials = [
+  {
+    id: "3-tab",
+    eyebrow: "",
+    h3: "3-Tab Shingles",
+    body: `The entry-level asphalt shingle. Three flat tabs cut to a uniform size give
+           a clean, classic look at the lowest cost point. Typical lifespans run 20–25
+           years with a manufacturer warranty to match. 3-tab shingles work well for
+           rental properties, budget-driven replacements, and homes in lower wind-load
+           zones. They are lighter than architectural shingles and require less
+           structural support.`,
+    specs: ["Lifespan: 20–25 years","Warranty: 20–25 year manufacturer","Weight: ~2.0–2.5 lbs/sq ft","Best for: Budget replacements, rentals"],
+    img: "/images/placeholders/material-3tab.jpg",
+    alt: "3-tab asphalt shingles on a residential roof",
+  },
+  {
+    id: "architectural",
+    eyebrow: "MOST POPULAR",
+    h3: "Architectural Shingles",
+    body: `Architectural shingles — also called dimensional or laminate shingles —
+           are the standard choice for residential roof replacement in 2026. The
+           laminated construction creates a textured, layered appearance that mimics
+           natural wood shake at a fraction of the cost. Wind resistance is
+           significantly better than 3-tab (rated to 110–130 mph depending on the
+           product), and warranty coverage stretches to 30–50 years from GAF and
+           Owens Corning. If you are replacing a roof in Texas, Colorado, Kansas,
+           or Missouri, architectural shingles are almost always the right answer.`,
+    specs: ["Lifespan: 25–50 years","Warranty: 30–50 year manufacturer (GAF, Owens Corning)","Weight: ~2.8–3.5 lbs/sq ft","Wind rating: 110–130 mph","Best for: Standard residential replacement"],
+    img: "/images/placeholders/material-architectural.jpg",
+    alt: "Architectural dimensional asphalt shingles installed on a residential home",
+  },
+  {
+    id: "premium",
+    eyebrow: "",
+    h3: "Premium Designer Shingles",
+    body: `Premium shingles are engineered to simulate the look of natural slate or
+           cedar shake without the weight or maintenance. They are the heaviest
+           asphalt option and carry the most comprehensive warranties — lifetime
+           coverage is available through GAF's Grand Sequoia and Presidential
+           Shake lines and Owens Corning's Berkshire Collection. Pro Exteriors'
+           GAF Master Elite certification allows us to issue the Golden Pledge
+           warranty on qualifying premium installations. For homeowners who want
+           the durability of a premium asphalt product without the complexity of
+           tile or slate, this is the category.`,
+    specs: ["Lifespan: 40 years to lifetime","Warranty: Lifetime manufacturer + Golden Pledge available (GAF)","Weight: varies by product","Best for: Premium upgrades, distinctive aesthetics"],
+    img: "/images/placeholders/material-premium.jpg",
+    alt: "Premium designer asphalt shingles simulating natural slate on a luxury home",
+  },
+];
+
+/* ── Process steps ──────────────────────────────────────────────────────── */
+const processSteps = [
+  { num: 1, icon: "search",       title: "Free Roof Inspection",             body: "A certified Pro Exteriors crew member inspects your current roof — condition, age, decking, ventilation, and drainage. We document everything with photos and measurements before we quote a single number." },
+  { num: 2, icon: "clipboard",    title: "Shingle Recommendation",           body: "Based on your roof geometry, local wind and hail exposure, budget, and aesthetic preferences, we recommend the right shingle tier and product from our GAF and Owens Corning lines. You choose — we never upsell you past what you actually need." },
+  { num: 3, icon: "wrench",       title: "Scheduled Installation",           body: "We put your project on the calendar and show up when we say we will. Our crews handle the tearoff, decking inspection and repair, underlayment, ice-and-water shield in required zones, and full shingle installation in a single staged job." },
+  { num: 4, icon: "check-circle", title: "Final Walkthrough & Warranty Registration", body: "We walk the finished roof with you, confirm cleanup is complete, and register your manufacturer warranty before we leave. GAF Golden Pledge and Owens Corning warranty registrations are done at the job site, not later." },
+];
+
+/* ── FAQ items ─────────────────────────────────────────────────────────── */
+const faqItems = [
+  {
+    question: "What is the difference between 3-tab and architectural shingles?",
+    answer: `3-tab shingles are a single layer cut into three flat tabs — uniform, lightweight, and affordable. Architectural shingles (also called dimensional or laminate shingles) use a double layer of asphalt bonded together, which creates a textured, dimensional look and significantly better wind and impact resistance. For most residential <a href="/residential/roof-replacement">roof replacements</a> in Texas, Colorado, Kansas, Missouri, and Georgia, we recommend architectural shingles — the gap in cost is modest and the durability improvement is substantial. Read our full <a href="/blog/architectural-vs-3-tab-shingles">architectural vs. 3-tab shingle comparison</a> for a deeper breakdown.`,
+  },
+  {
+    question: "How long do asphalt shingles last?",
+    answer: `It depends on the product tier. 3-tab shingles typically last 20–25 years. Architectural shingles run 25–50 years depending on the product line and how well the roof is ventilated and maintained. Premium designer shingles from GAF and Owens Corning carry lifetime warranties on the shingle itself (though prorations apply after a certain age). Installation quality has as much impact on actual lifespan as the product specification — a premium shingle improperly installed will fail earlier than a mid-grade shingle installed correctly. See <a href="/blog/5-signs-replacement">five signs your roof needs replacing</a> if you are unsure about your current roof's condition.`,
+  },
+  {
+    question: "What does asphalt shingle roofing cost?",
+    answer: `Installed cost varies by shingle tier, roof complexity, square footage, tearoff layers, and decking condition. As a directional range, 3-tab installations run lower than architectural, which run lower than premium designer shingles. <span class="text-slate-500 italic text-sm">[REPRESENTATIVE — NOT YET SOURCED: Insert Pro Exteriors' confirmed price ranges per shingle tier before this ships.]</span> Every Pro Exteriors job starts with a free inspection and a detailed line-item estimate — you will know exactly what you are paying for before we pull a permit. See <a href="/blog/how-much-does-a-roof-replacement-cost">how much a roof replacement actually costs</a> for a framework to evaluate any estimate you receive.`,
+  },
+  {
+    question: "Can asphalt shingles withstand hail?",
+    answer: `Standard architectural shingles hold up to moderate hail events. For homeowners in Texas, Colorado, and Kansas — where large hail is a recurring weather risk — we often recommend Class 4 impact-resistant shingles, which have been tested to withstand 2-inch steel ball drops per UL 2218 standards. <span class="text-slate-500 italic text-sm">[REPRESENTATIVE — verify insurance premium discount claim with Chris before this sentence ships.]</span> If you have had recent <a href="/residential/hail-damage-repair">hail damage</a>, Pro Exteriors can assess whether repair or a full replacement with impact-resistant shingles makes more economic sense given your insurance coverage. We also handle <a href="/residential/storm-damage-repair">storm damage repair and inspection</a> across all five states.`,
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  jsonLd={jsonLd}
+>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
+
+  <main id="main">
+
+    {/* ══════ HERO ══════════════════════════════════════════════════════════ */}
+    <section
+      class="relative isolate overflow-hidden text-white"
+      style="min-height: 760px; background-color: var(--color-surface-dark, #0f172a);"
+      aria-label="Asphalt shingle roofing — Pro Exteriors"
+    >
+      <div class="absolute inset-0 -z-10">
+        {/* IMAGE: hero-asphalt-shingles — [REPRESENTATIVE — NOT YET SOURCED] */}
+        <img
+          src="/images/placeholders/hero-asphalt-shingles.jpg"
+          alt=""
+          class="w-full h-full object-cover opacity-60"
+          loading="eager"
+          fetchpriority="high"
+          width="1920"
+          height="1080"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/70 to-slate-900/20"></div>
+      </div>
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8 py-20 lg:py-28">
+        <Breadcrumb items={[
+          { label: "Residential Roofing", href: "/residential" },
+          { label: "Asphalt Shingle Roofing", href: "/residential/asphalt-shingles" }
+        ]} />
+        <p class="mt-4 text-sm font-bold uppercase tracking-widest text-white/70">TX · CO · KS · MO · GA</p>
+        <h1 class="mt-6 text-5xl lg:text-6xl font-black leading-[1.05] max-w-3xl">
+          Asphalt Shingle Roofing by Pro Exteriors
+        </h1>
+        <p class="mt-6 max-w-2xl text-xl lg:text-2xl text-slate-300 leading-relaxed">
+          Expert installation and full replacement from GAF Master Elite and Owens Corning certified crews. Your asphalt shingles done right — with manufacturer warranties registered the day we finish.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <a
+            href="/contact?intent=inspection&source=asphalt-shingles-hero"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-red-700 hover:bg-red-800 text-white text-lg font-bold focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 transition-colors"
+            data-event-action="cta-click"
+            data-event-label="hero-primary"
+            data-event-category="asphalt-shingles"
+          >Schedule Your Free Inspection</a>
+          <a
+            href="#materials"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-lg border-2 border-white text-white text-lg font-bold hover:bg-white hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2 transition-colors"
+            data-event-action="cta-click"
+            data-event-label="hero-secondary"
+            data-event-category="asphalt-shingles"
+          >Explore Shingle Options</a>
+        </div>
+      </div>
+    </section>
+
+    {/* ══════ TRUST STRIP ════════════════════════════════════════════════════ */}
+    <section aria-label="Certifications and credentials" class="py-8 border-y border-stone-200 bg-stone-50">
+      <ul class="mx-auto max-w-screen-xl px-6 lg:px-8 flex flex-wrap items-center justify-center gap-8 lg:gap-16 text-sm font-bold text-slate-900">
+        <li class="inline-flex items-center gap-2">
+          <Icon name="shield-check" class="w-5 h-5 text-red-700" />
+          <span>GAF Master Elite Certified</span>
+        </li>
+        <li class="inline-flex items-center gap-2">
+          <Icon name="certificate" class="w-5 h-5 text-red-700" />
+          <span>Owens Corning Preferred</span>
+        </li>
+        <li class="inline-flex items-center gap-2">
+          <Icon name="calendar" class="w-5 h-5 text-red-700" />
+          <span>15+ Years in Business</span>
+        </li>
+        <li class="inline-flex items-center gap-2">
+          <Icon name="star" class="w-5 h-5 text-red-700" />
+          <span>
+            <span class="text-slate-500 text-xs font-normal italic mr-1" title="Per CLAUDE.md hard gate — not yet sourced">[REPRESENTATIVE]</span>
+            Google Rating
+          </span>
+        </li>
+        <li class="inline-flex items-center gap-2">
+          <Icon name="search" class="w-5 h-5 text-red-700" />
+          <span>Free Roof Inspection</span>
+        </li>
+      </ul>
+    </section>
+
+    {/* ══════ SERVICE OVERVIEW (SplitIntro — content-left, image-right) ════ */}
+    <section aria-label="About asphalt shingle roofing" class="py-20 lg:py-28 bg-white">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-widest text-red-700">WHY ASPHALT SHINGLES</p>
+          <h2 class="mt-4 text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+            The Most-Installed Roof in America. Installed the Right Way.
+          </h2>
+          <div class="mt-6 text-lg text-slate-700 leading-relaxed space-y-4">
+            <p>
+              Roughly three out of four residential roofs in the United States are covered
+              in asphalt shingles — and the reason is straightforward. No roofing material
+              matches asphalt's combination of cost, durability, and design range. A
+              properly installed asphalt shingle roof in Texas or Colorado handles heat,
+              hail, and freeze-thaw cycles. A poorly installed one starts failing in year
+              three.
+            </p>
+            <p>
+              The gap between a good asphalt shingle job and a bad one is almost entirely
+              in the installation. At Pro Exteriors, our crews are GAF Master Elite
+              certified — a designation fewer than 2% of US roofing contractors hold —
+              and Owens Corning Preferred, which means we can register manufacturer
+              warranties for our customers on the day the job is done. We serve homeowners
+              across five states as a trusted <a href="/residential" class="underline decoration-slate-300 hover:decoration-slate-900 transition-colors">residential roofing contractor</a>,
+              and every asphalt shingle roofing project starts with a free inspection and a
+              detailed line-item estimate before any work begins.
+            </p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <span class="px-4 py-2 rounded-full bg-slate-100 text-slate-800 text-sm font-bold">GAF Master Elite Certified</span>
+            <span class="px-4 py-2 rounded-full bg-slate-100 text-slate-800 text-sm font-bold">Owens Corning Preferred Contractor</span>
+            <span class="px-4 py-2 rounded-full bg-slate-100 text-slate-800 text-sm font-bold">
+              2,500+ Roofs Installed
+              <span class="ml-1 text-xs font-normal italic text-slate-500" title="Not yet sourced">[REPRESENTATIVE]</span>
+            </span>
+          </div>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden aspect-[4/3]">
+          {/* IMAGE: service-overview-asphalt — [REPRESENTATIVE — NOT YET SOURCED] */}
+          <img
+            src="/images/placeholders/service-overview-asphalt.jpg"
+            alt="Pro Exteriors crew member carrying a bundle of architectural shingles up a ladder"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+        </div>
+      </div>
+    </section>
+
+    {/* ══════ MATERIALS GRID (BenefitsGrid — 3-col) ═══════════════════════ */}
+    <section id="materials" aria-label="Asphalt shingle options" class="py-20 lg:py-28 bg-stone-50">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <p class="text-sm font-bold uppercase tracking-widest text-red-700">CHOOSE YOUR SHINGLE</p>
+          <h2 class="mt-4 text-4xl lg:text-5xl font-black text-slate-900">Three Tiers. One Certified Installer.</h2>
+          <p class="mt-4 text-xl text-slate-600">Not every shingle is right for every home or budget. Here is what each tier delivers and when it makes sense.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {materials.map(mat => (
+            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-stone-100">
+              <div class="aspect-[4/3] overflow-hidden relative">
+                <img
+                  src={mat.img}
+                  alt={mat.alt}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                {mat.eyebrow && (
+                  <span class="absolute top-4 left-4 px-3 py-1 rounded text-xs font-bold bg-red-700 text-white uppercase tracking-wide">
+                    {mat.eyebrow}
+                  </span>
+                )}
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-black text-slate-900">{mat.h3}</h3>
+                <p class="mt-3 text-base text-slate-700 leading-relaxed">{mat.body}</p>
+                <ul class="mt-4 space-y-1">
+                  {mat.specs.map(spec => (
+                    <li class="flex items-start gap-2 text-sm text-slate-600">
+                      <Icon name="check-circle" class="w-4 h-4 text-red-700 mt-0.5 flex-shrink-0" />
+                      <span>{spec}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ══════ MANUFACTURERS BAND ═══════════════════════════════════════════ */}
+    <section aria-label="Manufacturer certifications" class="py-20 lg:py-28" style="background-color: var(--color-surface-dark, #0f172a);">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <p class="text-sm font-bold uppercase tracking-widest text-red-400">OUR CERTIFICATIONS</p>
+          <h2 class="mt-4 text-4xl lg:text-5xl font-black text-white">Manufacturer-Certified. Not Just Brand-Affiliated.</h2>
+          <p class="mt-4 text-xl text-slate-300 max-w-2xl mx-auto">
+            There is a meaningful difference between a contractor who buys GAF or
+            Owens Corning products and one who has been vetted and certified by those
+            manufacturers. At Pro Exteriors, we hold both.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+          {/* GAF Master Elite */}
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+            <div class="h-12 flex items-center mb-6">
+              {/* LOGO: logo-gaf-master-elite — [REPRESENTATIVE — NOT YET SOURCED / confirm permission] */}
+              <span class="text-white font-black text-xl">GAF Master Elite<sup>&reg;</sup></span>
+            </div>
+            <p class="text-slate-300 leading-relaxed">
+              GAF grants Master Elite status to fewer than 2% of roofing contractors
+              in the United States. The requirements include demonstrated financial
+              stability, proper licensing in every state we operate, and a documented
+              commitment to ongoing training. The practical benefit for our customers:
+              we are authorized to issue the Golden Pledge Limited Warranty — GAF's
+              most comprehensive coverage, which includes a 25-year, non-prorated
+              workmanship warranty backed by GAF itself.
+            </p>
+          </div>
+          {/* Owens Corning */}
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+            <div class="h-12 flex items-center mb-6">
+              {/* LOGO: logo-owens-corning-preferred — [REPRESENTATIVE — NOT YET SOURCED / confirm permission] */}
+              <span class="text-white font-black text-xl">Owens Corning Preferred</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed">
+              Owens Corning's Preferred Contractor program requires background checks,
+              insurance verification, and a record of quality installations. Our
+              Preferred status means we can register the Duration Series and
+              TruDefinition warranty for our customers at the time of installation
+              and facilitate warranty transfers when a home is sold.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ══════ LOCAL EXPERTS PROOF (StatBand + Testimonial) ════════════════ */}
+    <section aria-label="Experience and customer testimonial" class="py-20 lg:py-28 bg-white">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        {/* Left: stats */}
+        <div>
+          <p class="text-sm font-bold uppercase tracking-widest text-red-700">SERVING FIVE STATES</p>
+          <h2 class="mt-4 text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+            Asphalt Shingle Expertise Across the Hail Belt and Beyond
+          </h2>
+          <p class="mt-6 text-lg text-slate-700 leading-relaxed">
+            Pro Exteriors has installed and replaced asphalt shingle roofs across
+            Texas, Colorado, Kansas, Missouri, and Georgia since 2011. Our crews
+            understand the specific demands each state puts on a shingle system —
+            the hail frequency in DFW and Wichita, the temperature swings in Colorado,
+            the humidity loads in Georgia. A shingle roof that works in Kansas City
+            must be installed differently than one in Atlanta.
+          </p>
+          <div class="mt-10 grid grid-cols-3 gap-6">
+            {[
+              { value: "15+",     label: "Years in Business" },
+              { value: "2,500+",  label: "Roofs Installed", rep: true },
+              { value: "5",       label: "States Served" },
+            ].map(stat => (
+              <div class="text-center">
+                <div class="text-5xl font-black text-red-700">
+                  {stat.value}
+                  {stat.rep && <span class="ml-0.5 text-xs text-slate-400 font-normal italic" title="Not yet sourced">*</span>}
+                </div>
+                <div class="mt-2 text-sm font-bold text-slate-600 uppercase tracking-wide">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+          {/* footnote */}
+          <p class="mt-6 text-xs text-slate-400 italic">* [REPRESENTATIVE — verify roofs-installed count against CRM before ship]</p>
+        </div>
+        {/* Right: testimonial */}
+        <blockquote class="bg-stone-50 rounded-2xl p-8 border border-stone-100">
+          <div class="flex gap-1 mb-6">
+            {[1,2,3,4,5].map(() => <Icon name="star" class="w-5 h-5 text-amber-400" />)}
+          </div>
+          <p class="text-lg text-slate-800 leading-relaxed italic">
+            "[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial, asphalt
+            shingle installation or replacement, any served state. Signed release
+            required before ship.]"
+          </p>
+          <footer class="mt-6 flex items-center gap-4">
+            <div class="w-16 h-16 rounded-full overflow-hidden bg-stone-200 flex-shrink-0">
+              {/* IMAGE: testimonial-project — [REPRESENTATIVE — NOT YET SOURCED] */}
+              <img
+                src="/images/placeholders/testimonial-asphalt.jpg"
+                alt="Pro Exteriors completed asphalt shingle roof project"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                width="64"
+                height="64"
+              />
+            </div>
+            <div>
+              <p class="font-bold text-slate-900">[REPRESENTATIVE — Customer Name]</p>
+              <p class="text-sm text-slate-500">[City, State, Year]</p>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    {/* ══════ PROCESS (QualityProcess — 4 steps) ═══════════════════════════ */}
+    <section aria-label="Our asphalt shingle installation process" class="py-20 lg:py-28 bg-stone-50">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <p class="text-sm font-bold uppercase tracking-widest text-red-700">HOW IT WORKS</p>
+          <h2 class="mt-4 text-4xl lg:text-5xl font-black text-slate-900">From Free Inspection to Registered Warranty — Four Steps.</h2>
+          <p class="mt-4 text-xl text-slate-600">No surprises, no subcontractors, no pressure. This is how every asphalt shingle job runs at Pro Exteriors.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {processSteps.map(step => (
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-stone-100">
+              <div class="w-12 h-12 rounded-xl bg-red-700 flex items-center justify-center mb-4">
+                <Icon name={step.icon} class="w-6 h-6 text-white" />
+              </div>
+              <div class="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Step {step.num}</div>
+              <h3 class="text-lg font-black text-slate-900 mb-3">{step.title}</h3>
+              <p class="text-sm text-slate-700 leading-relaxed">{step.body}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-12 text-center">
+          <a
+            href="/contact?intent=inspection&source=asphalt-shingles-process"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-red-700 hover:bg-red-800 text-white text-lg font-bold transition-colors focus-visible:outline-2 focus-visible:outline-red-700 focus-visible:outline-offset-2"
+            data-event-action="cta-click"
+            data-event-label="process-cta"
+            data-event-category="asphalt-shingles"
+          >Schedule Your Free Inspection</a>
+        </div>
+      </div>
+    </section>
+
+    {/* ══════ CASE STUDIES ════════════════════════════════════════════════ */}
+    <section aria-label="Recent asphalt shingle projects" class="py-20 lg:py-28 bg-white">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <p class="text-sm font-bold uppercase tracking-widest text-red-700">RECENT PROJECTS</p>
+          <h2 class="mt-4 text-4xl lg:text-5xl font-black text-slate-900">Asphalt Shingle Roofing Across Five States</h2>
+          <p class="mt-4 text-xl text-slate-600">Real jobs. Real results. Every project documented from tearoff to final walkthrough.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            { state: "Texas",    tag: "Full Replacement",  title: "[REPRESENTATIVE — TX Project: Full Replacement, Architectural Shingles]", desc: "[REPRESENTATIVE — NOT YET SOURCED: Real completed project from Texas. Roof size, shingle product, issue resolved, outcome. Signed client release required.]", img: "/images/placeholders/case-asphalt-tx.jpg", alt: "Completed asphalt shingle roof replacement in Texas by Pro Exteriors" },
+            { state: "Colorado", tag: "Storm Replacement", title: "[REPRESENTATIVE — CO Project: Hail-Damage Replacement, Impact-Resistant Shingles]", desc: "[REPRESENTATIVE — NOT YET SOURCED: Real completed project from Colorado. Hail damage context preferred.]", img: "/images/placeholders/case-asphalt-co.jpg", alt: "Completed asphalt shingle roof replacement in Colorado by Pro Exteriors" },
+            { state: "Kansas",   tag: "Upgrade",           title: "[REPRESENTATIVE — KS Project: Architectural Shingle Upgrade]", desc: "[REPRESENTATIVE — NOT YET SOURCED: Real completed project from Kansas or Missouri.]", img: "/images/placeholders/case-asphalt-ks.jpg", alt: "Completed asphalt shingle roof replacement in Kansas by Pro Exteriors" },
+          ].map(cs => (
+            <article class="rounded-2xl overflow-hidden border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+              <div class="aspect-[3/2] overflow-hidden">
+                <img
+                  src={cs.img}
+                  alt={cs.alt}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  width="600"
+                  height="400"
+                />
+              </div>
+              <div class="p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="px-3 py-1 rounded text-xs font-bold bg-slate-900 text-white uppercase tracking-wide">{cs.state}</span>
+                  <span class="px-3 py-1 rounded text-xs font-bold bg-stone-100 text-slate-700 uppercase tracking-wide">{cs.tag}</span>
+                </div>
+                <h3 class="text-lg font-black text-slate-900 mb-2">{cs.title}</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">{cs.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div class="mt-10 text-center">
+          <a href="/projects" class="text-base font-bold text-slate-900 underline decoration-slate-300 hover:decoration-slate-900 transition-colors">See All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    {/* ══════ WARRANTIES & FINANCING (SplitIntro — image-left) ════════════ */}
+    <section aria-label="Warranties and financing options" class="py-20 lg:py-28 bg-stone-50">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="relative rounded-2xl overflow-hidden aspect-[4/3]">
+          {/* IMAGE: warranty-handoff — [REPRESENTATIVE — NOT YET SOURCED] */}
+          <img
+            src="/images/placeholders/warranty-handoff.jpg"
+            alt="Pro Exteriors crew member reviewing warranty documentation with a homeowner"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+        </div>
+        <div>
+          <p class="text-sm font-bold uppercase tracking-widest text-red-700">WARRANTIES & FINANCING</p>
+          <h2 class="mt-4 text-4xl lg:text-5xl font-black leading-tight text-slate-900">Coverage That Transfers When You Sell.</h2>
+          <p class="mt-6 text-lg text-slate-700 leading-relaxed">
+            An asphalt shingle warranty is only as good as the contractor who issues it.
+            At Pro Exteriors, our GAF Master Elite certification means we can issue the
+            Golden Pledge Limited Warranty — workmanship coverage that extends up to
+            25 years and is backed by GAF, not just by us. Owens Corning's warranty
+            registration is handled at the job site and transfers to a new owner at
+            the point of home sale, which adds documented value to the property.
+          </p>
+          <ul class="mt-6 space-y-3">
+            {[
+              "GAF Golden Pledge: up to 25-year non-prorated workmanship warranty",
+              "Owens Corning transferable warranty at point of sale",
+              "Manufacturer warranties registered same day as installation",
+              "Financing available through third-party lenders for qualified homeowners [REPRESENTATIVE — confirm lender]",
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <Icon name="check-circle" class="w-5 h-5 text-red-700 mt-0.5 flex-shrink-0" />
+                <span class="text-slate-700">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8">
+            <a
+              href="/contact?intent=warranty-question&source=asphalt-shingles-warranty"
+              class="inline-flex items-center justify-center px-8 py-4 rounded-lg border-2 border-slate-900 text-slate-900 text-base font-bold hover:bg-slate-900 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-slate-900 focus-visible:outline-offset-2"
+              data-event-action="cta-click"
+              data-event-label="warranty-cta"
+              data-event-category="asphalt-shingles"
+            >Ask About Warranty Options</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ══════ FAQ ═════════════════════════════════════════════════════════ */}
+    <section aria-label="Asphalt shingle roofing FAQ" class="py-20 lg:py-28 bg-white">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8 max-w-3xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="text-sm font-bold uppercase tracking-widest text-red-700">FREQUENTLY ASKED</p>
+          <h2 class="mt-4 text-4xl lg:text-5xl font-black text-slate-900">Your Asphalt Shingle Questions, Answered.</h2>
+        </div>
+        <FAQ items={faqItems} schemaType="FAQPage" />
+      </div>
+    </section>
+
+    {/* ══════ FINAL CTA (CTABanner) ════════════════════════════════════════ */}
+    <section
+      aria-label="Schedule your free roof inspection"
+      class="relative isolate overflow-hidden py-24 lg:py-32 text-white"
+      style="background-color: var(--color-surface-dark, #0f172a);"
+    >
+      <div class="absolute inset-0 -z-10">
+        {/* IMAGE: final-cta-asphalt — [REPRESENTATIVE — NOT YET SOURCED] */}
+        <img
+          src="/images/placeholders/final-cta-asphalt.jpg"
+          alt=""
+          class="w-full h-full object-cover opacity-10"
+          loading="lazy"
+          width="1920"
+          height="600"
+        />
+      </div>
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8 text-center">
+        <p class="text-sm font-bold uppercase tracking-widest text-red-400">START HERE</p>
+        <h2 class="mt-4 text-4xl lg:text-6xl font-black max-w-3xl mx-auto">Your Asphalt Shingle Roof Starts with a Free Inspection.</h2>
+        <p class="mt-6 text-xl text-slate-300 max-w-2xl mx-auto">
+          We assess your current roof, recommend the right shingle for your home and budget, and give you a detailed estimate. No pressure. No commission sales. Just an honest evaluation from a certified crew.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/contact?intent=inspection&source=asphalt-shingles-final-cta"
+            class="inline-flex items-center justify-center px-10 py-4 rounded-lg bg-red-700 hover:bg-red-800 text-white text-lg font-bold transition-colors focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+            data-event-action="cta-click"
+            data-event-label="final-cta-primary"
+            data-event-category="asphalt-shingles"
+          >Schedule Your Free Inspection</a>
+          <a
+            href="tel:[REPRESENTATIVE — NOT YET SOURCED]"
+            class="inline-flex items-center gap-2 text-white text-lg font-bold hover:underline"
+            data-event-action="cta-click"
+            data-event-label="final-cta-phone"
+            data-event-category="asphalt-shingles"
+            data-event-routing="per-state-ivr"
+          >
+            <Icon name="phone" class="w-5 h-5" />
+            Call Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>

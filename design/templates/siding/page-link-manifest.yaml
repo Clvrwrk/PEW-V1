@@ -1,0 +1,68 @@
+# aia4-page-link manifest — Residential Siding Installation
+# Phase 1 · 2026-05-03 · Kyle Roof reverse-silo
+
+silo_role: T2-money-page
+silo_parent: "/residential"
+silo_topic: "residential siding installation — storm-damage cross-sell and planned-upgrade service"
+
+internal_links_out:
+
+  # UP to parent
+  - anchor: "residential exterior contractor"
+    target: "/residential"
+    anchor_type: near-match
+    placement_hint: "local_experts_proof — 'licensed residential roofing and exterior contractor'"
+
+  # ACROSS — primary bundle partner
+  - anchor: "roof replacement"
+    target: "/residential/roof-replacement"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "bundle_band — 'one crew, one project, one insurance claim'"
+
+  # ACROSS — storm cluster
+  - anchor: "storm damage repair"
+    target: "/residential/storm-damage-repair"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "bundle_band body + service_overview storm context"
+
+  # ACROSS — gutter bundle sibling
+  - anchor: "seamless gutter installation"
+    target: "/residential/seamless-gutters"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "bundle_band or FAQ answer 1 — 'full exterior in one job'"
+
+  # ACROSS — insurance
+  - anchor: "insurance claim assistance"
+    target: "/residential/insurance-claim-assistance"
+    anchor_type: descriptive
+    target_status: live
+    placement_hint: "FAQ answer 3 (does insurance cover storm siding damage)"
+
+internal_links_in_required:
+  - from: "/residential"
+    anchor: "fiber-cement and vinyl siding"
+    status: needs-wiring
+
+  - from: "/residential/roof-replacement"
+    anchor: "siding replacement"
+    status: needs-wiring   # wire in bundle context post-launch
+
+  - from: "/residential/storm-damage-repair"
+    anchor: "siding repair"
+    status: needs-wiring   # wire in storm-damage-repair next-steps post-launch
+
+  - from: "/residential/seamless-gutters"
+    anchor: "siding installation"
+    status: needs-wiring   # reciprocal wire post-launch
+
+notes:
+  - "Five outbound links is the ceiling for this page — it's a service page, not a hub. Bundle story drives the cross-links."
+  - "Siding and gutters are natural siblings in the storm-damage cross-sell cluster. Reciprocal linking between these two pages should be wired post-launch."
+
+status: success
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

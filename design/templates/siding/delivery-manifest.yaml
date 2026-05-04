@@ -1,0 +1,79 @@
+# Delivery manifest — /residential/siding
+# Phase 6 of 6 — AIA4 PageBuilder · 2026-05-03
+
+slug: siding
+url: /residential/siding
+title: "Residential Siding Installation"
+target_keyword: "siding installation"
+keyword_volume: 12100
+keyword_cpc_usd: 21.79
+keyword_competition: LOW
+template: residential-service (standard hero — not emergency variant; mixed intent)
+silo_role: T2-money-page — storm-damage cross-sell and planned-upgrade service
+silo_parent: /residential
+
+hypothesis:
+  a: "Top-5 organic for 'siding installation' in TX/CO/KS/MO/GA geos within 6 months"
+  b: "≥10% combined siding+roof revenue increase within 6 months via dual-service quotes from this page (measured in CRM)"
+  note: |
+    Page converts in two modes: standalone siding inquiries and add-on conversions
+    from homeowners already in a roof project discussion. The bundle positioning
+    (roof + gutters + siding = one crew, one claim) is the primary cross-sell
+    mechanism. CRM must track both conversion paths separately.
+
+files:
+  brief:           design/templates/siding/brief.yaml
+  seo_validator:   design/templates/siding/seo-validator-manifest.yaml
+  page_link:       design/templates/siding/page-link-manifest.yaml
+  copy:            design/templates/siding/copy.yaml
+  assembled_page:  src/pages/residential/siding/index.astro
+
+hard_gates:
+  performance:    pending-localhost-verification
+  accessibility:  structural-pass-pending-browser-verification
+  measurement:    pass-(4 CTAs instrumented with data-event-* attributes)
+  trust:          blocked-pending-source-material
+  schema:         pass-pending-rich-results-test (RoofingContractor + Service + BreadcrumbList + FAQPage)
+  forms:          pending (/contact?intent=siding-assessment end-to-end test required)
+
+ship_blockers:
+  - "Hero background image [REPRESENTATIVE] — fiber-cement siding installation action shot"
+  - "Service overview image [REPRESENTATIVE] — completed fiber-cement project"
+  - "Testimonial — real customer (siding or siding+roof project, any served state) + signed release"
+  - "All 3 case studies — real projects + signed releases"
+  - "Siding projects completed stat [REPRESENTATIVE] — confirm count with Pro Exteriors"
+  - "Google rating [REPRESENTATIVE] — pull from live GBP profile"
+  - "Bundle band image [REPRESENTATIVE] — combined exterior project"
+  - "Localhost Lighthouse run — mobile ≥95 Performance required"
+  - "Confirm fiber-cement products Pro Exteriors installs (HardiePlank assumed — verify)"
+  - "Confirm engineered wood products (LP SmartSide assumed — verify)"
+
+internal_links:
+  out_placed: 5
+  out_detail:
+    - up:    "/residential (near-match: 'residential exterior contractor' in local_experts_proof)"
+    - across: "/residential/roof-replacement (live — bundle_band, final CTA secondary)"
+    - across: "/residential/storm-damage-repair (live — bundle_band body)"
+    - across: "/residential/seamless-gutters (live — bundle_band body)"
+    - across: "/residential/insurance-claim-assistance (live — FAQ answer 3)"
+  in_live: []
+  in_needed:
+    - "/residential parent — 'fiber-cement and vinyl siding' anchor, needs wiring"
+    - "/residential/roof-replacement — 'siding replacement' anchor, wire post-launch"
+    - "/residential/storm-damage-repair — 'siding repair' anchor, wire post-launch"
+    - "/residential/seamless-gutters — 'siding installation' anchor, reciprocal wire post-launch"
+
+structural_notes:
+  - "Standard hero — background image slot, standard LCP target."
+  - "Bundle band has id='bundle' — hero secondary CTA anchors to it (#bundle)."
+  - "Materials grid badge labels: 'Best for Hail Zones' (fiber cement), 'Most Common' (vinyl), 'Wood Look' (engineered wood)."
+  - "hail_resistant_gate: no Class 3/4 rating claims. Directional language only: 'more durable than vinyl in hail-prone areas.'"
+  - "Product names noted in copy (HardiePlank, LP SmartSide) — verify Pro Exteriors installs these before ship."
+  - "4 CTAs: hero-primary, hero-secondary (anchor scroll), overview-cta, final-cta-primary, final-cta-secondary."
+
+status: structurally-complete
+launch_readiness: blocked-pending-source-material-and-product-verification
+
+provenance:
+  produced_by: aia4-pagebuilder Phase 6 (inline orchestration)
+  produced_at: 2026-05-03

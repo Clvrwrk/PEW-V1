@@ -1,0 +1,82 @@
+# aia4-page-link manifest — Metal Roofing (residential) service page
+# Phase 1 deliverable. Kyle Roof reverse-silo methodology.
+# T2 money page → links UP to /residential, ACROSS to sibling T2s, DOWN to blog supporters.
+
+silo_role: T2-money-page
+tier: T2
+silo_parent: "/residential"
+silo_topic: "metal roof installation, standing seam, stone-coated steel, hail-resistant roofing"
+
+internal_links_out:
+
+  # UP — to T1 pillar hub
+  - anchor: "residential roofing contractor"
+    target: "/residential"
+    target_status: live
+    anchor_type: near-match
+    placement_hint: "Service overview first or second paragraph"
+    rationale: "Standard UP-link pattern established by asphalt-shingles template."
+
+  # ACROSS — to sibling T2 pages
+  - anchor: "complete roof replacement"
+    target: "/residential/roof-replacement"
+    target_status: planned-M3
+    anchor_type: descriptive
+    placement_hint: "Cost/value section or FAQ: 'when to consider a full metal replacement'"
+    rationale: "Metal replacement is a natural cross-sell when homeowners are considering a long-term material upgrade."
+
+  - anchor: "hail-resistant roofing options"
+    target: "/residential/hail-damage-repair"
+    target_status: planned-Q2
+    anchor_type: descriptive
+    placement_hint: "Hail-resistance section or FAQ answer"
+    rationale: "Metal's Class 4 hail rating is a key differentiator — links to hail-damage page reinforces expertise."
+
+  - anchor: "storm damage roof inspection"
+    target: "/residential/storm-damage-repair"
+    target_status: planned-Q2
+    anchor_type: descriptive
+    placement_hint: "FAQ answer on hail or storm durability"
+
+  # DOWN — to live blog supporters
+  - anchor: "how much a roof replacement actually costs"
+    target: "/blog/how-much-does-a-roof-replacement-cost"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "FAQ answer on metal roof cost"
+    rationale: "Cost is FAQ #4 — the blog post handles depth; FAQ links out."
+
+  - anchor: "five signs your roof needs replacing"
+    target: "/blog/5-signs-replacement"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Service overview or FAQ"
+
+  - anchor: "best time of year to schedule your new roof"
+    target: "/blog/best-time-of-year-to-replace-your-roof"
+    target_status: live
+    anchor_type: descriptive
+    placement_hint: "Process section step 3 or FAQ"
+
+internal_links_in_required:
+  - from: "/residential"
+    anchor: "metal roofing for homes"
+    anchor_type: near-match
+    status: live
+    note: "Wired in residential pillar service grid."
+
+  - from: "/residential/roof-replacement"
+    anchor: "standing seam metal roofing"
+    anchor_type: near-match
+    status: planned-M3
+
+  - from: "/residential/hail-damage-repair"
+    anchor: "Class 4 impact-resistant metal roofing"
+    anchor_type: near-match
+    status: planned-Q2
+
+status: success
+next_action: handoff
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline orchestration)
+  produced_at: 2026-05-03

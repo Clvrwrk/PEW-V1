@@ -1,0 +1,76 @@
+# aia4-page-link manifest — Insurance Claim Assistance
+# Phase 1 · 2026-05-03 · Kyle Roof reverse-silo
+
+silo_role: T2-money-page
+silo_parent: "/residential"
+silo_topic: "insurance claim assistance — storm damage claim process hub for the residential silo"
+
+internal_links_out:
+
+  # UP to parent
+  - anchor: "residential roofing contractors"
+    target: "/residential"
+    anchor_type: near-match
+    placement_hint: "Service overview — opening sentence"
+
+  # ACROSS to storm cluster siblings (all planned-Q2)
+  - anchor: "storm damage repair"
+    target: "/residential/storm-damage-repair"
+    anchor_type: near-match
+    target_status: planned-Q2
+    placement_hint: "Final CTA secondary + FAQ answer 4 (timeline)"
+
+  - anchor: "hail damage repair"
+    target: "/residential/hail-damage-repair"
+    anchor_type: near-match
+    target_status: planned-Q2
+    placement_hint: "FAQ answer on hail-specific claims or case studies"
+
+  # ACROSS to roof-replacement (many insurance claims result in full replacement)
+  - anchor: "full roof replacement"
+    target: "/residential/roof-replacement"
+    anchor_type: near-match
+    target_status: live
+    placement_hint: "Service overview or FAQ — when claim results in replacement not repair"
+
+  # DOWN to blog supporters
+  - anchor: "what to expect during a roof insurance inspection"
+    target: "/blog/roof-insurance-inspection"
+    anchor_type: descriptive
+    target_status: planned-content-phase
+    placement_hint: "Claim process steps section or FAQ answer 1"
+    note: "Blog post does not yet exist — use placeholder in FAQ only if target is live; otherwise omit"
+
+  - anchor: "hail damage roof insurance"
+    target: "/blog/hail-damage-roof-insurance-claim"
+    anchor_type: near-match
+    target_status: planned-content-phase
+    placement_hint: "FAQ or case studies"
+    note: "Blog post does not yet exist — omit link until live"
+
+internal_links_in_required:
+  - from: "/residential"
+    anchor: "insurance claim assistance for roof damage"
+    status: needs-wiring
+
+  - from: "/residential/roof-replacement"
+    anchor: "insurance claim assistance"
+    status: live    # wired in FAQ answer 4 + final CTA secondary of roof-replacement page
+
+  - from: "/residential/storm-damage-repair"
+    anchor: "insurance claim assistance"
+    status: planned-Q2
+
+  - from: "/residential/hail-damage-repair"
+    anchor: "insurance claim assistance"
+    status: planned-Q2
+
+notes:
+  - "Both blog supporters are planned-content-phase (not yet live) — do NOT include broken internal links in the assembled page. FAQ answers that would normally link to blog posts should instead contain the informational content inline."
+  - "The roof-replacement page already links to this page via FAQ answer 4 and final CTA secondary — that inbound link is live and passes equity."
+  - "/residential parent page needs to wire in the 'insurance claim assistance for roof damage' anchor — flag as needs-wiring for post-launch link audit."
+
+status: success
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

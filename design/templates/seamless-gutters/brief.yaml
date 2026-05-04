@@ -1,0 +1,89 @@
+# Seamless Gutter Installation — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 on 2026-05-03
+# Confirmed GBP category; $599K ad-equivalent pool per silo memo
+
+slug: seamless-gutters
+template: residential-service
+location: null
+target_keyword: "seamless gutter installation"
+secondary_keywords:
+  - "gutter installation"
+  - "seamless gutters"
+  - "gutter replacement"
+  - "gutter guard installation"
+  - "rain gutter installation"
+  - "gutter system installation"
+audience: residential-homeowner
+intent: mixed                          # Planned upgrade + storm-damage replacement
+hypothesis: |
+  "Seamless gutter installation" (8,100 vol, LOW comp, $21.43 CPC) is a clean
+  target. Gutters are a recurring-lead machine — they pair naturally with roof
+  replacement on storm jobs (one crew, one visit, one claim) and they're a
+  confirmed GBP category (109 keywords, $599K ad-equivalent pool). A page
+  that positions Pro Exteriors as the storm-damage one-stop contractor —
+  roof AND gutters together — will:
+    (a) rank in the top 5 for "seamless gutter installation" in served
+        states within 6 months; AND
+    (b) increase average job value for residential storm jobs ≥15% by
+        converting combined roof+gutter quotes vs. roof-only, measurable
+        in CRM at the 90-day review.
+
+seo_copy:
+  metadata:
+    title: "Seamless Gutter Installation & Replacement — Pro Exteriors | 5 States"
+    meta_description: "Pro Exteriors installs seamless gutters built to handle hail-belt storms across TX, CO, KS, MO & GA. Aluminum, copper & steel options. Combine with your roof project for one easy install."
+    canonical: "https://proexteriorsus.com/residential/seamless-gutters"
+  body_path: null
+  html_path: null
+
+figma:
+  reuse_template: residential-pillar
+  section_plan:
+    - id: hero
+      component: ServiceHero
+      notes: "H1 = 'Seamless Gutter Installation by Pro Exteriors'. Primary CTA: 'Get a Free Gutter Estimate'. Secondary: 'Bundle with Your Roof Project'."
+    - id: trust_strip
+      component: inline
+      notes: "Seamless Construction | 5-State Coverage | Roof + Gutter Bundle Available | [REPRESENTATIVE] rating | Storm-Ready"
+    - id: service_overview
+      component: SplitIntro
+      notes: "Left: why seamless vs sectional (no seams = no leak points). Right: material options intro + bundle offer."
+    - id: materials_grid
+      component: BenefitsGrid
+      notes: "3 cards: Aluminum (most common) / Copper (premium) / Steel (commercial-grade). Each: pros, lifespan, cost tier."
+    - id: local_experts_proof
+      component: StatBand + Testimonial
+      notes: "Storm-belt positioning. Gutter jobs completed [REPRESENTATIVE]. Testimonial [REPRESENTATIVE]."
+    - id: process
+      component: QualityProcess
+      notes: "4 steps: Free Measurement & Assessment → Material Selection → Custom Fabrication On-Site → Installation & Slope Check."
+    - id: case_studies
+      component: CaseStudyCard × 3
+      notes: "Storm-damage gutter replacement cases. Ideally paired with roof work. All [REPRESENTATIVE]."
+    - id: bundle_band
+      component: SplitIntro
+      notes: "The roof-and-gutter bundle story: one project, one crew, one insurance claim. Link to /residential/roof-replacement."
+    - id: faq
+      component: FAQ
+      notes: "(1) What is the difference between seamless and sectional gutters? (2) How long do seamless gutters last? (3) Can I get gutters and roofing done at the same time? (4) Does insurance cover gutter damage from storms?"
+    - id: final_cta
+      component: CTABanner
+      notes: "Primary: 'Schedule Your Free Gutter Estimate'. Secondary: 'Bundle with a Roof Project'."
+
+output:
+  page: "src/pages/residential/seamless-gutters/index.astro"
+  assets: "src/assets/residential/seamless-gutters/"
+
+silo:
+  role: T2-money-page
+  parent: "/residential"
+  parent_links_to_this_via: "seamless gutter systems"
+  inbound_anchor_from_parent: near-match
+  cross_links_to:
+    - "/residential/roof-replacement"
+    - "/residential/storm-damage-repair"
+
+authored_by: aia4-pagebuilder Phase 0
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

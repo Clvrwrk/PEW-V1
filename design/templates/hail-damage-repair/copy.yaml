@@ -1,0 +1,316 @@
+# aia4-copywriter — Hail Damage Repair copy manifest
+# Phase 2 · 2026-05-03
+# Voice: Maren Castellan-Reyes persona. Forbidden vocab: clean.
+# COPY GATE: no unconfirmed insurance discount claims for Class 4 shingles.
+
+metadata:
+  title: "Hail Damage Roof Repair — Pro Exteriors | TX, CO, KS, MO & GA Hail Belt Experts"
+  title_chars: 71
+  meta_description: "Spotted dents, missing granules, or cracked shingles after a storm? Pro Exteriors inspects, documents & repairs hail damage across the US hail belt. Free assessment."
+  meta_description_chars: 163
+  canonical: "https://proexteriorsus.com/residential/hail-damage-repair"
+
+breadcrumb:
+  items:
+    - { label: "Home", href: "/" }
+    - { label: "Residential Roofing", href: "/residential" }
+    - { label: "Hail Damage Repair", href: "/residential/hail-damage-repair" }
+
+hero:
+  eyebrow: "HAIL BELT EXPERTS — TX · CO · KS · MO · GA"
+  h1: "Hail Damage Roof Repair by Pro Exteriors"
+  subhead: "The US hail belt runs through our five-state service area. Free hail damage inspections, thorough documentation, and insurance claim coordination on every project."
+  cta_primary:
+    label: "Get Your Free Hail Damage Inspection"
+    href: "/contact?intent=hail-damage-inspection&source=hail-damage-hero"
+    data_event_action: "cta-click"
+    data_event_label: "hero-primary"
+    data_event_category: "hail-damage-repair"
+  cta_secondary:
+    label: "See the Warning Signs"
+    href: "#damage-guide"
+    data_event_action: "cta-click"
+    data_event_label: "hero-secondary"
+    data_event_category: "hail-damage-repair"
+  background_image_slot:
+    alt: "Close-up of hail impact damage on asphalt shingles showing bruising and granule loss"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+trust_strip:
+  items:
+    - { icon: "cloud-rain", label: "Hail Belt Specialists" }
+    - { icon: "map-pin", label: "TX · CO · KS · MO · GA" }
+    - { icon: "file-text", label: "Insurance Claim Coordination" }
+    - { icon: "star", label: "[REPRESENTATIVE] Google Rating" }
+    - { icon: "search", label: "Free Hail Damage Inspection" }
+
+damage_guide:
+  id: "damage-guide"
+  eyebrow: "HOW TO TELL IF HAIL DAMAGED YOUR ROOF"
+  h2: "Five Indicators. Most Are Visible from the Ground."
+  body_intro: |
+    Hail damage is easy to miss if you don't know what to look for — and it doesn't
+    always look like the dents homeowners expect. Here are the five indicators our
+    crews check first on every post-storm inspection.
+  indicators:
+    - number: 1
+      title: "Granule Loss on Asphalt Shingles"
+      body: "Check your gutters and downspout discharge area after a hail event. Excessive granule accumulation — the small sand-like particles that cover asphalt shingles — indicates impact damage. On the roof, bruised shingles will show bare or thin spots where the granules have been knocked loose. Granule loss accelerates UV degradation and reduces the shingle's remaining service life."
+    - number: 2
+      title: "Dented Gutters and Downspouts"
+      body: "Metal gutters and downspouts are the easiest hail damage indicators from ground level. Fresh dents from a recent storm are distinguishable from older weathering by their pattern, density, and the absence of oxidation. If your gutters show impact dents, your roof almost certainly absorbed the same event."
+    - number: 3
+      title: "Cracked or Split Shingles"
+      body: "Large hailstones can crack asphalt shingles on impact. The crack may not penetrate the underlying mat immediately, but it creates a stress fracture that fails under subsequent weather. On older shingles, brittleness from UV exposure makes cracking more likely at smaller hail sizes."
+    - number: 4
+      title: "Impact Bruising on Asphalt"
+      body: "Hail bruising on asphalt shingles appears as soft spots — depressions in the shingle mat that are visible and tactile on close inspection. From the ground, bruising is typically not visible; from the roof or a drone photograph, the pattern of impacts across the field gives a clear picture of storm density. This is the primary reason a professional inspection matters: bruising is the most common and most missed damage type."
+    - number: 5
+      title: "Exposed Decking or Broken Flashing"
+      body: "Severe hail events — large stone size at high velocity — can breach shingles and expose the underlying decking, or displace flashing around chimneys, vents, and skylights. These are active water intrusion points that require immediate attention regardless of insurance claim timing."
+  cta:
+    label: "Get a Professional Hail Damage Assessment"
+    href: "/contact?intent=hail-damage-inspection&source=hail-damage-guide"
+    data_event_action: "cta-click"
+    data_event_label: "guide-cta"
+    data_event_category: "hail-damage-repair"
+  image_slot:
+    alt: "Pro Exteriors inspector reviewing hail impact bruising on asphalt shingles, close detail"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+damage_types_grid:
+  eyebrow: "DAMAGE BY MATERIAL"
+  h2: "Hail Looks Different on Different Roofing Materials."
+  subhead: "What we inspect — and what we find — depends on what you have on your roof."
+  cards:
+    - id: "asphalt-hail"
+      icon: "layers"
+      h3: "Asphalt Shingles"
+      body: |
+        The most common material in Texas, Kansas, and Missouri. Asphalt shingles absorb
+        hail impact as granule loss, bruising, and cracking. A hail event that damages
+        30–40% of the shingle field is typically the threshold where replacement is the
+        better economic decision over targeted repair.
+
+        If you're replacing hail-damaged asphalt shingles, it's worth asking about
+        <a href="/residential/asphalt-shingles">Class 4 impact-resistant shingles</a>.
+        These carry a UL 2218 Class 4 rating — the highest impact resistance classification
+        — and some insurance carriers offer premium discounts for Class 4 installations;
+        check with your specific carrier.
+    - id: "metal-hail"
+      icon: "shield"
+      h3: "Metal Roofing"
+      body: |
+        Metal roofs handle hail better than asphalt but are not immune. Standing seam
+        panels can dent without losing weather performance — the seam integrity is what
+        matters. Stone-coated steel systems can chip or lose coating adhesion on direct
+        impact. Our inspection assesses whether damage is cosmetic or functional, and
+        documents both for insurance purposes.
+    - id: "tile-slate-hail"
+      icon: "square"
+      h3: "Tile & Natural Slate"
+      body: |
+        Tile and slate are brittle materials — they can crack or fracture under direct
+        hail impact, and cracked tiles allow water under the field. Individual tile or
+        slate replacement is possible and often preferable to full replacement when damage
+        is isolated. We carry matching stock for common tile profiles; natural slate
+        matching is material-specific and may require sourcing. Our inspectors identify
+        the scope before any commitment is made.
+
+local_experts_proof:
+  left_column:
+    eyebrow: "THE NUMBERS"
+    h2: "The Hail Belt Is Our Home Market. We Know What a Real Hail Assessment Looks Like."
+    body: |
+      Texas, Colorado, Kansas, and Missouri are four of the highest-frequency hail states
+      in the country. Hail damage is not a seasonal sideline for Pro Exteriors — it is the
+      primary repair driver in three of our five states. Our crews have inspected and
+      repaired hail damage across the full range of roofing materials we install, and
+      our project managers understand how insurance carriers in each state document
+      and process hail claims differently. Our <a href="/residential">residential
+      roofing contractors</a> are based in the markets they serve — not storm chasers
+      following the event calendar.
+    stats:
+      - { value: "[REPRESENTATIVE]", label: "Hail Damage Repairs Completed [REPRESENTATIVE]" }
+      - { value: "4", label: "Core Hail Belt States" }
+      - { value: "15+", label: "Years in Business" }
+  right_column:
+    type: testimonial
+    quote: |
+      "[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial, hail damage
+      repair, TX/CO/KS/MO preferred. Signed release required before ship.]"
+    attribution: "[REPRESENTATIVE — Customer Name, City, State, Year]"
+    rating: 5
+    image_slot:
+      alt: "Completed hail damage roof repair by Pro Exteriors"
+      src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+repair_process:
+  id: "process"
+  eyebrow: "OUR PROCESS"
+  h2: "Hail Event to Completed Repair — Four Steps."
+  subhead: "We start with documentation. We end with a registered warranty."
+  steps:
+    - number: 1
+      title: "Hail Event — Call Within Days, Not Weeks"
+      body: "Most homeowner policies have a claim filing window for storm events. The sooner you call, the cleaner the causation documentation. Waiting gives weather and time the chance to complicate what should be a straightforward claim."
+      icon: "calendar"
+    - number: 2
+      title: "Free Hail Damage Inspection & Documentation"
+      body: "We inspect the full shingle field, ridge, gutters, flashing, fascia, and any penetrations. We photograph every damage indicator and produce a written report with damage density, affected material, and our scope recommendation. This report is your insurance documentation."
+      icon: "search"
+    - number: 3
+      title: "Insurance Claim Coordination"
+      body: "We coordinate the adjuster inspection, attend the visit, and review the carrier's estimate against our scope. When the estimate is incomplete, we file a supplement request. See our dedicated <a href=\"/residential/insurance-claim-assistance\">insurance claim assistance</a> page for the full process breakdown."
+      icon: "file-text"
+    - number: 4
+      title: "Targeted Repair or Full Replacement"
+      body: "Isolated hail damage in a young shingle field gets a targeted repair. Widespread granule loss and bruising in a field over 15 years old — or damage covering more than 30–40% of the roof — typically makes a <a href=\"/residential/roof-replacement\">full roof replacement</a> the better investment. We document the recommendation before you sign."
+      icon: "wrench"
+  cta:
+    label: "Schedule Your Free Hail Damage Inspection"
+    href: "/contact?intent=hail-damage-inspection&source=hail-damage-process"
+    data_event_action: "cta-click"
+    data_event_label: "process-cta"
+    data_event_category: "hail-damage-repair"
+
+case_studies:
+  eyebrow: "RECENT HAIL DAMAGE REPAIRS"
+  h2: "Across the Hail Belt — Texas, Colorado, Kansas"
+  cards:
+    - id: "tx-hail-case"
+      state: "Texas"
+      title: "[REPRESENTATIVE — TX Project: Hail Damage, Asphalt Replacement, DFW or Houston]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real hail repair project from Texas.]"
+      alt: "Completed hail damage roof repair in Texas by Pro Exteriors"
+      tag: "Hail Damage · Asphalt Replacement"
+    - id: "co-hail-case"
+      state: "Colorado"
+      title: "[REPRESENTATIVE — CO Project: Hail Damage, Denver Foothills or Front Range]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real hail repair project from Colorado.]"
+      alt: "Completed hail damage roof repair in Colorado by Pro Exteriors"
+      tag: "Hail Damage · Full Replacement"
+    - id: "ks-hail-case"
+      state: "Kansas"
+      title: "[REPRESENTATIVE — KS/MO Project: Hail Damage Repair or Replacement]"
+      description: "[REPRESENTATIVE — NOT YET SOURCED: Real hail repair project from Kansas or Missouri.]"
+      alt: "Completed hail damage roof repair by Pro Exteriors"
+      tag: "Hail Damage · Insurance Claim"
+
+insurance_band:
+  eyebrow: "HAIL DAMAGE AND YOUR INSURANCE CLAIM"
+  h2: "Hail Damage Is Typically Covered. The Documentation Is What Matters."
+  body: |
+    Standard homeowner insurance policies cover hail as a named peril. Whether a specific
+    claim is approved — and for what dollar amount — depends on your policy deductibles,
+    the adjuster's assessment, and the quality of the damage documentation.
+
+    Pro Exteriors coordinates the adjuster inspection and reviews the carrier's estimate
+    against our scope of work. When the initial payout falls short of the actual repair
+    cost, we file a supplement request with your carrier. The earlier you call after a
+    hail event, the cleaner the causation documentation. See our
+    <a href="/residential/insurance-claim-assistance">insurance claim assistance</a>
+    page for a full breakdown of how the process works.
+  image_slot:
+    alt: "Pro Exteriors crew conducting hail damage inspection on a residential roof"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+faq:
+  eyebrow: "FREQUENTLY ASKED"
+  h2: "Hail Damage Repair Questions, Answered."
+  items:
+    - q: "How soon after a hail storm should I get an inspection?"
+      a: |
+        Within 30–60 days of the event if possible, and sooner if you see any signs of
+        active water intrusion. Most homeowner insurance policies have a claim filing window
+        — some as short as one year, some shorter depending on state law and carrier terms.
+        Delay creates two problems: the causation documentation becomes harder to establish,
+        and secondary damage (mold, decking rot) that results from an uninspected breach
+        may not be covered separately.
+
+        If you had significant hail in your area in the last few weeks, it costs nothing
+        to have an inspection and know where you stand. We conduct free hail damage
+        assessments and will tell you honestly whether we see damage that warrants a claim.
+        For active water intrusion, see our <a href="/residential/storm-damage-repair" class="underline hover:no-underline">storm damage repair</a>
+        page for emergency response options.
+
+    - q: "What does hail damage look like on different roofing materials?"
+      a: |
+        On asphalt shingles: granule loss, impact bruising (soft spots in the mat), and
+        cracked or split shingle faces. On metal roofing: surface dents, coating loss on
+        stone-coated systems, and dented panel seams. On tile and slate: cracks, chips,
+        and fractures — tile is a brittle material and hail can crack it cleanly even
+        without the impact leaving a visible indentation.
+
+        The damage indicators on your gutters and downspouts — fresh dents, granule
+        accumulation in the discharge area — are the most reliable ground-level signal
+        that a professional inspection is warranted. See the five-indicator guide on this
+        page for the full breakdown.
+
+    - q: "Is hail damage covered by homeowners insurance?"
+      a: |
+        Yes, in most standard homeowner policies. Hail is a named peril in virtually all
+        HO-3 policies, which is the most common form in the states we serve. What varies
+        by policy and carrier is the deductible structure, whether there's a separate
+        wind-and-hail deductible (common in high-risk states like Texas and Colorado), and
+        the actual cash value vs. replacement cost value coverage terms.
+
+        For most homeowners in Texas, Colorado, Kansas, Missouri, and Georgia, a qualifying
+        hail event will result in the carrier covering the replacement cost of damaged
+        materials minus the applicable deductible. The deductible is your responsibility
+        and is not something a contractor can legally absorb or waive. Your policy
+        documents will show whether you have a standard deductible or a percentage-based
+        wind-and-hail deductible.
+
+    - q: "Does Pro Exteriors file the insurance claim for hail damage?"
+      a: |
+        We coordinate the adjuster inspection and attend the visit on your behalf. We
+        review the adjuster's written estimate and file supplement requests when scope is
+        missing or undervalued. What we do not do is file the initial claim — that is your
+        action as the policyholder.
+
+        The claim process is: you contact your insurance carrier to report the event and
+        open the claim. We then coordinate everything that involves the physical scope of
+        the roof — the inspection, the adjuster meeting, the estimate review, and any
+        supplement filings. See our <a href="/residential/insurance-claim-assistance" class="underline hover:no-underline">insurance claim assistance</a>
+        page for a step-by-step breakdown of what we do and don't do in the claim process.
+
+final_cta:
+  eyebrow: "START HERE"
+  h2: "If Your Area Had Hail in the Last 60 Days, an Inspection Costs Nothing and Answers Everything."
+  subhead: "Free hail damage assessment. Professional documentation for your insurance carrier. Our own crews across the hail belt."
+  cta_primary:
+    label: "Schedule Your Free Hail Damage Inspection"
+    href: "/contact?intent=hail-damage-inspection&source=hail-damage-final-cta"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-primary"
+    data_event_category: "hail-damage-repair"
+  cta_secondary:
+    label: "Learn About the Claims Process"
+    href: "/residential/insurance-claim-assistance"
+    data_event_action: "cta-click"
+    data_event_label: "final-cta-secondary"
+    data_event_category: "hail-damage-repair"
+  background_image_slot:
+    alt: "Pro Exteriors crew completing hail damage repair on a residential roof, Texas"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+    treatment: "10% opacity overlay"
+
+self_audit:
+  persona_voice: pass
+  forbidden_vocab: pass
+  insurance_discount_gate: pass
+    # Class 4 mention in asphalt card: 'some insurance carriers offer premium discounts —
+    # check with your specific carrier.' Qualified, not asserted. Gate passes.
+  internal_links_check:
+    up_to_parent: "pass — 'residential roofing contractors' in local_experts_proof"
+    across_to_storm_damage: "pass — FAQ answer 1"
+    across_to_insurance: "pass — repair process step 3 + insurance band + FAQ answer 4 + final CTA secondary"
+    across_to_asphalt: "pass — asphalt damage card (Class 4 upsell)"
+    across_to_replacement: "pass — repair process step 4 + implied in FAQ answer 1"
+
+status: success
+next_action: handoff
+provenance:
+  produced_by: aia4-copywriter (inline, PageBuilder orchestration)
+  produced_at: 2026-05-03

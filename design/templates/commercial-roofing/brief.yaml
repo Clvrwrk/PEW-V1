@@ -1,0 +1,131 @@
+# Commercial Roofing Pillar — Page Build Brief
+# Written by aia4-pagebuilder Phase 0 intake on 2026-05-03
+# Confirmed by Chris Hussey (verbally, this conversation)
+#
+# This file is the stable artifact every specialist reads. PageBuilder does not
+# re-run intake on retries — the brief is locked once written.
+
+# ─── Always required ───
+slug: commercial-roofing
+template: pillar                      # Top-of-vertical landing, not a single-service page
+location: null                        # National pillar, not city-specific
+target_keyword: "commercial roofing contractor"
+secondary_keywords:
+  - "commercial roofing"
+  - "commercial roofing company"
+  - "commercial roofing systems"
+  - "commercial roofing services"
+  - "commercial roofing solutions"
+audience: commercial-procurement
+intent: solution-evaluation           # Procurement officers research before they call
+hypothesis: |
+  Replacing the current thin commercial-roofing landing (single hero + 4 service
+  tiles + map + 2 FAQs) with the full Figma pillar (industrial hero + 4 stats +
+  7-system grid + manufacturer cert band + 3 reliability proof points + Gold
+  Standard testimonial + 3-real-case bento + nationwide reach map + 3-FAQ
+  accordion + inline executive assessment form) will lift assisted conversion
+  (form fill OR phone CTA OR /contact CTA) by ≥30% within 90 days vs. the
+  current pre-rebuild baseline.
+
+  Instrumentation: GA4 events on every CTA (data-cta-name attribute), inline
+  form posts to /api/lead with vertical=commercial, baseline read from the
+  pre-rebuild 30-day window, A/B-equivalent comparison on raw rate. Single-
+  metric hypothesis — assisted conversion is the gate.
+
+# ─── SEO copy bundle ───
+seo_copy:
+  metadata:
+    title: "Commercial Roofing Contractor — 16 States | Pro Exteriors"
+    meta_description: |
+      Commercial roofing contractor licensed across 16 states. TPO, EPDM, metal,
+      modified bitumen, coatings, and 24/7 emergency response for facility
+      portfolios. Get an executive roof assessment.
+    canonical: "https://pc-demo.cleverwork.io/commercial-roofing/"
+  body_path: "uploads/Commercial Roofing Contractor.docx"
+  html_path: "uploads/Commercial Roofing Contractor.html"
+
+# ─── Figma reference (no existing pillar template covers this layout yet) ───
+figma:
+  file_key: n8EC2AgOcubGyfEq7YJoiW
+  node_id: "9:4673"
+  page_image_path: "design/templates/commercial-roofing/source/figma-page-render.png"
+  code_path: "design/templates/commercial-roofing/source/figma-code-dump.html"
+  blueprint_cache: null               # First pull; cache populated during build
+  source_meta_description_provided: |
+    User-provided meta description was 485 characters — exceeded SEO 70–160 range.
+    Trimmed to a 159-char version above; full original kept for context:
+    "Explore Pro Exteriors' commercial roofing solutions offered across 16 states.
+    From full re-roofs to storm response, our experienced team delivers practical
+    insights and reliable service for multi-state portfolios. Ensure long-lasting
+    roofs with our maintenance programs anchored to your property, not the owner.
+    Our veteran roofers provide industry knowledge, empowering your decision-
+    making without hassle. Visit us for tailored solutions."
+
+# ─── Hero image ───
+# RESOLVED 2026-05-03 round-2: Chris confirmed the Texas Motor Speedway image
+# IS the existing /public/images/commercial-hero.webp (also used by the home
+# audience-split commercial card). No separate file needed; <picture> element
+# delivers .webp with .jpg fallback for non-webp clients.
+hero_image:
+  source: "user-confirmed: /public/images/commercial-hero.webp (already on disk)"
+  status: resolved
+  primary_path:  "/public/images/commercial-hero.webp"
+  fallback_path: "/public/images/commercial-hero.jpg"
+  alt: "Aerial view of Texas Motor Speedway grandstand and infield, photographed from the south on a clear day — representative of the institutional-scale commercial properties Pro Exteriors services"
+  notes: |
+    Page uses a <picture> element with .webp source first, .jpg img fallback.
+    Both files exist on disk. No launch blocker remains for hero image.
+
+# ─── Output paths ───
+output:
+  page: "src/pages/commercial-roofing/index.astro"   # Live page rebuild — overwrites
+  template_artifacts: "design/templates/commercial-roofing/"
+  hero_image_target: "public/images/commercial-roofing-hero.jpg"
+
+# ─── Localhost preview ───
+preview:
+  command: "npm run dev"
+  url: "http://localhost:4321/commercial-roofing/"
+  publish_to_repo: false                # Chris reviews locally before any commit
+
+# ─── Build flags raised at intake ───
+flags:
+  - id: stats-override
+    severity: warning
+    message: |
+      Per /decisions/2026-05-03-commercial-roofing-stats-override.md, four stats
+      ship without sources by stakeholder override (42 states / 30+ years /
+      15M+ sq ft / 98% retention). Three contradict the home page. Page-qc gate
+      is set to 'override' status, NOT 'pass', for this hard-gate dimension.
+  - id: hero-binary-resolved
+    severity: resolved
+    message: |
+      RESOLVED 2026-05-03 round-2: Chris confirmed the Texas Motor Speedway
+      image IS the existing /public/images/commercial-hero.webp. Page uses
+      <picture> with .webp + .jpg fallback. No launch blocker for hero.
+  - id: case-study-reuse
+    severity: info
+    message: |
+      Per Chris's intake decision, the four fictional case studies in the Figma
+      design (Regional Medical Center / State University / Logistics Hub /
+      National Retail Chain + Gold Standard testimonial) are replaced by the
+      three real Pro Exteriors TPO case studies (techpark-logistics-tpo /
+      dallas-north-mall-tpo / fort-worth-tpo) plus a "Your Project Next?" CTA
+      card. Two of the three real cases also carry [REPRESENTATIVE] markers
+      internally — they remain real-named projects with assets, but full project
+      data is still pending client confirmation.
+  - id: figma-form-vs-existing-form
+    severity: info
+    message: |
+      Figma includes an inline 4-field "Executive Roof Assessment" form (Company
+      Name, Facility Type, Approx. Sq. Ft., Timeline). Build wires it to the
+      existing /api/lead.ts endpoint with vertical=commercial; phone and email
+      promoted from the contact page so the inline form is conversion-complete
+      without a /contact redirect. Hidden honeypot field on the form per existing
+      LeadForm pattern.
+
+# ─── Provenance ───
+authored_by: aia4-pagebuilder Phase 0 (Maren Castellan-Reyes, inline)
+intake_date: 2026-05-03
+confirmed_by: Chris Hussey
+confirmed_at: 2026-05-03

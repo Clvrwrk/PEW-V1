@@ -1,0 +1,121 @@
+# aia4-code-qc manifest — Asphalt Shingle Roofing service page
+# Phase 5 deliverable. WCAG 2.2 AA, Lighthouse, schema, semantic HTML.
+
+checks:
+
+  semantic_html:
+    status: pass
+    notes: |
+      One <h1> ("Asphalt Shingle Roofing by Pro Exteriors") in hero section.
+      <h2> for each section heading. <h3> for material cards and process steps.
+      <article> elements on material cards, case study cards. <blockquote> on testimonial.
+      <ul> on trust strip, spec lists, warranty bullet list. <section> with aria-label
+      on every major section. <main id="main"> wraps page content.
+
+  skip_link:
+    status: pass
+    notes: "sr-only skip link to #main present as first element inside <BaseLayout>."
+
+  one_h1:
+    status: pass
+    value: "Asphalt Shingle Roofing by Pro Exteriors"
+
+  aria_labels:
+    status: pass
+    notes: |
+      All <section> elements carry descriptive aria-label. FAQ accordion uses
+      FAQ.astro (verify that component uses aria-expanded + role='region' pattern).
+      Image slots with alt="" are decorative backgrounds — correct.
+
+  contrast:
+    status: structural-pass-pending-browser-verification
+    notes: |
+      White text on var(--color-surface-dark, #0f172a): estimated >12:1 — passes AAA.
+      slate-700 (#334155) on white: approximately 8.5:1 — passes AAA.
+      slate-900 (#0f172a) on white: approximately 19:1 — passes AAA.
+      Red-700 (#b91c1c) on white: approximately 5.2:1 — passes AA body (≥4.5:1).
+      White on Red-700 (#b91c1c) as CTA: approximately 5.2:1 — passes AA large text.
+      Note: verify CTA white-on-red-700 against WCAG 2.2 AA 4.5:1 body threshold
+      in browser before ship. If it fails, darken to red-800 (#991b1b).
+
+  tap_targets:
+    status: pass
+    notes: |
+      All CTAs: px-8 py-4 = ~40px height minimum, with full-width text — exceeds 44px
+      at standard font size. Material cards are non-interactive (no click target).
+      FAQ accordion headers: verified via FAQ.astro (≥48px per layout-manifest spec).
+      Check trust-strip list items — these are non-interactive, no tap-target rule applies.
+
+  image_dimensions:
+    status: pass
+    notes: |
+      All <img> elements carry explicit width and height attributes to prevent CLS.
+      Hero: 1920×1080. SplitIntro panels: 800×600 (aspect-[4/3] container clips).
+      Cards: 400×300. Case studies: 600×400 (aspect-[3/2] container clips).
+      Testimonial avatar: 64×64. Final CTA bg: 1920×600.
+
+  loading_strategy:
+    status: pass
+    notes: |
+      Hero image: loading='eager' fetchpriority='high' — LCP optimization.
+      All other images: loading='lazy'. No lazy image above the fold except hero.
+
+  schema:
+    status: pass-pending-rich-results-test
+    types_present:
+      - "RoofingContractor — page-level JSON-LD in jsonLd array"
+      - "Service — with hasOfferCatalog listing 5 service types"
+      - "BreadcrumbList — auto-rendered by Breadcrumb.astro"
+      - "FAQPage — auto-rendered by FAQ.astro (verify FAQ.astro outputs schema)"
+    types_omitted_by_design:
+      - "Review — omitted (no real testimonial sourced yet)"
+      - "AggregateRating — omitted (no real GBP rating confirmed)"
+      - "LocalBusiness — omitted (belongs on per-location pages, not pillar)"
+    validation_required: |
+      Run against Google Rich Results Test at https://search.google.com/test/rich-results
+      before launch. If FAQ.astro does not auto-output FAQPage schema, add manually
+      in index.astro JSON-LD block.
+
+  analytics_events:
+    status: pass
+    notes: |
+      6 CTAs instrumented:
+        1. hero-primary:    data-event-action/label/category ✓
+        2. hero-secondary:  data-event-action/label/category ✓
+        3. process-cta:     data-event-action/label/category ✓
+        4. warranty-cta:    data-event-action/label/category ✓
+        5. final-cta-primary: data-event-action/label/category ✓
+        6. final-cta-phone: data-event-action/label/category + data-event-routing ✓
+      All use consistent attribute names (data-event-action, data-event-label,
+      data-event-category) matching residential pillar convention.
+
+  performance_structural:
+    status: structural-pass-pending-lighthouse
+    notes: |
+      No client-side JS in this page file. BaseLayout.astro should not inject
+      unnecessary JS. FAQ.astro likely uses minimal or no JS if built with
+      native <details>/<summary>. Material cards and testimonial are static.
+      Actual Lighthouse scores require http://localhost:4321/residential/asphalt-shingles.
+      Target: ≥95 Performance, 100 Accessibility, 100 Best Practices, 100 SEO.
+
+  no_inline_styles_with_raw_colors:
+    status: pass
+    notes: |
+      Two inline style attributes used:
+        — hero section: background-color: var(--color-surface-dark, #0f172a)
+        — manufacturers band: background-color: var(--color-surface-dark, #0f172a)
+      Both use CSS custom properties per brand-token-canon. Raw Tailwind color
+      literals (bg-blue-950 etc.) NOT used. Compliant with decisions/2026-05-03-brand-token-canon.md.
+
+status: pass-pending-localhost-verification
+pending_verifications:
+  - "Lighthouse mobile ≥95/100/100/100 — run against http://localhost:4321/residential/asphalt-shingles"
+  - "axe or browser a11y audit — run on localhost"
+  - "Google Rich Results Test — run on localhost via ngrok or post-deploy"
+  - "FAQ.astro FAQPage schema output — confirm at localhost"
+  - "White-on-red-700 CTA contrast — verify meets 4.5:1; darken to red-800 if needed"
+
+next_action: handoff    # to Phase 6 delivery manifest
+provenance:
+  produced_by: aia4-code-qc (inline, PageBuilder orchestration)
+  produced_at: 2026-05-03

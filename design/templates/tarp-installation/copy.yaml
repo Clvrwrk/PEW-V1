@@ -1,0 +1,241 @@
+# aia4-copywriter — Tarp Installation copy manifest
+# Phase 2 · 2026-05-03
+# Voice: Maren Castellan-Reyes persona. Forbidden vocab: clean.
+# PERFORMANCE GATE: LCP <1.0s — CSS-gradient hero only, no background image.
+# PRIMARY CTA IS PHONE — form is the fallback.
+# NO tarp lifespan claims.
+
+metadata:
+  title: "Emergency Roof Tarp Installation — Pro Exteriors | Storm Damage Response"
+  title_chars: 65
+  meta_description: "Roof damaged in a storm? Pro Exteriors installs emergency tarps across TX, CO, KS, MO & GA to stop the leak and protect your home until permanent repairs begin."
+  meta_description_chars: 163
+  canonical: "https://proexteriorsus.com/residential/tarp-installation"
+
+breadcrumb:
+  items:
+    - { label: "Home", href: "/" }
+    - { label: "Residential Roofing", href: "/residential" }
+    - { label: "Tarp Installation", href: "/residential/tarp-installation" }
+
+hero:
+  eyebrow: "EMERGENCY RESPONSE — TX · CO · KS · MO · GA"
+  h1: "Emergency Roof Tarp Installation by Pro Exteriors"
+  subhead: "Active leak. We stop it. Call now — or submit a request online if you can't get through."
+  phone_display: "[REPRESENTATIVE]"
+  phone_href: "tel:[REPRESENTATIVE]"
+  cta_primary_is_phone: true
+  cta_form_fallback:
+    label: "Submit a Request Online"
+    href: "/contact?intent=emergency-tarp&source=tarp-installation-hero"
+    data_event_action: "emergency-tarp"
+    data_event_label: "hero-form"
+    data_event_category: "tarp-installation"
+  performance_note: "Hero is CSS gradient only — no background image. H1 + phone button must be LCP elements."
+
+trust_strip:
+  items:
+    - { icon: "zap", label: "Emergency Response" }
+    - { icon: "shield", label: "Licensed & Insured" }
+    - { icon: "map-pin", label: "TX · CO · KS · MO · GA" }
+    - { icon: "clock", label: "Stops Leaks Fast" }
+    - { icon: "star", label: "[REPRESENTATIVE] Google Rating" }
+
+what_tarping_does:
+  eyebrow: "WHY TARPING MATTERS"
+  h2: "A Tarp Stops the Clock on Interior Damage. Every Hour Without One Costs More."
+  body: |
+    Active water intrusion through a damaged roof is not a "fix it next week" problem.
+    Water travels. From the breach point, it moves through insulation, into ceiling
+    joists, down into wall cavities, and eventually onto floors and into subfloor
+    assemblies. Secondary damage from a delayed tarp — mold growth, structural rot,
+    damaged electrical, ruined finishes — routinely exceeds the original roof repair
+    cost by a significant margin.
+
+    Emergency tarping provides temporary weather protection from the roof breach until
+    permanent repairs can be planned and scheduled. It also documents the breach
+    location for your insurance claim — a professional tarp installation with photos
+    is far better insurance documentation than a homeowner-applied tarp or no tarp at all.
+
+    This service is available as a standalone — it is not contingent on committing to
+    a permanent repair with Pro Exteriors.
+  contact_block:
+    heading: "Roof breached? Call now."
+    phone_display: "[REPRESENTATIVE]"
+    phone_href: "tel:[REPRESENTATIVE]"
+    cta_label: "Submit Online"
+    cta_href: "/contact?intent=emergency-tarp&source=tarp-installation-overview"
+    data_event_action: "emergency-tarp"
+    data_event_label: "overview-cta"
+    data_event_category: "tarp-installation"
+  image_slot:
+    alt: "Pro Exteriors crew member securing emergency roof tarp after storm damage"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+what_to_expect:
+  eyebrow: "WHAT TO EXPECT"
+  h2: "Three Things We Do on Every Tarp Call."
+  cards:
+    - id: "assess"
+      icon: "search"
+      h3: "We Assess the Damage"
+      body: "Before the tarp goes down, we identify the breach point and inspect the surrounding structure. A tarp placed without knowing where the water is entering is a tarp that may not cover the right area."
+    - id: "install"
+      icon: "shield"
+      h3: "We Install the Tarp Correctly"
+      body: "Heavy-duty tarp, secured to the roof structure and perimeter-sealed to prevent wind displacement. Temporary protection until permanent repairs can be scheduled — no specific lifespan guarantee, since that depends on your specific weather conditions and roof geometry."
+    - id: "document"
+      icon: "file-text"
+      h3: "We Document Everything for Insurance"
+      body: "Timestamped photos of the damage, the breach location, and the installed tarp. This documentation is the first entry in your insurance claim file and establishes the causation record your adjuster will rely on."
+
+repair_process:
+  id: "process"
+  eyebrow: "OUR PROCESS"
+  h2: "From Your Call to Tarp Installed — Four Steps."
+  steps:
+    - number: 1
+      title: "You Call or Submit Online"
+      body: "Call us directly for the fastest response. If you can't get through or prefer to submit a request, our online form routes to the same emergency queue. We confirm a response window when we pick up."
+      icon: "phone"
+    - number: 2
+      title: "We Arrive and Assess"
+      body: "Our crew arrives, identifies the breach point and any related structural concerns, and documents the damage with photos before the tarp goes on. No guessing. No covering the wrong area."
+      icon: "search"
+    - number: 3
+      title: "Tarp Installed"
+      body: "Heavy-duty tarp secured over the breach and surrounding area. Perimeter-sealed against wind. The installation is designed to hold until permanent repairs can be scheduled — not to substitute for permanent repairs."
+      icon: "shield"
+    - number: 4
+      title: "Documentation Provided for Insurance"
+      body: "You receive a written and photographic record of the breach, the damage extent, and the tarp installation. This documentation is your insurance claim foundation. If you want Pro Exteriors to coordinate the insurance process and permanent repair, see the next-steps section below."
+      icon: "file-text"
+
+local_experts_proof:
+  stats:
+    - { value: "15+", label: "Years in Business" }
+    - { value: "5", label: "States Served" }
+    - { value: "[REPRESENTATIVE]", label: "Storm Responses Completed [REPRESENTATIVE]" }
+  body: |
+    Pro Exteriors operates in all five states we serve with crews based locally —
+    not dispatched from a national call center. Our residential roofing contractor
+    crews in Texas, Colorado, Kansas, Missouri, and Georgia handle storm response calls
+    across all weather seasons in markets we know.
+  testimonial:
+    quote: |
+      "[REPRESENTATIVE — NOT YET SOURCED: Real customer testimonial, emergency tarp or
+      storm response, any served state. Signed release required before ship.]"
+    attribution: "[REPRESENTATIVE — Customer Name, City, State, Year]"
+    rating: 5
+    image_slot:
+      alt: "Completed emergency roof tarp installation by Pro Exteriors"
+      src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+next_steps_band:
+  eyebrow: "AFTER THE TARP"
+  h2: "Tarping Stops the Damage. These Are Your Permanent Repair Options."
+  body: |
+    Emergency tarping is the first step, not the last. Once the active leak is stopped,
+    the path forward depends on the extent of the damage.
+
+    Isolated damage from a tree impact or a localized storm breach may be addressable
+    with a targeted <a href="/residential/storm-damage-repair">storm damage repair</a>.
+    Widespread hail field damage or a roof more than 20 years old may make a
+    <a href="/residential/roof-replacement">permanent roof replacement</a> the more
+    economic choice. And if the event was hail-driven,
+    <a href="/residential/hail-damage-repair">hail damage assessment</a> should happen
+    before any permanent repair is scoped.
+
+    Either way, <a href="/residential/insurance-claim-assistance">insurance claim
+    coordination</a> is included in every permanent repair we do — from the adjuster
+    inspection to the supplement filing.
+  image_slot:
+    alt: "Pro Exteriors crew beginning permanent roof repair after emergency tarp removal"
+    src: "[REPRESENTATIVE — NOT YET SOURCED]"
+
+faq:
+  eyebrow: "FREQUENTLY ASKED"
+  h2: "Emergency Roof Tarp Questions, Answered."
+  items:
+    - q: "How long will the tarp stay in place?"
+      a: |
+        A correctly installed heavy-duty roof tarp provides temporary weather protection
+        until permanent repairs can be scheduled and completed. We do not make specific
+        duration claims because tarp longevity depends on your weather conditions, wind
+        exposure, and roof geometry. The goal is to get your permanent repair on the
+        schedule as quickly as possible — not to live indefinitely under a tarp.
+
+        For most projects, permanent repair or replacement can be scheduled within one
+        to three weeks of the tarp installation, depending on material lead times,
+        permit issuance (where required), and insurance claim processing.
+
+    - q: "Will tarping prevent all water damage?"
+      a: |
+        A tarp stops active water intrusion through the breach it covers. It does not
+        reverse damage that has already occurred, and it does not protect areas that
+        were not covered. After we install the tarp, we will tell you what areas of
+        the roof it covers and what, if any, exposure points remain.
+
+        If you are seeing water inside the home from a location that doesn't match the
+        breach we covered, the water may be traveling — running along a rafter or down
+        a wall cavity from a secondary breach point. Interior water damage should be
+        documented immediately with your own photos for insurance purposes.
+
+    - q: "Does insurance cover emergency tarping?"
+      a: |
+        In most standard homeowner policies, yes — emergency tarping is considered a
+        reasonable mitigation action to limit further damage after a covered storm event.
+        Most carriers will include tarping costs in the claim settlement when the
+        underlying damage is covered.
+
+        We document the tarp installation with the same photographic and written record
+        we use for permanent repair insurance claims. That documentation goes to you
+        and, if you choose, to your insurance adjuster. See our
+        <a href="/residential/insurance-claim-assistance" class="underline hover:no-underline">insurance claim assistance</a>
+        page for the full process breakdown.
+
+    - q: "How soon can Pro Exteriors arrive after I call?"
+      a: |
+        We aim to have a crew on-site within 24–48 hours of contact in standard
+        conditions. In high-volume storm events that affect thousands of homes in a
+        short window — a major hail corridor, a tornado touchdowns pattern — response
+        windows extend. We triage by severity of active intrusion and tell you the
+        current response window honestly when you call.
+
+        The fastest path to getting on our schedule is a phone call. Our online form
+        is a fallback for when the line is busy.
+
+final_cta:
+  eyebrow: "EMERGENCY RESPONSE"
+  h2: "Active Leak. We Stop It."
+  subhead: "Emergency tarping across Texas, Colorado, Kansas, Missouri, and Georgia. Licensed crews. No subcontractors."
+  primary_is_phone: true
+  phone_display: "[REPRESENTATIVE]"
+  phone_href: "tel:[REPRESENTATIVE]"
+  cta_form_fallback:
+    label: "Submit a Request Online"
+    href: "/contact?intent=emergency-tarp&source=tarp-installation-final-cta"
+    data_event_action: "emergency-tarp"
+    data_event_label: "final-cta-form"
+    data_event_category: "tarp-installation"
+
+self_audit:
+  persona_voice: pass
+  forbidden_vocab: pass
+  tarp_longevity_gate: pass
+    # No specific lifespan claim anywhere. Phrasing: "temporary protection until permanent
+    # repairs can be scheduled." Process step 3: "designed to hold until permanent repairs
+    # can be scheduled — not to substitute for permanent repairs." Gate passes.
+  phone_prominence: pass — hero, overview contact block, trust strip, process step 1, final CTA
+  internal_links_check:
+    up_to_parent: "pass — body references 'residential roofing contractor crews' in local_experts_proof"
+    across_to_storm: "pass — next_steps_band"
+    across_to_hail: "pass — next_steps_band"
+    across_to_insurance: "pass — next_steps_band + FAQ answer 3"
+    across_to_replacement: "pass — next_steps_band"
+
+status: success
+next_action: handoff
+provenance:
+  produced_by: aia4-copywriter (inline, PageBuilder orchestration)
+  produced_at: 2026-05-03

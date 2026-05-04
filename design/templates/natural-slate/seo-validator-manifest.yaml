@@ -1,0 +1,117 @@
+# aia4-seo-validator manifest — Natural Slate Roofing
+# Phase 1 · 2026-05-03
+
+target_keyword:
+  keyword: "slate roof installation"
+  search_volume: 1600
+  cpc_usd: 10.30
+  competition: LOW
+  read: |
+    1,600 monthly volume at LOW competition — modest volume but the conversion math
+    is outsized because natural slate projects run $40K–$100K+ on custom homes.
+    LOW competition means ranking is achievable quickly with a focused, technically
+    correct page. Every qualified conversion has more revenue impact than many
+    standard residential roof replacements combined. Target the transactional term
+    ("slate roof installation") as primary — it's the conversion keyword. The
+    head term "natural slate roofing" (8,100 vol) is informational; target it via
+    the breadth of the page, not by building around it exclusively.
+
+primary_secondaries:
+  - keyword: "natural slate roofing"
+    search_volume: 8100
+    cpc_usd: 5.40
+    competition: LOW
+    read: "High-volume informational term. Use in H1 and throughout body — the research segment that eventually converts."
+  - keyword: "slate roof replacement"
+    search_volume: 1300
+    cpc_usd: 12.80
+    competition: LOW
+    read: "Replacement intent — seed in overview and process. Existing slate homeowners searching."
+  - keyword: "real slate roofing"
+    search_volume: 880
+    cpc_usd: 9.60
+    competition: LOW
+    read: "Differentiates natural from synthetic — relevant when positioning against synthetic alternatives."
+  - keyword: "natural slate roofing contractor"
+    search_volume: 480
+    cpc_usd: 16.40
+    competition: LOW
+    read: "Highest CPC secondary — contractor-seeking buyer. Seed in trust strip and local_experts_proof."
+  - keyword: "slate roofing cost"
+    search_volume: 2400
+    cpc_usd: 7.20
+    competition: LOW
+    read: "Cost research intent — address in investment_band section. Do not publish specific price ranges."
+
+lsi_keywords:
+  slate_types:
+    - { kw: "Vermont slate roofing", vol: 720 }
+    - { kw: "Pennsylvania slate roofing", vol: 590 }
+    - { kw: "hard slate roofing", vol: 480 }
+    - { kw: "soft slate roofing", vol: 320 }
+    - { kw: "synthetic slate roofing", vol: 5400 }
+  structural:
+    - { kw: "slate roof weight", vol: 1900 }
+    - { kw: "can my house support slate roof", vol: 880 }
+    - { kw: "roof structural assessment", vol: 1300 }
+  longevity:
+    - { kw: "how long does slate roof last", vol: 2900 }
+    - { kw: "slate roof lifespan", vol: 1600 }
+    - { kw: "100 year roof", vol: 1300 }
+  repair:
+    - { kw: "slate roof repair", vol: 2400 }
+    - { kw: "replace broken slate tiles", vol: 720 }
+  geographic_moats:
+    - TX, CO, KS, MO, GA (2–4× each)
+
+term_frequency_targets:
+  "slate":
+    target_range: "40–60"
+    placement: "Title (1), H1 (2), meta (2), trust strip (2), headings (6–8), body (25–35)"
+  "natural slate":
+    target_range: "14–20"
+  "slate roof installation":
+    target_range: "6–10"
+  "structural":
+    target_range: "8–12"
+  "lifespan":
+    target_range: "6–10"
+  "synthetic slate":
+    target_range: "4–6"
+  "100 year":
+    target_range: "3–5"
+  "specialist":
+    target_range: "4–6"
+  geographic_moats: "Each state 2–4×"
+
+structural_weight_gate:
+  severity: critical
+  rule: |
+    Natural slate is one of the heaviest roofing materials (14–18 lbs/sq ft —
+    heavier than clay tile at 9–12 lbs/sq ft, and 5–9× asphalt at 2–4 lbs/sq ft).
+    Page MUST be explicit that not every home can support natural slate without
+    structural reinforcement. The feasibility assessment CTA is the conversion
+    mechanism AND the lead pre-qualifier — homeowners who can't support slate
+    are identified early. Do not downplay this or frame it as a bureaucratic step.
+    It is the single most important piece of information a prospective slate customer
+    needs before any project discussion.
+
+synthetic_slate_gate:
+  severity: info
+  rule: |
+    The materials grid includes synthetic slate as a legitimate option for homes
+    that can't support natural weight. Confirm with Chris that Pro Exteriors actually
+    installs synthetic slate before this ships. If they don't, remove the synthetic
+    card from the materials grid. Do not advertise a service not offered.
+
+schema_types_required:
+  - type: RoofingContractor
+  - type: Service
+    notes: "serviceType: Natural Slate Roof Installation"
+  - type: BreadcrumbList
+  - type: FAQPage
+
+status: pass
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

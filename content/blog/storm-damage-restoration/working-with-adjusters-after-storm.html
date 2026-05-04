@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working with Adjusters After a Storm: What to Say, What to Show | Pro Exteriors</title>
+  <meta name="description" content="The adjuster visit determines your claim outcome. Learn how to prepare, what to document, and how to respond if the scope is incomplete." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep-navy: #11133f;
+      --flag-red: #c22326;
+      --hunter-green: #3b6b4c;
+      --golden-orange: #c28412;
+      --smart-blue: #232884;
+      --bg-warm: #fbf9f6;
+      --text-primary: #1a1a2e;
+      --text-muted: #5a5a7a;
+      --border-light: #e4e2dd;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Archivo', sans-serif; background: var(--bg-warm); color: var(--text-primary); line-height: 1.7; font-size: 1rem; }
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--flag-red); width: 0%; z-index: 1000; transition: width 0.1s linear; }
+    nav.site-nav { position: sticky; top: 0; z-index: 900; background: var(--deep-navy); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-logo { font-size: 1.25rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-logo span { color: var(--flag-red); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .article-header { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; }
+    .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; font-family: 'IBM Plex Mono', monospace; }
+    .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .breadcrumb a:hover { color: rgba(255,255,255,0.9); }
+    .article-badge { display: inline-block; background: var(--flag-red); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 2px; margin-bottom: 1.25rem; font-family: 'IBM Plex Mono', monospace; }
+    .article-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 780px; margin: 0 auto 1.25rem; }
+    .article-meta { display: flex; gap: 1.5rem; justify-content: center; font-size: 0.82rem; color: rgba(255,255,255,0.6); flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; }
+    .article-hero { width: 100%; aspect-ratio: 16/7; overflow: hidden; background: var(--deep-navy); }
+    .article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .content-grid { max-width: 1160px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 240px 1fr; gap: 3rem; align-items: start; }
+    .sidebar { position: sticky; top: 72px; }
+    .toc { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; }
+    .toc-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-family: 'IBM Plex Mono', monospace; margin-bottom: 0.75rem; }
+    .toc ul { list-style: none; }
+    .toc li { margin-bottom: 0.35rem; }
+    .toc-link { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; display: block; padding: 0.2rem 0; border-left: 2px solid transparent; padding-left: 0.5rem; transition: all 0.2s; line-height: 1.4; }
+    .toc-link:hover, .toc-link.active { color: var(--deep-navy); border-left-color: var(--flag-red); }
+    .article-body h2 { font-size: 1.5rem; font-weight: 700; color: var(--deep-navy); margin: 2.5rem 0 1rem; padding-top: 0.5rem; line-height: 1.25; }
+    .article-body h3 { font-size: 1.1rem; font-weight: 600; color: var(--deep-navy); margin: 1.75rem 0 0.6rem; }
+    .article-body p { margin-bottom: 1.1rem; color: var(--text-primary); }
+    .article-body ul, .article-body ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+    .article-body li { margin-bottom: 0.4rem; }
+    .article-body strong { font-weight: 600; }
+    blockquote { border-left: 4px solid var(--flag-red); background: var(--white); padding: 1.25rem 1.5rem; margin: 2rem 0; border-radius: 0 6px 6px 0; }
+    blockquote p { font-size: 1.05rem; font-style: italic; color: var(--text-primary); margin-bottom: 0.5rem; }
+    blockquote cite { font-size: 0.82rem; color: var(--text-muted); font-style: normal; font-family: 'IBM Plex Mono', monospace; }
+    figure { margin: 2rem 0; }
+    figcaption { font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem; font-family: 'IBM Plex Mono', monospace; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; background: var(--white); border-radius: 6px; overflow: hidden; border: 1px solid var(--border-light); }
+    .data-table th { background: var(--deep-navy); color: var(--white); font-weight: 600; padding: 0.75rem 1rem; text-align: left; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; font-family: 'IBM Plex Mono', monospace; }
+    .data-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .data-table tr:nth-child(even) td { background: #f7f5f2; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .cta-banner { background: var(--deep-navy); color: var(--white); padding: 3rem 2rem; text-align: center; margin: 3rem 0 0; }
+    .cta-banner h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .cta-banner p { color: rgba(255,255,255,0.75); max-width: 500px; margin: 0 auto 1.75rem; }
+    .btn-primary { display: inline-block; background: var(--flag-red); color: var(--white); font-weight: 700; padding: 0.875rem 2rem; border-radius: 4px; text-decoration: none; font-size: 1rem; transition: background 0.2s; }
+    .btn-primary:hover { background: #a81d20; }
+    .related-section { max-width: 1160px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+    .related-section h2 { font-size: 1.25rem; font-weight: 700; color: var(--deep-navy); margin-bottom: 1.5rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .related-card { background: var(--white); border: 1px solid var(--border-light); border-radius: 6px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s; }
+    .related-card:hover { border-color: var(--flag-red); }
+    .related-card .badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--flag-red); font-family: 'IBM Plex Mono', monospace; margin-bottom: 0.4rem; }
+    .related-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--deep-navy); line-height: 1.35; }
+    site-footer { background: var(--deep-navy); color: rgba(255,255,255,0.6); text-align: center; padding: 2rem; font-size: 0.82rem; display: block; }
+    @media (max-width: 768px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .related-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="/" class="nav-logo">Pro<span>Exteriors</span></a>
+    <ul class="nav-links">
+      <li><a href="/services/commercial/">Commercial</a></li>
+      <li><a href="/services/residential/">Residential</a></li>
+      <li><a href="/projects/">Projects</a></li>
+      <li><a href="/blog/">Resources</a></li>
+      <li><a href="/contact/">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <header class="article-header">
+    <p class="breadcrumb">
+      <a href="/">Home</a> &rsaquo;
+      <a href="/blog/">Resources</a> &rsaquo;
+      <a href="/services/storm-damage-restoration/">Storm Damage Restoration</a>
+    </p>
+    <span class="article-badge">Storm Damage</span>
+    <h1 class="article-title">Working with Adjusters After a Storm: What to Say, What to Show</h1>
+    <div class="article-meta">
+      <span>By <strong>Pro Exteriors Team</strong></span>
+      <span>May 2026</span>
+      <span>~7 min read</span>
+    </div>
+  </header>
+
+  <div class="article-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_39x0gEMb1MLod699FtUNJLdewUD/hf_20260504_015658_959f9d0f-a022-4b36-b356-79901934e35d.png" alt="Working with Adjusters After a Storm: What to Say, What to Show" loading="eager" />
+  </div>
+
+  <div class="content-grid">
+    <aside class="sidebar">
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-title">In This Article</p>
+        <ul>
+          <li><a href="#who-is-the-adjuster" class="toc-link">Who Is the Adjuster?</a></li>
+          <li><a href="#before-the-adjuster-arrives" class="toc-link">Before the Adjuster Arrives</a></li>
+          <li><a href="#during-the-inspection" class="toc-link">During the Inspection</a></li>
+          <li><a href="#what-to-show-your-adjuster" class="toc-link">What to Show Your Adjuster</a></li>
+          <li><a href="#reviewing-the-estimate" class="toc-link">Reviewing the Estimate</a></li>
+          <li><a href="#if-the-scope-is-incomplete" class="toc-link">If the Scope Is Incomplete</a></li>
+          <li><a href="#the-supplement-process" class="toc-link">The Supplement Process</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="article-body">
+
+      <p>The adjuster visit is the pivotal moment in your storm damage claim. The scope and valuation established during that inspection determines what your insurer will pay — and correcting an incomplete scope afterward requires significantly more effort than getting it right the first time. Knowing how adjusters work, what they look for, and how to present your documentation positions you to advocate effectively for a complete and accurate claim.</p>
+
+      <h2 id="who-is-the-adjuster">Who Is the Adjuster?</h2>
+
+      <p>Adjusters come in two varieties, and knowing which type you're dealing with matters. <strong>Staff adjusters</strong> are employees of your insurance company, typically salaried, and handle claims exclusively for that insurer. <strong>Independent adjusters (IAs)</strong> are contractors who work for multiple insurance companies on a per-claim basis. They're commonly deployed during large catastrophe events — a major hailstorm across DFW, for example — when the volume of claims exceeds the insurer's staff adjuster capacity.</p>
+
+      <p>Independent adjusters vary significantly in experience, local market familiarity, and inspection thoroughness. A staff adjuster in Dallas has typically inspected hundreds of Texas roofs; an IA dispatched from out of state after a major storm event may be less familiar with Texas-specific roofing practices, local material costs, and the specific damage signatures of the hail size that hit your neighborhood. This doesn't make IAs adversaries — most are professional and thorough — but it means you may need to provide more context and documentation during the inspection.</p>
+
+      <p>A third option is a <strong>public adjuster (PA)</strong> — an independent professional you hire to represent your interests in a claim. Public adjusters work on a contingency fee (typically 10–15% of the claim settlement) and advocate for the highest complete and accurate settlement. They're most appropriate for large or complex claims where significant money is at stake and the initial adjuster estimate is substantially below contractor quotes.</p>
+
+      <h2 id="before-the-adjuster-arrives">Before the Adjuster Arrives</h2>
+
+      <p>Preparation before the inspection is where claims are won or lost. Most homeowners show up to their own adjuster appointment with nothing — no documentation, no contractor report, no photo record. That puts the entire scope determination in the adjuster's hands. A prepared homeowner is a different conversation.</p>
+
+      <p>The preparation checklist:</p>
+      <ul>
+        <li><strong>Build your photo file.</strong> Timestamped photos of every damage area you can safely observe from ground level, plus soft metal surfaces (AC fins, gutters, screens) and any visible structural damage.</li>
+        <li><strong>Get an independent contractor inspection first.</strong> A licensed roofing contractor's written inspection report, documenting damage with photographs and a scope of work estimate, gives the adjuster professional corroboration. It also gives you a comparison baseline if the adjuster's scope is significantly different.</li>
+        <li><strong>Pull the NOAA storm data.</strong> The NOAA Storm Events Database allows you to search by county and date for documented storm events including hail size and wind speed. Printing the relevant event data for your county and date gives the adjuster a quick reference and demonstrates that you've verified the storm occurred.</li>
+        <li><strong>Know your policy basics.</strong> Have your declarations page accessible. Know your Coverage A limit, your deductible structure (flat dollar vs. percentage, AOP vs. wind/hail), and whether you have replacement cost value (RCV) or actual cash value (ACV) coverage.</li>
+        <li><strong>Document interior damage.</strong> Any water staining on ceilings, wet insulation, damaged drywall, or damaged flooring from water intrusion should be photographed and documented. Interior damage is often part of the same claim and the adjuster should document it.</li>
+      </ul>
+
+      <figure aria-label="Adjuster preparation checklist showing five categories of documentation">
+        <svg viewBox="0 0 620 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five preparation steps shown as horizontal progress items: photos, contractor report, NOAA data, policy review, interior documentation">
+          <defs>
+            <linearGradient id="gradNavyAdj" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#232884"/>
+              <stop offset="100%" stop-color="#11133f"/>
+            </linearGradient>
+          </defs>
+          <rect width="620" height="220" fill="#ffffff" rx="6"/>
+          <text x="310" y="26" font-family="Archivo, sans-serif" font-size="13" font-weight="700" fill="#11133f" text-anchor="middle">Pre-Adjuster Visit Preparation Checklist</text>
+          <!-- Item 1 -->
+          <rect x="30" y="45" width="110" height="140" rx="6" fill="#f7f5f2" stroke="#e4e2dd" stroke-width="1"/>
+          <circle cx="85" cy="85" r="22" fill="url(#gradNavyAdj)"/>
+          <text x="85" y="91" font-family="IBM Plex Mono, monospace" font-size="16" fill="white" text-anchor="middle">📷</text>
+          <text x="85" y="124" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Photo</text>
+          <text x="85" y="136" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Documentation</text>
+          <text x="85" y="152" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">All damage +</text>
+          <text x="85" y="163" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">soft metals</text>
+          <!-- Item 2 -->
+          <rect x="152" y="45" width="110" height="140" rx="6" fill="#f7f5f2" stroke="#e4e2dd" stroke-width="1"/>
+          <circle cx="207" cy="85" r="22" fill="url(#gradNavyAdj)"/>
+          <text x="207" y="91" font-family="IBM Plex Mono, monospace" font-size="16" fill="white" text-anchor="middle">📋</text>
+          <text x="207" y="124" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Contractor</text>
+          <text x="207" y="136" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Report</text>
+          <text x="207" y="152" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Independent</text>
+          <text x="207" y="163" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">scope + estimate</text>
+          <!-- Item 3 -->
+          <rect x="274" y="45" width="110" height="140" rx="6" fill="#f7f5f2" stroke="#e4e2dd" stroke-width="1"/>
+          <circle cx="329" cy="85" r="22" fill="url(#gradNavyAdj)"/>
+          <text x="329" y="91" font-family="IBM Plex Mono, monospace" font-size="16" fill="white" text-anchor="middle">🌩️</text>
+          <text x="329" y="124" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">NOAA</text>
+          <text x="329" y="136" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Storm Data</text>
+          <text x="329" y="152" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Event date,</text>
+          <text x="329" y="163" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">hail size, county</text>
+          <!-- Item 4 -->
+          <rect x="396" y="45" width="110" height="140" rx="6" fill="#f7f5f2" stroke="#e4e2dd" stroke-width="1"/>
+          <circle cx="451" cy="85" r="22" fill="url(#gradNavyAdj)"/>
+          <text x="451" y="91" font-family="IBM Plex Mono, monospace" font-size="16" fill="white" text-anchor="middle">📄</text>
+          <text x="451" y="124" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Policy</text>
+          <text x="451" y="136" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Review</text>
+          <text x="451" y="152" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Coverage A,</text>
+          <text x="451" y="163" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">deductible, RCV/ACV</text>
+          <!-- Item 5 -->
+          <rect x="518" y="45" width="73" height="140" rx="6" fill="#f7f5f2" stroke="#e4e2dd" stroke-width="1"/>
+          <circle cx="554" cy="85" r="22" fill="url(#gradNavyAdj)"/>
+          <text x="554" y="91" font-family="IBM Plex Mono, monospace" font-size="16" fill="white" text-anchor="middle">🏠</text>
+          <text x="554" y="124" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Interior</text>
+          <text x="554" y="136" font-family="Archivo, sans-serif" font-size="10" font-weight="700" fill="#11133f" text-anchor="middle">Damage</text>
+          <text x="554" y="152" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">Stains, wet</text>
+          <text x="554" y="163" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5a5a7a" text-anchor="middle">insulation</text>
+          <!-- Check marks over items (all completed) -->
+          <circle cx="30" cy="45" r="10" fill="#3b6b4c"/>
+          <text x="30" y="50" font-family="Archivo, sans-serif" font-size="11" fill="white" text-anchor="middle">✓</text>
+          <circle cx="152" cy="45" r="10" fill="#3b6b4c"/>
+          <text x="152" y="50" font-family="Archivo, sans-serif" font-size="11" fill="white" text-anchor="middle">✓</text>
+          <circle cx="274" cy="45" r="10" fill="#3b6b4c"/>
+          <text x="274" y="50" font-family="Archivo, sans-serif" font-size="11" fill="white" text-anchor="middle">✓</text>
+          <circle cx="396" cy="45" r="10" fill="#3b6b4c"/>
+          <text x="396" y="50" font-family="Archivo, sans-serif" font-size="11" fill="white" text-anchor="middle">✓</text>
+          <circle cx="518" cy="45" r="10" fill="#3b6b4c"/>
+          <text x="518" y="50" font-family="Archivo, sans-serif" font-size="11" fill="white" text-anchor="middle">✓</text>
+        </svg>
+        <figcaption>Complete all five preparation categories before the adjuster arrives. The contractor report is the most commonly skipped — and the most valuable.</figcaption>
+      </figure>
+
+      <h2 id="during-the-inspection">During the Inspection</h2>
+
+      <p>Be present for the adjuster's inspection. This is not optional. Adjusters who inspect alone without the homeowner present are more likely to produce incomplete scopes — not necessarily from bad intent, but because there's no one to show them the AC fins, point out the interior water stain, or walk them to the area of the roof that had three shingles blow off. Your presence ensures nothing is missed by omission.</p>
+
+      <p>During the inspection:</p>
+      <ul>
+        <li><strong>Accompany the adjuster throughout.</strong> If they're on the roof, you can be at ground level ready to ask questions. If they're on a ladder, be there when they come down.</li>
+        <li><strong>Point out all documented damage areas.</strong> Show your photo documentation. Point out soft metal impacts. Walk them to the interior water staining.</li>
+        <li><strong>Ask what they're documenting.</strong> It's appropriate to ask "are you noting the damage to the ridge cap?" or "did you see the impact on the gutters?" You're not challenging them — you're ensuring completeness.</li>
+        <li><strong>Note what they inspect and what they skip.</strong> Write down the areas they examined and the areas they didn't. This becomes useful if you need to dispute scope gaps.</li>
+      </ul>
+
+      <blockquote>
+        <p>"The most important thing a homeowner can do during an adjuster visit is bring a contractor with them. Not to argue with the adjuster, but because two sets of professional eyes on the same roof almost always catch more than one. And when there's a scope gap, the contractor can speak to it on the spot rather than having to file a supplement later."</p>
+        <cite>— Pro Exteriors Residential Operations Director, Dallas TX</cite>
+      </blockquote>
+
+      <h2 id="what-to-show-your-adjuster">What to Show Your Adjuster</h2>
+
+      <p>Present your documentation in a specific order designed to build the adjuster's confidence in the validity and extent of the claim.</p>
+
+      <ol>
+        <li><strong>Start with the NOAA data.</strong> "Here's the documented hail event for our county on [date] — 1.75-inch hail." This establishes the event's existence with a third-party source independent of both you and your contractor.</li>
+        <li><strong>Show ground-level soft metal impacts.</strong> Walk them to the AC condenser and the gutters before anything else. These are the easiest damage indicators for adjusters to verify and they establish that the hail event was real and of significant size.</li>
+        <li><strong>Present your photo file.</strong> Organized by location (slope, ridge, penetrations), with timestamps visible. Let the adjuster scroll through it rather than narrating each image.</li>
+        <li><strong>Present the contractor report last.</strong> "We had a licensed contractor inspect before you arrived — here's their report and scope estimate." This is a comparison baseline, not a challenge. Frame it as "I want to make sure we're looking at the same damage."</li>
+      </ol>
+
+      <h2 id="reviewing-the-estimate">Reviewing the Estimate</h2>
+
+      <table class="data-table" aria-label="Common adjuster estimate line items and what to verify">
+        <thead>
+          <tr>
+            <th>Estimate Line Item</th>
+            <th>What to Verify</th>
+            <th>Common Gap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Roof replacement square footage</td>
+            <td>Matches actual roof area (not just damaged section)</td>
+            <td>Understated area; missing waste factor</td>
+          </tr>
+          <tr>
+            <td>Material specification</td>
+            <td>Like-for-like with existing roof class/grade</td>
+            <td>Downgraded to base 3-tab when architectural was in place</td>
+          </tr>
+          <tr>
+            <td>Tear-off and disposal</td>
+            <td>Included; separate line item</td>
+            <td>Omitted or bundled without explicit quantity</td>
+          </tr>
+          <tr>
+            <td>Flashing replacement</td>
+            <td>All failed flashings listed (valley, pipe boots, chimney)</td>
+            <td>Reuse noted when replacement is needed</td>
+          </tr>
+          <tr>
+            <td>Underlayment</td>
+            <td>Full replacement noted, not just field areas</td>
+            <td>Missing at edges or valleys</td>
+          </tr>
+          <tr>
+            <td>Drip edge / starter</td>
+            <td>Included as separate line items</td>
+            <td>Commonly omitted; may be code-required</td>
+          </tr>
+          <tr>
+            <td>Emergency tarping / mitigation</td>
+            <td>Included if performed and documented</td>
+            <td>Omitted when homeowner didn't provide invoice</td>
+          </tr>
+          <tr>
+            <td>Interior damage</td>
+            <td>All documented water intrusion areas included</td>
+            <td>Missed if interior wasn't toured during inspection</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="if-the-scope-is-incomplete">If the Scope Is Incomplete</h2>
+
+      <p>Receiving an adjuster estimate that is materially lower than your contractor's estimate is common, not unusual. The most frequent scope gaps involve understated square footage, missing starter and drip edge line items, reuse noted on flashings that need replacement, and omitted interior damage. When you identify a gap, the process is:</p>
+
+      <ol>
+        <li><strong>Request a reinspection in writing.</strong> Contact your claims representative (not just the adjuster) by email and specify the exact scope items you believe are incomplete. Written communication creates a record.</li>
+        <li><strong>Provide contractor documentation of the disputed items.</strong> "The adjuster noted flashing reuse; our contractor's report states the step flashing at the chimney has failed seal and requires replacement. Here is the photo documentation." This is not a complaint — it's a scope addendum backed by professional documentation.</li>
+        <li><strong>Request the reinspection within your state's claim handling timeline.</strong> Texas, Colorado, Kansas, and Missouri all have statutory claim handling timelines that insurers are required to meet. Texas Insurance Code Chapter 542 requires insurers to begin investigating a claim within 15 days of receipt.</li>
+      </ol>
+
+      <h2 id="the-supplement-process">The Supplement Process</h2>
+
+      <p>When additional damage is discovered during the repair process that was not included in the original adjuster estimate — damaged decking, failed sheathing, additional flashing failures — this becomes a supplemental claim. Contractors who work regularly with insurance claims are experienced in the supplement process. Pro Exteriors documents discovered scope changes with photographs, item-by-item documentation, and a formal supplement request submitted to your claims representative before the additional work is performed.</p>
+
+      <p>The supplement process is legal, standard practice, and explicitly anticipated in your policy language. An insurer who refuses to consider supplements for documented additional damage may be engaging in bad faith claims handling — a pattern that state insurance commissioners take seriously. Keep all supplement documentation and communications in writing.</p>
+
+    </article>
+  </div>
+
+  <div class="cta-banner">
+    <h2>Need a Contractor for Your Adjuster Visit?</h2>
+    <p>Pro Exteriors attends adjuster inspections across DFW, Denver, Wichita, and Kansas City with professional documentation that gets complete scopes written the first time.</p>
+    <a href="/contact/" class="btn-primary">Schedule a Storm Inspection</a>
+  </div>
+
+  <section class="related-section">
+    <h2>Related Resources</h2>
+    <div class="related-grid">
+      <a href="/blog/hail-damage-how-to-identify/" class="related-card">
+        <div class="badge">Storm Damage</div>
+        <h3>Hail Damage on a Roof: How to Identify It Before Your Adjuster Arrives</h3>
+      </a>
+      <a href="/blog/filing-roof-insurance-claim/" class="related-card">
+        <div class="badge">Storm Damage</div>
+        <h3>How to File a Roof Insurance Claim: The Complete Step-by-Step Guide</h3>
+      </a>
+      <a href="/blog/wind-damage-vs-hail-damage/" class="related-card">
+        <div class="badge">Storm Damage</div>
+        <h3>Wind Damage vs. Hail Damage: How to Tell the Difference</h3>
+      </a>
+    </div>
+  </section>
+
+  <site-footer>
+    <p>&copy; 2026 Pro Exteriors &mdash; Prepared by AIA4 Pro Exteriors &mdash; Maren Castellan-Reyes, Senior Director, Website &amp; Application Experience</p>
+  </site-footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const max = document.body.scrollHeight - window.innerHeight;
+      bar.style.width = (scrolled / max * 100) + '%';
+    }, { passive: true });
+    const sections = document.querySelectorAll('article h2[id]');
+    const links = document.querySelectorAll('.toc-link');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>

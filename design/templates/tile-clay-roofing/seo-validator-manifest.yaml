@@ -1,0 +1,120 @@
+# aia4-seo-validator manifest — Clay and Tile Roofing
+# Phase 1 · 2026-05-03
+
+target_keyword:
+  keyword: "clay tile roofing"
+  search_volume: 12100
+  cpc_usd: 5.98
+  competition: LOW
+  read: |
+    12,100 national volume at LOW competition and a low $5.98 CPC — informational
+    intent dominates. Searchers are researching a premium product (tile and clay
+    roofing), not yet ready to buy. The strategy is to capture this research phase
+    with depth, then convert to the transactional CTA (tile roof assessment request)
+    which has its own keyword cluster at higher CPC. The page must serve both the
+    researcher and the buyer — the informational depth earns the organic rank; the
+    CTA converts the researcher once trust is established.
+
+primary_secondaries:
+  - keyword: "tile roof installation"
+    search_volume: 1300
+    cpc_usd: 17.52
+    competition: LOW
+    read: "Transactional anchor. Use in H1 alongside 'clay tile roofing'. The conversion keyword."
+  - keyword: "concrete tile roofing"
+    search_volume: 2400
+    cpc_usd: 8.40
+    competition: LOW
+    read: "Material variant — concrete tile is a close sibling of clay. Anchors concrete card in materials grid."
+  - keyword: "Spanish tile roofing"
+    search_volume: 3600
+    cpc_usd: 6.20
+    competition: LOW
+    read: "Aesthetic variant — high volume, informational. Seed in service overview and hero eyebrow."
+  - keyword: "clay tile roof replacement"
+    search_volume: 880
+    cpc_usd: 19.80
+    competition: LOW
+    read: "Replacement intent — higher CPC, transactional. Seed in process and final CTA."
+  - keyword: "tile roofing contractor"
+    search_volume: 720
+    cpc_usd: 22.40
+    competition: LOW
+    read: "Contractor qualifier at peak CPC — use in local_experts_proof and trust strip."
+  - keyword: "tile roof repair"
+    search_volume: 2900
+    cpc_usd: 14.80
+    competition: LOW
+    read: "Repair intent — seed in FAQ and service overview (we handle repair and replacement)."
+
+lsi_keywords:
+  tile_types:
+    - { kw: "clay roof tiles", vol: 8100 }
+    - { kw: "barrel tile roofing", vol: 3600 }
+    - { kw: "S-tile roofing", vol: 2400 }
+    - { kw: "flat tile roofing", vol: 1900 }
+    - { kw: "terracotta roof tiles", vol: 5400 }
+  structural:
+    - { kw: "tile roof weight", vol: 2900 }
+    - { kw: "can my roof support tile", vol: 1300 }
+    - { kw: "roof decking for tile", vol: 880 }
+  longevity:
+    - { kw: "how long does tile roof last", vol: 4400 }
+    - { kw: "tile roof lifespan", vol: 1900 }
+    - { kw: "clay tile roof maintenance", vol: 1300 }
+  cost:
+    - { kw: "tile roof cost", vol: 8100 }
+    - { kw: "clay tile roof installation cost", vol: 2400 }
+  geographic_moats:
+    - TX, CO, KS, MO, GA (2–4× each)
+
+term_frequency_targets:
+  "clay tile":
+    target_range: "14–20"
+    placement: "Title (1), H1 (1), meta (2), headings (3–4), body (6–8)"
+  "tile roofing":
+    target_range: "16–24"
+  "tile roof":
+    target_range: "20–30"
+  "concrete tile":
+    target_range: "6–10"
+  "Spanish":
+    target_range: "4–6"
+  "lifespan":
+    target_range: "5–8"
+  "structural assessment":
+    target_range: "4–7"
+  "fire resistant":
+    target_range: "4–6"
+  geographic_moats: "Each state 2–4×"
+
+structural_weight_gate:
+  severity: mandatory
+  rule: |
+    Clay and concrete tile are significantly heavier than asphalt (9–12 lbs/sq ft
+    vs 2–4 lbs/sq ft). The page MUST mention that a structural assessment is required
+    before installation to verify the existing decking and roof framing can support
+    the additional load. Do NOT imply any home can receive tile without this check.
+    This gate is non-negotiable — it protects Pro Exteriors from liability on
+    structural failures and pre-qualifies leads.
+
+hail_brittleness_gate:
+  severity: info
+  rule: |
+    Clay tile is brittle and can crack under large hail. This is a real objection
+    in the TX/CO/KS hail belt. The FAQ must address this honestly: tile is not
+    the ideal choice for the highest-hail-frequency areas. Acknowledge the limitation
+    without making it the headline. Honest disclosure builds more trust than evasion,
+    and it pre-qualifies leads who are in unsuitable locations.
+
+schema_types_required:
+  - type: RoofingContractor
+  - type: Service
+    notes: "serviceType: Clay and Tile Roof Installation"
+  - type: BreadcrumbList
+  - type: FAQPage
+
+status: pass
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline)
+  produced_at: 2026-05-03

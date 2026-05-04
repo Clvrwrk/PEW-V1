@@ -1,0 +1,139 @@
+# aia4-seo-validator manifest — Metal Roofing (residential) service page
+# Phase 1 deliverable.
+# Methodology: Kyle Roof on-page (TF vs SERP cluster, LSI breadth, schema-as-signal)
+# Data: DataForSEO batch pull 20260504-012953
+
+target_keyword:
+  keyword: "metal roof installation"
+  search_volume: 27100
+  cpc_usd: 16.42
+  competition: LOW
+  source: DataForSEO Google Ads search_volume/live (US 2840, 2026-05-03)
+  read: |
+    "Metal roofing" (110K vol, HIGH comp) is dominated by manufacturers and
+    directories — not a winnable H1 target for a contractor money page.
+    "Metal roof installation" (27,100 vol, LOW comp, $16.42 CPC) is the correct
+    primary keyword: transactional intent, no contractor competition in SERP,
+    CPC signals strong buyer intent. Use "metal roofing" as highest-frequency
+    body term only (natural, not exact-match).
+
+primary_secondaries:
+  - keyword: "metal roofing for homes"
+    search_volume: 8100
+    cpc_usd: 12.50
+    competition: LOW
+    read: "Residential-specific modifier — wire in hero subhead and service overview."
+  - keyword: "standing seam metal roof"
+    search_volume: 12100
+    cpc_usd: 8.30
+    competition: MEDIUM
+    read: "High-volume product variant. Systems grid card and body copy anchor."
+  - keyword: "metal roof cost"
+    search_volume: 22200
+    cpc_usd: 9.55
+    competition: LOW
+    read: "Cost is a top research trigger for metal. FAQ and cost/value section must address."
+  - keyword: "stone coated metal roofing"
+    search_volume: 2900
+    cpc_usd: 11.80
+    competition: LOW
+    read: "Lower-volume but LOW comp — install as a systems-grid card keyword."
+
+lsi_keywords:
+  system_types:
+    - { kw: "standing seam metal roofing", vol: 12100, note: "MEDIUM comp — primary system card" }
+    - { kw: "corrugated metal roofing", vol: 4400, note: "Third system tier" }
+    - { kw: "stone coated steel roofing", vol: 2900, note: "Storm-belt appeal" }
+    - { kw: "steel roofing", vol: 8100, note: "Generic variant — use in body" }
+    - { kw: "galvalume roofing", vol: 1600, note: "Technical term — use in process/specs" }
+  performance:
+    - { kw: "hail resistant metal roofing", vol: 880, note: "LOW comp; hail-belt positioning" }
+    - { kw: "energy efficient roofing", vol: 3600, note: "Metal's top secondary benefit" }
+    - { kw: "metal roofing lifespan", vol: 720, note: "Reinforces 50-year value story" }
+  cost:
+    - { kw: "metal roof cost per square foot", vol: 9900, note: "HIGH comp informational; address in cost section" }
+    - { kw: "metal roofing prices", vol: 6600, note: "FAQ anchor" }
+  geographic_moats:
+    - { kw: "TX | Texas", note: "Seed 2-4× naturally" }
+    - { kw: "CO | Colorado", note: "Hail belt — especially Denver foothills" }
+    - { kw: "KS | Kansas", note: "Hail belt" }
+    - { kw: "MO | Missouri" }
+    - { kw: "GA | Georgia" }
+
+serp_read: |
+  "Metal roof installation" SERP (2026-05-03):
+  Manufacturers dominate (Metal Sales, ATAS, Petersen, Drexel Metals).
+  Directories (Angi, HomeAdvisor, Thumbtack) take middle positions.
+  A handful of regional contractor pages in positions 15-25.
+  Strategic implication: Low competition means a well-built contractor page can
+  rank top-5 within 6 months. Focus copy on the conversion signals absent from
+  manufacturer pages: inspection process, warranty registration, multi-state
+  service, and financing.
+
+term_frequency_targets:
+  "metal roof installation":
+    target_range: "5–8"
+    placement: "Title (1), H1 (1), meta (1), first 100 words (1), ≥1 in process section"
+  "metal roofing":
+    target_range: "20–35"
+    read: "Volume driver — highest-frequency body term throughout."
+  "metal roof":
+    target_range: "15–25"
+    read: "Noun form alongside 'metal roofing'."
+  "standing seam":
+    target_range: "8–12"
+    read: "Primary system type — systems grid + service overview + FAQ."
+  "stone-coated":
+    target_range: "5–8"
+    read: "Second system type."
+  corrugated:
+    target_range: "3–5"
+    read: "Third system type."
+  hail:
+    target_range: "5–8"
+    read: "Hail-belt positioning — key differentiator vs. asphalt."
+  energy:
+    target_range: "4–6"
+    read: "Energy efficiency is metal's secondary value prop."
+  warranty:
+    target_range: "6–10"
+    read: "50-year warranty + transferability."
+  installation:
+    target_range: "10–15"
+    read: "Core service term."
+  contractor:
+    target_range: "4–6"
+    read: "Positions page as a contractor vs. manufacturer page."
+  geographic_state_moats:
+    target_range: "Each state 2–4×"
+
+schema_types_required:
+  - type: RoofingContractor
+    required: true
+  - type: Service
+    required: true
+    notes: "serviceType: Metal Roofing Installation"
+  - type: BreadcrumbList
+    required: true
+    placement: "Home > Residential Roofing > Metal Roof Installation"
+  - type: FAQPage
+    required: true
+
+flags:
+  - id: avoid-head-term-h1
+    severity: warning
+    message: |
+      Do not use "metal roofing" (HIGH comp) in H1 or title tag.
+      Use "Metal Roof Installation" as the conversion anchor instead.
+  - id: noise-objection
+    severity: info
+    message: |
+      FAQ must address "Is metal roofing loud?" factually — with proper
+      solid sheathing and insulation, indoor noise is comparable to asphalt.
+      Do not overclaim "quieter" without a sourced reference.
+
+status: pass
+next_action: handoff
+provenance:
+  produced_by: aia4-pagebuilder Phase 1 (inline orchestration)
+  produced_at: 2026-05-03

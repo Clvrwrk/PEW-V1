@@ -1,0 +1,76 @@
+# Delivery manifest — /residential/storm-damage-repair
+# Phase 6 of 6 — AIA4 PageBuilder · 2026-05-03
+
+slug: storm-damage-repair
+url: /residential/storm-damage-repair
+title: "Storm Damage Roof Repair"
+target_keyword: "storm damage roofing"
+keyword_volume: 4400
+keyword_cpc_usd: 44.87
+keyword_competition: LOW
+template: residential-service (emergency variant — CSS-gradient hero, no hero image, sticky mobile call bar)
+silo_role: T2-money-page — storm cluster emergency hub
+silo_parent: /residential
+
+hypothesis:
+  a: "Top-3 organic for 'storm damage roofing' in TX/CO/KS/MO/GA geos within 90 days — LOW comp, achievable faster than standard 6-month projection"
+  b: "≥40% form-completion on 'Request Emergency Inspection' CTA within 90 days — highest conversion hypothesis in the silo"
+  note: |
+    $44.87 CPC reflects buyers in motion. Emergency intent means lower cognitive friction
+    required — the conversion path is call/form immediately, not research → evaluate → contact.
+    Hero architecture (CSS gradient, H1 as LCP, phone visible above fold) is designed to
+    serve this intent on mobile with bad signal.
+
+files:
+  brief:           design/templates/storm-damage-repair/brief.yaml
+  seo_validator:   design/templates/storm-damage-repair/seo-validator-manifest.yaml
+  page_link:       design/templates/storm-damage-repair/page-link-manifest.yaml
+  copy:            design/templates/storm-damage-repair/copy.yaml
+  assembled_page:  src/pages/residential/storm-damage-repair/index.astro
+
+hard_gates:
+  performance:    pending-localhost-verification — LCP target <1.0s (stricter than silo default); hero is CSS-gradient only
+  accessibility:  structural-pass-pending-browser-verification — sticky bar tap targets verified ≥48px in code
+  measurement:    pass-(6 CTAs + 3 phone click events instrumented; data-event-action="emergency-inspection" distinct from standard "cta-click")
+  trust:          blocked-pending-source-material
+  schema:         pass-pending-rich-results-test
+  forms:          pending
+
+ship_blockers:
+  - "All image slots [REPRESENTATIVE] — immediate-steps right col, testimonial, case-tx, case-co, case-ks, insurance-band left col"
+  - "Testimonial — real customer (storm repair, any served state) + signed release"
+  - "All 3 case studies — real storm projects + signed releases (TX hail, CO hail, KS/MO wind)"
+  - "Phone number [REPRESENTATIVE] — appears in hero, sticky bar, steps contact block, final CTA; single value, four placements"
+  - "Storm claims managed stat [REPRESENTATIVE] — needs Pro Exteriors confirmation"
+  - "Google rating [REPRESENTATIVE] — trust strip"
+  - "Localhost Lighthouse run — LCP <1.0s on 4G mobile required (stricter gate than standard silo pages)"
+
+internal_links:
+  out_placed: 6
+  out_detail:
+    - up:    "/residential (near-match: 'residential roofing contractors' in proof section)"
+    - across: "/residential/tarp-installation (planned-Q2 — immediate steps step 2 + FAQ answer 3)"
+    - across: "/residential/hail-damage-repair (planned-Q2 — damage types hail card)"
+    - across: "/residential/insurance-claim-assistance (live — process step 3 + insurance band + final CTA secondary)"
+    - across: "/residential/roof-replacement (live — process step 4)"
+  in_live:
+    - "/residential/insurance-claim-assistance links here via FAQ answer 4 + final CTA secondary (live)"
+  in_needed:
+    - "/residential parent — needs 'storm damage roof repair' exact-match anchor wired"
+    - "/residential/hail-damage-repair → planned-Q2"
+    - "/residential/tarp-installation → planned-Q2"
+
+structural_notes:
+  - "Hero uses CSS gradient background only — NO background image. H1 + primary CTA are LCP elements."
+  - "Sticky mobile call bar: fixed bottom, z-index 100, hidden at md breakpoint via media query. Phone appears in hero + sticky bar + steps contact block + final CTA = 4 placements."
+  - "Emergency CTA uses data-event-action='emergency-inspection' (not standard 'cta-click') to distinguish emergency conversions in analytics."
+  - "Final CTA section uses deep red (#7f1d1d) background — distinct from standard dark surface — to signal urgency."
+  - "No manufacturers band, no materials grid, no warranties section — emergency page has distinct section mix."
+  - "Insurance band replaces warranties_financing section."
+
+status: structurally-complete
+launch_readiness: blocked-pending-source-material
+
+provenance:
+  produced_by: aia4-pagebuilder Phase 6 (inline orchestration)
+  produced_at: 2026-05-03
