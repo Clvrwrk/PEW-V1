@@ -7,17 +7,25 @@ export interface FaqItem {
 }
 
 export interface Props {
-  faqs: FaqItem[];
+  faqs?: FaqItem[];
+  items?: FaqItem[];
   class?: string;
+  schemaType?: string;
 }
 
-const { faqs, class: className = '' } = Astro.props;
+const {
+  faqs,
+  items,
+  class: className = '',
+} = Astro.props;
+
+const faqItems = faqs ?? items ?? [];
 
 // Generate FAQPage Schema
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
+  "mainEntity": faqItems.map(faq => ({
     "@type": "Question",
     "name": faq.question,
     "acceptedAnswer": {
@@ -29,10 +37,10 @@ const faqSchema = {
 };
 ---
 
-{faqs.length > 0 && <SchemaJsonLd jsonLd={faqSchema} />}
+{faqItems.length > 0 && <SchemaJsonLd jsonLd={faqSchema} />}
 
 <div class={`space-y-4 ${className}`}>
-  {faqs.map((faq, index) => (
+  {faqItems.map((faq, index) => (
     <details class="group rounded-lg border border-border bg-surface-elevated shadow-sm open:ring-1 open:ring-accent/20">
       <summary class="flex cursor-pointer items-center justify-between px-6 py-4 text-left font-medium text-text-primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent list-none">
         <span>{faq.question}</span>
