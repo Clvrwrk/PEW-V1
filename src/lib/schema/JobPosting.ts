@@ -25,7 +25,7 @@ export function jobPostingSchema(data: any) {
       "@type": "Organization",
       "name": "Pro Exteriors",
       "sameAs": "https://pc-demo.cleverwork.io",
-      "logo": "https://pc-demo.cleverwork.io/logo.png"
+      "logo": "https://pc-demo.cleverwork.io/Logos/pro-exteriors-logo-light.webp"
     },
     "jobLocation": {
       "@type": "Place",

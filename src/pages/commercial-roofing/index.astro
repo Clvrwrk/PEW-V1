@@ -20,8 +20,7 @@
    HERO IMAGE:
      Wired to /images/commercial-hero.webp (Chris confirmed this IS the
      Texas Motor Speedway image he attached — already on disk, no separate
-     upload needed). Falls back to /images/commercial-hero.jpg via picture
-     source for browsers without webp support.
+     upload needed). The runtime image policy ships WebP only.
 
    Author: Maren Castellan-Reyes · Page-build manifest:
    /design/templates/commercial-roofing/
@@ -244,7 +243,7 @@ const mainSchema = [
 
   <!-- ════════════════════════════════════════════════════════════════════════
        HERO — Texas Motor Speedway image with dark slate overlay + dual CTAs
-       Hero image: /images/commercial-roofing-hero.jpg (Chris drops binary)
+       Hero image: /images/commercial-hero.webp
   ════════════════════════════════════════════════════════════════════════════ -->
   <section
     class="relative flex items-center overflow-hidden"
@@ -255,7 +254,7 @@ const mainSchema = [
       <picture>
         <source srcset="/images/commercial-hero.webp" type="image/webp" />
         <img
-          src="/images/commercial-hero.jpg"
+          src="/images/commercial-hero.webp"
           alt="Aerial view of Texas Motor Speedway grandstand and infield, photographed from the south on a clear day — representative of the institutional-scale commercial properties Pro Exteriors services"
           class="w-full h-full object-cover"
           loading="eager"

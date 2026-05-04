@@ -19,7 +19,7 @@ export function caseStudySchema(data: any) {
     "@type": "CreativeWork",
     "name": caseStudy.title,
     "description": caseStudy.description,
-    "image": caseStudy.image || "https://pc-demo.cleverwork.io/logo.png",
+    "image": caseStudy.image || "https://pc-demo.cleverwork.io/Logos/pro-exteriors-logo-light.webp",
     "contentLocation": {
       "@type": "City",
       "name": caseStudy.city

@@ -35,7 +35,7 @@ export function localBusinessSchema(officeData: any) {
     "url": office.url,
     "telephone": office.phone,
     "email": office.email,
-    "image": office.image || "https://pc-demo.cleverwork.io/logo.png"
+    "image": office.image || "https://pc-demo.cleverwork.io/Logos/pro-exteriors-logo-light.webp"
   };
 }
 

@@ -11,7 +11,7 @@ export function organizationSchema() {
     "url": "https://pc-demo.cleverwork.io/",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://pc-demo.cleverwork.io/logo.png",
+      "url": "https://pc-demo.cleverwork.io/Logos/pro-exteriors-logo-light.webp",
       "width": "600",
       "height": "60"
     },

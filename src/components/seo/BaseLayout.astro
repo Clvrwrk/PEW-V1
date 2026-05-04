@@ -18,7 +18,7 @@ const {
   title,
   description,
   canonicalPath,
-  ogImage = '/images/og-default.jpg',
+  ogImage = '/images/og-default.webp',
   jsonLd,
   noindex = false,
 } = Astro.props;
@@ -36,8 +36,8 @@ if (description.length < 70 || description.length > 160) {
 const siteUrl = import.meta.env.SITE_URL || 'https://pc-demo.cleverwork.io';
 const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
 const ogImageUrl = new URL(ogImage, siteUrl).toString();
-const faviconLight = '/Logos/Favicon%20500x500%20lgt.svg';
-const faviconDark = '/Logos/Favicon%20500x500%20drk.svg';
+const faviconLight = '/Logos/favicon-light.webp';
+const faviconDark = '/Logos/favicon-dark.webp';
 ---
 
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ const faviconDark = '/Logos/Favicon%20500x500%20drk.svg';
     <meta name="twitter:image" content={ogImageUrl} />
 
     <!-- Favicon -->
-    <link id="app-favicon" rel="icon" type="image/svg+xml" href={faviconLight} />
+    <link id="app-favicon" rel="icon" type="image/webp" href={faviconLight} />
     <script is:inline define:vars={{ faviconLight, faviconDark }}>
       (() => {
         const favicon = document.getElementById('app-favicon');

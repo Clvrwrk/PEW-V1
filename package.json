@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && npm run audit:contrast && npm run audit:schema && npm run audit:silo && npm run audit:orphans && npm run audit:gbp-plan",
+    "build": "astro build && npm run audit:contrast && npm run audit:schema && npm run audit:silo && npm run audit:orphans && npm run audit:gbp-plan && npm run audit:images",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
@@ -12,7 +12,8 @@
     "audit:schema": "node scripts/validate-schema.mjs",
     "audit:silo": "node scripts/audit-silo.mjs",
     "audit:orphans": "node scripts/audit-orphans.mjs",
-    "audit:gbp-plan": "node scripts/audit-gbp-url-plan.mjs"
+    "audit:gbp-plan": "node scripts/audit-gbp-url-plan.mjs",
+    "audit:images": "node scripts/audit-images.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
