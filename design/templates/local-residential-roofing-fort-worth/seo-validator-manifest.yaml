@@ -1,0 +1,9 @@
+# Phase 1 SEO validator manifest
+slug: local-residential-roofing-fort-worth
+canonical_path: /residential-roofing/fort-worth/
+template: local-service
+source_content: src/content/cities/residential-fort-worth.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+schema_types_required: [RoofingContractor, Service, FAQPage, BreadcrumbList]

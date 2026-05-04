@@ -1,0 +1,11 @@
+# Phase 5 code QC manifest — TPO Roofing Systems
+slug: tpo-roofing-systems
+canonical_path: /commercial-roofing/tpo/
+template: commercial-service
+status: pending
+checks:
+  wcag: pending
+  lighthouse_mobile: pending
+  schema: pending
+notes:
+  - Added during PageBuilder alignment; must be replaced by actual code-QC output before pass.

@@ -1,0 +1,12 @@
+# Phase 5 page QC manifest
+slug: local-commercial-roofing-frisco
+canonical_path: /commercial-roofing/frisco/
+template: local-service
+source_content: src/content/cities/commercial-frisco.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+checks:
+  voice: pending
+  sources: pending
+  local_relevance: pending

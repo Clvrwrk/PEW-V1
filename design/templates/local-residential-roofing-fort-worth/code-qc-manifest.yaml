@@ -1,0 +1,12 @@
+# Phase 5 code QC manifest
+slug: local-residential-roofing-fort-worth
+canonical_path: /residential-roofing/fort-worth/
+template: local-service
+source_content: src/content/cities/residential-fort-worth.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+checks:
+  wcag: pending
+  lighthouse_mobile: pending
+  schema: pending

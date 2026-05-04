@@ -1,0 +1,15 @@
+# Phase 5 page QC manifest — EPDM Roofing
+slug: epdm-roofing
+canonical_path: /commercial-roofing/epdm/
+template: commercial-service
+audience: commercial-procurement
+target_keyword: "epdm roofing"
+source_content: src/content/services/commercial/epdm.mdx
+status: pending
+notes:
+  - Pending record created during PageBuilder alignment; specialist reruns still required before pass.
+status: pending
+checks:
+  voice: pending
+  sources: pending
+  hypothesis: pending

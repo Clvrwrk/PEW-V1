@@ -1,0 +1,12 @@
+# Phase 5 page QC manifest
+slug: local-commercial-roofing-dallas
+canonical_path: /commercial-roofing/dallas/
+template: local-service
+source_content: src/content/cities/commercial-dallas.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+checks:
+  voice: pending
+  sources: pending
+  local_relevance: pending

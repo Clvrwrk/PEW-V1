@@ -1,0 +1,17 @@
+# Phase 6 delivery manifest
+slug: local-commercial-roofing-dallas
+canonical_path: /commercial-roofing/dallas/
+template: local-service
+source_content: src/content/cities/commercial-dallas.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+files:
+  assembled_page: src/pages/commercial-roofing/[city]/index.astro
+hard_gates:
+  performance: pending
+  accessibility: pending
+  measurement: pending
+  trust: pending
+  schema: pending
+  forms: pending

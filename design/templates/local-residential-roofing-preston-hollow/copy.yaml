@@ -1,0 +1,10 @@
+# Phase 2 copy manifest
+slug: local-residential-roofing-preston-hollow
+canonical_path: /residential-roofing/preston-hollow/
+template: neighborhood
+source_content: src/content/subdivisions/preston-hollow.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+copy_source: src/content/subdivisions/preston-hollow.mdx
+sections: []

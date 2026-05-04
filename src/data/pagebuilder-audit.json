@@ -1,0 +1,635 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-05-04",
+  "auditReport": "tech/PageBuilder-Sequence-Audit_2026-05-04.md",
+  "spreadsheetStatusValues": [
+    "pass",
+    "fail",
+    "pending"
+  ],
+  "phaseColumns": {
+    "phase1": "PB Phase 1 Brief + Strategy",
+    "phase2": "PB Phase 2 Copy",
+    "phase3": "PB Phase 3 Visual",
+    "phase4": "PB Phase 4 Assembly",
+    "phase5": "PB Phase 5 QC",
+    "phase6": "PB Phase 6 Delivery"
+  },
+  "routes": [
+    {
+      "path": "/commercial-roofing/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/commercial-roofing/",
+      "type": "commercial-pillar",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/commercial-roofing",
+      "sourceContent": null,
+      "renderer": "src/pages/commercial-roofing/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "fail",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Missing layout-manifest.yaml, image-manifest.yaml, and code-qc-manifest.yaml.",
+        "Delivery hard gates are not fully proven."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/",
+      "type": "residential-pillar",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/residential",
+      "sourceContent": null,
+      "renderer": "src/pages/residential-roofing/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pending",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Delivery manifest references old src/pages/residential/index.astro path.",
+        "Missing code-qc-manifest.yaml."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/commercial-roofing/tpo/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/commercial-roofing/tpo/",
+      "type": "commercial-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/tpo-roofing-systems",
+      "sourceContent": "src/content/services/commercial/tpo-roofing-systems.mdx",
+      "renderer": "src/pages/commercial-roofing/[service]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "PageBuilder records now exist; actual page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/commercial-roofing/flat-roof-systems/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/commercial-roofing/flat-roof-systems/",
+      "type": "commercial-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/flat-roof-systems",
+      "sourceContent": "src/content/services/commercial/flat-roof-systems.mdx",
+      "renderer": "src/pages/commercial-roofing/[service]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "PageBuilder records now exist; actual page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/commercial-roofing/replacement/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/commercial-roofing/replacement/",
+      "type": "commercial-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/commercial-roof-replacement",
+      "sourceContent": "src/content/services/commercial/replacement.mdx",
+      "renderer": "src/pages/commercial-roofing/[service]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "PageBuilder records now exist; actual page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/commercial-roofing/repair/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/commercial-roofing/repair/",
+      "type": "commercial-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/commercial-roof-repair",
+      "sourceContent": "src/content/services/commercial/repair.mdx",
+      "renderer": "src/pages/commercial-roofing/[service]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "PageBuilder records now exist; actual page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/commercial-roofing/metal/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/commercial-roofing/metal/",
+      "type": "commercial-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/commercial-metal-roofing",
+      "sourceContent": "src/content/services/commercial/metal.mdx",
+      "renderer": "src/pages/commercial-roofing/[service]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "PageBuilder records now exist; actual page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/commercial-roofing/epdm/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/commercial-roofing/epdm/",
+      "type": "commercial-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/epdm-roofing",
+      "sourceContent": "src/content/services/commercial/epdm.mdx",
+      "renderer": "src/pages/commercial-roofing/[service]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "PageBuilder records now exist; actual page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/asphalt-shingles/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/asphalt-shingles/",
+      "type": "residential-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/asphalt-shingles",
+      "sourceContent": "src/content/services/residential/asphalt-shingles.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Delivery manifest points at deleted src/pages/residential/asphalt-shingles/index.astro.",
+        "Live route still needs structured residential renderer verification.",
+        "Structured residential renderer is in place; PageBuilder visual manifest, QC, delivery, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/emergency/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/emergency/",
+      "type": "residential-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/tarp-installation",
+      "sourceContent": "src/content/services/residential/emergency.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pending",
+        "phase4": "pass",
+        "phase5": "fail",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Template naming drift from tarp-installation to emergency.",
+        "Missing layout, image, page QC, and code QC records.",
+        "Structured residential renderer is in place; PageBuilder visual manifest, QC, delivery, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/inspection/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/inspection/",
+      "type": "residential-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": null,
+      "sourceContent": "src/content/services/residential/inspection.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pending",
+        "phase2": "pending",
+        "phase3": "pending",
+        "phase4": "pass",
+        "phase5": "fail",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "No matching PageBuilder template record found.",
+        "Structured residential renderer is in place; PageBuilder visual manifest, QC, delivery, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/metal/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/metal/",
+      "type": "residential-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/metal-roofing",
+      "sourceContent": "src/content/services/residential/metal.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pending",
+        "phase4": "pass",
+        "phase5": "fail",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Delivery manifest points at deleted src/pages/residential/metal-roofing/index.astro.",
+        "Structured residential renderer is in place; PageBuilder visual manifest, QC, delivery, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/replacement/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/replacement/",
+      "type": "residential-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/roof-replacement",
+      "sourceContent": "src/content/services/residential/replacement.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pending",
+        "phase4": "pass",
+        "phase5": "fail",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Delivery manifest points at deleted static route.",
+        "Missing layout, image, page QC, and code QC records.",
+        "Structured residential renderer is in place; PageBuilder visual manifest, QC, delivery, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/storm-damage/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/storm-damage/",
+      "type": "residential-service",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/storm-damage-repair",
+      "sourceContent": "src/content/services/residential/storm-damage.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pending",
+        "phase4": "pass",
+        "phase5": "fail",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Delivery manifest points at deleted static route.",
+        "Missing layout, image, page QC, and code QC records.",
+        "Structured residential renderer is in place; PageBuilder visual manifest, QC, delivery, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/commercial-roofing/dallas/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/commercial-roofing/dallas/",
+      "type": "commercial-city",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/local-commercial-roofing-dallas",
+      "sourceContent": "src/content/cities/commercial-dallas.mdx",
+      "renderer": "src/pages/commercial-roofing/[city]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Structured local renderer and PageBuilder record now exist; page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/commercial-roofing/fort-worth/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/commercial-roofing/fort-worth/",
+      "type": "commercial-city",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/local-commercial-roofing-fort-worth",
+      "sourceContent": "src/content/cities/commercial-fort-worth.mdx",
+      "renderer": "src/pages/commercial-roofing/[city]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Structured local renderer and PageBuilder record now exist; page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/commercial-roofing/frisco/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/commercial-roofing/frisco/",
+      "type": "commercial-city",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/local-commercial-roofing-frisco",
+      "sourceContent": "src/content/cities/commercial-frisco.mdx",
+      "renderer": "src/pages/commercial-roofing/[city]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Structured local renderer and PageBuilder record now exist; page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/commercial-roofing/plano/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/commercial-roofing/plano/",
+      "type": "commercial-city",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/local-commercial-roofing-plano",
+      "sourceContent": "src/content/cities/commercial-plano.mdx",
+      "renderer": "src/pages/commercial-roofing/[city]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Structured local renderer and PageBuilder record now exist; page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/dallas/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/dallas/",
+      "type": "residential-city",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/local-residential-roofing-dallas",
+      "sourceContent": "src/content/cities/residential-dallas.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Structured local renderer and PageBuilder record now exist; page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/fort-worth/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/fort-worth/",
+      "type": "residential-city",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/local-residential-roofing-fort-worth",
+      "sourceContent": "src/content/cities/residential-fort-worth.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Structured local renderer and PageBuilder record now exist; page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/highland-park/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/highland-park/",
+      "type": "residential-city",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/local-residential-roofing-highland-park",
+      "sourceContent": "src/content/cities/residential-highland-park.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Structured local renderer and PageBuilder record now exist; page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/southlake/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/southlake/",
+      "type": "residential-city",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/local-residential-roofing-southlake",
+      "sourceContent": "src/content/cities/residential-southlake.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Structured local renderer and PageBuilder record now exist; page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/preston-hollow/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/preston-hollow/",
+      "type": "subdivision",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/local-residential-roofing-preston-hollow",
+      "sourceContent": "src/content/subdivisions/preston-hollow.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Structured local renderer and PageBuilder record now exist; page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    },
+    {
+      "path": "/residential-roofing/twin-creeks-allen/",
+      "canonicalUrl": "https://pc-demo.cleverwork.io/residential-roofing/twin-creeks-allen/",
+      "type": "subdivision",
+      "pagebuilderRequired": true,
+      "pagebuilderStatus": "pending",
+      "pageSpeedMobileScore": "pending",
+      "templateFolder": "design/templates/local-residential-roofing-twin-creeks-allen",
+      "sourceContent": "src/content/subdivisions/twin-creeks-allen.mdx",
+      "renderer": "src/pages/residential-roofing/[slug]/index.astro",
+      "phases": {
+        "phase1": "pass",
+        "phase2": "pass",
+        "phase3": "pass",
+        "phase4": "pass",
+        "phase5": "pending",
+        "phase6": "pending"
+      },
+      "blockers": [
+        "Structured local renderer and PageBuilder record now exist; page QC, code QC, delivery hard gates, and PageSpeed proof remain pending."
+      ],
+      "launchBlocker": true,
+      "lastChecked": "2026-05-04"
+    }
+  ],
+  "notApplicableGroups": [
+    {
+      "group": "blog",
+      "status": "na",
+      "reason": "Editorial article workflow, not service/pillar PageBuilder."
+    },
+    {
+      "group": "legal",
+      "status": "na",
+      "reason": "Policy pages need legal/content QA, not PageBuilder."
+    },
+    {
+      "group": "offices",
+      "status": "na",
+      "reason": "GBP/NAP pages need factual/local-schema QA, not PageBuilder."
+    },
+    {
+      "group": "case-studies",
+      "status": "na",
+      "reason": "Case studies need proof/testimonial/image provenance workflow before PageBuilder-style layout."
+    },
+    {
+      "group": "utility-and-funnel-pages",
+      "status": "na",
+      "reason": "Contact, thank-you, portal, error, API, and utility pages need funnel QA and accessibility checks, not PageBuilder."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+# Phase 2 copy manifest — Commercial Roof Repair
+slug: commercial-roof-repair
+canonical_path: /commercial-roofing/repair/
+template: commercial-service
+audience: commercial-procurement
+target_keyword: "commercial roof repair"
+source_content: src/content/services/commercial/repair.mdx
+status: pending
+notes:
+  - Pending record created during PageBuilder alignment; specialist reruns still required before pass.
+copy_source: src/content/services/commercial/repair.mdx
+sections: []

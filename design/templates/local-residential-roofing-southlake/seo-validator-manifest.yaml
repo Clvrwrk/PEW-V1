@@ -1,0 +1,9 @@
+# Phase 1 SEO validator manifest
+slug: local-residential-roofing-southlake
+canonical_path: /residential-roofing/southlake/
+template: local-service
+source_content: src/content/cities/residential-southlake.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+schema_types_required: [RoofingContractor, Service, FAQPage, BreadcrumbList]

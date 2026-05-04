@@ -1,0 +1,9 @@
+# Phase 1 SEO validator manifest
+slug: local-residential-roofing-twin-creeks-allen
+canonical_path: /residential-roofing/twin-creeks-allen/
+template: neighborhood
+source_content: src/content/subdivisions/twin-creeks-allen.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+schema_types_required: [RoofingContractor, Service, FAQPage, BreadcrumbList]

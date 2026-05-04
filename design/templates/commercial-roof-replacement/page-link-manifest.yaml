@@ -1,0 +1,12 @@
+# Phase 1 page-link manifest — Commercial Roof Replacement
+slug: commercial-roof-replacement
+canonical_path: /commercial-roofing/replacement/
+template: commercial-service
+audience: commercial-procurement
+target_keyword: "commercial roof replacement"
+source_content: src/content/services/commercial/replacement.mdx
+status: pending
+notes:
+  - Pending record created during PageBuilder alignment; specialist reruns still required before pass.
+internal_links_out: []
+internal_links_in_required: []

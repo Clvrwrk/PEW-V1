@@ -1,0 +1,12 @@
+# Phase 5 page QC manifest
+slug: local-residential-roofing-highland-park
+canonical_path: /residential-roofing/highland-park/
+template: local-service
+source_content: src/content/cities/residential-highland-park.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+checks:
+  voice: pending
+  sources: pending
+  local_relevance: pending

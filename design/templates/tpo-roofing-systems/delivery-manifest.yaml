@@ -1,0 +1,16 @@
+# Phase 6 delivery manifest — TPO Roofing Systems
+slug: tpo-roofing-systems
+canonical_path: /commercial-roofing/tpo/
+template: commercial-service
+status: pending
+files:
+  assembled_page: src/pages/commercial-roofing/[service]/index.astro
+hard_gates:
+  performance: pending
+  accessibility: pending
+  measurement: pending
+  trust: pending
+  schema: pending
+  forms: pending
+notes:
+  - Added during PageBuilder alignment; pass requires Lighthouse/PageSpeed, schema, source, forms, and analytics proof.

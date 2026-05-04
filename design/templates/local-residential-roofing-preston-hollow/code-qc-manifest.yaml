@@ -1,0 +1,12 @@
+# Phase 5 code QC manifest
+slug: local-residential-roofing-preston-hollow
+canonical_path: /residential-roofing/preston-hollow/
+template: neighborhood
+source_content: src/content/subdivisions/preston-hollow.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+checks:
+  wcag: pending
+  lighthouse_mobile: pending
+  schema: pending

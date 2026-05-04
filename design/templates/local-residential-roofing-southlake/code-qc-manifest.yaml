@@ -1,0 +1,12 @@
+# Phase 5 code QC manifest
+slug: local-residential-roofing-southlake
+canonical_path: /residential-roofing/southlake/
+template: local-service
+source_content: src/content/cities/residential-southlake.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+checks:
+  wcag: pending
+  lighthouse_mobile: pending
+  schema: pending

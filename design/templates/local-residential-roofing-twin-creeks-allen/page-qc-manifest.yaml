@@ -1,0 +1,12 @@
+# Phase 5 page QC manifest
+slug: local-residential-roofing-twin-creeks-allen
+canonical_path: /residential-roofing/twin-creeks-allen/
+template: neighborhood
+source_content: src/content/subdivisions/twin-creeks-allen.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+checks:
+  voice: pending
+  sources: pending
+  local_relevance: pending

@@ -1,0 +1,12 @@
+# Phase 3 layout manifest — Commercial Metal Roofing
+slug: commercial-metal-roofing
+canonical_path: /commercial-roofing/metal/
+template: commercial-service
+audience: commercial-procurement
+target_keyword: "commercial metal roofing"
+source_content: src/content/services/commercial/metal.mdx
+status: pending
+notes:
+  - Pending record created during PageBuilder alignment; specialist reruns still required before pass.
+renderer: src/pages/commercial-roofing/[service]/index.astro
+sections_from_frontmatter: true

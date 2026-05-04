@@ -10,15 +10,16 @@ Phase 1 Seed is **URL-compliant against the Phase 0 workbook plan**.
 
 The Docker/Coolify build is passing, and the published Astro output now matches the 66-url Phase 0 URL plan in `strategy/Pro-Exteriors_GBP-Curation_April-2026.xlsx`.
 
-Current verified baseline from the 2026-05-04 closeout:
+Current verified baseline from the 2026-05-04 PageBuilder governance closeout:
 
 - 129 Astro pages build successfully.
-- 275 schema blocks validate.
-- contrast, schema, silo, orphan, and GBP URL-plan audits pass.
+- 269 schema blocks validate across 128 audited pages.
+- contrast, schema, silo, orphan, GBP URL-plan, image, and PageBuilder audits pass.
 - GBP workbook Phase 0 plan has 66 URLs.
 - 66 Phase 0 URLs publish at the exact planned URL.
 - 0 Phase 0 URLs rely on a noncanonical alternate.
 - 0 Phase 0 URLs are missing from the current build.
+- 24 PageBuilder-required routes are registered in governance: 0 pass, 24 pending, 0 fail.
 
 Read these first when picking up the build:
 
@@ -57,6 +58,14 @@ The workbook now includes reconciliation columns:
 - `Published URL / Alternate`
 - `Build Reconciliation Notes`
 - `Last Reviewed`
+- `PageBuilder Status`
+- `PageSpeed Mobile Score`
+- `PB Phase 1 Brief + Strategy`
+- `PB Phase 2 Copy`
+- `PB Phase 3 Visual`
+- `PB Phase 4 Assembly`
+- `PB Phase 5 QC`
+- `PB Phase 6 Delivery`
 
 Sheet `06_Build_Reconcile_2026-05-04` records the current route audit.
 
@@ -214,6 +223,8 @@ npm run audit:schema
 npm run audit:silo
 npm run audit:orphans
 npm run audit:gbp-plan
+npm run audit:images
+npm run audit:pagebuilder
 ```
 
 Individual audits:
@@ -224,7 +235,20 @@ npm run audit:schema
 npm run audit:silo
 npm run audit:orphans
 npm run audit:gbp-plan
+npm run audit:images
+npm run audit:pagebuilder
 ```
+
+PageBuilder governance commands:
+
+```bash
+npm run test:pagebuilder
+npm run sync:gbp-pagebuilder
+npm run sync:gbp-pagebuilder -- --dry-run
+npm run collect:pagespeed -- --dry-run
+```
+
+`npm run collect:pagespeed` is intentionally not part of `npm run build`. Run live PageSpeed collection immediately before production push or release approval, then sync the workbook again.
 
 ## Deployment
 
@@ -251,6 +275,9 @@ No Phase 1 Seed closeout without:
 - contrast audit passing.
 - silo audit passing.
 - orphan audit passing.
+- image audit passing.
+- PageBuilder audit passing with no `fail` routes.
+- PageSpeed mobile scores collected before production promotion.
 - `robots.txt` present.
 - sitemap behavior verified.
 - no public dev routes.
@@ -267,9 +294,10 @@ When adding or changing pages:
 2. Confirm the canonical route path.
 3. Put publishable code in `src/pages`, content in `src/content`, assets in `public`.
 4. Keep authoring artifacts in `design/templates` only until promoted.
-5. Run `npm run build`.
-6. Update workbook reconciliation status.
-7. Do not leave duplicate page files, dev routes, or stale alternate URLs.
+5. Register PageBuilder-required routes in `src/data/pagebuilder-audit.json`.
+6. Run `npm run build`.
+7. Update workbook reconciliation and PageBuilder status with `npm run sync:gbp-pagebuilder`.
+8. Do not leave duplicate page files, dev routes, or stale alternate URLs.
 
 If a page is meant to rank, it needs:
 
@@ -295,5 +323,7 @@ The cleanup plan has been implemented for route and build compliance:
 8. Crawl and utility hygiene are in place.
 9. Public dev routes have been removed.
 10. `npm run build` now includes `audit:gbp-plan` and verifies all 66 Phase 0 URLs.
+11. `npm run build` now includes `audit:images` and `audit:pagebuilder`.
+12. The GBP workbook includes PageBuilder status, PageSpeed mobile score, and six folded phase status columns.
 
-Remaining launch work is qualitative: confirm every office NAP against client-owned GBP data, replace representative claims or cut them, and finish production measurement wiring before client launch.
+Remaining launch work is qualitative and evidence-based: run live PageSpeed before production push, complete PageBuilder QC/delivery proof so pending routes can move to pass, confirm every office NAP against client-owned GBP data, replace representative claims or cut them, and finish production measurement wiring before client launch.

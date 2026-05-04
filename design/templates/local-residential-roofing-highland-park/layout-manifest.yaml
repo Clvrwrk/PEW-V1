@@ -1,0 +1,10 @@
+# Phase 3 layout manifest
+slug: local-residential-roofing-highland-park
+canonical_path: /residential-roofing/highland-park/
+template: local-service
+source_content: src/content/cities/residential-highland-park.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+renderer: src/pages/residential-roofing/[slug]/index.astro
+structured_local_layout: true

@@ -2,9 +2,16 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../components/seo/BaseLayout.astro';
 import HeroSection from '../../../components/molecules/HeroSection.astro';
+import ServiceHero from '../../../components/molecules/ServiceHero.astro';
+import SplitIntro from '../../../components/molecules/SplitIntro.astro';
+import BenefitsGrid from '../../../components/molecules/BenefitsGrid.astro';
+import StructureTypes from '../../../components/molecules/StructureTypes.astro';
+import QualityProcess from '../../../components/molecules/QualityProcess.astro';
 import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
 import FAQ from '../../../components/molecules/FAQ.astro';
 import CTABanner from '../../../components/molecules/CTABanner.astro';
+import ServiceCard from '../../../components/molecules/ServiceCard.astro';
+import Card from '../../../components/molecules/Card.astro';
 import { serviceSchema } from '../../../lib/schema/Service';
 import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
 import { faqPageSchema } from '../../../lib/schema/FAQPage';
@@ -49,6 +56,11 @@ const { Content } = await entry.render();
 const data = entry.data;
 const isService = kind === 'service';
 const isCity = kind === 'city';
+const serviceData = isService ? data as ResidentialService['data'] : null;
+const allResidentialServices = await getCollection('services', ({ data: serviceData }) => serviceData.vertical === 'residential');
+const siblingServices = isService
+  ? allResidentialServices.filter((service) => service.slug !== entry.slug).slice(0, 3)
+  : [];
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
@@ -61,6 +73,81 @@ const pageDescription = isCity
   : isService
     ? `Residential ${data.name.toLowerCase()} support from inspection through written scope, installation, and warranty closeout.`
     : `HOA-aware residential roofing, storm inspection, and replacement support for ${(data as Subdivision['data']).name}.`;
+
+const serviceImage = data.heroImage ?? '/images/residential-hero.webp';
+const serviceIntro = isService
+  ? serviceData?.intro ?? {
+      heading: `${data.name} scoped before anyone sells you a roof`,
+      body: data.description,
+      image: serviceImage,
+      badges: ['Written scope', 'Photo documentation', 'Warranty closeout'],
+    }
+  : null;
+const serviceBenefits = isService
+  ? serviceData?.benefits ?? {
+      heading: `Why homeowners choose Pro Exteriors for ${data.name.toLowerCase()}`,
+      subtitle: 'The page now renders as a structured service experience instead of an undifferentiated MDX article.',
+      items: [
+        {
+          icon: 'clipboard-check',
+          title: 'Documented inspection first',
+          description: 'We start with roof condition, photos, and scope clarity before recommending repair or replacement.',
+        },
+        {
+          icon: 'shield-check',
+          title: 'Warranty-aware installation',
+          description: 'Materials, flashing, ventilation, and closeout documents are handled with manufacturer requirements in view.',
+        },
+        {
+          icon: 'map-pin',
+          title: 'Regional crews',
+          description: 'Residential crews support DFW, Denver, Wichita, Kansas City, and Atlanta with local weather patterns in mind.',
+        },
+      ],
+    }
+  : null;
+const serviceStructures = isService
+  ? serviceData?.structureTypes ?? {
+      heading: `${data.name} coverage areas`,
+      items: [
+        {
+          icon: 'home',
+          title: 'Single-family homes',
+          description: 'Roof scopes built around access, pitch, ventilation, and homeowner schedule constraints.',
+        },
+        {
+          icon: 'cloud-rain',
+          title: 'Storm-affected roofs',
+          description: 'Damage documentation and repair planning for hail, wind, leaks, and emergency response.',
+        },
+        {
+          icon: 'file-check',
+          title: 'Insurance-supported work',
+          description: 'Photo records and written scopes prepared for homeowners and adjusters when a claim is involved.',
+        },
+      ],
+    }
+  : null;
+const serviceProcess = isService
+  ? serviceData?.processSteps ?? {
+      heading: `How the ${data.name.toLowerCase()} process works`,
+      image: serviceImage,
+      steps: [
+        {
+          title: 'Inspect and document',
+          description: 'A project lead documents conditions, photographs the roof, and identifies the real scope.',
+        },
+        {
+          title: 'Write the scope',
+          description: 'You receive a clear recommendation, material path, warranty notes, and next-step timeline.',
+        },
+        {
+          title: 'Execute and close out',
+          description: 'The crew completes the work, verifies the details, and hands over the closeout documentation.',
+        },
+      ],
+    }
+  : null;
 
 const schemaPayload: Record<string, any>[] = [
   serviceSchema(
@@ -76,19 +163,127 @@ if (data.faqs && data.faqs.length > 0) {
 ---
 
 <BaseLayout title={data.title} description={data.description} canonicalPath={data.canonicalPath} jsonLd={schemaPayload}>
-  <Breadcrumb items={breadcrumbs.slice(1)} />
+  {isService ? (
+    <>
+      <ServiceHero
+        title={data.h1}
+        image={data.heroImage}
+        breadcrumbs={breadcrumbs.slice(1)}
+      />
 
-  <HeroSection
-    title={data.h1}
-    subtitle={pageDescription}
-    primaryCta={{ label: 'Request Residential Inspection', href: '/contact/residential/inspection/' }}
-    secondaryCta={{ label: 'Emergency Roof Help', href: '/contact/emergency/' }}
-    image={data.heroImage}
-  />
+      {serviceIntro && (
+        <SplitIntro
+          heading={serviceIntro.heading}
+          body={serviceIntro.body}
+          image={serviceIntro.image}
+          badges={serviceIntro.badges}
+        />
+      )}
 
-  <article class="prose prose-lg mx-auto max-w-3xl px-4 py-16">
-    <Content />
-  </article>
+      {serviceBenefits && (
+        <BenefitsGrid
+          heading={serviceBenefits.heading}
+          subtitle={serviceBenefits.subtitle}
+          items={serviceBenefits.items}
+        />
+      )}
+
+      {serviceStructures && (
+        <StructureTypes
+          heading={serviceStructures.heading}
+          items={serviceStructures.items}
+        />
+      )}
+
+      {serviceProcess && (
+        <QualityProcess
+          heading={serviceProcess.heading}
+          image={serviceProcess.image}
+          steps={serviceProcess.steps}
+        />
+      )}
+
+      {entry.body && entry.body.trim().length > 50 && (
+        <article class="prose prose-lg mx-auto max-w-3xl px-4 py-16">
+          <Content />
+        </article>
+      )}
+
+      {siblingServices.length > 0 && (
+        <section class="bg-surface-inset py-16 sm:py-24">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="mb-10 text-center text-3xl font-display font-bold tracking-tight text-text-primary">
+              Other Residential Roofing Services
+            </h2>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {siblingServices.map((service) => (
+                <ServiceCard
+                  title={service.data.name}
+                  description={service.data.description}
+                  href={service.data.canonicalPath}
+                  image={service.data.heroImage}
+                  icon={service.data.cardIcon ?? 'home'}
+                  eyebrow="RESIDENTIAL"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+    </>
+  ) : (
+    <>
+      <Breadcrumb items={breadcrumbs.slice(1)} />
+
+      <HeroSection
+        title={data.h1}
+        subtitle={pageDescription}
+        primaryCta={{ label: 'Request Residential Inspection', href: '/contact/residential/inspection/' }}
+        secondaryCta={{ label: 'Emergency Roof Help', href: '/contact/emergency/' }}
+        image={data.heroImage}
+      />
+
+      <section class="py-16 sm:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-3xl text-center">
+            <p class="text-sm font-semibold uppercase tracking-wide text-accent">
+              {isCity ? 'LOCAL RESIDENTIAL ROOFING' : 'NEIGHBORHOOD ROOFING'}
+            </p>
+            <h2 class="mt-3 text-3xl font-display font-bold tracking-tight text-text-primary sm:text-4xl">
+              {isCity
+                ? `Residential roof decisions in ${data.name} need a local inspection path`
+                : `${data.name} roofs need neighborhood-aware scope and documentation`}
+            </h2>
+            <p class="mt-4 text-lg text-text-secondary">
+              This page now uses a structured local layout before the long-form MDX body, so homeowners can scan service fit, documentation, and response path before reading the full market copy.
+            </p>
+          </div>
+
+          <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+            <Card
+              eyebrow="INSPECTION"
+              title="Roof condition first"
+              description="We document roof age, storm exposure, visible damage, and repair-versus-replacement options before recommending a scope."
+            />
+            <Card
+              eyebrow="CLAIMS"
+              title="Insurance-ready records"
+              description="Photo packages and written findings are organized for homeowners, carriers, and adjusters when a claim is involved."
+            />
+            <Card
+              eyebrow="LOCAL FIT"
+              title="Built around the market"
+              description={`Recommendations account for ${data.name} weather patterns, neighborhood expectations, and practical scheduling constraints.`}
+            />
+          </div>
+        </div>
+      </section>
+
+      <article class="prose prose-lg mx-auto max-w-3xl px-4 py-16">
+        <Content />
+      </article>
+    </>
+  )}
 
   {data.faqs && data.faqs.length > 0 && (
     <section class="bg-surface-inset py-16">

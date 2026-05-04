@@ -1,0 +1,10 @@
+# Phase 3 image manifest
+slug: local-residential-roofing-southlake
+canonical_path: /residential-roofing/southlake/
+template: local-service
+source_content: src/content/cities/residential-southlake.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+images_from_content_frontmatter: true
+assets: []

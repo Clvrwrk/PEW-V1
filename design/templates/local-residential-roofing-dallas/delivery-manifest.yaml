@@ -1,0 +1,17 @@
+# Phase 6 delivery manifest
+slug: local-residential-roofing-dallas
+canonical_path: /residential-roofing/dallas/
+template: local-service
+source_content: src/content/cities/residential-dallas.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+files:
+  assembled_page: src/pages/residential-roofing/[slug]/index.astro
+hard_gates:
+  performance: pending
+  accessibility: pending
+  measurement: pending
+  trust: pending
+  schema: pending
+  forms: pending

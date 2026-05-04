@@ -1,0 +1,12 @@
+# Phase 3 image manifest — Flat Roof Systems
+slug: flat-roof-systems
+canonical_path: /commercial-roofing/flat-roof-systems/
+template: commercial-service
+audience: commercial-procurement
+target_keyword: "flat roof systems"
+source_content: src/content/services/commercial/flat-roof-systems.mdx
+status: pending
+notes:
+  - Pending record created during PageBuilder alignment; specialist reruns still required before pass.
+images_from_content_frontmatter: true
+assets: []

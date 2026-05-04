@@ -1,0 +1,9 @@
+# Phase 1 SEO validator manifest
+slug: local-residential-roofing-dallas
+canonical_path: /residential-roofing/dallas/
+template: local-service
+source_content: src/content/cities/residential-dallas.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+schema_types_required: [RoofingContractor, Service, FAQPage, BreadcrumbList]

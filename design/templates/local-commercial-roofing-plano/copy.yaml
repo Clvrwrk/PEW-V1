@@ -1,0 +1,10 @@
+# Phase 2 copy manifest
+slug: local-commercial-roofing-plano
+canonical_path: /commercial-roofing/plano/
+template: local-service
+source_content: src/content/cities/commercial-plano.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+copy_source: src/content/cities/commercial-plano.mdx
+sections: []

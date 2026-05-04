@@ -1,0 +1,12 @@
+# Phase 5 page QC manifest
+slug: local-commercial-roofing-plano
+canonical_path: /commercial-roofing/plano/
+template: local-service
+source_content: src/content/cities/commercial-plano.mdx
+status: pending
+notes:
+  - Pending local SEO PageBuilder record created during alignment.
+checks:
+  voice: pending
+  sources: pending
+  local_relevance: pending
