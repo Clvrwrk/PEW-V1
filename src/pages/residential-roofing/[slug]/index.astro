@@ -1,0 +1,110 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import HeroSection from '../../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import FAQ from '../../../components/molecules/FAQ.astro';
+import CTABanner from '../../../components/molecules/CTABanner.astro';
+import { serviceSchema } from '../../../lib/schema/Service';
+import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
+import { faqPageSchema } from '../../../lib/schema/FAQPage';
+
+type ResidentialService = CollectionEntry<'services'>;
+type ResidentialCity = CollectionEntry<'cities'>;
+type Subdivision = CollectionEntry<'subdivisions'>;
+
+export async function getStaticPaths() {
+  const urlSegment = (canonicalPath: string): string =>
+    canonicalPath.replace(/\/$/, '').split('/').pop() ?? '';
+
+  const services = await getCollection('services', ({ data }) => data.vertical === 'residential');
+  const cities = await getCollection('cities', ({ data }) => data.vertical === 'residential');
+  const subdivisions = await getCollection('subdivisions');
+
+  const servicePaths = services.map((entry) => ({
+    params: { slug: urlSegment(entry.data.canonicalPath) },
+    props: { kind: 'service' as const, entry },
+  }));
+
+  const cityPaths = cities.map((entry) => ({
+    params: { slug: urlSegment(entry.data.canonicalPath) },
+    props: { kind: 'city' as const, entry },
+  }));
+
+  const subdivisionPaths = subdivisions.map((entry) => ({
+    params: { slug: urlSegment(entry.data.canonicalPath) },
+    props: { kind: 'subdivision' as const, entry },
+  }));
+
+  return [...servicePaths, ...cityPaths, ...subdivisionPaths];
+}
+
+type Props =
+  | { kind: 'service'; entry: ResidentialService }
+  | { kind: 'city'; entry: ResidentialCity }
+  | { kind: 'subdivision'; entry: Subdivision };
+
+const { kind, entry } = Astro.props as Props;
+const { Content } = await entry.render();
+const data = entry.data;
+const isService = kind === 'service';
+const isCity = kind === 'city';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Residential Roofing', href: '/residential-roofing/' },
+  { label: data.name, href: data.canonicalPath },
+];
+
+const pageDescription = isCity
+  ? `Residential roofing, storm response, inspection, and replacement support for homeowners in ${data.name}, ${(data as ResidentialCity['data']).state}.`
+  : isService
+    ? `Residential ${data.name.toLowerCase()} support from inspection through written scope, installation, and warranty closeout.`
+    : `HOA-aware residential roofing, storm inspection, and replacement support for ${(data as Subdivision['data']).name}.`;
+
+const schemaPayload: Record<string, any>[] = [
+  serviceSchema(
+    { name: data.h1, description: data.description, url: data.canonicalPath },
+    'Pro Exteriors',
+  ),
+  breadcrumbSchema(breadcrumbs),
+];
+
+if (data.faqs && data.faqs.length > 0) {
+  schemaPayload.push(faqPageSchema(data.faqs));
+}
+---
+
+<BaseLayout title={data.title} description={data.description} canonicalPath={data.canonicalPath} jsonLd={schemaPayload}>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+
+  <HeroSection
+    title={data.h1}
+    subtitle={pageDescription}
+    primaryCta={{ label: 'Request Residential Inspection', href: '/contact/residential/inspection/' }}
+    secondaryCta={{ label: 'Emergency Roof Help', href: '/contact/emergency/' }}
+    image={data.heroImage}
+  />
+
+  <article class="prose prose-lg mx-auto max-w-3xl px-4 py-16">
+    <Content />
+  </article>
+
+  {data.faqs && data.faqs.length > 0 && (
+    <section class="bg-surface-inset py-16">
+      <div class="mx-auto max-w-4xl px-4">
+        <h2 class="mb-10 text-center text-3xl font-bold">
+          {isCity || isService ? 'Residential Roofing FAQ' : 'Neighborhood Roofing FAQ'}
+        </h2>
+        <FAQ faqs={data.faqs} />
+      </div>
+    </section>
+  )}
+
+  <CTABanner
+    heading={`Need residential roofing help in ${data.name}?`}
+    subtitle="Send the address, roof issue, and timing. We will route it to the right residential team."
+    ctaText="Request Inspection"
+    ctaHref="/contact/residential/inspection/"
+  />
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import Button from '../../components/atoms/Button.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | Pro Exteriors"
+  description="The page you were looking for could not be found. Browse Pro Exteriors services, locations, or contact us instead."
+  canonicalPath="/404/"
+  noindex={true}
+>
+  <section class="mx-auto max-w-3xl px-4 py-24 text-center">
+    <p class="text-base font-semibold text-accent">404</p>
+    <h1 class="mt-4 text-4xl font-display font-bold tracking-tight text-text-primary sm:text-5xl">
+      We can't find that page.
+    </h1>
+    <p class="mt-6 text-lg text-text-secondary">
+      It may have moved, been renamed, or never existed. Try one of these instead.
+    </p>
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <Button href="/" variant="primary" size="lg">Home</Button>
+      <Button href="/commercial-roofing/" variant="secondary" size="lg">Commercial</Button>
+      <Button href="/residential-roofing/" variant="secondary" size="lg">Residential</Button>
+      <Button href="/contact/" variant="ghost" size="lg">Contact Us</Button>
+    </div>
+  </section>
+</BaseLayout>

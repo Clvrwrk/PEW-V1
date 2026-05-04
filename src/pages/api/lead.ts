@@ -13,6 +13,12 @@ const leadFormSchema = z.object({
   campaign: z.string().optional(),
 });
 
+const thankYouPathFor = (lead: z.infer<typeof leadFormSchema>) => {
+  if (lead.vertical === 'commercial') return '/thank-you/commercial/';
+  if (lead.vertical === 'residential' || lead.formType?.includes('emergency')) return '/thank-you/residential/';
+  return '/thank-you/';
+};
+
 export const POST: APIRoute = async ({ request, redirect }) => {
   try {
     let payload;
@@ -50,11 +56,15 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
     // If it was a standard form POST (no JS), redirect
     if (contentType.includes('application/x-www-form-urlencoded') || contentType.includes('multipart/form-data')) {
-      return redirect('/thank-you/', 302);
+      return redirect(thankYouPathFor(parsedData.data), 302);
     }
 
     // Otherwise, return success JSON for client-side routing
-    return new Response(JSON.stringify({ success: true, message: 'Lead submitted successfully.' }), {
+    return new Response(JSON.stringify({
+      success: true,
+      message: 'Lead submitted successfully.',
+      redirectTo: thankYouPathFor(parsedData.data),
+    }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });

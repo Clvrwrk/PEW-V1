@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import HeroSection from '../../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Thank You', href: '/thank-you/commercial/' },
+];
+---
+
+<BaseLayout
+  title="Commercial RFQ Received | Pro Exteriors"
+  description="Thank you for sending a commercial roofing RFQ to Pro Exteriors. Our team will review the scope and contact you about next steps."
+  canonicalPath="/thank-you/commercial/"
+  noindex={true}
+  jsonLd={[breadcrumbSchema(breadcrumbs)]}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <HeroSection
+    title="Commercial RFQ Received"
+    subtitle="A Pro Exteriors commercial specialist will review the scope and follow up with next steps."
+    primaryCta={{ label: 'View Commercial Services', href: '/commercial-roofing/' }}
+    secondaryCta={{ label: 'Browse Case Studies', href: '/projects/' }}
+  />
+</BaseLayout>

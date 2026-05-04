@@ -1,0 +1,464 @@
+[
+  {
+    "url": "/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Hub",
+    "template": "home",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/commercial-roofing/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Vertical Hub",
+    "template": "hub",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/residential-roofing/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Vertical Hub",
+    "template": "hub",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/proplan/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Vertical Hub",
+    "template": "proplan",
+    "vertical": "ProPlan"
+  },
+  {
+    "url": "/locations/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Locations Hub",
+    "template": "hub",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/about/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "About Hub",
+    "template": "about",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/blog/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Blog Hub",
+    "template": "pillar",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/contact/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Conversion Hub",
+    "template": "contact-hub",
+    "vertical": "Both"
+  },
+  {
+    "url": "/locations/dallas-hq/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "GBP Destination",
+    "template": "city-detail (location)",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/locations/fort-worth/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "GBP Destination",
+    "template": "city-detail (location)",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/locations/denver/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "GBP Destination",
+    "template": "city-detail (location)",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/locations/wichita/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "GBP Destination",
+    "template": "city-detail (location)",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/locations/kansas-city/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "GBP Destination",
+    "template": "city-detail (location)",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/locations/atlanta/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "GBP Destination",
+    "template": "city-detail (location)",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/commercial-roofing/tpo/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/commercial-roofing/epdm/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/commercial-roofing/metal/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/commercial-roofing/flat-roof-systems/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/commercial-roofing/repair/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/commercial-roofing/replacement/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/residential-roofing/asphalt-shingles/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/residential-roofing/replacement/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/residential-roofing/inspection/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/residential-roofing/emergency/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/residential-roofing/metal/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/residential-roofing/storm-damage/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "service-detail",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/commercial-roofing/dallas/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "City Page",
+    "template": "city-detail",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/commercial-roofing/fort-worth/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "City Page",
+    "template": "city-detail",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/commercial-roofing/plano/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "City Page",
+    "template": "city-detail",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/commercial-roofing/frisco/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "City Page",
+    "template": "city-detail",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/residential-roofing/dallas/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "City Page",
+    "template": "city-detail",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/residential-roofing/fort-worth/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "City Page",
+    "template": "city-detail",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/residential-roofing/highland-park/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "City Page",
+    "template": "city-detail",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/residential-roofing/southlake/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "City Page",
+    "template": "city-detail",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/contact/commercial/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Conversion",
+    "template": "contact-form",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/contact/residential/inspection/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Conversion",
+    "template": "contact-form",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/contact/emergency/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Conversion",
+    "template": "contact-form",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/thank-you/commercial/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Conversion",
+    "template": "thank-you",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/thank-you/residential/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Conversion",
+    "template": "thank-you",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/about/mission/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "About Sub",
+    "template": "about",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/about/leadership/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "About Sub",
+    "template": "leadership",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/about/certifications/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "About Sub",
+    "template": "about",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/blog/commercial-roofing/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Pillar",
+    "template": "pillar",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/blog/residential-roofing/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Pillar",
+    "template": "pillar",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/blog/tpo-vs-epdm-vs-pvc/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Supporter Post",
+    "template": "blog-post",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/blog/commercial-roof-repair-vs-replacement/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Supporter Post",
+    "template": "blog-post",
+    "vertical": "Commercial"
+  },
+  {
+    "url": "/blog/how-much-does-a-roof-replacement-cost/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Supporter Post",
+    "template": "blog-post",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/blog/architectural-vs-3-tab-shingles/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Supporter Post",
+    "template": "blog-post",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/blog/best-time-of-year-to-replace-your-roof/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Supporter Post",
+    "template": "blog-post",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/privacy/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Utility",
+    "template": "legal",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/terms/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Utility",
+    "template": "legal",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/accessibility/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Utility",
+    "template": "utility",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/cookies/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Utility",
+    "template": "utility",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/sitemap.xml",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Utility",
+    "template": "utility",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/robots.txt",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Utility",
+    "template": "utility",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/404/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Utility",
+    "template": "utility",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/careers/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Recruiting",
+    "template": "careers-hub",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/portal/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Utility",
+    "template": "legal",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/total-home-shield/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Money Page",
+    "template": "campaign-landing",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/total-home-shield/silent-killers/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Funnel Page",
+    "template": "campaign-landing",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/total-home-shield/easy-button/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Funnel Page",
+    "template": "campaign-landing",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/total-home-shield/claim-offer/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Conversion",
+    "template": "campaign-landing",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/total-home-shield/last-call/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Conversion",
+    "template": "campaign-landing",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/total-home-shield/booking/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Conversion",
+    "template": "booking-hub",
+    "vertical": "Residential"
+  },
+  {
+    "url": "/partners/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Trust",
+    "template": "about",
+    "vertical": "Brand"
+  },
+  {
+    "url": "/residential-roofing/twin-creeks-allen/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "Subdivision Page",
+    "template": "subdivision-detail",
+    "vertical": "Residential"
+  }
+]

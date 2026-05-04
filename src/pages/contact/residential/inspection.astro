@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import HeroSection from '../../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import { contactPageSchema } from '../../../lib/schema/ContactPage';
+import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Contact', href: '/contact/' },
+  { label: 'Residential Inspection', href: '/contact/residential/inspection/' },
+];
+---
+
+<BaseLayout
+  title="Residential Roof Inspection | Pro Exteriors"
+  description="Request a residential roof inspection from Pro Exteriors for replacement planning, storm damage documentation, or leak diagnosis."
+  canonicalPath="/contact/residential/inspection/"
+  jsonLd={[contactPageSchema(), breadcrumbSchema(breadcrumbs)]}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <HeroSection
+    title="Request a Residential Roof Inspection"
+    subtitle="Tell us the address, roof age, and what prompted the request. We will route it to the residential team."
+    primaryCta={{ label: 'Call (469) 535-1708', href: 'tel:4695351708' }}
+  />
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <form action="/api/lead" method="post" class="grid gap-5 rounded-2xl bg-surface-elevated p-8 ring-1 ring-border">
+      <input type="hidden" name="vertical" value="residential" />
+      <input type="hidden" name="formType" value="residential-inspection" />
+      <input type="hidden" name="campaign" value="phase-1-residential-inspection" />
+      <label class="grid gap-2">First Name<input required name="firstName" class="rounded-md border-border" /></label>
+      <label class="grid gap-2">Last Name<input required name="lastName" class="rounded-md border-border" /></label>
+      <label class="grid gap-2">Email<input required type="email" name="email" class="rounded-md border-border" /></label>
+      <label class="grid gap-2">Phone<input required type="tel" name="phone" class="rounded-md border-border" /></label>
+      <label class="grid gap-2">Property Address<input name="address" class="rounded-md border-border" /></label>
+      <label class="grid gap-2">Roof Notes<textarea name="projectDetails" rows="6" class="rounded-md border-border" placeholder="Roof age, leak location, storm date, missing shingles, insurance deadline, or material preference."></textarea></label>
+      <button class="rounded-md bg-brand-accent px-6 py-4 font-bold text-text-on-brand" type="submit">Request Inspection</button>
+    </form>
+  </section>
+</BaseLayout>

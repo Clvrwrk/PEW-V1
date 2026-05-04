@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import HeroSection from '../../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Thank You', href: '/thank-you/residential/' },
+];
+---
+
+<BaseLayout
+  title="Residential Request Received | Pro Exteriors"
+  description="Thank you for requesting residential roofing help from Pro Exteriors. Our team will contact you about inspection or emergency next steps."
+  canonicalPath="/thank-you/residential/"
+  noindex={true}
+  jsonLd={[breadcrumbSchema(breadcrumbs)]}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <HeroSection
+    title="Residential Request Received"
+    subtitle="A Pro Exteriors residential specialist will contact you about inspection, storm documentation, or emergency next steps."
+    primaryCta={{ label: 'View Residential Services', href: '/residential-roofing/' }}
+    secondaryCta={{ label: 'Read Roofing Guides', href: '/blog/residential-roofing/' }}
+  />
+</BaseLayout>

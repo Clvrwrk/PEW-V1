@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import HeroSection from '../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import Badge from '../../components/atoms/Badge.astro';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Certifications', href: '/about/certifications/' },
+];
+
+const certifications = [
+  'GAF Master Elite',
+  'Owens Corning Platinum',
+  'Carlisle commercial systems',
+  'Versico commercial systems',
+  'Duro-Last commercial systems',
+  'OSHA-aligned safety protocol',
+];
+---
+
+<BaseLayout
+  title="Roofing Certifications | Pro Exteriors"
+  description="Review Pro Exteriors roofing certifications, manufacturer credentials, safety standards, and warranty eligibility for commercial and residential work."
+  canonicalPath="/about/certifications/"
+  jsonLd={[breadcrumbSchema(breadcrumbs)]}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <HeroSection
+    title="Certifications & Manufacturer Credentials"
+    subtitle="The credentials that matter are the ones that affect warranty eligibility, installation quality, and project risk."
+    primaryCta={{ label: 'Talk to a Specialist', href: '/contact/' }}
+  />
+
+  <section class="mx-auto max-w-5xl px-4 py-16">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {certifications.map((certification) => (
+        <article class="rounded-2xl bg-surface-elevated p-6 ring-1 ring-border">
+          <Badge variant="cert">Credential</Badge>
+          <h2 class="mt-4 text-xl font-bold text-text-primary">{certification}</h2>
+          <p class="mt-3 text-text-secondary">
+            Verified credentials are confirmed before warranty-bearing work is quoted or promoted in client-facing material.
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

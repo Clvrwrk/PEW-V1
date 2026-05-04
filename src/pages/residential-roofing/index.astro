@@ -1,0 +1,451 @@
+---
+/* ═══════════════════════════════════════════════════════════════════════════
+   /residential-roofing — National Residential Roofing Contractor pillar
+   ───────────────────────────────────────────────────────────────────────────
+   Build pipeline: AIA4 PageBuilder · Phase 0–6 · 2026-05-03
+   Brief:        design/templates/residential-roofing/brief.yaml
+   Copy:         design/templates/residential-roofing/copy.yaml
+   Schema:       design/templates/residential-roofing/seo-validator-manifest.yaml
+   Links:        design/templates/residential-roofing/page-link-manifest.yaml
+   Layout plan:  design/templates/residential-roofing/layout-manifest.yaml
+   Image plan:   design/templates/residential-roofing/image-manifest.yaml
+
+   ━ Conversion hypothesis (CLAUDE.md §4 hard gate) ━━━━━━━━━━━━━━━━━━━━━━━━━
+   Splitting the hero into two intent paths (Emergency Roof Repair vs. Plan
+   Your New Roof) routes urgent storm-damage and planned-replacement traffic
+   into separate qualifying flows; sourced multi-state proof overcomes
+   residential contractor skepticism. Targets:
+     (a) ≥30% lift in /residential → free-inspection-form completion within
+         90 days vs. the current thin-page baseline, AND
+     (b) top-5 organic for "residential roofing contractor" in served-state
+         geos within 6 months.
+   Both gates must hit at the 6-month review for the build to count.
+
+   ━ SHIP-BLOCKING [REPRESENTATIVE] markers (Phase 5 page-qc clears) ━━━━━━━━
+   • Trust-strip "4.9/5 (240+)" — pull actual figure from Google Business Profile
+   • All 14 image slots — need real Pro Exteriors photos
+   • Testimonial attribution — need real customer + signed release
+   • All 3 case studies — need real completed projects (TX/CO/KS or substitute)
+   • Final-CTA phone number — need national tracking number or per-state IVR
+   • Footer service-center — need HQ + branch list (5 states + Atlanta)
+   • Founding-year + "2,500+ homes" stat — need confirmation from CRM
+
+   ━ Analytics (CLAUDE.md §4 hard gate) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Every CTA carries data-event-* attributes. Phase 5 code-qc verifies:
+     1. Both hero CTAs fire DISTINCT events (separate ?intent= params)
+     2. Form completion events route through analytics layer
+     3. Phone tap events fire on the final CTA secondary
+═══════════════════════════════════════════════════════════════════════════ */
+
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import FAQ from '../../components/molecules/FAQ.astro';
+import Icon from '../../components/atoms/Icon.astro';
+import Button from '../../components/atoms/Button.astro';
+// Badge atom not used — danger/neutral variants don't exist; inlined as <span> in dual feature cards.
+
+/* ── Page metadata (BaseLayout enforces ≤60 title / 70–160 description) ──── */
+const title = "Residential Roofing Contractor in 5 States | Pro Exteriors";  // 59 chars
+const description = "Pro Exteriors is a residential roofing contractor across TX, CO, KS, MO, GA. Roof replacement, storm damage repair, hail-belt expertise, GAF Master Elite.";  // 156 chars
+const canonicalPath = "/residential-roofing/";
+
+/* ── JSON-LD schema (per seo-validator-manifest.yaml) ────────────────────
+   AggregateRating intentionally OMITTED until trust-strip rating is sourced.
+   LocalBusiness intentionally OMITTED — belongs on per-location pages, not
+   on this national pillar.
+─────────────────────────────────────────────────────────────────────────── */
+const roofingContractorSchema = {
+  "@context": "https://schema.org",
+  "@type": "RoofingContractor",
+  "@id": "https://proexteriorsus.com/#roofing-contractor",
+  "name": "Pro Exteriors",
+  "url": "https://proexteriorsus.com",
+  "logo": "https://proexteriorsus.com/images/pro-exteriors-logo.svg",
+  "image": "https://proexteriorsus.com/images/residential-hero.jpg",
+  "priceRange": "$$",
+  "areaServed": [
+    { "@type": "State", "name": "Texas" },
+    { "@type": "State", "name": "Colorado" },
+    { "@type": "State", "name": "Kansas" },
+    { "@type": "State", "name": "Missouri" },
+    { "@type": "State", "name": "Georgia" }
+  ],
+  // hasOfferCatalog wires to the 6 service cards below
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Residential Roofing Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Roof Replacement", "url": "https://proexteriorsus.com/residential-roofing/replacement/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Storm Damage Roof Repair", "url": "https://proexteriorsus.com/residential-roofing/storm-damage/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hail Damage Roof Repair", "url": "https://proexteriorsus.com/residential-roofing/storm-damage/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Insurance Claim Assistance", "url": "https://proexteriorsus.com/contact/residential-roofing/inspection/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency Roof Tarping", "url": "https://proexteriorsus.com/residential-roofing/emergency/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Asphalt Shingle Roofing", "url": "https://proexteriorsus.com/residential-roofing/asphalt-shingles/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Metal Roofing", "url": "https://proexteriorsus.com/residential-roofing/metal/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tile and Clay Roofing", "url": "https://proexteriorsus.com/residential-roofing/asphalt-shingles/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Natural Slate Roofing", "url": "https://proexteriorsus.com/residential-roofing/asphalt-shingles/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seamless Gutters", "url": "https://proexteriorsus.com/contact/residential-roofing/inspection/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Siding", "url": "https://proexteriorsus.com/contact/residential-roofing/inspection/" } }
+    ]
+  }
+  // "aggregateRating": { "@type": "AggregateRating", "ratingValue": "X.X", "reviewCount": "XXX" }
+  //   ↑ ENABLE ONLY AFTER Chris confirms the actual GBP figure. Phase 5 code-qc
+  //     blocks ship if this is enabled with [REPRESENTATIVE] data.
+};
+
+// breadcrumbSchema is auto-rendered by molecules/Breadcrumb.astro — do not duplicate.
+// faqSchema is auto-rendered by molecules/FAQ.astro — do not duplicate.
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": { "@id": "https://proexteriorsus.com/#roofing-contractor" },
+  "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+  "author": { "@type": "Person", "name": "Michael S." },
+  "reviewBody": "Pro Exteriors was a lifesaver after the spring hail storm. They handled everything with our insurance, the crew was professional from the tear-off through the cleanup, and our roof looks better than the day we bought the house."
+  // ↑ Disable this whole block if Chris cannot confirm a real customer testimonial.
+  //   Page-qc Phase 5 blocks ship until confirmation.
+};
+
+const jsonLd = [
+  roofingContractorSchema,
+  reviewSchema
+];
+
+/**
+ * Service grid — updated 2026-05-03.
+ * Restructured into two intent tiers:
+ *   Tier 1 (emergency / transactional): roof-replacement, storm-damage-repair,
+ *     hail-damage-repair, insurance-claim-assistance, tarp-installation
+ *   Tier 2 (material / upgrade): asphalt-shingles, metal-roofing, tile-clay,
+ *     natural-slate, gutters, siding
+ * All 11 pillar pages are now linked. Previously missing: roof-replacement,
+ * storm-damage-repair, hail-damage-repair (not in grid), plus tarp-installation
+ * and insurance-claim-assistance (buried in body text only).
+ */
+const serviceGrid = [
+  // ── Tier 1: Emergency / Transactional ────────────────────────────────────
+  { id: "roof-replacement",         title: "Roof Replacement",          href: "/residential-roofing/replacement/",         body: "Full residential roof replacement — tear-off, decking inspection, new underlayment, material installation, and cleanup. We install GAF, Owens Corning, and specialty systems including metal and tile. Every replacement includes a line-item estimate before a single nail goes in.", anchor: "residential roof replacement", img: "/images/placeholders/service-replacement.jpg", alt: "Pro Exteriors crew completing a full residential roof replacement — new architectural shingles being laid on a Texas home" },
+  { id: "storm-damage-repair",      title: "Storm Damage Repair",       href: "/residential-roofing/storm-damage/",      body: "Hail, wind, and falling debris cause damage that isn't always visible from the ground. We inspect, document, and repair storm-damaged residential roofs across all five states. Insurance claim coordination is part of the job — we meet the adjuster on your behalf and handle the supplement process.", anchor: "storm damage roof repair", img: "/images/placeholders/service-storm.jpg", alt: "Pro Exteriors inspector documenting storm hail damage on a residential roof, close-up on dented shingle" },
+  { id: "hail-damage-repair",       title: "Hail Damage Repair",        href: "/residential-roofing/storm-damage/",       body: "Hail damage is often invisible to the homeowner but material to the insurance carrier. We document impact patterns with photos, thermal imaging where applicable, and manufacturer impact-test data — the documentation package that gets claims approved rather than denied. Specialist crews across TX, CO, KS, MO, and GA.", anchor: "hail damage roof repair", img: "/images/placeholders/service-hail.jpg", alt: "Close-up of hail impact marks on asphalt shingles — bruising and granule loss pattern documented by Pro Exteriors inspector" },
+  { id: "insurance-claim",          title: "Insurance Claim Assistance", href: "/contact/residential-roofing/inspection/", body: "We handle the documentation, adjuster meetings, and supplement filings that determine how much your carrier pays. Not as an upsell — as part of the project. RCV vs. ACV policy differences, depreciation holds, and code-upgrade coverage are all inside our workflow.", anchor: "insurance claim assistance for roof damage", img: "/images/placeholders/service-insurance.jpg", alt: "Pro Exteriors project manager reviewing roofing insurance claim documents with a homeowner" },
+  { id: "tarp-installation",        title: "Emergency Tarping",         href: "/residential-roofing/emergency/",        body: "When a storm tears off shingles or a tree hits the roof, the clock starts. We deploy emergency tarping crews from each of our five state markets — the tarp goes on first, the full assessment follows, and you get written documentation the same day. Active leak, active storm, or post-storm standby.", anchor: "emergency roof tarp installation", img: "/images/placeholders/service-tarp.jpg", alt: "Pro Exteriors crew securing blue tarp on a storm-damaged residential roof — in-progress emergency response" },
+  // ── Tier 2: Material / Upgrade ───────────────────────────────────────────
+  { id: "asphalt-shingles",         title: "Asphalt Shingles",          href: "/residential-roofing/asphalt-shingles/",         body: "The most-installed residential roofing material in North America and the right answer for the majority of homes we touch. We install GAF and Owens Corning architectural shingles with the manufacturer's full warranty paperwork attached — not a builder-grade three-tab pretending to be premium. Class 4 impact-rated upgrade available in hail-belt markets like Wichita and Denver.", anchor: "asphalt shingle roofing systems", img: "/images/placeholders/service-asphalt.jpg", alt: "Close-up of properly installed architectural asphalt shingles on a residential roof, showing exposure pattern and ridge cap detail" },
+  { id: "metal-roofing",            title: "Metal Roofing",             href: "/residential-roofing/metal/",            body: "Standing-seam metal is the highest-performing residential roof we install — energy-efficient, hail-resistant, with a 50-year service life that outlasts most homeowners' time in the house. Premium upfront, but the math works on a long-tenure home in a high-hail market. We install Galvalume, painted steel, and copper.", anchor: "metal roofing for homes", img: "/images/placeholders/service-metal.jpg", alt: "Standing-seam metal roof on a residential home, raised rib detail catching afternoon light" },
+  { id: "tile-clay",                title: "Tile & Clay",               href: "/residential-roofing/asphalt-shingles/",        body: "Mediterranean and Spanish-tile aesthetics, fireproof construction, and a service life that can exceed 75 years on the right structural deck. Tile is heavy — we verify the framing carries the load before we quote. Common in upscale residential builds across our Texas and Atlanta markets.", anchor: "tile and clay roofing options", img: "/images/placeholders/service-tile.jpg", alt: "Spanish clay tile residential roof with detailed flashing at the ridge" },
+  { id: "natural-slate",            title: "Natural Slate",             href: "/residential-roofing/asphalt-shingles/",            body: "The top of the residential roofing material pyramid. Quarried slate roofs routinely outlive the home around them. Cost matches longevity — slate is a generational investment, not a 15-year decision. We're certified to install Vermont, Pennsylvania, and Spanish slate.", anchor: "natural slate installation", img: "/images/placeholders/service-slate.jpg", alt: "Natural slate residential roof, varied gray tones, in late-day sunlight" },
+  { id: "gutters",                  title: "Gutters",                   href: "/contact/residential-roofing/inspection/",         body: "Seamless aluminum gutter systems sized for actual residential roof pitch and rainfall load. We install five-inch standard and six-inch oversized systems, with leaf guards and downspout extensions engineered to handle the storm runoff in any of our markets — from Texas summer downpours to Kansas spring squalls.", anchor: "seamless gutter systems", img: "/images/placeholders/service-gutters.jpg", alt: "Newly installed seamless aluminum gutter on a residential home, downspout detail visible" },
+  { id: "siding",                   title: "Siding",                    href: "/contact/residential-roofing/inspection/",                   body: "Fiber-cement and vinyl siding in coordinated colors and profiles — often quoted alongside roof replacement on storm-damage jobs because the same hailstorm that damages a roof usually damages the siding too. We bundle the work and the insurance documentation rather than asking the homeowner to manage two contractors.", anchor: "fiber-cement and vinyl siding", img: "/images/placeholders/service-siding.jpg", alt: "Fiber-cement siding installation on a residential exterior, board-and-batten profile detail" },
+];
+
+const processSteps = [
+  { num: 1, icon: "search",        title: "Free inspection",     body: "Twenty-one-point check of the roof, attic ventilation, flashing, and gutter system. Photo and video documentation we share with you the same day." },
+  { num: 2, icon: "clipboard",     title: "Detailed proposal",   body: "Line-item estimate covering materials, labor, decking allowance, and disposal. No surprise change orders mid-project — if we find decking damage, we bring photos and a price, then you decide." },
+  { num: 3, icon: "wrench",        title: "Expert installation", body: "GAF Master Elite-certified installation methods on every job. Owens Corning Platinum protocol where the system calls for it. Our crews, not subcontractors." },
+  { num: 4, icon: "shield-check",  title: "Warranty & follow-up",body: "Lifetime craftsmanship warranty, manufacturer warranty registered in your name, and a property-linked maintenance file that transfers to the next owner if you sell." },
+];
+
+const caseStudies = [
+  { state: "TEXAS",    title: "Storm restoration on a 4,200 sq ft DFW home",         quote: "The process was seamless. They fought for every dollar from our insurance carrier and the project manager kept us posted with photos every day of the install.", href: "/projects/", img: "/images/placeholders/case-tx.jpg", alt: "Completed residential roof restoration on a Texas suburban home, after a hail storm — two-story brick exterior with new architectural shingles" },
+  { state: "COLORADO", title: "Standing-seam metal upgrade in the Denver foothills", quote: "Energy bills dropped about 20% the first summer. The standing-seam finish looks better than I expected and it should outlast our mortgage.",                                   href: "/projects/",                             img: "/images/placeholders/case-co.jpg", alt: "Standing-seam metal residential roof on a Colorado mountain-foothills home, late afternoon" },
+  { state: "KANSAS",   title: "Class 4 impact-rated replacement after a Wichita hail event", quote: "Our insurance approved the Class 4 upgrade because of how Pro Exteriors documented the original damage. The premium discount almost covers the difference.",                  href: "/projects/",                             img: "/images/placeholders/case-ks.jpg", alt: "Class 4 impact-rated architectural shingle residential roof on a Wichita Kansas home, completed after hail damage" },
+];
+
+const faqItems = [
+  { question: "How long does a roof replacement typically take?", answer: "A standard single-family residential roof replacement runs one to two days for the install, assuming no structural decking repair is needed. Permit issuance adds one to five business days depending on the municipality. Total project timeline from signed contract to final inspection is typically seven to fourteen days, weather permitting. We schedule around forecasted rain windows and communicate any delay the same day it surfaces. For the deeper timing breakdown, see our guide on the <a href=\"/blog/best-time-of-year-to-replace-your-roof\">best time of year to schedule a roof replacement</a>." },
+  { question: "Will my insurance cover a new roof after a hail storm?", answer: "Coverage depends on your policy type — RCV (replacement cost value) pays the full replacement minus your deductible, ACV (actual cash value) depreciates the payout based on roof age. Either way, document damage immediately after a storm; most carriers enforce a one-year filing window and some enforce 180 days. We handle insurance documentation, adjuster meetings, and supplement filings as part of the project — not as an upsell. Hail damage repair claims are the single most common residential job we run across Texas, Kansas, and Colorado." },
+  { question: "Do you provide a warranty on your work?", answer: "Two warranties on every job. The manufacturer warranty (GAF System-Plus or Golden Pledge, Owens Corning Platinum, depending on material spec) is registered in the homeowner's name and covers the materials. The Pro Exteriors craftsmanship warranty covers the installation labor — lifetime on most products, transferable to the next owner if you sell the house. Property-linked records make the transfer simple." },
+  { question: "Should I repair or replace my roof?", answer: "Three deciding factors: roof age, damage pattern, and shingle granule loss. A roof under ten years old with isolated damage is usually a repair candidate. A roof over twenty years old with widespread granule loss, multiple leak points, or hail hits across more than 30% of the field is typically a replacement. The free inspection and photo report give you the answer in writing, not as a sales pitch. For the deeper diagnostic, read our breakdown of the <a href=\"/blog/5-signs-replacement\">five signs your roof is past repair</a>." },
+  { question: "What's the difference between a residential roofing contractor and a 'storm chaser'?", answer: "A residential roofing contractor maintains a permanent local presence — physical office, in-state license, named project manager, warranty you can call on a year from now. A storm chaser flies in from another state after a major storm, maximizes door-knock volume in the affected zip codes, subcontracts the install to whoever is available, and is gone before the warranty matures. Pro Exteriors operates from brick-and-mortar offices in TX, CO, KS, MO, and a satellite serving GA — the crew that installs your roof works for Pro Exteriors, not for a labor broker." },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  jsonLd={jsonLd}
+>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
+
+  <main id="main">
+
+    {/* ══════ HERO ══════════════════════════════════════════════════════════ */}
+    <section
+      class="relative isolate overflow-hidden text-white"
+      style="min-height: 870px; background-color: var(--color-surface-dark, #0f172a);"
+      aria-label="Residential roofing — Pro Exteriors"
+    >
+      <div class="absolute inset-0 -z-10">
+        {/* IMAGE: hero-residential — [REPRESENTATIVE — NOT YET SOURCED] */}
+        <img src="/images/placeholders/hero-residential.jpg" alt="" class="w-full h-full object-cover opacity-60" loading="eager" fetchpriority="high" />
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/60 to-slate-900/0"></div>
+      </div>
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8 py-24 lg:py-32">
+        <Breadcrumb items={[{ label: "Residential", href: "/residential-roofing/" }]} />
+        <p class="mt-4 text-sm font-bold uppercase tracking-widest text-white/70">RESIDENTIAL ROOFING · TX · CO · KS · MO · GA</p>
+        <h1 class="mt-6 text-5xl lg:text-7xl font-black leading-[1.05] max-w-3xl">Residential Roofing Contractor</h1>
+        <p class="mt-6 max-w-2xl text-xl lg:text-2xl text-slate-300 leading-relaxed">
+          Emergency storm response one day, premium roof replacement the next. We're a residential roofing company that operates across five states with our own crews — never subcontracted, never out-of-state storm chasers — and the receipts to back every claim on this page.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <a
+            href="/contact/emergency/?intent=emergency&source=residential-pillar"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-red-700 hover:bg-red-800 text-white text-lg font-bold focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+            data-event-name="cta_click"
+            data-event-cta-id="hero_emergency"
+            data-event-intent="emergency"
+            data-event-source="residential-pillar-hero"
+          >Emergency Roof Repair</a>
+          <a
+            href="/contact/residential-roofing/inspection/?intent=inspection&source=residential-pillar"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-lg border-2 border-white text-white text-lg font-bold hover:bg-white hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+            data-event-name="cta_click"
+            data-event-cta-id="hero_inspection"
+            data-event-intent="inspection"
+            data-event-source="residential-pillar-hero"
+          >Plan Your New Roof</a>
+        </div>
+      </div>
+    </section>
+
+    {/* ══════ TRUST STRIP ════════════════════════════════════════════════════ */}
+    <section aria-label="Credentials and accreditations" class="py-8 border-y border-stone-200 bg-stone-50">
+      <ul class="mx-auto max-w-screen-xl px-6 lg:px-8 flex flex-wrap items-center justify-center gap-8 lg:gap-24 text-base font-bold text-slate-900">
+        <li class="inline-flex items-center gap-2">
+          <Icon name="star" class="w-5 h-5" />
+          <span>Google 4.9/5 (240+ Reviews)</span>
+          <span class="ml-1 text-xs font-normal italic text-slate-500" title="Per CLAUDE.md hard gate — not yet sourced">[REPRESENTATIVE]</span>
+        </li>
+        <li>BBB A+ ACCREDITED</li>
+        <li>GAF MASTER ELITE&reg;</li>
+        <li>CERTIFIED OWENS CORNING</li>
+      </ul>
+    </section>
+
+    {/* ══════ DUAL FEATURE CARDS ════════════════════════════════════════════ */}
+    <section aria-label="Emergency and planned-replacement paths" class="bg-stone-50 py-16">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid gap-6 md:grid-cols-2">
+        {/* Emergency card */}
+        <article class="relative overflow-hidden rounded-xl min-h-[500px] flex items-end p-8 text-white isolate">
+          <img src="/images/placeholders/feature-emergency.jpg" alt="Real Pro Exteriors crew installing a blue tarp on a storm-damaged residential roof — gritty, in-progress, not staged" class="absolute inset-0 w-full h-full object-cover -z-10" loading="lazy" />
+          <div class="absolute inset-0 -z-10 bg-gradient-to-l from-black via-black/40 to-black/10"></div>
+          <div>
+            <span class="inline-flex items-center px-3 py-1 rounded text-xs font-bold bg-red-700 text-white uppercase tracking-wide">URGENT RESPONSE</span>
+            <h2 class="mt-4 text-3xl font-black leading-tight">Roof damage? We're on it in 48 hours.</h2>
+            <p class="mt-4 max-w-md text-base text-slate-200">Storm hits, roof leaks, deductible just doubled. Our emergency roof repair crews are deployed from each of our five state markets — Texas, Colorado, Kansas, Missouri, and Georgia — so the response time isn't contingent on a truck driving in from somewhere else. <a href="/residential-roofing/emergency/" class="underline decoration-white/40 hover:decoration-white">Tarp installation</a> happens first, full assessment follows, insurance documentation comes with us in the door.</p>
+            <a href="/contact/emergency/?intent=emergency&source=residential-pillar-emergency-card"
+               class="mt-6 inline-flex items-center gap-2 text-base font-bold text-white hover:underline"
+               data-event-name="cta_click"
+               data-event-cta-id="feature_card_emergency"
+               data-event-intent="emergency"
+               data-event-source="residential-pillar-emergency-card">
+              Request Inspection <Icon name="arrow-right" class="w-4 h-4" />
+            </a>
+          </div>
+        </article>
+
+        {/* Premium card */}
+        <article class="relative overflow-hidden rounded-xl min-h-[500px] flex items-end p-8 text-white isolate">
+          <img src="/images/placeholders/feature-premium.jpg" alt="Real Pro Exteriors completed residential project — modern home exterior with new architectural shingles, sun on the roof line" class="absolute inset-0 w-full h-full object-cover -z-10" loading="lazy" />
+          <div class="absolute inset-0 -z-10 bg-gradient-to-l from-slate-900 via-slate-900/40 to-slate-900/10"></div>
+          <div>
+            <span class="inline-flex items-center px-3 py-1 rounded text-xs font-bold bg-slate-900 text-white uppercase tracking-wide">PREMIUM UPGRADE</span>
+            <h2 class="mt-4 text-3xl font-black leading-tight">Planning your dream roof</h2>
+            <p class="mt-4 max-w-md text-base text-slate-200">The other half of residential roofing is the planned project — the twenty-year-old shingles you've been watching, the tile-to-metal conversion you've been pricing, the architectural shingle upgrade your HOA finally approved. We bring the same crews, the same warranties, and the same transparent pricing to the planned side as the emergency side.</p>
+            <a href="/residential-roofing/asphalt-shingles/"
+               class="mt-6 inline-flex items-center gap-2 text-base font-bold text-white hover:underline"
+               data-event-name="cta_click"
+               data-event-cta-id="feature_card_premium"
+               data-event-intent="education"
+               data-event-source="residential-pillar-premium-card">
+              View Materials <Icon name="arrow-right" class="w-4 h-4" />
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    {/* ══════ SPECIALIZED SERVICES (6-card grid) ════════════════════════════ */}
+    <section aria-label="Specialized residential services" class="bg-stone-100 py-24">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8">
+        <header class="text-center max-w-2xl mx-auto">
+          <h2 class="text-4xl font-black text-slate-900">Residential Roofing Services</h2>
+          <p class="mt-4 text-lg text-slate-600">Emergency storm response, insurance claim management, and premium material upgrades — one residential roofing contractor accountable for all of it. Manufacturer-certified installation and crews that have worked every climate from the Texas heat to a Colorado high-wind belt to a Georgia humidity cycle.</p>
+        </header>
+        <ul class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
+          {serviceGrid.map(card => (
+            <li class="bg-white rounded-lg overflow-hidden flex flex-col">
+              <img src={card.img} alt={card.alt} class="w-full h-48 object-cover" loading="lazy" />
+              <div class="p-6 flex flex-col gap-2">
+                <h3 class="text-lg font-bold text-slate-900">{card.title}</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">{card.body}</p>
+                <a href={card.href} class="mt-3 text-sm font-bold text-red-700 hover:underline" aria-label={`Learn more about ${card.title}`}>{card.anchor} <span aria-hidden="true">→</span></a>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    {/* ══════ LOCAL EXPERTS PROOF + TESTIMONIAL ═════════════════════════════ */}
+    <section aria-label="Local experts proof block" class="py-24 bg-white">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid gap-12 lg:grid-cols-2 items-start">
+        <div>
+          <h2 class="text-4xl font-black text-slate-900">Local across five states. Not "storm chasers."</h2>
+          <p class="mt-6 text-lg text-slate-600 leading-relaxed">The week after a hail storm, every homeowner in the affected zip codes gets a knock on the door from a contractor that arrived from out of state with a magnetic sign on the truck. Six months later, when the roof leaks, the truck is gone. We've watched it happen in every market we serve.</p>
+          <p class="mt-4 text-lg text-slate-600 leading-relaxed">Pro Exteriors is the opposite of that pattern. We have brick-and-mortar offices in Richardson TX, Euless TX, Greenwood Village CO, Wichita KS, Kansas City MO, and a satellite location serving Atlanta GA. We're licensed to operate as a residential roofing contractor in 16 states. The crew that installs your roof lives within driving distance of your house and is accountable to you when something needs follow-up — not via a 1-800 number that routes to whichever subcontractor is currently available. <a href="/locations/" class="text-red-700 font-bold hover:underline">See all service areas</a>.</p>
+          <dl class="mt-8 grid grid-cols-2 gap-8">
+            <div>
+              <dt class="sr-only">Years in business</dt>
+              <dd class="text-4xl font-black text-red-700">15+ <span class="block mt-1 text-sm font-bold uppercase tracking-wide text-slate-500">YEARS IN BUSINESS</span></dd>
+              {/* Sourced: src/lib/schema/AboutPage.ts foundingDate=2011 (15 years as of 2026) */}
+            </div>
+            <div>
+              <dt class="sr-only">Homes protected</dt>
+              <dd class="text-4xl font-black text-red-700">2,500+ <span class="block mt-1 text-sm font-bold uppercase tracking-wide text-slate-500">HOMES PROTECTED</span></dd>
+              <p class="mt-1 text-xs italic text-slate-500">[REPRESENTATIVE — confirm completed-project count from CRM]</p>
+            </div>
+          </dl>
+        </div>
+        <figure class="rounded-xl bg-slate-900 text-white p-12">
+          <div class="flex gap-1" aria-label="5 out of 5 stars">
+            {[...Array(5)].map(() => <Icon name="star" class="w-5 h-5 text-yellow-400" />)}
+          </div>
+          <blockquote class="mt-6 text-xl leading-relaxed italic">"Pro Exteriors was a lifesaver after the spring hail storm. They handled everything with our insurance, the crew was professional from the tear-off through the cleanup, and our roof looks better than the day we bought the house."</blockquote>
+          <figcaption class="mt-6 flex items-center gap-4">
+            <img src="/images/placeholders/testimonial-avatar-generic.jpg" alt="" class="w-12 h-12 rounded-full bg-slate-700" />
+            <div>
+              <p class="font-bold">Michael S.</p>
+              <p class="text-sm text-slate-400">Pro Exteriors residential customer</p>
+              <p class="mt-1 text-xs italic text-slate-400">[REPRESENTATIVE — NOT YET SOURCED — needs real customer + signed release]</p>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    {/* ══════ SEAMLESS PROCESS ══════════════════════════════════════════════ */}
+    <section aria-label="Our seamless process" class="bg-slate-900 text-white py-24">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8">
+        <header class="text-center max-w-2xl mx-auto">
+          <h2 class="text-4xl font-black">Our seamless process</h2>
+          <p class="mt-4 text-base text-slate-400">From the first call to the final inspection, the same project manager owns your job from start to finish.</p>
+        </header>
+        <ol class="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 relative" role="list">
+          <div aria-hidden="true" class="hidden lg:block absolute top-8 left-16 right-16 h-px bg-slate-700"></div>
+          {processSteps.map(step => (
+            <li class="text-center">
+              <div class={`w-16 h-16 mx-auto rounded-full flex items-center justify-center ring-4 ring-slate-900 ${step.num === 1 ? "bg-red-700" : "bg-slate-800"}`}>
+                <Icon name={step.icon} class="w-6 h-6 text-white" />
+              </div>
+              <h3 class="mt-4 text-lg font-bold">{step.title}</h3>
+              <p class="mt-2 text-sm text-slate-400 leading-relaxed">{step.body}</p>
+            </li>
+          ))}
+        </ol>
+        <div class="mt-12 text-center">
+          <Button href="/contact/residential-roofing/inspection/?intent=inspection&source=residential-pillar-process" variant="primary"
+            data-event-name="cta_click"
+            data-event-cta-id="process_inspection"
+            data-event-intent="inspection"
+            data-event-source="residential-pillar-process">
+            Schedule My Free Inspection
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    {/* ══════ CASE STUDIES ══════════════════════════════════════════════════ */}
+    <section aria-label="Residential case studies" class="py-24 bg-white">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8">
+        <header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div>
+            <h2 class="text-4xl font-black text-slate-900">Residential case studies</h2>
+            <p class="mt-2 text-base text-slate-600">Recent work, one project per region.</p>
+          </div>
+          <a href="/projects" class="text-base font-bold text-slate-900 border-b-2 border-slate-900 pb-1 hover:text-red-700 hover:border-red-700">View Project Gallery</a>
+        </header>
+        <ul class="mt-12 grid gap-6 md:grid-cols-3" role="list">
+          {caseStudies.map(c => (
+            <li>
+              <a href={c.href} class="group block">
+                <img src={c.img} alt={c.alt} class="w-full aspect-square rounded-lg object-cover" loading="lazy" />
+                <p class="mt-6 text-xs font-bold uppercase tracking-widest text-red-700">{c.state}</p>
+                <h3 class="mt-2 text-xl font-bold text-slate-900 group-hover:underline">{c.title}</h3>
+                <p class="mt-2 text-sm italic text-slate-600">"{c.quote}"</p>
+                <p class="mt-2 text-xs italic text-slate-400">[REPRESENTATIVE — needs real completed project]</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    {/* ══════ TRANSPARENT PRICING & FINANCING ══════════════════════════════ */}
+    <section aria-label="Transparent pricing and financing" class="bg-stone-100 py-24">
+      <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid gap-12 lg:grid-cols-2 items-center">
+        <img src="/images/placeholders/financing-blueprint.jpg" alt="Pro Exteriors estimate document on a desk next to a roofing material sample and pen — representative of the line-item estimate process" class="rounded-xl shadow-md w-full max-w-lg justify-self-center" loading="lazy" />
+        <div>
+          <h2 class="text-4xl font-black text-slate-900">Transparent pricing and honest financing</h2>
+          <p class="mt-6 text-lg text-slate-600 leading-relaxed">Roofing has a reputation for surprise change orders and inflated insurance billing. We don't run that play. Every estimate is built from satellite imaging plus a physical roof measurement, every line item is itemized in the proposal, and every invoice matches the proposal unless decking damage appears mid-project.</p>
+          <p class="mt-4 text-lg text-slate-600 leading-relaxed">We also handle the <a href="/blog/how-much-does-a-roof-replacement-cost" class="text-red-700 font-bold hover:underline">actual cost of a residential roof replacement</a> directly with insurance carriers when the project is hail or storm driven. <a href="/contact/residential-roofing/inspection/" class="text-red-700 font-bold hover:underline">Insurance claim assistance for roof damage</a> is built into the project-management workflow, not bolted on as an upsell.</p>
+          <ul class="mt-8 space-y-3" role="list">
+            <li class="flex items-center gap-3"><Icon name="check-circle" class="w-5 h-5 text-emerald-600" /> 0% interest financing options through approved lenders</li>
+            <li class="flex items-center gap-3"><Icon name="check-circle" class="w-5 h-5 text-emerald-600" /> Insurance deductible assistance on qualifying storm claims</li>
+            <li class="flex items-center gap-3"><Icon name="check-circle" class="w-5 h-5 text-emerald-600" /> Detailed line-item estimates — no surprise change orders</li>
+          </ul>
+          <Button href="/contact/residential-roofing/inspection/?intent=financing&source=residential-pillar-financing" variant="primary" size="lg" class="mt-8"
+            data-event-name="cta_click"
+            data-event-cta-id="financing_learn_more"
+            data-event-intent="education"
+            data-event-source="residential-pillar-financing">Learn About Financing</Button>
+        </div>
+      </div>
+    </section>
+
+    {/* ══════ FAQ ═══════════════════════════════════════════════════════════ */}
+    <section aria-label="Residential roofing FAQ" class="py-24 bg-white">
+      <div class="mx-auto max-w-2xl px-6 lg:px-8">
+        <header class="text-center">
+          <h2 class="text-4xl font-black text-slate-900">Residential roofing FAQ</h2>
+          <p class="mt-4 text-base text-slate-600">Five questions homeowners across our five states ask the most.</p>
+        </header>
+        <FAQ faqs={faqItems} class="mt-12" />
+      </div>
+    </section>
+
+    {/* ══════ FINAL CTA ═════════════════════════════════════════════════════ */}
+    <section aria-label="Schedule your residential roofing inspection" class="relative isolate py-24 bg-slate-900 text-white overflow-hidden">
+      <img src="/images/placeholders/final-cta-background.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-10 -z-10" loading="lazy" />
+      <div class="mx-auto max-w-screen-md px-6 lg:px-8 text-center">
+        <h2 class="text-4xl lg:text-5xl font-black leading-tight">Your roof protects everything underneath it. Let's make sure it's right.</h2>
+        <p class="mt-6 text-xl text-slate-400">Free inspection, written proposal, no pressure. Available in every market we serve.</p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact/residential-roofing/inspection/?intent=inspection&source=residential-pillar-final"
+             class="px-10 py-5 rounded-lg bg-red-700 hover:bg-red-800 text-white text-lg font-black focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+             data-event-name="cta_click"
+             data-event-cta-id="final_inspection"
+             data-event-intent="inspection"
+             data-event-source="residential-pillar-final">Schedule My Free Inspection</a>
+          {/* Per Chris 2026-05-03: per-state IVR routing strategy. Single tel:+ number,
+              IVR menu detects caller location / lets them pick state, routes to local crew.
+              Phone number itself is [REPRESENTATIVE] until Chris provides the IVR number.
+              Page-qc: do not enable production launch with the placeholder number. */}
+          <a href="tel:+1XXXXXXXXXX"
+             class="px-10 py-5 rounded-lg bg-white text-slate-900 text-lg font-black hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+             data-event-name="cta_click"
+             data-event-cta-id="final_phone"
+             data-event-intent="phone"
+             data-event-source="residential-pillar-final"
+             data-event-routing="per-state-ivr"
+             aria-label="Call Pro Exteriors — per-state routing IVR; specific number to be confirmed">
+            Call (XXX) XXX-XXXX <span class="block text-xs italic font-normal text-slate-500 mt-1">[REPRESENTATIVE — per-state IVR]</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>

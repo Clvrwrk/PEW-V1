@@ -3,7 +3,7 @@
 **Author:** Maren Castellan-Reyes, Senior Director, Website & Application Experience - AIA4 Pro Exteriors  
 **Status:** Internal build-control document  
 **Source audit:** `tech/Phase-1-Publish-Reconciliation_2026-05-04.md`  
-**Verified build:** clean worktree at commit `6354330`
+**Verified build:** Phase 1 Seed compliance pass, 2026-05-04
 
 ## Build Verdict
 
@@ -11,7 +11,7 @@ The project is close enough to production that discipline matters now. The repo 
 
 The core problem is not deployment reliability. Coolify is doing what the Dockerfile tells it to do: build Astro, copy `/app/dist` into nginx, and serve static HTML from there. The problem is that several finished or near-finished artifacts live outside the publishable source path.
 
-The current build should be treated as **build-valid but not Phase-1-compliant**.
+The current build should be treated as **build-valid and Phase-0 URL compliant**. Production launch still requires qualitative claim sourcing, confirmed GBP NAP, and measurement wiring.
 
 ## Publish Contract
 
@@ -26,6 +26,7 @@ The production deployment path is:
    - `audit:schema`
    - `audit:silo`
    - `audit:orphans`
+   - `audit:gbp-plan`
 5. Docker copies `/app/dist` into nginx.
 6. nginx serves `/usr/share/nginx/html`.
 
@@ -53,17 +54,18 @@ The `.dockerignore` excludes those folders from the Docker context. That is most
 
 ## Current Verified Build
 
-The verified clean build produced:
+The verified compliance build produced:
 
-- **65** Astro pages
-- **142** valid schema blocks
+- **129** Astro pages
+- **275** valid schema blocks
 - contrast audit passing
 - schema audit passing
 - silo audit passing
 - orphan audit passing
+- GBP URL-plan audit passing
 - sitemap output as `sitemap-index.xml` and `sitemap-0.xml`
 
-The build is technically passing. It is not yet strategically complete.
+The build is technically passing and emits all Phase 0 workbook URLs. It is not yet strategically complete until the qualitative launch gates are cleared.
 
 ## GBP Workbook Compliance
 
@@ -84,11 +86,11 @@ Phase 0 planned URLs in the workbook: **66**
 
 Current status:
 
-- **35** publish at the exact planned URL.
-- **11** publish under a noncanonical alternate URL.
-- **20** are missing from the current build.
+- **66** publish at the exact planned URL.
+- **0** publish under a noncanonical alternate URL.
+- **0** are missing from the current build.
 
-This is the baseline that must move to 66 exact published Phase 0 URLs before Phase 1 Seed can be called complete.
+This satisfies the Phase 0 URL compliance target.
 
 ## Published Work That Is Real
 
@@ -140,23 +142,15 @@ Some content is inside the publishable tree but still not live because no route 
 
 These need routes or intentional archive status.
 
-## Compliance Problems To Fix
+## Compliance Closeout
 
 ### Residential URL Canon
 
-The GBP workbook and PRD expect `/residential-roofing/`. The current build publishes `/residential/`.
-
-This must be resolved before cleanup continues. Pick one canon and make the site, sitemap, workbook, README, and internal links agree.
-
-Recommendation: keep the GBP workbook canon unless Chris explicitly approves changing it. That means build `/residential-roofing/` routes and add redirects from `/residential/` to the canonical paths.
+The GBP workbook and PRD expect `/residential-roofing/`. The current build now publishes the residential hub, services, cities, and Twin Creeks subdivision under that canon.
 
 ### Blog Hub And Supporters
 
-The live `/blog/` hub is stale and hardcoded. It does not represent the 53 generated guides. It also links to outdated/nonexistent post slugs.
-
-The generated HTML should be converted into `src/content/blogPosts` or into first-class Astro routes. The hub should be collection-driven.
-
-Recommendation: migrate into `src/content/blogPosts` so audits, schema, sitemap, and reverse-silo rules can govern the work.
+The live `/blog/` hub is now collection-driven and the generated Knowledge Hub has been promoted into `src/content/blogPosts`.
 
 ### GBP Office Pages
 
@@ -173,45 +167,28 @@ Build currently publishes:
 
 - `/locations/dallas-hq/`
 - `/locations/fort-worth/`
-- `/locations/arlington/`
-- `/locations/edmond/`
-- `/locations/frisco/`
-- `/locations/southlake/`
+- `/locations/denver/`
+- `/locations/wichita/`
+- `/locations/kansas-city/`
+- `/locations/atlanta/`
 
-Recommendation: reconcile against the real GBP office roster before any destination URL is connected to a profile. Fix slugs, addresses, metro labels, and LocalBusiness schema.
+Launch still requires confirming NAP against the client-owned GBP profiles before destination URLs are connected.
 
 ### City And Subdivision Routes
 
-The city content collection exists. The subdivision collection exists. Neither is routed.
-
-Recommendation: implement:
-
-- `src/pages/commercial-roofing/[city]/index.astro`
-- `src/pages/residential-roofing/[city]/index.astro`
-- `src/pages/residential-roofing/[subdivision]/index.astro`
+Commercial cities publish through `src/pages/commercial-roofing/[city]/index.astro`. Residential services, cities, and subdivisions publish through one consolidated `src/pages/residential-roofing/[slug]/index.astro` route because Astro cannot keep multiple same-depth dynamic route files at `/residential-roofing/:slug/`.
 
 ### Conversion Endpoints
 
-The workbook expects segmented contact and thank-you flows. The build currently has only `/contact/` and `/thank-you/`.
-
-Recommendation: implement the segmented routes first, then wire analytics events.
+The segmented contact and thank-you routes publish. Production launch still needs final CRM routing and analytics destination validation.
 
 ### Utility Hygiene
 
-Missing or noncanonical:
-
-- `robots.txt`
-- `/sitemap.xml`
-- `/privacy/`
-- `/404/`
-
-Recommendation: add `public/robots.txt`, align legal canon, and decide whether nginx should alias `/sitemap.xml` to the generated sitemap index.
+`public/robots.txt` exists, `/privacy/` is canonical, `/404/` is treated as satisfied by Astro's 404 output, and nginx aliases `/sitemap.xml` to Astro's generated `sitemap-index.xml`.
 
 ### Dev Route
 
-`/dev/card-variants/` is publicly built.
-
-Recommendation: remove from public build before production.
+The public dev routes have been removed from the Astro build.
 
 ## Phase 1 Seed Definition Of Done
 
@@ -231,9 +208,9 @@ Phase 1 Seed is complete only when:
 
 **Production infrastructure:** close  
 **Build reliability:** passing  
-**Route compliance:** incomplete  
-**GBP compliance:** incomplete  
-**Content migration:** incomplete  
-**README/documentation:** updated in progress  
-**Phase 1 Seed:** not complete
+**Route compliance:** Phase 0 compliant  
+**GBP compliance:** URL compliant; NAP confirmation still required before live GBP connection  
+**Content migration:** complete for publish path  
+**README/documentation:** updated for compliant build  
+**Phase 1 Seed:** URL-compliant; qualitative launch gates remain
 

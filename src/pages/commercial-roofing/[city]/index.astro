@@ -1,0 +1,80 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../../components/seo/BaseLayout.astro';
+import HeroSection from '../../../components/molecules/HeroSection.astro';
+import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import FAQ from '../../../components/molecules/FAQ.astro';
+import CTABanner from '../../../components/molecules/CTABanner.astro';
+import { serviceSchema } from '../../../lib/schema/Service';
+import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
+import { faqPageSchema } from '../../../lib/schema/FAQPage';
+
+export async function getStaticPaths() {
+  const urlSegment = (canonicalPath: string): string =>
+    canonicalPath.replace(/\/$/, '').split('/').pop() ?? '';
+
+  const cities = await getCollection('cities', ({ data }) => data.vertical === 'commercial');
+  return cities.map((entry) => ({
+    params: { city: urlSegment(entry.data.canonicalPath) },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'cities'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const data = entry.data;
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Commercial Roofing', href: '/commercial-roofing/' },
+  { label: data.name, href: data.canonicalPath },
+];
+
+const schemaPayload: Record<string, any>[] = [
+  serviceSchema(
+    { name: `Commercial Roofing in ${data.name}`, description: data.description, url: data.canonicalPath },
+    'Pro Exteriors',
+  ),
+  breadcrumbSchema(breadcrumbs),
+];
+
+if (data.faqs && data.faqs.length > 0) {
+  schemaPayload.push(faqPageSchema(data.faqs));
+}
+---
+
+<BaseLayout title={data.title} description={data.description} canonicalPath={data.canonicalPath} jsonLd={schemaPayload}>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+
+  <HeroSection
+    title={data.h1}
+    subtitle={`Commercial roofing systems, repair, replacement, and assessment support for ${data.name}, ${data.state} properties.`}
+    primaryCta={{ label: 'Request Commercial Assessment', href: '/contact/commercial/' }}
+    secondaryCta={{ label: 'View Commercial Services', href: '/commercial-roofing/' }}
+    image={data.heroImage}
+  />
+
+  <article class="prose prose-lg mx-auto max-w-3xl px-4 py-16">
+    <Content />
+  </article>
+
+  {data.faqs && data.faqs.length > 0 && (
+    <section class="bg-surface-inset py-16">
+      <div class="mx-auto max-w-4xl px-4">
+        <h2 class="mb-10 text-center text-3xl font-bold">Commercial Roofing FAQ</h2>
+        <FAQ faqs={data.faqs} />
+      </div>
+    </section>
+  )}
+
+  <CTABanner
+    heading={`Need a commercial roofing plan in ${data.name}?`}
+    subtitle="Send the roof size, building type, and timeline. We will route it to the closest Pro Exteriors team."
+    ctaText="Start Commercial RFQ"
+    ctaHref="/contact/commercial/"
+  />
+</BaseLayout>

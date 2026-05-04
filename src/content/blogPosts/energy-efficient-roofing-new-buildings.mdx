@@ -1,0 +1,107 @@
+---
+title: "Energy-Efficient Roofing for New Buildings"
+description: "ASHRAE 90.1, cool roofs, polyiso depth math, LEED pathways \u2014 a technical guide to specifying energy-efficient roofing on new commercial construction."
+canonicalPath: "/blog/energy-efficient-roofing-new-buildings/"
+publishDate: "2026-05-04"
+author: "Maren Castellan-Reyes"
+pillar: "commercial-roofing"
+silo_target: "/commercial-roofing/"
+targetAnchorText: "commercial roofing contractor"
+silo_siblings:
+  - "/blog/extending-roof-lifespan/"
+  - "/blog/emergency-commercial-roof-leak-response/"
+---
+
+# Energy-Efficient Roofing for New Buildings: ASHRAE, Cool Roofs, and the Insulation Math That Actually Matters
+
+- Cool Roof Rating Council Standards
+
+- Polyiso Insulation Depth Math
+
+- Reflective vs. Absorptive Roofing
+
+- LEED & Energy Star Certification
+
+Energy code is no longer a footnote on new commercial construction drawings. ASHRAE 90.1-2022 — now the baseline for most U.S. jurisdictions — sets minimum insulation R-values and cool roof requirements that directly affect which membrane you can specify, how thick your polyiso must be, and whether your building even qualifies for the energy credits your owner's pro forma is counting on. Getting roofing wrong at specification stage doesn't just cost you in utility bills. It can trigger a failed energy compliance review, delay a certificate of occupancy, or disqualify a project from LEED certification that was written into the incentive structure from day one.
+
+This guide walks through the technical reality: what ASHRAE 90.1 actually requires on low-slope commercial roofs, how the Cool Roof Rating Council's test data informs those requirements, how to calculate polyiso thickness for your climate zone, and what "solar ready" means as a spec item rather than a marketing phrase. The goal is a specification team that can defend every line item with a number, not a vague reference to "energy efficiency."
+
+ASHRAE 90.1 is the commercial energy code standard that most U.S. states adopt on a 3–6 year lag from the publication date. The 2022 edition — which most Sun Belt jurisdictions are currently on or migrating to — establishes minimum continuous insulation (ci) R-values for low-slope roofs (≤2:12 pitch) by climate zone. The word "continuous" is doing heavy lifting here: it means insulation that runs unbroken across structural members, excluding any thermal bridging through fasteners, metal supports, or structural deck components. Batt insulation between joists doesn't count.
+
+For Climate Zone 2 (Dallas–Fort Worth, Houston, San Antonio), ASHRAE 90.1-2022 requires R-25 ci minimum for above-deck insulation on nonresidential buildings. Climate Zone 3 (Atlanta, Wichita) steps up to R-30 ci, and Climate Zone 5 (Denver metro) requires R-35 ci — numbers that have meaningful implications for polyiso thickness and, consequently, for deck-to-membrane height at parapets and flashings.
+
+There is also a prescriptive path and a trade-off path. Under the prescriptive path, you meet the minimum R-value and the cool roof requirement (if applicable) and you're done. Under the trade-off path (using energy modeling software like eQUEST or EnergyPlus), a more reflective roof surface can theoretically offset a reduction in insulation R-value — but this calculation requires a certified energy modeler and a code official who will accept the methodology. For most commercial new construction, the prescriptive path is faster and less risky at permitting.
+
+## Cool Roof Rating Council Standards
+
+The Cool Roof Rating Council (CRRC) maintains the only standardized third-party rating system for roofing product solar reflectance and thermal emittance. Products are rated per ASTM E1980 (reflectance) and ASTM E408 (emittance). The CRRC Product Rating Program reports two numbers: initial values (tested on a new product) and aged values (tested after three years of outdoor weathering per ASTM D7897). Energy codes require aged values, not initial values — a distinction that eliminates some products that look good on their sell sheets but degrade quickly in service.
+
+ASHRAE 90.1-2022 sets a prescriptive cool roof threshold for Climate Zones 1–3 (and CZ 0 under the 2022 edition): low-slope roofs in these zones must achieve a Solar Reflectance Index (SRI) ≥ 82 (initial) or ≥ 64 (aged). The SRI formula combines solar reflectance and thermal emittance into a single metric referenced to a standard black surface (SRI = 0) and a standard white surface (SRI = 100). White TPO membranes typically achieve initial SRI values of 100–104 and aged SRI values of 85–95, well above the threshold. Standard gray EPDM runs SRI 15–25 — it fails the prescriptive cool roof requirement outright in Climate Zones 1–3. White-coated EPDM can hit SRI 70–85 aged, which may or may not clear the bar depending on the specific product's CRRC listing.
+
+The practical consequence: specifying gray EPDM on a new commercial building in Dallas, Houston, Atlanta, or any other Zone 2–3 market either requires an energy trade-off calculation or forces a switch to a compliant membrane. This is worth surfacing in pre-design meetings before it becomes a redesign cost.
+
+## Polyiso Insulation Depth Math
+
+Polyisocyanurate (polyiso) is the dominant above-deck insulation for low-slope commercial roofing because it delivers the highest R-value per inch of any common insulation board — approximately R-5.7 to R-6.5 per inch at 75°F mean temperature. The issue is that polyiso R-value is temperature-dependent: at cold temperatures, it underperforms its labeled R-value by a meaningful margin. This is why the DOE and many code officials in Climate Zones 4 and above require a "de-rated" or LTTR (Long-Term Thermal Resistance) value for compliance calculations — typically R-5.0 to R-5.6 per inch rather than the labeled R-6.5.
+
+Working through the math for Climate Zone 2 (R-25 ci required):
+
+- At labeled R-6.5/inch: 25 ÷ 6.5 = 3.85 inches of polyiso required → specify 4.0 inches (2 × 2.0-inch layers)
+
+- Using LTTR-adjusted R-5.6/inch: 25 ÷ 5.6 = 4.46 inches → specify 4.5 inches (e.g., 2.5 + 2.0-inch layers)
+
+For Climate Zone 5 (R-35 ci, Denver):
+
+- At LTTR R-5.0/inch: 35 ÷ 5.0 = 7.0 inches → specify as 4.0 + 3.0 or 3 × 2.5-inch layers
+
+Two-layer polyiso assemblies are strongly preferred over single-layer for two reasons: staggered joints eliminate thermal bridging at board edges, and two thinner boards are easier to keep flat under adhesive or mechanical attachment than one thick board. Specify offset joints both within the layer and between layers.
+
+One more variable: polyiso over steel deck behaves differently than over concrete or wood deck. Steel deck provides no meaningful additional R-value (unlike concrete, which adds ~R-0.1 per inch at typical deck thicknesses). Design your polyiso depth against the code requirement with zero credit for the deck itself.
+
+## Reflective vs. Absorptive Roofing
+
+The reflective vs. absorptive debate sounds straightforward until you account for climate. In a cooling-dominated climate like Dallas or Houston (Climate Zone 2), a white reflective roof reduces cooling loads by reflecting solar heat away from the building — LBNL research suggests 10–30% peak cooling demand reduction for a well-insulated commercial building switching from a dark to a high-reflectance membrane. In a heating-dominated climate like Minneapolis (CZ 6), a dark absorptive roof can theoretically reduce heating loads by capturing solar gain — but the effect is small relative to roof U-value, and most energy modeling shows reflective roofs still win on annual energy balance even in CZ 6 due to the thermal penalty of summer overheating outweighing winter solar gain.
+
+ASHRAE 90.1 resolves this debate with a geographic cutoff: cool roof requirements (SRI ≥ 82) apply in Climate Zones 1–3. In Zones 4–8, cool roofs are encouraged but not prescriptively required — though they can still serve as a trade-off credit in energy modeling. For Pro Exteriors' primary markets (DFW, Houston, Atlanta, Wichita), the prescriptive cool roof threshold applies. White TPO is the standard-of-practice answer for low-slope new construction in these markets, and it meets code without any trade-off calculation.
+
+One nuance that procurement teams often miss: membrane reflectance degrades with soiling, biological growth, and UV exposure. CRRC aged values account for three years of outdoor weathering, but a roof that goes 10+ years without cleaning in an urban environment with heavy particulate will underperform its CRRC aged rating. Building in a cleaning schedule — or specifying a fluoropolymer-coated membrane that resists soiling better than standard TPO — is a maintenance item that affects energy performance, not just aesthetics.
+
+"We've seen energy compliance reviews rejected at CO because the membrane spec on the drawings listed aged SRI 60 — the architect used the wrong product data sheet. Fifteen minutes confirming the CRRC listing before submittal would have prevented a two-week delay."
+
+An increasing number of municipalities and commercial tenants require or request solar-ready roof design on new construction. "Solar ready" as a specification item means more than leaving space for future panels. A functional solar-ready specification includes five elements that the roofing contractor must coordinate with structural and MEP at design stage:
+
+Structural capacity: Ballasted solar racking systems add 4–6 psf to roof dead load; roof-penetrating racked systems add 2–4 psf plus point loads at anchor locations. The structural engineer needs to know at design stage — retrofitting structural capacity is expensive and disruptive.
+
+Conduit pathways: Sleeves for electrical conduit from the roof surface to the electrical room must be sized and located in the structural deck design. A 4-inch sleeve through a steel deck is trivial at pour; it's a core drill and penetration repair after the fact.
+
+Membrane compatibility: Mechanically attached TPO and EPDM systems typically require additional point-of-attachment engineering for solar racking. Fully adhered membranes simplify solar integration because racking can attach to ballast blocks without penetrating the membrane. If solar is likely within the first 15 years of building life, specify a fully adhered system and note the future-use intent in the project manual.
+
+Reserved area marking: IBC requires solar-ready buildings to designate a reserved solar zone of at least 40% of net roof area (after mechanicals, setbacks, and access paths). This zone should be shown on the roof plan and kept clear of rooftop equipment at initial layout.
+
+Inverter and disconnect space: Solar panel connections need roof-level disconnects and conduit runs to a dedicated electrical panel. Coordinate with the electrical engineer to reserve wall space adjacent to the electrical room at ground level. Roofing's contribution to this is ensuring the curb and conduit pathway is included in the flashing scope at initial construction.
+
+## LEED & Energy Star Certification Path
+
+LEED v4.1 (the current certification standard) addresses the building envelope through the Energy and Atmosphere credit "Optimize Energy Performance" (EA Credit, up to 20 points). The roof contributes to the building energy model directly through its U-value (insulation depth) and solar reflectance (membrane type). There is no standalone "cool roof" credit in LEED v4.1 the way there was in LEED 2009 — energy performance is now evaluated holistically through energy modeling software, and the roof is one input among many. That said, a high-performance roof assembly can shift the energy model enough to move the project from one performance tier to another, and each tier represents points and certification level.
+
+For projects pursuing LEED, the roofing specification must be finalized before the energy model is submitted for LEED review — and any subsequent changes to membrane type or insulation depth require a model update. This creates a coordination requirement: roofing substitutions during construction (even equivalent products from a different manufacturer) may trigger a LEED model revision if the SRI or R-value differs from the specified product. The project manual should include a note requiring LEED consultant approval for any roofing product substitution on LEED-registered projects.
+
+Energy Star Roof Products certification is a separate program from LEED and certifies individual products (not whole buildings) against the same CRRC reflectance thresholds that ASHRAE 90.1 references. Specifying Energy Star-labeled roofing products is the simplest way to document cool roof compliance for building permits, owner reports, and utility rebate applications — the label is third-party certified, publicly searchable, and not subject to manufacturer interpretation. For any new commercial building in a cool-roof-required climate zone, specify Energy Star Roof Products by name in the specification section 07 52 00 (Modified Bituminous Membrane Roofing) or 07 54 00 (Thermoplastic Membrane Roofing), and require the contractor to submit product data sheets confirming Energy Star certification at submittal stage.
+
+Utility rebates represent a meaningful financial argument for going beyond code minimums. Texas utility territories (Oncor, CenterPoint, AEP Texas) offer commercial cool roof rebates ranging from $0.05 to $0.15 per square foot on qualifying projects — a 100,000-square-foot building could recover $5,000–$15,000 at permitting costs that the cool roof spec adds nothing to. Georgia Power and Kansas City Power & Light run similar programs. Verify current program terms directly with the utility serving the project address — programs change, and rebate documentation often requires a pre-application before work begins.
+
+The specification path that checks the most boxes simultaneously on new commercial construction in Pro Exteriors' primary markets: fully adhered white TPO at 60 or 80 mil, over two-layer offset polyiso at the LTTR-adjusted thickness for the project's climate zone, on a steel or concrete deck. That assembly meets ASHRAE 90.1 prescriptively, qualifies for Energy Star and cool roof tax credits, provides the structural flexibility for future solar integration, and delivers a 20+ year service life with a competitive installed cost relative to alternatives. The variables that shift the recommendation are slope, building occupancy, chemical exposure, and what's already in the structural design — which is exactly why roofing belongs in the pre-design conversation, not the addenda.
+
+## Specify Right the First Time
+
+Energy code compliance, cool roof performance, and solar-ready design are all easier to get right at specification stage than to fix after permits are pulled. Pro Exteriors works directly with spec writers, architects, and GCs on new commercial construction across Texas, Colorado, Kansas, and Missouri.
+
+### How to Choose a Roofing System for a New Commercial Build
+
+### Metal vs. Membrane Roofing: Which Is Right for Your New Build?
+
+### Roof Design Considerations for Distribution Centers and Warehouses
+
+For the service page this article supports, see [commercial roofing contractor](/commercial-roofing/).
+
+Related reading: [/blog/extending-roof-lifespan/](/blog/extending-roof-lifespan/) and [/blog/emergency-commercial-roof-leak-response/](/blog/emergency-commercial-roof-leak-response/).

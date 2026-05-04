@@ -37,9 +37,71 @@
  *   - ARIA labels on every interactive region
  */
 
-import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import React, {
+  type CSSProperties,
+  type ForwardedRef,
+  type ReactNode,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useRef,
+} from "react";
 import { geoAlbersUsa, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
+
+type OfficeType = "brick" | "satellite";
+type Tier = "active" | "licensed" | "inactive";
+type StateAbbr = keyof typeof FIPS_TO_NAME;
+
+type Accreditation = {
+  label: string;
+  number: string;
+};
+
+type Office = {
+  id: string;
+  type: OfficeType;
+  name: string;
+  company?: string;
+  state: StateAbbr;
+  address: string;
+  phone?: string | null;
+  phoneHref?: string;
+  email?: string;
+  hours?: string;
+  accreditation?: Accreditation[];
+  lat: number;
+  lng: number;
+  manager?: string;
+  managerTitle?: string;
+  services?: string[];
+};
+
+type TopoState = {
+  id: keyof typeof FIPS_TO_ABBR;
+  [key: string]: unknown;
+};
+
+type TopoAtlas = {
+  objects: {
+    states: unknown;
+  };
+  [key: string]: unknown;
+};
+
+type OfficeLocationsMapProps = {
+  offices?: Office[];
+  activeStates?: Set<StateAbbr> | StateAbbr[];
+  licensedStates?: Set<StateAbbr> | StateAbbr[];
+  atlasUrl?: string;
+  width?: number;
+  height?: number;
+  title?: string;
+  subtitle?: string;
+};
+
+type FocusableElement = HTMLElement | SVGElement;
 
 /* ================================================================
  * Brand tokens
@@ -75,7 +137,7 @@ const FIPS_TO_ABBR = {
   "45": "SC", "46": "SD", "47": "TN", "48": "TX", "49": "UT",
   "50": "VT", "51": "VA", "53": "WA", "54": "WV", "55": "WI",
   "56": "WY",
-};
+} as const;
 
 const FIPS_TO_NAME = {
   AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas",
@@ -91,7 +153,7 @@ const FIPS_TO_NAME = {
   SD: "South Dakota", TN: "Tennessee", TX: "Texas", UT: "Utah",
   VT: "Vermont", VA: "Virginia", WA: "Washington", WV: "West Virginia",
   WI: "Wisconsin", WY: "Wyoming",
-};
+} as const;
 
 /* ================================================================
  * State-tier configuration
@@ -103,8 +165,8 @@ const FIPS_TO_NAME = {
  * but MO was missing from the "located in" list. Active trumps licensed
  * where there's a real office — flagged in handoff notes.
  * ============================================================== */
-const ACTIVE_STATES   = new Set(["TX", "KS", "CO", "GA", "NC", "MO"]);
-const LICENSED_STATES = new Set([
+const ACTIVE_STATES = new Set<StateAbbr>(["TX", "KS", "CO", "GA", "NC", "MO"]);
+const LICENSED_STATES = new Set<StateAbbr>([
   "LA", "SC", "OK", "NE", "MN", "MS", "AL", "AR", "TN", "KY",
 ]);
 
@@ -114,7 +176,7 @@ const LICENSED_STATES = new Set([
  * type:     "brick" | "satellite"
  * Optional fields (manager, services, accreditation) render only when set.
  * ============================================================== */
-const DEFAULT_OFFICES = [
+const DEFAULT_OFFICES: Office[] = [
   {
     id: "richardson-tx",
     type: "brick",
@@ -247,39 +309,39 @@ export default function OfficeLocationsMap({
   height = 640,
   title = "Where We Work",
   subtitle = "Headquartered in Texas. Offices across the South, Midwest, and Rockies. Licensed to serve 15 states.",
-}) {
-  const [atlas, setAtlas] = useState(null);
-  const [atlasError, setAtlasError] = useState(null);
-  const [selectedOffice, setSelectedOffice] = useState(null);
-  const [hoveredStateAbbr, setHoveredStateAbbr] = useState(null);
-  const [hoveredPinId, setHoveredPinId] = useState(null);
-  const cardRef = useRef(null);
-  const lastFocusedRef = useRef(null);
+}: OfficeLocationsMapProps) {
+  const [atlas, setAtlas] = useState<TopoAtlas | null>(null);
+  const [atlasError, setAtlasError] = useState<string | null>(null);
+  const [selectedOffice, setSelectedOffice] = useState<Office | null>(null);
+  const [hoveredStateAbbr, setHoveredStateAbbr] = useState<StateAbbr | null>(null);
+  const [hoveredPinId, setHoveredPinId] = useState<string | null>(null);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const lastFocusedRef = useRef<FocusableElement | null>(null);
 
-  const activeSet   = activeStates   instanceof Set ? activeStates   : new Set(activeStates);
-  const licensedSet = licensedStates instanceof Set ? licensedStates : new Set(licensedStates);
+  const activeSet = activeStates instanceof Set ? activeStates : new Set<StateAbbr>(activeStates);
+  const licensedSet = licensedStates instanceof Set ? licensedStates : new Set<StateAbbr>(licensedStates);
 
   /* ---- Load states TopoJSON on mount ---- */
   useEffect(() => {
     let cancelled = false;
     fetch(atlasUrl)
       .then((r) => r.json())
-      .then((js) => { if (!cancelled) setAtlas(js); })
-      .catch((e) => { if (!cancelled) setAtlasError(`Failed to load US atlas: ${e.message}`); });
+      .then((js: TopoAtlas) => { if (!cancelled) setAtlas(js); })
+      .catch((e: Error) => { if (!cancelled) setAtlasError(`Failed to load US atlas: ${e.message}`); });
     return () => { cancelled = true; };
   }, [atlasUrl]);
 
   /* ---- Parse states + compute projection ---- */
   const states = useMemo(() => {
     if (!atlas) return [];
-    return feature(atlas, atlas.objects.states).features;
+    return (feature(atlas as never, atlas.objects.states as never) as unknown as { features: TopoState[] }).features;
   }, [atlas]);
 
   const projection = useMemo(() => {
     if (!states.length) return null;
     return geoAlbersUsa().fitExtent(
       [[16, 16], [width - 16, height - 16]],
-      { type: "FeatureCollection", features: states }
+      { type: "FeatureCollection", features: states } as never
     );
   }, [states, width, height]);
 
@@ -291,21 +353,21 @@ export default function OfficeLocationsMap({
   /* ---- Keyboard: Esc closes modal, focus returns to trigger ---- */
   useEffect(() => {
     if (!selectedOffice) return;
-    const handler = (e) => { if (e.key === "Escape") closeCard(); };
+    const handler = (e: globalThis.KeyboardEvent) => { if (e.key === "Escape") closeCard(); };
     document.addEventListener("keydown", handler);
-    const closeBtn = cardRef.current?.querySelector("[data-close]");
+    const closeBtn = cardRef.current?.querySelector<HTMLButtonElement>("[data-close]");
     closeBtn?.focus();
     return () => document.removeEventListener("keydown", handler);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedOffice]);
 
-  const openOffice = useCallback((office, sourceEl) => {
+  const openOffice = useCallback((office: Office, sourceEl: FocusableElement) => {
     lastFocusedRef.current = sourceEl || document.activeElement;
     setSelectedOffice(office);
   }, []);
 
   const openFirstOfficeInState = useCallback(
-    (stateAbbr, sourceEl) => {
+    (stateAbbr: StateAbbr, sourceEl: FocusableElement) => {
       const office = offices.find((o) => o.state === stateAbbr);
       if (office) openOffice(office, sourceEl);
     },
@@ -319,7 +381,7 @@ export default function OfficeLocationsMap({
 
   /* ---- Tier resolver ---- */
   const tierFor = useCallback(
-    (abbr) => {
+    (abbr: StateAbbr): Tier => {
       if (activeSet.has(abbr))   return "active";
       if (licensedSet.has(abbr)) return "licensed";
       return "inactive";
@@ -327,13 +389,13 @@ export default function OfficeLocationsMap({
     [activeSet, licensedSet]
   );
 
-  const fillFor = (tier, isHovered) => {
+  const fillFor = (tier: Tier, isHovered: boolean) => {
     if (tier === "active")   return isHovered ? shade(COLORS.flagRed, -8)  : COLORS.flagRed;
     if (tier === "licensed") return isHovered ? shade(COLORS.darkNavy, 12) : COLORS.darkNavy;
     return COLORS.inactiveFill;
   };
 
-  const strokeFor = (tier) => {
+  const strokeFor = (tier: Tier) => {
     if (tier === "active")   return COLORS.darkNavy;
     if (tier === "licensed") return COLORS.flagRed;
     return COLORS.lightGrey;
@@ -379,7 +441,7 @@ export default function OfficeLocationsMap({
             {/* State paths */}
             {pathGenerator && (
               <g>
-                {states.map((s) => {
+                {states.map((s: TopoState) => {
                   const abbr = FIPS_TO_ABBR[s.id];
                   if (!abbr) return null;
                   const tier = tierFor(abbr);
@@ -389,7 +451,7 @@ export default function OfficeLocationsMap({
                   return (
                     <path
                       key={s.id}
-                      d={pathGenerator(s)}
+                      d={pathGenerator(s as never) ?? undefined}
                       className={`pe-state pe-state--${tier} ${isInteractive ? "is-interactive" : ""} ${isHovered ? "is-hovered" : ""}`}
                       fill={fillFor(tier, isHovered)}
                       stroke={strokeFor(tier)}
@@ -572,7 +634,17 @@ function SatellitePin() {
 /* ================================================================
  * Legend sub-components
  * ============================================================== */
-function LegendSwatch({ fill, stroke, label, sublabel }) {
+function LegendSwatch({
+  fill,
+  stroke,
+  label,
+  sublabel,
+}: {
+  fill: string;
+  stroke: string;
+  label: string;
+  sublabel: string;
+}) {
   return (
     <div style={styles.legendRow}>
       <svg width="30" height="22" viewBox="0 0 30 22" aria-hidden="true">
@@ -586,7 +658,7 @@ function LegendSwatch({ fill, stroke, label, sublabel }) {
   );
 }
 
-function LegendPin({ type, label }) {
+function LegendPin({ type, label }: { type: OfficeType; label: string }) {
   return (
     <div style={styles.legendRow}>
       <svg width="32" height="36" viewBox="-16 -36 32 40" aria-hidden="true">
@@ -602,7 +674,10 @@ function LegendPin({ type, label }) {
 /* ================================================================
  * Contact card modal
  * ============================================================== */
-const ContactCard = React.forwardRef(function ContactCard({ office, onClose }, ref) {
+const ContactCard = React.forwardRef(function ContactCard(
+  { office, onClose }: { office: Office; onClose: () => void },
+  ref: ForwardedRef<HTMLDivElement>
+) {
   return (
     <div style={styles.modalOverlay} onClick={onClose} role="presentation">
       <div
@@ -678,7 +753,7 @@ const ContactCard = React.forwardRef(function ContactCard({ office, onClose }, r
   );
 });
 
-function CardRow({ label, value }) {
+function CardRow({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div style={styles.cardRow}>
       <div style={styles.cardRowLabel}>{label}</div>
@@ -690,9 +765,9 @@ function CardRow({ label, value }) {
 /* ================================================================
  * Color utility: tiny lighten/darken for hover shading
  * ============================================================== */
-function shade(hex, amt) {
+function shade(hex: string, amt: number) {
   const n = parseInt(hex.slice(1), 16);
-  const clamp = (v) => Math.max(0, Math.min(255, v));
+  const clamp = (v: number) => Math.max(0, Math.min(255, v));
   const r = clamp(((n >> 16) & 0xff) + amt);
   const g = clamp(((n >> 8) & 0xff) + amt);
   const b = clamp((n & 0xff) + amt);
@@ -702,7 +777,7 @@ function shade(hex, amt) {
 /* ================================================================
  * Styles
  * ============================================================== */
-const styles = {
+const styles: Record<string, CSSProperties> = {
   wrapper: {
     fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     color: COLORS.darkNavy,

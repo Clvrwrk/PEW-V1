@@ -6,19 +6,19 @@ This repo exists to turn Pro Exteriors' site from a brochure into a growth asset
 
 ## Current Build Status
 
-Phase 1 Seed is **not complete yet**.
+Phase 1 Seed is **URL-compliant against the Phase 0 workbook plan**.
 
-The Docker/Coolify build is passing, but the published site does not yet fully match the Phase 0 URL plan in `strategy/Pro-Exteriors_GBP-Curation_April-2026.xlsx`.
+The Docker/Coolify build is passing, and the published Astro output now matches the 66-url Phase 0 URL plan in `strategy/Pro-Exteriors_GBP-Curation_April-2026.xlsx`.
 
-Current verified baseline from the 2026-05-04 reconciliation:
+Current verified baseline from the 2026-05-04 closeout:
 
-- 65 Astro pages build successfully.
-- 142 schema blocks validate.
-- contrast, schema, silo, and orphan audits pass.
+- 129 Astro pages build successfully.
+- 275 schema blocks validate.
+- contrast, schema, silo, orphan, and GBP URL-plan audits pass.
 - GBP workbook Phase 0 plan has 66 URLs.
-- 35 Phase 0 URLs publish at the exact planned URL.
-- 11 Phase 0 URLs publish under a noncanonical alternate.
-- 20 Phase 0 URLs are missing from the current build.
+- 66 Phase 0 URLs publish at the exact planned URL.
+- 0 Phase 0 URLs rely on a noncanonical alternate.
+- 0 Phase 0 URLs are missing from the current build.
 
 Read these first when picking up the build:
 
@@ -123,20 +123,20 @@ Phase 0 targets 66 URLs:
 - Total Home Shield funnel
 - Partners, careers, portal, property-card, legal, sitemap, robots, and error routes
 
-### Current Canon Drift To Fix
+### Phase 0 Canon Status
 
-Known drift before Phase 1 closeout:
+Current Phase 0 route status:
 
-- Workbook expects `/residential-roofing/`; current build publishes `/residential/`.
-- Workbook expects `/commercial-roofing/tpo/`; current build publishes `/commercial-roofing/tpo-roofing-systems/`.
-- Workbook expects Denver, Wichita, Kansas City, and Atlanta location pages; current build has other office slugs.
-- Workbook expects city and subdivision routes; content exists but no routes consume it.
-- Blog Knowledge Hub exists under root `content/blog/`, but live `/blog/` is still the Astro placeholder hub.
-- Workbook expects segmented contact/thank-you routes; current build has collapsed routes.
-- `robots.txt` is missing.
-- `/dev/card-variants/` is publicly built.
+- Residential canon publishes under `/residential-roofing/`.
+- Commercial TPO canon publishes under `/commercial-roofing/tpo/`.
+- Phase 0 GBP locations publish as Dallas HQ, Fort Worth, Denver, Wichita, Kansas City, and Atlanta.
+- City and Twin Creeks subdivision URLs are routed through Astro content collections.
+- Blog Knowledge Hub is collection-driven from `src/content/blogPosts`.
+- Segmented contact and thank-you routes publish.
+- `robots.txt` exists and `/sitemap.xml` is served through nginx as an alias to Astro's sitemap index.
+- Public dev routes have been removed from the build.
 
-See `tech/Phase-1-Seed-Compliance-Plan_2026-05-04.md` for the cleanup sequence.
+See `tech/Phase-1-Seed-Compliance-Plan_2026-05-04.md` for the cleanup sequence that produced this state.
 
 ## Project Structure
 
@@ -170,7 +170,7 @@ src/
     projects/
     property-card/
     proplan/
-    residential/
+    residential-roofing/
     total-home-shield/
 public/
 scripts/
@@ -213,6 +213,7 @@ npm run audit:contrast
 npm run audit:schema
 npm run audit:silo
 npm run audit:orphans
+npm run audit:gbp-plan
 ```
 
 Individual audits:
@@ -222,6 +223,7 @@ npm run audit:contrast
 npm run audit:schema
 npm run audit:silo
 npm run audit:orphans
+npm run audit:gbp-plan
 ```
 
 ## Deployment
@@ -279,21 +281,19 @@ If a page is meant to rank, it needs:
 - source-backed claims
 - accessibility-safe design
 
-## Phase 1 Seed Remaining Work
+## Phase 1 Seed Closeout
 
-The current cleanup plan is:
+The cleanup plan has been implemented for route and build compliance:
 
-1. Freeze URL canon against the GBP workbook.
-2. Restore canonical `/residential-roofing/` routes or formally change the workbook.
-3. Reconcile the TPO slug.
-4. Rebuild the GBP office roster and NAP.
-5. Add city and subdivision routes.
-6. Migrate generated blog HTML into Astro content.
-7. Build segmented contact and thank-you flows.
-8. Add crawl/utility hygiene.
-9. Remove public dev routes.
-10. Re-run build and close out the workbook.
+1. URL canon is frozen against the GBP workbook.
+2. Canonical `/residential-roofing/` routes publish.
+3. The TPO slug publishes at `/commercial-roofing/tpo/`.
+4. The Phase 0 GBP office roster publishes.
+5. City and subdivision routes publish.
+6. Generated blog HTML has been promoted into Astro content.
+7. Segmented contact and thank-you flows publish.
+8. Crawl and utility hygiene are in place.
+9. Public dev routes have been removed.
+10. `npm run build` now includes `audit:gbp-plan` and verifies all 66 Phase 0 URLs.
 
-The detailed implementation plan lives at:
-
-`tech/Phase-1-Seed-Compliance-Plan_2026-05-04.md`
+Remaining launch work is qualitative: confirm every office NAP against client-owned GBP data, replace representative claims or cut them, and finish production measurement wiring before client launch.
