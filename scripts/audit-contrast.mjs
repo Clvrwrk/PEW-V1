@@ -28,6 +28,20 @@ const pairs = [
   ['--color-warning-text', '--color-warning-surface'],
 ];
 
+// ── Static brand color pairs (inline Tailwind hex classes not in tokens.css) ──
+// These must be checked directly since audit-contrast only reads CSS variables.
+// Root cause history: heading base rule used var(--color-text-primary) which
+// overrides inherited text-white on dark sections. Fixed in global.css by
+// changing headings to color:inherit. These pairs guard against regression.
+const staticPairs = [
+  { label: 'white text on deep-navy bg-[#11133F]',  fg: '#FFFFFF', bg: '#11133F' },
+  { label: 'white text on flag-red bg-[#C22326]',   fg: '#FFFFFF', bg: '#C22326' },
+  { label: 'white text on slate-900 bg-slate-900',  fg: '#FFFFFF', bg: '#111827' },
+  { label: 'white text on slate-800 bg-slate-800',  fg: '#FFFFFF', bg: '#1e293b' },
+  { label: 'near-black text on white bg-white',     fg: '#111827', bg: '#FFFFFF' },
+  { label: 'near-black text on surface-inset',      fg: '#111827', bg: '#F9FAFB' },
+];
+
 let failed = false;
 
 for (const [mode, tokens] of Object.entries(blocks)) {
@@ -43,11 +57,20 @@ for (const [mode, tokens] of Object.entries(blocks)) {
   }
 }
 
+// Check static brand pairs
+for (const { label, fg, bg } of staticPairs) {
+  const ratio = contrast(fg, bg);
+  if (ratio < 4.5) {
+    failed = true;
+    console.error(`brand-static: ${label} is ${ratio.toFixed(2)}:1 (FAIL — WCAG AA requires 4.5:1)`);
+  }
+}
+
 if (failed) {
   process.exit(1);
 }
 
-console.log(`Contrast audit passed: ${pairs.length} role pairs in light and dark mode.`);
+console.log(`Contrast audit passed: ${pairs.length} role pairs + ${staticPairs.length} brand static pairs.`);
 
 function extractBlock(pattern) {
   const match = css.match(pattern);

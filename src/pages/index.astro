@@ -340,32 +340,47 @@ const mainSchema = [websiteSchema(), organizationSchema()];
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════════════════
-       SERVICE NAVIGATION — Task 5: service type cards (case studies removed)
+       TMS PARTNERSHIP CREDIBILITY BAND — replaces "Built for Every Property Type"
+       service-nav as of 2026-05-28. See /decisions/2026-05-28-tms-partnership-
+       replaces-property-nav.md for context, hypothesis, and rollback trigger.
+
+       Hypothesis: Recognizable Texas brand partnership as a homepage credibility
+       anchor will lift homepage-to-RFQ conversion more than the lost shortcut
+       to service routes costs us. Measurement: 4-week window, GA4 + PostHog,
+       event `homepage_tms_cta_click`. Rollback if direct service-route entries
+       from homepage drop >15% vs 30-day baseline and don't recover in 2 weeks.
+
+       Service routing for commercial / residential is still surfaced via the
+       global header nav, the footer, and in-content links from the hero.
   ══════════════════════════════════════════════════════════════════════════════ -->
-  <section class="bg-slate-800 py-20" aria-label="Explore our services">
-    <div class="w-[90%] mx-auto">
-      <h2 class="text-3xl font-black text-white text-center mb-12">Built for Every Property Type</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <a href="/commercial-roofing/" class="group relative h-64 rounded-xl overflow-hidden flex items-end p-8" data-cta-name="services_nav_commercial">
-          <img src="/images/commercial-hero.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-opacity" />
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-          <div class="relative z-10">
-            <span class="text-white/60 text-sm font-bold uppercase tracking-widest block mb-2">Commercial &amp; Multifamily</span>
-            <h3 class="text-2xl font-black text-white">National. Institutional. Built to Scale.</h3>
-            <span class="mt-3 inline-flex items-center text-red-400 font-bold text-sm group-hover:text-red-300">Explore Commercial Services →</span>
-          </div>
-        </a>
-        <a href="/residential-roofing/" class="group relative h-64 rounded-xl overflow-hidden flex items-end p-8" data-cta-name="services_nav_residential">
-          <img src="/images/residential-hero.webp" alt="" class="absolute inset-0 w-full h-full opacity-50 group-hover:opacity-60 transition-opacity object-cover" />
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-          <div class="relative z-10">
-            <span class="text-white/60 text-sm font-bold uppercase tracking-widest block mb-2">Residential Services</span>
-            <h3 class="text-2xl font-black text-white">Local Crews. Certified. Accountable.</h3>
-            <span class="mt-3 inline-flex items-center text-red-400 font-bold text-sm group-hover:text-red-300">Explore Residential Services →</span>
-          </div>
-        </a>
-      </div>
-    </div>
+  <section
+    class="relative overflow-hidden bg-[#11133f]"
+    aria-label="Pro Exteriors and Texas Motor Speedway partnership"
+  >
+    <picture>
+      <source srcset="/images/tms-partnership-section.webp" type="image/webp" />
+      <img
+        src="/images/tms-partnership-section.webp"
+        alt="Pro Exteriors crew gathered in a job-site huddle, demonstrating the team standard that supports the company's partnership with Texas Motor Speedway."
+        class="w-full h-auto block"
+        width="1920"
+        height="1080"
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+
+    <!-- Overlay link covers the section so the entire band is clickable into the
+         partnership story. Keyboard users hit the same target via the visible CTA
+         that the image already shows. -->
+    <a
+      href="https://pc-demo.cleverwork.io/commercial-roofing/"
+      class="absolute inset-0 focus:outline-2 focus:outline-offset-[-4px] focus:outline-[#eaa221]"
+      aria-label="See the Pro Exteriors and Texas Motor Speedway partnership"
+      data-cta-name="homepage_tms_cta_click"
+    >
+      <span class="sr-only">See the Partnership</span>
+    </a>
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════════════════

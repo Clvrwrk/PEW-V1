@@ -43,10 +43,14 @@
     outline: none;
   }
 
-  /* Heading defaults */
+  /* Heading defaults — color: inherit so headings read their section context.
+     Using var(--color-text-primary) here was overriding inherited text-white
+     on dark sections (CSS explicit rules beat inherited values), causing
+     near-black headings on navy/dark backgrounds — WCAG contrast failure.
+     Headings on light backgrounds still get #111827 via body color inheritance. */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    color: var(--color-text-primary);
+    color: inherit;
     line-height: 1.2;
     font-weight: 700;
   }
