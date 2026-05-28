@@ -108,6 +108,9 @@ async function auditRuntimeReferences() {
     const matches = contents.match(REFERENCE_PATTERN) ?? [];
 
     for (const rawReference of matches) {
+      // Skip JS/JSX/Astro template literal interpolations — they're dynamic
+      // paths resolved at runtime and cannot be statically resolved here.
+      if (rawReference.includes('${')) continue;
       const reference = cleanReference(rawReference);
       const ext = path.extname(reference).toLowerCase();
 
