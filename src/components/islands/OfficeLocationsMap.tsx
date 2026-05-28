@@ -47,7 +47,7 @@ import React, {
   useCallback,
   useRef,
 } from "react";
-import { geoAlbersUsa, geoPath } from "d3-geo";
+import { geoAlbersUsa, geoPath, geoCentroid } from "d3-geo";
 import { feature } from "topojson-client";
 
 type OfficeType = "brick" | "satellite";
@@ -100,6 +100,7 @@ type OfficeLocationsMapProps = {
   title?: string;
   subtitle?: string;
   showLegend?: boolean;
+  compact?: boolean;
 };
 
 type FocusableElement = HTMLElement | SVGElement;
@@ -311,6 +312,7 @@ export default function OfficeLocationsMap({
   title = "Where We Work",
   subtitle = "Headquartered in Texas. Offices across the South, Midwest, and Rockies. Licensed to serve 15 states.",
   showLegend = true,
+  compact = false,
 }: OfficeLocationsMapProps) {
   const [atlas, setAtlas] = useState<TopoAtlas | null>(null);
   const [atlasError, setAtlasError] = useState<string | null>(null);
@@ -408,8 +410,16 @@ export default function OfficeLocationsMap({
   /* ================================================================
    * Render
    * ============================================================== */
+  const wrapperStyle: CSSProperties = compact
+    ? { fontFamily: styles.wrapper.fontFamily, color: styles.wrapper.color, width: "100%", boxSizing: "border-box" }
+    : styles.wrapper;
+
+  const canvasStyle: CSSProperties = compact
+    ? { overflow: "hidden", minWidth: 0, width: "100%", maxWidth: "100%", borderRadius: 8 }
+    : { ...styles.canvas, width, maxWidth: "100%" };
+
   return (
-    <div style={styles.wrapper}>
+    <div style={wrapperStyle}>
       <style>{CSS}</style>
 
       {title && (
@@ -420,7 +430,7 @@ export default function OfficeLocationsMap({
       )}
 
       <div style={{ ...styles.stage, gridTemplateColumns: showLegend ? "minmax(0, 1fr) 260px" : "1fr" }}>
-        <div style={{ ...styles.canvas, width, maxWidth: "100%" }}>
+        <div style={canvasStyle}>
           <svg
             viewBox={`0 0 ${width} ${height}`}
             preserveAspectRatio="xMidYMid meet"
@@ -483,6 +493,38 @@ export default function OfficeLocationsMap({
                       }}
                       filter={isHovered && isInteractive ? "url(#pe-lift)" : undefined}
                     />
+                  );
+                })}
+              </g>
+            )}
+
+            {/* State abbreviation labels — always rendered for readability at small sizes */}
+            {pathGenerator && projection && (
+              <g aria-hidden="true" pointerEvents="none">
+                {states.map((s: TopoState) => {
+                  const abbr = FIPS_TO_ABBR[s.id];
+                  if (!abbr) return null;
+                  const tier = tierFor(abbr);
+                  const centroid = geoCentroid(s as never);
+                  const pt = projection(centroid);
+                  if (!pt) return null;
+                  const isActive = tier === "active";
+                  const isLicensed = tier === "licensed";
+                  return (
+                    <text
+                      key={`abbr-${s.id}`}
+                      x={pt[0]}
+                      y={pt[1]}
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      fontSize={isActive || isLicensed ? 10 : 8}
+                      fontWeight={isActive ? 700 : isLicensed ? 600 : 400}
+                      fill={isActive ? COLORS.paper : isLicensed ? COLORS.paper : COLORS.lightGrey}
+                      fontFamily="Inter, system-ui, sans-serif"
+                      style={{ pointerEvents: "none", userSelect: "none" }}
+                    >
+                      {abbr}
+                    </text>
                   );
                 })}
               </g>

@@ -403,9 +403,9 @@ const mainSchema = [websiteSchema(), organizationSchema()];
       <div class="hidden sm:block bg-surface-elevated p-4 rounded-3xl shadow-xl ring-1 ring-border">
         <OfficeLocationsMap client:visible />
       </div>
-      <!-- Mobile: bare map, no card, no legend -->
-      <div class="block sm:hidden">
-        <OfficeLocationsMap showLegend={false} title="" subtitle="" client:visible />
+      <!-- Mobile: compact map — no card, no legend, no padding, state labels visible -->
+      <div class="block sm:hidden overflow-hidden rounded-lg">
+        <OfficeLocationsMap showLegend={false} title="" subtitle="" compact={true} client:visible />
       </div>
     </div>
   </section>
