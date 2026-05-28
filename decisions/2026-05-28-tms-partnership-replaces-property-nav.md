@@ -37,14 +37,11 @@ Replacing the property-nav with a TMS partnership credibility band will produce:
 
 Measurement window: 4 weeks post-deploy, GA4 + PostHog. Event `homepage_tms_cta_click` instruments the new CTA. Rollback trigger: a >15% drop in `service_route_entries_from_homepage` against the prior 30-day baseline that doesn't recover within 2 weeks.
 
-## CTA destination — gap to resolve
+## CTA destination
 
-The CTA "See the Partnership" currently points to `/about/partnerships/texas-motor-speedway/` which does not exist yet. Two paths forward, both acceptable for v1:
+The CTA "See the Partnership" points to `https://pc-demo.cleverwork.io/commercial-roofing/` — the staged commercial-roofing page on the agency demo environment. Per Chris on 2026-05-28, this is the intended destination for the partnership credibility lift to route into. The commercial-roofing page carries the procurement-officer journey, which is the primary intended audience for the TMS partnership proof signal.
 
-- **Short-term:** point the CTA to `/about/` (existing) with a hash anchor `#partnerships`, and add a partnerships section to the About page.
-- **Medium-term:** stand up a proper `/partnerships/texas-motor-speedway/` deep-link page with project context, photos, and an embedded RFQ form. This is the right destination once the partnership has enough public-facing content to support a dedicated page.
-
-For this commit the link uses `/about/#partnerships` to avoid a 404. Update to the deep page when it ships.
+Open follow-up: when production-ready commercial-roofing content lives at the canonical `/commercial-roofing/` route on the production domain, swap the external pc-demo link for the relative path so the CTA stays domain-local and SEO authority stays consolidated.
 
 ## Hard gates (CLAUDE.md §4)
 
