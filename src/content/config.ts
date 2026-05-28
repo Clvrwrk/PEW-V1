@@ -162,6 +162,10 @@ const caseStudies = defineCollection({
       label: z.string(),
       value: z.string(),
     })).optional(),
+    /** Optional looping video for the hero background (path from public/). */
+    heroVideo: z.string().optional(),
+    /** Poster frame shown before the video loads. Falls back to heroImage. */
+    heroPoster: z.string().optional(),
   }),
 });
 
