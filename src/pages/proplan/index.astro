@@ -1,41 +1,454 @@
 ---
+/* ──────────────────────────────────────────────────────────────────────────────
+   ProPlan™ — Roof Asset Management Division
+   Rebuilt 2026-05-27 by Maren Castellan-Reyes.
+   Task 24: full rebuild using copy from Pro_Exteriors_Commercial_Service_Division.docx.
+
+   CONVERSION HYPOTHESIS:
+     A content-rich ProPlan page anchored in the "Roof Maintenance You Can Trust™"
+     brand line and the Pro Plan™ named program will drive qualified facility
+     manager inquiries via 866-336-PROS and service@proexteriorsus.com.
+
+   Author: Maren Castellan-Reyes · AIA4 Pro Exteriors
+─────────────────────────────────────────────────────────────────────────────── */
+
 import BaseLayout from '../../components/seo/BaseLayout.astro';
-import HeroSection from '../../components/molecules/HeroSection.astro';
-import StatBand from '../../components/molecules/StatBand.astro';
-import PropertyCardCallout from '../../components/molecules/PropertyCardCallout.astro';
 import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import Icon from '../../components/atoms/Icon.astro';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
 const breadcrumbs = [
-  { label: 'Home', href: '/' },
-  { label: 'ProPlan', href: '/proplan/' },
+  { label: 'Home',    href: '/' },
+  { label: 'Pro Plan™', href: '/proplan/' },
 ];
+
+// ── What Pro Plan™ Includes ───────────────────────────────────────────────────
+const conditionReportItems = [
+  'Existing deficiencies identification',
+  'Areas of active concern',
+  'Potential future problem areas',
+  'Remaining service life expectations',
+  'Repair prioritization',
+  'Preventative maintenance opportunities',
+  'Long-term replacement forecasting',
+];
+
+// ── Benefits ──────────────────────────────────────────────────────────────────
+const benefits = [
+  { icon: 'bar-chart-2',  label: 'Budget more effectively for roofing expenses' },
+  { icon: 'calendar',     label: 'Forecast future CapEx expenditures' },
+  { icon: 'trending-down',label: 'Reduce emergency repair costs' },
+  { icon: 'clock',        label: 'Extend roof system lifespan' },
+  { icon: 'shield',       label: 'Preserve manufacturer warranties' },
+  { icon: 'landmark',     label: 'Improve long-term asset management' },
+  { icon: 'activity',     label: 'Maintain operational continuity' },
+  { icon: 'file-text',    label: 'Build multi-year maintenance strategies' },
+];
+
+// ── Preventative maintenance items ────────────────────────────────────────────
+const preventativeItems = [
+  'Scheduled roof inspections',
+  'Debris removal',
+  'Drain cleaning',
+  'Flashing inspections',
+  'Membrane evaluations',
+  'Sealant maintenance',
+  'Minor repair services',
+  'Detailed photo reporting',
+  'Service documentation',
+];
+
+// ── Inspection scope ──────────────────────────────────────────────────────────
+const inspectionScope = [
+  'Membrane conditions',
+  'Open seams and transitions',
+  'Flashing systems',
+  'Roof penetrations',
+  'Fastener back-outs',
+  'Surface deterioration',
+  'Drainage systems',
+  'Moisture intrusion indicators',
+  'Pipe boots and rain collars',
+  'HVAC curb conditions',
+  'Gas line penetrations',
+];
+
 const schemaPayload = [breadcrumbSchema(breadcrumbs)];
 ---
 
 <BaseLayout
-  title="ProPlan — Strategic Roof Maintenance | Pro Exteriors"
-  description="ProPlan is Pro Exteriors' preventative maintenance program — scheduled inspections, repairs, and reporting that extend your roof's lifecycle."
+  title="Pro Plan™ Roof Asset Management | Pro Exteriors Commercial Service"
+  description="Pro Plan™ is Pro Exteriors' commercial roof asset management program — current condition reports, preventative maintenance, and long-term CapEx forecasting. Roof Maintenance You Can Trust™."
   canonicalPath="/proplan/"
   jsonLd={schemaPayload}
 >
-  <Breadcrumb items={breadcrumbs.slice(1)} />
-  <HeroSection
-    title="ProPlan: Treat Your Roof Like the Strategic Asset It Is"
-    subtitle="Preventative maintenance, scheduled inspections, and a single accountable team. Designed for facility managers and property owners."
-    primaryCta={{ label: 'Request a ProPlan Assessment', href: '/contact/?type=proplan' }}
-    secondaryCta={{ label: 'See How It Works', href: '#how-it-works' }}
-  />
-  <StatBand
-    stats={[
-      { value: '30%', label: 'Lifecycle Extension' },
-      { value: '4hr', label: 'Emergency Response' },
-      { value: '24/7', label: 'Scheduled Inspections' },
-      { value: '$0', label: 'Surprise Failures' }
-    ]}
-    disclaimer="Phase 1 placeholders — sources land with the analytics wire-up."
-  />
-  <div class="mx-auto max-w-7xl px-4 py-16">
-    <PropertyCardCallout />
+  <div class="bg-stone-50 px-6 lg:px-8 py-4 border-b border-stone-200">
+    <div class="max-w-7xl mx-auto">
+      <Breadcrumb items={breadcrumbs.slice(1)} />
+    </div>
   </div>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section
+    class="relative flex items-center overflow-hidden py-24 lg:py-36"
+    style="background-color: #11133F;"
+    aria-label="Pro Plan roof asset management hero"
+  >
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-3xl flex flex-col gap-6">
+        <span class="inline-flex w-fit px-3 py-1 text-white text-xs font-bold uppercase tracking-widest" style="background-color: #C22326;">
+          Commercial Service &amp; Maintenance Division
+        </span>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight tracking-tight">
+          Pro Plan™ Roof Asset Management
+        </h1>
+        <p class="text-xl md:text-2xl font-semibold text-white/80 italic leading-snug">
+          Roof Maintenance You Can Trust™
+        </p>
+        <p class="text-lg text-white/70 leading-relaxed max-w-2xl">
+          Managing commercial facilities is demanding enough — your roofing system shouldn't
+          add unnecessary stress, operational disruptions, or unexpected capital expenses.
+          Our Commercial Service &amp; Maintenance Division delivers proactive roofing solutions
+          designed to protect your building, extend the life of your roofing system, and help
+          you stay ahead of costly failures.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a
+            href="/contact/"
+            class="inline-flex items-center justify-center px-8 py-4 text-white text-lg font-bold rounded transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#11133F]"
+            style="background-color: #C22326;"
+            onmouseover="this.style.backgroundColor='#a01e20'"
+            onmouseout="this.style.backgroundColor='#C22326'"
+            data-event-name="cta_click"
+            data-event-cta-id="hero_schedule_assessment"
+          >
+            Schedule Assessment
+          </a>
+          <a
+            href="tel:+18663367767"
+            class="inline-flex items-center justify-center px-8 py-4 bg-transparent hover:bg-white/10 text-white text-lg font-bold rounded border-2 border-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#11133F]"
+            data-event-name="cta_click"
+            data-event-cta-id="hero_phone"
+          >
+            866-336-PROS
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       INTRO
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-20 px-6 lg:px-8" aria-labelledby="intro-heading">
+    <div class="max-w-4xl mx-auto flex flex-col gap-8">
+      <h2 id="intro-heading" class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+        Commercial Roofing Solutions Built Around Your Business
+      </h2>
+      <div class="text-lg text-slate-600 leading-relaxed space-y-5">
+        <p>
+          Every commercial property operates differently. A small retail center has different
+          operational needs than a large industrial facility, educational campus, healthcare
+          property, or multi-site commercial portfolio.
+        </p>
+        <p>
+          That's why Pro Exteriors LLC develops customized service and maintenance programs
+          tailored specifically to property conditions, operational priorities, budget objectives,
+          facility lifecycle goals, capital expenditure forecasting, warranty requirements, and
+          long-term asset preservation.
+        </p>
+        <p>
+          At Pro Exteriors LLC, we believe commercial roofing should be managed proactively —
+          not reactively. That's why we developed our <strong>Pro Plan™ Roof Asset Management
+          Program</strong> to help property owners and facility managers better understand,
+          maintain, and budget for their roofing assets.
+        </p>
+      </div>
+      <div class="border-l-4 pl-6 py-2" style="border-color: #C22326;">
+        <p class="text-xl font-bold text-slate-900 italic">
+          "The objective of Pro Plan™ is simple: help clients transition from reactive roofing
+          repairs to proactive roof asset management."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       WHAT PRO PLAN™ INCLUDES — Current Condition Reports
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stone-100 py-20 px-6 lg:px-8" aria-labelledby="includes-heading">
+    <div class="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
+      <div class="flex flex-col gap-6">
+        <h2 id="includes-heading" class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+          What Pro Plan™ Includes
+        </h2>
+        <p class="text-lg text-slate-600 leading-relaxed">
+          Through detailed <strong>Current Condition Reports</strong> and strategic maintenance
+          planning, our team helps clients build customized roofing programs designed around
+          their operational goals, property conditions, and financial objectives.
+        </p>
+        <p class="text-base text-slate-600 leading-relaxed">
+          Our Current Condition Reports help identify:
+        </p>
+        <ul class="space-y-3" role="list">
+          {conditionReportItems.map((item) => (
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background-color: #C22326;">
+                <Icon name="check" size={12} class="text-white" strokeWidth={3} />
+              </div>
+              <span class="text-base text-slate-700">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="bg-white rounded-2xl p-10 shadow-lg flex flex-col gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-16 h-16 rounded-xl flex items-center justify-center" style="background-color: #11133F;">
+            <Icon name="file-text" size={28} class="text-white" strokeWidth={2} />
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-slate-900">Pro Plan™ Report</h3>
+            <p class="text-sm text-slate-500">Customized to your property</p>
+          </div>
+        </div>
+        <p class="text-base text-slate-600 leading-relaxed">
+          Using this information, we help clients develop maintenance and budgeting strategies
+          that improve visibility into future roofing costs and reduce unexpected capital
+          expenditures.
+        </p>
+        <a
+          href="/contact/"
+          class="inline-flex items-center justify-center px-8 py-4 text-white font-bold rounded-lg transition-colors w-full"
+          style="background-color: #C22326;"
+          onmouseover="this.style.backgroundColor='#a01e20'"
+          onmouseout="this.style.backgroundColor='#C22326'"
+          data-event-name="cta_click"
+          data-event-cta-id="includes_get_report"
+        >
+          Request a Condition Report
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       BENEFITS GRID
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-20 px-6 lg:px-8" aria-labelledby="benefits-heading">
+    <div class="max-w-7xl mx-auto flex flex-col gap-12">
+      <header class="text-center max-w-2xl mx-auto">
+        <h2 id="benefits-heading" class="text-3xl md:text-4xl font-black text-slate-900">
+          The Pro Plan™ Difference
+        </h2>
+        <p class="mt-4 text-lg text-slate-600">
+          Pro Plan™ is designed to help every commercial client manage their roofing
+          portfolio with discipline and foresight.
+        </p>
+      </header>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
+        {benefits.map((b) => (
+          <li class="border border-stone-200 rounded-xl p-6 flex flex-col gap-4 hover:border-[#C22326] transition-colors">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: #11133F;">
+              <Icon name={b.icon} size={22} class="text-white" strokeWidth={2} />
+            </div>
+            <p class="text-base font-semibold text-slate-800 leading-snug">{b.label}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       PREVENTATIVE MAINTENANCE
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stone-100 py-20 px-6 lg:px-8" aria-labelledby="preventative-heading">
+    <div class="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-start">
+      <div class="flex flex-col gap-6">
+        <h2 id="preventative-heading" class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+          Preventative Commercial Roof Maintenance
+        </h2>
+        <p class="text-lg text-slate-600 leading-relaxed">
+          Preventative maintenance is one of the most valuable investments a property owner
+          can make in protecting a commercial roofing system. Routine maintenance helps extend
+          roof lifespan, reduce emergency leak calls, preserve manufacturer warranties, improve
+          drainage performance, prevent moisture infiltration, reduce long-term repair costs,
+          and improve overall building performance.
+        </p>
+        <p class="text-base font-semibold text-slate-900">Our preventative maintenance programs may include:</p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3" role="list">
+          {preventativeItems.map((item) => (
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background-color: #C22326;">
+                <Icon name="check" size={10} class="text-white" strokeWidth={3} />
+              </div>
+              <span class="text-sm text-slate-700">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Inspection scope -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg flex flex-col gap-6">
+        <h3 class="text-xl font-black text-slate-900">Comprehensive Inspection Scope</h3>
+        <p class="text-base text-slate-600">
+          Our Commercial Service Division performs detailed roof inspections designed to evaluate
+          the overall condition and performance of your roofing system. Inspection scopes may include:
+        </p>
+        <ul class="space-y-2" role="list">
+          {inspectionScope.map((item) => (
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background-color: #11133F;">
+                <Icon name="search" size={10} class="text-white" strokeWidth={2.5} />
+              </div>
+              <span class="text-sm text-slate-700">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       EMERGENCY RESPONSE
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-20 px-6 lg:px-8" aria-labelledby="emergency-heading">
+    <div class="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
+      <div class="flex flex-col gap-6">
+        <div class="inline-flex w-fit px-3 py-1 text-white text-xs font-bold uppercase tracking-widest rounded" style="background-color: #C22326;">
+          24/7 Emergency Response
+        </div>
+        <h2 id="emergency-heading" class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+          Commercial Roof Repairs &amp; Emergency Response
+        </h2>
+        <p class="text-lg text-slate-600 leading-relaxed">
+          Roof failures can disrupt operations, damage interiors, and create unnecessary risk
+          for facility owners and tenants. Our Commercial Service Division provides responsive
+          repair solutions designed to minimize disruption and restore protection quickly.
+        </p>
+      </div>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4" role="list">
+        {[
+          'Active leak response',
+          'Storm damage repairs',
+          'Membrane repairs',
+          'Flashing repairs',
+          'Drainage corrections',
+          'Emergency temporary dry-ins',
+          'Roof penetration repairs',
+          'Preventative corrective repairs',
+        ].map((item) => (
+          <li class="flex items-start gap-3 bg-stone-50 rounded-lg p-4">
+            <div class="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background-color: #C22326;">
+              <Icon name="zap" size={12} class="text-white" strokeWidth={2.5} />
+            </div>
+            <span class="text-sm font-semibold text-slate-800">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       TRUSTED PARTNERSHIPS
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section class="py-16 text-white" style="background-color: #11133F;" aria-labelledby="trusted-heading">
+    <div class="w-[90%] mx-auto text-center">
+      <p class="text-white/60 text-xs uppercase tracking-widest mb-8">Trusted Commercial Roofing Partnerships</p>
+      <div class="flex flex-wrap justify-center gap-8 items-center mb-6">
+        <span class="text-white font-bold text-lg">Fort Worth ISD</span>
+        <span class="text-white/40">·</span>
+        <span class="text-white font-bold text-lg">Pottsboro ISD</span>
+        <span class="text-white/40">·</span>
+        <span class="text-white font-bold text-lg">Texas Motor Speedway</span>
+        <span class="text-white/40">·</span>
+        <span class="text-white font-bold text-lg">TIPS Cooperative Purchasing Program</span>
+      </div>
+      <p class="text-white/50 text-sm">
+        Pro Exteriors LLC proudly partners with commercial property owners, facility managers, public entities,
+        educational institutions, and large commercial organizations throughout the region.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       OPERATIONS / SERVICE AREA
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stone-50 py-16 px-6 lg:px-8 border-y border-stone-200" aria-labelledby="operations-heading">
+    <div class="max-w-7xl mx-auto grid gap-8 lg:grid-cols-2 items-center">
+      <div>
+        <h2 id="operations-heading" class="text-2xl font-black text-slate-900 mb-4">Commercial Operations</h2>
+        <p class="text-base text-slate-600 leading-relaxed">
+          Our Commercial Service Division currently operates throughout Texas and Georgia,
+          with office locations in:
+        </p>
+        <ul class="mt-4 space-y-2" role="list">
+          <li class="flex items-start gap-3">
+            <Icon name="map-pin" size={18} class="text-[#C22326] flex-shrink-0 mt-0.5" />
+            <span class="text-base text-slate-700"><strong>Euless, Texas</strong> — DFW Commercial Service Operations</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="map-pin" size={18} class="text-[#C22326] flex-shrink-0 mt-0.5" />
+            <span class="text-base text-slate-700"><strong>Atlanta, Georgia</strong> — Southeast Commercial Service Operations</span>
+          </li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-xl p-8 shadow-sm flex flex-col gap-4">
+        <p class="text-xs font-bold uppercase tracking-widest text-slate-500">Our Commitment</p>
+        <blockquote class="text-xl font-bold text-slate-900 italic leading-snug">
+          "Roof Maintenance You Can Trust™"
+        </blockquote>
+        <p class="text-base text-slate-600">
+          That commitment reflects our focus on accountability, communication, professionalism,
+          safety, and building long-term partnerships with every client we serve.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       CONTACT CTA
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section
+    class="py-24 px-6 lg:px-8 text-white"
+    style="background-color: #11133F;"
+    aria-labelledby="contact-cta-heading"
+  >
+    <div class="max-w-3xl mx-auto text-center flex flex-col gap-8">
+      <h2 id="contact-cta-heading" class="text-4xl md:text-5xl font-black leading-tight">
+        Contact Our Commercial Service Division
+      </h2>
+      <p class="text-xl text-white/70 leading-relaxed">
+        Whether you manage a single property or a large commercial portfolio, we develop
+        customized maintenance programs designed to fit your organization's budget and
+        long-term planning goals.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="tel:+18663367767"
+          class="inline-flex items-center justify-center px-10 py-5 text-white text-xl font-black rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#11133F]"
+          style="background-color: #C22326;"
+          onmouseover="this.style.backgroundColor='#a01e20'"
+          onmouseout="this.style.backgroundColor='#C22326'"
+          data-event-name="cta_click"
+          data-event-cta-id="final_phone"
+        >
+          866-336-PROS
+        </a>
+        <a
+          href="mailto:service@proexteriorsus.com"
+          class="inline-flex items-center justify-center px-10 py-5 bg-white text-slate-900 text-lg font-black rounded-lg hover:bg-stone-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#11133F]"
+          data-event-name="cta_click"
+          data-event-cta-id="final_email"
+        >
+          service@proexteriorsus.com
+        </a>
+      </div>
+      <p class="text-white/40 text-sm">
+        We also provide 24/7 emergency service response for urgent roofing situations.
+      </p>
+    </div>
+  </section>
+
 </BaseLayout>

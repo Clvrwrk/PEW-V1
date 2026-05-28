@@ -99,6 +99,7 @@ type OfficeLocationsMapProps = {
   height?: number;
   title?: string;
   subtitle?: string;
+  showLegend?: boolean;
 };
 
 type FocusableElement = HTMLElement | SVGElement;
@@ -309,6 +310,7 @@ export default function OfficeLocationsMap({
   height = 640,
   title = "Where We Work",
   subtitle = "Headquartered in Texas. Offices across the South, Midwest, and Rockies. Licensed to serve 15 states.",
+  showLegend = true,
 }: OfficeLocationsMapProps) {
   const [atlas, setAtlas] = useState<TopoAtlas | null>(null);
   const [atlasError, setAtlasError] = useState<string | null>(null);
@@ -410,12 +412,14 @@ export default function OfficeLocationsMap({
     <div style={styles.wrapper}>
       <style>{CSS}</style>
 
-      <header style={styles.header}>
-        <h2 style={styles.title}>{title}</h2>
-        <p style={styles.subtitle}>{subtitle}</p>
-      </header>
+      {title && (
+        <header style={styles.header}>
+          <h2 style={styles.title}>{title}</h2>
+          {subtitle && <p style={styles.subtitle}>{subtitle}</p>}
+        </header>
+      )}
 
-      <div style={styles.stage}>
+      <div style={{ ...styles.stage, gridTemplateColumns: showLegend ? "minmax(0, 1fr) 260px" : "1fr" }}>
         <div style={{ ...styles.canvas, width, maxWidth: "100%" }}>
           <svg
             viewBox={`0 0 ${width} ${height}`}
@@ -549,7 +553,7 @@ export default function OfficeLocationsMap({
           </svg>
         </div>
 
-        <aside style={styles.legend} aria-label="Map legend">
+        {showLegend && <aside style={styles.legend} aria-label="Map legend">
           <h3 style={styles.legendTitle}>Legend</h3>
           <LegendSwatch
             fill={COLORS.flagRed}
@@ -573,7 +577,7 @@ export default function OfficeLocationsMap({
           <LegendPin type="brick"     label="Brick & Mortar Office" />
           <LegendPin type="satellite" label="Satellite Office" />
           <div style={styles.legendHint}>Click any office pin for contact details.</div>
-        </aside>
+        </aside>}
       </div>
 
       {selectedOffice && (

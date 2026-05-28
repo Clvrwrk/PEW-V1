@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../components/seo/BaseLayout.astro';
-import HeroSection from '../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
@@ -11,28 +10,144 @@ const breadcrumbs = [
 ];
 const schemaPayload = [breadcrumbSchema(breadcrumbs)];
 
-const leaders = [
-  { name: 'Leadership Placeholder', role: 'Role TBD', bio: 'Phase 2 will replace this card with real leadership data.' },
-  { name: 'Leadership Placeholder', role: 'Role TBD', bio: 'Phase 2 will replace this card with real leadership data.' },
-  { name: 'Leadership Placeholder', role: 'Role TBD', bio: 'Phase 2 will replace this card with real leadership data.' },
+const teamMembers = [
+  {
+    name: 'Tabatha Milliken',
+    title: 'Chief Executive Officer (CEO)',
+    file: 'Tabatha Milliken -  Chief Executive Officer (CEO).webp',
+    bio: 'Sets the strategic direction for Pro Exteriors and holds the company to its founding values of Trust, Honor, and Integrity across every market it serves.',
+  },
+  {
+    name: 'Chandler Milliken',
+    title: 'Chief Operations Officer (COO)',
+    file: 'Chandler Milliken - Chief Operations Officer (COO).webp',
+    bio: 'Leads Pro Exteriors\' day-to-day operations across all markets, driving execution quality and operational accountability from project start to close.',
+  },
+  {
+    name: 'Jamey Sims',
+    title: 'Chief Commercial Officer (CCO)',
+    file: 'Jamey Sims - Chief Commercial Officer (CCO).webp',
+    bio: 'Owns the commercial growth strategy — building the partnerships, pipeline, and service model that position Pro Exteriors as the contractor of record for commercial property portfolios.',
+  },
+  {
+    name: 'Joe Skiles',
+    title: 'Director of Service',
+    file: 'Joe Skiles - Director of Service.webp',
+    bio: 'Oversees service delivery standards across all project types, ensuring crews perform to specification and clients receive the level of care they were promised.',
+  },
+  {
+    name: 'Lucinda Dunn',
+    title: 'Director of Accounting',
+    file: 'Lucinda Dunn - Director of Accounting.webp',
+    bio: 'Manages financial operations and reporting, bringing disciplined accounting practices that support transparent billing and clean audit trails for commercial clients.',
+  },
+  {
+    name: 'Lonnie Sawyer',
+    title: 'Insurance Programs Manager',
+    file: 'Lonnie Sawyer - Insurance Programs Manager.webp',
+    bio: 'Guides residential and commercial clients through the insurance claims process with accuracy and advocacy, reducing delay and maximizing legitimate recoveries.',
+  },
+  {
+    name: 'Isaac Ambriz',
+    title: 'Commercial Operations Manager',
+    file: 'Isaac Ambriz - Commercial Operations Manager.webp',
+    bio: 'Coordinates field operations for commercial accounts — scheduling, subcontractor management, and on-site quality control across active projects.',
+  },
+  {
+    name: 'Crystal Pollock',
+    title: 'Commercial Service Coordinator',
+    file: 'Crystal Pollock - Commercial Service Coordinator.webp',
+    bio: 'The operational nerve center for commercial accounts — handling scheduling, communication, and documentation to keep every project moving without gaps.',
+  },
+  {
+    name: 'Madison King',
+    title: 'Accounts Manager',
+    file: 'Madison King - Accounts Manager.webp',
+    bio: 'Manages client account relationships and billing workflows, ensuring accuracy and responsiveness at every financial touchpoint.',
+  },
+  {
+    name: 'Matt Johnson',
+    title: 'Southeast Regional Sales Director',
+    file: 'Matt Johnson - Southeast Regional Sales Director.webp',
+    bio: 'Builds and manages commercial and residential relationships across the Southeast region, translating Pro Exteriors\' service capabilities into long-term client commitments.',
+  },
+  {
+    name: 'Rafael Arrrola',
+    title: 'Operations Administrator',
+    file: 'Rafael Arrrola - Operations Administrator.webp',
+    bio: 'Supports operational leadership with the administrative infrastructure — process documentation, scheduling coordination, and cross-team communication.',
+  },
+  {
+    name: 'Roberto Huerta',
+    title: 'Administrative Operations Manager',
+    file: 'Roberto Huerta - Administrative Operations Manager.webp',
+    bio: 'Manages the administrative systems and workflows that allow Pro Exteriors\' field teams to focus on delivering excellent work.',
+  },
+  {
+    name: 'Zach Gray',
+    title: 'Commercial Project Manager',
+    file: 'Zach Gray -  Commercial Project Manager.webp',
+    bio: 'Owns end-to-end execution on commercial projects — from pre-construction planning through final walkthrough — with a focus on timeline adherence and scope control.',
+  },
 ];
 ---
 
 <BaseLayout
-  title="Leadership | Pro Exteriors"
-  description="Meet the Pro Exteriors leadership team. Local operators with deep field experience and clear accountability for client outcomes."
+  title="Leadership Team | Pro Exteriors LLC"
+  description="Meet the Pro Exteriors leadership team — operators and specialists accountable to client outcomes across commercial and residential exterior projects."
   canonicalPath="/about/leadership/"
   jsonLd={schemaPayload}
 >
   <Breadcrumb items={breadcrumbs.slice(1)} />
-  <HeroSection title="Leadership" subtitle="The people accountable to your roof and your bottom line." />
-  <section class="py-16 px-4 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-    {leaders.map((leader) => (
-      <div class="bg-surface-elevated rounded-xl p-6 ring-1 ring-border shadow-sm" data-todo="real-leadership">
-        <h3 class="text-xl font-bold">{leader.name}</h3>
-        <p class="text-sm text-text-primary uppercase tracking-wider mt-1">{leader.role}</p>
-        <p class="text-text-secondary mt-3 text-sm">{leader.bio}</p>
+
+  <!-- Hero -->
+  <section class="bg-[#11133F] text-white py-20 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-sm font-semibold tracking-widest uppercase text-[#C22326] mb-4">The People</p>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-6">Operations & Leadership</h1>
+      <p class="text-white/75 text-lg leading-relaxed">
+        The people building Pro Exteriors one project at a time — accountable to your roof and your bottom line.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team grid -->
+  <section class="bg-stone-50 py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {teamMembers.map((member) => (
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-stone-200">
+            <img
+              src={`/images/team/${member.file}`}
+              alt={`${member.name}, ${member.title} at Pro Exteriors LLC`}
+              class="w-full aspect-square object-cover object-top"
+              loading="lazy"
+            />
+            <div class="p-5">
+              <h2 class="font-bold text-slate-900 text-lg">{member.name}</h2>
+              <p class="text-[#C22326] text-sm font-semibold mt-1 mb-3">{member.title}</p>
+              <p class="text-slate-600 text-sm leading-relaxed">{member.bio}</p>
+            </div>
+          </div>
+        ))}
       </div>
-    ))}
+    </div>
+  </section>
+
+  <!-- Values CTA strip -->
+  <section class="bg-[#11133F] py-16 px-4 text-white text-center">
+    <div class="max-w-2xl mx-auto">
+      <p class="text-2xl font-bold mb-4">Trust. Honor. Integrity.</p>
+      <p class="text-white/70 text-base leading-relaxed mb-8">
+        Every person on this team holds the same standard. Read the mission that drives the work.
+      </p>
+      <a
+        href="/about/mission/"
+        class="inline-flex items-center justify-center px-8 py-3 bg-[#C22326] text-white font-semibold rounded-lg hover:bg-[#a81e20] transition-colors"
+        data-cta-name="leadership_to_mission"
+      >
+        Read Our Mission
+      </a>
+    </div>
   </section>
 </BaseLayout>

@@ -7,52 +7,65 @@ import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
 import { collectionPageSchema } from '../../lib/schema/CollectionPage';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
-// Office cards on this page must match real office MDX entries under
-// src/content/offices/. Slugs here are kept aligned with each entry's
-// canonicalPath so internal links never 404.
 const locations = [
-  { name: "Fort Worth, TX", address: "5521 S Hulen St, Suite 440, Fort Worth, TX 76133", phone: "(469) 535-1708", url: "/locations/fort-worth/" },
-  { name: "Dallas, TX (HQ)", address: "1408 N Riverfront Blvd #295, Dallas, TX 75207", phone: "(469) 535-1708", url: "/locations/dallas-hq/" },
-  { name: "Frisco, TX", address: "6136 Frisco Square Blvd, Suite 400, Frisco, TX 75034", phone: "(469) 535-1708", url: "/locations/frisco/" },
-  { name: "Southlake, TX", address: "1560 E Southlake Blvd, Suite 100, Southlake, TX 76092", phone: "(469) 535-1708", url: "/locations/southlake/" },
-  { name: "Arlington, TX", address: "2000 E Lamar Blvd, Suite 600, Arlington, TX 76006", phone: "(469) 535-1708", url: "/locations/arlington/" },
-  { name: "Edmond, OK", address: "10 E 3rd St, Suite 200, Edmond, OK 73034", phone: "(469) 535-1708", url: "/locations/edmond/" }
+  { name: "Richardson, TX", address: "1778 N Plano Rd #118, Richardson, TX", phone: "844-336-PROS", url: "/locations/richardson/" },
+  { name: "Euless, TX", address: "1105 S Airport Cir Ste C, Euless, TX", phone: "844-336-PROS", url: "/locations/euless/" },
+  { name: "Wichita, KS", address: "801 E Douglas Ave #270, Wichita, KS", phone: "844-336-PROS", url: "/locations/wichita/" },
+  { name: "Denver (Greenwood Village), CO", address: "5650 Greenwood Plaza Blvd Ste 145, Greenwood Village, CO", phone: "844-336-PROS", url: "/locations/denver/" },
+  { name: "Kansas City, MO", address: "710 Central St Ste 40, Kansas City, MO", phone: "844-336-PROS", url: "/locations/kansas-city/" },
+  { name: "Valdosta, GA", address: "Address forthcoming", phone: "844-336-PROS", url: "/locations/valdosta/" },
+  { name: "Burlington, NC", address: "Address forthcoming", phone: "844-336-PROS", url: "/locations/burlington/" },
 ];
 
 const faqs = [
   {
     question: "Which office should I contact?",
-    answer: "You can contact any of our offices, or simply call our main number at (469) 535-1708. We will route your request to the local expert nearest to your property."
-  }
+    answer: "You can contact any of our offices, or simply call our main number at 844-336-PROS. We will route your request to the local expert nearest to your property."
+  },
+  {
+    question: "What states do you service?",
+    answer: "We operate in 16 states with physical offices in Texas, Kansas, Colorado, Missouri, Georgia, and North Carolina. Call 844-336-PROS or visit our contact page to confirm coverage in your area."
+  },
+  {
+    question: "Do you provide emergency response outside your office markets?",
+    answer: "Yes. Our crews mobilize across state lines for storm events. Call 844-336-PROS for dispatch — do not wait for a local office to open."
+  },
 ];
 
 const mainSchema = [
-  collectionPageSchema(locations.map(l => ({ name: l.name, url: l.url })), "Pro Exteriors Locations", "Our offices serving Texas and Oklahoma."),
+  collectionPageSchema(locations.map(l => ({ name: l.name, url: l.url })), "Pro Exteriors Locations We Serve", "Offices across the South, Midwest, and Mountain West. Licensed to serve 16 states."),
   breadcrumbSchema([
     { label: "Home", href: "/" },
-    { label: "Locations", href: "/locations/" }
+    { label: "Locations We Serve", href: "/locations/" }
   ])
 ];
 ---
 
-<BaseLayout 
-  title="Our Locations | Pro Exteriors" 
-  description="Pro Exteriors serves communities across the Dallas-Fort Worth metroplex and surrounding areas. Find your local roofing experts."
+<BaseLayout
+  title="Locations We Serve | Pro Exteriors"
+  description="Pro Exteriors offices across the South, Midwest, and Mountain West. Licensed to serve 16 states — find the team closest to your property."
   canonicalPath="/locations/"
   jsonLd={mainSchema}
 >
-  <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Locations", href: "/locations/" }]} />
+  <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Locations We Serve", href: "/locations/" }]} />
 
-  <HeroSection 
-    title="Local Expertise, Regional Reach"
-    subtitle="With offices throughout the DFW metroplex and Oklahoma, we're always close enough to provide rapid response and local accountability."
-    primaryCta={{ label: "Find My Office", href: "#map" }}
-    secondaryCta={{ label: "Contact Main Office", href: "/contact/" }}
+  <HeroSection
+    title="Locations We Serve"
+    subtitle="Offices across the South, Midwest, and Mountain West. Licensed to serve 16 states."
+    primaryCta={{ label: "Call 844-336-PROS", href: "tel:+18443367767" }}
+    secondaryCta={{ label: "Contact Us", href: "/contact/" }}
     image="/images/locations-hero.webp"
   />
 
+  <section class="bg-stone-50 py-16" aria-label="Customer testimonials">
+    <div class="w-[90%] mx-auto text-center">
+      <h2 class="text-2xl font-black text-slate-900 mb-8">What Our Clients Say</h2>
+      <p class="text-slate-500 italic">[Real client testimonials to be added — see Google Business Profile for verified reviews]</p>
+    </div>
+  </section>
+
   <section id="map" class="py-20 bg-surface-inset overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4">
+    <div class="w-[90%] mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold">Interactive Service Map</h2>
         <p class="text-text-secondary mt-4 text-lg">Click a pin to view office details and contact information.</p>
@@ -63,14 +76,14 @@ const mainSchema = [
     </div>
   </section>
 
-  <section class="py-20 px-4 max-w-7xl mx-auto">
+  <section class="py-20 w-[90%] mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {locations.map(loc => (
         <div class="bg-surface-elevated p-8 rounded-2xl shadow-sm ring-1 ring-border hover:shadow-md transition-shadow">
           <h3 class="text-xl font-bold text-text-primary mb-2">{loc.name}</h3>
-          <p class="text-text-secondary mb-4 h-12 overflow-hidden">{loc.address}</p>
+          <p class="text-text-secondary mb-4">{loc.address}</p>
           <div class="flex flex-col gap-2">
-            <a href={`tel:${loc.phone.replace(/\D/g, '')}`} class="text-text-primary font-medium hover:underline">{loc.phone}</a>
+            <a href="tel:+18443367767" class="text-text-primary font-medium hover:underline">{loc.phone}</a>
             <a href={loc.url} class="text-sm text-text-tertiary hover:text-accent font-medium">View Office Details →</a>
           </div>
         </div>
@@ -79,7 +92,7 @@ const mainSchema = [
   </section>
 
   <section class="py-20">
-    <div class="max-w-4xl mx-auto px-4">
+    <div class="w-[90%] mx-auto max-w-4xl">
       <h2 class="text-3xl font-bold text-center mb-12">Locations FAQ</h2>
       <FAQ faqs={faqs} />
     </div>

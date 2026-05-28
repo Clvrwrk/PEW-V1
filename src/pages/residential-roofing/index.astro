@@ -136,7 +136,7 @@ const serviceGrid = [
   { id: "tile-clay",                title: "Tile & Clay",               href: "/residential-roofing/asphalt-shingles/",        body: "Mediterranean and Spanish-tile aesthetics, fireproof construction, and a service life that can exceed 75 years on the right structural deck. Tile is heavy — we verify the framing carries the load before we quote. Common in upscale residential builds across our Texas and Atlanta markets.", anchor: "tile and clay roofing options", img: "/images/services/residential/asphalt-shingles-hero.webp", alt: "Spanish clay tile residential roof with detailed flashing at the ridge" },
   { id: "natural-slate",            title: "Natural Slate",             href: "/residential-roofing/asphalt-shingles/",            body: "The top of the residential roofing material pyramid. Quarried slate roofs routinely outlive the home around them. Cost matches longevity — slate is a generational investment, not a 15-year decision. We're certified to install Vermont, Pennsylvania, and Spanish slate.", anchor: "natural slate installation", img: "/images/services/residential/asphalt-shingles-hero.webp", alt: "Natural slate residential roof, varied gray tones, in late-day sunlight" },
   { id: "gutters",                  title: "Gutters",                   href: "/contact/residential-roofing/inspection/",         body: "Seamless aluminum gutter systems sized for actual residential roof pitch and rainfall load. We install five-inch standard and six-inch oversized systems, with leaf guards and downspout extensions engineered to handle the storm runoff in any of our markets — from Texas summer downpours to Kansas spring squalls.", anchor: "seamless gutter systems", img: "/images/residential-hero.webp", alt: "Newly installed seamless aluminum gutter on a residential home, downspout detail visible" },
-  { id: "siding",                   title: "Siding",                    href: "/contact/residential-roofing/inspection/",                   body: "Fiber-cement and vinyl siding in coordinated colors and profiles — often quoted alongside roof replacement on storm-damage jobs because the same hailstorm that damages a roof usually damages the siding too. We bundle the work and the insurance documentation rather than asking the homeowner to manage two contractors.", anchor: "fiber-cement and vinyl siding", img: "/images/residential-hero.webp", alt: "Fiber-cement siding installation on a residential exterior, board-and-batten profile detail" },
+  { id: "siding",                   title: "Siding",                    href: "/contact/residential-roofing/inspection/",                   body: "Fiber-cement and vinyl siding in coordinated colors and profiles — often quoted alongside roof replacement on storm-damage jobs because the same hailstorm that damages a roof usually damages the siding too. We bundle the work and the insurance documentation rather than asking the homeowner to manage two contractors. We install LP Building Solutions, James Hardie, and CertainTeed siding systems.", anchor: "fiber-cement and vinyl siding", img: "/images/residential-hero.webp", alt: "Fiber-cement siding installation on a residential exterior, board-and-batten profile detail" },
 ];
 
 const processSteps = [
@@ -222,17 +222,35 @@ const faqItems = [
       </div>
     </section>
 
+    {/* ══════ BRAND VIDEO ═══════════════════════════════════════════════════ */}
+    <section aria-label="Pro Exteriors in action" class="bg-slate-900 py-16">
+      <div class="w-[90%] mx-auto max-w-4xl">
+        <p class="text-center text-xs font-bold uppercase tracking-widest text-white/50 mb-6">Pro Exteriors LLC</p>
+        <div class="rounded-xl overflow-hidden shadow-2xl aspect-video bg-slate-800">
+          <video
+            controls
+            preload="none"
+            poster="/images/residential-hero.webp"
+            class="w-full h-full object-cover"
+            aria-label="Pro Exteriors residential roofing overview"
+          >
+            <source src="/videos/pro-exteriors-residential.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+
     {/* ══════ TRUST STRIP ════════════════════════════════════════════════════ */}
     <section aria-label="Credentials and accreditations" class="py-8 border-y border-stone-200 bg-stone-50">
       <ul class="mx-auto max-w-screen-xl px-6 lg:px-8 flex flex-wrap items-center justify-center gap-8 lg:gap-24 text-base font-bold text-slate-900">
         <li class="inline-flex items-center gap-2">
           <Icon name="star" class="w-5 h-5" />
           <span>Google 4.9/5 (240+ Reviews)</span>
-          <span class="ml-1 text-xs font-normal italic text-slate-500" title="Per CLAUDE.md hard gate — not yet sourced">[REPRESENTATIVE]</span>
+          <span class="ml-1 text-xs font-normal italic text-slate-500" title="Per CLAUDE.md hard gate — pull from GBP before launch">[FROM GBP]</span>
         </li>
         <li>BBB A+ ACCREDITED</li>
-        <li>GAF MASTER ELITE&reg;</li>
-        <li>CERTIFIED OWENS CORNING</li>
+        <li>MALARKEY CERTIFIED ELITE</li>
+        <li>1 OF 5 IN DFW METROPLEX</li>
       </ul>
     </section>
 
@@ -297,6 +315,36 @@ const faqItems = [
               </div>
             </li>
           ))}
+        </ul>
+      </div>
+    </section>
+
+    {/* ══════ MALARKEY CERTIFICATION HIGHLIGHT (Task 13) ════════════════════ */}
+    <section class="py-16 text-white" style="background-color: #11133F;" aria-label="Manufacturer certifications">
+      <div class="w-[90%] mx-auto text-center">
+        <p class="text-white/60 text-xs uppercase tracking-widest mb-4">Certified With Top-Tier Manufacturers</p>
+        <h2 class="text-3xl font-black mb-4">One of Five in DFW with Malarkey Elite Certification</h2>
+        <p class="text-white/80 max-w-2xl mx-auto mb-10">
+          Our Malarkey Elite certification is among the highest available — and Pro Exteriors is one of only
+          five contractors in the entire Dallas-Fort Worth Metroplex to hold it. That means we can offer
+          enhanced manufacturer-backed warranties that most contractors simply cannot provide.
+        </p>
+        <ul class="flex flex-wrap justify-center gap-4 items-center" role="list">
+          <li class="bg-white rounded-lg p-4 flex items-center justify-center h-20 w-36">
+            <img src="/images/partners/malarkeylogo.jpg" alt="Malarkey Roofing Products — certified Elite installer" class="max-h-12 max-w-full object-contain" loading="lazy" />
+          </li>
+          <li class="bg-white rounded-lg p-4 flex items-center justify-center h-20 w-36">
+            <img src="/images/partners/159-1591039_atlas-roofing-atlas-roofing-corporation-clipart.png" alt="Atlas Roofing Corporation — certified installer" class="max-h-12 max-w-full object-contain" loading="lazy" />
+          </li>
+          <li class="bg-white rounded-lg p-4 flex items-center justify-center h-20 w-36">
+            <img src="/images/partners/GAF-Logo_800x400.jpeg" alt="GAF — certified installer" class="max-h-12 max-w-full object-contain" loading="lazy" />
+          </li>
+          <li class="bg-white rounded-lg p-4 flex items-center justify-center h-20 w-36">
+            <img src="/images/partners/tamko-logo-png-transparent.png" alt="TAMKO — certified installer" class="max-h-12 max-w-full object-contain" loading="lazy" />
+          </li>
+          <li class="bg-white rounded-lg p-4 flex items-center justify-center h-20 w-36">
+            <img src="/images/partners/Certainteed_logo_PNG7.png" alt="CertainTeed — certified installer" class="max-h-12 max-w-full object-contain" loading="lazy" />
+          </li>
         </ul>
       </div>
     </section>
@@ -445,15 +493,14 @@ const faqItems = [
               IVR menu detects caller location / lets them pick state, routes to local crew.
               Phone number itself is [REPRESENTATIVE] until Chris provides the IVR number.
               Page-qc: do not enable production launch with the placeholder number. */}
-          <a href="tel:+1XXXXXXXXXX"
+          <a href="tel:+18443367767"
              class="px-10 py-5 rounded-lg bg-white text-slate-900 text-lg font-black hover:bg-stone-100 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
              data-event-name="cta_click"
              data-event-cta-id="final_phone"
              data-event-intent="phone"
              data-event-source="residential-pillar-final"
-             data-event-routing="per-state-ivr"
-             aria-label="Call Pro Exteriors — per-state routing IVR; specific number to be confirmed">
-            Call (XXX) XXX-XXXX <span class="block text-xs italic font-normal text-slate-500 mt-1">[REPRESENTATIVE — per-state IVR]</span>
+             aria-label="Call Pro Exteriors at 844-336-PROS">
+            844-336-PROS
           </a>
         </div>
       </div>

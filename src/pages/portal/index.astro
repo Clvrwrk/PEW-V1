@@ -6,26 +6,36 @@ import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
-  { label: 'Customer Portal', href: '/portal/' },
+  { label: 'Service Client Portal', href: '/portal/' },
 ];
 const schemaPayload = [breadcrumbSchema(breadcrumbs)];
 ---
 
 <BaseLayout
-  title="Customer Portal | Pro Exteriors"
-  description="Access your Pro Exteriors customer portal — view your project status, documents, and next steps in one place."
+  title="Service Client Portal | Pro Exteriors"
+  description="Access your Pro Exteriors service account — view maintenance schedules, inspection reports, and project updates."
   canonicalPath="/portal/"
   noindex={true}
   jsonLd={schemaPayload}
 >
   <Breadcrumb items={breadcrumbs.slice(1)} />
   <HeroSection
-    title="Customer Portal Access"
-    subtitle="Sign in via SSO to view your project status, documents, and scheduled work."
-    primaryCta={{ label: 'Continue to Portal Login', href: '#' }}
+    title="Service Client Portal"
+    subtitle="Access your Pro Exteriors service account — view maintenance schedules, inspection reports, and project updates."
+    primaryCta={{ label: 'Continue to Portal Login', href: '#portal-login' }}
     secondaryCta={{ label: 'Back to Website', href: '/' }}
   />
-  <article class="prose mx-auto max-w-3xl px-4 py-16">
-    <p>Phase 1 placeholder. Centerpoint SSO redirect URL is wired in via env var BOOKING_CALENDAR_EMBED_URL or PORTAL_SSO_URL during deploy.</p>
-  </article>
+
+  <section id="portal-login" class="py-20 bg-white">
+    <div class="w-[90%] mx-auto max-w-2xl text-center">
+      <div class="bg-[#11133F] rounded-2xl p-12 text-white">
+        <h2 class="text-2xl font-bold mb-4">Access Your Service Portal</h2>
+        <p class="text-white/80 mb-8">Log in to view your Pro Plan™ reports, inspection history, scheduled maintenance, and service requests.</p>
+        <a href="#" class="inline-flex items-center justify-center px-8 py-4 bg-[#C22326] hover:bg-red-800 text-white font-bold rounded-lg text-lg transition-colors">
+          Continue to Portal Login
+        </a>
+        <p class="mt-6 text-white/50 text-sm">Portal access is provided to active Pro Plan™ service clients. Contact us at <a href="mailto:service@proexteriorsus.com" class="underline text-white/70">service@proexteriorsus.com</a> or call <a href="tel:+18663367767" class="underline text-white/70">866-336-PROS</a> to set up your account.</p>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

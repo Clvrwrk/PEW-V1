@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../../components/seo/BaseLayout.astro';
-import HeroSection from '../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
-import Card from '../../components/molecules/Card.astro';
 import { aboutPageSchema } from '../../lib/schema/AboutPage';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
@@ -12,28 +10,209 @@ const breadcrumbs = [
 ];
 
 const schemaPayload = [aboutPageSchema(), breadcrumbSchema(breadcrumbs)];
+
+const teamMembers = [
+  { name: 'Tabatha Milliken',   title: 'Chief Executive Officer (CEO)',          file: 'Tabatha Milliken -  Chief Executive Officer (CEO).webp' },
+  { name: 'Chandler Milliken',  title: 'Chief Operations Officer (COO)',         file: 'Chandler Milliken - Chief Operations Officer (COO).webp' },
+  { name: 'Jamey Sims',         title: 'Chief Commercial Officer (CCO)',         file: 'Jamey Sims - Chief Commercial Officer (CCO).webp' },
+  { name: 'Joe Skiles',         title: 'Director of Service',                    file: 'Joe Skiles - Director of Service.webp' },
+  { name: 'Lucinda Dunn',       title: 'Director of Accounting',                 file: 'Lucinda Dunn - Director of Accounting.webp' },
+  { name: 'Lonnie Sawyer',      title: 'Insurance Programs Manager',             file: 'Lonnie Sawyer - Insurance Programs Manager.webp' },
+  { name: 'Isaac Ambriz',       title: 'Commercial Operations Manager',          file: 'Isaac Ambriz - Commercial Operations Manager.webp' },
+  { name: 'Crystal Pollock',    title: 'Commercial Service Coordinator',         file: 'Crystal Pollock - Commercial Service Coordinator.webp' },
+  { name: 'Madison King',       title: 'Accounts Manager',                       file: 'Madison King - Accounts Manager.webp' },
+  { name: 'Matt Johnson',       title: 'Southeast Regional Sales Director',      file: 'Matt Johnson - Southeast Regional Sales Director.webp' },
+  { name: 'Rafael Arrrola',     title: 'Operations Administrator',               file: 'Rafael Arrrola - Operations Administrator.webp' },
+  { name: 'Roberto Huerta',     title: 'Administrative Operations Manager',      file: 'Roberto Huerta - Administrative Operations Manager.webp' },
+  { name: 'Zach Gray',          title: 'Commercial Project Manager',             file: 'Zach Gray -  Commercial Project Manager.webp' },
+];
+
+const ministriesPhotos = [
+  '484510611_682320301036448_4348144568674459449_n.jpg',
+  '484517271_682320307703114_2973160345583150414_n.jpg',
+  '484842682_682319964369815_470924432750919672_n.jpg',
+  '484980167_682320381036440_4942437505518345693_n.jpg',
+  '485111221_682319241036554_9143661902330894484_n.jpg',
+  '500468406_736300328971778_5999741438860859345_n.jpg',
+  '501207995_739311668670644_681748274278876472_n.jpg',
+  '501209519_739311488670662_6136384985505518381_n.jpg',
+  '502389289_739311522003992_7538620524723008997_n.jpg',
+  '502569645_739311378670673_3518867581287335201_n.jpg',
+  '503125874_739311565337321_3998562171852933557_n.jpg',
+  '503185651_739311722003972_1926917821450797229_n.jpg',
+  '503288111_739311575337320_3991846800664295501_n.jpg',
+];
 ---
 
 <BaseLayout
-  title="About Pro Exteriors | Local Roofing Experts"
-  description="Pro Exteriors builds long-term partnerships with property leaders. Local accountability, engineered systems, conversion-grade craft. Meet the team."
+  title="About Pro Exteriors | Built on Faith, Driven by Excellence"
+  description="Pro Exteriors LLC is a Christian-values exterior contractor serving commercial and residential clients nationwide. Meet the team behind the mission."
   canonicalPath="/about/"
   jsonLd={schemaPayload}
 >
   <Breadcrumb items={breadcrumbs.slice(1)} />
 
-  <HeroSection
-    title="A Roofing Partner. Not Just a Contractor."
-    subtitle="Pro Exteriors is the local team for property leaders who measure outcomes in years, not weeks."
-    primaryCta={{ label: 'Meet the Leadership', href: '/about/leadership/' }}
-    secondaryCta={{ label: 'Read Our Mission', href: '/about/mission/' }}
-  />
+  <!-- ─── HERO ────────────────────────────────────────────────────────────── -->
+  <section class="bg-[#11133F] text-white py-24 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-sm font-semibold tracking-widest uppercase text-[#C22326] mb-4">About Pro Exteriors LLC</p>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        Built on Faith.<br />Driven by Excellence.
+      </h1>
+      <p class="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+        We are Pro Exteriors LLC — a national commercial and residential exterior contractor built on the principles of trust, honor, and integrity. Every project we take on is an extension of who we are.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="#mission"
+          class="inline-flex items-center justify-center px-8 py-3 bg-[#C22326] text-white font-semibold rounded-lg hover:bg-[#a81e20] transition-colors"
+          data-cta-name="about_hero_mission"
+        >
+          Our Mission
+        </a>
+        <a
+          href="#team"
+          class="inline-flex items-center justify-center px-8 py-3 border border-white/40 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors"
+          data-cta-name="about_hero_team"
+        >
+          Meet the Team <span aria-hidden="true" class="ml-1">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <section class="py-20 px-4 max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <Card title="Our Mission" description="The standards we hold and the outcomes we measure." href="/about/mission/" eyebrow="Mission & Values" />
-      <Card title="Leadership" description="The people accountable to your roof and your bottom line." href="/about/leadership/" eyebrow="Leadership" />
-      <Card title="Careers" description="Build a long-term career with a team that ships." href="/careers/" eyebrow="Join Us" />
+  <!-- ─── MISSION STATEMENT ───────────────────────────────────────────────── -->
+  <section id="mission" class="bg-white py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-sm font-semibold tracking-widest uppercase text-[#C22326] mb-4 text-center">Who We Are</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-[#11133F] text-center mb-12">Our Mission</h2>
+
+      <!-- Pull quote -->
+      <blockquote class="border-l-4 border-[#C22326] pl-8 mb-12">
+        <p class="text-xl sm:text-2xl font-medium text-[#11133F] leading-relaxed italic">
+          "At Pro Exteriors LLC, we believe that doing the right thing is not just a business strategy — it is who we are."
+        </p>
+      </blockquote>
+
+      <p class="text-base sm:text-lg text-slate-700 leading-relaxed mb-8">
+        Our mission is to deliver exceptional exterior solutions with honesty, accountability, and craftsmanship that reflects our core values. We serve our clients the way we want to be served. We treat every property as if it were our own. We build long-term relationships, not one-time transactions.
+      </p>
+
+      <!-- Core values banner -->
+      <div class="bg-[#11133F] rounded-2xl px-8 py-6 text-center mb-12">
+        <p class="text-2xl sm:text-3xl font-bold text-white tracking-wide">
+          Trust.&nbsp;&nbsp;Honor.&nbsp;&nbsp;Integrity.
+        </p>
+        <p class="text-white/60 text-sm mt-2 tracking-widest uppercase">Our Core Values</p>
+      </div>
+
+      <!-- Values cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="bg-stone-50 rounded-2xl p-7 ring-1 ring-stone-200">
+          <div class="w-10 h-10 bg-[#C22326] rounded-lg flex items-center justify-center mb-4">
+            <span class="text-white font-bold text-sm">T</span>
+          </div>
+          <h3 class="text-lg font-bold text-[#11133F] mb-2">Trust</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            We earn trust through consistency. Our clients know what to expect from us — clear communication, accurate timelines, and work that holds up long after we leave the site.
+          </p>
+        </div>
+        <div class="bg-stone-50 rounded-2xl p-7 ring-1 ring-stone-200">
+          <div class="w-10 h-10 bg-[#C22326] rounded-lg flex items-center justify-center mb-4">
+            <span class="text-white font-bold text-sm">H</span>
+          </div>
+          <h3 class="text-lg font-bold text-[#11133F] mb-2">Honor</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            We honor our commitments to clients, to our crews, and to the communities where we work. A handshake still means something at Pro Exteriors.
+          </p>
+        </div>
+        <div class="bg-stone-50 rounded-2xl p-7 ring-1 ring-stone-200">
+          <div class="w-10 h-10 bg-[#C22326] rounded-lg flex items-center justify-center mb-4">
+            <span class="text-white font-bold text-sm">I</span>
+          </div>
+          <h3 class="text-lg font-bold text-[#11133F] mb-2">Integrity</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            We do the right thing even when no one is watching. Integrity is not a policy — it is the standard we hold every person on this team to, every day.
+          </p>
+        </div>
+      </div>
+
+      <p class="text-center text-slate-500 text-sm mt-8 tracking-wider">#BuiltOnFaith</p>
+    </div>
+  </section>
+
+  <!-- ─── PRO MINISTRIES OUTREACH ─────────────────────────────────────────── -->
+  <section class="bg-[#11133F] py-24 px-4 text-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-2xl mb-12">
+        <p class="text-sm font-semibold tracking-widest uppercase text-[#C22326] mb-4">Community</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">Pro Ministries Outreach</h2>
+        <p class="text-white/80 text-base sm:text-lg leading-relaxed">
+          We are not just a roofing company. We are a community. Pro Ministries is our outreach arm — regular people living out faith through service. We partner with local communities to make a tangible difference in the lives of those around us.
+        </p>
+      </div>
+
+      <!-- Photo grid -->
+      <div class="columns-2 sm:columns-3 lg:columns-4 gap-3 space-y-3">
+        {ministriesPhotos.map((photo, i) => (
+          <div class="break-inside-avoid">
+            <img
+              src={`/images/pro-ministries/${photo}`}
+              alt={`Pro Ministries community outreach event ${i + 1}`}
+              class="w-full object-cover rounded-lg"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <a
+          href="#"
+          class="text-white/70 hover:text-white text-sm font-medium underline underline-offset-4 transition-colors"
+          data-cta-name="about_ministries_learn_more"
+        >
+          Learn more about Pro Ministries →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── OPERATIONS & LEADERSHIP ─────────────────────────────────────────── -->
+  <section id="team" class="bg-stone-50 py-24 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="text-sm font-semibold tracking-widest uppercase text-[#C22326] mb-4">The People</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-[#11133F] mb-4">Operations & Leadership</h2>
+        <p class="text-slate-600 text-lg">The people building Pro Exteriors one project at a time.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {teamMembers.map((member) => (
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-stone-200">
+            <img
+              src={`/images/team/${member.file}`}
+              alt={`${member.name}, ${member.title} at Pro Exteriors LLC`}
+              class="w-full aspect-square object-cover object-top"
+              loading="lazy"
+            />
+            <div class="p-5">
+              <h3 class="font-bold text-slate-900 text-lg">{member.name}</h3>
+              <p class="text-[#C22326] text-sm font-semibold mt-1">{member.title}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <a
+          href="/about/leadership/"
+          class="inline-flex items-center justify-center px-8 py-3 bg-[#11133F] text-white font-semibold rounded-lg hover:bg-[#1a1f5c] transition-colors"
+          data-cta-name="about_team_full_leadership"
+        >
+          View Full Leadership Page
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

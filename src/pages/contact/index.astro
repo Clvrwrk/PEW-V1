@@ -3,6 +3,7 @@ import BaseLayout from '../../components/seo/BaseLayout.astro';
 import HeroSection from '../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
 import Button from '../../components/atoms/Button.astro';
+import FAQ from '../../components/molecules/FAQ.astro';
 import { contactPageSchema } from '../../lib/schema/ContactPage';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
@@ -11,33 +12,87 @@ const breadcrumbs = [
   { label: 'Contact', href: '/contact/' },
 ];
 const schemaPayload = [contactPageSchema(), breadcrumbSchema(breadcrumbs)];
+
+const faqs = [
+  {
+    question: "What is the main Pro Exteriors phone number?",
+    answer: "Our production line is 844-336-PROS. For service division and Pro Plan inquiries, call 866-336-PROS or email service@proexteriorsus.com."
+  },
+  {
+    question: "How quickly can you respond to an emergency?",
+    answer: "We deploy emergency response crews from each of our state markets. For active storm damage, tarping response is typically within 48 hours. Call 844-336-PROS for immediate dispatch."
+  },
+  {
+    question: "Do you provide free inspections?",
+    answer: "Yes — residential inspections are free of charge. For commercial properties, we provide a complimentary initial assessment for projects over 10,000 sq ft."
+  },
+  {
+    question: "What states do you service?",
+    answer: "We operate in 16 states with physical offices in Texas, Kansas, Colorado, Georgia, North Carolina, and Missouri. Full service area on our Locations We Serve page."
+  },
+];
 ---
 
 <BaseLayout
-  title="Contact Pro Exteriors | Roofing Inspections & Quotes"
-  description="Talk to a Pro Exteriors specialist. Commercial RFQ, residential inspection, or emergency response — get the right person, fast."
+  title="Contact Pro Exteriors | 844-336-PROS"
+  description="Talk to a Pro Exteriors specialist. Commercial RFQ, residential inspection, or emergency response — get the right team, fast."
   canonicalPath="/contact/"
   jsonLd={schemaPayload}
 >
   <Breadcrumb items={breadcrumbs.slice(1)} />
   <HeroSection
-    title="Talk to a Specialist"
-    subtitle="Tell us what you need; we'll route you to the right team."
-    primaryCta={{ label: 'Call (469) 535-1708', href: 'tel:4695351708' }}
+    title="Get in Touch"
+    subtitle="Commercial RFQ, residential inspection, service request, or emergency response — reach the right team directly."
+    primaryCta={{ label: "Call 844-336-PROS", href: "tel:+18443367767" }}
   />
-  <section class="py-16 px-4 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div class="bg-surface-elevated p-8 rounded-2xl ring-1 ring-border">
-      <h2 class="text-2xl font-bold mb-3">Commercial Inquiry</h2>
-      <p class="text-text-secondary mb-6">Property managers, REITs, multi-family operators — start here.</p>
-      <Button href="/commercial-roofing/" variant="primary">Commercial Services</Button>
-    </div>
-    <div class="bg-surface-elevated p-8 rounded-2xl ring-1 ring-border">
-      <h2 class="text-2xl font-bold mb-3">Residential Request</h2>
-      <p class="text-text-secondary mb-6">Homeowners — request a free inspection or storm-damage assessment.</p>
-      <Button href="/residential-roofing/" variant="primary">Residential Services</Button>
+
+  <section class="py-16 w-[90%] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="bg-surface-elevated p-8 rounded-2xl ring-1 ring-border">
+        <h2 class="text-2xl font-bold mb-3">Commercial Inquiry</h2>
+        <p class="text-text-secondary mb-4">Property managers, REITs, and multi-family operators — start here for RFQs, portfolio contracts, and institutional project intake.</p>
+        <ul class="text-sm text-text-secondary space-y-1 mb-6">
+          <li>Low-slope and metal roof systems</li>
+          <li>Institutional portfolios and REIT work</li>
+          <li>Bid packages and multi-property contracts</li>
+        </ul>
+        <Button href="/commercial-roofing/" variant="primary">Commercial Services</Button>
+      </div>
+      <div class="bg-surface-elevated p-8 rounded-2xl ring-1 ring-border">
+        <h2 class="text-2xl font-bold mb-3">Residential Request</h2>
+        <p class="text-text-secondary mb-4">Homeowners — request a free inspection, storm-damage assessment, or emergency response. No obligation.</p>
+        <ul class="text-sm text-text-secondary space-y-1 mb-6">
+          <li>Free inspection for all residential properties</li>
+          <li>Storm damage and insurance claim support</li>
+          <li>Same-day emergency tarp service available</li>
+        </ul>
+        <Button href="/residential-roofing/" variant="primary">Residential Services</Button>
+      </div>
     </div>
   </section>
-  <section class="py-12 text-center">
-    <p class="text-text-secondary">Phase 1 placeholder — Step 11 wires the branched lead form.</p>
+
+  <section class="py-12 bg-[#11133F]">
+    <div class="w-[90%] mx-auto max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
+        <div>
+          <h3 class="text-lg font-bold mb-2">Sales &amp; New Projects</h3>
+          <p class="text-white/70 text-sm mb-3">Quotes, inspections, and new project intake.</p>
+          <a href="tel:+18443367767" class="text-xl font-bold hover:underline">844-336-PROS</a>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-2">Service Division &amp; Pro Plan</h3>
+          <p class="text-white/70 text-sm mb-3">Active service clients, maintenance scheduling, and Pro Plan™ inquiries.</p>
+          <a href="tel:+18663367767" class="text-xl font-bold hover:underline block mb-1">866-336-PROS</a>
+          <a href="mailto:service@proexteriorsus.com" class="text-white/70 text-sm hover:underline">service@proexteriorsus.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="w-[90%] mx-auto max-w-4xl">
+      <h2 class="text-3xl font-bold text-center mb-12">Contact FAQ</h2>
+      <FAQ faqs={faqs} />
+    </div>
   </section>
 </BaseLayout>

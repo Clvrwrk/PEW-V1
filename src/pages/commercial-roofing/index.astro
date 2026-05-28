@@ -1,29 +1,17 @@
 ---
 /* ──────────────────────────────────────────────────────────────────────────────
-   Commercial Roofing — Pillar Page
-   Rebuilt 2026-05-03 by Maren Castellan-Reyes via aia4-pagebuilder pipeline.
+   Commercial Roofing — Consolidated Pillar Page
+   Rebuilt 2026-05-27 by Maren Castellan-Reyes.
+   Tasks 12 & 14: single consolidated page, no sub-pages for system types.
+   Content sourced from Pro_Exteriors_Commercial_Services.docx.
 
-   CONVERSION HYPOTHESIS (per design/templates/commercial-roofing/brief.yaml):
-     Replacing the prior thin landing (single hero + 4 service tiles + map +
-     2 FAQs) with the full Figma pillar (industrial hero + 4 stats + 7-system
-     grid + manufacturer cert band + 3 reliability proof points + executive-
-     assessment callout + 3-real-case bento + nationwide reach map + 3-FAQ
-     accordion + inline executive assessment form) will lift assisted
-     conversion (form fill OR phone CTA OR /contact CTA) by ≥30% within
-     90 days vs. the pre-rebuild baseline.
+   CONVERSION HYPOTHESIS:
+     Replacing the prior multi-system grid with a property-type–led narrative
+     and real named clients (TMS, Fort Worth ISD, Pottsboro ISD, TIPS) will
+     lift commercial lead-form completions by ≥30% within 90 days vs. the
+     pre-rebuild baseline.
 
-   STATS OVERRIDE NOTICE:
-     Four stats in the band below ship without sources by stakeholder override.
-     See /decisions/2026-05-03-commercial-roofing-stats-override.md.
-     [TODO source] markers in HTML comments flag each one for the next pass.
-
-   HERO IMAGE:
-     Wired to /images/commercial-hero.webp (Chris confirmed this IS the
-     Texas Motor Speedway image he attached — already on disk, no separate
-     upload needed). The runtime image policy ships WebP only.
-
-   Author: Maren Castellan-Reyes · Page-build manifest:
-   /design/templates/commercial-roofing/
+   Author: Maren Castellan-Reyes · AIA4 Pro Exteriors
 ─────────────────────────────────────────────────────────────────────────────── */
 
 import BaseLayout from '../../components/seo/BaseLayout.astro';
@@ -35,196 +23,103 @@ import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 import { faqPageSchema } from '../../lib/schema/FAQPage';
 import { serviceSchema } from '../../lib/schema/Service';
 
-// ── Specialized Roofing Systems (7 cards from Figma) ──────────────────────────
-const systems = [
-  {
-    id: 'tpo',
-    title: 'TPO',
-    body: 'Energy-efficient, heat-reflective single-ply membrane ideal for southern climates and industrial warehouses. Hot-air welded seams, Class 4 hail resistance.',
-    href: '/commercial-roofing/tpo/',
-    cta: 'System Details',
-    ctaName: 'system_tpo',
-    featured: false,
-  },
-  {
-    id: 'epdm',
-    title: 'EPDM',
-    body: 'Durable synthetic-rubber roofing known for exceptional resistance to UV, ozone, and extreme freeze-thaw cycles. Long service life on low-slope decks.',
-    href: '/commercial-roofing/epdm/',
-    cta: 'System Details',
-    ctaName: 'system_epdm',
-    featured: false,
-  },
-  {
-    id: 'modified-bitumen',
-    title: 'Modified Bitumen',
-    body: 'Multi-layer asphalt systems delivering superior puncture resistance for high-traffic rooftops with frequent service-equipment access.',
-    href: '/commercial-roofing/replacement/',
-    cta: 'System Details',
-    ctaName: 'system_bitumen',
-    featured: false,
-  },
-  {
-    id: 'metal',
-    title: 'Metal Roofing',
-    body: 'Premium standing-seam and corrugated metal solutions offering architectural longevity and aesthetic appeal for visible roof lines.',
-    href: '/commercial-roofing/metal/',
-    cta: 'System Details',
-    ctaName: 'system_metal',
-    featured: false,
-  },
-  {
-    id: 'flat',
-    title: 'Flat Roof Systems',
-    body: 'Custom engineering for low-slope drainage and structural integrity on large-footprint distribution, manufacturing, and warehouse facilities.',
-    href: '/commercial-roofing/flat-roof-systems/',
-    cta: 'System Details',
-    ctaName: 'system_flat',
-    featured: false,
-  },
-  {
-    id: 'coatings',
-    title: 'Roof Coatings',
-    body: 'Silicone and acrylic restoration systems that extend existing roof life without full tear-offs — typically a fraction of replacement cost when substrate is sound.',
-    href: '/commercial-roofing/repair/',
-    cta: 'System Details',
-    ctaName: 'system_coatings',
-    featured: false,
-  },
-  {
-    id: 'emergency',
-    title: '24/7 Emergency Repairs',
-    body: 'Rapid-response teams deployed nationwide to mitigate storm damage and structural failures before they impact operations or open a path for secondary water intrusion.',
-    href: '/commercial-roofing/repair/',
-    cta: 'Immediate Dispatch',
-    ctaName: 'system_emergency',
-    featured: true,
-  },
+// ── Property types served ─────────────────────────────────────────────────────
+const propertyTypes = [
+  { icon: 'building-2',   label: 'Multi-Building Apartment Communities' },
+  { icon: 'home',         label: 'HOA-Managed Portfolios' },
+  { icon: 'briefcase',    label: 'Corporate Office Campuses & Class A Office' },
+  { icon: 'heart-pulse',  label: 'Healthcare & Medical Facilities' },
+  { icon: 'hotel',        label: 'Hospitality & Lodging Properties' },
+  { icon: 'church',       label: 'Faith-Based & Ecclesiastical Campuses' },
+  { icon: 'graduation-cap', label: 'Higher Education & K–12 Districts' },
+  { icon: 'landmark',     label: 'Municipal & Government Facilities' },
+  { icon: 'factory',      label: 'Industrial & Manufacturing Facilities' },
+  { icon: 'package',      label: 'Distribution Centers & Logistics Hubs' },
+  { icon: 'store',        label: 'Mixed-Use & Retail Developments' },
+  { icon: 'globe',        label: 'National Commercial Real Estate Portfolios' },
 ];
 
-// ── Manufacturer certifications (verified vs. unsourced flagged in copy.yaml) ──
-const certifications = [
-  { name: 'GAF MASTER',     verified: true  },
-  { name: 'FIRESTONE',      verified: true  },
-  { name: 'CARLISLE',       verified: false },  // [TODO source: not on home page]
-  { name: 'OWENS CORNING',  verified: true  },
-];
-
-// ── Industrial-Grade Reliability benefits (3 from Figma) ──────────────────────
-const reliabilityBenefits = [
+// ── Divisions ─────────────────────────────────────────────────────────────────
+const divisions = [
   {
-    icon: 'clock',
-    heading: '24-Hour Responsiveness',
-    body: 'Dedicated account managers and centralized dispatch ensure your facility needs are addressed within one business day, anywhere in the 16 states we operate.',
+    name: 'Commercial Division',
+    body: 'Low-slope reroofs, metal roofing systems, capital improvement programs, and complex exterior renovations.',
+    icon: 'building-2',
   },
   {
-    icon: 'file-text',
-    heading: 'Detailed Documentation',
-    body: 'Comprehensive drone inspections, infrared moisture mapping, and transparent reporting accessible through our secure client portal. Documentation stays with the property — not the owner — through our <a href="/proplan/" class="underline decoration-2 underline-offset-2 hover:text-red-700">asset management program (ProPlan)</a>.',
+    name: 'Multifamily Division',
+    body: 'Portfolio-level coordination for apartment communities, HOAs, and multi-building assets.',
+    icon: 'home',
   },
   {
+    name: 'Service & Asset Management Division',
+    body: 'Preventative maintenance, leak diagnostics, emergency response, lifecycle planning, and long-term asset preservation.',
     icon: 'shield',
-    heading: 'Rigorous Project Management',
-    body: 'OSHA-certified safety protocols, third-party verification at three checkpoints, and strict timeline management to minimize operational disruption during <a href="/commercial-roofing/repair/" class="underline decoration-2 underline-offset-2 hover:text-red-700">commercial roof repair</a> or full-system installation.',
+  },
+  {
+    name: 'National Business Development Division',
+    body: 'Strategic partnerships, multi-state account management, and institutional portfolio coordination.',
+    icon: 'globe',
   },
 ];
 
-// ── Institutional Case Studies (3 real + 1 CTA card) ──────────────────────────
-const caseStudies = [
-  {
-    id: 'techpark',
-    industryTag: 'INDUSTRIAL',
-    heading: 'TechPark Logistics Center',
-    summary: '150,000 Sq. Ft. TPO Retrofit with Phased Off-Hours Install.',
-    image: '/images/projects/tpo-techpark-logistics.webp',
-    alt: 'Aerial view of TechPark Logistics Center with newly installed white TPO membrane covering 150,000 square feet',
-    href: '/projects/techpark-logistics-tpo/',
-    ctaName: 'case_techpark',
-  },
-  {
-    id: 'dallas-mall',
-    industryTag: 'RETAIL',
-    heading: 'Dallas North Mall',
-    summary: 'Anchor-store TPO overlay with zero tenant downtime.',
-    // Image swapped from /tpo-dallas-north-mall.webp (residential post-hail
-    // shingle photo per home page alt text — wrong vertical for this page)
-    // to a real commercial gallery shot.
-    image: '/images/projects/tpo-gallery-2.webp',
-    alt: 'Pro Exteriors crew completing TPO membrane install on a commercial flat-roof project, hot-air welder and seam roller in foreground',
-    href: '/projects/dallas-north-mall-tpo/',
-    ctaName: 'case_dallas_mall',
-  },
-  {
-    id: 'fort-worth',
-    industryTag: 'INDUSTRIAL',
-    heading: 'Fort Worth Logistics Center',
-    summary: '20,000 Sq. Ft. full TPO replacement with zero shipping downtime.',
-    image: '/images/projects/tpo-gallery-1.webp',
-    alt: 'Fort Worth Logistics Center with completed TPO replacement, photographed at ground level showing scale',
-    href: '/projects/fort-worth-tpo-logistics/',
-    ctaName: 'case_fort_worth',
-  },
+// ── Low-slope manufacturer logos (Task 14/28) ─────────────────────────────────
+const lowSlopeLogos = [
+  { file: 'Elevate_logo_stacked_gradient_CMYK.jpg', name: 'Carlisle / Elevate',    alt: 'Carlisle Elevate logo — certified commercial roofing installer' },
+  { file: 'FiberTite_Only (500px wide)-1.webp',     name: 'FiberTite',             alt: 'FiberTite logo — certified commercial membrane installer' },
+  { file: 'Duro-Last-Logo.jpg',                     name: 'Duro-Last',             alt: 'Duro-Last logo — certified installer' },
+  { file: 'so4677sc9a-soprema-logo-soprema-logo-01-gridworx-wall-systems.png', name: 'SOPREMA', alt: 'SOPREMA logo — certified commercial roofing applicator' },
+  { file: 'nav-logo.png',                           name: 'Mule-Hide',             alt: 'Mule-Hide Products logo — certified installer' },
+  { file: 'TRP_Logo_3.jpeg',                        name: 'Tropical Roofing Products', alt: 'Tropical Roofing Products logo — certified fluid-applied applicator' },
 ];
 
-// Service metros previously rendered as a left-column list — removed in the
-// 2026-05-03 revision when the map went full-width per the /locations/ pattern.
-// The OfficeLocationsMap island still renders the canonical metro pins.
+const metalLogos = [
+  { file: 'mcelroymetal-logo-100w.webp', name: 'McElroy Metal',          alt: 'McElroy Metal logo — certified standing seam installer' },
+  { file: 'Sentrigard-Logo.webp',        name: 'Sentrigard Metal Roofing', alt: 'Sentrigard Metal Roofing Systems logo — certified installer' },
+];
 
-// ── Commercial FAQ (7 questions: 3 originals + 4 from DataForSEO PAA) ─────────
-// PAA source: tech/scripts/output/dataforseo/20260503-163400-serp-advanced.json
-// Distilled from the SERP "people_also_ask" block for "commercial roofing
-// contractor" — kept the 4 commercial-relevant questions, dropped 3 residential-
-// leaning ones (best time to replace shingles, color increases home value,
-// 2026 price forecast date-stamps the page).
+// ── Commercial FAQ ────────────────────────────────────────────────────────────
 const faqs = [
   {
     question: 'How long does a commercial roof replacement typically take?',
-    answer: 'Timelines vary by facility size and system type. A typical 50,000 sq. ft. warehouse re-roof runs two to three weeks once tear-off and weather windows are factored in. We commit to a guaranteed phased schedule during the assessment so building operations can continue during work. For the trade-offs between repair, overlay, and full replacement see our breakdown of commercial roof repair vs replacement at /blog/commercial-roof-repair-vs-replacement/.',
+    answer: 'Timelines vary by facility size and system type. A typical 50,000 sq. ft. warehouse re-roof runs two to three weeks once tear-off and weather windows are factored in. We commit to a guaranteed phased schedule during the assessment so building operations can continue during work.',
   },
   {
     question: 'What does a commercial roof cost per square foot?',
-    answer: 'Installed cost on a low-slope commercial roof typically runs $4 to $12 per square foot for single-ply membrane systems (TPO, EPDM), $8 to $10 for built-up roofing (BUR), and $16 to $22 for standing-seam metal panels. The spread is driven by tear-off scope, insulation R-value, deck condition, attachment method, parapet and penetration count, and whether the project requires phased off-hours work. The executive assessment delivers a per-square-foot range against your specific facility — not a generic number off a price sheet.',
-  },
-  {
-    question: 'What does a commercial roofer actually do that\'s different from a residential one?',
-    answer: 'Commercial roofers work on flat and low-slope decks where the membrane (not the shingle) is the waterproofing layer, where roof-mounted HVAC and conduit penetrations matter more than aesthetics, and where the project has to integrate with active building operations. The materials are different (single-ply TPO/EPDM/PVC, modified bitumen, BUR, standing-seam metal), the warranties are different (NDL coverage from GAF, Firestone, Carlisle, Owens Corning), the safety regime is different (OSHA-certified fall protection, JHA per-zone), and the procurement process is different (RFQ, phased schedule, payment milestones). Residential roofers handle steep-slope shingle work — different system, different code, different decision-makers.',
+    answer: 'Installed cost on a low-slope commercial roof typically runs $4–$12/sq ft for single-ply membrane systems and $16–$22 for standing-seam metal panels. The spread is driven by tear-off scope, insulation R-value, deck condition, attachment method, and penetration count. The executive assessment delivers a per-square-foot range against your specific facility.',
   },
   {
     question: 'What is an NDL warranty and why do I need it?',
-    answer: 'An NDL (No Dollar Limit) warranty is the manufacturer\'s commitment to repair or replace your roofing system without a financial cap on labor or material costs through the warranty term — typically 20 to 30 years on commercial single-ply systems. Standard warranties cap exposure; NDL warranties don\'t. For a multi-million-dollar roof on a Class A property, that uncapped exposure is the single most important paragraph in the warranty packet. NDL coverage is only available through manufacturer-certified installers — including GAF Master Elite, Firestone Licensed, and Owens Corning Platinum contractors.',
-  },
-  {
-    question: 'What is the 25% rule for roofing?',
-    answer: 'The 25% rule is a decision heuristic: if more than roughly 25% of the roof surface is compromised (active leaks, saturated insulation, failed seams, structural deck issues), full replacement usually costs less over a 10-year horizon than repeated repairs. The rule is a starting point, not a verdict — the executive assessment looks at remaining membrane life, deck condition, total damaged area, and warranty status to give you the actual repair-vs-replace recommendation backed by core samples and infrared scan data.',
-  },
-  {
-    question: 'How do I tell if a commercial roofer is being honest with me?',
-    answer: 'Five things to verify before signing a commercial contract: (1) state license and bond on file in your state — not just a contractor card; (2) workers\' comp and general liability certificates dated within 30 days, naming your property as additional insured; (3) manufacturer certification status verifiable on the manufacturer\'s site (GAF, Firestone, Owens Corning all publish certified-installer directories); (4) a written scope with specific membrane brand, thickness in mils, attachment method, and warranty term — not "premium TPO"; and (5) reluctance to demand large up-front payment. Anyone insisting on full payment in advance, guaranteeing an insurance claim before the carrier approves it, or refusing to put a written scope in your hands is a red flag.',
+    answer: 'An NDL (No Dollar Limit) warranty is the manufacturer\'s commitment to repair or replace your roofing system without a financial cap through the warranty term — typically 20–30 years on commercial single-ply systems. NDL coverage is only available through manufacturer-certified installers. Every certified system Pro Exteriors installs qualifies for NDL coverage from the respective manufacturer.',
   },
   {
     question: 'Can you perform work without interrupting our business operations?',
-    answer: 'Yes — phased off-hours installation is standard practice on our commercial portfolio. Our hot-air welded TPO seams produce no fumes, which makes daytime adjacent work feasible on retail and multi-tenant properties. For 24/7 operations like distribution centers, we sequence tear-off and install in zones that follow the building\'s operational rhythm — overnight crews on the dock-side, daytime crews on inactive areas. Documentation of the phasing plan is part of the executive assessment deliverable.',
+    answer: 'Yes. Phased off-hours installation is standard practice on our commercial portfolio. Our hot-air welded TPO seams produce no fumes, making daytime adjacent work feasible on retail and multi-tenant properties. For 24/7 operations, we sequence tear-off and install in zones that follow the building\'s operational rhythm. The phasing plan is part of the executive assessment deliverable.',
+  },
+  {
+    question: 'Do you work in multiple states?',
+    answer: 'Pro Exteriors LLC is fully licensed, bonded, and insured in every state in which we operate. Our National Business Development Division manages multi-state portfolios and institutional accounts across markets. Contact us to confirm coverage in your specific state.',
   },
 ];
 
-// ── Schema graph: BreadcrumbList + Service + FAQPage ──────────────────────────
+// ── Schema ────────────────────────────────────────────────────────────────────
 const mainSchema = [
   breadcrumbSchema([
-    { label: 'Home',                href: '/' },
-    { label: 'Commercial Roofing',  href: '/commercial-roofing/' },
+    { label: 'Home',               href: '/' },
+    { label: 'Commercial Roofing', href: '/commercial-roofing/' },
   ]),
   serviceSchema({
-    name: 'Commercial Roofing Contractor Services',
-    description: 'TPO, EPDM, metal, modified bitumen, coatings, and 24/7 emergency commercial roofing services across 16 states. Manufacturer-certified for NDL warranty coverage.',
-    url: 'https://pc-demo.cleverwork.io/commercial-roofing/',
+    name: 'Multifamily & Commercial Exterior Contractor Services',
+    description: 'National commercial and multifamily exterior contractor. Certified installers for low-slope membrane, metal, and fluid-applied systems. Serving institutional portfolios, K–12 districts, healthcare, hospitality, and government facilities.',
+    url: 'https://proexteriorsus.com/commercial-roofing/',
   }),
   faqPageSchema(faqs),
 ];
 ---
 
 <BaseLayout
-  title="Commercial Roofing Contractor — 16 States | Pro Exteriors"
-  description="Commercial roofing contractor licensed across 16 states. TPO, EPDM, metal, modified bitumen, coatings, and 24/7 emergency response for facility portfolios."
+  title="Multifamily & Commercial Roofing Contractor | Pro Exteriors"
+  description="National commercial and multifamily exterior contractor. Certified for Carlisle, FiberTite, Duro-Last, McElroy Metal, and more. Institutional discipline at portfolio scale."
   canonicalPath="/commercial-roofing/"
   jsonLd={mainSchema}
 >
@@ -232,7 +127,7 @@ const mainSchema = [
   <!-- ════════════════════════════════════════════════════════════════════════
        BREADCRUMB
   ════════════════════════════════════════════════════════════════════════════ -->
-  <div class="bg-stone-50 px-6 lg:px-8 py-4">
+  <div class="bg-stone-50 px-6 lg:px-8 py-4 border-b border-stone-200">
     <div class="max-w-7xl mx-auto">
       <Breadcrumb items={[
         { label: 'Home',               href: '/' },
@@ -242,57 +137,63 @@ const mainSchema = [
   </div>
 
   <!-- ════════════════════════════════════════════════════════════════════════
-       HERO — Texas Motor Speedway image with dark slate overlay + dual CTAs
-       Hero image: /images/commercial-hero.webp
+       HERO — dark navy, institutional copy
   ════════════════════════════════════════════════════════════════════════════ -->
   <section
     class="relative flex items-center overflow-hidden"
-    style="min-height: 600px; height: calc(100vh - 80px); max-height: 870px;"
-    aria-label="Commercial roofing pillar hero"
+    style="min-height: 600px; height: calc(100vh - 80px); max-height: 870px; background-color: #11133F;"
+    aria-label="Commercial roofing hero"
   >
     <div class="absolute inset-0">
       <picture>
         <source srcset="/images/commercial-hero.webp" type="image/webp" />
         <img
           src="/images/commercial-hero.webp"
-          alt="Aerial view of Texas Motor Speedway grandstand and infield, photographed from the south on a clear day — representative of the institutional-scale commercial properties Pro Exteriors services"
+          alt="Aerial view of Texas Motor Speedway — institutional-scale commercial property managed by Pro Exteriors as the Official Roofing Partner"
           class="w-full h-full object-cover"
           loading="eager"
           fetchpriority="high"
           decoding="async"
         />
       </picture>
-      <div class="absolute inset-0 bg-slate-900/70"></div>
+      <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(17,19,63,0.92) 0%, rgba(17,19,63,0.75) 60%, rgba(17,19,63,0.50) 100%);"></div>
     </div>
 
     <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
       <div class="max-w-3xl flex flex-col gap-6">
-        <!-- ESTABLISHED 1994 eyebrow [TODO source: confirm founding year] -->
-        <span class="inline-flex w-fit px-3 py-1 bg-red-700 text-white text-xs font-bold uppercase tracking-widest">
-          Established 1994
+        <span class="inline-flex w-fit px-3 py-1 text-white text-xs font-bold uppercase tracking-widest" style="background-color: #C22326;">
+          Official Roofing Partner · Texas Motor Speedway
         </span>
         <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight">
-          Commercial Roofing Contractor in Dallas &amp; Nationwide.
+          Multifamily &amp; Commercial Services
         </h1>
-        <p class="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl">
-          Three decades of industrial experience deployed across high-performance
-          roofing systems for institutional, commercial, and retail facilities
-          in 16 states.
+        <p class="text-xl md:text-2xl font-light text-white/80 leading-snug max-w-2xl">
+          National Infrastructure. Institutional Discipline. Asset-Level Protection.
+        </p>
+        <p class="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl">
+          Pro Exteriors LLC is a national commercial and multifamily exterior contractor
+          engineered for institutional execution — division-based infrastructure, multi-state
+          licensing, and long-term asset protection strategies.
         </p>
         <div class="flex flex-wrap gap-4 pt-4">
           <a
-            href="#assessment-form"
-            class="inline-flex items-center justify-center px-8 py-4 bg-red-700 hover:bg-red-800 text-white text-lg font-bold rounded transition-colors focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-slate-900"
-            data-cta-name="hero_request_assessment"
+            href="/contact/"
+            class="inline-flex items-center justify-center px-8 py-4 text-white text-lg font-bold rounded transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#11133F]"
+            style="background-color: #C22326;"
+            onmouseover="this.style.backgroundColor='#a01e20'"
+            onmouseout="this.style.backgroundColor='#C22326'"
+            data-event-name="cta_click"
+            data-event-cta-id="hero_schedule_assessment"
           >
-            Request a Roof Assessment
+            Schedule Commercial Assessment
           </a>
           <a
-            href="#systems"
-            class="inline-flex items-center justify-center px-8 py-4 bg-transparent hover:bg-white/10 text-white text-lg font-bold rounded border-2 border-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900"
-            data-cta-name="hero_view_capabilities"
+            href="tel:+18663367767"
+            class="inline-flex items-center justify-center px-8 py-4 bg-transparent hover:bg-white/10 text-white text-lg font-bold rounded border-2 border-white transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#11133F]"
+            data-event-name="cta_click"
+            data-event-cta-id="hero_phone"
           >
-            View Our Capabilities
+            866-336-PROS
           </a>
         </div>
       </div>
@@ -300,597 +201,284 @@ const mainSchema = [
   </section>
 
   <!-- ════════════════════════════════════════════════════════════════════════
-       STAT BAND — 4 stats with red accent bars (Figma layout)
-       [TODO source]: All 4 stats per /decisions/2026-05-03-commercial-roofing-stats-override.md
+       INTRO — from the client doc
   ════════════════════════════════════════════════════════════════════════════ -->
-  <section class="bg-white py-20 px-6 lg:px-8" aria-label="Pro Exteriors at a glance">
-    <div class="max-w-7xl mx-auto">
-      <dl class="grid grid-cols-2 lg:grid-cols-4 gap-12">
-        <!-- [TODO source: 30+ years — confirm 1994 founding] -->
-        <div class="flex flex-col items-center gap-2">
-          <dt class="text-5xl font-black text-slate-900">30+</dt>
-          <dd class="text-sm font-semibold text-slate-600 uppercase tracking-wide">Years in Business</dd>
-          <div class="w-12 h-1 bg-red-700 mt-2" aria-hidden="true"></div>
-        </div>
-        <!-- [TODO source: 15M+ sq ft — conflicts with home page 10M+] -->
-        <div class="flex flex-col items-center gap-2">
-          <dt class="text-5xl font-black text-slate-900">15M+</dt>
-          <dd class="text-sm font-semibold text-slate-600 uppercase tracking-wide">Sq. Ft. Installed</dd>
-          <div class="w-12 h-1 bg-red-700 mt-2" aria-hidden="true"></div>
-        </div>
-        <!-- [TODO source: 98% retention — no live counterpart] -->
-        <div class="flex flex-col items-center gap-2">
-          <dt class="text-5xl font-black text-slate-900">98%</dt>
-          <dd class="text-sm font-semibold text-slate-600 uppercase tracking-wide">Client Retention</dd>
-          <div class="w-12 h-1 bg-red-700 mt-2" aria-hidden="true"></div>
-        </div>
-        <!-- [TODO source: 42 states — contradicts verified 16 licensed states] -->
-        <div class="flex flex-col items-center gap-2">
-          <dt class="text-5xl font-black text-slate-900">42</dt>
-          <dd class="text-sm font-semibold text-slate-600 uppercase tracking-wide">States Served</dd>
-          <div class="w-12 h-1 bg-red-700 mt-2" aria-hidden="true"></div>
-        </div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════════════════════════════════
-       SPECIALIZED ROOFING SYSTEMS — 7-card grid (6 standard + 1 emergency)
-  ════════════════════════════════════════════════════════════════════════════ -->
-  <section id="systems" class="bg-stone-200 py-24 px-6 lg:px-8" aria-labelledby="systems-heading">
-    <div class="max-w-7xl mx-auto flex flex-col gap-16">
-      <header class="flex flex-col gap-4">
-        <h2 id="systems-heading" class="text-4xl font-black text-slate-900 leading-tight">
-          Specialized Roofing Systems
-        </h2>
-        <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
-          Precision engineering meets field-proven durability. We specialize in
-          complex, high-stakes commercial roofing installations.
+  <section class="bg-white py-20 px-6 lg:px-8" aria-labelledby="intro-heading">
+    <div class="max-w-4xl mx-auto flex flex-col gap-8">
+      <h2 id="intro-heading" class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+        Institutional Experience. Portfolio-Level Capability.
+      </h2>
+      <div class="text-lg text-slate-600 leading-relaxed space-y-5">
+        <p>
+          Pro Exteriors LLC is a national commercial and multifamily exterior contractor
+          engineered for institutional execution. We operate through a structured, division-based
+          infrastructure designed to support multi-state portfolios, institutional campuses,
+          municipal facilities, and large-scale multifamily communities with precision and
+          accountability.
         </p>
-        <p class="text-base text-slate-600 max-w-3xl leading-relaxed">
-          Choosing between systems? Our practical breakdown of <a
-            href="/blog/tpo-vs-epdm-vs-pvc/"
-            class="text-red-700 font-semibold hover:text-red-800 underline decoration-2 underline-offset-2"
-            data-cta-name="prose_tpo_vs_epdm"
-          >TPO vs EPDM vs PVC</a> covers the seam-test data, lifespan, and
-          installed-cost comparisons procurement officers actually ask for.
+        <p>
+          Fully licensed, bonded, and insured in every state in which we operate, we provide
+          regulatory compliance, risk mitigation, and structured delivery across every project lifecycle.
         </p>
-      </header>
-
-      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-300 list-none" role="list">
-        {systems.map((s) => (
-          <li class="bg-stone-50 p-8 flex flex-col gap-3">
-            <div class={`h-7 ${s.featured ? 'bg-red-700' : 'bg-slate-900'}`} aria-hidden="true"></div>
-            <h3 class="text-xl font-bold text-slate-900 pt-3">{s.title}</h3>
-            <p class="text-sm text-slate-600 leading-6 flex-grow">{s.body}</p>
-            <a
-              href={s.href}
-              class="inline-flex items-center gap-2 text-red-700 font-bold text-sm hover:text-red-800 pt-3 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
-              data-cta-name={s.ctaName}
-              aria-label={`${s.cta} — ${s.title}`}
-            >
-              {s.cta}
-              <Icon name="arrow-right" size={14} class="flex-shrink-0" />
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════════════════════════════════
-       MASTER-LEVEL CERTIFICATIONS — manufacturer band with NDL warranty intro
-  ════════════════════════════════════════════════════════════════════════════ -->
-  <section class="bg-stone-50 py-16 px-6 lg:px-8 border-y border-neutral-300" aria-labelledby="certs-heading">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
-      <div class="max-w-md flex flex-col gap-2">
-        <h2 id="certs-heading" class="text-lg font-bold text-slate-900">Master-Level Certifications</h2>
-        <p class="text-sm text-slate-600 leading-5">
-          Authorized to provide NDL (No Dollar Limit) manufacturer warranties
-          for up to 30 years from leading industry brands.
+        <p>
+          We do not approach projects as isolated roof replacements. We approach them as
+          long-term asset protection strategies.
+        </p>
+        <p>
+          Commercial and multifamily properties demand operational discipline, documentation
+          integrity, safety compliance, and scalable coordination. Our teams understand
+          occupied-property logistics, phased capital improvement planning, institutional
+          procurement standards, and multi-layer reporting requirements.
         </p>
       </div>
-      <ul class="grid grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-6 list-none" role="list" aria-label="Certified manufacturer partners">
-        {certifications.map((cert) => (
-          <li class="text-2xl font-black text-slate-900 opacity-70 text-center lg:text-left">
-            {cert.name}
-            {/* cert.verified={cert.verified} — Carlisle [TODO source] */}
-          </li>
-        ))}
-      </ul>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════════════════════════════════
-       INDUSTRIAL-GRADE RELIABILITY — conversion-led layout
-       Round-3 fix: dropped the decorative building image + floating navy
-       overlay card per Chris's feedback ("designery for the sake of design;
-       does not guide me to the CTA"). The new layout is a clean conversion
-       funnel: H2 + subhead → 3-up benefits grid → full-width red CTA banner.
-       Eye flows top-down to a single dominant call-to-action.
+       PROPERTY TYPES SERVED — icon card grid
   ════════════════════════════════════════════════════════════════════════════ -->
-  <section class="bg-white py-24 px-6 lg:px-8" aria-labelledby="reliability-heading">
-    <div class="max-w-7xl mx-auto flex flex-col gap-16">
-
-      <!-- Section header -->
-      <header class="flex flex-col gap-4 max-w-3xl">
-        <h2 id="reliability-heading" class="text-4xl font-black text-slate-900 leading-tight">
-          Industrial-Grade Reliability.
+  <section class="bg-stone-100 py-20 px-6 lg:px-8" aria-labelledby="property-types-heading">
+    <div class="max-w-7xl mx-auto flex flex-col gap-12">
+      <header class="text-center max-w-2xl mx-auto">
+        <h2 id="property-types-heading" class="text-3xl md:text-4xl font-black text-slate-900">
+          Properties We Protect
         </h2>
-        <p class="text-lg text-slate-600 leading-7">
-          Three operating disciplines that separate a real commercial roofing
-          contractor from a residential outfit working out of season.
+        <p class="mt-4 text-lg text-slate-600">
+          From Class A office campuses to national logistics portfolios — our teams are
+          equipped for the full spectrum of commercial and multifamily property types.
         </p>
       </header>
-
-      <!-- 3-up benefits grid — uniform visual weight, equal columns -->
-      <ul class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 list-none" role="list">
-        {reliabilityBenefits.map((b) => (
-          <li class="flex flex-col gap-4">
-            <div class="w-14 h-14 bg-slate-900 rounded-lg flex items-center justify-center flex-shrink-0" aria-hidden="true">
-              <Icon name={b.icon} size={22} class="text-white" strokeWidth={2.25} />
+      <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" role="list">
+        {propertyTypes.map((pt) => (
+          <li class="bg-white rounded-lg p-6 flex flex-col items-center text-center gap-3 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background-color: #11133F;">
+              <Icon name={pt.icon} size={22} class="text-white" strokeWidth={2} />
             </div>
-            <h3 class="text-xl font-bold text-slate-900 leading-7 pt-2">{b.heading}</h3>
-            <p class="text-base text-slate-600 leading-6" set:html={b.body} />
+            <p class="text-sm font-semibold text-slate-800 leading-snug">{pt.label}</p>
           </li>
         ))}
       </ul>
-
-      <!--
-        Full-width conversion banner — flag-red brand canon (sole CTA color).
-        Anchors the section's eye-flow to a single dominant CTA. Replaces the
-        floating navy overlay + decorative image from the prior layout.
-      -->
-      <aside
-        class="bg-red-700 rounded-2xl p-10 md:p-12 lg:p-14 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 shadow-xl"
-        aria-labelledby="reliability-cta-heading"
-      >
-        <div class="flex flex-col gap-4 lg:max-w-2xl">
-          <h3 id="reliability-cta-heading" class="text-2xl md:text-3xl font-black text-white leading-tight">
-            What you get in your Executive Roof Assessment
-          </h3>
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-white/95 text-base leading-6 list-none" role="list">
-            <li class="flex items-start gap-2">
-              <span class="text-white font-bold mt-0.5" aria-hidden="true">✓</span>
-              Thermal-imaging moisture scan
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-white font-bold mt-0.5" aria-hidden="true">✓</span>
-              Three-point core sampling
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-white font-bold mt-0.5" aria-hidden="true">✓</span>
-              Multi-year maintenance roadmap
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-white font-bold mt-0.5" aria-hidden="true">✓</span>
-              Warranty-eligibility audit
-            </li>
-          </ul>
-        </div>
-
-        <a
-          href="#assessment-form"
-          class="inline-flex items-center justify-center px-8 py-5 bg-white text-red-700 text-lg font-black rounded-lg hover:bg-stone-100 transition-colors focus:outline-none focus:ring-4 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-700 whitespace-nowrap shadow-lg lg:flex-shrink-0"
-          data-cta-name="reliability_cta_schedule"
-        >
-          Schedule Mine →
-        </a>
-      </aside>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════════════════════════════════
-       INSTITUTIONAL CASE STUDIES — bento layout (3 real cases + CTA card)
-       Per Chris's intake decision: replaced 4 fictional Figma cases + Gold
-       Standard testimonial with the 3 real Pro Exteriors TPO case studies.
+       TRUSTED PARTNERSHIPS — named clients
   ════════════════════════════════════════════════════════════════════════════ -->
-  <section class="bg-stone-100 py-24 px-6 lg:px-8" aria-labelledby="cases-heading">
+  <section class="py-16 text-white" style="background-color: #11133F;" aria-labelledby="trusted-heading">
+    <div class="w-[90%] mx-auto text-center">
+      <p class="text-white/60 text-xs uppercase tracking-widest mb-8">Trusted By</p>
+      <div class="flex flex-wrap justify-center gap-8 items-center">
+        <span class="text-white font-bold text-lg">Texas Motor Speedway</span>
+        <span class="text-white/40">·</span>
+        <span class="text-white font-bold">Fort Worth ISD</span>
+        <span class="text-white/40">·</span>
+        <span class="text-white font-bold">Pottsboro ISD</span>
+        <span class="text-white/40">·</span>
+        <span class="text-white font-bold">TIPS Cooperative Purchasing Program</span>
+      </div>
+      <p class="mt-6 text-white/50 text-sm">Including South Georgia State College · Paine College</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       DIVISIONS — four-column cards
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-20 px-6 lg:px-8" aria-labelledby="divisions-heading">
+    <div class="max-w-7xl mx-auto flex flex-col gap-12">
+      <header class="max-w-2xl">
+        <h2 id="divisions-heading" class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+          Structured Divisions. Corporate-Level Oversight.
+        </h2>
+        <p class="mt-4 text-lg text-slate-600">
+          Our internal structure ensures disciplined execution at scale. This infrastructure
+          allows consistent standards across markets while maintaining centralized accountability.
+        </p>
+      </header>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
+        {divisions.map((div) => (
+          <li class="border border-stone-200 rounded-xl p-8 flex flex-col gap-4 hover:border-[#C22326] transition-colors">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background-color: #11133F;">
+              <Icon name={div.icon} size={22} class="text-white" strokeWidth={2} />
+            </div>
+            <h3 class="text-lg font-bold text-slate-900">{div.name}</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">{div.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       CERTIFIED MANUFACTURER SYSTEMS — Tasks 14 & 28
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stone-50 py-20 px-6 lg:px-8 border-y border-stone-200" aria-labelledby="certs-heading">
     <div class="max-w-7xl mx-auto flex flex-col gap-16">
-      <header class="flex flex-col items-center text-center gap-4">
-        <h2 id="cases-heading" class="text-4xl font-black text-slate-900 leading-tight">Institutional Case Studies</h2>
-        <p class="text-lg text-slate-600 leading-7">Proven performance across diverse industry sectors.</p>
+      <header class="text-center max-w-2xl mx-auto">
+        <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: #C22326;">Certified &amp; Authorized Installation Partners</p>
+        <h2 id="certs-heading" class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+          Engineered Roofing &amp; Restoration Systems
+        </h2>
+        <p class="mt-4 text-lg text-slate-600">
+          Every system we install is backed by manufacturer certification — which means we can
+          offer NDL (No Dollar Limit) warranties that uncertified contractors simply cannot provide.
+        </p>
       </header>
 
-      <!--
-        Bento — 2-row × 3-col grid with EVERY CELL FILLED (no orphan cells).
-        Round-3 fix: the prior asymmetric layout left col-2 of row-2 empty,
-        producing the unbalanced look Chris flagged.
-
-        Layout (lg breakpoint):
-          Row 1:  TechPark spans cols 1-2 (wide landscape) | CTA spans col 3 row 1-2
-          Row 2:  Fort Worth col 1 (square)                | Dallas Mall col 2 (square) | CTA continues
-          Row 3:  ─ closed ─
-
-        Total tiles = 4 (3 cases + 1 CTA), 6 cells, 0 orphans.
-        Mobile collapses to single-column stack in source order.
-      -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:auto-rows-[300px]">
-
-        <!-- Card 1: TechPark — wide landscape, top-left, spans 2 cols -->
-        <a
-          href={caseStudies[0].href}
-          class="group relative block rounded-xl overflow-hidden h-80 md:h-auto lg:col-span-2 lg:row-span-1 focus:outline-none focus:ring-4 focus:ring-red-400 focus:ring-offset-2"
-          data-cta-name={caseStudies[0].ctaName}
-        >
-          <img src={caseStudies[0].image} alt={caseStudies[0].alt} class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" />
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/40 to-slate-900/0"></div>
-          <span class="absolute top-6 left-6 px-3 py-1 bg-white text-slate-900 text-xs font-black uppercase tracking-wider">{caseStudies[0].industryTag}</span>
-          <div class="absolute bottom-6 left-6 right-6 flex flex-col gap-2">
-            <h3 class="text-2xl font-bold text-white leading-8">{caseStudies[0].heading}</h3>
-            <p class="text-sm text-white/80 leading-5">{caseStudies[0].summary}</p>
-          </div>
-        </a>
-
-        <!-- Card 4: Vertical CTA — col 3, spans both rows, full height -->
-        <div class="bg-red-700 rounded-xl h-80 md:h-auto lg:col-span-1 lg:row-span-2 flex flex-col items-center justify-center text-center p-8 gap-6">
-          <div class="flex flex-col gap-3">
-            <h3 class="text-2xl font-black text-white leading-8">Your Project Next?</h3>
-            <p class="text-sm text-white/90 leading-5">Submit a quick RFQ and a project manager will be on your roof within two business days.</p>
-          </div>
-          <div class="flex flex-col gap-3 w-full">
-            <a
-              href="/contact/?vertical=commercial&intent=rfp"
-              class="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 text-sm font-bold rounded hover:bg-stone-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-700"
-              data-cta-name="cases_submit_rfp"
-            >
-              Submit RFP
-            </a>
-            <a
-              href="#assessment-form"
-              class="inline-flex items-center justify-center px-6 py-3 bg-transparent text-white text-sm font-bold rounded border-2 border-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-700"
-              data-cta-name="cases_request_assessment"
-            >
-              Request Assessment
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 2: Fort Worth — square, row-2 col-1 -->
-        <a
-          href={caseStudies[2].href}
-          class="group relative block rounded-xl overflow-hidden h-80 md:h-auto lg:col-span-1 lg:row-span-1 focus:outline-none focus:ring-4 focus:ring-red-400 focus:ring-offset-2"
-          data-cta-name={caseStudies[2].ctaName}
-        >
-          <img src={caseStudies[2].image} alt={caseStudies[2].alt} class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" />
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/40 to-slate-900/0"></div>
-          <span class="absolute top-6 left-6 px-3 py-1 bg-white text-slate-900 text-xs font-black uppercase tracking-wider">{caseStudies[2].industryTag}</span>
-          <div class="absolute bottom-6 left-6 right-6 flex flex-col gap-2">
-            <h3 class="text-xl font-bold text-white leading-7">{caseStudies[2].heading}</h3>
-            <p class="text-sm text-white/80 leading-5">{caseStudies[2].summary}</p>
-          </div>
-        </a>
-
-        <!-- Card 3: Dallas North Mall — square, row-2 col-2 (was wide landscape; resized to fill the cell that was orphaned) -->
-        <a
-          href={caseStudies[1].href}
-          class="group relative block rounded-xl overflow-hidden h-80 md:h-auto lg:col-span-1 lg:row-span-1 focus:outline-none focus:ring-4 focus:ring-red-400 focus:ring-offset-2"
-          data-cta-name={caseStudies[1].ctaName}
-        >
-          <img src={caseStudies[1].image} alt={caseStudies[1].alt} class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" />
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/40 to-slate-900/0"></div>
-          <span class="absolute top-6 left-6 px-3 py-1 bg-white text-slate-900 text-xs font-black uppercase tracking-wider">{caseStudies[1].industryTag}</span>
-          <div class="absolute bottom-6 left-6 right-6 flex flex-col gap-2">
-            <h3 class="text-xl font-bold text-white leading-7">{caseStudies[1].heading}</h3>
-            <p class="text-sm text-white/80 leading-5">{caseStudies[1].summary}</p>
-          </div>
-        </a>
-
+      <!-- Low-Slope Certified Systems -->
+      <div class="flex flex-col gap-8">
+        <h3 class="text-xl font-bold text-slate-900 border-b border-stone-200 pb-4">Low-Slope Certified Systems</h3>
+        <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center" role="list">
+          {lowSlopeLogos.map((logo) => (
+            <li class="flex items-center justify-center bg-white rounded-lg p-4 shadow-sm h-24">
+              <img
+                src={`/images/partners/${logo.file}`}
+                alt={logo.alt}
+                class="max-h-14 max-w-full object-contain"
+                loading="lazy"
+              />
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <div class="text-center">
-        <a
-          href="/projects/"
-          class="inline-flex items-center gap-2 text-red-700 font-bold hover:text-red-800 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
-          data-cta-name="cases_view_all"
-        >
-          View All Projects
-          <Icon name="arrow-right" size={16} class="flex-shrink-0" />
-        </a>
+      <!-- Metal & Steep-Slope Systems -->
+      <div class="flex flex-col gap-8">
+        <h3 class="text-xl font-bold text-slate-900 border-b border-stone-200 pb-4">Metal &amp; Steep-Slope Systems</h3>
+        <ul class="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center max-w-2xl" role="list">
+          {metalLogos.map((logo) => (
+            <li class="flex items-center justify-center bg-white rounded-lg p-4 shadow-sm h-24">
+              <img
+                src={`/images/partners/${logo.file}`}
+                alt={logo.alt}
+                class="max-h-14 max-w-full object-contain"
+                loading="lazy"
+              />
+            </li>
+          ))}
+          <!-- Steep-slope certifications: Malarkey, Atlas, GAF (text badges) -->
+          <li class="flex items-center justify-center bg-white rounded-lg p-4 shadow-sm h-24">
+            <img
+              src="/images/partners/malarkeylogo.jpg"
+              alt="Malarkey Roofing Products — certified installer"
+              class="max-h-14 max-w-full object-contain"
+              loading="lazy"
+            />
+          </li>
+          <li class="flex items-center justify-center bg-white rounded-lg p-4 shadow-sm h-24">
+            <img
+              src="/images/partners/GAF-Logo_800x400.jpeg"
+              alt="GAF — certified commercial installer"
+              class="max-h-14 max-w-full object-contain"
+              loading="lazy"
+            />
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════════════════════════════════
-       DALLAS ROOTED, NATIONWIDE REACH — full-width map (matches /locations/)
-       Per Chris's revision: removed the left copy column; map is now the
-       full-width primary surface, headed by a centered title + subhead the
-       same way /pages/locations/index.astro renders it.
+       GOVERNANCE & WARRANTIES
   ════════════════════════════════════════════════════════════════════════════ -->
-  <section id="reach" class="py-20 bg-surface-inset overflow-hidden" aria-labelledby="reach-heading">
+  <section class="bg-white py-20 px-6 lg:px-8" aria-labelledby="warranty-heading">
+    <div class="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
+      <div>
+        <h2 id="warranty-heading" class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+          Governance, Warranty &amp; Risk Mitigation
+        </h2>
+        <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+          Every project is supported by a complete governance framework — not just a warranty
+          card. We document, report, and manage accountability from mobilization through
+          final sign-off.
+        </p>
+      </div>
+      <ul class="space-y-4" role="list">
+        {[
+          'Manufacturer-backed system warranties',
+          'Weathertightness warranties on qualifying metal systems',
+          'Five-year workmanship warranty',
+          'Structured quality control protocols',
+          'Comprehensive documentation and reporting',
+          'Dedicated project management leadership',
+        ].map((item) => (
+          <li class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background-color: #C22326;">
+              <Icon name="check" size={12} class="text-white" strokeWidth={3} />
+            </div>
+            <span class="text-base text-slate-700 leading-relaxed">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       NATIONWIDE REACH — map
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section id="reach" class="py-20 bg-stone-100 overflow-hidden" aria-labelledby="reach-heading">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-12">
         <h2 id="reach-heading" class="text-3xl font-bold text-slate-900">Dallas Rooted. Nationwide Reach.</h2>
-        <p class="text-text-secondary mt-4 text-lg">
+        <p class="text-slate-600 mt-4 text-lg">
           Click any office pin to view details and dispatch the closest team.
         </p>
       </div>
-      <div class="bg-surface-elevated p-4 rounded-3xl shadow-xl ring-1 ring-border">
+      <div class="bg-white p-4 rounded-3xl shadow-xl ring-1 ring-stone-200">
         <OfficeLocationsMap client:visible />
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════════════════════════════════
-       COMMERCIAL FAQ — 3 questions in accordion (FAQ molecule handles a11y)
+       COMMERCIAL FAQ
   ════════════════════════════════════════════════════════════════════════════ -->
-  <section class="bg-stone-100 py-24 px-6 lg:px-8" aria-labelledby="faq-heading">
+  <section class="bg-white py-24 px-6 lg:px-8" aria-labelledby="faq-heading">
     <div class="max-w-3xl mx-auto flex flex-col gap-12">
-      <h2 id="faq-heading" class="text-3xl font-black text-slate-900 text-center leading-9">Commercial FAQ</h2>
+      <h2 id="faq-heading" class="text-3xl font-black text-slate-900 text-center leading-9">
+        Commercial Roofing FAQ
+      </h2>
       <FAQ faqs={faqs} />
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════════════════════════════════
-       GET YOUR EXECUTIVE ROOF ASSESSMENT — inline form posting to /api/lead
-       Figma's 4 qualifying fields are preserved, plus required contact fields
-       (firstName/lastName/email/phone) the existing API endpoint requires.
-       Qualifying fields concatenate into projectDetails before POST.
+       FINAL CTA — dark navy
   ════════════════════════════════════════════════════════════════════════════ -->
-  <section id="assessment-form" class="bg-slate-900 py-24 px-6 lg:px-8" aria-labelledby="assessment-heading">
-    <div class="max-w-3xl mx-auto flex flex-col gap-8">
-      <header class="flex flex-col gap-6">
-        <h2 id="assessment-heading" class="text-4xl font-black text-white leading-tight">
-          Get Your Executive Roof Assessment
-        </h2>
-        <p class="text-lg text-white/80 leading-7">
-          Schedule a comprehensive analysis of your facility's current roof
-          condition. Our reports include thermal imaging, core samples, and a
-          multi-year maintenance roadmap. No commitment. Real diagnostic.
-        </p>
-        <div class="flex items-center gap-4">
-          <div class="flex" aria-hidden="true">
-            <span class="w-12 h-12 bg-blue-100 rounded-full ring-2 ring-slate-900 flex items-center justify-center text-slate-900 font-bold">JD</span>
-            <span class="w-12 h-12 -ml-3 bg-blue-100 rounded-full ring-2 ring-slate-900 flex items-center justify-center text-slate-900 font-bold">SM</span>
-            <span class="w-12 h-12 -ml-3 bg-blue-100 rounded-full ring-2 ring-slate-900 flex items-center justify-center text-slate-900 font-bold">RK</span>
-          </div>
-          <p class="text-sm text-white">
-            <span class="text-red-400 font-semibold">Expert consultation</span> ready for your call.
-          </p>
-        </div>
-      </header>
-
-      <form
-        id="executive-assessment-form"
-        class="bg-white rounded-2xl p-10 flex flex-col gap-6 shadow-2xl"
-        novalidate
-      >
-        <!-- Qualifying fields (Figma design) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <label class="flex flex-col gap-2">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-900">Company Name</span>
-            <input
-              type="text"
-              name="companyName"
-              placeholder="e.g. Global Logistics Inc."
-              required
-              class="px-4 py-4 bg-gray-100 rounded-lg text-base text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-400"
-            />
-          </label>
-
-          <label class="flex flex-col gap-2">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-900">Facility Type</span>
-            <select
-              name="facilityType"
-              required
-              class="px-4 py-4 bg-gray-100 rounded-lg text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-red-400"
-            >
-              <option value="">Select facility type</option>
-              <option>Warehouse / Industrial</option>
-              <option>Retail / Big Box</option>
-              <option>Multi-Tenant Office</option>
-              <option>Education / Institutional</option>
-              <option>Healthcare</option>
-              <option>Manufacturing</option>
-              <option>Other</option>
-            </select>
-          </label>
-
-          <label class="flex flex-col gap-2">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-900">Approx. Sq. Ft.</span>
-            <input
-              type="number"
-              name="squareFootage"
-              placeholder="e.g. 100,000"
-              min="0"
-              required
-              class="px-4 py-4 bg-gray-100 rounded-lg text-base text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-400"
-            />
-          </label>
-
-          <label class="flex flex-col gap-2">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-900">Timeline</span>
-            <select
-              name="timeline"
-              required
-              class="px-4 py-4 bg-gray-100 rounded-lg text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-red-400"
-            >
-              <option value="">Select timeline</option>
-              <option>Immediate / Emergency</option>
-              <option>Within 30 days</option>
-              <option>Within 90 days</option>
-              <option>Planning for next budget cycle</option>
-            </select>
-          </label>
-        </div>
-
-        <!-- Project Details (textarea) — full freeform context for the assessment -->
-        <label class="flex flex-col gap-2">
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-900">Project Details</span>
-          <textarea
-            name="projectDetailsFreeform"
-            rows="4"
-            placeholder="Tell us about the roof condition, recent leaks or storm damage, any deadlines from leadership or insurance, deck type if known, manufacturer warranty status, anything else worth knowing before we walk the roof."
-            class="px-4 py-4 bg-gray-100 rounded-lg text-base text-slate-900 placeholder-gray-500 leading-6 focus:outline-none focus:ring-2 focus:ring-red-400 resize-y min-h-[120px]"
-          ></textarea>
-          <span class="text-xs text-slate-600">Optional, but the more context the sharper the assessment.</span>
-        </label>
-
-        <!-- Contact fields (required by /api/lead schema) -->
-        <div class="border-t border-neutral-200 pt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <label class="flex flex-col gap-2">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-900">First Name</span>
-            <input
-              type="text"
-              name="firstName"
-              autocomplete="given-name"
-              required
-              class="px-4 py-4 bg-gray-100 rounded-lg text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-red-400"
-            />
-          </label>
-
-          <label class="flex flex-col gap-2">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-900">Last Name</span>
-            <input
-              type="text"
-              name="lastName"
-              autocomplete="family-name"
-              required
-              class="px-4 py-4 bg-gray-100 rounded-lg text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-red-400"
-            />
-          </label>
-
-          <label class="flex flex-col gap-2">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-900">Email</span>
-            <input
-              type="email"
-              name="email"
-              autocomplete="email"
-              required
-              class="px-4 py-4 bg-gray-100 rounded-lg text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-red-400"
-            />
-          </label>
-
-          <label class="flex flex-col gap-2">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-900">Phone</span>
-            <input
-              type="tel"
-              name="phone"
-              autocomplete="tel"
-              required
-              class="px-4 py-4 bg-gray-100 rounded-lg text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-red-400"
-            />
-          </label>
-        </div>
-
-        <!-- Honeypot — hidden from users; blocks bots -->
-        <div class="absolute -left-[9999px]" aria-hidden="true">
-          <label>
-            Website (leave blank)
-            <input type="text" name="website" tabindex="-1" autocomplete="off" />
-          </label>
-        </div>
-
-        <!-- Hidden routing fields the API expects -->
-        <input type="hidden" name="vertical"  value="commercial" />
-        <input type="hidden" name="formType"  value="executive-assessment" />
-        <input type="hidden" name="campaign"  value="commercial-roofing-pillar-2026-05" />
-
-        <button
-          type="submit"
-          class="w-full py-4 bg-red-700 hover:bg-red-800 text-white text-lg font-black uppercase tracking-widest rounded-lg shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
-          data-cta-name="form_assessment_submit"
+  <section
+    class="py-24 px-6 lg:px-8 text-white"
+    style="background-color: #11133F;"
+    aria-labelledby="final-cta-heading"
+  >
+    <div class="max-w-3xl mx-auto text-center flex flex-col gap-8">
+      <h2 id="final-cta-heading" class="text-4xl md:text-5xl font-black leading-tight">
+        Schedule a commercial asset evaluation today.
+      </h2>
+      <p class="text-xl text-white/70 leading-relaxed">
+        National capability. Institutional discipline. Long-term protection.
+        Engage a contractor engineered for portfolio-level execution.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact/"
+          class="inline-flex items-center justify-center px-10 py-5 text-white text-lg font-black rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#11133F]"
+          style="background-color: #C22326;"
+          onmouseover="this.style.backgroundColor='#a01e20'"
+          onmouseout="this.style.backgroundColor='#C22326'"
+          data-event-name="cta_click"
+          data-event-cta-id="final_schedule_assessment"
         >
-          Send Assessment Request
-        </button>
-
-        <p class="text-center text-[10px] uppercase tracking-wide text-slate-600">
-          Confidentiality assured · 24-hour response
-        </p>
-
-        <div id="form-status" role="status" aria-live="polite" class="text-center text-sm font-medium hidden"></div>
-      </form>
+          Schedule Your Assessment
+        </a>
+        <a
+          href="tel:+18663367767"
+          class="inline-flex items-center justify-center px-10 py-5 bg-white text-slate-900 text-lg font-black rounded-lg hover:bg-stone-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#11133F]"
+          data-event-name="cta_click"
+          data-event-cta-id="final_phone"
+        >
+          866-336-PROS
+        </a>
+      </div>
     </div>
   </section>
-
-  <script is:inline>
-    (function () {
-      const form = document.getElementById('executive-assessment-form');
-      if (!form) return;
-      const status = document.getElementById('form-status');
-
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        status.classList.add('hidden');
-
-        const data = Object.fromEntries(new FormData(form).entries());
-
-        // Honeypot — silent fail on bot submissions
-        if (data.website && String(data.website).trim() !== '') return;
-
-        // Compose qualifying fields + freeform textarea into the projectDetails
-        // string the API expects. Qualifying fields lead so the sales team
-        // sees the structured info first; the prospect's freeform text follows.
-        const qualifiers = [
-          data.companyName    && `Company: ${data.companyName}`,
-          data.facilityType   && `Facility: ${data.facilityType}`,
-          data.squareFootage  && `Approx. Sq. Ft.: ${data.squareFootage}`,
-          data.timeline       && `Timeline: ${data.timeline}`,
-        ].filter(Boolean).join(' · ');
-
-        const freeform = (data.projectDetailsFreeform || '').toString().trim();
-        const projectDetails = freeform
-          ? `${qualifiers}\n\n— Project notes —\n${freeform}`
-          : qualifiers;
-
-        const payload = {
-          firstName:      data.firstName,
-          lastName:       data.lastName,
-          email:          data.email,
-          phone:          data.phone,
-          vertical:       data.vertical,
-          formType:       data.formType,
-          campaign:       data.campaign,
-          projectDetails,
-        };
-
-        // Fire attempt event for GA4 / GTM
-        if (window.dataLayer) {
-          window.dataLayer.push({
-            event: 'form_submit_attempt',
-            formId: 'executive-assessment',
-            vertical: 'commercial',
-          });
-        }
-
-        try {
-          const submitBtn = form.querySelector('button[type="submit"]');
-          if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending…';
-          }
-
-          const response = await fetch('/api/lead', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-          });
-
-          if (!response.ok) throw new Error('Submission failed');
-
-          if (window.dataLayer) {
-            window.dataLayer.push({
-              event: 'form_submit_success',
-              formId: 'executive-assessment',
-              vertical: 'commercial',
-            });
-          }
-
-          window.location.href = '/thank-you/';
-        } catch (err) {
-          console.error('[ASSESSMENT FORM] Error:', err);
-          status.textContent = 'Sorry — something went wrong. Please call (469) 535-1708 or try again.';
-          status.classList.remove('hidden');
-          status.classList.add('text-red-700');
-
-          const submitBtn = form.querySelector('button[type="submit"]');
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Assessment Request';
-          }
-        }
-      });
-    })();
-  </script>
 
 </BaseLayout>
