@@ -4,9 +4,9 @@ import SiteLogo from '../atoms/SiteLogo.astro';
 
 <footer class="bg-surface-inset pt-16 pb-8" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <div class="w-[90%] mx-auto">
     <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-      
+
       <!-- Brand & Mission Info -->
       <div class="space-y-8 xl:col-span-1">
         <a href="/" class="inline-flex items-center" aria-label="Pro Exteriors home">
@@ -16,7 +16,6 @@ import SiteLogo from '../atoms/SiteLogo.astro';
           Your trusted partner for commercial and residential exterior solutions. Local experts. Not "storm chasers."
         </p>
         <div class="flex space-x-6">
-          <!-- Social Placeholders -->
           <a href="#" class="text-text-tertiary hover:text-accent">
             <span class="sr-only">Facebook</span>
             <div class="h-6 w-6 bg-border rounded-full" aria-hidden="true" data-todo="social-facebook"></div>
@@ -41,7 +40,7 @@ import SiteLogo from '../atoms/SiteLogo.astro';
               <li><a href="/blog/" class="text-sm leading-6 text-text-secondary hover:text-accent">Press & Blog</a></li>
             </ul>
           </div>
-          
+
           <!-- Services Column -->
           <div class="mt-10 md:mt-0">
             <h3 class="text-sm font-semibold leading-6 text-text-primary uppercase tracking-wider">Services</h3>
@@ -52,17 +51,12 @@ import SiteLogo from '../atoms/SiteLogo.astro';
             </ul>
           </div>
         </div>
-        
+
         <div class="md:grid md:grid-cols-2 md:gap-8">
           <!-- Locations Column -->
           <div>
             <h3 class="text-sm font-semibold leading-6 text-text-primary uppercase tracking-wider">Locations</h3>
             <ul role="list" class="mt-6 space-y-4">
-              {/* Updated 2026-05-03 per Chris's Option B decision in /decisions/2026-05-03-office-footprint-reconciliation.md.
-                  These five metro pages do not yet exist (planned per /strategy/Pro-Exteriors_GBP-and-Silo-Memo Q1 build).
-                  Six prior DFW-specific links (Dallas HQ / Fort Worth / Frisco / Southlake / Arlington / Edmond OK) removed
-                  because they misrepresented the multi-state footprint. Trade-off accepted: these links 404 until the
-                  /locations/* pages ship in M2/M3. Search Console will surface the 404s — we accept that signal. */}
               <li><a href="/locations/" class="text-sm leading-6 text-text-secondary hover:text-accent">All Locations</a></li>
               <li><a href="/locations/dallas-hq/" class="text-sm leading-6 text-text-secondary hover:text-accent">Dallas HQ</a></li>
               <li><a href="/locations/fort-worth/" class="text-sm leading-6 text-text-secondary hover:text-accent">Fort Worth, TX</a></li>
@@ -72,7 +66,7 @@ import SiteLogo from '../atoms/SiteLogo.astro';
               <li><a href="/locations/atlanta/" class="text-sm leading-6 text-text-secondary hover:text-accent">Atlanta, GA</a></li>
             </ul>
           </div>
-          
+
           <!-- Legal Column -->
           <div class="mt-10 md:mt-0">
             <h3 class="text-sm font-semibold leading-6 text-text-primary uppercase tracking-wider">Legal & Utility</h3>
@@ -87,19 +81,19 @@ import SiteLogo from '../atoms/SiteLogo.astro';
         </div>
       </div>
     </div>
-    
+
     <!-- Bottom Strip -->
-    <div class="mt-16 border-t border-border pt-8 sm:mt-20 md:flex md:items-center md:justify-between">
-      <div class="flex space-x-6 md:order-2">
-        <!-- Certification Badges Placeholders -->
-        <div class="flex space-x-4 items-center">
-          <span class="text-xs text-text-tertiary font-semibold uppercase">Certifications:</span>
-          <div class="h-8 w-20 bg-border flex items-center justify-center text-xs text-text-tertiary" data-todo="cert-gaf">GAF</div>
-          <div class="h-8 w-20 bg-border flex items-center justify-center text-xs text-text-tertiary" data-todo="cert-carlisle">Carlisle</div>
-          <div class="h-8 w-20 bg-border flex items-center justify-center text-xs text-text-tertiary" data-todo="cert-versico">Versico</div>
-        </div>
+    <div class="mt-16 border-t border-border pt-8 sm:mt-20 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+
+      <!-- Certification badges — wrap on mobile -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs text-text-tertiary font-semibold uppercase shrink-0">Certifications:</span>
+        <span class="px-3 py-1 bg-border text-xs text-text-tertiary rounded" data-todo="cert-gaf">GAF</span>
+        <span class="px-3 py-1 bg-border text-xs text-text-tertiary rounded" data-todo="cert-carlisle">Carlisle</span>
+        <span class="px-3 py-1 bg-border text-xs text-text-tertiary rounded" data-todo="cert-versico">Versico</span>
       </div>
-      <p class="mt-8 text-xs leading-5 text-text-tertiary md:order-1 md:mt-0">
+
+      <p class="text-xs leading-5 text-text-tertiary">
         &copy; {new Date().getFullYear()} Pro Exteriors. All rights reserved.
       </p>
     </div>
