@@ -25,18 +25,38 @@ const mainSchema = [websiteSchema(), organizationSchema()];
     aria-label="Homepage hero"
   >
     <div class="absolute inset-0">
-      <!-- TODO: Replace with a home-specific hero video (8–15 s loop) once filmed.
-           A commercial TPO video exists at /videos/services/commercial/tpo-hero.mp4
-           but is not appropriate as the homepage hero. -->
+      <!-- Poster loads instantly; video loops silently after page load -->
       <img
-        src="/images/home-hero.webp"
+        id="hero-poster"
+        src="/images/tms-hero-poster.webp"
         alt=""
         class="w-full h-full object-cover"
         loading="eager"
         fetchpriority="high"
       />
-      <div class="absolute inset-0 bg-slate-900/75"></div>
+      <video
+        id="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+        aria-hidden="true"
+      >
+        <source src="/videos/tms-hero.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-slate-900/70"></div>
     </div>
+
+    <script>
+      const video = document.getElementById('hero-video') as HTMLVideoElement | null;
+      const poster = document.getElementById('hero-poster') as HTMLImageElement | null;
+      if (video && poster) {
+        video.addEventListener('canplay', () => {
+          video.style.opacity = '1';
+        }, { once: true });
+      }
+    </script>
 
     <div class="relative z-10 w-[90%] mx-auto">
       <div class="max-w-3xl flex flex-col gap-6">
