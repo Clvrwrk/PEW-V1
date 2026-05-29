@@ -16,9 +16,11 @@ export function organizationSchema() {
       "height": "60"
     },
     "sameAs": [
-      "https://www.facebook.com/proexteriorsus",
-      "https://www.linkedin.com/company/pro-exteriors-llc-tx",
-      "https://www.instagram.com/proexteriorsus"
+      "https://www.facebook.com/proexteriorsus/",
+      "https://www.linkedin.com/company/proexteriorsus/",
+      "https://www.instagram.com/proexteriorsllc/",
+      "https://www.bbb.org/us/tx/richardson/profile/roofing-contractors/pro-exteriors-llc-0875-91303048",
+      "https://business.richardsonchamber.com/list/member/pro-exteriors-llc-25116"
     ],
     "contactPoint": [
       {
