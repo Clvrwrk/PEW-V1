@@ -2,121 +2,76 @@
 **Project:** Pro Exteriors Website
 **Repo:** https://github.com/Clvrwrk/PEW-V1.git
 **Production URL:** not yet launched; staging/demo URL is `https://pc-demo.cleverwork.io`
-**Date:** 2026-05-29 15:39
+**Date:** 2026-05-29 21:19
 **Agent:** Maren Castellan-Reyes, Senior Director, Website & Application Experience
-**Reason:** User-requested full handoff after the client review-call build + nav/footer/schema cleanup
+**Reason:** Post-review-call **final-touch batch** before go-live publish. Five client-approved edits from the 2026-05-29 call wrap-up, plus the nav/footer label propagation Chris flagged on review.
 
 ---
 
 ## Accomplished This Session
 
-This session ran the 2026-05-29 client review-call build (transcript → plan → approved scope), a team-headshot standardization pass, and a header/footer/schema consistency cleanup. De-scoped human launch tasks (DNS, lead-form routing to Madison/Crystal, phone consolidation, financing copy, locations/map, launch sequence) remain human follow-ups.
+This is the punch-list Chris approved at the end of the 2026-05-29 client review call — the "make these final touches and we're ready to roll" items Chandler called out, executed against the live Astro source. The prior build-and-cleanup session is archived at `archive/handoff_2026-05-29_1539.md`; this handoff covers only what changed after it.
 
-### Homepage (`src/pages/index.astro`)
-- Hero H1 → **"America's Top Commercial Roofing Company"** (national); "16 states" kept.
-- Trust row: removed Malarkey Emerald badge → **Pro Ministry "Faith Based"** logo (far left); "2022 Premium Certified" → **"2021 / Roofing Since"**; "10M+ Sq Ft Installed" → **"100+ Roofs Protected"**.
-- Rebuilt the two-card audience split into **three service-division cards** (Commercial & Multifamily, Residential Roofing, Roof Asset Management) on client photo backgrounds.
+### 1. "Meet the Team" + "Pro Ministries Outreach" — headers, nav, and footer
+- **Team page** (`src/pages/team/index.astro`): H1 is now **"Meet the Team"**; "Executive & Management Team" demoted to the red eyebrow above it.
+- **Pro Ministries page** (`src/pages/pro-ministries/index.astro`): hero eyebrow corrected from **"Pro Ministries Inc." → "Pro Ministries Outreach"** (puts the right label at the top of the block, not buried).
+- **Primary nav** (`src/components/organisms/Header.astro`, desktop **and** mobile drawer): `Team → Meet the Team`, `Pro Ministries → Pro Ministries Outreach`.
+- **Footer** (`src/components/organisms/Footer.astro`, Company column): same two relabels, so header ↔ footer ↔ page headers all read identically. Routes unchanged (`/team/`, `/pro-ministries/`).
 
-### Navigation, About, Team, Pro Ministries
-- `Header.astro` + `Footer.astro`: "About" split into **About Us / Team / Pro Ministries**; **Projects** and **Resources** removed from primary nav.
-- `about/index.astro` rebuilt as **About Us** (from `Option 1.pdf`); new **`/team/`** (Executive & Management Team, centered static grid) and **`/pro-ministries/`** (from `Pro Ministries Outreach.pdf`, collage minus 2 client-flagged images).
-- `about/mission.astro` + `about/leadership.astro` → meta-refresh **redirect stubs** (`/about/`, `/team/`) to avoid duplicate content.
+### 2. Pro Ministries cross mark — white cross / crimson P on navy
+- Chandler wanted the white box gone behind the cross on the navy trust band. Rebuilt the mark by recoloring the existing logo: **navy cross → white, crimson-red P kept (`#800508`), white background → transparent**, preserving the exact geometry and anti-aliased edges (no redraw, no AI).
+- New asset: `public/Logos/pro-ministries-logo-reverse.webp` (transparent, 600×599, ~5KB). Wired into the homepage trust band (`src/pages/index.astro`).
+- Original `public/Logos/pro-ministries-logo.webp` (navy-on-white) **retained** for any light-background use. Crimson stays intentionally distinct from the Exteriors red — separate ministry.
 
-### Residential Services (`residential-roofing/index.astro`)
-- All generic AI images + the static video poster → client photos (`content/Client Docs/Residential/Photos/`).
-- Removed the **"1 of 5 in DFW / Malarkey one-of-five"** claim; corrected warranty to **five-year** per the client doc.
+### 3. "100+ Roofs Protected" → "2,500"
+- Confirmed with Chandler ("we're probably right around there"). Changed in **two** places: homepage trust band (`src/pages/index.astro`) and the residential proof block (`src/pages/residential-roofing/index.astro`).
 
-### Commercial Services (`commercial-roofing/index.astro`)
-- Client hero; new **membrane-type gallery** (TPO/EPDM/Metal/Shingles) and a dedicated **Multi-Family** section, all on client photography.
+### 4. Residential founding stat → "Year Founded" (2021)
+- Residential services page (`src/pages/residential-roofing/index.astro`): stat label **"ROOFING SINCE" → "YEAR FOUNDED"**, value stays **2021** (sr-only `<dt>` updated to match). Homepage "Roofing Since / 2021" left as-is — the relabel was scoped to the residential page only.
 
-### Team headshots + standard + skill
-- Added **Shawn Hillard** (Residential Operations Manager).
-- **Lonnie Sawyer** was the only headshot out of tolerance (face-top 0.049). Extended via outpaint, reframed to canonical (face-top 0.134, centered). Lucinda/Isaac/Crystal accepted as-is by Chris.
-- `tech/DESIGN.md` **v1.2**: Team Headshots framing standard. New skill **`_aia4-skills/aia4-headshot-framing/`** (`check` + `reframe`, cv2/PIL, outpaint-when-tight workflow); CLAUDE.md skill-map pointer.
+### 5. Service-card images — six topic mismatches replaced
+Residential `serviceItems` array. Each card now carries a topic-accurate image (replacing reused/wrong photos):
 
-### Nav language standardization (header ↔ footer ↔ homepage cards)
-Three service destinations now share one canonical label everywhere:
-- `/commercial-roofing/` → **Commercial & Multifamily**
-- `/residential-roofing/` → **Residential Roofing**
-- `/proplan/` → **Roof Asset Management**
-(Header changed "Residential Services" → "Residential Roofing"; footer changed "Commercial Roofing" → "Commercial & Multifamily" and "ProPlan Maintenance" → "Roof Asset Management". Homepage card headings already matched.)
+| Card | Was | Now |
+|---|---|---|
+| Metal Roofing | `res-7` (a shingle roof) | `res-metal.webp` (standing-seam metal) |
+| Tile & Clay | `res-6` (asphalt shingle) | `res-tile.webp` (Spanish clay barrel tile) |
+| Natural Slate | `res-6` (asphalt shingle) | `res-slate.webp` (natural slate) |
+| Gutters | `res-1` (roof aerial) | `res-gutters.webp` (seamless gutter + downspout) |
+| Siding | `res-1` (roof aerial) | `res-siding.webp` (board-and-batten siding) |
+| Emergency Tarping | `res-5` (pristine home, no tarp) | `res-tarp.webp` (blue tarp over storm-damaged roof); alt corrected — removed the "crew" claim, no people in shot |
 
-### Footer build-out (`Footer.astro`)
-- Added a **Get a Quote** CTA + **844-336-PROS** phone (brand column) and **Contact** in the Company column — parity with the header.
-- **Social** (official brand vector glyphs, authoritative URLs): LinkedIn `company/proexteriorsus/`, Facebook `proexteriorsus/`, Instagram `proexteriorsllc/`.
-- **Accreditation/membership** links (icon + label): **BBB A+ Accredited** and **Richardson Chamber Member**. Official BBB seal + Chamber badge are account-specific licensed images — left as `data-todo` to swap in from each org's portal.
+- New assets live in `public/images/clients/residential/`, capped at 1100–1200px and **re-compressed under the 130KB image-weight budget** (116–118KB) so the image audit passes. Untouched real photos `res-1/2/3/4/5/6/7.webp` remain in use elsewhere on the page.
 
-### Organization schema fix (`src/lib/schema/Organization.ts`) — real bug caught
-The `sameAs` array carried **wrong handles** (Instagram `proexteriorsus`, LinkedIn `pro-exteriors-llc-tx`). Corrected all three to the authoritative URLs and added the BBB + Chamber profile URLs, so social identity is consistent across footer **and** structured data.
+---
 
-### Asset pipeline
-- 30 client images converted to webp into `public/images/clients/**`, `public/images/home/**`, `public/Logos/pro-ministries-logo.webp`. Originals in `content/Client Docs/**` untouched (Drive = source of truth).
-- **Note:** an external/automated commit (`28cb7db`) subsequently **re-compressed 17 client webp under a 130KB image-weight budget** — keep new client images under that budget or the image audit will flag them.
+## ⚠️ Images Are AI-Generated Placeholders
+The six service-card images in item 5 are **AI-generated** (Higgsfield `nano_banana_pro`), consistent with the fallback workflow Chris described on the call ("if a real local image doesn't exist, I'll create an AI version"). They are topic-accurate and clean, but they are **not real Pro Exteriors jobs**. Swap them for real PE project photos as those come in — priority on **Emergency Tarping** and the **material cards** (metal/tile/slate), since those read as portfolio proof. This is the one place this batch deviates from the "every image is real PE work" rule, by explicit authorization.
 
-### Decision record
-- `decisions/2026-05-29-client-review-call-build-edits.md`.
+---
 
 ## Git State
-- **Branch:** `main`
-- **HEAD:** `28cb7db` — "fix(images): re-compress 17 client webp under 130KB image-weight budget"
-- **`origin/main` == HEAD** → everything through `28cb7db` is **pushed**. The earlier credential block was resolved (pushed from Chris's side).
-- **Commits now on `origin/main` (this session):**
-  - `fa023f8` — Client review-call build edits
-  - `3da0f9a` — Team headshots: Shawn + Lonnie + framing standard + skill
-  - `a78668b` — docs(handoff): 2026-05-29 session handoff + archive renaming
-  - `28cb7db` — image re-compress (17 client webp under budget)
-- **Uncommitted working-tree changes (the cleanup + this handoff) — NOT yet committed/pushed:**
+- **Branch:** `main`. Edits are file-level; see the per-file list above.
+- Reminder from prior session: **an external/automated actor commits and pushes** in this repo — verify `git rev-parse HEAD` vs `origin/main` before assuming state.
 
-| File / Path | Status | Note |
-|------|--------|------|
-| `src/components/organisms/Header.astro` | Modified | "Residential Services" → "Residential Roofing". |
-| `src/components/organisms/Footer.astro` | Modified | Get-a-Quote CTA + phone + Contact; social glyphs (LI/FB/IG); BBB + Chamber links; service labels aligned. |
-| `src/lib/schema/Organization.ts` | Modified | `sameAs` corrected (IG/LinkedIn) + BBB/Chamber added. |
-| `docs/handoffs/current.md` | Modified | This handoff. |
-| `docs/handoffs/archive/handoff_2026-05-29_1453.md` | Added | Prior current.md archived (naming: `handoff_Date_Time.md`). |
+## Verification
+- **Static verification passed:** all `img`/`src`/logo paths on the four edited pages resolve to files that exist; `serviceItems` array intact (11 cards); the six new images confirmed topic-accurate by eye; reverse cross mark previewed composited on navy (`#11133F`) — white cross, crimson P, no white box.
+- **Full `npx astro build` could NOT run in this session's sandbox** — Vite cannot read/clear the mounted `node_modules` (`EPERM` / system error `-35` on the deps cache). Same mount limitation noted in prior handoffs, not a code defect. The changes are text/attribute/asset swaps only — no JS, imports, or tag-structure changes.
+- **ACTION before publish:** run `npm run preflight` (or the `/tmp` build workaround from the archived handoff — `outDir`/`cacheDir`/`vite.cacheDir` redirected, `node_modules` symlinked) to exercise the real build + audit chain (`audit:images`, `audit:schema`, etc.) once on a machine without the mount limit.
+- `astro.config.mjs` was temporarily patched with a `/tmp` `vite.cacheDir` to test-build, then **reverted** — confirmed clean (no `cacheDir` line remains).
 
-> Commit method: full-tree `git status`/`commit` **bus-error** on this FUSE mount — commit via plumbing (`write-tree`/`commit-tree`/`update-ref`) and verify staging by blob-hash (`ls-files -s` vs `hash-object`). See Operational Notes.
-
-## Task Cut Off
-None mid-task. Build verified green at each step. Only open thread: commit + push the 3 code files above (Chris's side has been handling pushes).
-
-## Next Task — Start Here
-1. Commit the uncommitted Header/Footer/Organization changes (+ this handoff) and push to `main`.
-2. Drop in the **official BBB Accredited seal** and **Richardson Chamber member badge** images (from each org's portal) and replace the `data-todo` text-icon links in the footer.
-3. Resume de-scoped human items: lead-form routing (Madison = production, Crystal = service) with end-to-end tests; phone consolidation (844 sitewide, 866 on Services only); real vanity metrics; Atlanta address; DNS point + Lighthouse/a11y/schema/forms hard-gate pass before launch.
-
-**Prompt to use:** "Read `docs/handoffs/current.md`. Commit and push the uncommitted footer/header/schema cleanup, then swap in the official BBB seal + Chamber badge images."
-
-## Decisions Made This Session
-- Canonical service labels: **Commercial & Multifamily / Residential Roofing / Roof Asset Management** across header, footer, and homepage cards.
-- Social icons use **official brand vector glyphs**; **BBB/Chamber seals are not fabricated** — official licensed badges come from each org's portal.
-- Organization `sameAs` is the structured-data source of social truth and must mirror the footer links.
-- No generic AI imagery ships; residential warranty corrected to five-year; "1 of 5 Emerald" claim cut.
-- Team-headshot framing is a documented standard (DESIGN.md v1.2) enforced by `aia4-headshot-framing`.
-- Keep client webp **under the 130KB image-weight budget** (enforced by the image audit; see `28cb7db`).
-
-## Blockers / Awaiting Human
-1. **Official BBB seal + Chamber badge images** — download from each portal; then footer swap.
+## Blockers / Awaiting Human (carried forward + still open)
+1. **Official BBB seal + Chamber badge images** — download from each portal; footer swap (`data-todo`).
 2. **Lead-form destinations** — Madison (production) / Crystal (service) contacts + delivery method; end-to-end test before launch.
-3. **Real metrics & Atlanta address** — pending from client.
+3. **Real metrics & Atlanta address** — pending from client (Atlanta address ~2–3 weeks per Chandler).
 4. **Launch hard gates** — Lighthouse, a11y, schema, live form tests before client launch.
+5. **Real PE photos** to replace the six AI service-card placeholders (see warning above).
 
 ## Open Notes for Next Agent
-- The headshot validator flags **Lucinda Dunn** at face-height 0.442 (just over the documented 0.44) though Chris accepts her. Consider widening `TOL_FACEH` upper to 0.45 in `frame_headshot.py` + DESIGN.md so the standard never flags an approved shot. Awaiting Chris's call.
-- Footer **certification badges** (GAF / Carlisle / Versico) in the bottom strip are still text placeholders (`data-todo`).
-- Header "Locations We Serve" vs footer "All Locations" both route `/locations/` — Chris said no need to align.
-
-## Verification Commands
-1. `npx astro build` — **passed, 132 pages** (run from a temp copy `/tmp/peb` with `outDir`/`cacheDir`/`vite.cacheDir` redirected and `node_modules` symlinked; the in-place build can't clear `node_modules/.vite` on the mount).
-2. `python3 _aia4-skills/aia4-headshot-framing/scripts/frame_headshot.py check public/images/team/*.webp` — Lonnie PASS post-reframe; all within tolerance except the Lucinda edge note above.
-3. Post-edit greps confirmed: no stale social handles remain in `dist/`; footer + schema both carry the authoritative URLs; no `ProPlan Maintenance` / mismatched service labels remain.
-
-## Operational Notes (this environment)
-- **Git on the FUSE mount:** full-tree `git status`/`diff`/`commit`/`diff-tree` **bus-error**. Per-file ops, `git add <path>`, `ls-files -s`, `hash-object`, and plumbing work. `git add` may miss a changed file due to stat-cache — `touch <file>` or `git diff --stat HEAD -- <file>` forces a re-check; verify staging by comparing `ls-files -s` blob vs `hash-object`.
-- **File deletion** is blocked by default; enable via the cowork file-delete grant when needed (used to clear a stale `.git/index.lock`).
-- **Builds:** macOS `node_modules` lacks the Linux rollup binary — `npm install --no-save @rollup/rollup-linux-arm64-gnu@<rollup version>`. Build from `/tmp/peb` (see cmd 1).
-- **Image generation:** Higgsfield-style connector (`generate_image` w/ `nano_banana_pro`, `media_upload`/`media_confirm`) available for outpainting — no FAL.ai needed.
-- **An external/automated actor commits and pushes** in this repo (e.g., `a78668b`, `28cb7db`). Don't be surprised by HEAD advancing between turns; check `git rev-parse HEAD` and `origin/main` before assuming state.
+- The **"Meet the Team / Pro Ministries Outreach"** ask was the one ambiguous line in the transcript — Team and Pro Ministries are **separate pages**, not one combined block. Resolved as: Team page H1 = "Meet the Team", Pro Ministries eyebrow = "Pro Ministries Outreach", and both nav + footer labels updated to match. Chris approved leaving these as-is.
+- Homepage hero H1 is **"America's Top Commercial Roofing Company"** — Chris said he's still testing alternate headlines; not locked. Confirm before final publish.
+- Headshot validator edge note on **Lucinda Dunn** (face-height 0.442 vs 0.44 tolerance) still open — Chris accepts her; consider widening `TOL_FACEH` upper to 0.45. Unchanged this session.
+- Footer certification badges (GAF / Carlisle / Versico) still text placeholders (`data-todo`). Unchanged this session.
 
 ## Full Context
-Older-session context (PageBuilder governance, runtime alignment, GBP workbook, architecture, design system, deployment map, key invariants) is preserved in `docs/handoffs/archive/handoff_2026-05-04_0403b.md`. The build-phase detail for the 2026-05-29 build (before this cleanup) is in `docs/handoffs/archive/handoff_2026-05-29_1453.md`. Invariants still hold: commercial/residential paths stay distinct, workbook URL canon wins, no unsourced claims ship, deployable raster/webp assets stay under the image-weight budget, and the build audit chain protects the launch baseline.
+Prior 2026-05-29 build-and-cleanup detail (homepage rebuild, About/Team/Pro Ministries split, residential/commercial photo swaps, headshot standardization, schema `sameAs` fix, nav-label canon, footer build-out) is in `archive/handoff_2026-05-29_1539.md`. Older-session context (PageBuilder governance, GBP workbook, architecture, design system, deployment, key invariants) is in `archive/handoff_2026-05-04_0403b.md`. Invariants still hold: commercial/residential paths stay distinct, no unsourced claims ship, deployable webp stays under the 130KB image-weight budget, and the build audit chain protects the launch baseline.
