@@ -1,5 +1,5 @@
 ---
-version: 1.1
+version: 1.2
 name: Pro Exteriors
 description: |
   Canonical visual identity for the Pro Exteriors website. Five-color brand
@@ -447,7 +447,25 @@ Twenty component definitions cover the core surfaces: three button variants (pri
 
 **DON'T** put hunter_green on surfaces that aren't brand-voice surfaces. It's the rarest of the five colors by intent. If hunter_green appears on every page section, it stops being brand voice.
 
+## Team Headshots
+
+Every team / leadership headshot ships at a single canonical framing so the grid reads as one consistent set. Framing is measured by the OpenCV frontal-face box (brow-to-chin) as a fraction of the image height — every shot is measured the same way, so the numbers are internally comparable.
+
+- **Aspect ratio:** 600 × 448 (4:3, ratio 1.339). Cards render `aspect-square object-top`, which shows the full image height and crops the sides — so vertical framing is what governs the look.
+- **Face-top headroom:** 0.13 of frame height. Tolerance 0.08–0.24.
+- **Face height:** 0.32 of frame height. Tolerance 0.26–0.44.
+- **Face center (x):** 0.50. Tolerance 0.46–0.54.
+- **Backdrop & wardrobe:** the softly-blurred glass-office background shared by the existing set; subject in the white Pro Exteriors shirt.
+
+Any new headshot must pass these before it ships. Validate and conform with the **`aia4-headshot-framing`** skill (`/_aia4-skills/aia4-headshot-framing/`):
+
+- `frame_headshot.py check <img>…` reports PASS/FAIL for each image against the tolerances above.
+- If a shot fails on headroom because the head is jammed against the top edge (no room to crop down), extend the canvas upward first via the image connector (outpaint matching background above the head), then run `frame_headshot.py reframe <src> <dest.webp>` to crop to the canonical frame and re-verify.
+
+Reference correction: Lonnie Sawyer's original headshot measured face-top 0.049 (head against the top edge, below the 0.08 floor). It was extended via outpaint and reframed to 0.134 on 2026-05-29 to match the set. The other thirteen headshots were measured in the same pass and are within tolerance.
+
 ## Change log
 
+- **2026-05-29 v1.2** — Added the **Team Headshots** framing standard (4:3, face-top 0.13, face-height 0.32, centered, with tolerances) and the `aia4-headshot-framing` skill that validates and conforms new headshots. Triggered by Lonnie Sawyer's headshot falling below the headroom floor during the client review-call build. See `/decisions/2026-05-29-client-review-call-build-edits.md`.
 - **2026-05-03 v1.1** — Role-token canon clarified. Inverted `primary` and `secondary`: primary is now deep-navy (#11133f); secondary is now hunter-green (#3b6b4c). Tertiary (flag-red), accent (golden-orange), and info (smart-blue) unchanged. Added a ROLE CANON block to the front matter and palette comments now state primary/secondary status explicitly. Reasoning, hex values, and reversal cost: `/decisions/2026-05-03-brand-token-canon.md`. Triggered by token-file conflict surfaced during the TPO pillar-page rebuild — both this file and `/brand-assets/.../_variables.css` claimed canon with conflicting role assignments. This file is now authoritative; `_variables.css` will be patched on next touch.
 - **2026-04-12 v1.0** — Initial DESIGN.md authored as the build's design source-of-truth.

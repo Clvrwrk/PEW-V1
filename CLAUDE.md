@@ -112,6 +112,7 @@ Reach for the right skill rather than reinventing the wheel. Read the SKILL.md b
 | Section-level Astro components from Figma blueprint with brand tokens | `aia4-layout` (project-local) |
 | Page-level QC — voice, sourcing, depth, hypothesis, alt-text | `aia4-page-qc` (project-local) |
 | Code-level QC — WCAG 2.2 AA, Lighthouse, schema, semantic HTML | `aia4-code-qc` (project-local) |
+| Validate / conform team headshots to the framing standard (DESIGN.md → Team Headshots) | `aia4-headshot-framing` (project-local) |
 | Discovery interviews, persona research | `design:user-research`, `design:research-synthesis` |
 | Design feedback before handoff | `design:design-critique` |
 | WCAG audit on a design or page | `design:accessibility-review` |
