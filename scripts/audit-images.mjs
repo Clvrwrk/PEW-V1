@@ -1,5 +1,6 @@
 import { access, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { budgetFor, FORBIDDEN_RASTER_EXTENSIONS } from './lib/image-budget.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -8,7 +9,6 @@ const DIST_DIR = path.join(ROOT, 'dist');
 const SKIP_DIST = process.argv.includes('--no-dist');
 
 const SOURCE_EXTENSIONS = new Set(['.astro', '.css', '.mdx', '.ts', '.tsx']);
-const FORBIDDEN_RASTER_EXTENSIONS = new Set(['.avif', '.gif', '.jpeg', '.jpg', '.png']);
 const ALLOWED_PUBLIC_EXTENSIONS = new Set(['.webp']);
 const REFERENCE_PATTERN = /(?:https?:\/\/[^"'\s)<>]+)?\/(?:images|Logos)\/[^"'\s)<>]+/g;
 
@@ -41,15 +41,6 @@ async function walk(dir) {
 
 function toPosix(relativePath) {
   return relativePath.split(path.sep).join('/');
-}
-
-function budgetFor(relativePath) {
-  const file = relativePath.toLowerCase();
-  if (file.includes('/logos/')) return 80_000;
-  if (file.endsWith('/og-default.webp')) return 120_000;
-  if (file.includes('hero')) return 225_000;
-  if (file.includes('/blog/') || file.includes('featured')) return 100_000;
-  return 130_000;
 }
 
 async function auditPublicTree(dir, label) {

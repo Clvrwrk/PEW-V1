@@ -15,6 +15,9 @@
     "audit:gbp-plan": "node scripts/audit-gbp-url-plan.mjs",
     "audit:images": "node scripts/audit-images.mjs",
     "audit:pagebuilder": "node scripts/audit-pagebuilder.mjs",
+    "fix:images": "node scripts/optimize-public-images.mjs",
+    "preflight": "node scripts/deploy-preflight.mjs",
+    "preflight:fast": "node scripts/deploy-preflight.mjs --fast",
     "collect:pagespeed": "node scripts/collect-pagespeed-scores.mjs",
     "sync:gbp-pagebuilder": "node scripts/sync-gbp-pagebuilder-columns.mjs",
     "test:pagebuilder": "node --test tests/pagebuilder-governance.test.mjs"
