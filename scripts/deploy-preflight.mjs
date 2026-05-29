@@ -67,6 +67,38 @@ function record(stage, ok, note = '') {
   record('image gate', ok, ok ? '' : 're-source over-budget images flagged above');
 }
 
+// ── Stage 2b: uncommitted image check ──
+// Catches the 2026-05-29 pattern: file exists locally in public/ but was never
+// git-added, so audit:images passes on disk while Coolify sees a missing file.
+{
+  process.stdout.write('\n▶ Stage 2b · uncommitted image check\n  $ (git ls-files check on public/images + public/Logos)\n');
+  const { execSync } = await import('node:child_process');
+  let uncommitted = [];
+  try {
+    // List all WebP files on disk under public/images + public/Logos
+    const find = execSync('find public/images public/Logos -name "*.webp" 2>/dev/null', { encoding: 'utf8' }).trim();
+    const diskFiles = find ? find.split('\n') : [];
+    // Check each against the git index
+    for (const f of diskFiles) {
+      try {
+        execSync(`git ls-files --error-unmatch "${f}"`, { stdio: 'pipe' });
+      } catch {
+        uncommitted.push(f);
+      }
+    }
+  } catch {
+    // find itself failed (e.g. dirs don't exist yet) — not a blocker
+  }
+  if (uncommitted.length) {
+    console.error(`  ❌ ${uncommitted.length} image(s) on disk but NOT committed to git (Coolify will see them as missing):`);
+    for (const f of uncommitted) console.error(`     git add "${f}"`);
+    record('uncommitted images', false, 'run the git add commands above, then re-run preflight');
+  } else {
+    console.log('  ✅ all public/ images are committed to git');
+    record('uncommitted images', true);
+  }
+}
+
 // ── Stage 3: full build + every audit (the real Coolify gate) ──
 if (FAST) {
   console.log('\n▶ Stage 3 · full build — SKIPPED (--fast). Runtime crashes (e.g. component data) are NOT covered.');

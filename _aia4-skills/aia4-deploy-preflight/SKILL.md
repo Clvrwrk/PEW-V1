@@ -76,6 +76,7 @@ move together — never log a failure without strengthening the guard.
 | lockfile-desync (`npm ci` EUSAGE) | Stage 0 | `npm install --package-lock-only` |
 | image-format (non-WebP raster in `public/`) | Stage 1 → Stage 2 | convert to WebP, drop original |
 | image-budget (over per-tier byte cap) | Stage 1 → Stage 2 | recompress / downscale |
+| missing-committed-image (file on disk, not in git index) | Stage 2b — uncommitted image check | none — `git add` the file |
 | build-runtime (component/page crash) | Stage 3 (`astro build`) | none — fix by hand |
 | schema / contrast / silo / orphans / gbp-plan / pagebuilder | Stage 3 | none yet — caught, not fixed |
 
