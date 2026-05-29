@@ -43,6 +43,19 @@ Residential `serviceItems` array. Each card now carries a topic-accurate image (
 
 - New assets live in `public/images/clients/residential/`, capped at 1100–1200px and **re-compressed under the 130KB image-weight budget** (116–118KB) so the image audit passes. Untouched real photos `res-1/2/3/4/5/6/7.webp` remain in use elsewhere on the page.
 
+### 6. Nav + footer label propagation
+- Per Chris's review, the "Meet the Team" / "Pro Ministries Outreach" relabels were propagated to the **primary nav (desktop + mobile drawer)** and the **footer Company column** so header ↔ footer ↔ page headers all read identically. `Team → Meet the Team`, `Pro Ministries → Pro Ministries Outreach`. Routes unchanged.
+
+### 7. Responsive / viewport fix — header was causing horizontal scroll
+- **Symptom:** horizontal scroll at 1280×720 (and similar laptop widths).
+- **Root cause:** the desktop nav switched on at `lg` (1024px) with the logo at `lg:h-28` (≈**480px wide**, aspect 4.29 in the very tall `lg:h-40` bar) plus six `whitespace-nowrap` labels (lengthened by the relabels). Measured intrinsic row width ≈1,500px+ vs ~1,152px usable at 1280 (`w-[90%]`) → the row pushed the page wider than the viewport.
+- **Fix (Chris chose: collapse to menu button on laptops, keep the prominent logo):**
+  - `Header.astro`: desktop `<nav>` and utility group moved from `lg:flex` → **`2xl:flex`** (≥1536px); the menu button moved from `lg:hidden` → **`2xl:hidden`**. So 1024–1535px (incl. 1280/1440 laptops) now show the full-featured menu button (drawer carries all links + phone + Get a Quote CTA); the prominent `lg:h-28` logo is unchanged at those widths.
+  - At the ≥1536 nav tier: logo `2xl:h-16`, nav text `text-sm`, gaps tightened (`gap-x-5` nav, `gap-x-4` utility, `gap-x-7` between groups), and the desktop "Locations We Serve" link label shortened to **"Locations"** (full `aria-label` kept).
+  - `global.css`: added a site-wide **`overflow-x: clip`** guard on `html, body` (clip, not hidden, so the sticky header still works) as a backstop against any other stray horizontal overflow at any viewport.
+- **Validated deterministically** (no browser available in this sandbox — see Verification): measured the real Inter glyph advances for the new config → nav-tier row = **1,285px**, fits at 1536 (usable 1382) with **97px slack**, more above. Below 1536 the menu-button layout (logo + hamburger only) fits trivially.
+- **Trade-off flagged:** 1280/1440-px laptops now show the menu button rather than the horizontal bar — the consequence of keeping the full-size logo. If Chris later wants the horizontal nav on 1280 laptops, that requires shrinking the logo (the rejected option B).
+
 ---
 
 ## ⚠️ Images Are AI-Generated Placeholders

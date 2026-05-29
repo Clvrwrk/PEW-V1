@@ -21,9 +21,15 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    /* Site-wide guard against accidental horizontal scroll at any viewport.
+       `clip` (not `hidden`) so it does NOT create a scroll container — keeps
+       the sticky header working. Real overflow causes are still fixed at source. */
+    overflow-x: clip;
   }
 
   body {
+    overflow-x: clip;
+    max-width: 100%;
     font-family: var(--font-sans);
     font-size: var(--text-base);
     line-height: 1.6;
