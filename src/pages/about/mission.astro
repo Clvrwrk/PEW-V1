@@ -1,138 +1,19 @@
 ---
-import BaseLayout from '../../components/seo/BaseLayout.astro';
-import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
-import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
-
-const breadcrumbs = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about/' },
-  { label: 'Mission & Values', href: '/about/mission/' },
-];
-const schemaPayload = [breadcrumbSchema(breadcrumbs)];
+// 2026-05-29: Mission content consolidated into /about/ (About Us). This route
+// now redirects to avoid duplicate content. See /decisions/2026-05-29-client-review-call-build-edits.md
+const dest = '/about/';
 ---
-
-<BaseLayout
-  title="Mission & Values | Pro Exteriors LLC"
-  description="Pro Exteriors LLC is built on Trust, Honor, and Integrity. Read the values that guide every project, every crew, and every client relationship."
-  canonicalPath="/about/mission/"
-  jsonLd={schemaPayload}
->
-  <Breadcrumb items={breadcrumbs.slice(1)} />
-
-  <!-- Hero -->
-  <section class="bg-[#11133F] text-white py-20 px-4">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-sm font-semibold tracking-widest uppercase text-[#C22326] mb-4">Who We Are</p>
-      <h1 class="text-4xl sm:text-5xl font-bold mb-6">Mission & Values</h1>
-      <p class="text-white/75 text-lg leading-relaxed">
-        The standards we hold and the principles we build on — every project, every client, every day.
-      </p>
-    </div>
-  </section>
-
-  <!-- Mission body -->
-  <article class="max-w-3xl mx-auto px-4 py-20">
-
-    <!-- Opening statement -->
-    <blockquote class="border-l-4 border-[#C22326] pl-8 mb-12">
-      <p class="text-xl sm:text-2xl font-medium text-[#11133F] leading-relaxed italic">
-        "At Pro Exteriors LLC, we believe that doing the right thing is not just a business strategy — it is who we are."
-      </p>
-    </blockquote>
-
-    <p class="text-base sm:text-lg text-slate-700 leading-relaxed mb-8">
-      Our mission is to deliver exceptional exterior solutions with honesty, accountability, and craftsmanship that reflects our core values. We serve our clients the way we want to be served. We treat every property as if it were our own. We build long-term relationships, not one-time transactions.
-    </p>
-
-    <!-- Core values banner -->
-    <div class="bg-[#11133F] rounded-2xl px-8 py-8 text-center mb-16">
-      <p class="text-3xl sm:text-4xl font-bold text-white tracking-wide mb-2">
-        Trust.&nbsp;&nbsp;Honor.&nbsp;&nbsp;Integrity.
-      </p>
-      <p class="text-white/50 text-sm tracking-widest uppercase">Our Core Values</p>
-    </div>
-
-    <!-- Trust -->
-    <section class="mb-14">
-      <div class="flex items-center gap-4 mb-5">
-        <div class="w-12 h-12 bg-[#C22326] rounded-xl flex items-center justify-center flex-shrink-0">
-          <span class="text-white font-bold text-lg">T</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-[#11133F]">Trust</h2>
-      </div>
-      <p class="text-slate-700 text-base leading-relaxed mb-4">
-        Trust is not requested — it is earned. We earn it through consistency: clear communication before work begins, accurate timelines we actually hit, and workmanship that holds up long after we leave the site.
-      </p>
-      <p class="text-slate-700 text-base leading-relaxed">
-        When a property manager hands us access to a building they are responsible for, that is an act of trust. We take it seriously. Every crew member on a Pro Exteriors job site understands that the client's confidence in us is fragile and worth protecting.
-      </p>
-    </section>
-
-    <hr class="border-stone-200 mb-14" />
-
-    <!-- Honor -->
-    <section class="mb-14">
-      <div class="flex items-center gap-4 mb-5">
-        <div class="w-12 h-12 bg-[#C22326] rounded-xl flex items-center justify-center flex-shrink-0">
-          <span class="text-white font-bold text-lg">H</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-[#11133F]">Honor</h2>
-      </div>
-      <p class="text-slate-700 text-base leading-relaxed mb-4">
-        We honor our commitments — to clients, to our crews, and to the communities where we work. A handshake still means something at Pro Exteriors. When we say we will be there, we are there.
-      </p>
-      <p class="text-slate-700 text-base leading-relaxed">
-        Honor shows up in the small things: calling back when we say we will, pricing the job honestly, and never cutting corners because the client won't notice. They may not notice. We always do.
-      </p>
-    </section>
-
-    <hr class="border-stone-200 mb-14" />
-
-    <!-- Integrity -->
-    <section class="mb-14">
-      <div class="flex items-center gap-4 mb-5">
-        <div class="w-12 h-12 bg-[#C22326] rounded-xl flex items-center justify-center flex-shrink-0">
-          <span class="text-white font-bold text-lg">I</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-[#11133F]">Integrity</h2>
-      </div>
-      <p class="text-slate-700 text-base leading-relaxed mb-4">
-        We do the right thing even when no one is watching. Integrity is not a policy or a value printed on a wall — it is the standard we hold every person at Pro Exteriors to, every day.
-      </p>
-      <p class="text-slate-700 text-base leading-relaxed">
-        That means recommending a repair when a repair is sufficient, rather than pushing a full replacement. It means owning a mistake, fixing it, and not billing the client for the fix. It means treating a residential homeowner with the same rigor we bring to a national commercial account.
-      </p>
-    </section>
-
-    <hr class="border-stone-200 mb-14" />
-
-    <!-- Built on Faith -->
-    <section class="bg-stone-50 rounded-2xl p-8 ring-1 ring-stone-200">
-      <p class="text-sm font-semibold tracking-widest uppercase text-[#C22326] mb-4">#BuiltOnFaith</p>
-      <p class="text-slate-700 text-base leading-relaxed mb-4">
-        These values are not a brand exercise. They come from a genuine commitment — held by our founders and carried through every hire we make — to do business in a way that reflects something larger than the bottom line.
-      </p>
-      <p class="text-slate-700 text-base leading-relaxed">
-        We are Pro Exteriors LLC. We are built on faith. And we believe the best evidence of that faith is the quality and character of the work we leave behind.
-      </p>
-    </section>
-
-    <!-- CTA -->
-    <div class="mt-14 flex flex-col sm:flex-row gap-4">
-      <a
-        href="/about/"
-        class="inline-flex items-center justify-center px-8 py-3 bg-[#11133F] text-white font-semibold rounded-lg hover:bg-[#1a1f5c] transition-colors"
-        data-cta-name="mission_back_about"
-      >
-        ← Back to About
-      </a>
-      <a
-        href="/about/leadership/"
-        class="inline-flex items-center justify-center px-8 py-3 border border-stone-300 text-slate-700 font-semibold rounded-lg hover:bg-stone-100 transition-colors"
-        data-cta-name="mission_to_leadership"
-      >
-        Meet the Leadership →
-      </a>
-    </div>
-  </article>
-</BaseLayout>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${dest}`} />
+    <link rel="canonical" href={dest} />
+    <meta name="robots" content="noindex, follow" />
+    <title>Redirecting to About Us</title>
+    <script set:html={`window.location.replace(${JSON.stringify(dest)});`}></script>
+  </head>
+  <body>
+    <p>This page has moved. <a href={dest}>Continue to About Us</a>.</p>
+  </body>
+</html>

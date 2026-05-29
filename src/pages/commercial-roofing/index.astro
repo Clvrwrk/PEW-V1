@@ -146,10 +146,10 @@ const mainSchema = [
   >
     <div class="absolute inset-0">
       <picture>
-        <source srcset="/images/commercial-hero.webp" type="image/webp" />
+        <source srcset="/images/clients/commercial/tpo-1.webp" type="image/webp" />
         <img
-          src="/images/commercial-hero.webp"
-          alt="Aerial view of Texas Motor Speedway — institutional-scale commercial property managed by Pro Exteriors as the Official Roofing Partner"
+          src="/images/clients/commercial/tpo-1.webp"
+          alt="Pro Exteriors crew on a completed commercial low-slope roofing project"
           class="w-full h-full object-cover"
           loading="eager"
           fetchpriority="high"
@@ -302,6 +302,71 @@ const mainSchema = [
             </div>
             <h3 class="text-lg font-bold text-slate-900">{div.name}</h3>
             <p class="text-sm text-slate-600 leading-relaxed">{div.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       ROOFING SYSTEMS WE INSTALL — real client project photography by type
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-stone-50 py-20 px-6 lg:px-8" aria-labelledby="systems-heading">
+    <div class="max-w-7xl mx-auto flex flex-col gap-12">
+      <header class="max-w-2xl">
+        <h2 id="systems-heading" class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+          Commercial Roofing Systems We Install
+        </h2>
+        <p class="mt-4 text-lg text-slate-600">
+          Real Pro Exteriors projects across every commercial assembly — from low-slope
+          single-ply to standing-seam metal and steep-slope systems.
+        </p>
+      </header>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
+        {[
+          { type: 'TPO', img: '/images/clients/commercial/tpo-2.webp', body: 'Hot-air welded TPO single-ply membrane for low-slope commercial roofs — energy-efficient, seamless, and installable with no fumes on occupied buildings.' },
+          { type: 'EPDM', img: '/images/clients/commercial/epdm-1.webp', body: 'Durable EPDM single-ply membrane engineered for long-service-life low-slope assemblies on warehouses, distribution centers, and institutional facilities.' },
+          { type: 'Metal', img: '/images/clients/commercial/metal-1.webp', body: 'Architectural and standing-seam metal systems — certified installation of McElroy Metal and Sentrigard, with weathertightness warranties on qualifying systems.' },
+          { type: 'Shingles', img: '/images/clients/commercial/shingles-1.webp', body: 'Commercial steep-slope shingle systems — certified with Malarkey, Atlas, and GAF for multifamily, hospitality, and faith-based campuses.' },
+        ].map((s) => (
+          <li class="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col">
+            <img src={s.img} alt={`Pro Exteriors commercial ${s.type} roofing project`} class="w-full h-48 object-cover" loading="lazy" />
+            <div class="p-6 flex flex-col gap-2">
+              <h3 class="text-lg font-bold text-slate-900">{s.type}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{s.body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       MULTIFAMILY — dedicated section with client project photography
+  ════════════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-20 px-6 lg:px-8" aria-labelledby="multifamily-heading">
+    <div class="max-w-7xl mx-auto flex flex-col gap-12">
+      <header class="max-w-2xl">
+        <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: #C22326;">Multifamily Division</p>
+        <h2 id="multifamily-heading" class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+          Multifamily Communities, Coordinated at Portfolio Scale
+        </h2>
+        <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+          Portfolio-level coordination for apartment communities, HOAs, and multi-building
+          assets. We manage occupied-property logistics, phased capital improvement planning,
+          and multi-layer reporting across entire multifamily portfolios — protecting residents
+          and asset value at the same time.
+        </p>
+      </header>
+      <ul class="grid grid-cols-2 lg:grid-cols-4 gap-4" role="list">
+        {[
+          '/images/clients/multifamily/mf-1.webp',
+          '/images/clients/multifamily/mf-2.webp',
+          '/images/clients/multifamily/mf-3.webp',
+          '/images/clients/multifamily/mf-4.webp',
+        ].map((img, i) => (
+          <li>
+            <img src={img} alt={`Pro Exteriors multifamily roofing project ${i + 1}`} class="w-full aspect-square object-cover rounded-lg" loading="lazy" />
           </li>
         ))}
       </ul>

@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Pro Ministries', href: '/pro-ministries/' },
+];
+const schemaPayload = [breadcrumbSchema(breadcrumbs)];
+
+// Pro Ministries collage — 485111221_* and 500468406_* removed per client 2026-05-29.
+const ministriesPhotos = [
+  '484510611_682320301036448_4348144568674459449_n.webp',
+  '484517271_682320307703114_2973160345583150414_n.webp',
+  '484842682_682319964369815_470924432750919672_n.webp',
+  '484980167_682320381036440_4942437505518345693_n.webp',
+  '501207995_739311668670644_681748274278876472_n.webp',
+  '501209519_739311488670662_6136384985505518381_n.webp',
+  '502389289_739311522003992_7538620524723008997_n.webp',
+  '502569645_739311378670673_3518867581287335201_n.webp',
+  '503125874_739311565337321_3998562171852933557_n.webp',
+  '503185651_739311722003972_1926917821450797229_n.webp',
+  '503288111_739311575337320_3991846800664295501_n.webp',
+];
+---
+
+<BaseLayout
+  title="Pro Ministries Outreach | Pro Exteriors LLC"
+  description="Pro Ministries Outreach is the community outreach arm of Pro Exteriors, LLC — serving the homeless, supporting recovery, and investing in at-risk youth."
+  canonicalPath="/pro-ministries/"
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+
+  <!-- ─── HERO ────────────────────────────────────────────────────────────── -->
+  <section class="bg-[#11133F] text-white py-24 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-sm font-semibold tracking-widest uppercase text-[#C22326] mb-4">Pro Ministries Inc.</p>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
+        Serving People. Restoring Hope.
+      </h1>
+      <p class="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+        Pro Ministries Outreach is the community outreach arm of Pro Exteriors, LLC, created to serve individuals and families facing some of life's greatest challenges.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── INTRO COPY ──────────────────────────────────────────────────────── -->
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-4xl mx-auto space-y-6">
+      <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
+        Through hands-on outreach initiatives, we support the homeless, assist individuals struggling with addiction, and help restore hope through compassion, accountability, and service.
+      </p>
+      <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
+        In partnership with Men and Ladies of Honor, Pro Ministries Outreach brings Christ-centered programs into public schools, focusing on at-risk youth by promoting character development, leadership, and positive life choices. These initiatives are designed to invest in the next generation and create pathways for long-term transformation.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── PHOTO COLLAGE ───────────────────────────────────────────────────── -->
+  <section class="bg-stone-50 py-16 px-4" aria-label="Pro Ministries outreach in the community">
+    <div class="max-w-6xl mx-auto">
+      <div class="columns-2 sm:columns-3 lg:columns-4 gap-3 space-y-3">
+        {ministriesPhotos.map((photo, i) => (
+          <div class="break-inside-avoid">
+            <img
+              src={`/images/pro-ministries/${photo}`}
+              alt={`Pro Ministries community outreach event ${i + 1}`}
+              class="w-full object-cover rounded-lg"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GET INVOLVED ────────────────────────────────────────────────────── -->
+  <section class="bg-white py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-base sm:text-lg text-slate-700 leading-relaxed mb-10">
+        Pro Ministries Outreach also serves as a platform for our community to come together and make a difference. By providing opportunities to volunteer, serve, and give back, we invite individuals, families, and organizations to actively engage in meeting real needs and strengthening the community we all share.
+      </p>
+      <div class="bg-[#11133F] rounded-2xl p-10 text-center text-white">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">Get Involved / Learn More</h2>
+        <p class="text-white/80 leading-relaxed max-w-2xl mx-auto mb-8">
+          Whether you're interested in volunteering, partnering, or learning more about our outreach efforts, we invite you to connect with us and be part of the impact. Together, we can serve our community and create lasting change.
+        </p>
+        <a
+          href="/contact/"
+          class="inline-flex items-center justify-center px-8 py-3 bg-[#C22326] text-white font-semibold rounded-lg hover:bg-[#a81e20] transition-colors"
+          data-cta-name="ministries_get_involved"
+        >
+          Connect With Us
+        </a>
+      </div>
+      <p class="text-center text-slate-500 text-sm mt-10 tracking-wider">#BuiltOnFaith</p>
+    </div>
+  </section>
+</BaseLayout>

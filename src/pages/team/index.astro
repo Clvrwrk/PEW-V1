@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../components/seo/BaseLayout.astro';
+import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Team', href: '/team/' },
+];
+const schemaPayload = [breadcrumbSchema(breadcrumbs)];
+
+// Static team cards — no click-through per client 2026-05-29.
+// NOTE: Sean Hillard headshot not yet supplied — add a row here once the asset lands.
+const teamMembers = [
+  { name: 'Tabatha Milliken',   title: 'Chief Executive Officer (CEO)',          file: 'Tabatha Milliken -  Chief Executive Officer (CEO).webp' },
+  { name: 'Chandler Milliken',  title: 'Chief Operations Officer (COO)',         file: 'Chandler Milliken - Chief Operations Officer (COO).webp' },
+  { name: 'Jamey Sims',         title: 'Chief Commercial Officer (CCO)',         file: 'Jamey Sims - Chief Commercial Officer (CCO).webp' },
+  { name: 'Joe Skiles',         title: 'Director of Service',                    file: 'Joe Skiles - Director of Service.webp' },
+  { name: 'Lucinda Dunn',       title: 'Director of Accounting',                 file: 'Lucinda Dunn - Director of Accounting.webp' },
+  { name: 'Lonnie Sawyer',      title: 'Insurance Programs Manager',             file: 'Lonnie Sawyer - Insurance Programs Manager.webp' },
+  { name: 'Isaac Ambriz',       title: 'Commercial Operations Manager',          file: 'Isaac Ambriz - Commercial Operations Manager.webp' },
+  { name: 'Crystal Pollock',    title: 'Commercial Service Coordinator',         file: 'Crystal Pollock - Commercial Service Coordinator.webp' },
+  { name: 'Madison King',       title: 'Accounts Manager',                       file: 'Madison King - Accounts Manager.webp' },
+  { name: 'Matt Johnson',       title: 'Southeast Regional Sales Director',      file: 'Matt Johnson - Southeast Regional Sales Director.webp' },
+  { name: 'Rafael Arrrola',     title: 'Operations Administrator',               file: 'Rafael Arrrola - Operations Administrator.webp' },
+  { name: 'Roberto Huerta',     title: 'Administrative Operations Manager',      file: 'Roberto Huerta - Administrative Operations Manager.webp' },
+  { name: 'Zach Gray',          title: 'Commercial Project Manager',             file: 'Zach Gray -  Commercial Project Manager.webp' },
+];
+---
+
+<BaseLayout
+  title="Executive & Management Team | Pro Exteriors LLC"
+  description="Meet the executive and management team behind Pro Exteriors LLC — the people building the company across commercial and residential markets."
+  canonicalPath="/team/"
+  jsonLd={schemaPayload}
+>
+  <Breadcrumb items={breadcrumbs.slice(1)} />
+
+  <!-- ─── HERO ────────────────────────────────────────────────────────────── -->
+  <section class="bg-[#11133F] text-white py-20 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-sm font-semibold tracking-widest uppercase text-[#C22326] mb-4">Meet the Team</p>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-white">Executive &amp; Management Team</h1>
+      <p class="text-white/75 text-lg leading-relaxed">
+        The people building Pro Exteriors one project at a time — accountable to your roof and your bottom line.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── TEAM GRID (centered, orphan-safe) ───────────────────────────────── -->
+  <section class="bg-stone-50 py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-wrap justify-center gap-6">
+        {teamMembers.map((member) => (
+          <div class="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-stone-200">
+            <img
+              src={`/images/team/${member.file}`}
+              alt={`${member.name}, ${member.title} at Pro Exteriors LLC`}
+              class="w-full aspect-square object-cover object-top"
+              loading="lazy"
+            />
+            <div class="p-5 text-center">
+              <h2 class="font-bold text-slate-900 text-lg">{member.name}</h2>
+              <p class="text-[#C22326] text-sm font-semibold mt-1">{member.title}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── VALUES STRIP ────────────────────────────────────────────────────── -->
+  <section class="bg-[#11133F] py-16 px-4 text-white text-center">
+    <div class="max-w-2xl mx-auto">
+      <p class="text-2xl font-bold mb-4">Trust. Honor. Integrity.</p>
+      <p class="text-white/70 text-base leading-relaxed mb-8">
+        Every person on this team holds the same standard. Read the mission that drives the work.
+      </p>
+      <a
+        href="/about/"
+        class="inline-flex items-center justify-center px-8 py-3 bg-[#C22326] text-white font-semibold rounded-lg hover:bg-[#a81e20] transition-colors"
+        data-cta-name="team_to_about"
+      >
+        About Pro Exteriors
+      </a>
+    </div>
+  </section>
+</BaseLayout>
