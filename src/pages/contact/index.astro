@@ -4,6 +4,7 @@ import HeroSection from '../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
 import Button from '../../components/atoms/Button.astro';
 import FAQ from '../../components/molecules/FAQ.astro';
+import LeadCaptureForm from '../../components/molecules/LeadCaptureForm.astro';
 import { contactPageSchema } from '../../lib/schema/ContactPage';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
@@ -47,52 +48,67 @@ const faqs = [
     primaryCta={{ label: "Call 844-336-PROS", href: "tel:+18443367767" }}
   />
 
+  {/* Primary conversion: inline lead form (routes to the right GHL lane). */}
   <section class="py-16 w-[90%] mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
+      <div class="lg:col-span-3">
+        <h2 class="text-3xl font-bold mb-2 text-white">Request your free estimate</h2>
+        <p class="text-text-secondary mb-6">A few quick questions so we route you to the right team with the right estimate — usually same day.</p>
+        <LeadCaptureForm
+          ctaId="contact-hub"
+          source="Website – Contact Page"
+          submitLabel="Submit request"
+        />
+      </div>
+      <aside class="lg:col-span-2">
+        <div class="bg-surface-elevated p-8 rounded-2xl ring-1 ring-border">
+          <h3 class="text-lg font-bold mb-3 text-white">Prefer to call?</h3>
+          <p class="text-text-secondary text-sm mb-1">Sales &amp; new projects</p>
+          <a href="tel:+18443367767" class="text-2xl font-bold text-white hover:underline block mb-4">844-336-PROS</a>
+          <p class="text-text-secondary text-sm mb-1">Service division &amp; Pro Plan</p>
+          <a href="tel:+18663367767" class="text-2xl font-bold text-white hover:underline block mb-1">866-336-PROS</a>
+          <a href="mailto:service@proexteriorsus.com" class="text-text-secondary text-sm hover:underline">service@proexteriorsus.com</a>
+          <hr class="my-6 border-border" />
+          <p class="text-text-secondary text-sm mb-4">Know your path? Jump straight to the right intake:</p>
+          <div class="grid gap-3">
+            <Button href="/contact/commercial/" variant="outline">Commercial RFQ</Button>
+            <Button href="/contact/residential/inspection/" variant="outline">Residential inspection</Button>
+            <Button href="/contact/emergency/" variant="danger">Emergency response</Button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {/* Secondary routing: who each path is for. */}
+  <section class="py-16 bg-surface-inset">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto w-[90%]">
       <div class="bg-surface-elevated p-8 rounded-2xl ring-1 ring-border">
-        <h2 class= text-white"text-2xl font-bold mb-3 text-white" Inquiry</h2>
+        <h2 class="text-2xl font-bold mb-3 text-white">Commercial Inquiry</h2>
         <p class="text-text-secondary mb-4">Property managers, REITs, and multi-family operators — start here for RFQs, portfolio contracts, and institutional project intake.</p>
         <ul class="text-sm text-text-secondary space-y-1 mb-6">
           <li>Low-slope and metal roof systems</li>
           <li>Institutional portfolios and REIT work</li>
           <li>Bid packages and multi-property contracts</li>
         </ul>
-        <Button href="/commercial-roofing/" variant="primary">Commercial Services</Button>
+        <Button href="/contact/commercial/" variant="primary">Start a Commercial RFQ</Button>
       </div>
       <div class="bg-surface-elevated p-8 rounded-2xl ring-1 ring-border">
-        <h2 class= text-white"text-2xl font-bold mb-3 text-white" Request</h2>
+        <h2 class="text-2xl font-bold mb-3 text-white">Residential Request</h2>
         <p class="text-text-secondary mb-4">Homeowners — request a free inspection, storm-damage assessment, or emergency response. No obligation.</p>
         <ul class="text-sm text-text-secondary space-y-1 mb-6">
           <li>Free inspection for all residential properties</li>
           <li>Storm damage and insurance claim support</li>
           <li>Same-day emergency tarp service available</li>
         </ul>
-        <Button href="/residential-roofing/" variant="primary">Residential Services</Button>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-12 bg-[#11133F]">
-    <div class="w-[90%] mx-auto max-w-4xl">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
-        <div>
-          <h3 class="text-lg font-bold mb-2 text-white">Sales &amp; New Projects</h3>
-          <p class="text-white/70 text-sm mb-3">Quotes, inspections, and new project intake.</p>
-          <a href="tel:+18443367767" class="text-xl font-bold hover:underline">844-336-PROS</a>
-        </div>
-        <div>
-          <h3 class= text-white"text-lg font-bold mb-2 text-white" Division &amp; Pro Plan</h3>
-          <p class="text-white/70 text-sm mb-3">Active service clients, maintenance scheduling, and Pro Plan™ inquiries.</p>
-          <a href="tel:+18663367767" class="text-xl font-bold hover:underline block mb-1">866-336-PROS</a>
-          <a href="mailto:service@proexteriorsus.com" class="text-white/70 text-sm hover:underline">service@proexteriorsus.com</a>
-        </div>
+        <Button href="/contact/residential/inspection/" variant="primary">Request a Residential Inspection</Button>
       </div>
     </div>
   </section>
 
   <section class="py-20">
     <div class="w-[90%] mx-auto max-w-4xl">
-      <h2 class= text-white"text-3xl font-bold text-center mb-12 text-white" FAQ</h2>
+      <h2 class="text-3xl font-bold text-center mb-12 text-white">Contact FAQ</h2>
       <FAQ faqs={faqs} />
     </div>
   </section>

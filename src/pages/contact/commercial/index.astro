@@ -2,6 +2,7 @@
 import BaseLayout from '../../../components/seo/BaseLayout.astro';
 import HeroSection from '../../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import LeadCaptureForm from '../../../components/molecules/LeadCaptureForm.astro';
 import { contactPageSchema } from '../../../lib/schema/ContactPage';
 import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
 
@@ -26,17 +27,16 @@ const breadcrumbs = [
     primaryCta={{ label: 'Call (469) 535-1708', href: 'tel:4695351708' }}
   />
   <section class="mx-auto max-w-3xl px-4 py-16">
-    <form action="/api/contact" method="post" class="grid gap-5 rounded-2xl bg-surface-elevated p-8 ring-1 ring-border">
-      <input type="hidden" name="vertical" value="commercial" />
-      <input type="hidden" name="formType" value="commercial-rfq" />
-      <input type="hidden" name="campaign" value="phase-1-commercial-rfq" />
-      <label class="grid gap-2">First Name<input required name="firstName" class="rounded-md border-border" /></label>
-      <label class="grid gap-2">Last Name<input required name="lastName" class="rounded-md border-border" /></label>
-      <label class="grid gap-2">Email<input required type="email" name="email" class="rounded-md border-border" /></label>
-      <label class="grid gap-2">Phone<input required type="tel" name="phone" class="rounded-md border-border" /></label>
-      <label class="grid gap-2">Property Address<input name="address" class="rounded-md border-border" /></label>
-      <label class="grid gap-2">Project Details<textarea name="projectDetails" rows="6" class="rounded-md border-border" placeholder="Roof size, building type, active leaks, preferred system, timeline, and procurement requirements."></textarea></label>
-      <button class="rounded-md bg-brand-accent px-6 py-4 font-bold text-text-on-brand" type="submit">Submit Commercial RFQ</button>
-    </form>
+    <LeadCaptureForm
+      ctaId="contact-commercial-rfq"
+      source="Website – Commercial RFQ"
+      intent="lead"
+      propertyType="Commercial"
+      formType="commercial-rfq"
+      campaign="phase-1-commercial-rfq"
+      noteLabel="Project details"
+      notePlaceholder="Roof size, building type, active leaks, preferred system, timeline, and procurement requirements."
+      submitLabel="Submit Commercial RFQ"
+    />
   </section>
 </BaseLayout>

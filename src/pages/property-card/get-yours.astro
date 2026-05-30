@@ -2,6 +2,7 @@
 import BaseLayout from '../../components/seo/BaseLayout.astro';
 import HeroSection from '../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import LeadCaptureForm from '../../components/molecules/LeadCaptureForm.astro';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
 const breadcrumbs = [
@@ -22,6 +23,15 @@ const schemaPayload = [breadcrumbSchema(breadcrumbs)];
   <HeroSection
     image="/images/home-hero.webp" title="Request Your Property Card" subtitle="Enter your address. We'll prepare it within 48 hours." />
   <section class="py-16 px-4 max-w-2xl mx-auto">
-    <p class="text-text-secondary">Phase 1 placeholder — the address autocomplete + lead capture island lands in Step 11.</p>
+    <h2 class="text-3xl font-bold mb-2 text-white">Request your Property Card</h2>
+    <p class="text-text-secondary mb-6">Enter your details and property address — we'll prepare your free exterior health and history report within 48 hours.</p>
+    <LeadCaptureForm
+      ctaId="property-card"
+      source="Website – Property Card Request"
+      intent="lead"
+      propertyType="Residential"
+      serviceType="Inspection"
+      submitLabel="Request my Property Card"
+    />
   </section>
 </BaseLayout>

@@ -2,6 +2,7 @@
 import BaseLayout from '../../components/seo/BaseLayout.astro';
 import HeroSection from '../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
+import LeadCaptureForm from '../../components/molecules/LeadCaptureForm.astro';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 
 const breadcrumbs = [
@@ -22,12 +23,16 @@ const schemaPayload = [breadcrumbSchema(breadcrumbs)];
   <Breadcrumb items={breadcrumbs.slice(1)} />
   <HeroSection
     image="/images/residential-hero.webp" title="Schedule Your Onboarding" subtitle="Pick a time. Our team will walk you through the annual coverage." />
-  <article class="prose mx-auto max-w-3xl px-4 py-16">
-    <p>Phase 1 placeholder. Calendly/GHL embed lands with Step 8c.</p>
-    <h2>While you wait</h2>
-    <ul>
-      <li><a href="/projects/">Recent Pro Exteriors projects</a></li>
-      <li><a href="/about/">Meet the team</a></li>
-    </ul>
-  </article>
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <h2 class="text-3xl font-bold mb-2 text-white">Request your onboarding call</h2>
+    <p class="text-text-secondary mb-6">Tell us how to reach you and we'll schedule your Total Home Shield walkthrough — annual coverage, scheduling, and your home's specific exterior plan.</p>
+    <LeadCaptureForm
+      ctaId="ths-booking"
+      source="Website – Total Home Shield Booking"
+      intent="lead"
+      propertyType="Residential"
+      submitLabel="Request my onboarding call"
+    />
+    <p class="mt-8 text-text-secondary text-sm">While you wait: <a href="/projects/" class="text-accent hover:underline">recent projects</a> · <a href="/about/" class="text-accent hover:underline">meet the team</a>.</p>
+  </section>
 </BaseLayout>

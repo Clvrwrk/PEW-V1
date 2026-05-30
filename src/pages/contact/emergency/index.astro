@@ -2,6 +2,7 @@
 import BaseLayout from '../../../components/seo/BaseLayout.astro';
 import HeroSection from '../../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
+import LeadCaptureForm from '../../../components/molecules/LeadCaptureForm.astro';
 import { contactPageSchema } from '../../../lib/schema/ContactPage';
 import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
 
@@ -26,17 +27,17 @@ const breadcrumbs = [
     primaryCta={{ label: 'Call Emergency Line', href: 'tel:4695351708' }}
   />
   <section class="mx-auto max-w-3xl px-4 py-16">
-    <form action="/api/contact" method="post" class="grid gap-5 rounded-2xl bg-surface-elevated p-8 ring-1 ring-border">
-      <input type="hidden" name="vertical" value="residential" />
-      <input type="hidden" name="formType" value="emergency-roof-help" />
-      <input type="hidden" name="campaign" value="phase-1-emergency-intake" />
-      <label class="grid gap-2">First Name<input required name="firstName" class="rounded-md border-border" /></label>
-      <label class="grid gap-2">Last Name<input required name="lastName" class="rounded-md border-border" /></label>
-      <label class="grid gap-2">Email<input required type="email" name="email" class="rounded-md border-border" /></label>
-      <label class="grid gap-2">Phone<input required type="tel" name="phone" class="rounded-md border-border" /></label>
-      <label class="grid gap-2">Property Address<input name="address" class="rounded-md border-border" /></label>
-      <label class="grid gap-2">Emergency Details<textarea name="projectDetails" rows="6" class="rounded-md border-border" placeholder="Tell us what happened, whether water is entering, where the damage is, and whether the roof needs tarping."></textarea></label>
-      <button class="rounded-md bg-brand-accent px-6 py-4 font-bold text-text-on-brand" type="submit">Request Emergency Help</button>
-    </form>
+    <LeadCaptureForm
+      ctaId="contact-emergency"
+      source="Website – Emergency Roof Help"
+      intent="service"
+      propertyType="Residential"
+      serviceType="Storm Damage"
+      formType="emergency-roof-help"
+      campaign="phase-1-emergency-intake"
+      noteLabel="Emergency details"
+      notePlaceholder="Tell us what happened, whether water is entering, where the damage is, and whether the roof needs tarping."
+      submitLabel="Request Emergency Help"
+    />
   </section>
 </BaseLayout>

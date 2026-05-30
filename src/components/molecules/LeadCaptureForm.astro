@@ -1,0 +1,192 @@
+---
+/**
+ * LeadCaptureForm.astro — server-rendered (no-JS) lead form.
+ *
+ * Posts form-encoded to /api/contact (Supabase → GoHighLevel four-lane intake).
+ * Works without JavaScript; a tiny progressive-enhancement script preselects the
+ * lane from ?intent= / ?vertical= query params and focuses the first field.
+ *
+ * Use this anywhere a CTA needs to capture a lead inline. Where the lane is known
+ * (commercial / residential / service pages) pass `intent` + `propertyType` and
+ * they ride along as hidden fields; where it's ambiguous (the /contact/ hub) omit
+ * them and a small accessible selector is shown.
+ *
+ * Includes the TCPA consent checkbox + honeypot the older sub-page forms lacked.
+ */
+export interface Props {
+  /** Stable CTA identifier for attribution, e.g. "contact-hub". */
+  ctaId: string;
+  /** Human-readable source, e.g. "Website – Contact Page". */
+  source: string;
+  /** Fixed lane intent; omit to show the "what do you need?" selector. */
+  intent?: 'lead' | 'service';
+  /** Fixed property type; omit to show the residential/commercial selector. */
+  propertyType?: 'Residential' | 'Commercial';
+  /** Optional preset service type (hidden field). */
+  serviceType?: string;
+  /** Submit button label. */
+  submitLabel?: string;
+  /** Collect a property/home address field. Default true. */
+  collectAddress?: boolean;
+  /** Free-text field label + placeholder (page-specific guidance). */
+  noteLabel?: string;
+  notePlaceholder?: string;
+  /** Optional legacy tags carried through to the CRM. */
+  formType?: string;
+  campaign?: string;
+  class?: string;
+}
+
+const {
+  ctaId,
+  source,
+  intent,
+  propertyType,
+  serviceType,
+  submitLabel = 'Request my free estimate',
+  collectAddress = true,
+  noteLabel = 'Anything we should know?',
+  notePlaceholder = 'Roof age, leak location, storm date, timeline, insurance claim, or system preference.',
+  formType,
+  campaign,
+  class: className = '',
+} = Astro.props;
+
+const needsIntent = !intent;
+const needsProperty = !propertyType;
+const addressLabel = propertyType === 'Commercial' ? 'Property address' : 'Property address';
+const inputClass =
+  'h-12 w-full rounded-md border border-border bg-surface px-3 text-text-primary ' +
+  'focus:outline-none focus:ring-2 focus:ring-accent';
+---
+
+<form
+  action="/api/contact"
+  method="post"
+  class={`grid gap-5 rounded-2xl bg-surface-elevated p-6 sm:p-8 ring-1 ring-border ${className}`}
+  data-lead-form
+>
+  {/* Attribution + routing (hidden) */}
+  <input type="hidden" name="ctaId" value={ctaId} />
+  <input type="hidden" name="intake_cta" value={ctaId} />
+  <input type="hidden" name="source" value={source} />
+  {intent && <input type="hidden" name="intent" value={intent} />}
+  {propertyType && <input type="hidden" name="propertyType" value={propertyType} />}
+  {serviceType && <input type="hidden" name="serviceType" value={serviceType} />}
+  {formType && <input type="hidden" name="formType" value={formType} />}
+  {campaign && <input type="hidden" name="campaign" value={campaign} />}
+
+  {/* Honeypot — visually hidden, not tabbable. Real users never fill it. */}
+  <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+    <label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label>
+  </div>
+
+  {needsIntent && (
+    <fieldset class="grid gap-2 border-0 p-0 m-0">
+      <legend class="text-sm font-semibold text-text-primary">What do you need? <span class="text-accent" aria-hidden="true">*</span></legend>
+      <div class="flex flex-wrap gap-3">
+        <label class="flex items-center gap-2 text-sm text-text-primary">
+          <input type="radio" name="intent" value="lead" required class="h-5 w-5" data-lane-intent /> New project / estimate
+        </label>
+        <label class="flex items-center gap-2 text-sm text-text-primary">
+          <input type="radio" name="intent" value="service" class="h-5 w-5" data-lane-intent /> Repair / service / warranty
+        </label>
+      </div>
+    </fieldset>
+  )}
+
+  {needsProperty && (
+    <fieldset class="grid gap-2 border-0 p-0 m-0">
+      <legend class="text-sm font-semibold text-text-primary">Property type <span class="text-accent" aria-hidden="true">*</span></legend>
+      <div class="flex flex-wrap gap-3">
+        <label class="flex items-center gap-2 text-sm text-text-primary">
+          <input type="radio" name="propertyType" value="Residential" required class="h-5 w-5" data-lane-prop /> Residential
+        </label>
+        <label class="flex items-center gap-2 text-sm text-text-primary">
+          <input type="radio" name="propertyType" value="Commercial" class="h-5 w-5" data-lane-prop /> Commercial
+        </label>
+      </div>
+    </fieldset>
+  )}
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <label class="grid gap-2 text-sm font-semibold text-text-primary">
+      First name <span class="text-accent" aria-hidden="true">*</span>
+      <input required name="firstName" autocomplete="given-name" class={inputClass} />
+    </label>
+    <label class="grid gap-2 text-sm font-semibold text-text-primary">
+      Last name
+      <input name="lastName" autocomplete="family-name" class={inputClass} />
+    </label>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <label class="grid gap-2 text-sm font-semibold text-text-primary">
+      Email <span class="text-accent" aria-hidden="true">*</span>
+      <input required type="email" name="email" autocomplete="email" class={inputClass} />
+    </label>
+    <label class="grid gap-2 text-sm font-semibold text-text-primary">
+      Phone <span class="text-accent" aria-hidden="true">*</span>
+      <input required type="tel" name="phone" autocomplete="tel" class={inputClass} />
+    </label>
+  </div>
+
+  {collectAddress && (
+    <label class="grid gap-2 text-sm font-semibold text-text-primary">
+      {addressLabel}
+      <input name="address" autocomplete="street-address" class={inputClass} />
+    </label>
+  )}
+
+  <label class="grid gap-2 text-sm font-semibold text-text-primary">
+    {noteLabel}
+    <textarea name="note" rows="4" class="w-full rounded-md border border-border bg-surface px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent" placeholder={notePlaceholder}></textarea>
+  </label>
+
+  <label class="flex items-start gap-3 text-xs text-text-secondary leading-relaxed">
+    <input required type="checkbox" name="consent" value="true" class="mt-0.5 h-5 w-5 flex-shrink-0" />
+    <span>I agree that Pro Exteriors may contact me about my request by phone, text, or email. Message/data rates may apply. Consent is not a condition of purchase.</span>
+  </label>
+
+  <button type="submit" class="inline-flex min-h-12 items-center justify-center rounded-md bg-brand-accent px-6 py-3 font-bold text-text-on-brand hover:bg-brand-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2" data-cta-name={ctaId}>
+    {submitLabel}
+  </button>
+</form>
+
+<script is:inline>
+  // Progressive enhancement: preselect the lane from ?intent=/?vertical= and
+  // capture UTM/click ids into hidden fields. No-JS users still get a working form.
+  (function () {
+    var form = document.currentScript && document.currentScript.previousElementSibling;
+    if (!form || form.getAttribute('data-lead-form') === null) {
+      form = document.querySelector('form[data-lead-form]');
+    }
+    if (!form) return;
+    var qs = new URLSearchParams(window.location.search);
+    var v = (qs.get('vertical') || '').toLowerCase();
+    var intent = qs.get('intent');
+    // vertical=commercial|residential|emergency → lane
+    if (v === 'commercial') setRadio('data-lane-prop', 'Commercial');
+    if (v === 'residential') setRadio('data-lane-prop', 'Residential');
+    if (v === 'emergency') { setRadio('data-lane-intent', 'service'); setRadio('data-lane-prop', 'Residential'); }
+    if (intent === 'lead' || intent === 'service') setRadio('data-lane-intent', intent);
+    // attribution hidden fields
+    addHidden('utm_source', qs.get('utm_source'));
+    addHidden('utm_medium', qs.get('utm_medium'));
+    addHidden('utm_campaign', qs.get('utm_campaign'));
+    addHidden('ad_click_id', qs.get('gclid') || qs.get('fbclid'));
+
+    function setRadio(attr, value) {
+      var el = form.querySelector('input[' + attr + '][value="' + value + '"]');
+      if (el) el.checked = true;
+    }
+    function addHidden(name, value) {
+      if (!value) return;
+      var existing = form.querySelector('input[name="' + name + '"]');
+      if (existing) { existing.value = value; return; }
+      var i = document.createElement('input');
+      i.type = 'hidden'; i.name = name; i.value = value;
+      form.appendChild(i);
+    }
+  })();
+</script>
