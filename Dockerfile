@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1.6
 #
 # Multi-stage build for the Pro Exteriors Astro site (hybrid output).
-#  1. node:20-alpine builds to /app/dist (prerendered pages + standalone server)
-#  2. node:20-alpine runs the standalone SSR server on port 4321
+#  1. node:22-alpine builds to /app/dist (prerendered pages + standalone server)
+#  2. node:22-alpine runs the standalone SSR server on port 4321
 #
 # The site is `output: "hybrid"` + @astrojs/node (standalone): every marketing
 # page is prerendered static; only /api/contact and /api/contact-sync run on the
@@ -13,7 +13,7 @@
 # from 80 → 4321 — update the Coolify port mapping accordingly.
 
 # ---- Stage 1: build ----
-FROM node:20-alpine AS build
+FROM node:22-alpine AS build
 WORKDIR /app
 
 # Install deps with the lockfile for reproducibility, then patch in the
@@ -47,10 +47,10 @@ RUN npm run build
 RUN npm prune --omit=dev
 
 # ---- Stage 2: runtime ----
-FROM node:20-alpine AS runtime
+FROM node:22-alpine AS runtime
 WORKDIR /app
 
-# curl is required for Coolify's container healthcheck (node:20-alpine ships
+# curl is required for Coolify's container healthcheck (node:22-alpine ships
 # without it). Without curl the healthcheck fails and Coolify rolls back to the
 # previous container — silently keeping stale env/config live.
 RUN apk add --no-cache curl
