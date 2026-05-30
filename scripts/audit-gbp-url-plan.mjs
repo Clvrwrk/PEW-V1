@@ -2,7 +2,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const dist = path.resolve('dist');
+// Astro hybrid/server output nests prerendered pages + sitemap under dist/client/;
+// static output puts them at dist/. Support both so the audit works either way.
+const distRoot = path.resolve('dist');
+const dist = fs.existsSync(path.join(distRoot, 'client'))
+  ? path.join(distRoot, 'client')
+  : distRoot;
 const planPath = path.resolve('src/data/phase0-url-plan.json');
 const plan = JSON.parse(fs.readFileSync(planPath, 'utf8'));
 

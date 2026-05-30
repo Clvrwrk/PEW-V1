@@ -59,7 +59,9 @@ async function auditPublicTree(dir, label) {
       lower.startsWith('public/images/') ||
       lower.startsWith('public/logos/') ||
       lower.startsWith('dist/images/') ||
-      lower.startsWith('dist/logos/');
+      lower.startsWith('dist/logos/') ||
+      lower.startsWith('dist/client/images/') ||
+      lower.startsWith('dist/client/logos/');
 
     if (!isImageAsset) continue;
 
@@ -130,8 +132,11 @@ await auditRuntimeReferences();
 if (SKIP_DIST) {
   warnings.push('dist image audit skipped by --no-dist.');
 } else if (await exists(DIST_DIR)) {
-  await auditPublicTree(path.join(DIST_DIR, 'images'), 'dist/images');
-  await auditPublicTree(path.join(DIST_DIR, 'Logos'), 'dist/Logos');
+  // hybrid/server output nests deployable assets under dist/client/
+  const clientDir = path.join(DIST_DIR, 'client');
+  const distBase = (await exists(clientDir)) ? clientDir : DIST_DIR;
+  await auditPublicTree(path.join(distBase, 'images'), 'dist/images');
+  await auditPublicTree(path.join(distBase, 'Logos'), 'dist/Logos');
 } else {
   warnings.push('dist/ does not exist yet; dist image audit will run after astro build.');
 }
