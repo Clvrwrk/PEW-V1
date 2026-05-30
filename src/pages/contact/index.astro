@@ -2,7 +2,7 @@
 import BaseLayout from '../../components/seo/BaseLayout.astro';
 import HeroSection from '../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
-import Button from '../../components/atoms/Button.astro';
+import Icon from '../../components/atoms/Icon.astro';
 import FAQ from '../../components/molecules/FAQ.astro';
 import LeadCaptureForm from '../../components/molecules/LeadCaptureForm.astro';
 import { contactPageSchema } from '../../lib/schema/ContactPage';
@@ -13,6 +13,13 @@ const breadcrumbs = [
   { label: 'Contact', href: '/contact/' },
 ];
 const schemaPayload = [contactPageSchema(), breadcrumbSchema(breadcrumbs)];
+
+const trustPoints = [
+  'Free inspections',
+  'No-obligation estimates',
+  'Same-day emergency response',
+  'Serving 16 states',
+];
 
 const faqs = [
   {
@@ -48,67 +55,71 @@ const faqs = [
     primaryCta={{ label: "Call 844-336-PROS", href: "tel:+18443367767" }}
   />
 
-  {/* Primary conversion: inline lead form (routes to the right GHL lane). */}
-  <section class="py-16 w-[90%] mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
+  {/* Primary conversion: one form, routes all four lanes. */}
+  <section class="bg-surface-inset py-16 sm:py-20">
+    <div class="w-[90%] max-w-6xl mx-auto grid gap-10 lg:grid-cols-5 lg:items-start">
       <div class="lg:col-span-3">
-        <h2 class="text-3xl font-bold mb-2 text-white">Request your free estimate</h2>
-        <p class="text-text-secondary mb-6">A few quick questions so we route you to the right team with the right estimate — usually same day.</p>
-        <LeadCaptureForm
-          ctaId="contact-hub"
-          source="Website – Contact Page"
-          submitLabel="Submit request"
-        />
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-text-primary">Request your free estimate</h2>
+        <p class="mt-3 text-lg text-text-secondary">Two quick taps tell us who to send it to — then a few details. Most requests get a same-day response.</p>
+        <div class="mt-8">
+          <LeadCaptureForm
+            ctaId="contact-hub"
+            source="Website – Contact Page"
+            submitLabel="Submit request"
+          />
+        </div>
       </div>
-      <aside class="lg:col-span-2">
-        <div class="bg-surface-elevated p-8 rounded-2xl ring-1 ring-border">
-          <h3 class="text-lg font-bold mb-3 text-white">Prefer to call?</h3>
-          <p class="text-text-secondary text-sm mb-1">Sales &amp; new projects</p>
-          <a href="tel:+18443367767" class="text-2xl font-bold text-white hover:underline block mb-4">844-336-PROS</a>
-          <p class="text-text-secondary text-sm mb-1">Service division &amp; Pro Plan</p>
-          <a href="tel:+18663367767" class="text-2xl font-bold text-white hover:underline block mb-1">866-336-PROS</a>
-          <a href="mailto:service@proexteriorsus.com" class="text-text-secondary text-sm hover:underline">service@proexteriorsus.com</a>
-          <hr class="my-6 border-border" />
-          <p class="text-text-secondary text-sm mb-4">Know your path? Jump straight to the right intake:</p>
-          <div class="grid gap-3">
-            <Button href="/contact/commercial/" variant="outline">Commercial RFQ</Button>
-            <Button href="/contact/residential/inspection/" variant="outline">Residential inspection</Button>
-            <Button href="/contact/emergency/" variant="danger">Emergency response</Button>
+
+      <aside class="lg:col-span-2 grid gap-6 content-start">
+        <div class="rounded-2xl bg-surface-elevated ring-1 ring-border p-6">
+          <h3 class="text-lg font-bold text-text-primary">Prefer to talk to a person?</h3>
+          <div class="mt-4">
+            <p class="text-sm text-text-secondary">Sales &amp; new projects</p>
+            <a href="tel:+18443367767" class="text-2xl font-extrabold text-accent hover:underline">844-336-PROS</a>
+          </div>
+          <div class="mt-4">
+            <p class="text-sm text-text-secondary">Service division &amp; Pro Plan</p>
+            <a href="tel:+18663367767" class="text-2xl font-extrabold text-accent hover:underline">866-336-PROS</a>
+            <a href="mailto:service@proexteriorsus.com" class="mt-1 block text-sm text-text-secondary hover:underline">service@proexteriorsus.com</a>
           </div>
         </div>
+
+        <div class="rounded-2xl border-2 border-accent bg-[#FCE8E8] p-6">
+          <p class="font-bold text-text-primary">Active leak or storm damage?</p>
+          <p class="mt-1 text-sm text-text-secondary">Don't wait on a form — same-day emergency tarping is available.</p>
+          <a href="tel:+18443367767" class="mt-4 inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-5 py-3 font-bold text-text-on-brand hover:bg-brand-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">
+            Call the emergency line
+          </a>
+        </div>
+
+        <ul class="grid gap-3 rounded-2xl bg-surface-elevated ring-1 ring-border p-6">
+          {trustPoints.map((point) => (
+            <li class="flex items-center gap-3 text-sm text-text-secondary">
+              <Icon name="check-circle" class="w-5 h-5 text-emerald-600 flex-shrink-0" />
+              {point}
+            </li>
+          ))}
+        </ul>
       </aside>
     </div>
   </section>
 
-  {/* Secondary routing: who each path is for. */}
-  <section class="py-16 bg-surface-inset">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto w-[90%]">
-      <div class="bg-surface-elevated p-8 rounded-2xl ring-1 ring-border">
-        <h2 class="text-2xl font-bold mb-3 text-white">Commercial Inquiry</h2>
-        <p class="text-text-secondary mb-4">Property managers, REITs, and multi-family operators — start here for RFQs, portfolio contracts, and institutional project intake.</p>
-        <ul class="text-sm text-text-secondary space-y-1 mb-6">
-          <li>Low-slope and metal roof systems</li>
-          <li>Institutional portfolios and REIT work</li>
-          <li>Bid packages and multi-property contracts</li>
-        </ul>
-        <Button href="/contact/commercial/" variant="primary">Start a Commercial RFQ</Button>
-      </div>
-      <div class="bg-surface-elevated p-8 rounded-2xl ring-1 ring-border">
-        <h2 class="text-2xl font-bold mb-3 text-white">Residential Request</h2>
-        <p class="text-text-secondary mb-4">Homeowners — request a free inspection, storm-damage assessment, or emergency response. No obligation.</p>
-        <ul class="text-sm text-text-secondary space-y-1 mb-6">
-          <li>Free inspection for all residential properties</li>
-          <li>Storm damage and insurance claim support</li>
-          <li>Same-day emergency tarp service available</li>
-        </ul>
-        <Button href="/contact/residential/inspection/" variant="primary">Request a Residential Inspection</Button>
-      </div>
+  {/* Trust band */}
+  <section class="bg-surface-inverted py-8">
+    <div class="w-[90%] max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center text-sm font-semibold text-text-inverted">
+      <span>16 states served</span>
+      <span class="text-text-inverted-secondary" aria-hidden="true">·</span>
+      <span>BBB A+ accredited</span>
+      <span class="text-text-inverted-secondary" aria-hidden="true">·</span>
+      <span>Free inspections</span>
+      <span class="text-text-inverted-secondary" aria-hidden="true">·</span>
+      <span>No-obligation estimates</span>
     </div>
   </section>
 
   <section class="py-20">
     <div class="w-[90%] mx-auto max-w-4xl">
-      <h2 class="text-3xl font-bold text-center mb-12 text-white">Contact FAQ</h2>
+      <h2 class="text-3xl font-bold text-center mb-12 text-text-primary">Contact FAQ</h2>
       <FAQ faqs={faqs} />
     </div>
   </section>

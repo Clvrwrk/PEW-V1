@@ -83,13 +83,15 @@ const inputClass =
 
   {needsIntent && (
     <fieldset class="grid gap-2 border-0 p-0 m-0">
-      <legend class="text-sm font-semibold text-text-primary">What do you need? <span class="text-accent" aria-hidden="true">*</span></legend>
-      <div class="flex flex-wrap gap-3">
-        <label class="flex items-center gap-2 text-sm text-text-primary">
-          <input type="radio" name="intent" value="lead" required class="h-5 w-5" data-lane-intent /> New project / estimate
+      <legend class="text-sm font-semibold text-text-primary mb-1">What do you need? <span class="text-accent" aria-hidden="true">*</span></legend>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <label class="relative">
+          <input type="radio" name="intent" value="lead" required class="peer sr-only" data-lane-intent />
+          <span class="pe-pill">New project / estimate</span>
         </label>
-        <label class="flex items-center gap-2 text-sm text-text-primary">
-          <input type="radio" name="intent" value="service" class="h-5 w-5" data-lane-intent /> Repair / service / warranty
+        <label class="relative">
+          <input type="radio" name="intent" value="service" class="peer sr-only" data-lane-intent />
+          <span class="pe-pill">Repair / service / warranty</span>
         </label>
       </div>
     </fieldset>
@@ -97,13 +99,15 @@ const inputClass =
 
   {needsProperty && (
     <fieldset class="grid gap-2 border-0 p-0 m-0">
-      <legend class="text-sm font-semibold text-text-primary">Property type <span class="text-accent" aria-hidden="true">*</span></legend>
-      <div class="flex flex-wrap gap-3">
-        <label class="flex items-center gap-2 text-sm text-text-primary">
-          <input type="radio" name="propertyType" value="Residential" required class="h-5 w-5" data-lane-prop /> Residential
+      <legend class="text-sm font-semibold text-text-primary mb-1">Property type <span class="text-accent" aria-hidden="true">*</span></legend>
+      <div class="grid grid-cols-2 gap-3">
+        <label class="relative">
+          <input type="radio" name="propertyType" value="Residential" required class="peer sr-only" data-lane-prop />
+          <span class="pe-pill">Residential</span>
         </label>
-        <label class="flex items-center gap-2 text-sm text-text-primary">
-          <input type="radio" name="propertyType" value="Commercial" class="h-5 w-5" data-lane-prop /> Commercial
+        <label class="relative">
+          <input type="radio" name="propertyType" value="Commercial" class="peer sr-only" data-lane-prop />
+          <span class="pe-pill">Commercial</span>
         </label>
       </div>
     </fieldset>
@@ -152,6 +156,30 @@ const inputClass =
     {submitLabel}
   </button>
 </form>
+
+<style>
+  /* Segmented lane pills — accessible (real radios, sr-only), no JS needed. */
+  .pe-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 48px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1px solid #cbd2dd;
+    background: #fff;
+    color: #11133f;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+  }
+  .pe-pill:hover { border-color: #11133f; }
+  input:checked + .pe-pill { background: #11133f; border-color: #11133f; color: #fff; }
+  input:focus-visible + .pe-pill { outline: 2px solid #c22326; outline-offset: 2px; }
+</style>
 
 <script is:inline>
   // Progressive enhancement: preselect the lane from ?intent=/?vertical= and
