@@ -16,7 +16,7 @@
  * prerender so it runs on the Node server. Marketing pages stay static.
  */
 import type { APIRoute } from "astro";
-import { createAdminClient, supabaseConfigured, WEBSITE_CONTACTS_TABLE } from "../../lib/supabase";
+import { createAdminClient, supabaseConfigured, supabaseDiag, WEBSITE_CONTACTS_TABLE } from "../../lib/supabase";
 import { resolveLane, type Intent, type PropertyType } from "../../lib/integrations/ghl";
 
 export const prerender = false;
@@ -148,6 +148,7 @@ export const POST: APIRoute = async ({ request }) => {
     // No DB configured (e.g. local dev before secrets land). Don't 500 — accept
     // the lead so the UX works; flag loudly for the operator.
     console.warn("[contact] Supabase not configured — lead accepted but NOT persisted:", {
+      ...supabaseDiag(),
       lane: contactType,
       cta: row.cta_id,
     });

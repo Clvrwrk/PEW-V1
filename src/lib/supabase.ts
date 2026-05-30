@@ -12,13 +12,26 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 function env(key: string, required = true): string {
-  const value =
-    (import.meta as unknown as { env?: Record<string, string | undefined> }).env?.[key] ??
-    (typeof process !== "undefined" ? process.env?.[key] : undefined);
+  // Runtime process.env FIRST (Coolify injects it at container start; it is the
+  // source of truth on the SSR server). import.meta.env is a BUILD-frozen object
+  // — under a Dockerfile build pack the PUBLIC_ vars may be absent/empty there,
+  // and `??` would not fall through an empty string. Treat blanks as missing.
+  const fromProcess = typeof process !== "undefined" ? process.env?.[key] : undefined;
+  const fromMeta = (import.meta as unknown as { env?: Record<string, string | undefined> }).env?.[key];
+  const pick = (v?: string) => (v && String(v).trim() ? v : undefined);
+  const value = pick(fromProcess) ?? pick(fromMeta);
   if (required && !value) {
     throw new Error(`[supabase] Missing required env var "${key}". See .env.example.`);
   }
   return value ?? "";
+}
+
+/** Which Supabase credentials the running container can actually see. */
+export function supabaseDiag(): { hasUrl: boolean; hasServiceKey: boolean } {
+  return {
+    hasUrl: Boolean(env("PUBLIC_SUPABASE_URL", false)),
+    hasServiceKey: Boolean(env("SUPABASE_SERVICE_ROLE_KEY", false)),
+  };
 }
 
 /** Server-only privileged client (service-role; bypasses RLS). */

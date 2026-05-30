@@ -26,6 +26,19 @@ RUN npm ci --ignore-scripts
 RUN npm install @rollup/rollup-linux-x64-musl --no-save --no-audit --no-fund 2>/dev/null || true
 RUN npm rebuild
 
+# PUBLIC_ vars must be present at BUILD time for astro/vite to inline them into
+# import.meta.env. Coolify passes "Available at Buildtime" env as build args;
+# declare them here so the Dockerfile build pack inlines them (nixpacks does this
+# automatically — this keeps parity). Runtime reads still prefer process.env.
+ARG PUBLIC_SUPABASE_URL
+ARG PUBLIC_SUPABASE_ANON_KEY
+ARG PUBLIC_GA4_MEASUREMENT_ID
+ARG PUBLIC_POSTHOG_KEY
+ENV PUBLIC_SUPABASE_URL=$PUBLIC_SUPABASE_URL \
+    PUBLIC_SUPABASE_ANON_KEY=$PUBLIC_SUPABASE_ANON_KEY \
+    PUBLIC_GA4_MEASUREMENT_ID=$PUBLIC_GA4_MEASUREMENT_ID \
+    PUBLIC_POSTHOG_KEY=$PUBLIC_POSTHOG_KEY
+
 # Build (astro build → dist/client + dist/server, then the audit chain)
 COPY . .
 RUN npm run build
