@@ -41,7 +41,7 @@ import BaseLayout from '../../components/seo/BaseLayout.astro';
 import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
 import FAQ from '../../components/molecules/FAQ.astro';
 import Icon from '../../components/atoms/Icon.astro';
-import Button from '../../components/atoms/Button.astro';
+import CtaLeadModal from '../../components/islands/CtaLeadModal';
 // Badge atom not used — danger/neutral variants don't exist; inlined as <span> in dual feature cards.
 
 /* ── Page metadata (BaseLayout enforces ≤60 title / 70–160 description) ──── */
@@ -202,22 +202,35 @@ const faqItems = [
           Emergency storm response one day, premium roof replacement the next. We're a residential roofing company that operates across five states with our own crews — never subcontracted, never out-of-state storm chasers — and the receipts to back every claim on this page.
         </p>
         <div class="mt-10 flex flex-col sm:flex-row gap-4">
-          <a
-            href="/contact/emergency/?intent=emergency&source=residential-pillar"
-            class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-red-700 hover:bg-red-800 text-white text-lg font-bold focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
-            data-event-name="cta_click"
-            data-event-cta-id="hero_emergency"
-            data-event-intent="emergency"
-            data-event-source="residential-pillar-hero"
-          >Emergency Roof Repair</a>
-          <a
-            href="/contact/residential-roofing/inspection/?intent=inspection&source=residential-pillar"
-            class="inline-flex items-center justify-center px-8 py-4 rounded-lg border-2 border-white text-white text-lg font-bold hover:bg-white hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
-            data-event-name="cta_click"
-            data-event-cta-id="hero_inspection"
-            data-event-intent="inspection"
-            data-event-source="residential-pillar-hero"
-          >Plan Your New Roof</a>
+          {/* CTAs open the dynamic popup intake (CtaLeadModal). Emergency = service
+              lane; "Plan Your New Roof" = residential lead lane with the qualifying
+              survey. The /contact/* pages remain reachable via nav/footer as the
+              no-JS fallback. */}
+          <CtaLeadModal
+            client:load
+            triggerLabel="Emergency Roof Repair"
+            triggerClass="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-red-700 hover:bg-red-800 text-white text-lg font-bold focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+            intent="service"
+            propertyType="Residential"
+            ctaId="residential-pillar-hero-emergency"
+            source="Website – Residential Emergency CTA"
+            heading="Report your roof emergency"
+            subheading="Tell us what's happening and how to reach you — we deploy from each of our five state markets."
+            collectAddress={true}
+            collectNote={true}
+          />
+          <CtaLeadModal
+            client:load
+            triggerLabel="Plan Your New Roof"
+            triggerClass="inline-flex items-center justify-center px-8 py-4 rounded-lg border-2 border-white text-white text-lg font-bold hover:bg-white hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+            intent="lead"
+            propertyType="Residential"
+            ctaId="residential-pillar-hero-inspection"
+            source="Website – Residential Free Inspection CTA"
+            heading="Plan your new roof"
+            subheading="A few quick questions so we can route you to the right local crew and bring the right estimate."
+            survey={true}
+          />
         </div>
       </div>
     </section>
@@ -240,18 +253,55 @@ const faqItems = [
       </div>
     </section>
 
-    {/* ══════ TRUST STRIP ════════════════════════════════════════════════════ */}
-    <section aria-label="Credentials and accreditations" class="py-8 border-y border-stone-200 bg-stone-50">
-      <ul class="mx-auto max-w-screen-xl px-6 lg:px-8 flex flex-wrap items-center justify-center gap-8 lg:gap-24 text-base font-bold text-slate-900">
-        <li class="inline-flex items-center gap-2">
-          <Icon name="star" class="w-5 h-5" />
-          <span>Google 4.9/5 (240+ Reviews)</span>
-          <span class="ml-1 text-xs font-normal italic text-slate-500" title="Per CLAUDE.md hard gate — pull from GBP before launch">[FROM GBP]</span>
-        </li>
-        <li>BBB A+ ACCREDITED</li>
-        <li>MALARKEY CERTIFIED ELITE</li>
-        <li>5-YEAR WORKMANSHIP WARRANTY</li>
-      </ul>
+    {/* ══════ TRUST STRIP — mirrors the homepage stats band (src/pages/index.astro) ══ */}
+    <section class="bg-slate-900 py-12" aria-label="Trust signals">
+      <div class="w-[90%] mx-auto">
+        <dl class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 text-center items-center">
+
+          {/* Faith Based — Pro Ministries (far left) */}
+          <div class="flex flex-col items-center gap-2">
+            <dt>
+              <img
+                src="/Logos/pro-ministries-logo-reverse.webp"
+                alt="Pro Ministries — a faith-based organization"
+                class="h-16 w-auto mx-auto"
+                loading="lazy"
+              />
+            </dt>
+            <dd class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Faith Based</dd>
+          </div>
+
+          {/* Google 5-Star Rating */}
+          <div class="flex flex-col items-center gap-1">
+            <dt class="flex flex-col items-center gap-1">
+              <span class="text-3xl font-bold text-white">5.0</span>
+              <span class="flex items-center gap-0.5" aria-label="5 out of 5 stars">
+                {[0,1,2,3,4].map(() => (
+                  <svg class="w-4 h-4 fill-orange-400" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </span>
+            </dt>
+            <dd class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Google Rating</dd>
+          </div>
+
+          {/* Founding year */}
+          <div class="flex flex-col items-center gap-1">
+            <dt class="text-3xl font-bold text-white">2021</dt>
+            <dd class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Roofing Since</dd>
+          </div>
+
+          <div class="flex flex-col items-center gap-1">
+            <dt class="text-3xl font-bold text-white">16</dt>
+            <dd class="text-xs font-semibold text-slate-400 uppercase tracking-widest">States Served</dd>
+          </div>
+          <div class="flex flex-col items-center gap-1 col-span-2 sm:col-span-1">
+            <dt class="text-3xl font-bold text-white">2,500</dt>
+            <dd class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Roofs Protected</dd>
+          </div>
+        </dl>
+      </div>
     </section>
 
     {/* ══════ DUAL FEATURE CARDS ════════════════════════════════════════════ */}
@@ -305,13 +355,17 @@ const faqItems = [
           <p class="mt-4 text-lg text-slate-600">Emergency storm response, insurance claim management, and premium material upgrades — one residential roofing contractor accountable for all of it. Manufacturer-certified installation and crews that have worked every climate from the Texas heat to a Colorado high-wind belt to a Georgia humidity cycle.</p>
         </header>
         <ul class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
+          {/* Pass-through links intentionally removed 2026-05-29 (Chris): per-service pages
+              hold no client-specific unique content yet, so linking them invites the
+              "crawled — currently not indexed" status and dilutes E-E-A-T. Re-add the
+              anchor (card.href / card.anchor) once each service page earns unique content.
+              Backlog: "develop service page unique content". */}
           {serviceGrid.map(card => (
             <li class="bg-white rounded-lg overflow-hidden flex flex-col">
               <img src={card.img} alt={card.alt} class="w-full h-48 object-cover" loading="lazy" />
               <div class="p-6 flex flex-col gap-2">
                 <h3 class="text-lg font-bold text-slate-900">{card.title}</h3>
                 <p class="text-sm text-slate-600 leading-relaxed">{card.body}</p>
-                <a href={card.href} class="mt-3 text-sm font-bold text-red-700 hover:underline" aria-label={`Learn more about ${card.title}`}>{card.anchor} <span aria-hidden="true">→</span></a>
               </div>
             </li>
           ))}
@@ -403,42 +457,27 @@ const faqItems = [
           ))}
         </ol>
         <div class="mt-12 text-center">
-          <Button href="/contact/residential-roofing/inspection/?intent=inspection&source=residential-pillar-process" variant="primary"
-            data-event-name="cta_click"
-            data-event-cta-id="process_inspection"
-            data-event-intent="inspection"
-            data-event-source="residential-pillar-process">
-            Schedule My Free Inspection
-          </Button>
+          <CtaLeadModal
+            client:idle
+            triggerLabel="Schedule My Free Inspection"
+            triggerClass="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-red-700 hover:bg-red-800 text-white text-base font-bold focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+            intent="lead"
+            propertyType="Residential"
+            ctaId="residential-pillar-process-inspection"
+            source="Website – Residential Free Inspection CTA"
+            heading="Schedule your free inspection"
+            subheading="Twenty-one-point inspection, written proposal, no pressure. A few details to get started."
+            survey={true}
+          />
         </div>
       </div>
     </section>
 
     {/* ══════ CASE STUDIES ══════════════════════════════════════════════════ */}
-    <section aria-label="Residential case studies" class="py-24 bg-white">
-      <div class="mx-auto max-w-screen-xl px-6 lg:px-8">
-        <header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-          <div>
-            <h2 class="text-4xl font-black text-slate-900">Residential case studies</h2>
-            <p class="mt-2 text-base text-slate-600">Recent work, one project per region.</p>
-          </div>
-          <a href="/projects" class="text-base font-bold text-slate-900 border-b-2 border-slate-900 pb-1 hover:text-red-700 hover:border-red-700">View Project Gallery</a>
-        </header>
-        <ul class="mt-12 grid gap-6 md:grid-cols-3" role="list">
-          {caseStudies.map(c => (
-            <li>
-              <a href={c.href} class="group block">
-                <img src={c.img} alt={c.alt} class="w-full aspect-square rounded-lg object-cover" loading="lazy" />
-                <p class="mt-6 text-xs font-bold uppercase tracking-widest text-red-700">{c.state}</p>
-                <h3 class="mt-2 text-xl font-bold text-slate-900 group-hover:underline">{c.title}</h3>
-                <p class="mt-2 text-sm italic text-slate-600">"{c.quote}"</p>
-                <p class="mt-2 text-xs italic text-slate-400">[REPRESENTATIVE — needs real completed project]</p>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    {/* Section REMOVED 2026-05-29 (Chris): no real, signed-off completed residential
+        projects yet — shipping [REPRESENTATIVE] case studies violates the CLAUDE.md
+        trust gate. The `caseStudies` array remains in frontmatter; re-add this section
+        once real projects are confirmed. Backlog: "develop Residential Case Studies". */}
 
     {/* ══════ TRANSPARENT PRICING & FINANCING ══════════════════════════════ */}
     <section aria-label="Transparent pricing and financing" class="bg-stone-100 py-24">
@@ -449,15 +488,24 @@ const faqItems = [
           <p class="mt-6 text-lg text-slate-600 leading-relaxed">Roofing has a reputation for surprise change orders and inflated insurance billing. We don't run that play. Every estimate is built from satellite imaging plus a physical roof measurement, every line item is itemized in the proposal, and every invoice matches the proposal unless decking damage appears mid-project.</p>
           <p class="mt-4 text-lg text-slate-600 leading-relaxed">We also handle the <a href="/blog/how-much-does-a-roof-replacement-cost" class="text-red-700 font-bold hover:underline">actual cost of a residential roof replacement</a> directly with insurance carriers when the project is hail or storm driven. <a href="/contact/residential-roofing/inspection/" class="text-red-700 font-bold hover:underline">Insurance claim assistance for roof damage</a> is built into the project-management workflow, not bolted on as an upsell.</p>
           <ul class="mt-8 space-y-3" role="list">
-            <li class="flex items-center gap-3"><Icon name="check-circle" class="w-5 h-5 text-emerald-600" /> 0% interest financing options through approved lenders</li>
+            <li class="flex items-center gap-3"><Icon name="check-circle" class="w-5 h-5 text-emerald-600" /> Low interest financing options through approved lenders</li>
             <li class="flex items-center gap-3"><Icon name="check-circle" class="w-5 h-5 text-emerald-600" /> Insurance deductible assistance on qualifying storm claims</li>
             <li class="flex items-center gap-3"><Icon name="check-circle" class="w-5 h-5 text-emerald-600" /> Detailed line-item estimates — no surprise change orders</li>
           </ul>
-          <Button href="/contact/residential-roofing/inspection/?intent=financing&source=residential-pillar-financing" variant="primary" size="lg" class="mt-8"
-            data-event-name="cta_click"
-            data-event-cta-id="financing_learn_more"
-            data-event-intent="education"
-            data-event-source="residential-pillar-financing">Learn About Financing</Button>
+          <div class="mt-8">
+            <CtaLeadModal
+              client:idle
+              triggerLabel="Learn About Financing"
+              triggerClass="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-red-700 hover:bg-red-800 text-white text-lg font-bold focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+              intent="lead"
+              propertyType="Residential"
+              ctaId="residential-pillar-financing"
+              source="Website – Residential Financing CTA"
+              heading="Let's talk financing"
+              subheading="Tell us about your project and we'll walk you through the low-interest options through our approved lenders."
+              survey={true}
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -480,12 +528,18 @@ const faqItems = [
         <h2 class="text-4xl lg:text-5xl font-black leading-tight text-white">Your roof protects everything underneath it. Let's make sure it's right.</h2>
         <p class="mt-6 text-xl text-slate-400">Free inspection, written proposal, no pressure. Available in every market we serve.</p>
         <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact/residential-roofing/inspection/?intent=inspection&source=residential-pillar-final"
-             class="px-10 py-5 rounded-lg bg-red-700 hover:bg-red-800 text-white text-lg font-black focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
-             data-event-name="cta_click"
-             data-event-cta-id="final_inspection"
-             data-event-intent="inspection"
-             data-event-source="residential-pillar-final">Schedule My Free Inspection</a>
+          <CtaLeadModal
+            client:idle
+            triggerLabel="Schedule My Free Inspection"
+            triggerClass="px-10 py-5 rounded-lg bg-red-700 hover:bg-red-800 text-white text-lg font-black focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+            intent="lead"
+            propertyType="Residential"
+            ctaId="residential-pillar-final-inspection"
+            source="Website – Residential Free Inspection CTA"
+            heading="Schedule your free inspection"
+            subheading="Twenty-one-point inspection, written proposal, no pressure. A few details to get started."
+            survey={true}
+          />
           {/* Per Chris 2026-05-03: per-state IVR routing strategy. Single tel:+ number,
               IVR menu detects caller location / lets them pick state, routes to local crew.
               Phone number itself is [REPRESENTATIVE] until Chris provides the IVR number.

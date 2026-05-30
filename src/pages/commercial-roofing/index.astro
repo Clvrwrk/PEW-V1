@@ -488,8 +488,13 @@ const mainSchema = [
           Click any office pin to view details and dispatch the closest team.
         </p>
       </div>
-      <div class="bg-white p-4 rounded-3xl shadow-xl ring-1 ring-stone-200">
-        <OfficeLocationsMap client:visible />
+      <!-- Desktop: card wrapper with legend (mirrors /) -->
+      <div class="hidden sm:block bg-white p-4 rounded-3xl shadow-xl ring-1 ring-stone-200">
+        <OfficeLocationsMap title="" subtitle="" client:visible />
+      </div>
+      <!-- Mobile: compact map — no card, no legend, no padding, state labels visible (mirrors /) -->
+      <div class="block sm:hidden overflow-hidden rounded-lg">
+        <OfficeLocationsMap showLegend={false} title="" subtitle="" compact={true} client:visible />
       </div>
     </div>
   </section>

@@ -3,6 +3,7 @@ import BaseLayout from '../components/seo/BaseLayout.astro';
 import { websiteSchema } from '../lib/schema/WebSite';
 import { organizationSchema } from '../lib/schema/Organization';
 import OfficeLocationsMap from '../components/islands/OfficeLocationsMap';
+import CtaLeadModal from '../components/islands/CtaLeadModal';
 import Icon from '../components/atoms/Icon.astro';
 
 // ── Schema ────────────────────────────────────────────────────────────────────
@@ -579,13 +580,21 @@ const mainSchema = [websiteSchema(), organizationSchema()];
           <span class="text-3xl font-bold text-white">844-336-PROS</span>
         </a>
         <span class="text-white/20 text-4xl hidden sm:block" aria-hidden="true">|</span>
-        <a
-          href="/contact/"
-          class="inline-flex items-center justify-center px-10 py-5 bg-red-700 hover:bg-red-800 text-white text-xl font-bold rounded transition-colors focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-slate-900"
-          data-cta-name="cta_request_quote"
-        >
-          Request Quote Now
-        </a>
+        {/* Home is an ambiguous page — the modal opens with the lead/service +
+            property selector to resolve the GHL lane. /contact/ remains the no-JS
+            fallback via the header/footer. */}
+        <CtaLeadModal
+          client:idle
+          triggerLabel="Request Quote Now"
+          triggerClass="inline-flex items-center justify-center px-10 py-5 bg-red-700 hover:bg-red-800 text-white text-xl font-bold rounded transition-colors focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-slate-900"
+          intent="select"
+          propertyType="select"
+          ctaId="home-final-request-quote"
+          source="Website – Homepage Request Quote CTA"
+          heading="Request your quote"
+          subheading="A few quick questions so we route you to the right team with the right estimate."
+          survey={true}
+        />
       </div>
     </div>
   </section>

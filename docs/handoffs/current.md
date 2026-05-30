@@ -8,6 +8,48 @@
 
 ---
 
+## ⏩ LATER SESSION — 2026-05-29 (post-review edits batch 3 + popup forms)
+
+> Appended after the 21:19 final-touch batch below. New 9-item task list from
+> Chris: page edits across residential / locations / home + the popup-form +
+> GoHighLevel build. Persistent backlog now lives at `docs/backlog.md`.
+
+**Items 1–7 (surgical edits) — done:**
+1. **Location map responsive everywhere** — applied the homepage desktop-card /
+   mobile-compact `OfficeLocationsMap` split to `/locations/` and
+   `/commercial-roofing/` so the map behaves identically at every viewport.
+2. **Residential trust bar = homepage stats band** — replaced the residential
+   trust strip with the homepage dark band (Faith Based / Google 5.0 / Year
+   Founded / States / Roofs Protected). _Note: 2021 + 2,500 now also appear in
+   the mid-page proof block — duplication is intentional per the "same as home"
+   ask; flag to Chris if he wants the proof block de-duped._
+3. **Removed residential service-card pass-through links** (thin-page / "crawled
+   not indexed" risk). Card content kept. Backlog: *develop service-page unique content*.
+4. **Removed residential case-studies section** (no real projects yet; `caseStudies`
+   array kept in frontmatter). Backlog: *develop Residential Case Studies*.
+5. **Financing "0% interest" → "Low interest"** (unsourced/over-promise).
+6. **Locations "What Our Clients Say" → homepage Client Voices** section.
+7. **Removed "View Office Details" links** (per-office pages not built). Backlog:
+   *build location pages*.
+
+**Items 8–9 (popup forms + GHL) — code shipped, ACTIVATION GATED:**
+- New `src/components/islands/CtaLeadModal.tsx` (accessible popup form/survey,
+  multi-step wizard >4 Qs, honeypot, consent, attribution, DESIGN.md-styled),
+  `src/lib/integrations/ghl.ts` (four-lane intake), and a rewritten SSR
+  `src/pages/api/lead.ts` (`prerender=false`). `.env.example` has the GHL vars.
+- Wired: residential pillar (5 CTAs) + homepage "Request Quote Now".
+- **GATED:** site is `output:static` — did **not** flip to SSR/Node adapter or
+  rewrite the Dockerfile in-sandbox (can't build here; would risk a broken repo).
+  Live GHL lanes are untested (no PIT in hand; CLAUDE.md §4 blocks shipping
+  untested forms). Full activation runbook + the commercial/locations CTA wiring:
+  **`decisions/2026-05-29-ssr-ghl-forms.md`** and task #11.
+
+**Verification:** static only (section balance, imports, structure). The sandbox
+can't run `astro build`/`tsc` (mount EPERM/deadlock — same as prior sessions).
+Run `npm run preflight` on a real machine before publish.
+
+---
+
 ## Accomplished This Session
 
 This is the punch-list Chris approved at the end of the 2026-05-29 client review call — the "make these final touches and we're ready to roll" items Chandler called out, executed against the live Astro source. The prior build-and-cleanup session is archived at `archive/handoff_2026-05-29_1539.md`; this handoff covers only what changed after it.

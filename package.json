@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
+    "start": "node ./dist/server/entry.mjs",
     "build": "astro build && npm run audit:contrast && npm run audit:schema && npm run audit:silo && npm run audit:orphans && npm run audit:gbp-plan && npm run audit:images && npm run audit:pagebuilder",
     "preview": "astro preview",
     "astro": "astro",
@@ -25,6 +26,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^3.1.9",
+    "@astrojs/node": "^8.3.4",
     "@astrojs/react": "^3.6.3",
     "@astrojs/sitemap": "3.1.6",
     "@astrojs/tailwind": "^5.1.4",
@@ -37,6 +39,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.54.2",
+    "@supabase/supabase-js": "^2.49.4",
     "topojson-client": "^3.1.0",
     "xlsx": "^0.18.5",
     "zod": "^3.23.8"

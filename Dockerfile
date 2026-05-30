@@ -1,12 +1,16 @@
 # syntax=docker/dockerfile:1.6
 #
-# Multi-stage build for the Pro Exteriors Astro site.
-#  1. node:20-alpine builds the static output to /app/dist
-#  2. nginx:alpine serves the built assets on port 80
+# Multi-stage build for the Pro Exteriors Astro site (hybrid output).
+#  1. node:20-alpine builds to /app/dist (prerendered pages + standalone server)
+#  2. node:20-alpine runs the standalone SSR server on port 4321
 #
-# Coolify "dockerfile" build pack consumes this. Do not switch back to the
-# "static" build pack — that pack only copies the repo verbatim and skips
-# `npm run build`.
+# The site is `output: "hybrid"` + @astrojs/node (standalone): every marketing
+# page is prerendered static; only /api/contact and /api/contact-sync run on the
+# Node server. The server serves the prerendered pages AND the API routes, so a
+# single Node runtime replaces the old nginx-static stage.
+#
+# Coolify "dockerfile" build pack consumes this. NOTE: the exposed port changed
+# from 80 → 4321 — update the Coolify port mapping accordingly.
 
 # ---- Stage 1: build ----
 FROM node:20-alpine AS build
@@ -22,21 +26,26 @@ RUN npm ci --ignore-scripts
 RUN npm install @rollup/rollup-linux-x64-musl --no-save --no-audit --no-fund 2>/dev/null || true
 RUN npm rebuild
 
-# Build (runs astro build + audit:schema + audit:silo + audit:orphans)
+# Build (astro build → dist/client + dist/server, then the audit chain)
 COPY . .
 RUN npm run build
 
+# Drop devDependencies so only runtime deps ship to the runtime stage.
+RUN npm prune --omit=dev
+
 # ---- Stage 2: runtime ----
-FROM nginx:alpine AS runtime
+FROM node:20-alpine AS runtime
+WORKDIR /app
 
-# Replace the default site config with one that serves /usr/share/nginx/html,
-# adds a basic 404, and rewrites trailing-slash URLs cleanly.
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=4321
 
-# Astro emits per-route index.html files under directories matching the
-# canonical paths, so static serving is sufficient.
-COPY --from=build /app/dist /usr/share/nginx/html
+# The standalone server entry + its prerendered client assets + runtime deps.
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/package.json ./package.json
 
-EXPOSE 80
+EXPOSE 4321
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "./dist/server/entry.mjs"]
