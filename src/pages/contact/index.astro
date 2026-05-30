@@ -4,6 +4,7 @@ import HeroSection from '../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../components/molecules/Breadcrumb.astro';
 import Icon from '../../components/atoms/Icon.astro';
 import FAQ from '../../components/molecules/FAQ.astro';
+import LeadSurvey from '../../components/islands/LeadSurvey';
 import LeadCaptureForm from '../../components/molecules/LeadCaptureForm.astro';
 import { contactPageSchema } from '../../lib/schema/ContactPage';
 import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
@@ -59,14 +60,16 @@ const faqs = [
   <section class="bg-surface-inset py-16 sm:py-20">
     <div class="w-[90%] max-w-6xl mx-auto grid gap-10 lg:grid-cols-5 lg:items-start">
       <div class="lg:col-span-3">
-        <h2 class="text-3xl sm:text-4xl font-display font-bold text-text-primary">Request your free estimate</h2>
-        <p class="mt-3 text-lg text-text-secondary">Two quick taps tell us who to send it to — then a few details. Most requests get a same-day response.</p>
-        <div class="mt-8">
-          <LeadCaptureForm
-            ctaId="contact-hub"
-            source="Website – Contact Page"
-            submitLabel="Submit request"
-          />
+        <h2 class="sr-only">Request your free estimate</h2>
+        {/* Progressive inline survey (routes the lane from the client's answers).
+            client:only so JS-off users don't see a non-functional shell — they
+            get the no-JS form in <noscript> instead. */}
+        <div class="min-h-[600px]">
+          <LeadSurvey client:only="react" ctaId="contact-hub" source="Website – Contact Page" />
+          <noscript>
+            <h3 class="text-2xl font-bold text-text-primary mb-4">Request your free estimate</h3>
+            <LeadCaptureForm ctaId="contact-hub" source="Website – Contact Page" submitLabel="Submit request" />
+          </noscript>
         </div>
       </div>
 
@@ -75,19 +78,19 @@ const faqs = [
           <h3 class="text-lg font-bold text-text-primary">Prefer to talk to a person?</h3>
           <div class="mt-4">
             <p class="text-sm text-text-secondary">Sales &amp; new projects</p>
-            <a href="tel:+18443367767" class="text-2xl font-extrabold text-accent hover:underline">844-336-PROS</a>
+            <a href="tel:+18443367767" class="text-2xl font-extrabold text-text-primary hover:text-accent hover:underline">844-336-PROS</a>
           </div>
           <div class="mt-4">
             <p class="text-sm text-text-secondary">Service division &amp; Pro Plan</p>
-            <a href="tel:+18663367767" class="text-2xl font-extrabold text-accent hover:underline">866-336-PROS</a>
+            <a href="tel:+18663367767" class="text-2xl font-extrabold text-text-primary hover:text-accent hover:underline">866-336-PROS</a>
             <a href="mailto:service@proexteriorsus.com" class="mt-1 block text-sm text-text-secondary hover:underline">service@proexteriorsus.com</a>
           </div>
         </div>
 
-        <div class="rounded-2xl border-2 border-accent bg-[#FCE8E8] p-6">
+        <div class="rounded-2xl border-2 border-[#C22326] bg-[#FCE8E8] p-6">
           <p class="font-bold text-text-primary">Active leak or storm damage?</p>
           <p class="mt-1 text-sm text-text-secondary">Don't wait on a form — same-day emergency tarping is available.</p>
-          <a href="tel:+18443367767" class="mt-4 inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-5 py-3 font-bold text-text-on-brand hover:bg-brand-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">
+          <a href="tel:+18443367767" class="mt-4 inline-flex min-h-12 items-center justify-center rounded-md bg-brand-accent px-5 py-3 font-bold text-text-on-brand hover:bg-brand-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2">
             Call the emergency line
           </a>
         </div>
