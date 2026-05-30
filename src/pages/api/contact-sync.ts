@@ -167,21 +167,27 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response("Sync failed", { status: 500 });
   }
 
-  // 2. Dedupe + create the routed opportunity (best-effort; logged on failure).
+  // 2. Dedupe + create the routed opportunity — RETRIED like the contact upsert
+  //    so a transient GHL 429/5xx (e.g. during a submission burst) doesn't drop
+  //    the opportunity while the contact succeeds.
   let ghlOpportunityId: string | null = null;
   let ghlPipelineId: string | null = null;
-  try {
-    const { config } = resolveLane(payload.intent, payload.propertyType);
-    ghlPipelineId = config.pipelineId;
-    const existing = await findOpenOpportunity(ghlContactId, config.pipelineId);
-    if (existing) {
-      ghlOpportunityId = existing;
-    } else {
+  let oppError: string | null = null;
+  const { config } = resolveLane(payload.intent, payload.propertyType);
+  ghlPipelineId = config.pipelineId;
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const existing = await findOpenOpportunity(ghlContactId, config.pipelineId);
+      if (existing) { ghlOpportunityId = existing; oppError = null; break; }
       const opp = await createOpportunity(ghlContactId, payload);
       ghlOpportunityId = opp.id;
+      oppError = null;
+      break;
+    } catch (err) {
+      oppError = (err as Error).message;
+      console.error(`[contact-sync] opportunity attempt ${attempt} failed:`, oppError);
+      if (attempt < MAX_RETRIES) await sleep(RETRY_DELAY);
     }
-  } catch (err) {
-    console.error("[contact-sync] opportunity error:", (err as Error).message);
   }
 
   // 3. Add a summary note (best-effort).
@@ -201,19 +207,24 @@ export const POST: APIRoute = async ({ request }) => {
     console.error("[contact-sync] note error:", (err as Error).message);
   }
 
-  // 4. Mark synced.
+  // 4. Mark status. "synced" ONLY when BOTH the contact AND opportunity landed;
+  //    otherwise "needs_attention" so a retry sweep / operator can heal it. A
+  //    created contact with no opportunity must never look fully synced.
+  const fullySynced = Boolean(ghlOpportunityId);
   await supabase
     .from(WEBSITE_CONTACTS_TABLE)
     .update({
-      sync_status: "synced",
+      sync_status: fullySynced ? "synced" : "needs_attention",
       ghl_contact_id: ghlContactId,
       ghl_opportunity_id: ghlOpportunityId,
       ghl_pipeline_id: ghlPipelineId,
       sync_attempts: (row.sync_attempts ?? 0) + 1,
-      sync_last_error: null,
-      synced_at: new Date().toISOString(),
+      sync_last_error: fullySynced ? null : `opportunity not created: ${oppError ?? "unknown"}`,
+      synced_at: fullySynced ? new Date().toISOString() : null,
     })
     .eq("id", contactRowId);
 
-  return new Response("OK", { status: 200 });
+  return new Response(fullySynced ? "OK" : "Partial — opportunity needs attention", {
+    status: fullySynced ? 200 : 207,
+  });
 };
