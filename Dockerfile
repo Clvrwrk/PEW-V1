@@ -37,9 +37,19 @@ RUN npm prune --omit=dev
 FROM node:20-alpine AS runtime
 WORKDIR /app
 
+# curl is required for Coolify's container healthcheck (node:20-alpine ships
+# without it). Without curl the healthcheck fails and Coolify rolls back to the
+# previous container — silently keeping stale env/config live.
+RUN apk add --no-cache curl
+
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=4321
+
+# Container-level healthcheck against the SSR server (belt-and-suspenders with
+# Coolify's own check). Hits the prerendered homepage served by the Node server.
+HEALTHCHECK --interval=30s --timeout=5s --start-period=40s --retries=3 \
+  CMD curl -fsS http://localhost:4321/ || exit 1
 
 # The standalone server entry + its prerendered client assets + runtime deps.
 COPY --from=build /app/dist ./dist
