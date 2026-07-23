@@ -195,17 +195,17 @@ const DEFAULT_OFFICES = [
     lat: 39.0997, lng: -94.5786,
   },
   {
-    id: "valdosta-ga",
+    id: "jonesboro-ga",
     type: "brick",
-    name: "Valdosta, GA",
+    name: "Jonesboro (Atlanta), GA",
     company: "Pro Exteriors, LLC",
     state: "GA",
-    address: "Valdosta, GA — address forthcoming",
+    address: "409 Arrowhead Blvd Ste B, Jonesboro, GA 30236",
     phone: null,
     email: "Office@proexteriorsus.com",
     hours: "Mon–Sat 7am–5pm · Sun Closed",
     accreditation: [],
-    lat: 30.8327, lng: -83.2785,
+    lat: 33.5749, lng: -84.3786,
   },
   {
     id: "north-carolina",
@@ -219,19 +219,6 @@ const DEFAULT_OFFICES = [
     hours: "Mon–Sat 7am–5pm · Sun Closed",
     accreditation: [],
     lat: 35.7596, lng: -79.0193,
-  },
-  {
-    id: "ga-satellite",
-    type: "satellite",
-    name: "Georgia — Satellite Office",
-    company: "Pro Exteriors, LLC",
-    state: "GA",
-    address: "Georgia — satellite office address forthcoming",
-    phone: null,
-    email: "Office@proexteriorsus.com",
-    hours: "Mon–Sat 7am–5pm · Sun Closed",
-    accreditation: [],
-    lat: 33.7490, lng: -84.3880, // Atlanta placeholder — replace when confirmed
   },
 ];
 
