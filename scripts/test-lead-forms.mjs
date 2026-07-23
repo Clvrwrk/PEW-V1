@@ -61,10 +61,9 @@ function laneFor(form, i) {
   return LANES[0];
 }
 
-// Unique, findable phone per (formIndex, n): +1 555 FF NN 000  (always 10 digits after +1)
+// Unique, findable, VALID 10-digit phone per (formIndex, n): +1 555 FFF NNNN
 function phoneFor(fIdx, n) {
-  const d = `555${String(fIdx).padStart(2, '0')}${String(n).padStart(2, '0')}00`;
-  return `+1${d.slice(0, 10)}`;
+  return `+1555${String(fIdx).padStart(3, '0')}${String(n).padStart(4, '0')}`;
 }
 
 function buildFill(form, fIdx, n) {
