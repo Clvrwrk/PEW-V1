@@ -29,6 +29,16 @@ const { Content } = await entry.render();
 const data = entry.data;
 const addr = data.address;
 const fullAddress = `${addr.street}, ${addr.city}, ${addr.state} ${addr.zip}`;
+const licenseDisplay = data.accreditation?.find((a) => a.display)?.display
+  ?? data.accreditation?.map((a) => (a.display ?? `${a.label} #${a.number}`)).join(' · ');
+const phoneHref = /pros/i.test(data.phone)
+  ? 'tel:+18443367767'
+  : (() => {
+      const phoneDigits = data.phone.replace(/\D/g, '');
+      return phoneDigits.length >= 10
+        ? `tel:+1${phoneDigits.length === 10 ? phoneDigits : phoneDigits.slice(-10)}`
+        : 'tel:+18443367767';
+    })();
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
@@ -45,6 +55,7 @@ const schemaPayload = [
     url: `https://pc-demo.cleverwork.io${data.canonicalPath}`,
     lat: data.lat,
     lng: data.lng,
+    licenseDisplay,
   }),
   breadcrumbSchema(breadcrumbs),
 ];
@@ -60,10 +71,10 @@ const schemaPayload = [
 
   <HeroSection
     image="/images/locations-hero.webp"
-    title={`Pro Exteriors — ${data.metro} from our ${addr.city} office`}
+    title={data.h1 ?? `Pro Exteriors — ${data.metro} from our ${addr.city} office`}
     subtitle={`Serving ${addr.city} and the surrounding ${data.metro} region for commercial and residential roofing.`}
     primaryCta={{ label: 'Schedule a Visit', href: '/contact/' }}
-    secondaryCta={{ label: `Call ${data.phone}`, href: `tel:${data.phone.replace(/\D/g, '')}` }}
+    secondaryCta={{ label: `Call ${data.phone}`, href: phoneHref }}
   />
 
   <section class="py-16 px-4 max-w-5xl mx-auto">
@@ -71,17 +82,25 @@ const schemaPayload = [
       <div>
         <h2 class="text-2xl font-bold mb-4">Office Address</h2>
         <address class="not-italic text-text-secondary leading-7">
+          <div class="font-medium text-text-primary">Pro Exteriors, LLC</div>
           <div class="font-medium text-text-primary">{data.name}</div>
           <div>{addr.street}</div>
           <div>{addr.city}, {addr.state} {addr.zip}</div>
         </address>
+
+        {licenseDisplay && (
+          <>
+            <h2 class="text-2xl font-bold mt-8 mb-4">License</h2>
+            <p class="text-text-secondary">{licenseDisplay}</p>
+          </>
+        )}
 
         <h2 class="text-2xl font-bold mt-8 mb-4">Hours</h2>
         <p class="text-text-secondary">{data.hours}</p>
 
         <h2 class="text-2xl font-bold mt-8 mb-4">Contact</h2>
         <p>
-          <a href={`tel:${data.phone.replace(/\D/g, '')}`} class="text-text-primary font-medium hover:underline">
+          <a href={phoneHref} class="text-text-primary font-medium hover:underline">
             {data.phone}
           </a>
         </p>

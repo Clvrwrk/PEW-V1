@@ -103,7 +103,7 @@ const FIPS_TO_NAME = {
  * but MO was missing from the "located in" list. Active trumps licensed
  * where there's a real office — flagged in handoff notes.
  * ============================================================== */
-const ACTIVE_STATES   = new Set(["TX", "KS", "CO", "GA", "NC", "MO"]);
+const ACTIVE_STATES   = new Set(["TX", "KS", "CO", "GA", "NC", "MO", "FL"]);
 const LICENSED_STATES = new Set([
   "LA", "SC", "OK", "NE", "MN", "MS", "AL", "AR", "TN", "KY",
 ]);
@@ -206,6 +206,22 @@ const DEFAULT_OFFICES = [
     hours: "Mon–Sat 7am–5pm · Sun Closed",
     accreditation: [],
     lat: 33.5749, lng: -84.3786,
+  },
+  {
+    id: "pensacola-fl",
+    type: "brick",
+    name: "Pensacola, FL",
+    company: "Pro Exteriors, LLC",
+    state: "FL",
+    address: "545 Brent Lane #141, Pensacola, FL 32503",
+    phone: "844-336-PROS",
+    phoneHref: "tel:+18443367767",
+    email: "Office@proexteriorsus.com",
+    hours: "Mon–Sat 7am–5pm · Sun Closed",
+    accreditation: [
+      { label: "FL License", number: "CCC1337958", display: "FL License #CCC1337958" },
+    ],
+    lat: 30.475, lng: -87.218,
   },
   {
     id: "north-carolina",
@@ -652,8 +668,14 @@ const ContactCard = React.forwardRef(function ContactCard({ office, onClose }, r
               <ul style={styles.accreditList}>
                 {office.accreditation.map((a, i) => (
                   <li key={i} style={styles.accreditItem}>
-                    <span style={styles.accreditLabel}>{a.label}:</span>{" "}
-                    <span style={styles.accreditNumber}>{a.number}</span>
+                    {a.display ? (
+                      <span style={styles.accreditNumber}>{a.display}</span>
+                    ) : (
+                      <>
+                        <span style={styles.accreditLabel}>{a.label}:</span>{" "}
+                        <span style={styles.accreditNumber}>{a.number}</span>
+                      </>
+                    )}
                   </li>
                 ))}
               </ul>

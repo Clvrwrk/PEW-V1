@@ -12,6 +12,7 @@ const OfficeSchema = z.object({
   image: z.string().optional(),
   lat: z.number().optional(),
   lng: z.number().optional(),
+  licenseDisplay: z.string().optional(),
 });
 
 export function localBusinessSchema(officeData: any) {
@@ -35,7 +36,16 @@ export function localBusinessSchema(officeData: any) {
     "url": office.url,
     "telephone": office.phone,
     "email": office.email,
-    "image": office.image || "https://pc-demo.cleverwork.io/Logos/pro-exteriors-logo-light.webp"
+    "image": office.image || "https://pc-demo.cleverwork.io/Logos/pro-exteriors-logo-light.webp",
+    ...(office.licenseDisplay
+      ? {
+          identifier: {
+            "@type": "PropertyValue",
+            name: "Contractor license",
+            value: office.licenseDisplay,
+          },
+        }
+      : {}),
   };
 }
 

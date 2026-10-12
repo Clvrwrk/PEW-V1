@@ -10,10 +10,11 @@ import { breadcrumbSchema } from '../../lib/schema/BreadcrumbList';
 const locations = [
   { name: "Richardson, TX", address: "1778 N Plano Rd #118, Richardson, TX", phone: "844-336-PROS", url: "/locations/richardson/" },
   { name: "Euless, TX", address: "1105 S Airport Cir Ste C, Euless, TX", phone: "844-336-PROS", url: "/locations/euless/" },
-  { name: "Wichita, KS", address: "801 E Douglas Ave #270, Wichita, KS", phone: "844-336-PROS", url: "/locations/wichita/" },
-  { name: "Denver (Greenwood Village), CO", address: "5650 Greenwood Plaza Blvd Ste 145, Greenwood Village, CO", phone: "844-336-PROS", url: "/locations/denver/" },
-  { name: "Kansas City, MO", address: "710 Central St Ste 40, Kansas City, MO", phone: "844-336-PROS", url: "/locations/kansas-city/" },
-  { name: "Jonesboro (Atlanta), GA", address: "409 Arrowhead Blvd Ste B, Jonesboro, GA", phone: "844-336-PROS", url: "/locations/atlanta/" },
+  { name: "Wichita, KS", address: "801 E Douglas Ave #270, Wichita, KS", phone: "844-336-PROS", url: "/locations/wichita/", detailUrl: "/locations/wichita/" },
+  { name: "Denver (Greenwood Village), CO", address: "5650 Greenwood Plaza Blvd Ste 145, Greenwood Village, CO", phone: "844-336-PROS", url: "/locations/denver/", detailUrl: "/locations/denver/" },
+  { name: "Kansas City, MO", address: "710 Central St Ste 40, Kansas City, MO", phone: "844-336-PROS", url: "/locations/kansas-city/", detailUrl: "/locations/kansas-city/" },
+  { name: "Jonesboro (Atlanta), GA", address: "409 Arrowhead Blvd Ste B, Jonesboro, GA", phone: "844-336-PROS", url: "/locations/atlanta/", detailUrl: "/locations/atlanta/" },
+  { name: "Pensacola, FL", address: "545 Brent Lane #141, Pensacola, FL 32503", phone: "844-336-PROS", url: "/locations/pensacola-fl/", detailUrl: "/locations/pensacola-fl/", license: "FL License #CCC1337958" },
   { name: "Burlington, NC", address: "Address forthcoming", phone: "844-336-PROS", url: "/locations/burlington/" },
 ];
 
@@ -24,7 +25,7 @@ const faqs = [
   },
   {
     question: "What states do you service?",
-    answer: "We operate in 16 states with physical offices in Texas, Kansas, Colorado, Missouri, Georgia, and North Carolina. Call 844-336-PROS or visit our contact page to confirm coverage in your area."
+    answer: "We operate in 16 states with physical offices in Texas, Kansas, Colorado, Missouri, Georgia, Florida, and North Carolina. Call 844-336-PROS or visit our contact page to confirm coverage in your area."
   },
   {
     question: "Do you provide emergency response outside your office markets?",
@@ -120,11 +121,14 @@ const mainSchema = [
         <div class="bg-surface-elevated p-8 rounded-2xl shadow-sm ring-1 ring-border hover:shadow-md transition-shadow">
           <h3 class="text-xl font-bold text-text-primary mb-2">{loc.name}</h3>
           <p class="text-text-secondary mb-4">{loc.address}</p>
+          {'license' in loc && loc.license && (
+            <p class="text-sm text-text-tertiary mb-4">{loc.license}</p>
+          )}
           <div class="flex flex-col gap-2">
             <a href="tel:+18443367767" class="text-text-primary font-medium hover:underline">{loc.phone}</a>
-            {/* "View Office Details" link removed 2026-05-29 (Chris): per-office location
-                pages (loc.url → /locations/{office}/) are not built yet. Re-add once the
-                location pages ship with unique content. Backlog: "build location pages". */}
+            {'detailUrl' in loc && loc.detailUrl && (
+              <a href={loc.detailUrl} class="text-sm font-semibold text-accent hover:underline">View office details</a>
+            )}
           </div>
         </div>
       ))}
