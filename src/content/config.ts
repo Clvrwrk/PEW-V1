@@ -139,6 +139,18 @@ const offices = defineCollection({
     lat: z.number().optional(),
     lng: z.number().optional(),
     servicesOffered: z.array(z.string()).optional(), // service slugs
+    h1: z.string().optional(),
+    faqs: z.array(faqItem).optional(),
+    /** Shown on office page and map pin card; `display` overrides label/number formatting when set. */
+    accreditation: z
+      .array(
+        z.object({
+          label: z.string(),
+          number: z.string(),
+          display: z.string().optional(),
+        }),
+      )
+      .optional(),
   }),
 });
 

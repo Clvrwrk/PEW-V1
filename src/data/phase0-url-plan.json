@@ -98,6 +98,13 @@
     "vertical": "Brand"
   },
   {
+    "url": "/locations/pensacola-fl/",
+    "phase": "Phase 0 \u2014 Seed Launch",
+    "role": "GBP Destination",
+    "template": "city-detail (location)",
+    "vertical": "Brand"
+  },
+  {
     "url": "/commercial-roofing/tpo/",
     "phase": "Phase 0 \u2014 Seed Launch",
     "role": "Money Page",
