@@ -5,6 +5,7 @@ import { organizationSchema } from '../lib/schema/Organization';
 import OfficeLocationsMap from '../components/islands/OfficeLocationsMap';
 import CtaLeadModal from '../components/islands/CtaLeadModal';
 import Icon from '../components/atoms/Icon.astro';
+import SocialTrustBar from '../components/organisms/SocialTrustBar.astro';
 
 // ── Schema ────────────────────────────────────────────────────────────────────
 const mainSchema = [websiteSchema(), organizationSchema()];
@@ -92,6 +93,7 @@ const mainSchema = [websiteSchema(), organizationSchema()];
           </a>
         </div>
 
+        {/* v7 Social Trust bar (2026-10-17): hero Trust / Honor / Integrity line removed from render per the P0 spec; source kept here, delete nothing.
         <!-- Task 2 Trust / Honor / Integrity boxes -->
         <div class="flex flex-wrap gap-6 pt-6 border-t border-white/20 mt-2">
           <div class="flex items-center gap-2">
@@ -113,10 +115,14 @@ const mainSchema = [websiteSchema(), organizationSchema()];
             <span class="text-white font-bold text-sm">Integrity</span>
           </div>
         </div>
+        */}
 
       </div>
     </div>
   </section>
+
+  <!-- SOCIAL TRUST BAR (v7) — directly above Client Voices -->
+  <SocialTrustBar />
 
   <!-- ══════════════════════════════════════════════════════════════════════════
        CLIENT VOICES — moved to second position per Task 22
@@ -397,7 +403,7 @@ const mainSchema = [websiteSchema(), organizationSchema()];
          partnership story. Keyboard users hit the same target via the visible CTA
          that the image already shows. -->
     <a
-      href="https://pc-demo.cleverwork.io/commercial-roofing/"
+      href="/commercial-roofing/"
       class="absolute inset-0 focus:outline-2 focus:outline-offset-[-4px] focus:outline-[#eaa221]"
       aria-label="See the Pro Exteriors and Texas Motor Speedway partnership"
       data-cta-name="homepage_tms_cta_click"

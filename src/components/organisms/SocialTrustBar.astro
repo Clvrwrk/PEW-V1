@@ -1,0 +1,93 @@
+---
+/**
+ * Social Trust Bar (v7, final mockup per Chris ruling 2026-10-16 7:24pm PT; build ordered 2026-10-17 9:07am PT via Tigh/Kendra).
+ * Source of truth: mockup-v7 (Figma ACPuwORmEBYWPPeYanjtWx, row y=77000).
+ * - BBB, Google, Facebook, Instagram, LinkedIn, Chamber link out (new tab, rel=noopener) per addendum 2026-10-17 ~9:14am PT; MBE/WBE stay unlinked.
+ * - "See all" link (copy item 6) is hidden until /supplier-diversity/ is live; heights recomputed.
+ * - MBE = NMSDC "Certified MBE" badge from Tabatha's 10/16 email, on white with clear space (report.md §2/§4).
+ * - WBE = text tile "WBE Certified" on white: report.md §2 forbids cropping the WBENC logo from the certificate PDF,
+ *   and no WBE Seal from WBENCLink2.0 was supplied.
+ * - BBB = option A: unaltered colour Accredited Business seal, no backing.
+ * Playbook: LS-001 (real credentials only), LS-004 (facts match certificates), LS-012 (sized assets), LS-015 (real profiles only).
+ * Height budget (section py 48px): 1440 = 156px (1 row x 60); 768 = 248px (2 rows x 60 + 32 gap); 375 = 312px (2 rows x 92 + 32 gap).
+ */
+---
+<section id="social-trust-bar" class="stb" aria-label="Certifications and profiles">
+  <div class="stb-wrap">
+    <ul class="stb-grid" role="list">
+      <li class="stb-item">
+        <span class="lg"><span class="plate"><img class="pm" src="/Logos/social-trust/nmsdc-mbe-certified.webp" width="104" height="120" alt="NMSDC Certified Minority Business Enterprise (MBE) badge" loading="lazy" decoding="async" /></span></span>
+        <span class="cap">MBE Certified</span>
+      </li>
+      <li class="stb-item">
+        <span class="lg"><span class="plate plate-txt">WBE<br class="br" /> Certified</span></span>
+        <span class="cap">WBE Certified</span>
+      </li>
+      <li class="stb-item">
+        <a class="stb-link" href="https://www.bbb.org/us/tx/richardson/profile/roofing-contractors/pro-exteriors-llc-0875-91303048" target="_blank" rel="noopener" aria-label="Pro Exteriors BBB profile (opens in a new tab)" data-cta-name="social_trust_bbb">
+          <span class="lg"><img class="seal" src="/Logos/social-trust/bbb-accredited-business-seal.webp" width="314" height="120" alt="BBB Accredited Business" loading="lazy" decoding="async" /></span>
+          <span class="cap">BBB Accredited</span>
+        </a>
+      </li>
+      <li class="stb-item">
+        <a class="stb-link" href="https://www.google.com/maps/search/?api=1&amp;query=Pro+Exteriors+LLC+1778+N+Plano+Rd+118+Richardson+TX+75081" target="_blank" rel="noopener" aria-label="Pro Exteriors on Google (opens in a new tab)" data-cta-name="social_trust_google">
+          <span class="lg"><img class="li" src="/Logos/social-trust/google-g.webp" width="120" height="120" alt="Google" loading="lazy" decoding="async" /></span>
+          <span class="cap">Google Reviews</span>
+        </a>
+      </li>
+      <li class="stb-item">
+        <a class="stb-link" href="https://www.facebook.com/proexteriorsus" target="_blank" rel="noopener" aria-label="Pro Exteriors on Facebook (opens in a new tab)" data-cta-name="social_trust_facebook">
+          <span class="lg"><img class="li" src="/Logos/social-trust/facebook-f.webp" width="120" height="120" alt="Facebook" loading="lazy" decoding="async" /></span>
+          <span class="cap">Facebook</span>
+        </a>
+      </li>
+      <li class="stb-item">
+        <a class="stb-link" href="https://www.instagram.com/proexteriorsllc/" target="_blank" rel="noopener" aria-label="Pro Exteriors on Instagram (opens in a new tab)" data-cta-name="social_trust_instagram">
+          <span class="lg"><img class="li" src="/Logos/social-trust/instagram-glyph-white.webp" width="120" height="120" alt="Instagram" loading="lazy" decoding="async" /></span>
+          <span class="cap">Instagram</span>
+        </a>
+      </li>
+      <li class="stb-item">
+        <a class="stb-link" href="https://www.linkedin.com/company/proexteriorsus" target="_blank" rel="noopener" aria-label="Pro Exteriors on LinkedIn (opens in a new tab)" data-cta-name="social_trust_linkedin">
+          <span class="lg"><img class="li" src="/Logos/social-trust/linkedin-inbug-white.webp" width="129" height="120" alt="LinkedIn" loading="lazy" decoding="async" /></span>
+          <span class="cap">LinkedIn</span>
+        </a>
+      </li>
+      <li class="stb-item">
+        <a class="stb-link" href="https://business.richardsonchamber.com/members/member/pro-exteriors-llc-25116" target="_blank" rel="noopener" aria-label="Pro Exteriors Richardson Chamber member listing (opens in a new tab)" data-cta-name="social_trust_chamber">
+          <span class="lg"><img class="li" src="/Logos/social-trust/richardson-chamber-knockout.webp" width="257" height="120" alt="Richardson Chamber of Commerce" loading="lazy" decoding="async" /></span>
+          <span class="cap">Richardson Chamber</span>
+        </a>
+      </li>
+    </ul>
+    {/* Copy item 6 "See all our certifications & profiles →" hidden until the trust page is live (Kendra ruling c, 2026-10-17). */}
+  </div>
+</section>
+
+<style>
+  .stb { background: #0F172A; padding: 48px 0; }
+  .stb-wrap { width: 90%; margin: 0 auto; text-align: center; }
+  .stb-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); column-gap: 28px; row-gap: 32px; grid-auto-rows: 60px; align-items: center; }
+  .stb-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-width: 0; color: #fff; }
+  .stb-link { display: flex; flex-direction: column; align-items: center; gap: 6px; color: inherit; text-decoration: none; min-width: 0; }
+  .stb-link:focus-visible { outline: 2px solid #eaa221; outline-offset: 4px; }
+  .lg { height: 40px; display: flex; align-items: center; justify-content: center; }
+  .li { height: 36px; width: auto; max-width: 100%; display: block; }
+  .seal { height: 40px; width: auto; max-width: 100%; display: block; }
+  .plate { height: 40px; background: #fff; padding: 4px 8px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
+  .pm { height: 32px; width: auto; display: block; }
+  .plate-txt { width: 96px; color: #11133F; font-weight: 800; font-size: 11px; line-height: 13px; letter-spacing: .03em; text-transform: uppercase; }
+  .plate-txt .br { display: none; }
+  .cap { font-size: 11px; letter-spacing: .03em; text-transform: uppercase; color: #cbd5e1; font-weight: 600; line-height: 14px; text-align: center; white-space: nowrap; }
+  @media (max-width: 900px) { .stb-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 32px; } }
+  @media (max-width: 480px) {
+    .stb-grid { column-gap: 12px; grid-auto-rows: 92px; }
+    .lg, .seal, .plate { height: 32px; }
+    .li { height: 28px; }
+    .plate { padding: 3px 5px; }
+    .pm { height: 26px; }
+    .plate-txt { width: 56px; font-size: 9px; line-height: 11px; }
+    .plate-txt .br { display: inline; }
+    .cap { white-space: normal; font-size: 10px; line-height: 13px; }
+  }
+</style>
