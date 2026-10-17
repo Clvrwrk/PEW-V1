@@ -2,7 +2,7 @@
 /**
  * Social Trust Bar (v7, final mockup per Chris ruling 2026-10-16 7:24pm PT; build ordered 2026-10-17 9:07am PT via Tigh/Kendra).
  * Source of truth: mockup-v7 (Figma ACPuwORmEBYWPPeYanjtWx, row y=77000).
- * - Every tile is UNLINKED (Chris: links added after he verifies the profiles).
+ * - BBB, Google, Facebook, Instagram, LinkedIn, Chamber link out (new tab, rel=noopener) per addendum 2026-10-17 ~9:14am PT; MBE/WBE stay unlinked.
  * - "See all" link (copy item 6) is hidden until /supplier-diversity/ is live; heights recomputed.
  * - MBE = NMSDC "Certified MBE" badge from Tabatha's 10/16 email, on white with clear space (report.md §2/§4).
  * - WBE = text tile "WBE Certified" on white: report.md §2 forbids cropping the WBENC logo from the certificate PDF,
@@ -24,28 +24,40 @@
         <span class="cap">WBE (pending)</span>
       </li>
       <li class="stb-item">
-        <span class="lg"><img class="seal" src="/Logos/social-trust/bbb-accredited-business-seal.webp" width="314" height="120" alt="BBB Accredited Business" loading="lazy" decoding="async" /></span>
-        <span class="cap">BBB Accredited</span>
+        <a class="stb-link" href="https://www.bbb.org/us/tx/richardson/profile/roofing-contractors/pro-exteriors-llc-0875-91303048" target="_blank" rel="noopener" aria-label="Pro Exteriors BBB profile (opens in a new tab)" data-cta-name="social_trust_bbb">
+          <span class="lg"><img class="seal" src="/Logos/social-trust/bbb-accredited-business-seal.webp" width="314" height="120" alt="BBB Accredited Business" loading="lazy" decoding="async" /></span>
+          <span class="cap">BBB Accredited</span>
+        </a>
       </li>
       <li class="stb-item">
-        <span class="lg"><img class="li" src="/Logos/social-trust/google-g.webp" width="120" height="120" alt="Google" loading="lazy" decoding="async" /></span>
-        <span class="cap">Google Reviews</span>
+        <a class="stb-link" href="https://www.google.com/maps/search/?api=1&amp;query=Pro+Exteriors+LLC+1778+N+Plano+Rd+118+Richardson+TX+75081" target="_blank" rel="noopener" aria-label="Pro Exteriors on Google (opens in a new tab)" data-cta-name="social_trust_google">
+          <span class="lg"><img class="li" src="/Logos/social-trust/google-g.webp" width="120" height="120" alt="Google" loading="lazy" decoding="async" /></span>
+          <span class="cap">Google Reviews</span>
+        </a>
       </li>
       <li class="stb-item">
-        <span class="lg"><img class="li" src="/Logos/social-trust/facebook-f.webp" width="120" height="120" alt="Facebook" loading="lazy" decoding="async" /></span>
-        <span class="cap">Facebook</span>
+        <a class="stb-link" href="https://www.facebook.com/proexteriorsus" target="_blank" rel="noopener" aria-label="Pro Exteriors on Facebook (opens in a new tab)" data-cta-name="social_trust_facebook">
+          <span class="lg"><img class="li" src="/Logos/social-trust/facebook-f.webp" width="120" height="120" alt="Facebook" loading="lazy" decoding="async" /></span>
+          <span class="cap">Facebook</span>
+        </a>
       </li>
       <li class="stb-item">
-        <span class="lg"><img class="li" src="/Logos/social-trust/instagram-glyph-white.webp" width="120" height="120" alt="Instagram" loading="lazy" decoding="async" /></span>
-        <span class="cap">Instagram</span>
+        <a class="stb-link" href="https://www.instagram.com/proexteriorsllc/" target="_blank" rel="noopener" aria-label="Pro Exteriors on Instagram (opens in a new tab)" data-cta-name="social_trust_instagram">
+          <span class="lg"><img class="li" src="/Logos/social-trust/instagram-glyph-white.webp" width="120" height="120" alt="Instagram" loading="lazy" decoding="async" /></span>
+          <span class="cap">Instagram</span>
+        </a>
       </li>
       <li class="stb-item">
-        <span class="lg"><img class="li" src="/Logos/social-trust/linkedin-inbug-white.webp" width="129" height="120" alt="LinkedIn" loading="lazy" decoding="async" /></span>
-        <span class="cap">LinkedIn</span>
+        <a class="stb-link" href="https://www.linkedin.com/company/proexteriorsus" target="_blank" rel="noopener" aria-label="Pro Exteriors on LinkedIn (opens in a new tab)" data-cta-name="social_trust_linkedin">
+          <span class="lg"><img class="li" src="/Logos/social-trust/linkedin-inbug-white.webp" width="129" height="120" alt="LinkedIn" loading="lazy" decoding="async" /></span>
+          <span class="cap">LinkedIn</span>
+        </a>
       </li>
       <li class="stb-item">
-        <span class="lg"><img class="li" src="/Logos/social-trust/richardson-chamber-knockout.webp" width="257" height="120" alt="Richardson Chamber of Commerce" loading="lazy" decoding="async" /></span>
-        <span class="cap">Richardson Chamber</span>
+        <a class="stb-link" href="https://business.richardsonchamber.com/members/member/pro-exteriors-llc-25116" target="_blank" rel="noopener" aria-label="Pro Exteriors Richardson Chamber member listing (opens in a new tab)" data-cta-name="social_trust_chamber">
+          <span class="lg"><img class="li" src="/Logos/social-trust/richardson-chamber-knockout.webp" width="257" height="120" alt="Richardson Chamber of Commerce" loading="lazy" decoding="async" /></span>
+          <span class="cap">Richardson Chamber</span>
+        </a>
       </li>
     </ul>
     {/* Copy item 6 "See all our certifications & profiles →" hidden until the trust page is live (Kendra ruling c, 2026-10-17). */}
@@ -57,6 +69,8 @@
   .stb-wrap { width: 90%; margin: 0 auto; text-align: center; }
   .stb-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); column-gap: 32px; row-gap: 32px; grid-auto-rows: 60px; align-items: center; }
   .stb-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-width: 0; color: #fff; }
+  .stb-link { display: flex; flex-direction: column; align-items: center; gap: 6px; color: inherit; text-decoration: none; min-width: 0; }
+  .stb-link:focus-visible { outline: 2px solid #eaa221; outline-offset: 4px; }
   .lg { height: 40px; display: flex; align-items: center; justify-content: center; }
   .li { height: 36px; width: auto; max-width: 100%; display: block; }
   .seal { height: 40px; width: auto; max-width: 100%; display: block; }
