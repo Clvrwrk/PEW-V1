@@ -10,7 +10,7 @@ const BreadcrumbItemSchema = z.object({
 
 export function breadcrumbSchema(path: any[]) {
   const validatedPath = z.array(BreadcrumbItemSchema).parse(path);
-  const siteUrl = "https://pc-demo.cleverwork.io";
+  const siteUrl = "https://proexteriorsus.com";
 
   return {
     "@type": "BreadcrumbList",

@@ -20,7 +20,7 @@ export function articleSchema(articleData: any) {
     "@type": "Article",
     "headline": article.title,
     "description": article.description,
-    "image": article.image || "https://pc-demo.cleverwork.io/Logos/pro-exteriors-logo-light.webp",
+    "image": article.image || "https://proexteriorsus.com/Logos/pro-exteriors-logo-light.webp",
     "author": {
       "@type": "Person",
       "name": article.author
@@ -30,7 +30,7 @@ export function articleSchema(articleData: any) {
       "name": "Pro Exteriors",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://pc-demo.cleverwork.io/Logos/pro-exteriors-logo-light.webp"
+        "url": "https://proexteriorsus.com/Logos/pro-exteriors-logo-light.webp"
       }
     },
     "datePublished": article.datePublished,
