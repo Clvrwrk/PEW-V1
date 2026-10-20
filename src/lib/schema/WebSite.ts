@@ -9,13 +9,7 @@ export function websiteSchema() {
     "@id": `${siteUrl}/#website`,
     "name": "Pro Exteriors",
     "url": siteUrl,
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": `${siteUrl}/search?q={search_term_string}`
-      },
-      "query-input": "required name=search_term_string"
-    }
+    // LS-010: no SearchAction - the site has no /search page (404), so the
+    // markup would describe a feature that does not exist.
   };
 }
