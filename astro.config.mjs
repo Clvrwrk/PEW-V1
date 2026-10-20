@@ -7,7 +7,7 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://pc-demo.Cleverwork.io',
+  site: 'https://proexteriorsus.com',
   // hybrid = every page is prerendered to static by default (keeps the Lighthouse
   // gate and nginx-fast marketing pages); only routes that opt out with
   // `export const prerender = false` run on the Node server. The lead-intake

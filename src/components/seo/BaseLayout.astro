@@ -33,7 +33,7 @@ if (description.length < 70 || description.length > 160) {
   console.warn(`[SEO WARNING] Description should be 70-160 characters: "${description}" (${description.length} chars)`);
 }
 
-const siteUrl = import.meta.env.SITE_URL || 'https://pc-demo.cleverwork.io';
+const siteUrl = import.meta.env.SITE_URL || 'https://proexteriorsus.com';
 const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
 const ogImageUrl = new URL(ogImage, siteUrl).toString();
 const faviconLight = '/Logos/favicon-light.webp';
