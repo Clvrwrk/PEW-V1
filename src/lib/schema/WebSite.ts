@@ -2,10 +2,11 @@
  * src/lib/schema/WebSite.ts
  */
 export function websiteSchema() {
-  const siteUrl = "https://pc-demo.cleverwork.io";
+  const siteUrl = "https://proexteriorsus.com";
 
   return {
     "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
     "name": "Pro Exteriors",
     "url": siteUrl,
     "potentialAction": {

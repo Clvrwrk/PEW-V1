@@ -6,9 +6,9 @@
 export function organizationSchema() {
   return {
     "@type": "Organization",
-    "@id": "https://pc-demo.cleverwork.io/#organization",
+    "@id": "https://proexteriorsus.com/#organization",
     "name": "Pro Exteriors",
-    "url": "https://pc-demo.cleverwork.io/",
+    "url": "https://proexteriorsus.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://pc-demo.cleverwork.io/Logos/pro-exteriors-logo-light.webp",
