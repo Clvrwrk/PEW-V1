@@ -1,15 +1,15 @@
 # =============================================================================
-# Cleverwork canonical CodeRabbit config  —  ADVISORY-ONLY profile
+# Cleverwork CodeRabbit config — on-request second opinion
 # -----------------------------------------------------------------------------
-# Purpose: best-practice review on EVERY commit, across every project, without
-# slowing the team down or requiring per-repo fiddling.
+# Cost profile: auto review is off. A review runs when the PR carries the
+# `coderabbit-review` label, or when someone comments `@coderabbitai review`.
+# Drafts are skipped. Incremental re-review on each push is off.
 #
-# How to use:
-#   - Org settings (app.coderabbit.ai) carry these same defaults org-wide.
-#   - Drop THIS file at the root of any repo that needs repo-specific overrides
-#     (e.g. extra path_instructions for that codebase's rules).
-#   - Per-repo: edit `auto_review.base_branches` to include that repo's
-#     live/deploy branch (the one PRs target).
+# Custom settings kept from the previous repo config (they do not conflict
+# with the cost-cut keys): language, tone_instructions, request_changes_workflow,
+# summary flags, auto_pause_after_reviewed_commits, base_branches,
+# ignore_title_keywords, path_instructions, finishing_touches, knowledge_base,
+# chat.auto_reply.
 #
 # Schema reference: https://docs.coderabbit.ai/reference/configuration
 # yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
@@ -24,9 +24,7 @@ tone_instructions: >
   the highest-severity issues. No praise padding.
 
 reviews:
-  # 'chill' = lighter, higher-signal feedback (less nitpicky than 'assertive').
-  # This is the main lever for "support me without slowing me down".
-  profile: "chill"
+  profile: "assertive"
 
   # ADVISORY ONLY: CodeRabbit comments and summarizes, but NEVER blocks a merge.
   request_changes_workflow: false
@@ -38,34 +36,35 @@ reviews:
   collapse_walkthrough: false
 
   auto_review:
-    enabled: true                 # review on PR open
-    auto_incremental_review: true # re-review on EVERY push (the per-commit loop)
+    enabled: false
+    labels:
+      - "coderabbit-review"
+    drafts: false
+    auto_incremental_review: false
 
     # CRITICAL for busy repos: default is 5, which silently stops auto-review
     # after 5 commits. 0 = never auto-pause, so every commit keeps getting reviewed.
     auto_pause_after_reviewed_commits: 0
 
-    drafts: false                 # set true if you want WIP/draft PRs reviewed too
-
     # Add each repo's live/deploy branch here (regex ok). '.*' = all branches.
     # Default branch is always reviewed even if not listed.
     base_branches:
       - "main"
-      # - "contrib/.*"            # uncomment per-repo if you PR into contrib branches
 
     # Skip noise without blocking anyone.
     ignore_title_keywords:
       - "wip"
       - "no-review"
-    labels:
-      - "!no-review"              # any PR labeled 'no-review' is skipped
 
-  # CodeRabbit ships sensible default ignores (lock files, builds, binaries,
-  # media). Add project-specific noise here as you find it.
+  # New path filters win. Content (md/mdx, docs, images, journal data) is
+  # checked by internal ringer swarms, not CodeRabbit.
   path_filters:
-    - "!**/dist/**"
-    - "!**/build/**"
-    - "!**/*.min.js"
+    - "!**/*.md"
+    - "!**/*.mdx"
+    - "!docs/**"
+    - "!**/docs/**"
+    - "!**/*.{png,jpg,jpeg,gif,webp,avif,svg,ico,mp4}"
+    - "!src/data/journal.ts"
 
   # Repo-specific guidance lives here. Empty by default — grows over time via
   # `@coderabbitai emit path instructions` (collects suggestions from last 7 days).
