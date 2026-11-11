@@ -29,7 +29,8 @@ export default defineConfig({
         !page.includes('/thank-you/') &&
         !page.includes('/portal/') &&
         !page.includes('/booking/') &&
-        !page.includes('/preview/'),
+        !page.includes('/preview/') &&
+        !page.includes('/locations/fort-worth/'),
     }),
     mdx(),
   ],
