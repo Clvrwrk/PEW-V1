@@ -1,5 +1,7 @@
 # Pro Exteriors Website
 
+Canonical GitHub repo: [`Clvrwrk/PEW-V1`](https://github.com/Clvrwrk/PEW-V1). `Clvrwrk/Pro-Exteriors-Website` is a frozen 2026-04-29 seed and is archived — do not build or PR there. See `decisions/2026-08-29-archive-pro-exteriors-website.md`.
+
 Performance-driven Astro build for the Pro Exteriors website rebuild.
 
 This repo exists to turn Pro Exteriors' site from a brochure into a growth asset: commercial-first SEO dominance, clean residential conversion paths, GBP/location authority, and measurable lead generation.
