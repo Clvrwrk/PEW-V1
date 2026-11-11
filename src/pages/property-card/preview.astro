@@ -17,11 +17,12 @@ const schemaPayload = [breadcrumbSchema(breadcrumbs)];
   description="See what's in a Pro Exteriors Property Card before you request your own. Roof, gutters, siding, and storm history at a glance."
   canonicalPath="/property-card/preview/"
   jsonLd={schemaPayload}
+  noindex
 >
   <Breadcrumb items={breadcrumbs.slice(1)} />
   <HeroSection
     image="/images/home-hero.webp" title="A Sample Property Card" subtitle="Anonymized and abbreviated, but the format is real." />
   <section class="py-16 px-4 max-w-3xl mx-auto">
-    <p class="text-text-secondary">Phase 1 placeholder. Sample card render lands in Phase 2.</p>
+    <p class="text-text-secondary">We walk through a sample Property Card with you at your inspection appointment, using a real, anonymized property from your area. <a href="/property-card/" class="text-accent font-semibold hover:underline">Request your own Property Card</a>.</p>
   </section>
 </BaseLayout>
