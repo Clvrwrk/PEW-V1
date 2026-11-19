@@ -10,9 +10,10 @@ export interface BreadcrumbItem {
 export interface Props {
   items: BreadcrumbItem[];
   class?: string;
+  emitSchema?: boolean;
 }
 
-const { items = [], class: className = '' } = Astro.props;
+const { items = [], class: className = '', emitSchema = true } = Astro.props;
 
 // Generate BreadcrumbList Schema
 const breadcrumbSchema = {
@@ -27,7 +28,7 @@ const breadcrumbSchema = {
 };
 ---
 
-<SchemaJsonLd jsonLd={breadcrumbSchema} />
+{emitSchema && <SchemaJsonLd jsonLd={breadcrumbSchema} />}
 
 <nav class={`flex ${className}`} aria-label="Breadcrumb">
   <ol role="list" class="flex items-center space-x-2">

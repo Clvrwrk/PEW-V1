@@ -1,14 +1,21 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../components/seo/BaseLayout.astro';
 import HeroSection from '../../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
 import FAQ from '../../../components/molecules/FAQ.astro';
 import CTABanner from '../../../components/molecules/CTABanner.astro';
 import Card from '../../../components/molecules/Card.astro';
-import { serviceSchema } from '../../../lib/schema/Service';
-import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
-import { faqPageSchema } from '../../../lib/schema/FAQPage';
+import ContentByline from '../../../components/molecules/ContentByline.astro';
+import EeatContactBar from '../../../components/molecules/EeatContactBar.astro';
+import InlineCaseStudy from '../../../components/molecules/InlineCaseStudy.astro';
+import Button from '../../../components/atoms/Button.astro';
+import {
+  ATLANTA_MARKETS,
+  DFW_MARKETS,
+  buildCommercialMoneyPageGraph,
+} from '../../../lib/schema/commercialMoneyPage';
+import { CHRIS_HUSSEY_UPDATED } from '../../../lib/people/chris-hussey';
 
 export async function getStaticPaths() {
   const urlSegment = (canonicalPath: string): string =>
@@ -35,59 +42,77 @@ const breadcrumbs = [
   { label: data.name, href: data.canonicalPath },
 ];
 
-const schemaPayload: Record<string, any>[] = [
-  serviceSchema(
-    { name: `Commercial Roofing in ${data.name}`, description: data.description, url: data.canonicalPath },
-    'Pro Exteriors',
-  ),
-  breadcrumbSchema(breadcrumbs),
-];
+const areaServed = data.state === 'GA' ? ATLANTA_MARKETS : DFW_MARKETS;
+const contactOffice = data.contactOffice ?? data.nearestOffice;
+const officeEntry = await getEntry('offices', contactOffice);
+const contentUpdated =
+  data.contentUpdated?.toISOString().slice(0, 10) ?? CHRIS_HUSSEY_UPDATED;
 
-if (data.faqs && data.faqs.length > 0) {
-  schemaPayload.push(faqPageSchema(data.faqs));
-}
+const localBusiness = officeEntry
+  ? {
+      name: `${officeEntry.data.address.city}, ${officeEntry.data.address.state}`,
+      address: `${officeEntry.data.address.street}, ${officeEntry.data.address.city}, ${officeEntry.data.address.state} ${officeEntry.data.address.zip}`,
+      phone: officeEntry.data.phone,
+      email: 'Office@proexteriorsus.com',
+      url: `https://proexteriorsus.com${officeEntry.data.canonicalPath}`,
+      lat: officeEntry.data.lat,
+      lng: officeEntry.data.lng,
+    }
+  : undefined;
+
+const schemaPayload = buildCommercialMoneyPageGraph({
+  service: {
+    name: `Commercial roofing ${data.name}`,
+    description: data.description,
+    url: data.canonicalPath,
+  },
+  breadcrumbs,
+  faqs: data.faqs,
+  areaServed,
+  dateModified: contentUpdated,
+  localBusiness,
+  caseStudyImages: (data.caseStudies ?? [])
+    .filter((c) => c.image)
+    .map((c) => ({ src: c.image!, caption: c.imageAlt ?? c.title })),
+});
 ---
 
 <BaseLayout title={data.title} description={data.description} canonicalPath={data.canonicalPath} jsonLd={schemaPayload}>
-  <Breadcrumb items={breadcrumbs.slice(1)} />
+  <Breadcrumb items={breadcrumbs.slice(1)} emitSchema={false} />
 
   <HeroSection
     title={data.h1}
-    subtitle={`Commercial roofing systems, repair, replacement, and assessment support for ${data.name}, ${data.state} properties.`}
+    subtitle={`Commercial roof repair, coatings, and membrane service for ${data.name}, ${data.state} — backed by field data, not franchise scripts.`}
     primaryCta={{ label: 'Request Commercial Assessment', href: '/contact/commercial/' }}
-    secondaryCta={{ label: 'View Commercial Services', href: '/commercial-roofing/' }}
+    secondaryCta={{ label: 'Commercial roof repair', href: '/commercial-roofing/repair/' }}
     image={data.heroImage}
   />
 
-  <section class="py-16 sm:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-3xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-wide text-accent">LOCAL COMMERCIAL ROOFING</p>
-        <h2 class="mt-3 text-3xl font-display font-bold tracking-tight text-text-primary sm:text-4xl">
-          Commercial roof decisions in {data.name} need local proof, not generic sales copy
-        </h2>
-        <p class="mt-4 text-lg text-text-secondary">
-          This page now uses a structured local service layout before the long-form MDX body, so procurement visitors can scan scope, documentation, and routing before reading the full market copy.
-        </p>
-      </div>
+  <section class="border-b border-border bg-surface-inset py-6">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <ContentByline author={data.author} reviewer={data.expertReviewer} updated={contentUpdated} />
+      <Button href="/contact/commercial/" variant="primary">Start commercial RFQ</Button>
+    </div>
+  </section>
 
-      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-        <Card
-          eyebrow="ASSESSMENT"
-          title="Roof condition first"
-          description={`We document membrane, metal, drainage, flashing, and active leak conditions before recommending a ${data.name} scope.`}
-        />
-        <Card
-          eyebrow="OPERATIONS"
-          title="Plan around tenants"
-          description="Commercial work is sequenced around access windows, safety, staging, and business continuity requirements."
-        />
-        <Card
-          eyebrow="CLOSEOUT"
-          title="Paperwork that holds up"
-          description="Photo records, warranty notes, and scope documentation are organized for owners, managers, and insurance teams."
-        />
+  <section class="py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <Card eyebrow="REPAIR" title="Commercial roof repair" description="Leak triage, membrane patches, and documented scopes — see our repair pillar and Repair Index." />
+        <Card eyebrow="SYSTEMS" title="TPO, EPDM, coatings" description="System-specific crews with manufacturer-certified materials in every PE market." />
+        <Card eyebrow="LOCAL" title={`${data.name} storm history`} description="Hail and wind data in the page body cites NOAA Storm Events (2016–2026)." />
       </div>
+      <p class="mt-8 text-center text-sm text-text-secondary">
+        <a href="/commercial-roofing/repair/" class="text-accent hover:underline">Commercial roof repair</a>
+        {' · '}
+        <a href="/commercial-roofing/roof-coatings/" class="text-accent hover:underline">Commercial roof coating</a>
+        {' · '}
+        <a href="/commercial-roofing/flat-roof-repair/" class="text-accent hover:underline">Flat roof repair</a>
+        {' · '}
+        <a href="/commercial-roofing/leak-repair/" class="text-accent hover:underline">Commercial roof leak repair</a>
+        {' · '}
+        <a href={`/locations/${contactOffice}/`} class="text-accent hover:underline">Local office</a>
+      </p>
     </div>
   </section>
 
@@ -95,18 +120,35 @@ if (data.faqs && data.faqs.length > 0) {
     <Content />
   </article>
 
+  {data.caseStudies && data.caseStudies.length > 0 && (
+    <section class="py-16 bg-surface-inset">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-display font-bold text-text-primary">Recent work in this market</h2>
+        <div class="mt-10 grid gap-8 md:grid-cols-2">
+          {data.caseStudies.map((study) => (
+            <InlineCaseStudy {...study} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <div class="mx-auto max-w-3xl px-4 pb-8">
+    <EeatContactBar officeSlug={contactOffice} />
+  </div>
+
   {data.faqs && data.faqs.length > 0 && (
     <section class="bg-surface-inset py-16">
       <div class="mx-auto max-w-4xl px-4">
         <h2 class="mb-10 text-center text-3xl font-bold">Commercial Roofing FAQ</h2>
-        <FAQ faqs={data.faqs} />
+        <FAQ faqs={data.faqs} emitSchema={false} />
       </div>
     </section>
   )}
 
   <CTABanner
     heading={`Need a commercial roofing plan in ${data.name}?`}
-    subtitle="Send the roof size, building type, and timeline. We will route it to the closest Pro Exteriors team."
+    subtitle="Send the roof size, building type, and timeline. We route it to the nearest Pro Exteriors team."
     ctaText="Start Commercial RFQ"
     ctaHref="/contact/commercial/"
   />

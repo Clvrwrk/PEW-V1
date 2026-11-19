@@ -1,0 +1,43 @@
+---
+import { getEntry } from 'astro:content';
+
+export interface Props {
+  officeSlug: string;
+  class?: string;
+}
+
+const { officeSlug, class: className = '' } = Astro.props;
+const office = await getEntry('offices', officeSlug);
+
+if (!office) {
+  throw new Error(`EeatContactBar: unknown office slug "${officeSlug}"`);
+}
+
+const { address, phone } = office.data;
+const fullAddress = `${address.street}, ${address.city}, ${address.state} ${address.zip}`;
+const phoneDigits = phone.replace(/\D/g, '');
+const tel =
+  phoneDigits.length >= 10
+    ? `tel:+1${phoneDigits.length === 10 ? phoneDigits : phoneDigits.slice(-10)}`
+    : 'tel:+18443367767';
+---
+
+<aside
+  class={`rounded-lg border border-border bg-surface-elevated px-5 py-4 text-sm text-text-secondary ${className}`}
+  aria-label="Pro Exteriors contact"
+>
+  <p class="font-semibold text-text-primary">Pro Exteriors customer service</p>
+  <p class="mt-1">
+    <a href={tel} class="text-accent hover:underline">{phone}</a>
+    {' · '}
+    <a href="mailto:Office@proexteriorsus.com" class="text-accent hover:underline">Office@proexteriorsus.com</a>
+  </p>
+  <address class="mt-2 not-italic leading-relaxed">
+    {fullAddress}
+  </address>
+  <p class="mt-2">
+    <a href={office.data.canonicalPath} class="text-accent hover:underline">Office details</a>
+    {' · '}
+    <a href="/contact/commercial/" class="text-accent hover:underline">Request commercial service</a>
+  </p>
+</aside>

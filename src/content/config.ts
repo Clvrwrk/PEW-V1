@@ -85,6 +85,25 @@ const services = defineCollection({
       ctaText: z.string(),
       ctaHref: z.string(),
     }).optional(),
+    author: z.string().optional(),
+    expertReviewer: z.string().optional(),
+    contentUpdated: z.coerce.date().optional(),
+    /** Office slug for EEAT contact bar (e.g. dallas-hq, atlanta). */
+    contactOffice: z.string().optional(),
+    caseStudies: z
+      .array(
+        z.object({
+          title: z.string(),
+          market: z.string(),
+          problem: z.string(),
+          method: z.string(),
+          outcome: z.string(),
+          image: z.string().optional(),
+          imageAlt: z.string().optional(),
+          namedClient: z.boolean().default(false),
+        }),
+      )
+      .optional(),
   }),
 });
 
@@ -101,6 +120,24 @@ const cities = defineCollection({
     faqs: z.array(faqItem).optional(),
     projectGallery: z.array(z.string()).optional(),
     testimonials: z.array(z.string()).optional(),
+    author: z.string().optional(),
+    expertReviewer: z.string().optional(),
+    contentUpdated: z.coerce.date().optional(),
+    contactOffice: z.string().optional(),
+    caseStudies: z
+      .array(
+        z.object({
+          title: z.string(),
+          market: z.string(),
+          problem: z.string(),
+          method: z.string(),
+          outcome: z.string(),
+          image: z.string().optional(),
+          imageAlt: z.string().optional(),
+          namedClient: z.boolean().default(false),
+        }),
+      )
+      .optional(),
   }),
 });
 

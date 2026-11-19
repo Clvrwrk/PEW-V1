@@ -1,15 +1,8 @@
 ---
 /**
- * src/pages/commercial-roofing/[service]/index.astro
  * Commercial service-detail template — magazine-quality layout.
- *
- * When structured frontmatter fields (intro, benefits, processSteps, etc.)
- * are present, the page renders rich visual sections matching the Figma
- * reference design. When absent, sections are skipped and the MDX body
- * renders as a prose article — graceful degradation for services that
- * haven't been populated yet.
  */
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../components/seo/BaseLayout.astro';
 import ServiceHero from '../../../components/molecules/ServiceHero.astro';
 import SplitIntro from '../../../components/molecules/SplitIntro.astro';
@@ -19,14 +12,18 @@ import QualityProcess from '../../../components/molecules/QualityProcess.astro';
 import ProjectGallery from '../../../components/molecules/ProjectGallery.astro';
 import CTABanner from '../../../components/molecules/CTABanner.astro';
 import FAQ from '../../../components/molecules/FAQ.astro';
-import Card from '../../../components/molecules/Card.astro';
-import ServiceTile from '../../../components/molecules/ServiceTile.astro';
 import ServiceCard from '../../../components/molecules/ServiceCard.astro';
 import CaseStudyCard from '../../../components/molecules/CaseStudyCard.astro';
 import PartnerNetworkDisclosure from '../../../components/atoms/PartnerNetworkDisclosure.astro';
-import { serviceSchema } from '../../../lib/schema/Service';
-import { breadcrumbSchema } from '../../../lib/schema/BreadcrumbList';
-import { faqPageSchema } from '../../../lib/schema/FAQPage';
+import ContentByline from '../../../components/molecules/ContentByline.astro';
+import EeatContactBar from '../../../components/molecules/EeatContactBar.astro';
+import InlineCaseStudy from '../../../components/molecules/InlineCaseStudy.astro';
+import Button from '../../../components/atoms/Button.astro';
+import {
+  buildCommercialMoneyPageGraph,
+  PE_COMMERCIAL_MARKETS,
+} from '../../../lib/schema/commercialMoneyPage';
+import { CHRIS_HUSSEY_UPDATED } from '../../../lib/people/chris-hussey';
 
 export async function getStaticPaths() {
   const urlSegment = (canonicalPath: string): string =>
@@ -47,34 +44,67 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 const data = entry.data;
 
-// Detect whether this service has magazine-quality structured data
 const hasMagazineLayout = !!(data.intro || data.benefits || data.processSteps);
 
-// Sibling services for cross-sell (up to 4 for the magazine layout)
 const allCommercial = await getCollection('services', ({ data: d }) => d.vertical === 'commercial');
-const siblings = allCommercial
-  .filter((s) => s.slug !== entry.slug)
-  .slice(0, 4);
+const repairHub = allCommercial.find((s) => s.data.canonicalPath === '/commercial-roofing/repair/');
+const linkTargets = [
+  repairHub,
+  ...allCommercial.filter(
+    (s) =>
+      s.slug !== entry.slug &&
+      [
+        '/commercial-roofing/roof-coatings/',
+        '/commercial-roofing/epdm/',
+        '/commercial-roofing/tpo/',
+        '/commercial-roofing/flat-roof-repair/',
+        '/commercial-roofing/leak-repair/',
+      ].includes(s.data.canonicalPath),
+  ),
+].filter(Boolean) as CollectionEntry<'services'>[];
+const siblings = linkTargets.slice(0, 6);
 
-// Case studies for this vertical
 const caseStudies = await getCollection('caseStudies', ({ data: d }) => d.industryCategory === 'commercial');
 const topStudies = caseStudies.slice(0, 2);
 
 const breadcrumbs = [
+  { label: 'Home', href: '/' },
   { label: 'Commercial Roofing', href: '/commercial-roofing/' },
   { label: data.name, href: data.canonicalPath },
 ];
 
-const schemaPayload: Record<string, any>[] = [
-  serviceSchema(
-    { name: data.name, description: data.description, url: data.canonicalPath },
-    'Pro Exteriors',
-  ),
-  breadcrumbSchema([{ label: 'Home', href: '/' }, ...breadcrumbs]),
-];
-if (data.faqs && data.faqs.length > 0) {
-  schemaPayload.push(faqPageSchema(data.faqs));
-}
+const contactOffice = data.contactOffice ?? 'dallas-hq';
+const officeEntry = await getEntry('offices', contactOffice);
+const contentUpdated =
+  data.contentUpdated?.toISOString().slice(0, 10) ?? CHRIS_HUSSEY_UPDATED;
+
+const localBusiness = officeEntry
+  ? {
+      name: `${officeEntry.data.address.city}, ${officeEntry.data.address.state}`,
+      address: `${officeEntry.data.address.street}, ${officeEntry.data.address.city}, ${officeEntry.data.address.state} ${officeEntry.data.address.zip}`,
+      phone: officeEntry.data.phone,
+      email: 'Office@proexteriorsus.com',
+      url: `https://proexteriorsus.com${officeEntry.data.canonicalPath}`,
+      lat: officeEntry.data.lat,
+      lng: officeEntry.data.lng,
+    }
+  : undefined;
+
+const schemaPayload = buildCommercialMoneyPageGraph({
+  service: { name: data.name, description: data.description, url: data.canonicalPath },
+  breadcrumbs,
+  faqs: data.faqs,
+  areaServed: PE_COMMERCIAL_MARKETS,
+  dateModified: contentUpdated,
+  localBusiness,
+  caseStudyImages: (data.caseStudies ?? [])
+    .filter((c) => c.image)
+    .map((c) => ({ src: c.image!, caption: c.imageAlt ?? c.title })),
+});
+
+const bylineUpdated = contentUpdated;
+const topCtaHref = data.ctaBanner?.ctaHref ?? '/contact/?vertical=commercial&service=repair-assessment';
+const topCtaText = data.ctaBanner?.ctaText ?? 'Request repair assessment';
 ---
 
 <BaseLayout
@@ -83,17 +113,26 @@ if (data.faqs && data.faqs.length > 0) {
   canonicalPath={data.canonicalPath}
   jsonLd={schemaPayload}
 >
-  {/* ── 1. Hero ───────────────────────────────────────── */}
   <ServiceHero
     title={data.h1}
     image={data.heroImage}
     video={data.heroVideo}
-    breadcrumbs={breadcrumbs}
+    breadcrumbs={breadcrumbs.slice(1)}
   />
+
+  <section class="border-b border-border bg-surface-inset py-6">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <ContentByline
+        author={data.author}
+        reviewer={data.expertReviewer}
+        updated={bylineUpdated}
+      />
+      <Button href={topCtaHref} variant="primary">{topCtaText}</Button>
+    </div>
+  </section>
 
   {hasMagazineLayout ? (
     <>
-      {/* ── 2. Intro split ──────────────────────────────── */}
       {data.intro && (
         <SplitIntro
           heading={data.intro.heading}
@@ -103,7 +142,6 @@ if (data.faqs && data.faqs.length > 0) {
         />
       )}
 
-      {/* ── 3. Benefits grid ────────────────────────────── */}
       {data.benefits && (
         <BenefitsGrid
           heading={data.benefits.heading}
@@ -112,7 +150,6 @@ if (data.faqs && data.faqs.length > 0) {
         />
       )}
 
-      {/* ── 4. Structure types ──────────────────────────── */}
       {data.structureTypes && (
         <StructureTypes
           heading={data.structureTypes.heading}
@@ -120,7 +157,6 @@ if (data.faqs && data.faqs.length > 0) {
         />
       )}
 
-      {/* ── 5. Quality process ──────────────────────────── */}
       {data.processSteps && (
         <QualityProcess
           heading={data.processSteps.heading}
@@ -129,7 +165,6 @@ if (data.faqs && data.faqs.length > 0) {
         />
       )}
 
-      {/* ── 6. Project gallery ──────────────────────────── */}
       {data.galleryImages && data.galleryImages.length > 0 && (
         <ProjectGallery
           heading={`Completed ${data.name} Projects`}
@@ -137,19 +172,25 @@ if (data.faqs && data.faqs.length > 0) {
         />
       )}
 
-      {/* ── 7. Case studies ──────────────────────────────── */}
-      {topStudies.length > 0 && (
+      {data.caseStudies && data.caseStudies.length > 0 && (
+        <section class="py-16 sm:py-20 bg-surface-inset">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-display font-bold text-text-primary">Field case studies</h2>
+            <p class="mt-2 text-text-secondary max-w-2xl">
+              Anonymized job data from Pro Exteriors service and CRM systems (Supabase, pulled 2026-11-19). Texas Motor Speedway is named with permission.
+            </p>
+            <div class="mt-10 grid gap-8 md:grid-cols-2">
+              {data.caseStudies.map((study) => (
+                <InlineCaseStudy {...study} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {topStudies.length > 0 && !data.caseStudies?.length && (
         <section class="py-16 sm:py-24">
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex items-baseline justify-between mb-12">
-              <div>
-                <h2 class="text-3xl font-display font-bold tracking-tight text-text-primary">Case Studies</h2>
-                <p class="mt-2 text-text-secondary">Real world results for our partners.</p>
-              </div>
-              <a href="/projects/" class="hidden sm:inline-flex text-sm font-medium text-accent hover:underline">
-                View All Stories &rarr;
-              </a>
-            </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               {topStudies.map((study) => (
                 <CaseStudyCard
@@ -167,24 +208,24 @@ if (data.faqs && data.faqs.length > 0) {
         </section>
       )}
 
-      {/* ── 7.5. Editorial body ──────────────────────────────
-         Magazine layouts can ALSO carry a long-form prose body in the
-         markdown (deeper editorial: tables, pull-quotes, "Why us", etc.).
-         Render only if the entry actually has body content beyond the
-         frontmatter. */}
       {entry.body && entry.body.trim().length > 50 && (
         <article class="prose prose-slate mx-auto max-w-3xl px-4 py-16">
           <Content />
         </article>
       )}
+
+      <div class="mx-auto max-w-3xl px-4 pb-8">
+        <EeatContactBar officeSlug={contactOffice} />
+      </div>
     </>
   ) : (
     <>
-      {/* ── Fallback: prose MDX body ────────────────────── */}
       <article class="prose mx-auto max-w-3xl px-4 py-16">
         <Content />
       </article>
-
+      <div class="mx-auto max-w-3xl px-4 pb-8">
+        <EeatContactBar officeSlug={contactOffice} />
+      </div>
       {data.partnerFulfilled && (
         <div class="mx-auto max-w-3xl px-4 pb-8">
           <PartnerNetworkDisclosure />
@@ -193,22 +234,20 @@ if (data.faqs && data.faqs.length > 0) {
     </>
   )}
 
-  {/* ── 8. Service FAQ ───────────────────────────────── */}
   {data.faqs && data.faqs.length > 0 && (
     <section class="py-16 sm:py-24">
       <div class="mx-auto max-w-4xl px-4">
         <h2 class="mb-12 text-center text-3xl font-display font-bold tracking-tight text-text-primary">Service FAQ</h2>
-        <FAQ faqs={data.faqs} />
+        <FAQ faqs={data.faqs} emitSchema={false} />
       </div>
     </section>
   )}
 
-  {/* ── 9. Other commercial services ─────────────────── */}
   {siblings.length > 0 && (
     <section class="py-16 sm:py-24 bg-surface-inset">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="mb-12 text-center text-3xl font-display font-bold tracking-tight text-text-primary">Other Commercial Solutions</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <h2 class="mb-12 text-center text-3xl font-display font-bold tracking-tight text-text-primary">Related commercial services</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {siblings.map((sibling) => (
             <ServiceCard
               title={sibling.data.name}
@@ -220,11 +259,15 @@ if (data.faqs && data.faqs.length > 0) {
             />
           ))}
         </div>
+        <p class="mt-8 text-center text-sm text-text-secondary">
+          Local programs: <a href="/commercial-roofing/dallas/" class="text-accent hover:underline">commercial roofing Dallas</a>
+          {' · '}
+          <a href="/commercial-roofing/atlanta/" class="text-accent hover:underline">commercial roofing Atlanta</a>
+        </p>
       </div>
     </section>
   )}
 
-  {/* ── 10. CTA banner ───────────────────────────────── */}
   {data.ctaBanner ? (
     <CTABanner
       heading={data.ctaBanner.heading}
