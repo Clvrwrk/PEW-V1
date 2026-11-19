@@ -1,5 +1,5 @@
 ---
-import { getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 export interface Props {
   officeSlug: string;
@@ -7,10 +7,13 @@ export interface Props {
 }
 
 const { officeSlug, class: className = '' } = Astro.props;
-const office = await getEntry('offices', officeSlug);
+const offices = await getCollection('offices');
+const office =
+  offices.find((o) => o.slug === officeSlug) ??
+  offices.find((o) => o.slug === 'dallas-hq');
 
 if (!office) {
-  throw new Error(`EeatContactBar: unknown office slug "${officeSlug}"`);
+  throw new Error(`EeatContactBar: no office records in content collection`);
 }
 
 const { address, phone } = office.data;

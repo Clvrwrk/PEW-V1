@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../components/seo/BaseLayout.astro';
 import HeroSection from '../../../components/molecules/HeroSection.astro';
 import Breadcrumb from '../../../components/molecules/Breadcrumb.astro';
@@ -43,8 +43,14 @@ const breadcrumbs = [
 ];
 
 const areaServed = data.state === 'GA' ? ATLANTA_MARKETS : DFW_MARKETS;
-const contactOffice = data.contactOffice ?? data.nearestOffice;
-const officeEntry = await getEntry('offices', contactOffice);
+const offices = await getCollection('offices');
+const requestedOffice = data.contactOffice ?? data.nearestOffice;
+let officeEntry = offices.find((o) => o.slug === requestedOffice);
+let contactOffice = requestedOffice;
+if (!officeEntry) {
+  contactOffice = data.state === 'GA' ? 'atlanta' : 'dallas-hq';
+  officeEntry = offices.find((o) => o.slug === contactOffice);
+}
 const contentUpdated =
   data.contentUpdated?.toISOString().slice(0, 10) ?? CHRIS_HUSSEY_UPDATED;
 
