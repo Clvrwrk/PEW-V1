@@ -23,12 +23,20 @@ export function chrisHusseySchema() {
   };
 }
 
-export function imageObjectSchema(contentUrl: string, caption: string) {
+export function imageObjectSchema(
+  contentUrl: string,
+  caption: string,
+  options?: { dateCreated?: string; name?: string },
+) {
   const url = contentUrl.startsWith('http') ? contentUrl : `${SITE}${contentUrl}`;
   return {
     '@type': 'ImageObject',
     contentUrl: url,
+    url,
     caption,
+    ...(options?.name ? { name: options.name } : {}),
+    ...(options?.dateCreated ? { dateCreated: options.dateCreated } : {}),
+    creator: { '@id': `${SITE}/#organization` },
   };
 }
 
@@ -48,7 +56,7 @@ export type CommercialMoneyPageGraphInput = {
     lat?: number;
     lng?: number;
   };
-  caseStudyImages?: { src: string; caption: string }[];
+  caseStudyImages?: { src: string; caption: string; dateCreated?: string; name?: string }[];
 };
 
 export function buildCommercialMoneyPageGraph(input: CommercialMoneyPageGraphInput) {
@@ -87,7 +95,12 @@ export function buildCommercialMoneyPageGraph(input: CommercialMoneyPageGraphInp
   }
 
   for (const img of input.caseStudyImages ?? []) {
-    graph.push(imageObjectSchema(img.src, img.caption));
+    graph.push(
+      imageObjectSchema(img.src, img.caption, {
+        dateCreated: img.dateCreated,
+        name: img.name,
+      }),
+    );
   }
 
   return graph;

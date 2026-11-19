@@ -16,6 +16,11 @@ import {
   buildCommercialMoneyPageGraph,
 } from '../../../lib/schema/commercialMoneyPage';
 import { CHRIS_HUSSEY_UPDATED } from '../../../lib/people/chris-hussey';
+import CaseStudyPhotoGrid from '../../../components/molecules/CaseStudyPhotoGrid.astro';
+import {
+  COMMERCIAL_CITY_PHOTOS,
+  resolveCaseStudyPhotos,
+} from '../../../data/case-study-photos.manifest';
 
 export async function getStaticPaths() {
   const urlSegment = (canonicalPath: string): string =>
@@ -66,6 +71,8 @@ const localBusiness = officeEntry
     }
   : undefined;
 
+const fieldPhotos = resolveCaseStudyPhotos(COMMERCIAL_CITY_PHOTOS[entry.slug] ?? []);
+
 const schemaPayload = buildCommercialMoneyPageGraph({
   service: {
     name: `Commercial roofing ${data.name}`,
@@ -77,9 +84,17 @@ const schemaPayload = buildCommercialMoneyPageGraph({
   areaServed,
   dateModified: contentUpdated,
   localBusiness,
-  caseStudyImages: (data.caseStudies ?? [])
-    .filter((c) => c.image)
-    .map((c) => ({ src: c.image!, caption: c.imageAlt ?? c.title })),
+  caseStudyImages: [
+    ...(data.caseStudies ?? [])
+      .filter((c) => c.image)
+      .map((c) => ({ src: c.image!, caption: c.imageAlt ?? c.title })),
+    ...fieldPhotos.map((p) => ({
+      src: p.image,
+      caption: p.imageAlt,
+      dateCreated: p.takenAt,
+      name: `${p.stage}: ${p.workType}`,
+    })),
+  ],
 });
 ---
 
@@ -125,6 +140,17 @@ const schemaPayload = buildCommercialMoneyPageGraph({
   <article class="prose prose-lg mx-auto max-w-3xl px-4 py-16">
     <Content />
   </article>
+
+  {fieldPhotos.length > 0 && (
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-8">
+      <CaseStudyPhotoGrid photos={fieldPhotos.map((p) => ({
+        image: p.image,
+        imageAlt: p.imageAlt,
+        stage: p.stage,
+        caption: p.imageAlt,
+      }))} />
+    </div>
+  )}
 
   {data.caseStudies && data.caseStudies.length > 0 && (
     <section class="py-16 bg-surface-inset">

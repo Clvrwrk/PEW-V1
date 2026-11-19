@@ -23,6 +23,11 @@ import {
   buildCommercialMoneyPageGraph,
   PE_COMMERCIAL_MARKETS,
 } from '../../../lib/schema/commercialMoneyPage';
+import CaseStudyPhotoGrid from '../../../components/molecules/CaseStudyPhotoGrid.astro';
+import {
+  COMMERCIAL_SERVICE_PHOTOS,
+  resolveCaseStudyPhotos,
+} from '../../../data/case-study-photos.manifest';
 import { CHRIS_HUSSEY_UPDATED } from '../../../lib/people/chris-hussey';
 
 export async function getStaticPaths() {
@@ -91,6 +96,8 @@ const localBusiness = officeEntry
     }
   : undefined;
 
+const fieldPhotos = resolveCaseStudyPhotos(COMMERCIAL_SERVICE_PHOTOS[entry.slug] ?? []);
+
 const schemaPayload = buildCommercialMoneyPageGraph({
   service: { name: data.name, description: data.description, url: data.canonicalPath },
   breadcrumbs,
@@ -98,9 +105,17 @@ const schemaPayload = buildCommercialMoneyPageGraph({
   areaServed: PE_COMMERCIAL_MARKETS,
   dateModified: contentUpdated,
   localBusiness,
-  caseStudyImages: (data.caseStudies ?? [])
-    .filter((c) => c.image)
-    .map((c) => ({ src: c.image!, caption: c.imageAlt ?? c.title })),
+  caseStudyImages: [
+    ...(data.caseStudies ?? [])
+      .filter((c) => c.image)
+      .map((c) => ({ src: c.image!, caption: c.imageAlt ?? c.title })),
+    ...fieldPhotos.map((p) => ({
+      src: p.image,
+      caption: p.imageAlt,
+      dateCreated: p.takenAt,
+      name: `${p.stage}: ${p.workType}`,
+    })),
+  ],
 });
 
 const bylineUpdated = contentUpdated;
@@ -171,6 +186,17 @@ const topCtaText = data.ctaBanner?.ctaText ?? 'Request repair assessment';
           heading={`Completed ${data.name} Projects`}
           images={data.galleryImages}
         />
+      )}
+
+      {fieldPhotos.length > 0 && (
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <CaseStudyPhotoGrid photos={fieldPhotos.map((p) => ({
+            image: p.image,
+            imageAlt: p.imageAlt,
+            stage: p.stage,
+            caption: p.imageAlt,
+          }))} />
+        </div>
       )}
 
       {data.caseStudies && data.caseStudies.length > 0 && (
