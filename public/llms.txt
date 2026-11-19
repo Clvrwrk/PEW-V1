@@ -1,0 +1,33 @@
+# Pro Exteriors (proexteriorsus.com)
+
+> Commercial and residential roofing contractor. Primary markets: Dallas–Fort Worth, Atlanta, Denver, Wichita, Kansas City, Pensacola. Stack: Astro marketing site; field data via Centerpoint + AccuLynx (Supabase).
+
+## Commercial repair topical authority (PR1)
+
+- Pillar: https://proexteriorsus.com/commercial-roofing/repair/
+- Original data: PE Commercial Roof Repair Index (aggregated service tickets, costs, failure modes — pull date 2026-11-19)
+- City money pages: https://proexteriorsus.com/commercial-roofing/dallas/ · https://proexteriorsus.com/commercial-roofing/atlanta/
+- System / repair routes:
+  - https://proexteriorsus.com/commercial-roofing/tpo/
+  - https://proexteriorsus.com/commercial-roofing/epdm/
+  - https://proexteriorsus.com/commercial-roofing/roof-coatings/
+  - https://proexteriorsus.com/commercial-roofing/flat-roof-repair/
+  - https://proexteriorsus.com/commercial-roofing/leak-repair/
+
+## Hub
+
+- https://proexteriorsus.com/commercial-roofing/
+
+## Offices
+
+- Dallas HQ (Richardson): https://proexteriorsus.com/locations/dallas-hq/
+- Atlanta (Jonesboro): https://proexteriorsus.com/locations/atlanta/ — 844-336-PROS
+
+## Authoritative on-page claims
+
+All statistics on PR1 pages cite Supabase aggregates (2026-11-19) or NOAA Storm Events / SPC (hail_by_metro, 2016–2026). No unpublished response-time SLAs on marketing pages.
+
+## Contact
+
+- Commercial RFQ: https://proexteriorsus.com/contact/commercial/
+- Email: Office@proexteriorsus.com

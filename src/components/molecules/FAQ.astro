@@ -11,12 +11,15 @@ export interface Props {
   items?: FaqItem[];
   class?: string;
   schemaType?: string;
+  /** When false, FAQ UI only (JSON-LD comes from page graph). */
+  emitSchema?: boolean;
 }
 
 const {
   faqs,
   items,
   class: className = '',
+  emitSchema = true,
 } = Astro.props;
 
 const faqItems = faqs ?? items ?? [];
@@ -37,7 +40,7 @@ const faqSchema = {
 };
 ---
 
-{faqItems.length > 0 && <SchemaJsonLd jsonLd={faqSchema} />}
+{emitSchema && faqItems.length > 0 && <SchemaJsonLd jsonLd={faqSchema} />}
 
 <div class={`space-y-4 ${className}`}>
   {faqItems.map((faq, index) => (

@@ -21,6 +21,7 @@ export function budgetFor(relativePath) {
   if (file.includes('/logos/')) return 80_000;
   if (file.endsWith('/og-default.webp')) return 120_000;
   if (file.includes('hero')) return 225_000;
+  if (file.includes('/case-studies/')) return 250_000;
   if (file.includes('/blog/') || file.includes('featured')) return 100_000;
   return 130_000;
 }

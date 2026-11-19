@@ -150,10 +150,7 @@ const serviceProcess = isService
   : null;
 
 const schemaPayload: Record<string, any>[] = [
-  serviceSchema(
-    { name: data.h1, description: data.description, url: data.canonicalPath },
-    'Pro Exteriors',
-  ),
+  serviceSchema({ name: data.h1, description: data.description, url: data.canonicalPath }),
   breadcrumbSchema(breadcrumbs),
 ];
 

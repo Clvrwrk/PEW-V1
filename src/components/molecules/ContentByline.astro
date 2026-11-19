@@ -1,0 +1,23 @@
+---
+import { CHRIS_HUSSEY, CHRIS_HUSSEY_UPDATED } from '../../lib/people/chris-hussey';
+
+export interface Props {
+  author?: string;
+  reviewer?: string;
+  updated?: string;
+  class?: string;
+}
+
+const {
+  author = CHRIS_HUSSEY.name,
+  reviewer = CHRIS_HUSSEY.name,
+  updated = CHRIS_HUSSEY_UPDATED,
+  class: className = '',
+} = Astro.props;
+---
+
+<p class={`text-sm text-text-secondary ${className}`}>
+  Written by <a href={CHRIS_HUSSEY.profilePath} class="font-medium text-accent hover:underline">{author}</a>.
+  Expert review: <span class="font-medium text-text-primary">{reviewer}</span>.
+  Updated <time datetime={updated}>{updated}</time>.
+</p>

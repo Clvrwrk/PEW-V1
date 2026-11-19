@@ -1,0 +1,54 @@
+---
+export interface CaseStudyPhoto {
+  image: string;
+  imageAlt: string;
+  stage?: 'before' | 'during' | 'after';
+  caption?: string;
+}
+
+export interface Props {
+  heading?: string;
+  photos: CaseStudyPhoto[];
+  class?: string;
+}
+
+const { heading = 'Field documentation', photos, class: className = '' } = Astro.props;
+
+const stageLabel: Record<string, string> = {
+  before: 'Before / survey',
+  during: 'During work',
+  after: 'After repair (documented)',
+};
+---
+
+{photos.length > 0 && (
+  <section class={`py-12 ${className}`}>
+    <h2 class="text-2xl font-display font-bold text-text-primary">{heading}</h2>
+    <p class="mt-2 text-sm text-text-secondary max-w-3xl">
+      Each photo matches the stage of work on site — survey, active repair, or documented closeout where we have it.
+    </p>
+    <ul class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {photos.map((photo) => (
+        <li class="rounded-lg border border-border bg-surface-elevated overflow-hidden">
+          <img
+            src={photo.image}
+            srcset={`${photo.image} 1600w`}
+            sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+            alt={photo.imageAlt}
+            class="h-48 w-full object-cover"
+            loading="lazy"
+            decoding="async"
+            width="800"
+            height="480"
+          />
+          <div class="p-4 text-sm text-text-secondary space-y-1">
+            {photo.stage && (
+              <p class="text-xs font-semibold uppercase tracking-wide text-accent">{stageLabel[photo.stage] ?? photo.stage}</p>
+            )}
+            <p>{photo.caption ?? photo.imageAlt}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

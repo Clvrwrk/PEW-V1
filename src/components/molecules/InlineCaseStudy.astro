@@ -1,0 +1,54 @@
+---
+export interface Props {
+  title: string;
+  market: string;
+  problem: string;
+  method: string;
+  outcome: string;
+  /** Optional WebP under public/; omit until Chris delivers optimized exports. */
+  image?: string;
+  imageAlt?: string;
+  namedClient?: boolean;
+}
+
+const {
+  title,
+  market,
+  problem,
+  method,
+  outcome,
+  image,
+  imageAlt = '',
+  namedClient = false,
+} = Astro.props;
+---
+
+<article class="rounded-xl border border-border bg-surface-elevated overflow-hidden shadow-sm">
+  {image ? (
+    <img
+      src={image}
+      alt={imageAlt || title}
+      class="h-48 w-full object-cover"
+      loading="lazy"
+      width="800"
+      height="320"
+    />
+  ) : (
+    <div
+      class="flex h-48 w-full items-center justify-center bg-surface-inset text-text-tertiary text-sm px-6 text-center"
+      role="img"
+      aria-label="Case study photo placeholder"
+    >
+      Field photo export pending — optimized WebP will render here.
+    </div>
+  )}
+  <div class="p-6 space-y-3">
+  <p class="text-xs font-semibold uppercase tracking-wide text-accent">{market}{namedClient ? ' · Named client' : ' · Anonymized'}</p>
+  <h3 class="text-xl font-display font-bold text-text-primary">{title}</h3>
+  <dl class="space-y-2 text-sm text-text-secondary">
+    <div><dt class="font-medium text-text-primary inline">Problem: </dt><dd class="inline">{problem}</dd></div>
+    <div><dt class="font-medium text-text-primary inline">Method: </dt><dd class="inline">{method}</dd></div>
+    <div><dt class="font-medium text-text-primary inline">Outcome: </dt><dd class="inline">{outcome}</dd></div>
+  </dl>
+  </div>
+</article>
